@@ -911,61 +911,56 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_set_maximum_return_pack
   %3 = alloca [2 x i8], align 2
   %4 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
-  %5 = trunc i16 %1 to i8
-  store i8 %5, ptr %3, align 2
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %7 = lshr i16 %1, 8
-  %8 = trunc nuw i16 %7 to i8
-  store i8 %8, ptr %6, align 1
+  store i16 %1, ptr %3, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %10 = load i32, ptr %9, align 8
-  %11 = trunc i32 %10 to i8
-  store i8 %11, ptr %4, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 55, ptr %12, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %6 = load i32, ptr %5, align 8
+  %7 = trunc i32 %6 to i8
+  store i8 %7, ptr %4, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 55, ptr %8, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %30, label %17
+
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %34, label %21
+  br i1 %20, label %30, label %21
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %34, label %25
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %23, 2048
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %27, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, 2048
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %31, label %30
+26:                                               ; preds = %21
+  store i16 2, ptr %9, align 2
+  br label %27
 
-30:                                               ; preds = %25
-  store i16 2, ptr %13, align 2
-  br label %31
+27:                                               ; preds = %26, %21
+  %28 = call i64 %19(ptr noundef %13, ptr noundef nonnull %4) #14
+  %29 = trunc i64 %28 to i32
+  br label %30
 
-31:                                               ; preds = %30, %25
-  %32 = call i64 %23(ptr noundef %17, ptr noundef nonnull %4) #14
-  %33 = trunc i64 %32 to i32
-  br label %34
-
-34:                                               ; preds = %31, %21, %2
-  %35 = phi i32 [ %33, %31 ], [ -38, %21 ], [ -38, %2 ]
-  %36 = call i32 @llvm.smin.i32(i32 %35, i32 0)
+30:                                               ; preds = %27, %17, %2
+  %31 = phi i32 [ %29, %27 ], [ -38, %17 ], [ -38, %2 ]
+  %32 = call i32 @llvm.smin.i32(i32 %31, i32 0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
-  ret i32 %36
+  ret i32 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2320,65 +2315,60 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_scanline(ptr noundef readonly captur
 define dso_local i32 @mipi_dsi_dcs_set_display_brightness(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = alloca %struct.mipi_dsi_msg, align 8
   %4 = alloca [8 x i8], align 8
-  %5 = trunc i16 %1 to i8
-  %6 = lshr i16 %1, 8
-  %7 = trunc nuw i16 %6 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 81, ptr %4, align 8, !annotation !14
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %5, ptr %8, align 1
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %7, ptr %9, align 2
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i16 %1, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !14
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %11 = load i32, ptr %10, align 8
-  %12 = trunc i32 %11 to i8
-  store i8 %12, ptr %3, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 0, ptr %14, align 2
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store i8 57, ptr %13, align 1
-  %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %7 = load i32, ptr %6, align 8
+  %8 = trunc i32 %7 to i8
+  store i8 %8, ptr %3, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 0, ptr %10, align 2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 3, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %4, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  store i8 57, ptr %9, align 1
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %30, label %18
+
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %34, label %22
+  br i1 %21, label %30, label %22
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %34, label %26
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 2048
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %28, label %27
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %28 = load i64, ptr %27, align 8
-  %29 = and i64 %28, 2048
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %32, label %31
+27:                                               ; preds = %22
+  store i16 2, ptr %10, align 2
+  br label %28
 
-31:                                               ; preds = %26
-  store i16 2, ptr %14, align 2
-  br label %32
+28:                                               ; preds = %27, %22
+  %29 = call i64 %20(ptr noundef %14, ptr noundef nonnull %3) #14
+  br label %30
 
-32:                                               ; preds = %31, %26
-  %33 = call i64 %24(ptr noundef %18, ptr noundef nonnull %3) #14
-  br label %34
-
-34:                                               ; preds = %32, %22, %2
-  %35 = phi i64 [ %33, %32 ], [ -38, %22 ], [ -38, %2 ]
+30:                                               ; preds = %28, %18, %2
+  %31 = phi i64 [ %29, %28 ], [ -38, %18 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %36 = call i64 @llvm.smin.i64(i64 %35, i64 0)
-  %37 = trunc i64 %36 to i32
-  ret i32 %37
+  %32 = call i64 @llvm.smin.i64(i64 %31, i64 0)
+  %33 = trunc i64 %32 to i32
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

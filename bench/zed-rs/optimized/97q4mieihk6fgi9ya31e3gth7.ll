@@ -112940,8 +112940,8 @@ define hidden void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$L
   %.sroa.7.9.insert.ext = zext nneg i8 %129 to i32
   %.sroa.7.9.insert.shift = shl nuw nsw i32 %.sroa.7.9.insert.ext, 8
   %141 = and i32 %.sroa.061.0.copyload, -65473
-  %.sroa.7.11.insert.insert = or disjoint i32 %.sroa.7.9.insert.shift, %141
-  store i32 %.sroa.7.11.insert.insert, ptr %128, align 8
+  %.sroa.7.10.insert.insert = or disjoint i32 %.sroa.7.9.insert.shift, %141
+  store i32 %.sroa.7.10.insert.insert, ptr %128, align 8
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %143 = load i64, ptr %142, align 8, !noundef !5
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -113471,8 +113471,8 @@ define hidden void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$L
   %.sroa.7.9.insert.ext = zext nneg i8 %129 to i32
   %.sroa.7.9.insert.shift = shl nuw nsw i32 %.sroa.7.9.insert.ext, 8
   %141 = and i32 %.sroa.061.0.copyload, -65473
-  %.sroa.7.11.insert.insert = or disjoint i32 %.sroa.7.9.insert.shift, %141
-  store i32 %.sroa.7.11.insert.insert, ptr %128, align 8
+  %.sroa.7.10.insert.insert = or disjoint i32 %.sroa.7.9.insert.shift, %141
+  store i32 %.sroa.7.10.insert.insert, ptr %128, align 8
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %143 = load i64, ptr %142, align 8, !noundef !5
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -115600,7 +115600,7 @@ common.resume:                                    ; preds = %169, %71, %75, %76,
 185:                                              ; preds = %162
   %.sroa.876.10.insert.ext.i = zext i8 %158 to i32
   %.sroa.876.10.insert.shift.i = shl nuw nsw i32 %.sroa.876.10.insert.ext.i, 16
-  %186 = and i32 %.sroa.015.0.copyload.i, -16761025
+  %186 = and i32 %.sroa.015.0.copyload.i, -16711873
   %.sroa.876.11.insert.insert.i = or disjoint i32 %.sroa.876.10.insert.shift.i, %186
   store i32 %.sroa.876.11.insert.insert.i, ptr %157, align 8, !alias.scope !32669, !noalias !32674
   %.sroa.14.8..sroa_idx40 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -116435,7 +116435,7 @@ common.resume:                                    ; preds = %169, %71, %75, %76,
 185:                                              ; preds = %162
   %.sroa.876.10.insert.ext.i = zext i8 %158 to i32
   %.sroa.876.10.insert.shift.i = shl nuw nsw i32 %.sroa.876.10.insert.ext.i, 16
-  %186 = and i32 %.sroa.015.0.copyload.i, -16761025
+  %186 = and i32 %.sroa.015.0.copyload.i, -16711873
   %.sroa.876.11.insert.insert.i = or disjoint i32 %.sroa.876.10.insert.shift.i, %186
   store i32 %.sroa.876.11.insert.insert.i, ptr %157, align 8, !alias.scope !32763, !noalias !32768
   %.sroa.14.8..sroa_idx40 = getelementptr inbounds nuw i8, ptr %9, i64 8

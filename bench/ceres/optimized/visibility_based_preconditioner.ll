@@ -11033,9 +11033,7 @@ _ZSt11__push_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairId
   %107 = getelementptr inbounds i8, ptr %106, i64 -16
   store double %3, ptr %107, align 8, !tbaa !524
   %108 = getelementptr inbounds i8, ptr %106, i64 -8
-  store i32 %.sroa.3.8.extract.trunc.i, ptr %108, align 4, !tbaa !154
-  %109 = getelementptr inbounds i8, ptr %106, i64 -4
-  store i32 %.sroa.6.8.extract.trunc.i, ptr %109, align 4, !tbaa !205
+  store i64 %4, ptr %108, align 4
   ret void
 }
 

@@ -72506,9 +72506,9 @@ define void @"_ZN90_$LT$ruff_python_ast..nodes.._..InternalBitFlags$u20$as$u20$c
   br i1 %.not.i.i, label %68, label %39
 
 44:                                               ; preds = %35
-  %.sroa.43.0.copyload = load i64, ptr %12, align 8, !noalias !10448
-  %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.64.0.copyload = load ptr, ptr %.sroa.64.0..sroa_idx, align 8, !noalias !10448
+  %.sroa.46.0.copyload = load i64, ptr %12, align 8, !noalias !10448
+  %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.67.0.copyload = load ptr, ptr %.sroa.67.0..sroa_idx, align 8, !noalias !10448
   %45 = icmp slt i64 %37, 0
   br i1 %45, label %50, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i
 
@@ -72539,30 +72539,28 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i: ; 
 53:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i.i", %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i
   %.sroa.10.0.i.i.i.i.i.i.i = phi ptr [ %48, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i.i" ], [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.10.0.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %36, i64 %37, i1 false), !noalias !10495
-  %.sroa.492.sroa.0.0.extract.trunc.i = trunc i64 %37 to i8
-  %.sroa.492.sroa.4.0.extract.shift.i = lshr i64 %37, 8
-  %.sroa.492.sroa.4.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.492.sroa.4.0.extract.shift.i to i56
   switch i64 %38, label %54 [
     i64 0, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i"
     i64 1, label %57
   ]
 
 54:                                               ; preds = %53
-  %55 = icmp eq i64 %.sroa.43.0.copyload, 0
+  %55 = icmp eq i64 %.sroa.46.0.copyload, 0
   br i1 %55, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i": ; preds = %57, %54
-  %56 = icmp ne ptr %.sroa.64.0.copyload, null
+  %56 = icmp ne ptr %.sroa.67.0.copyload, null
   tail call void @llvm.assume(i1 %56)
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.64.0.copyload, i64 noundef %.sroa.43.0.copyload, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !10496
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.67.0.copyload, i64 noundef %.sroa.46.0.copyload, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !10496
   br label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i"
 
 57:                                               ; preds = %53
-  %58 = icmp eq i64 %.sroa.43.0.copyload, 0
+  %58 = icmp eq i64 %.sroa.46.0.copyload, 0
   br i1 %58, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i"
 
 "_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i": ; preds = %57, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i", %54, %53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !10448
+  %.sroa.9.sroa.8.0.extract.shift2 = and i64 %37, 9223372036854775552
   br label %.loopexit
 
 59:                                               ; preds = %35
@@ -72599,33 +72597,31 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i: ; 
 
 _ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %32, i64 range(i64 1, 0) %33, i1 false), !noalias !10523
-  %.sroa.496.sroa.0.0.extract.trunc.i = trunc i64 %33 to i8
-  %.sroa.496.sroa.4.0.extract.shift.i = lshr i64 %33, 8
-  %.sroa.496.sroa.4.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.496.sroa.4.0.extract.shift.i to i56
+  %.sroa.9.sroa.8.0.extract.shift = and i64 %33, 9223372036854775552
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i"
-  %.sroa.18.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.16.0 = phi ptr [ %.sroa.10.0.i.i.i.i.i.i.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ %71, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.14.0 = phi i56 [ %.sroa.492.sroa.4.0.extract.trunc.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ %.sroa.496.sroa.4.0.extract.trunc.i, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.9.0 = phi i8 [ %.sroa.492.sroa.0.0.extract.trunc.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ %.sroa.496.sroa.0.0.extract.trunc.i, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
+  %.sroa.9.sroa.8.sroa.0.0 = phi i64 [ %.sroa.9.sroa.8.0.extract.shift2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ %.sroa.9.sroa.8.0.extract.shift, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
+  %.sroa.9.sroa.0.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
+  %.sroa.16.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
+  %.sroa.14.0 = phi ptr [ %.sroa.10.0.i.i.i.i.i.i.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ %71, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb22556e4606d6346E.exit.i" ], [ 1, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !10448
+  %.sroa.9.sroa.0.0.insert.ext = and i64 %.sroa.9.sroa.0.0, 255
+  %.sroa.9.sroa.0.0.insert.insert = or disjoint i64 %.sroa.9.sroa.0.0.insert.ext, %.sroa.9.sroa.8.sroa.0.0
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.16.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.18.0, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.9.sroa.0.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.16.0, ptr %.sroa.6.0..sroa_idx, align 8
   br label %76
 
 74:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i", %3
-  %.sroa.9.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0113.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i" ]
+  %.sroa.9.sroa.0.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0113.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i" ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.1.ph, ptr %75, align 8
+  store i8 %.sroa.9.sroa.0.1.ph, ptr %75, align 8
   store i64 3, ptr %0, align 8
   br label %76
 
@@ -73302,9 +73298,9 @@ define void @"_ZN90_$LT$ruff_python_ast..nodes.._..InternalBitFlags$u20$as$u20$c
   br i1 %.not.i.i, label %68, label %39
 
 44:                                               ; preds = %35
-  %.sroa.43.0.copyload = load i64, ptr %12, align 8, !noalias !10627
-  %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.64.0.copyload = load ptr, ptr %.sroa.64.0..sroa_idx, align 8, !noalias !10627
+  %.sroa.46.0.copyload = load i64, ptr %12, align 8, !noalias !10627
+  %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.67.0.copyload = load ptr, ptr %.sroa.67.0..sroa_idx, align 8, !noalias !10627
   %45 = icmp slt i64 %37, 0
   br i1 %45, label %50, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i
 
@@ -73335,30 +73331,28 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i: ; 
 53:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i.i", %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i
   %.sroa.10.0.i.i.i.i.i.i.i = phi ptr [ %48, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i.i" ], [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.10.0.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %36, i64 %37, i1 false), !noalias !10673
-  %.sroa.492.sroa.0.0.extract.trunc.i = trunc i64 %37 to i8
-  %.sroa.492.sroa.4.0.extract.shift.i = lshr i64 %37, 8
-  %.sroa.492.sroa.4.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.492.sroa.4.0.extract.shift.i to i56
   switch i64 %38, label %54 [
     i64 0, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i"
     i64 1, label %57
   ]
 
 54:                                               ; preds = %53
-  %55 = icmp eq i64 %.sroa.43.0.copyload, 0
+  %55 = icmp eq i64 %.sroa.46.0.copyload, 0
   br i1 %55, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i": ; preds = %57, %54
-  %56 = icmp ne ptr %.sroa.64.0.copyload, null
+  %56 = icmp ne ptr %.sroa.67.0.copyload, null
   tail call void @llvm.assume(i1 %56)
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.64.0.copyload, i64 noundef %.sroa.43.0.copyload, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !10674
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.67.0.copyload, i64 noundef %.sroa.46.0.copyload, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !10674
   br label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i"
 
 57:                                               ; preds = %53
-  %58 = icmp eq i64 %.sroa.43.0.copyload, 0
+  %58 = icmp eq i64 %.sroa.46.0.copyload, 0
   br i1 %58, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i"
 
 "_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i": ; preds = %57, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i", %54, %53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !10627
+  %.sroa.9.sroa.8.0.extract.shift2 = and i64 %37, 9223372036854775552
   br label %.loopexit
 
 59:                                               ; preds = %35
@@ -73395,33 +73389,31 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i: ; 
 
 _ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %32, i64 range(i64 1, 0) %33, i1 false), !noalias !10701
-  %.sroa.496.sroa.0.0.extract.trunc.i = trunc i64 %33 to i8
-  %.sroa.496.sroa.4.0.extract.shift.i = lshr i64 %33, 8
-  %.sroa.496.sroa.4.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.496.sroa.4.0.extract.shift.i to i56
+  %.sroa.9.sroa.8.0.extract.shift = and i64 %33, 9223372036854775552
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i"
-  %.sroa.18.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.16.0 = phi ptr [ %.sroa.10.0.i.i.i.i.i.i.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ %71, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.14.0 = phi i56 [ %.sroa.492.sroa.4.0.extract.trunc.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ %.sroa.496.sroa.4.0.extract.trunc.i, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.9.0 = phi i8 [ %.sroa.492.sroa.0.0.extract.trunc.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ %.sroa.496.sroa.0.0.extract.trunc.i, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
+  %.sroa.9.sroa.8.sroa.0.0 = phi i64 [ %.sroa.9.sroa.8.0.extract.shift2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ %.sroa.9.sroa.8.0.extract.shift, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
+  %.sroa.9.sroa.0.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
+  %.sroa.16.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
+  %.sroa.14.0 = phi ptr [ %.sroa.10.0.i.i.i.i.i.i.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ %71, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6bbbe0093205bc25E.exit.i" ], [ 1, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !10627
+  %.sroa.9.sroa.0.0.insert.ext = and i64 %.sroa.9.sroa.0.0, 255
+  %.sroa.9.sroa.0.0.insert.insert = or disjoint i64 %.sroa.9.sroa.0.0.insert.ext, %.sroa.9.sroa.8.sroa.0.0
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.16.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.18.0, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.9.sroa.0.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.16.0, ptr %.sroa.6.0..sroa_idx, align 8
   br label %76
 
 74:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i", %3
-  %.sroa.9.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0113.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i" ]
+  %.sroa.9.sroa.0.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0113.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i" ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.1.ph, ptr %75, align 8
+  store i8 %.sroa.9.sroa.0.1.ph, ptr %75, align 8
   store i64 3, ptr %0, align 8
   br label %76
 
@@ -74002,9 +73994,9 @@ define void @"_ZN90_$LT$ruff_python_ast..nodes.._..InternalBitFlags$u20$as$u20$c
   br i1 %.not.i.i, label %68, label %39
 
 44:                                               ; preds = %35
-  %.sroa.43.0.copyload = load i64, ptr %12, align 8, !noalias !10777
-  %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.64.0.copyload = load ptr, ptr %.sroa.64.0..sroa_idx, align 8, !noalias !10777
+  %.sroa.46.0.copyload = load i64, ptr %12, align 8, !noalias !10777
+  %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.67.0.copyload = load ptr, ptr %.sroa.67.0..sroa_idx, align 8, !noalias !10777
   %45 = icmp slt i64 %37, 0
   br i1 %45, label %50, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i
 
@@ -74035,30 +74027,28 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i: ; 
 53:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i.i", %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i
   %.sroa.10.0.i.i.i.i.i.i.i = phi ptr [ %48, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i.i" ], [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.10.0.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %36, i64 %37, i1 false), !noalias !10823
-  %.sroa.492.sroa.0.0.extract.trunc.i = trunc i64 %37 to i8
-  %.sroa.492.sroa.4.0.extract.shift.i = lshr i64 %37, 8
-  %.sroa.492.sroa.4.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.492.sroa.4.0.extract.shift.i to i56
   switch i64 %38, label %54 [
     i64 0, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i"
     i64 1, label %57
   ]
 
 54:                                               ; preds = %53
-  %55 = icmp eq i64 %.sroa.43.0.copyload, 0
+  %55 = icmp eq i64 %.sroa.46.0.copyload, 0
   br i1 %55, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i": ; preds = %57, %54
-  %56 = icmp ne ptr %.sroa.64.0.copyload, null
+  %56 = icmp ne ptr %.sroa.67.0.copyload, null
   tail call void @llvm.assume(i1 %56)
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.64.0.copyload, i64 noundef %.sroa.43.0.copyload, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !10824
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.67.0.copyload, i64 noundef %.sroa.46.0.copyload, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !10824
   br label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i"
 
 57:                                               ; preds = %53
-  %58 = icmp eq i64 %.sroa.43.0.copyload, 0
+  %58 = icmp eq i64 %.sroa.46.0.copyload, 0
   br i1 %58, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i"
 
 "_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i": ; preds = %57, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i", %54, %53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !10777
+  %.sroa.9.sroa.8.0.extract.shift2 = and i64 %37, 9223372036854775552
   br label %.loopexit
 
 59:                                               ; preds = %35
@@ -74095,33 +74085,31 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i: ; 
 
 _ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %32, i64 range(i64 1, 0) %33, i1 false), !noalias !10851
-  %.sroa.496.sroa.0.0.extract.trunc.i = trunc i64 %33 to i8
-  %.sroa.496.sroa.4.0.extract.shift.i = lshr i64 %33, 8
-  %.sroa.496.sroa.4.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.496.sroa.4.0.extract.shift.i to i56
+  %.sroa.9.sroa.8.0.extract.shift = and i64 %33, 9223372036854775552
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i"
-  %.sroa.18.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.16.0 = phi ptr [ %.sroa.10.0.i.i.i.i.i.i.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ %71, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.14.0 = phi i56 [ %.sroa.492.sroa.4.0.extract.trunc.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ %.sroa.496.sroa.4.0.extract.trunc.i, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.9.0 = phi i8 [ %.sroa.492.sroa.0.0.extract.trunc.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ %.sroa.496.sroa.0.0.extract.trunc.i, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
+  %.sroa.9.sroa.8.sroa.0.0 = phi i64 [ %.sroa.9.sroa.8.0.extract.shift2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ %.sroa.9.sroa.8.0.extract.shift, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
+  %.sroa.9.sroa.0.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
+  %.sroa.16.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
+  %.sroa.14.0 = phi ptr [ %.sroa.10.0.i.i.i.i.i.i.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ %71, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h54c76c80605b10e4E.exit.i" ], [ 1, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !10777
+  %.sroa.9.sroa.0.0.insert.ext = and i64 %.sroa.9.sroa.0.0, 255
+  %.sroa.9.sroa.0.0.insert.insert = or disjoint i64 %.sroa.9.sroa.0.0.insert.ext, %.sroa.9.sroa.8.sroa.0.0
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.16.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.18.0, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.9.sroa.0.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.16.0, ptr %.sroa.6.0..sroa_idx, align 8
   br label %76
 
 74:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i", %3
-  %.sroa.9.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0113.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i" ]
+  %.sroa.9.sroa.0.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0113.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i" ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.1.ph, ptr %75, align 8
+  store i8 %.sroa.9.sroa.0.1.ph, ptr %75, align 8
   store i64 3, ptr %0, align 8
   br label %76
 
@@ -74578,9 +74566,9 @@ define void @"_ZN90_$LT$ruff_python_ast..nodes.._..InternalBitFlags$u20$as$u20$c
   br i1 %.not.i.i, label %68, label %39
 
 44:                                               ; preds = %35
-  %.sroa.43.0.copyload = load i64, ptr %12, align 8, !noalias !10901
-  %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.64.0.copyload = load ptr, ptr %.sroa.64.0..sroa_idx, align 8, !noalias !10901
+  %.sroa.46.0.copyload = load i64, ptr %12, align 8, !noalias !10901
+  %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.67.0.copyload = load ptr, ptr %.sroa.67.0..sroa_idx, align 8, !noalias !10901
   %45 = icmp slt i64 %37, 0
   br i1 %45, label %50, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i
 
@@ -74611,30 +74599,28 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i: ; 
 53:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i.i", %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i
   %.sroa.10.0.i.i.i.i.i.i.i = phi ptr [ %48, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i.i" ], [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.10.0.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %36, i64 %37, i1 false), !noalias !10947
-  %.sroa.492.sroa.0.0.extract.trunc.i = trunc i64 %37 to i8
-  %.sroa.492.sroa.4.0.extract.shift.i = lshr i64 %37, 8
-  %.sroa.492.sroa.4.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.492.sroa.4.0.extract.shift.i to i56
   switch i64 %38, label %54 [
     i64 0, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i"
     i64 1, label %57
   ]
 
 54:                                               ; preds = %53
-  %55 = icmp eq i64 %.sroa.43.0.copyload, 0
+  %55 = icmp eq i64 %.sroa.46.0.copyload, 0
   br i1 %55, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i": ; preds = %57, %54
-  %56 = icmp ne ptr %.sroa.64.0.copyload, null
+  %56 = icmp ne ptr %.sroa.67.0.copyload, null
   tail call void @llvm.assume(i1 %56)
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.64.0.copyload, i64 noundef %.sroa.43.0.copyload, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !10948
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.67.0.copyload, i64 noundef %.sroa.46.0.copyload, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !10948
   br label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i"
 
 57:                                               ; preds = %53
-  %58 = icmp eq i64 %.sroa.43.0.copyload, 0
+  %58 = icmp eq i64 %.sroa.46.0.copyload, 0
   br i1 %58, label %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i"
 
 "_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i": ; preds = %57, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h81e546e0d29a0c09E.exit.sink.split.i.i.i.i", %54, %53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !10901
+  %.sroa.9.sroa.8.0.extract.shift2 = and i64 %37, 9223372036854775552
   br label %.loopexit
 
 59:                                               ; preds = %35
@@ -74671,33 +74657,31 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i: ; 
 
 _ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h429698438490c537E.exit.i.i.i.i.i.i.i"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %32, i64 range(i64 1, 0) %33, i1 false), !noalias !10975
-  %.sroa.496.sroa.0.0.extract.trunc.i = trunc i64 %33 to i8
-  %.sroa.496.sroa.4.0.extract.shift.i = lshr i64 %33, 8
-  %.sroa.496.sroa.4.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.496.sroa.4.0.extract.shift.i to i56
+  %.sroa.9.sroa.8.0.extract.shift = and i64 %33, 9223372036854775552
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i"
-  %.sroa.18.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.16.0 = phi ptr [ %.sroa.10.0.i.i.i.i.i.i.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ %71, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.14.0 = phi i56 [ %.sroa.492.sroa.4.0.extract.trunc.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ %.sroa.496.sroa.4.0.extract.trunc.i, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
-  %.sroa.9.0 = phi i8 [ %.sroa.492.sroa.0.0.extract.trunc.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ %.sroa.496.sroa.0.0.extract.trunc.i, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
+  %.sroa.9.sroa.8.sroa.0.0 = phi i64 [ %.sroa.9.sroa.8.0.extract.shift2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ %.sroa.9.sroa.8.0.extract.shift, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
+  %.sroa.9.sroa.0.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
+  %.sroa.16.0 = phi i64 [ %37, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
+  %.sroa.14.0 = phi ptr [ %.sroa.10.0.i.i.i.i.i.i.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ %71, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ undef, %30 ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hb13681f24f294ca2E.exit.i" ], [ 1, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h924f89a8ff05673dE.exit.i ], [ %33, %30 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !10901
+  %.sroa.9.sroa.0.0.insert.ext = and i64 %.sroa.9.sroa.0.0, 255
+  %.sroa.9.sroa.0.0.insert.insert = or disjoint i64 %.sroa.9.sroa.0.0.insert.ext, %.sroa.9.sroa.8.sroa.0.0
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.16.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.18.0, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.9.sroa.0.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.16.0, ptr %.sroa.6.0..sroa_idx, align 8
   br label %76
 
 74:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i", %3
-  %.sroa.9.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0113.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i" ]
+  %.sroa.9.sroa.0.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0113.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5cbccfa6327ae31aE.exit.thread.i" ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.1.ph, ptr %75, align 8
+  store i8 %.sroa.9.sroa.0.1.ph, ptr %75, align 8
   store i64 3, ptr %0, align 8
   br label %76
 

@@ -70935,15 +70935,10 @@ _ZN11compact_str13CompactString7try_new17hc856f82e44f63c1eE.exit.thread: ; preds
   tail call void @llvm.assume(i1 %108)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !5180
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(53) %107, ptr noundef nonnull align 1 dereferenceable(53) @anon.2f0dfb45552581788239eb2f128d1149.447, i64 53, i1 false), !noalias !5186
-  %.sroa.0432.sroa.0.0.extract.trunc = trunc i64 %100 to i32
-  %.sroa.0432.sroa.4.0.extract.shift = lshr i64 %100, 32
-  %.sroa.0432.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.0432.sroa.4.0.extract.shift to i32
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %109, align 8
   %.sroa.2246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.0432.sroa.0.0.extract.trunc, ptr %.sroa.2246.0..sroa_idx, align 8
-  %.sroa.3247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sroa.0432.sroa.4.0.extract.trunc, ptr %.sroa.3247.0..sroa_idx, align 4
+  store i64 %100, ptr %.sroa.2246.0..sroa_idx, align 8
   %.sroa.3247.sroa.2.0..sroa.3247.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %107, ptr %.sroa.3247.sroa.2.0..sroa.3247.0..sroa_idx.sroa_idx, align 8
   %.sroa.3247.sroa.3.0..sroa.3247.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -71009,15 +71004,10 @@ _ZN11compact_str13CompactString7try_new17hc856f82e44f63c1eE.exit.thread: ; preds
   tail call void @llvm.assume(i1 %135)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !5187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %134, ptr noundef nonnull align 1 dereferenceable(50) @anon.2f0dfb45552581788239eb2f128d1149.448, i64 50, i1 false), !noalias !5193
-  %.sroa.0435.sroa.0.0.extract.trunc = trunc i64 %129 to i32
-  %.sroa.0435.sroa.4.0.extract.shift = lshr i64 %129, 32
-  %.sroa.0435.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.0435.sroa.4.0.extract.shift to i32
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %136, align 8
   %.sroa.2269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.0435.sroa.0.0.extract.trunc, ptr %.sroa.2269.0..sroa_idx, align 8
-  %.sroa.3270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sroa.0435.sroa.4.0.extract.trunc, ptr %.sroa.3270.0..sroa_idx, align 4
+  store i64 %129, ptr %.sroa.2269.0..sroa_idx, align 8
   %.sroa.3270.sroa.2.0..sroa.3270.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %134, ptr %.sroa.3270.sroa.2.0..sroa.3270.0..sroa_idx.sroa_idx, align 8
   %.sroa.3270.sroa.3.0..sroa.3270.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40

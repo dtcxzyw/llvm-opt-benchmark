@@ -925,15 +925,10 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %.sroa.719.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.392.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.719.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !219
-  %.sroa.4.sroa.0.0.extract.trunc = trunc i32 %.sroa.416.0.copyload.i to i8
-  %.sroa.4.sroa.6.0.extract.shift = lshr i32 %.sroa.416.0.copyload.i, 8
-  %.sroa.4.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.4.sroa.6.0.extract.shift to i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !219
   store i32 %14, ptr %0, align 8
   %.sroa.291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4.sroa.0.0.extract.trunc, ptr %.sroa.291.0..sroa_idx, align 4
-  %.sroa.392.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4.sroa.6.0.extract.trunc, ptr %.sroa.392.0..sroa_idx, align 1
+  store i32 %.sroa.416.0.copyload.i, ptr %.sroa.291.0..sroa_idx, align 4
   %.sroa.392.sroa.2.0..sroa.392.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.517.0.copyload.i, ptr %.sroa.392.sroa.2.0..sroa.392.0..sroa_idx.sroa_idx, align 8
   %.sroa.392.sroa.3.0..sroa.392.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1062,15 +1057,10 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %.sroa.719.0..sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3115.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.719.0..sroa_idx.i140, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !224
-  %.sroa.4.sroa.0151.0.extract.trunc = trunc i32 %.sroa.416.0.copyload.i135 to i8
-  %.sroa.4.sroa.6.0.extract.shift152 = lshr i32 %.sroa.416.0.copyload.i135, 8
-  %.sroa.4.sroa.6.0.extract.trunc153 = trunc nuw i32 %.sroa.4.sroa.6.0.extract.shift152 to i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !224
   store i32 %36, ptr %0, align 8
   %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4.sroa.0151.0.extract.trunc, ptr %.sroa.2114.0..sroa_idx, align 4
-  %.sroa.3115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4.sroa.6.0.extract.trunc153, ptr %.sroa.3115.0..sroa_idx, align 1
+  store i32 %.sroa.416.0.copyload.i135, ptr %.sroa.2114.0..sroa_idx, align 4
   %.sroa.3115.sroa.2.0..sroa.3115.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.517.0.copyload.i137, ptr %.sroa.3115.sroa.2.0..sroa.3115.0..sroa_idx.sroa_idx, align 8
   %.sroa.3115.sroa.3.0..sroa.3115.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1124,15 +1114,10 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %.sroa.719.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.392.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.719.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !229
-  %.sroa.4.sroa.0.0.extract.trunc = trunc i32 %.sroa.416.0.copyload.i to i8
-  %.sroa.4.sroa.6.0.extract.shift = lshr i32 %.sroa.416.0.copyload.i, 8
-  %.sroa.4.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.4.sroa.6.0.extract.shift to i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !229
   store i32 %14, ptr %0, align 8
   %.sroa.291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4.sroa.0.0.extract.trunc, ptr %.sroa.291.0..sroa_idx, align 4
-  %.sroa.392.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4.sroa.6.0.extract.trunc, ptr %.sroa.392.0..sroa_idx, align 1
+  store i32 %.sroa.416.0.copyload.i, ptr %.sroa.291.0..sroa_idx, align 4
   %.sroa.392.sroa.2.0..sroa.392.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.517.0.copyload.i, ptr %.sroa.392.sroa.2.0..sroa.392.0..sroa_idx.sroa_idx, align 8
   %.sroa.392.sroa.3.0..sroa.392.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1261,15 +1246,10 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %.sroa.719.0..sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3115.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.719.0..sroa_idx.i140, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !234
-  %.sroa.4.sroa.0151.0.extract.trunc = trunc i32 %.sroa.416.0.copyload.i135 to i8
-  %.sroa.4.sroa.6.0.extract.shift152 = lshr i32 %.sroa.416.0.copyload.i135, 8
-  %.sroa.4.sroa.6.0.extract.trunc153 = trunc nuw i32 %.sroa.4.sroa.6.0.extract.shift152 to i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !234
   store i32 %36, ptr %0, align 8
   %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4.sroa.0151.0.extract.trunc, ptr %.sroa.2114.0..sroa_idx, align 4
-  %.sroa.3115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4.sroa.6.0.extract.trunc153, ptr %.sroa.3115.0..sroa_idx, align 1
+  store i32 %.sroa.416.0.copyload.i135, ptr %.sroa.2114.0..sroa_idx, align 4
   %.sroa.3115.sroa.2.0..sroa.3115.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.517.0.copyload.i137, ptr %.sroa.3115.sroa.2.0..sroa.3115.0..sroa_idx.sroa_idx, align 8
   %.sroa.3115.sroa.3.0..sroa.3115.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1323,15 +1303,10 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %.sroa.719.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.392.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.719.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !239
-  %.sroa.4.sroa.0.0.extract.trunc = trunc i32 %.sroa.416.0.copyload.i to i8
-  %.sroa.4.sroa.6.0.extract.shift = lshr i32 %.sroa.416.0.copyload.i, 8
-  %.sroa.4.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.4.sroa.6.0.extract.shift to i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !239
   store i32 %14, ptr %0, align 8
   %.sroa.291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4.sroa.0.0.extract.trunc, ptr %.sroa.291.0..sroa_idx, align 4
-  %.sroa.392.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4.sroa.6.0.extract.trunc, ptr %.sroa.392.0..sroa_idx, align 1
+  store i32 %.sroa.416.0.copyload.i, ptr %.sroa.291.0..sroa_idx, align 4
   %.sroa.392.sroa.2.0..sroa.392.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.517.0.copyload.i, ptr %.sroa.392.sroa.2.0..sroa.392.0..sroa_idx.sroa_idx, align 8
   %.sroa.392.sroa.3.0..sroa.392.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1460,15 +1435,10 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %.sroa.719.0..sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3115.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.719.0..sroa_idx.i140, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !244
-  %.sroa.4.sroa.0151.0.extract.trunc = trunc i32 %.sroa.416.0.copyload.i135 to i8
-  %.sroa.4.sroa.6.0.extract.shift152 = lshr i32 %.sroa.416.0.copyload.i135, 8
-  %.sroa.4.sroa.6.0.extract.trunc153 = trunc nuw i32 %.sroa.4.sroa.6.0.extract.shift152 to i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !244
   store i32 %36, ptr %0, align 8
   %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4.sroa.0151.0.extract.trunc, ptr %.sroa.2114.0..sroa_idx, align 4
-  %.sroa.3115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4.sroa.6.0.extract.trunc153, ptr %.sroa.3115.0..sroa_idx, align 1
+  store i32 %.sroa.416.0.copyload.i135, ptr %.sroa.2114.0..sroa_idx, align 4
   %.sroa.3115.sroa.2.0..sroa.3115.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.517.0.copyload.i137, ptr %.sroa.3115.sroa.2.0..sroa.3115.0..sroa_idx.sroa_idx, align 8
   %.sroa.3115.sroa.3.0..sroa.3115.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

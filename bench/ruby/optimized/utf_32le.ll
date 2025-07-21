@@ -120,20 +120,7 @@ define internal noundef i32 @utf32le_code_to_mbclen(i32 %0, ptr readnone capture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal noundef i32 @utf32le_code_to_mbc(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr readnone captures(none) %2) #4 {
-  %4 = trunc i32 %0 to i8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %4, ptr %1, align 1, !tbaa !6
-  %6 = lshr i32 %0, 8
-  %7 = trunc i32 %6 to i8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %7, ptr %5, align 1, !tbaa !6
-  %9 = lshr i32 %0, 16
-  %10 = trunc i32 %9 to i8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %10, ptr %8, align 1, !tbaa !6
-  %12 = lshr i32 %0, 24
-  %13 = trunc nuw i32 %12 to i8
-  store i8 %13, ptr %11, align 1, !tbaa !6
+  store i32 %0, ptr %1, align 1
   ret i32 4
 }
 

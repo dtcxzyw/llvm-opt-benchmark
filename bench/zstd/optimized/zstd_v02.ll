@@ -7588,7 +7588,6 @@ define internal fastcc void @HUF_fillDTableX6LevelN(ptr noundef nonnull writeonl
   %15 = alloca [17 x i32], align 16
   %.fr82 = freeze i16 %12
   store i32 %11, ptr %14, align 4
-  %.sroa.0.0.extract.trunc = trunc i16 %.fr82 to i8
   %.sroa.5.0.extract.shift = lshr i16 %.fr82, 8
   %.sroa.5.0.extract.trunc = trunc nuw i16 %.sroa.5.0.extract.shift to i8
   %16 = sub i32 %10, %2
@@ -7616,9 +7615,7 @@ define internal fastcc void @HUF_fillDTableX6LevelN(ptr noundef nonnull writeonl
   %25 = getelementptr inbounds nuw %union.HUF_DSeqX6, ptr %1, i64 %indvars.iv
   store i32 %11, ptr %25, align 4, !tbaa !7
   %26 = getelementptr inbounds nuw %struct.HUF_DDescX6, ptr %0, i64 %indvars.iv
-  store i8 %.sroa.0.0.extract.trunc, ptr %26, align 1, !tbaa !7
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store i8 %.sroa.5.0.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !7
+  store i16 %.fr82, ptr %26, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit75, label %.lr.ph, !llvm.loop !89

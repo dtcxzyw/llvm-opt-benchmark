@@ -420,14 +420,9 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %26 = load ptr, ptr %21, align 8, !alias.scope !110, !noalias !113, !nonnull !5, !align !46, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %27 = ptrtoint ptr %19 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %27 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %27, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.214.0..sroa_idx, align 8
-  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.315.0..sroa_idx, align 1
+  store i64 %27, ptr %.sroa.214.0..sroa_idx, align 8
   %.sroa.315.sroa.2.0..sroa.315.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %.sroa.315.sroa.2.0..sroa.315.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)

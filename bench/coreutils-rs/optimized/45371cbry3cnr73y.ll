@@ -15857,14 +15857,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5591502974640346016.exit.i404: ; p
   call void @llvm.assume(i1 %1137)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1136, ptr nonnull readonly align 1 %786, i64 %788, i1 false), !noalias !4224
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55), !noalias !3998
-  %.sroa.6515.sroa.0.0.extract.trunc = trunc i64 %1135 to i32
-  %.sroa.6515.sroa.7.0.extract.shift = lshr i64 %1135, 32
-  %.sroa.6515.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.6515.sroa.7.0.extract.shift to i32
   store i64 3, ptr %0, align 8
   %.sroa.2225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.6515.sroa.0.0.extract.trunc, ptr %.sroa.2225.0..sroa_idx, align 8
-  %.sroa.3226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.6515.sroa.7.0.extract.trunc, ptr %.sroa.3226.0..sroa_idx, align 4
+  store i64 %1135, ptr %.sroa.2225.0..sroa_idx, align 8
   %.sroa.3226.sroa.2.0..sroa.3226.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1136, ptr %.sroa.3226.sroa.2.0..sroa.3226.0..sroa_idx.sroa_idx, align 8
   %.sroa.3226.sroa.3.0..sroa.3226.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -5020,15 +5020,15 @@ graph_is_meta.exit:                               ; preds = %694, %filter_is_buf
 
 724:                                              ; preds = %706
   %725 = call i64 @av_buffersink_get_frame_rate(ptr noundef %711) #17
-  %.sroa.030.0.extract.trunc = trunc i64 %725 to i32
-  %.sroa.5.0.extract.shift = lshr i64 %725, 32
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %726 = getelementptr inbounds nuw i8, ptr %709, i64 372
   %727 = load i32, ptr %726, align 4, !tbaa !377
   %728 = icmp slt i32 %727, 1
   br i1 %728, label %729, label %736
 
 729:                                              ; preds = %724
+  %.sroa.5.0.extract.shift = lshr i64 %725, 32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.030.0.extract.trunc = trunc i64 %725 to i32
   %730 = getelementptr inbounds nuw i8, ptr %709, i64 376
   %731 = load i32, ptr %730, align 4, !tbaa !378
   %732 = icmp slt i32 %731, 1
@@ -5039,8 +5039,7 @@ graph_is_meta.exit:                               ; preds = %694, %filter_is_buf
   br i1 %or.cond9, label %735, label %736
 
 735:                                              ; preds = %729
-  store i32 %.sroa.030.0.extract.trunc, ptr %726, align 4, !tbaa !118
-  store i32 %.sroa.5.0.extract.trunc, ptr %730, align 4, !tbaa !118
+  store i64 %725, ptr %726, align 4
   br label %736
 
 736:                                              ; preds = %735, %729, %724
@@ -5483,7 +5482,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_frames(ptr noundef %0
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 156
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 180
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %22 = load i32, ptr %10, align 8, !tbaa !384
@@ -5818,8 +5817,7 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
   br i1 %or.cond.i.i, label %166, label %167
 
 166:                                              ; preds = %161
-  store i32 %.sroa.013.0.extract.trunc.i.i, ptr %4, align 8, !tbaa !118
-  store i32 %.sroa.5.0.extract.trunc.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !118
+  store i64 %163, ptr %4, align 8
   br label %167
 
 167:                                              ; preds = %166, %161, %156
@@ -5842,7 +5840,7 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
 
 173:                                              ; preds = %172
   store i32 25, ptr %4, align 8, !tbaa !118
-  store i32 1, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !118
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !118
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %85, i32 noundef 24, ptr noundef nonnull @.str.144) #17
   %.pre = load i32, ptr %94, align 4, !tbaa !396
   br label %174
@@ -5913,7 +5911,7 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
   %210 = sext i32 %207 to i64
   %211 = sext i32 %206 to i64
   %212 = sext i32 %208 to i64
-  %213 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %.sroa.5.0..sroa_idx.i.i, i64 noundef %210, i64 noundef %211, i64 noundef %212) #17
+  %213 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %.sroa.2.0..sroa_idx.i.i, i64 noundef %210, i64 noundef %211, i64 noundef %212) #17
   br label %214
 
 214:                                              ; preds = %209, %205, %189

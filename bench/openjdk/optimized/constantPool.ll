@@ -6264,7 +6264,7 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
-  br i1 %.not30, label %.preheader, label %71
+  br i1 %.not30, label %.preheader, label %67
 
 .preheader:                                       ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
   %33 = icmp sgt i32 %14, 0
@@ -6284,53 +6284,48 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %40 = getelementptr i16, ptr %39, i64 %38
   %41 = load i32, ptr %40, align 2
   %42 = add nsw i32 %41, %34
-  %43 = trunc i32 %42 to i16
-  %44 = getelementptr i16, ptr %35, i64 %38
-  store i16 %43, ptr %44, align 2
-  %45 = lshr i32 %42, 16
-  %46 = trunc nuw i32 %45 to i16
-  %47 = getelementptr i8, ptr %44, i64 2
-  store i16 %46, ptr %47, align 2
+  %43 = getelementptr i16, ptr %35, i64 %38
+  store i32 %42, ptr %43, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %36, %.preheader
-  %48 = load ptr, ptr %5, align 8
-  %49 = shl nsw i32 %.0.i, 1
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %44 = load ptr, ptr %5, align 8
+  %45 = shl nsw i32 %.0.i, 1
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %47 = sext i32 %45 to i64
+  %48 = getelementptr inbounds i16, ptr %46, i64 %47
+  %49 = shl nsw i32 %12, 1
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %51 = sext i32 %49 to i64
   %52 = getelementptr inbounds i16, ptr %50, i64 %51
-  %53 = shl nsw i32 %12, 1
-  %54 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds i16, ptr %54, i64 %55
-  %57 = shl nsw i32 %14, 1
-  %58 = sub nsw i32 %17, %57
-  %59 = sext i32 %58 to i64
-  %60 = shl nsw i64 %59, 1
-  tail call void @_ZN4Copy22conjoint_memory_atomicEPKvPvm(ptr noundef nonnull %52, ptr noundef nonnull %56, i64 noundef %60) #17
-  %61 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %61, null
-  br i1 %.not, label %70, label %_ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit
+  %53 = shl nsw i32 %14, 1
+  %54 = sub nsw i32 %17, %53
+  %55 = sext i32 %54 to i64
+  %56 = shl nsw i64 %55, 1
+  tail call void @_ZN4Copy22conjoint_memory_atomicEPKvPvm(ptr noundef nonnull %48, ptr noundef nonnull %52, i64 noundef %56) #17
+  %57 = load ptr, ptr %5, align 8
+  %.not = icmp eq ptr %57, null
+  br i1 %.not, label %66, label %_ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit
 
 _ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit: ; preds = %._crit_edge
-  %62 = load i32, ptr %61, align 4
-  %63 = tail call i32 @llvm.smax.i32(i32 %62, i32 1)
-  %64 = add nsw i32 %63, -1
-  %65 = zext nneg i32 %64 to i64
-  %66 = shl nuw nsw i64 %65, 1
-  %67 = add nuw nsw i64 %66, 15
-  %68 = lshr i64 %67, 3
-  %69 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %21) #17
-  tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull %61, i64 noundef %68, i1 noundef zeroext false) #17
-  br label %70
+  %58 = load i32, ptr %57, align 4
+  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 1)
+  %60 = add nsw i32 %59, -1
+  %61 = zext nneg i32 %60 to i64
+  %62 = shl nuw nsw i64 %61, 1
+  %63 = add nuw nsw i64 %62, 15
+  %64 = lshr i64 %63, 3
+  %65 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %21) #17
+  tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull %57, i64 noundef %64, i1 noundef zeroext false) #17
+  br label %66
 
-70:                                               ; preds = %_ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit, %._crit_edge
+66:                                               ; preds = %_ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit, %._crit_edge
   store ptr %28, ptr %5, align 8
-  br label %71
+  br label %67
 
-71:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %70
+67:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %66
   ret void
 }
 
@@ -6373,7 +6368,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit15: ; preds = %19
   %23 = load i32, ptr %22, align 2
   %.off18 = add i32 %23, 1
   %24 = icmp ult i32 %.off18, 3
-  br i1 %24, label %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit15.thread, label %47
+  br i1 %24, label %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit15.thread, label %43
 
 _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit15.thread: ; preds = %15, %19, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6402,21 +6397,16 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
 
 40:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
   %41 = shl nsw i32 %13, 1
-  %42 = trunc i32 %41 to i16
-  %43 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i16 %42, ptr %43, align 2
-  %44 = lshr i32 %41, 16
-  %45 = trunc nuw i32 %44 to i16
-  %46 = getelementptr i8, ptr %35, i64 6
-  store i16 %45, ptr %46, align 2
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i32 %41, ptr %42, align 2
   store ptr %35, ptr %16, align 8
   br label %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit.thread
 
-47:                                               ; preds = %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit15
+43:                                               ; preds = %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit15
   tail call void @_ZN12ConstantPool15resize_operandsEiiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %13, i32 noundef %9, ptr noundef %2)
   br label %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit.thread
 
-_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit.thread: ; preds = %3, %8, %47, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit, %40
+_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit.thread: ; preds = %3, %8, %43, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit, %40
   ret void
 }
 
@@ -6510,7 +6500,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %3, %8, %11
 _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit68: ; preds = %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit, %19, %22
   %.0.i67 = phi i32 [ %25, %22 ], [ 0, %19 ], [ 0, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ]
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %119, label %26
+  br i1 %.not, label %115, label %26
 
 26:                                               ; preds = %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit68
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -6540,7 +6530,7 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not71 = icmp eq ptr %44, null
-  br i1 %.not71, label %45, label %119
+  br i1 %.not71, label %45, label %115
 
 45:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
   %46 = load ptr, ptr %0, align 8
@@ -6575,7 +6565,7 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not70 = icmp eq ptr %67, null
-  br i1 %.not70, label %68, label %119
+  br i1 %.not70, label %68, label %115
 
 68:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit69
   %69 = shl nsw i32 %.0.i, 1
@@ -6634,25 +6624,20 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %.idx = shl i64 %109, 2
   %110 = getelementptr i8, ptr %75, i64 %.idx
   %111 = load i32, ptr %110, align 2
-  %112 = getelementptr i8, ptr %110, i64 2
-  %113 = add nsw i32 %111, %54
-  %114 = trunc i32 %113 to i16
-  store i16 %114, ptr %110, align 2
-  %115 = lshr i32 %113, 16
-  %116 = trunc nuw i32 %115 to i16
-  store i16 %116, ptr %112, align 2
+  %112 = add nsw i32 %111, %54
+  store i32 %112, ptr %110, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !30
 
 .sink.split:                                      ; preds = %.lr.ph, %68, %45
   %.sink = phi ptr [ %40, %45 ], [ %63, %68 ], [ %63, %.lr.ph ]
-  %117 = load ptr, ptr %1, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  store ptr %.sink, ptr %118, align 8
-  br label %119
+  %113 = load ptr, ptr %1, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  store ptr %.sink, ptr %114, align 8
+  br label %115
 
-119:                                              ; preds = %.sink.split, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit69, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit68
+115:                                              ; preds = %.sink.split, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit69, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit68
   ret void
 }
 

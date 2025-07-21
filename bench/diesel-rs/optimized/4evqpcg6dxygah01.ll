@@ -65,14 +65,9 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %28 = load ptr, ptr %24, align 8, !alias.scope !4, !noalias !7, !nonnull !9, !align !11, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %29 = ptrtoint ptr %22 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
-  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.317.0..sroa_idx, align 1
+  store i64 %29, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -326,14 +321,9 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %28 = load ptr, ptr %24, align 8, !alias.scope !42, !noalias !45, !nonnull !9, !align !11, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %29 = ptrtoint ptr %22 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
-  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.317.0..sroa_idx, align 1
+  store i64 %29, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -588,14 +578,9 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %28 = load ptr, ptr %24, align 8, !alias.scope !82, !noalias !85, !nonnull !9, !align !11, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %29 = ptrtoint ptr %22 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
-  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.317.0..sroa_idx, align 1
+  store i64 %29, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -850,14 +835,9 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %28 = load ptr, ptr %24, align 8, !alias.scope !122, !noalias !125, !nonnull !9, !align !11, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %29 = ptrtoint ptr %22 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
-  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.317.0..sroa_idx, align 1
+  store i64 %29, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -1414,14 +1394,9 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %28 = load ptr, ptr %24, align 8, !alias.scope !226, !noalias !229, !nonnull !9, !align !11, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %29 = ptrtoint ptr %22 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
-  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.317.0..sroa_idx, align 1
+  store i64 %29, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -1676,14 +1651,9 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %28 = load ptr, ptr %24, align 8, !alias.scope !266, !noalias !269, !nonnull !9, !align !11, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %29 = ptrtoint ptr %22 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
-  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.317.0..sroa_idx, align 1
+  store i64 %29, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -2090,14 +2060,9 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %28 = load ptr, ptr %24, align 8, !alias.scope !334, !noalias !337, !nonnull !9, !align !11, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %29 = ptrtoint ptr %22 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
-  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.317.0..sroa_idx, align 1
+  store i64 %29, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)

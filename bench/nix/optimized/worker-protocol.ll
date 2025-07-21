@@ -1480,8 +1480,6 @@ $_ZN7testing8internal16ContainerPrinter10PrintValueISt6vectorIS3_INSt7__cxx1112b
 
 $_ZZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESB_SB_S3_ISB_SaISB_EEEEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSE_ENKUlTpTyDpRKT_E_clIJSB_SB_SB_SD_EEEDaSP_ = comdat any
 
-$_ZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt6vectorIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESaISA_EEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSC_ = comdat any
-
 $_ZNSt8_Rb_treeISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EESA_St9_IdentityISA_ES7_ISA_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERKSA_ = comdat any
 
 $_ZNSt8_Rb_treeISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EESA_St9_IdentityISA_ES7_ISA_ESaISA_EE10_M_insert_IRKSA_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSN_OT_RT0_ = comdat any
@@ -1513,8 +1511,6 @@ $_ZN7testing8internal16ContainerPrinter10PrintValueISt3setINSt7__cxx1112basic_st
 $_ZN7testing8internal16ContainerPrinter10PrintValueISt3setIS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESA_ISD_ESaISD_EEvEEvRKT_PSo = comdat any
 
 $_ZZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESD_SD_S3_ISD_SA_ISD_ESaISD_EEEEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSH_ENKUlTpTyDpRKT_E_clIJSD_SD_SD_SG_EEEDaSS_ = comdat any
-
-$_ZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt3setIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EES9_ISC_ESaISC_EEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSF_ = comdat any
 
 $_ZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt5tupleIJSt8optionalINS_9StorePathEES5_EEE4readERKNS_14StoreDirConfigENS1_8ReadConnE = comdat any
 
@@ -54428,314 +54424,158 @@ define linkonce_odr void @_ZN7testing8internal16ContainerPrinter10PrintValueISt6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESB_SB_S3_ISB_SaISB_EEEEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSE_ENKUlTpTyDpRKT_E_clIJSB_SB_SB_SD_EEEDaSP_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #4 comdat align 2 {
-  %6 = alloca [8 x i8], align 1
-  %7 = alloca [8 x i8], align 1
-  %8 = alloca [8 x i8], align 1
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.sroa.07.0.copyload = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = alloca [8 x i8], align 8
+  %7 = alloca [8 x i8], align 8
+  %8 = alloca [8 x i8], align 8
+  %9 = alloca [8 x i8], align 8
+  %10 = alloca [8 x i8], align 8
+  %11 = load ptr, ptr %0, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %1, align 8
-  %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = ashr exact i64 %17, 5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %19 = trunc i64 %18 to i8
-  store i8 %19, ptr %8, align 1
-  %20 = lshr i64 %18, 8
-  %21 = trunc i64 %20 to i8
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %21, ptr %22, align 1
-  %23 = lshr i64 %18, 16
-  %24 = trunc i64 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %24, ptr %25, align 1
-  %26 = lshr i64 %18, 24
-  %27 = trunc i64 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %27, ptr %28, align 1
-  %29 = lshr i64 %18, 32
-  %30 = trunc i64 %29 to i8
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %30, ptr %31, align 1
-  %32 = lshr i64 %18, 40
-  %33 = trunc i64 %32 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  store i8 %33, ptr %34, align 1
-  %35 = lshr i64 %18, 48
-  %36 = trunc i64 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 6
-  store i8 %36, ptr %37, align 1
-  %38 = lshr i64 %18, 56
-  %39 = trunc nuw i64 %38 to i8
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 7
-  store i8 %39, ptr %40, align 1
-  %41 = load ptr, ptr %.sroa.07.0.copyload, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.07.0.copyload, i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %44 = load ptr, ptr %1, align 8
-  %45 = load ptr, ptr %12, align 8
-  %46 = icmp eq ptr %44, %45
-  br i1 %46, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit, label %.lr.ph.i.i
+  %.sroa.07.0.copyload = load ptr, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %1, align 8
+  %17 = ptrtoint ptr %15 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = ashr exact i64 %19, 5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  store i64 %20, ptr %10, align 8
+  %21 = load ptr, ptr %.sroa.07.0.copyload, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.07.0.copyload, i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  %24 = load ptr, ptr %1, align 8
+  %25 = load ptr, ptr %14, align 8
+  %26 = icmp eq ptr %24, %25
+  br i1 %26, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5, %.lr.ph.i.i
-  %.sroa.08.011.i.i = phi ptr [ %47, %.lr.ph.i.i ], [ %44, %5 ]
-  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %9, ptr nonnull %.sroa.07.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.011.i.i)
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i, i64 32
-  %48 = icmp eq ptr %47, %45
-  br i1 %48, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit, label %.lr.ph.i.i
+  %.sroa.08.011.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %24, %5 ]
+  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %11, ptr nonnull %.sroa.07.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.011.i.i)
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i, i64 32
+  %28 = icmp eq ptr %27, %25
+  br i1 %28, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit, label %.lr.ph.i.i
 
 _ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit: ; preds = %.lr.ph.i.i, %5
-  %49 = load ptr, ptr %0, align 8
-  %50 = load ptr, ptr %10, align 8
-  %.sroa.04.0.copyload = load ptr, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %2, align 8
-  %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %58 = trunc i64 %57 to i8
-  store i8 %58, ptr %7, align 1
-  %59 = lshr i64 %57, 8
-  %60 = trunc i64 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %60, ptr %61, align 1
-  %62 = lshr i64 %57, 16
-  %63 = trunc i64 %62 to i8
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %63, ptr %64, align 1
-  %65 = lshr i64 %57, 24
-  %66 = trunc i64 %65 to i8
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 %66, ptr %67, align 1
-  %68 = lshr i64 %57, 32
-  %69 = trunc i64 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i8 %69, ptr %70, align 1
-  %71 = lshr i64 %57, 40
-  %72 = trunc i64 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  store i8 %72, ptr %73, align 1
-  %74 = lshr i64 %57, 48
-  %75 = trunc i64 %74 to i8
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  store i8 %75, ptr %76, align 1
-  %77 = lshr i64 %57, 56
-  %78 = trunc nuw i64 %77 to i8
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 7
-  store i8 %78, ptr %79, align 1
-  %80 = load ptr, ptr %.sroa.04.0.copyload, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.04.0.copyload, i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %83 = load ptr, ptr %2, align 8
-  %84 = load ptr, ptr %51, align 8
-  %85 = icmp eq ptr %83, %84
-  br i1 %85, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16, label %.lr.ph.i.i14
+  %29 = load ptr, ptr %0, align 8
+  %30 = load ptr, ptr %12, align 8
+  %.sroa.04.0.copyload = load ptr, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = ptrtoint ptr %32 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = ashr exact i64 %36, 5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  store i64 %37, ptr %9, align 8
+  %38 = load ptr, ptr %.sroa.04.0.copyload, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.04.0.copyload, i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %41 = load ptr, ptr %2, align 8
+  %42 = load ptr, ptr %31, align 8
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16, label %.lr.ph.i.i14
 
 .lr.ph.i.i14:                                     ; preds = %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit, %.lr.ph.i.i14
-  %.sroa.08.011.i.i15 = phi ptr [ %86, %.lr.ph.i.i14 ], [ %83, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit ]
-  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %49, ptr nonnull %.sroa.04.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.011.i.i15)
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i15, i64 32
-  %87 = icmp eq ptr %86, %84
-  br i1 %87, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16, label %.lr.ph.i.i14
+  %.sroa.08.011.i.i15 = phi ptr [ %44, %.lr.ph.i.i14 ], [ %41, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit ]
+  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %29, ptr nonnull %.sroa.04.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.011.i.i15)
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i15, i64 32
+  %45 = icmp eq ptr %44, %42
+  br i1 %45, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16, label %.lr.ph.i.i14
 
 _ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16: ; preds = %.lr.ph.i.i14, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit
-  %88 = load ptr, ptr %0, align 8
-  %89 = load ptr, ptr %10, align 8
-  %.sroa.01.0.copyload = load ptr, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %3, align 8
-  %93 = ptrtoint ptr %91 to i64
-  %94 = ptrtoint ptr %92 to i64
-  %95 = sub i64 %93, %94
-  %96 = ashr exact i64 %95, 5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %97 = trunc i64 %96 to i8
-  store i8 %97, ptr %6, align 1
-  %98 = lshr i64 %96, 8
-  %99 = trunc i64 %98 to i8
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %99, ptr %100, align 1
-  %101 = lshr i64 %96, 16
-  %102 = trunc i64 %101 to i8
-  %103 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %102, ptr %103, align 1
-  %104 = lshr i64 %96, 24
-  %105 = trunc i64 %104 to i8
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %105, ptr %106, align 1
-  %107 = lshr i64 %96, 32
-  %108 = trunc i64 %107 to i8
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %108, ptr %109, align 1
-  %110 = lshr i64 %96, 40
-  %111 = trunc i64 %110 to i8
-  %112 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %111, ptr %112, align 1
-  %113 = lshr i64 %96, 48
-  %114 = trunc i64 %113 to i8
-  %115 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i8 %114, ptr %115, align 1
-  %116 = lshr i64 %96, 56
-  %117 = trunc nuw i64 %116 to i8
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 7
-  store i8 %117, ptr %118, align 1
-  %119 = load ptr, ptr %.sroa.01.0.copyload, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.0.copyload, i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %122 = load ptr, ptr %3, align 8
-  %123 = load ptr, ptr %90, align 8
-  %124 = icmp eq ptr %122, %123
-  br i1 %124, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit19, label %.lr.ph.i.i17
+  %46 = load ptr, ptr %0, align 8
+  %47 = load ptr, ptr %12, align 8
+  %.sroa.01.0.copyload = load ptr, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = ptrtoint ptr %49 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  store i64 %54, ptr %8, align 8
+  %55 = load ptr, ptr %.sroa.01.0.copyload, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.0.copyload, i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  %58 = load ptr, ptr %3, align 8
+  %59 = load ptr, ptr %48, align 8
+  %60 = icmp eq ptr %58, %59
+  br i1 %60, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit19, label %.lr.ph.i.i17
 
 .lr.ph.i.i17:                                     ; preds = %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16, %.lr.ph.i.i17
-  %.sroa.08.011.i.i18 = phi ptr [ %125, %.lr.ph.i.i17 ], [ %122, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16 ]
-  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %88, ptr nonnull %.sroa.01.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.011.i.i18)
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i18, i64 32
-  %126 = icmp eq ptr %125, %123
-  br i1 %126, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit19, label %.lr.ph.i.i17
+  %.sroa.08.011.i.i18 = phi ptr [ %61, %.lr.ph.i.i17 ], [ %58, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16 ]
+  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %46, ptr nonnull %.sroa.01.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.011.i.i18)
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i18, i64 32
+  %62 = icmp eq ptr %61, %59
+  br i1 %62, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit19, label %.lr.ph.i.i17
 
 _ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit19: ; preds = %.lr.ph.i.i17, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit16
-  %127 = load ptr, ptr %0, align 8
-  %128 = load ptr, ptr %10, align 8
-  %.sroa.0.0.copyload = load ptr, ptr %128, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @_ZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt6vectorIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESaISA_EEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSC_(ptr noundef nonnull align 8 dereferenceable(344) %127, ptr %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt6vectorIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESaISA_EEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSC_(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #4 comdat align 2 {
-  %5 = alloca [8 x i8], align 1
-  %6 = alloca [8 x i8], align 1
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = sdiv exact i64 %12, 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %14 = trunc i64 %13 to i8
-  store i8 %14, ptr %6, align 1
-  %15 = lshr i64 %13, 8
-  %16 = trunc i64 %15 to i8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %16, ptr %17, align 1
-  %18 = lshr i64 %13, 16
-  %19 = trunc i64 %18 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %19, ptr %20, align 1
-  %21 = lshr i64 %13, 24
-  %22 = trunc i64 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %22, ptr %23, align 1
-  %24 = lshr i64 %13, 32
-  %25 = trunc i64 %24 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %25, ptr %26, align 1
-  %27 = lshr i64 %13, 40
-  %28 = trunc i64 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %28, ptr %29, align 1
-  %30 = lshr i64 %13, 48
-  %31 = trunc i64 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i8 %31, ptr %32, align 1
-  %33 = lshr i64 %13, 56
-  %34 = trunc nuw i64 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 7
-  store i8 %34, ptr %35, align 1
-  %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %39 = load ptr, ptr %3, align 8
-  %40 = load ptr, ptr %7, align 8
-  %41 = icmp eq ptr %39, %40
-  br i1 %41, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %4
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  br label %49
-
-49:                                               ; preds = %.lr.ph, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit
-  %.sroa.08.011 = phi ptr [ %39, %.lr.ph ], [ %80, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.08.011, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %.sroa.08.011, align 8
-  %53 = ptrtoint ptr %51 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = ashr exact i64 %55, 5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %57 = trunc i64 %56 to i8
-  store i8 %57, ptr %5, align 1
-  %58 = lshr i64 %56, 8
-  %59 = trunc i64 %58 to i8
-  store i8 %59, ptr %42, align 1
-  %60 = lshr i64 %56, 16
-  %61 = trunc i64 %60 to i8
-  store i8 %61, ptr %43, align 1
-  %62 = lshr i64 %56, 24
-  %63 = trunc i64 %62 to i8
-  store i8 %63, ptr %44, align 1
-  %64 = lshr i64 %56, 32
-  %65 = trunc i64 %64 to i8
-  store i8 %65, ptr %45, align 1
-  %66 = lshr i64 %56, 40
-  %67 = trunc i64 %66 to i8
-  store i8 %67, ptr %46, align 1
-  %68 = lshr i64 %56, 48
-  %69 = trunc i64 %68 to i8
-  store i8 %69, ptr %47, align 1
-  %70 = lshr i64 %56, 56
-  %71 = trunc nuw i64 %70 to i8
-  store i8 %71, ptr %48, align 1
-  %72 = load ptr, ptr %1, align 8
+  %63 = load ptr, ptr %0, align 8
+  %64 = load ptr, ptr %12, align 8
+  %.sroa.0.0.copyload = load ptr, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %4, align 8
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = sdiv exact i64 %70, 24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  store i64 %71, ptr %7, align 8
+  %72 = load ptr, ptr %.sroa.0.0.copyload, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %75 = load ptr, ptr %.sroa.08.011, align 8
-  %76 = load ptr, ptr %50, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.copyload, i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  %75 = load ptr, ptr %4, align 8
+  %76 = load ptr, ptr %65, align 8
   %77 = icmp eq ptr %75, %76
-  br i1 %77, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit, label %.lr.ph.i.i
+  br i1 %77, label %_ZN3nix11WorkerProto9SerialiseISt6vectorIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESaISA_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i20
 
-.lr.ph.i.i:                                       ; preds = %49, %.lr.ph.i.i
-  %.sroa.08.011.i.i = phi ptr [ %78, %.lr.ph.i.i ], [ %75, %49 ]
-  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.011.i.i)
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i, i64 32
-  %79 = icmp eq ptr %78, %76
-  br i1 %79, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit, label %.lr.ph.i.i
+.lr.ph.i.i20:                                     ; preds = %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit19, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit.i.i
+  %.sroa.08.011.i.i21 = phi ptr [ %93, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit.i.i ], [ %75, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit19 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i21, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %.sroa.08.011.i.i21, align 8
+  %81 = ptrtoint ptr %79 to i64
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = ashr exact i64 %83, 5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store i64 %84, ptr %6, align 8
+  %85 = load ptr, ptr %.sroa.0.0.copyload, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %87 = load ptr, ptr %86, align 8
+  call void %87(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.copyload, i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  %88 = load ptr, ptr %.sroa.08.011.i.i21, align 8
+  %89 = load ptr, ptr %78, align 8
+  %90 = icmp eq ptr %88, %89
+  br i1 %90, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit.i.i, label %.lr.ph.i.i.i.i
 
-_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit: ; preds = %.lr.ph.i.i, %49
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.08.011, i64 24
-  %81 = icmp eq ptr %80, %40
-  br i1 %81, label %._crit_edge, label %49
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i20, %.lr.ph.i.i.i.i
+  %.sroa.08.011.i.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i ], [ %88, %.lr.ph.i.i20 ]
+  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %63, ptr nonnull %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.011.i.i.i.i)
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i, i64 32
+  %92 = icmp eq ptr %91, %89
+  br i1 %92, label %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge:                                      ; preds = %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit, %4
+_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i20
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i21, i64 24
+  %94 = icmp eq ptr %93, %76
+  br i1 %94, label %_ZN3nix11WorkerProto9SerialiseISt6vectorIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESaISA_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i20
+
+_ZN3nix11WorkerProto9SerialiseISt6vectorIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESaISA_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit: ; preds = %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit.i.i, %_ZN3nix11WorkerProto9SerialiseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSA_.exit19
   ret void
 }
 
@@ -56529,298 +56369,142 @@ define linkonce_odr void @_ZN7testing8internal16ContainerPrinter10PrintValueISt3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESD_SD_S3_ISD_SA_ISD_ESaISD_EEEEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSH_ENKUlTpTyDpRKT_E_clIJSD_SD_SD_SG_EEEDaSS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #4 comdat align 2 {
-  %6 = alloca [8 x i8], align 1
-  %7 = alloca [8 x i8], align 1
-  %8 = alloca [8 x i8], align 1
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.sroa.07.0.copyload = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load i64, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %14 = trunc i64 %13 to i8
-  store i8 %14, ptr %8, align 1
-  %15 = lshr i64 %13, 8
-  %16 = trunc i64 %15 to i8
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %16, ptr %17, align 1
-  %18 = lshr i64 %13, 16
-  %19 = trunc i64 %18 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %19, ptr %20, align 1
-  %21 = lshr i64 %13, 24
-  %22 = trunc i64 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %22, ptr %23, align 1
-  %24 = lshr i64 %13, 32
-  %25 = trunc i64 %24 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %25, ptr %26, align 1
-  %27 = lshr i64 %13, 40
-  %28 = trunc i64 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  store i8 %28, ptr %29, align 1
-  %30 = lshr i64 %13, 48
-  %31 = trunc i64 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 6
-  store i8 %31, ptr %32, align 1
-  %33 = lshr i64 %13, 56
-  %34 = trunc nuw i64 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 7
-  store i8 %34, ptr %35, align 1
-  %36 = load ptr, ptr %.sroa.07.0.copyload, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.07.0.copyload, i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = icmp eq ptr %40, %41
-  br i1 %42, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i
+  %6 = alloca [8 x i8], align 8
+  %7 = alloca [8 x i8], align 8
+  %8 = alloca [8 x i8], align 8
+  %9 = alloca [8 x i8], align 8
+  %10 = alloca [8 x i8], align 8
+  %11 = load ptr, ptr %0, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %.sroa.07.0.copyload = load ptr, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %15 = load i64, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  store i64 %15, ptr %10, align 8
+  %16 = load ptr, ptr %.sroa.07.0.copyload, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.07.0.copyload, i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5, %.lr.ph.i.i
-  %.sroa.08.011.i.i = phi ptr [ %44, %.lr.ph.i.i ], [ %40, %5 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i, i64 32
-  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %9, ptr nonnull %.sroa.07.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %43)
-  %44 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.011.i.i) #32
-  %45 = icmp eq ptr %44, %41
-  br i1 %45, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i
+  %.sroa.08.011.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %20, %5 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i, i64 32
+  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %11, ptr nonnull %.sroa.07.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %23)
+  %24 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.011.i.i) #32
+  %25 = icmp eq ptr %24, %21
+  br i1 %25, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i
 
 _ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit: ; preds = %.lr.ph.i.i, %5
-  %46 = load ptr, ptr %0, align 8
-  %47 = load ptr, ptr %10, align 8
-  %.sroa.04.0.copyload = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %49 = load i64, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %50 = trunc i64 %49 to i8
-  store i8 %50, ptr %7, align 1
-  %51 = lshr i64 %49, 8
-  %52 = trunc i64 %51 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %52, ptr %53, align 1
-  %54 = lshr i64 %49, 16
-  %55 = trunc i64 %54 to i8
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %55, ptr %56, align 1
-  %57 = lshr i64 %49, 24
-  %58 = trunc i64 %57 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 %58, ptr %59, align 1
-  %60 = lshr i64 %49, 32
-  %61 = trunc i64 %60 to i8
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i8 %61, ptr %62, align 1
-  %63 = lshr i64 %49, 40
-  %64 = trunc i64 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  store i8 %64, ptr %65, align 1
-  %66 = lshr i64 %49, 48
-  %67 = trunc i64 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  store i8 %67, ptr %68, align 1
-  %69 = lshr i64 %49, 56
-  %70 = trunc nuw i64 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %7, i64 7
-  store i8 %70, ptr %71, align 1
-  %72 = load ptr, ptr %.sroa.04.0.copyload, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.04.0.copyload, i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %78 = icmp eq ptr %76, %77
-  br i1 %78, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16, label %.lr.ph.i.i14
+  %26 = load ptr, ptr %0, align 8
+  %27 = load ptr, ptr %12, align 8
+  %.sroa.04.0.copyload = load ptr, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i64, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  store i64 %29, ptr %9, align 8
+  %30 = load ptr, ptr %.sroa.04.0.copyload, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.04.0.copyload, i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = icmp eq ptr %34, %35
+  br i1 %36, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16, label %.lr.ph.i.i14
 
 .lr.ph.i.i14:                                     ; preds = %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, %.lr.ph.i.i14
-  %.sroa.08.011.i.i15 = phi ptr [ %80, %.lr.ph.i.i14 ], [ %76, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i15, i64 32
-  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %46, ptr nonnull %.sroa.04.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %79)
-  %80 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.011.i.i15) #32
-  %81 = icmp eq ptr %80, %77
-  br i1 %81, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16, label %.lr.ph.i.i14
+  %.sroa.08.011.i.i15 = phi ptr [ %38, %.lr.ph.i.i14 ], [ %34, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i15, i64 32
+  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %26, ptr nonnull %.sroa.04.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %37)
+  %38 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.011.i.i15) #32
+  %39 = icmp eq ptr %38, %35
+  br i1 %39, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16, label %.lr.ph.i.i14
 
 _ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16: ; preds = %.lr.ph.i.i14, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit
-  %82 = load ptr, ptr %0, align 8
-  %83 = load ptr, ptr %10, align 8
-  %.sroa.01.0.copyload = load ptr, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %85 = load i64, ptr %84, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %86 = trunc i64 %85 to i8
-  store i8 %86, ptr %6, align 1
-  %87 = lshr i64 %85, 8
-  %88 = trunc i64 %87 to i8
-  %89 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %88, ptr %89, align 1
-  %90 = lshr i64 %85, 16
-  %91 = trunc i64 %90 to i8
-  %92 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %91, ptr %92, align 1
-  %93 = lshr i64 %85, 24
-  %94 = trunc i64 %93 to i8
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %94, ptr %95, align 1
-  %96 = lshr i64 %85, 32
-  %97 = trunc i64 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %97, ptr %98, align 1
-  %99 = lshr i64 %85, 40
-  %100 = trunc i64 %99 to i8
-  %101 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %100, ptr %101, align 1
-  %102 = lshr i64 %85, 48
-  %103 = trunc i64 %102 to i8
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i8 %103, ptr %104, align 1
-  %105 = lshr i64 %85, 56
-  %106 = trunc nuw i64 %105 to i8
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 7
-  store i8 %106, ptr %107, align 1
-  %108 = load ptr, ptr %.sroa.01.0.copyload, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load ptr, ptr %109, align 8
-  call void %110(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.0.copyload, i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %114 = icmp eq ptr %112, %113
-  br i1 %114, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit19, label %.lr.ph.i.i17
+  %40 = load ptr, ptr %0, align 8
+  %41 = load ptr, ptr %12, align 8
+  %.sroa.01.0.copyload = load ptr, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %43 = load i64, ptr %42, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  store i64 %43, ptr %8, align 8
+  %44 = load ptr, ptr %.sroa.01.0.copyload, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.0.copyload, i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %50 = icmp eq ptr %48, %49
+  br i1 %50, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit19, label %.lr.ph.i.i17
 
 .lr.ph.i.i17:                                     ; preds = %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16, %.lr.ph.i.i17
-  %.sroa.08.011.i.i18 = phi ptr [ %116, %.lr.ph.i.i17 ], [ %112, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16 ]
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i18, i64 32
-  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %82, ptr nonnull %.sroa.01.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %115)
-  %116 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.011.i.i18) #32
-  %117 = icmp eq ptr %116, %113
-  br i1 %117, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit19, label %.lr.ph.i.i17
+  %.sroa.08.011.i.i18 = phi ptr [ %52, %.lr.ph.i.i17 ], [ %48, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i18, i64 32
+  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %40, ptr nonnull %.sroa.01.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %51)
+  %52 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.011.i.i18) #32
+  %53 = icmp eq ptr %52, %49
+  br i1 %53, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit19, label %.lr.ph.i.i17
 
 _ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit19: ; preds = %.lr.ph.i.i17, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit16
-  %118 = load ptr, ptr %0, align 8
-  %119 = load ptr, ptr %10, align 8
-  %.sroa.0.0.copyload = load ptr, ptr %119, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @_ZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt3setIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EES9_ISC_ESaISC_EEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSF_(ptr noundef nonnull align 8 dereferenceable(344) %118, ptr %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(48) %4)
-  ret void
-}
+  %54 = load ptr, ptr %0, align 8
+  %55 = load ptr, ptr %12, align 8
+  %.sroa.0.0.copyload = load ptr, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %57 = load i64, ptr %56, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  store i64 %57, ptr %7, align 8
+  %58 = load ptr, ptr %.sroa.0.0.copyload, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.copyload, i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %64 = icmp eq ptr %62, %63
+  br i1 %64, label %_ZN3nix11WorkerProto9SerialiseISt3setIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EES9_ISC_ESaISC_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSF_.exit, label %.lr.ph.i.i20
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3nix25LengthPrefixedProtoHelperINS_11WorkerProtoESt3setIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EES9_ISC_ESaISC_EEE5writeERKNS_14StoreDirConfigENS1_9WriteConnERKSF_(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #4 comdat align 2 {
-  %5 = alloca [8 x i8], align 1
-  %6 = alloca [8 x i8], align 1
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %8 = load i64, ptr %7, align 8
+.lr.ph.i.i20:                                     ; preds = %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit19, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit.i.i
+  %.sroa.08.011.i.i21 = phi ptr [ %77, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit.i.i ], [ %62, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit19 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i21, i64 72
+  %66 = load i64, ptr %65, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %9 = trunc i64 %8 to i8
-  store i8 %9, ptr %6, align 1
-  %10 = lshr i64 %8, 8
-  %11 = trunc i64 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %11, ptr %12, align 1
-  %13 = lshr i64 %8, 16
-  %14 = trunc i64 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %14, ptr %15, align 1
-  %16 = lshr i64 %8, 24
-  %17 = trunc i64 %16 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %17, ptr %18, align 1
-  %19 = lshr i64 %8, 32
-  %20 = trunc i64 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %20, ptr %21, align 1
-  %22 = lshr i64 %8, 40
-  %23 = trunc i64 %22 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %23, ptr %24, align 1
-  %25 = lshr i64 %8, 48
-  %26 = trunc i64 %25 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i8 %26, ptr %27, align 1
-  %28 = lshr i64 %8, 56
-  %29 = trunc nuw i64 %28 to i8
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 7
-  store i8 %29, ptr %30, align 1
-  %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 8, ptr nonnull %6)
+  store i64 %66, ptr %6, align 8
+  %67 = load ptr, ptr %.sroa.0.0.copyload, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  call void %69(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.copyload, i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = icmp eq ptr %35, %36
-  br i1 %37, label %._crit_edge, label %.lr.ph
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i21, i64 56
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i21, i64 40
+  %73 = icmp eq ptr %71, %72
+  br i1 %73, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph:                                           ; preds = %4
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  br label %45
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i20, %.lr.ph.i.i.i.i
+  %.sroa.08.011.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i ], [ %71, %.lr.ph.i.i20 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i, i64 32
+  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %54, ptr nonnull %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %74)
+  %75 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.011.i.i.i.i) #32
+  %76 = icmp eq ptr %75, %72
+  br i1 %76, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit.i.i, label %.lr.ph.i.i.i.i
 
-45:                                               ; preds = %.lr.ph, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit
-  %.sroa.08.011 = phi ptr [ %35, %.lr.ph ], [ %73, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.011, i64 72
-  %47 = load i64, ptr %46, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %48 = trunc i64 %47 to i8
-  store i8 %48, ptr %5, align 1
-  %49 = lshr i64 %47, 8
-  %50 = trunc i64 %49 to i8
-  store i8 %50, ptr %38, align 1
-  %51 = lshr i64 %47, 16
-  %52 = trunc i64 %51 to i8
-  store i8 %52, ptr %39, align 1
-  %53 = lshr i64 %47, 24
-  %54 = trunc i64 %53 to i8
-  store i8 %54, ptr %40, align 1
-  %55 = lshr i64 %47, 32
-  %56 = trunc i64 %55 to i8
-  store i8 %56, ptr %41, align 1
-  %57 = lshr i64 %47, 40
-  %58 = trunc i64 %57 to i8
-  store i8 %58, ptr %42, align 1
-  %59 = lshr i64 %47, 48
-  %60 = trunc i64 %59 to i8
-  store i8 %60, ptr %43, align 1
-  %61 = lshr i64 %47, 56
-  %62 = trunc nuw i64 %61 to i8
-  store i8 %62, ptr %44, align 1
-  %63 = load ptr, ptr %1, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.08.011, i64 56
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.08.011, i64 40
-  %69 = icmp eq ptr %67, %68
-  br i1 %69, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i
+_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i20
+  %77 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.011.i.i21) #32
+  %78 = icmp eq ptr %77, %63
+  br i1 %78, label %_ZN3nix11WorkerProto9SerialiseISt3setIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EES9_ISC_ESaISC_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSF_.exit, label %.lr.ph.i.i20
 
-.lr.ph.i.i:                                       ; preds = %45, %.lr.ph.i.i
-  %.sroa.08.011.i.i = phi ptr [ %71, %.lr.ph.i.i ], [ %67, %45 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i, i64 32
-  call void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %70)
-  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.011.i.i) #32
-  %72 = icmp eq ptr %71, %68
-  br i1 %72, label %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i
-
-_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit: ; preds = %.lr.ph.i.i, %45
-  %73 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.011) #32
-  %74 = icmp eq ptr %73, %36
-  br i1 %74, label %._crit_edge, label %45
-
-._crit_edge:                                      ; preds = %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, %4
+_ZN3nix11WorkerProto9SerialiseISt3setIS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EES9_ISC_ESaISC_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSF_.exit: ; preds = %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit.i.i, %_ZN3nix11WorkerProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit19
   ret void
 }
 

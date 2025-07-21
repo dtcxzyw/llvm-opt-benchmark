@@ -6650,15 +6650,11 @@ _ZN10async_task5utils14abort_on_panic17hd17cc68cba61cb27E.exit: ; preds = %30
   br label %120
 
 117:                                              ; preds = %112
-  %.sroa.8228.4.extract.shift = lshr i64 %113, 32
-  %.sroa.8228.4.extract.trunc = trunc nuw i64 %.sroa.8228.4.extract.shift to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   store i64 %.sroa.0226.0.copyload, ptr %10, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.8228.0.extract.trunc, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.8228.4.extract.trunc, ptr %.sroa.529.0..sroa_idx, align 4
+  store i64 %113, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.14.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -9437,15 +9433,11 @@ _ZN10async_task5utils14abort_on_panic17hfaa5264bfa269f97E.exit: ; preds = %30
   br label %120
 
 117:                                              ; preds = %112
-  %.sroa.8228.4.extract.shift = lshr i64 %113, 32
-  %.sroa.8228.4.extract.trunc = trunc nuw i64 %.sroa.8228.4.extract.shift to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   store i64 %.sroa.0226.0.copyload, ptr %10, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.8228.0.extract.trunc, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.8228.4.extract.trunc, ptr %.sroa.529.0..sroa_idx, align 4
+  store i64 %113, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.14.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -11315,15 +11307,11 @@ _ZN10async_task5utils14abort_on_panic17h7235b1248204319aE.exit: ; preds = %30
   br label %121
 
 118:                                              ; preds = %113
-  %.sroa.8226.4.extract.shift = lshr i64 %114, 32
-  %.sroa.8226.4.extract.trunc = trunc nuw i64 %.sroa.8226.4.extract.shift to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   store i64 %.sroa.0224.0.copyload, ptr %10, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.8226.0.extract.trunc, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.8226.4.extract.trunc, ptr %.sroa.529.0..sroa_idx, align 4
+  store i64 %114, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.14.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -13184,15 +13172,11 @@ _ZN10async_task5utils14abort_on_panic17hf81c67a1ef74fb69E.exit: ; preds = %30
   br label %121
 
 118:                                              ; preds = %113
-  %.sroa.8226.4.extract.shift = lshr i64 %114, 32
-  %.sroa.8226.4.extract.trunc = trunc nuw i64 %.sroa.8226.4.extract.shift to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   store i64 %.sroa.0224.0.copyload, ptr %10, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.8226.0.extract.trunc, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.8226.4.extract.trunc, ptr %.sroa.529.0..sroa_idx, align 4
+  store i64 %114, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.14.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -14133,15 +14117,11 @@ _ZN10async_task5utils14abort_on_panic17h515825208dce5370E.exit: ; preds = %30
   br label %121
 
 118:                                              ; preds = %113
-  %.sroa.8226.4.extract.shift = lshr i64 %114, 32
-  %.sroa.8226.4.extract.trunc = trunc nuw i64 %.sroa.8226.4.extract.shift to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   store i64 %.sroa.0224.0.copyload, ptr %10, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.8226.0.extract.trunc, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.8226.4.extract.trunc, ptr %.sroa.529.0..sroa_idx, align 4
+  store i64 %114, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.14.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -15088,15 +15068,11 @@ _ZN10async_task5utils14abort_on_panic17he3614591475f7a22E.exit: ; preds = %30
   br label %120
 
 117:                                              ; preds = %112
-  %.sroa.8228.4.extract.shift = lshr i64 %113, 32
-  %.sroa.8228.4.extract.trunc = trunc nuw i64 %.sroa.8228.4.extract.shift to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   store i64 %.sroa.0226.0.copyload, ptr %10, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.8228.0.extract.trunc, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.8228.4.extract.trunc, ptr %.sroa.529.0..sroa_idx, align 4
+  store i64 %113, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.14.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -17909,15 +17885,11 @@ _ZN10async_task5utils14abort_on_panic17h2dd8de89cf7da858E.exit: ; preds = %30
   br label %120
 
 117:                                              ; preds = %112
-  %.sroa.8228.4.extract.shift = lshr i64 %113, 32
-  %.sroa.8228.4.extract.trunc = trunc nuw i64 %.sroa.8228.4.extract.shift to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   store i64 %.sroa.0226.0.copyload, ptr %10, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.8228.0.extract.trunc, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.8228.4.extract.trunc, ptr %.sroa.529.0..sroa_idx, align 4
+  store i64 %113, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.14.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -20735,15 +20707,11 @@ _ZN10async_task5utils14abort_on_panic17hd62a6f7384094034E.exit: ; preds = %30
   br label %121
 
 118:                                              ; preds = %113
-  %.sroa.8226.4.extract.shift = lshr i64 %114, 32
-  %.sroa.8226.4.extract.trunc = trunc nuw i64 %.sroa.8226.4.extract.shift to i32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   store i64 %.sroa.0224.0.copyload, ptr %10, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.8226.0.extract.trunc, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.8226.4.extract.trunc, ptr %.sroa.529.0..sroa_idx, align 4
+  store i64 %114, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.14.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24

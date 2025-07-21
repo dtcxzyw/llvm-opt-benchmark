@@ -31069,15 +31069,10 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %2383
 
 .thread871:                                       ; preds = %2611
   %2620 = ptrtoint ptr %.sroa.8665.0.ph to i64
-  %.sroa.3668.0.extract.trunc = trunc i64 %2620 to i8
-  %.sroa.3668.1.extract.shift = lshr i64 %2620, 8
-  %.sroa.3668.1.extract.trunc = trunc nuw i64 %.sroa.3668.1.extract.shift to i56
   %2621 = getelementptr inbounds nuw i8, ptr %1, i64 424
   store ptr %.sroa.6664.0.ph, ptr %2621, align 8
   %.sroa.4671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 432
-  store i8 %.sroa.3668.0.extract.trunc, ptr %.sroa.4671.0..sroa_idx, align 8
-  %.sroa.5672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 433
-  store i56 %.sroa.3668.1.extract.trunc, ptr %.sroa.5672.0..sroa_idx, align 1
+  store i64 %2620, ptr %.sroa.4671.0..sroa_idx, align 8
   %.sroa.6673.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 440
   store i64 %.sroa.9666.0.ph, ptr %.sroa.6673.0..sroa_idx, align 8
   %2622 = getelementptr inbounds nuw i8, ptr %1, i64 104

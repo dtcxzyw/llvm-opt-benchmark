@@ -8090,12 +8090,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %96, %
   %102 = select i1 %.not102.not.lcssa, i1 true, i1 %100
   %narrow = select i1 %102, i1 true, i1 %101
   %.4 = zext i1 %narrow to i32
-  %.sroa.0.0.extract.trunc.i = trunc i16 %.045.lcssa to i8
-  %.sroa.2.0.extract.shift.i = lshr i16 %.045.lcssa, 8
-  %.sroa.2.0.extract.trunc.i = trunc nuw i16 %.sroa.2.0.extract.shift.i to i8
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %1, align 4, !tbaa !22
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %.sroa.2.0.extract.trunc.i, ptr %103, align 1, !tbaa !22
+  store i16 %.045.lcssa, ptr %1, align 4
   ret i32 %.4
 }
 
@@ -8246,12 +8241,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
 64:                                               ; preds = %60, %.thread71
   %.23576 = phi i16 [ %.033, %60 ], [ %.23575, %.thread71 ]
   %.340 = phi i32 [ 1, %60 ], [ %spec.select, %.thread71 ]
-  %.sroa.0.0.extract.trunc.i = trunc i16 %.23576 to i8
-  %.sroa.2.0.extract.shift.i = lshr i16 %.23576, 8
-  %.sroa.2.0.extract.trunc.i = trunc nuw i16 %.sroa.2.0.extract.shift.i to i8
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %1, align 4, !tbaa !22
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %.sroa.2.0.extract.trunc.i, ptr %65, align 1, !tbaa !22
+  store i16 %.23576, ptr %1, align 4
   ret i32 %.340
 }
 
@@ -8321,18 +8311,13 @@ _ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit: ; preds = %.lr.
 
 _ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit.thread: ; preds = %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit, %5, %19, %21, %16
   %.223 = phi i16 [ %24, %21 ], [ %spec.select, %16 ], [ 0, %19 ], [ %spec.select, %5 ], [ %spec.select, %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit ]
-  %.sroa.0.0.extract.trunc.i = trunc i16 %.223 to i8
-  %.sroa.2.0.extract.shift.i = lshr i16 %.223, 8
-  %.sroa.2.0.extract.trunc.i = trunc nuw i16 %.sroa.2.0.extract.shift.i to i8
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %1, align 4, !tbaa !22
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %.sroa.2.0.extract.trunc.i, ptr %31, align 1, !tbaa !22
-  %32 = load ptr, ptr %6, align 8, !tbaa !55
-  %33 = ptrtoint ptr %32 to i64
-  %34 = ptrtoint ptr %2 to i64
-  %35 = sub i64 %33, %34
-  %36 = trunc i64 %35 to i32
-  ret i32 %36
+  store i16 %.223, ptr %1, align 4
+  %31 = load ptr, ptr %6, align 8, !tbaa !55
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %2 to i64
+  %34 = sub i64 %32, %33
+  %35 = trunc i64 %34 to i32
+  ret i32 %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

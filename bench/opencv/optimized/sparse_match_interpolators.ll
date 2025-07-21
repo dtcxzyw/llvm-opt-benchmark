@@ -4708,7 +4708,7 @@ define hidden void @_ZNK2cv8ximgproc25EdgeAwareInterpolatorImpl21GetKNNMatches_P
   %9 = load ptr, ptr %8, align 8, !tbaa !108
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !68
-  %.sroa.speculated51 = tail call i32 @llvm.smin.i32(i32 %11, i32 %7)
+  %.sroa.speculated49 = tail call i32 @llvm.smin.i32(i32 %11, i32 %7)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !107
   %14 = mul i32 %13, %6
@@ -4743,18 +4743,18 @@ define hidden void @_ZNK2cv8ximgproc25EdgeAwareInterpolatorImpl21GetKNNMatches_P
 
 .preheader:                                       ; preds = %2
   %31 = icmp slt i32 %7, %.sroa.speculated
-  br i1 %31, label %.lr.ph62, label %._crit_edge.thread
+  br i1 %31, label %.lr.ph60, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader
   tail call void @_ZdaPv(ptr noundef nonnull %30) #33
-  br label %371
+  br label %351
 
-.lr.ph62:                                         ; preds = %.preheader
+.lr.ph60:                                         ; preds = %.preheader
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = tail call i32 @llvm.smin.i32(i32 %11, i32 %7)
   %smin = sext i32 %33 to i64
   %34 = add i32 %.sroa.speculated, %33
-  %35 = sub i32 %34, %.sroa.speculated51
+  %35 = sub i32 %34, %.sroa.speculated49
   br label %38
 
 36:                                               ; preds = %2
@@ -4764,504 +4764,485 @@ define hidden void @_ZNK2cv8ximgproc25EdgeAwareInterpolatorImpl21GetKNNMatches_P
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #31
   resume { ptr, i32 } %37
 
-38:                                               ; preds = %.lr.ph62, %.critedge
-  %39 = phi ptr [ %26, %.lr.ph62 ], [ %358, %.critedge ]
-  %40 = phi ptr [ %21, %.lr.ph62 ], [ %359, %.critedge ]
-  %41 = phi ptr [ %26, %.lr.ph62 ], [ %360, %.critedge ]
-  %42 = phi ptr [ %21, %.lr.ph62 ], [ %361, %.critedge ]
-  %43 = phi ptr [ %26, %.lr.ph62 ], [ %362, %.critedge ]
-  %44 = phi ptr [ %26, %.lr.ph62 ], [ %363, %.critedge ]
-  %45 = phi ptr [ %21, %.lr.ph62 ], [ %364, %.critedge ]
-  %46 = phi ptr [ %26, %.lr.ph62 ], [ %365, %.critedge ]
-  %47 = phi ptr [ %26, %.lr.ph62 ], [ %366, %.critedge ]
-  %48 = phi ptr [ %21, %.lr.ph62 ], [ %367, %.critedge ]
-  %49 = phi ptr [ %26, %.lr.ph62 ], [ %368, %.critedge ]
-  %50 = phi ptr [ %9, %.lr.ph62 ], [ %369, %.critedge ]
-  %indvars.iv69 = phi i64 [ %smin, %.lr.ph62 ], [ %indvars.iv.next70, %.critedge ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !77
-  %53 = getelementptr inbounds %"class.std::vector.3", ptr %52, i64 %indvars.iv69
-  %54 = load ptr, ptr %53, align 8, !tbaa !213
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !213
-  %57 = icmp eq ptr %54, %56
-  br i1 %57, label %.critedge, label %58
+38:                                               ; preds = %.lr.ph60, %.critedge
+  %39 = phi ptr [ %26, %.lr.ph60 ], [ %343, %.critedge ]
+  %40 = phi ptr [ %21, %.lr.ph60 ], [ %344, %.critedge ]
+  %41 = phi ptr [ %21, %.lr.ph60 ], [ %345, %.critedge ]
+  %42 = phi ptr [ %21, %.lr.ph60 ], [ %346, %.critedge ]
+  %43 = phi ptr [ %21, %.lr.ph60 ], [ %347, %.critedge ]
+  %44 = phi ptr [ %26, %.lr.ph60 ], [ %348, %.critedge ]
+  %45 = phi ptr [ %9, %.lr.ph60 ], [ %349, %.critedge ]
+  %indvars.iv67 = phi i64 [ %smin, %.lr.ph60 ], [ %indvars.iv.next68, %.critedge ]
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !77
+  %48 = getelementptr inbounds %"class.std::vector.3", ptr %47, i64 %indvars.iv67
+  %49 = load ptr, ptr %48, align 8, !tbaa !213
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !213
+  %52 = icmp eq ptr %49, %51
+  br i1 %52, label %.critedge, label %53
 
-58:                                               ; preds = %38
-  %59 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %60 = load i32, ptr %59, align 8, !tbaa !62
-  %61 = sext i32 %60 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 0, i64 %61, i1 false)
-  %62 = load i32, ptr %15, align 4, !tbaa !222
-  %63 = sext i32 %62 to i64
-  %64 = shl nsw i64 %63, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %49, i8 0, i64 %64, i1 false)
+53:                                               ; preds = %38
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %55 = load i32, ptr %54, align 8, !tbaa !62
+  %56 = sext i32 %55 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 0, i64 %56, i1 false)
+  %57 = load i32, ptr %15, align 4, !tbaa !222
+  %58 = sext i32 %57 to i64
+  %59 = shl nsw i64 %58, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %44, i8 0, i64 %59, i1 false)
+  %.sroa.246.0.insert.ext = shl i64 %indvars.iv67, 32
   store i32 1, ptr %28, align 8, !tbaa !226
-  %65 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %65, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %66 = trunc nsw i64 %indvars.iv69 to i32
-  store i32 %66, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !68
-  %67 = load i32, ptr %28, align 8, !tbaa !226
-  %68 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv69
-  store i32 %67, ptr %68, align 4, !tbaa !68
-  %.08.i = ashr i32 %67, 1
-  %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %48, i64 %69
-  %71 = load float, ptr %70, align 4, !tbaa !148
-  %72 = sext i32 %.08.i to i64
-  %73 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %48, i64 %72
-  %74 = load float, ptr %73, align 4, !tbaa !148
-  %75 = fcmp olt float %71, %74
-  br i1 %75, label %.lr.ph.i, label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit
+  %60 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i64 %.sroa.246.0.insert.ext, ptr %60, align 4
+  %61 = load i32, ptr %28, align 8, !tbaa !226
+  %62 = load ptr, ptr %27, align 8, !tbaa !225
+  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv67
+  store i32 %61, ptr %63, align 4, !tbaa !68
+  %.08.i = ashr i32 %61, 1
+  %64 = sext i32 %61 to i64
+  %65 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %42, i64 %64
+  %66 = load float, ptr %65, align 4, !tbaa !148
+  %67 = sext i32 %.08.i to i64
+  %68 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %42, i64 %67
+  %69 = load float, ptr %68, align 4, !tbaa !148
+  %70 = fcmp olt float %66, %69
+  br i1 %70, label %.lr.ph.i, label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit
 
-.lr.ph.i:                                         ; preds = %58, %.lr.ph.i
-  %76 = phi ptr [ %98, %.lr.ph.i ], [ %73, %58 ]
-  %77 = phi i64 [ %97, %.lr.ph.i ], [ %72, %58 ]
-  %78 = phi ptr [ %95, %.lr.ph.i ], [ %70, %58 ]
-  %79 = phi i64 [ %94, %.lr.ph.i ], [ %69, %58 ]
-  %80 = phi ptr [ %91, %.lr.ph.i ], [ %48, %58 ]
-  %.010.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.08.i, %58 ]
-  %.079.i = phi i32 [ %.010.i, %.lr.ph.i ], [ %67, %58 ]
-  %81 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %80, i64 %79, i32 1
-  %82 = load i32, ptr %81, align 4, !tbaa !146
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %46, i64 %83
-  store i32 %.010.i, ptr %84, align 4, !tbaa !68
-  %85 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %80, i64 %77, i32 1
-  %86 = load i32, ptr %85, align 4, !tbaa !146
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %46, i64 %87
-  store i32 %.079.i, ptr %88, align 4, !tbaa !68
-  %89 = load i64, ptr %78, align 4
-  store i64 %89, ptr %32, align 8
-  %90 = load i64, ptr %76, align 4
-  store i64 %90, ptr %78, align 4
-  %91 = load ptr, ptr %3, align 8, !tbaa !224
-  %92 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %91, i64 %77
-  %93 = load i64, ptr %32, align 8
-  store i64 %93, ptr %92, align 4
+.lr.ph.i:                                         ; preds = %53, %.lr.ph.i
+  %71 = phi ptr [ %93, %.lr.ph.i ], [ %68, %53 ]
+  %72 = phi i64 [ %92, %.lr.ph.i ], [ %67, %53 ]
+  %73 = phi ptr [ %90, %.lr.ph.i ], [ %65, %53 ]
+  %74 = phi i64 [ %89, %.lr.ph.i ], [ %64, %53 ]
+  %75 = phi ptr [ %86, %.lr.ph.i ], [ %42, %53 ]
+  %.010.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.08.i, %53 ]
+  %.079.i = phi i32 [ %.010.i, %.lr.ph.i ], [ %61, %53 ]
+  %76 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %75, i64 %74, i32 1
+  %77 = load i32, ptr %76, align 4, !tbaa !146
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %62, i64 %78
+  store i32 %.010.i, ptr %79, align 4, !tbaa !68
+  %80 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %75, i64 %72, i32 1
+  %81 = load i32, ptr %80, align 4, !tbaa !146
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i32, ptr %62, i64 %82
+  store i32 %.079.i, ptr %83, align 4, !tbaa !68
+  %84 = load i64, ptr %73, align 4
+  store i64 %84, ptr %32, align 8
+  %85 = load i64, ptr %71, align 4
+  store i64 %85, ptr %73, align 4
+  %86 = load ptr, ptr %3, align 8, !tbaa !224
+  %87 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %86, i64 %72
+  %88 = load i64, ptr %32, align 8
+  store i64 %88, ptr %87, align 4
   %.0.i = ashr i32 %.010.i, 1
-  %94 = sext i32 %.010.i to i64
-  %95 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %91, i64 %94
-  %96 = load float, ptr %95, align 4, !tbaa !148
-  %97 = sext i32 %.0.i to i64
-  %98 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %91, i64 %97
-  %99 = load float, ptr %98, align 4, !tbaa !148
-  %100 = fcmp olt float %96, %99
-  br i1 %100, label %.lr.ph.i, label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit, !llvm.loop !227
+  %89 = sext i32 %.010.i to i64
+  %90 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %86, i64 %89
+  %91 = load float, ptr %90, align 4, !tbaa !148
+  %92 = sext i32 %.0.i to i64
+  %93 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %86, i64 %92
+  %94 = load float, ptr %93, align 4, !tbaa !148
+  %95 = fcmp olt float %91, %94
+  br i1 %95, label %.lr.ph.i, label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit, !llvm.loop !227
 
 _ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load i32, ptr %28, align 8
   br label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit
 
-_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit:     ; preds = %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit, %58
-  %101 = phi ptr [ %91, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %40, %58 ]
-  %102 = phi ptr [ %91, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %42, %58 ]
-  %103 = phi ptr [ %91, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %45, %58 ]
-  %104 = phi i32 [ %.pre, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %67, %58 ]
-  %105 = phi ptr [ %46, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %47, %58 ]
-  %106 = phi ptr [ %91, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %48, %58 ]
-  %107 = load ptr, ptr %8, align 8, !tbaa !108
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 48
+_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit:     ; preds = %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit, %53
+  %96 = phi ptr [ %86, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %40, %53 ]
+  %97 = phi ptr [ %86, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %41, %53 ]
+  %98 = phi i32 [ %.pre, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %61, %53 ]
+  %99 = phi ptr [ %86, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit ], [ %42, %53 ]
+  %100 = load ptr, ptr %8, align 8, !tbaa !108
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
+  %102 = load ptr, ptr %101, align 8, !tbaa !89
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 104
+  %104 = load ptr, ptr %103, align 8, !tbaa !90
+  %105 = load i64, ptr %104, align 8, !tbaa !69
+  %106 = mul i64 %105, %indvars.iv67
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 144
   %109 = load ptr, ptr %108, align 8, !tbaa !89
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 104
+  %110 = getelementptr inbounds nuw i8, ptr %100, i64 200
   %111 = load ptr, ptr %110, align 8, !tbaa !90
   %112 = load i64, ptr %111, align 8, !tbaa !69
-  %113 = mul i64 %112, %indvars.iv69
+  %113 = mul i64 %112, %indvars.iv67
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 %113
-  %115 = getelementptr inbounds nuw i8, ptr %107, i64 144
-  %116 = load ptr, ptr %115, align 8, !tbaa !89
-  %117 = getelementptr inbounds nuw i8, ptr %107, i64 200
-  %118 = load ptr, ptr %117, align 8, !tbaa !90
-  %119 = load i64, ptr %118, align 8, !tbaa !69
-  %120 = mul i64 %119, %indvars.iv69
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 %120
-  %122 = getelementptr inbounds nuw i8, ptr %107, i64 420
-  %123 = load i32, ptr %122, align 4, !tbaa !23
-  %124 = icmp slt i32 %123, 1
-  %125 = icmp eq i32 %104, 0
-  %or.cond58 = select i1 %124, i1 true, i1 %125
-  br i1 %or.cond58, label %.critedge, label %.lr.ph60
+  %115 = getelementptr inbounds nuw i8, ptr %100, i64 420
+  %116 = load i32, ptr %115, align 4, !tbaa !23
+  %117 = icmp slt i32 %116, 1
+  %118 = icmp eq i32 %98, 0
+  %or.cond56 = select i1 %117, i1 true, i1 %118
+  br i1 %or.cond56, label %.critedge, label %.lr.ph58
 
 .loopexit.loopexit:                               ; preds = %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit
-  %.pre71 = load i32, ptr %28, align 8
+  %.pre69 = load i32, ptr %28, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit
-  %126 = phi i32 [ %.pre71, %.loopexit.loopexit ], [ %storemerge.i, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %127 = phi ptr [ %346, %.loopexit.loopexit ], [ %234, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %128 = phi ptr [ %338, %.loopexit.loopexit ], [ %224, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %129 = phi ptr [ %339, %.loopexit.loopexit ], [ %225, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %130 = phi ptr [ %340, %.loopexit.loopexit ], [ %226, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %131 = phi ptr [ %341, %.loopexit.loopexit ], [ %227, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %132 = phi ptr [ %342, %.loopexit.loopexit ], [ %228, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %133 = phi ptr [ %343, %.loopexit.loopexit ], [ %229, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %134 = phi ptr [ %344, %.loopexit.loopexit ], [ %229, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %135 = phi ptr [ %345, %.loopexit.loopexit ], [ %228, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %136 = getelementptr inbounds nuw i8, ptr %127, i64 420
-  %137 = load i32, ptr %136, align 4, !tbaa !23
-  %138 = sext i32 %137 to i64
-  %139 = icmp sge i64 %indvars.iv.next67, %138
-  %140 = icmp eq i32 %126, 0
-  %or.cond = select i1 %139, i1 true, i1 %140
-  br i1 %or.cond, label %.critedge, label %.lr.ph60, !llvm.loop !228
+  %119 = phi i32 [ %.pre69, %.loopexit.loopexit ], [ %storemerge.i, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %120 = phi ptr [ %331, %.loopexit.loopexit ], [ %220, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %121 = phi ptr [ %324, %.loopexit.loopexit ], [ %211, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %122 = phi ptr [ %325, %.loopexit.loopexit ], [ %212, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %123 = phi ptr [ %326, %.loopexit.loopexit ], [ %213, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %124 = phi ptr [ %327, %.loopexit.loopexit ], [ %214, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %125 = phi ptr [ %328, %.loopexit.loopexit ], [ %215, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %126 = phi ptr [ %329, %.loopexit.loopexit ], [ %215, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %127 = phi ptr [ %330, %.loopexit.loopexit ], [ %214, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %128 = getelementptr inbounds nuw i8, ptr %120, i64 420
+  %129 = load i32, ptr %128, align 4, !tbaa !23
+  %130 = sext i32 %129 to i64
+  %131 = icmp sge i64 %indvars.iv.next65, %130
+  %132 = icmp eq i32 %119, 0
+  %or.cond = select i1 %131, i1 true, i1 %132
+  br i1 %or.cond, label %.critedge, label %.lr.ph58, !llvm.loop !228
 
-.lr.ph60:                                         ; preds = %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit, %.loopexit
-  %141 = phi ptr [ %223, %.loopexit ], [ %39, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
-  %142 = phi ptr [ %128, %.loopexit ], [ %101, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
-  %143 = phi ptr [ %129, %.loopexit ], [ %41, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
-  %144 = phi ptr [ %130, %.loopexit ], [ %102, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
-  %145 = phi ptr [ %131, %.loopexit ], [ %43, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
-  %146 = phi ptr [ %132, %.loopexit ], [ %44, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
-  %147 = phi ptr [ %133, %.loopexit ], [ %103, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.loopexit ], [ 0, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %.sroa.0.0.copyload28.i = load i32, ptr %148, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %147, i64 12
-  %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i42, align 4, !tbaa !68
-  %149 = sext i32 %.sroa.2.0.copyload.i to i64
-  %150 = getelementptr inbounds i32, ptr %146, i64 %149
-  store i32 0, ptr %150, align 4, !tbaa !68
-  %151 = load i32, ptr %28, align 8, !tbaa !226
-  %152 = icmp sgt i32 %151, 2
-  br i1 %152, label %.lr.ph.i44, label %._crit_edge.i
+.lr.ph58:                                         ; preds = %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit, %.loopexit
+  %133 = phi ptr [ %121, %.loopexit ], [ %62, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
+  %134 = phi ptr [ %122, %.loopexit ], [ %96, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
+  %135 = phi ptr [ %123, %.loopexit ], [ %62, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
+  %136 = phi ptr [ %124, %.loopexit ], [ %62, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
+  %137 = phi ptr [ %125, %.loopexit ], [ %97, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.loopexit ], [ 0, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %.sroa.0.0.copyload28.i = load i32, ptr %138, align 4, !tbaa !95
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %137, i64 12
+  %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !68
+  %139 = sext i32 %.sroa.2.0.copyload.i to i64
+  %140 = getelementptr inbounds i32, ptr %136, i64 %139
+  store i32 0, ptr %140, align 4, !tbaa !68
+  %141 = load i32, ptr %28, align 8, !tbaa !226
+  %142 = icmp sgt i32 %141, 2
+  br i1 %142, label %.lr.ph.i43, label %._crit_edge.i
 
-.lr.ph.i44:                                       ; preds = %.lr.ph60, %.lr.ph.i44
-  %153 = phi ptr [ %166, %.lr.ph.i44 ], [ %147, %.lr.ph60 ]
-  %154 = phi i32 [ %171, %.lr.ph.i44 ], [ 2, %.lr.ph60 ]
-  %.02530.i = phi i32 [ %.1.i, %.lr.ph.i44 ], [ 1, %.lr.ph60 ]
-  %155 = or disjoint i32 %154, 1
-  %156 = sext i32 %154 to i64
-  %157 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %153, i64 %156
-  %158 = load float, ptr %157, align 4, !tbaa !148
-  %159 = sext i32 %155 to i64
-  %160 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %153, i64 %159
-  %161 = load float, ptr %160, align 4, !tbaa !148
-  %162 = fcmp olt float %158, %161
-  %163 = sext i32 %.02530.i to i64
-  %164 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %153, i64 %163
-  %.sink.in.i = select i1 %162, ptr %157, ptr %160
-  %.1.i = select i1 %162, i32 %154, i32 %155
+.lr.ph.i43:                                       ; preds = %.lr.ph58, %.lr.ph.i43
+  %143 = phi ptr [ %156, %.lr.ph.i43 ], [ %137, %.lr.ph58 ]
+  %144 = phi i32 [ %161, %.lr.ph.i43 ], [ 2, %.lr.ph58 ]
+  %.02530.i = phi i32 [ %.1.i, %.lr.ph.i43 ], [ 1, %.lr.ph58 ]
+  %145 = or disjoint i32 %144, 1
+  %146 = sext i32 %144 to i64
+  %147 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %143, i64 %146
+  %148 = load float, ptr %147, align 4, !tbaa !148
+  %149 = sext i32 %145 to i64
+  %150 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %143, i64 %149
+  %151 = load float, ptr %150, align 4, !tbaa !148
+  %152 = fcmp olt float %148, %151
+  %153 = sext i32 %.02530.i to i64
+  %154 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %143, i64 %153
+  %.sink.in.i = select i1 %152, ptr %147, ptr %150
+  %.1.i = select i1 %152, i32 %144, i32 %145
   %.sink.i = load i64, ptr %.sink.in.i, align 4
-  store i64 %.sink.i, ptr %164, align 4
-  %165 = load ptr, ptr %27, align 8, !tbaa !225
-  %166 = load ptr, ptr %3, align 8, !tbaa !224
-  %167 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %166, i64 %163, i32 1
-  %168 = load i32, ptr %167, align 4, !tbaa !146
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i32, ptr %165, i64 %169
-  store i32 %.02530.i, ptr %170, align 4, !tbaa !68
-  %171 = shl i32 %.1.i, 1
-  %172 = load i32, ptr %28, align 8, !tbaa !226
-  %173 = icmp slt i32 %171, %172
-  br i1 %173, label %.lr.ph.i44, label %._crit_edge.i, !llvm.loop !229
+  store i64 %.sink.i, ptr %154, align 4
+  %155 = load ptr, ptr %27, align 8, !tbaa !225
+  %156 = load ptr, ptr %3, align 8, !tbaa !224
+  %157 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %156, i64 %153, i32 1
+  %158 = load i32, ptr %157, align 4, !tbaa !146
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds i32, ptr %155, i64 %159
+  store i32 %.02530.i, ptr %160, align 4, !tbaa !68
+  %161 = shl i32 %.1.i, 1
+  %162 = load i32, ptr %28, align 8, !tbaa !226
+  %163 = icmp slt i32 %161, %162
+  br i1 %163, label %.lr.ph.i43, label %._crit_edge.i, !llvm.loop !229
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i44, %.lr.ph60
-  %174 = phi ptr [ %141, %.lr.ph60 ], [ %165, %.lr.ph.i44 ]
-  %175 = phi ptr [ %142, %.lr.ph60 ], [ %166, %.lr.ph.i44 ]
-  %176 = phi ptr [ %143, %.lr.ph60 ], [ %165, %.lr.ph.i44 ]
-  %177 = phi ptr [ %144, %.lr.ph60 ], [ %166, %.lr.ph.i44 ]
-  %178 = phi ptr [ %145, %.lr.ph60 ], [ %165, %.lr.ph.i44 ]
-  %179 = phi ptr [ %146, %.lr.ph60 ], [ %165, %.lr.ph.i44 ]
-  %180 = phi ptr [ %147, %.lr.ph60 ], [ %166, %.lr.ph.i44 ]
-  %.025.lcssa.i = phi i32 [ 1, %.lr.ph60 ], [ %.1.i, %.lr.ph.i44 ]
-  %.lcssa.i = phi i32 [ %151, %.lr.ph60 ], [ %172, %.lr.ph.i44 ]
-  %181 = icmp eq i32 %.025.lcssa.i, %.lcssa.i
-  br i1 %181, label %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit, label %182
+._crit_edge.i:                                    ; preds = %.lr.ph.i43, %.lr.ph58
+  %164 = phi ptr [ %133, %.lr.ph58 ], [ %155, %.lr.ph.i43 ]
+  %165 = phi ptr [ %134, %.lr.ph58 ], [ %156, %.lr.ph.i43 ]
+  %166 = phi ptr [ %135, %.lr.ph58 ], [ %155, %.lr.ph.i43 ]
+  %167 = phi ptr [ %136, %.lr.ph58 ], [ %155, %.lr.ph.i43 ]
+  %168 = phi ptr [ %137, %.lr.ph58 ], [ %156, %.lr.ph.i43 ]
+  %.025.lcssa.i = phi i32 [ 1, %.lr.ph58 ], [ %.1.i, %.lr.ph.i43 ]
+  %.lcssa.i = phi i32 [ %141, %.lr.ph58 ], [ %162, %.lr.ph.i43 ]
+  %169 = icmp eq i32 %.025.lcssa.i, %.lcssa.i
+  br i1 %169, label %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit, label %170
 
-182:                                              ; preds = %._crit_edge.i
-  %183 = sext i32 %.lcssa.i to i64
-  %184 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %180, i64 %183
-  %185 = sext i32 %.025.lcssa.i to i64
-  %186 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %180, i64 %185
-  %187 = load i64, ptr %184, align 4
-  store i64 %187, ptr %186, align 4
-  %188 = load ptr, ptr %27, align 8, !tbaa !225
-  %189 = load ptr, ptr %3, align 8, !tbaa !224
-  %190 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %189, i64 %185, i32 1
-  %191 = load i32, ptr %190, align 4, !tbaa !146
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds i32, ptr %188, i64 %192
-  store i32 %.025.lcssa.i, ptr %193, align 4, !tbaa !68
+170:                                              ; preds = %._crit_edge.i
+  %171 = sext i32 %.lcssa.i to i64
+  %172 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %168, i64 %171
+  %173 = sext i32 %.025.lcssa.i to i64
+  %174 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %168, i64 %173
+  %175 = load i64, ptr %172, align 4
+  store i64 %175, ptr %174, align 4
+  %176 = load ptr, ptr %27, align 8, !tbaa !225
+  %177 = load ptr, ptr %3, align 8, !tbaa !224
+  %178 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %177, i64 %173, i32 1
+  %179 = load i32, ptr %178, align 4, !tbaa !146
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds i32, ptr %176, i64 %180
+  store i32 %.025.lcssa.i, ptr %181, align 4, !tbaa !68
   %.032.i = ashr i32 %.025.lcssa.i, 1
-  %194 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %189, i64 %185
-  %195 = load float, ptr %194, align 4, !tbaa !148
-  %196 = sext i32 %.032.i to i64
-  %197 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %189, i64 %196
-  %198 = load float, ptr %197, align 4, !tbaa !148
-  %199 = fcmp olt float %195, %198
-  br i1 %199, label %.lr.ph36.i, label %._crit_edge37.i
+  %182 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %177, i64 %173
+  %183 = load float, ptr %182, align 4, !tbaa !148
+  %184 = sext i32 %.032.i to i64
+  %185 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %177, i64 %184
+  %186 = load float, ptr %185, align 4, !tbaa !148
+  %187 = fcmp olt float %183, %186
+  br i1 %187, label %.lr.ph36.i, label %._crit_edge37.i
 
-.lr.ph36.i:                                       ; preds = %182, %.lr.ph36.i
-  %200 = phi ptr [ %219, %.lr.ph36.i ], [ %197, %182 ]
-  %201 = phi i64 [ %218, %.lr.ph36.i ], [ %196, %182 ]
-  %202 = phi ptr [ %216, %.lr.ph36.i ], [ %194, %182 ]
-  %203 = phi i64 [ %215, %.lr.ph36.i ], [ %185, %182 ]
-  %.034.i = phi i32 [ %.0.i43, %.lr.ph36.i ], [ %.032.i, %182 ]
-  %.233.i = phi i32 [ %.034.i, %.lr.ph36.i ], [ %.025.lcssa.i, %182 ]
-  %204 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %189, i64 %203, i32 1
-  %205 = load i32, ptr %204, align 4, !tbaa !146
-  %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds i32, ptr %188, i64 %206
-  store i32 %.034.i, ptr %207, align 4, !tbaa !68
-  %208 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %189, i64 %201, i32 1
-  %209 = load i32, ptr %208, align 4, !tbaa !146
-  %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i32, ptr %188, i64 %210
-  store i32 %.233.i, ptr %211, align 4, !tbaa !68
-  %212 = load i64, ptr %202, align 4
-  store i64 %212, ptr %32, align 8
-  %213 = load i64, ptr %200, align 4
-  store i64 %213, ptr %202, align 4
-  %214 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %189, i64 %201
-  store i64 %212, ptr %214, align 4
-  %.0.i43 = ashr i32 %.034.i, 1
-  %215 = sext i32 %.034.i to i64
-  %216 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %189, i64 %215
-  %217 = load float, ptr %216, align 4, !tbaa !148
-  %218 = sext i32 %.0.i43 to i64
-  %219 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %189, i64 %218
-  %220 = load float, ptr %219, align 4, !tbaa !148
-  %221 = fcmp olt float %217, %220
-  br i1 %221, label %.lr.ph36.i, label %._crit_edge37.i, !llvm.loop !230
+.lr.ph36.i:                                       ; preds = %170, %.lr.ph36.i
+  %188 = phi ptr [ %207, %.lr.ph36.i ], [ %185, %170 ]
+  %189 = phi i64 [ %206, %.lr.ph36.i ], [ %184, %170 ]
+  %190 = phi ptr [ %204, %.lr.ph36.i ], [ %182, %170 ]
+  %191 = phi i64 [ %203, %.lr.ph36.i ], [ %173, %170 ]
+  %.034.i = phi i32 [ %.0.i42, %.lr.ph36.i ], [ %.032.i, %170 ]
+  %.233.i = phi i32 [ %.034.i, %.lr.ph36.i ], [ %.025.lcssa.i, %170 ]
+  %192 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %177, i64 %191, i32 1
+  %193 = load i32, ptr %192, align 4, !tbaa !146
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds i32, ptr %176, i64 %194
+  store i32 %.034.i, ptr %195, align 4, !tbaa !68
+  %196 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %177, i64 %189, i32 1
+  %197 = load i32, ptr %196, align 4, !tbaa !146
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds i32, ptr %176, i64 %198
+  store i32 %.233.i, ptr %199, align 4, !tbaa !68
+  %200 = load i64, ptr %190, align 4
+  store i64 %200, ptr %32, align 8
+  %201 = load i64, ptr %188, align 4
+  store i64 %201, ptr %190, align 4
+  %202 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %177, i64 %189
+  store i64 %200, ptr %202, align 4
+  %.0.i42 = ashr i32 %.034.i, 1
+  %203 = sext i32 %.034.i to i64
+  %204 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %177, i64 %203
+  %205 = load float, ptr %204, align 4, !tbaa !148
+  %206 = sext i32 %.0.i42 to i64
+  %207 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %177, i64 %206
+  %208 = load float, ptr %207, align 4, !tbaa !148
+  %209 = fcmp olt float %205, %208
+  br i1 %209, label %.lr.ph36.i, label %._crit_edge37.i, !llvm.loop !230
 
-._crit_edge37.i:                                  ; preds = %.lr.ph36.i, %182
-  %222 = load i32, ptr %28, align 8, !tbaa !226
+._crit_edge37.i:                                  ; preds = %.lr.ph36.i, %170
+  %210 = load i32, ptr %28, align 8, !tbaa !226
   br label %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit
 
 _ZN2cv8ximgproc8nodeHeap6getMinEv.exit:           ; preds = %._crit_edge.i, %._crit_edge37.i
-  %223 = phi ptr [ %188, %._crit_edge37.i ], [ %174, %._crit_edge.i ]
-  %224 = phi ptr [ %189, %._crit_edge37.i ], [ %175, %._crit_edge.i ]
-  %225 = phi ptr [ %188, %._crit_edge37.i ], [ %176, %._crit_edge.i ]
-  %226 = phi ptr [ %189, %._crit_edge37.i ], [ %177, %._crit_edge.i ]
-  %227 = phi ptr [ %188, %._crit_edge37.i ], [ %178, %._crit_edge.i ]
-  %228 = phi ptr [ %188, %._crit_edge37.i ], [ %179, %._crit_edge.i ]
-  %229 = phi ptr [ %189, %._crit_edge37.i ], [ %180, %._crit_edge.i ]
-  %storemerge.in.i = phi i32 [ %222, %._crit_edge37.i ], [ %.025.lcssa.i, %._crit_edge.i ]
+  %211 = phi ptr [ %176, %._crit_edge37.i ], [ %164, %._crit_edge.i ]
+  %212 = phi ptr [ %177, %._crit_edge37.i ], [ %165, %._crit_edge.i ]
+  %213 = phi ptr [ %176, %._crit_edge37.i ], [ %166, %._crit_edge.i ]
+  %214 = phi ptr [ %176, %._crit_edge37.i ], [ %167, %._crit_edge.i ]
+  %215 = phi ptr [ %177, %._crit_edge37.i ], [ %168, %._crit_edge.i ]
+  %storemerge.in.i = phi i32 [ %210, %._crit_edge37.i ], [ %.025.lcssa.i, %._crit_edge.i ]
   %storemerge.i = add nsw i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %28, align 8, !tbaa !226
-  %230 = bitcast i32 %.sroa.0.0.copyload28.i to float
-  %231 = getelementptr inbounds i8, ptr %30, i64 %149
-  store i8 1, ptr %231, align 1, !tbaa !231
-  %232 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv66
-  store i32 %.sroa.2.0.copyload.i, ptr %232, align 4, !tbaa !68
-  %233 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv66
-  store i32 %.sroa.0.0.copyload28.i, ptr %233, align 4, !tbaa !95
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %234 = load ptr, ptr %8, align 8, !tbaa !108
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
-  %236 = load ptr, ptr %235, align 8, !tbaa !77
-  %237 = getelementptr inbounds %"class.std::vector.3", ptr %236, i64 %149
-  %238 = load ptr, ptr %237, align 8, !tbaa !213
-  %239 = getelementptr inbounds %"class.std::vector.3", ptr %236, i64 %149, i32 0, i32 0, i32 0, i32 1
-  %240 = load ptr, ptr %239, align 8, !tbaa !144
-  %241 = ptrtoint ptr %240 to i64
-  %242 = ptrtoint ptr %238 to i64
-  %243 = sub i64 %241, %242
-  %244 = lshr exact i64 %243, 3
-  %245 = trunc i64 %244 to i32
-  %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %.lr.ph, label %.loopexit
+  %216 = bitcast i32 %.sroa.0.0.copyload28.i to float
+  %217 = getelementptr inbounds i8, ptr %30, i64 %139
+  store i8 1, ptr %217, align 1, !tbaa !231
+  %218 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv64
+  store i32 %.sroa.2.0.copyload.i, ptr %218, align 4, !tbaa !68
+  %219 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv64
+  store i32 %.sroa.0.0.copyload28.i, ptr %219, align 4, !tbaa !95
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %220 = load ptr, ptr %8, align 8, !tbaa !108
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
+  %222 = load ptr, ptr %221, align 8, !tbaa !77
+  %223 = getelementptr inbounds %"class.std::vector.3", ptr %222, i64 %139
+  %224 = load ptr, ptr %223, align 8, !tbaa !213
+  %225 = getelementptr inbounds %"class.std::vector.3", ptr %222, i64 %139, i32 0, i32 0, i32 0, i32 1
+  %226 = load ptr, ptr %225, align 8, !tbaa !144
+  %227 = ptrtoint ptr %226 to i64
+  %228 = ptrtoint ptr %224 to i64
+  %229 = sub i64 %227, %228
+  %230 = lshr exact i64 %229, 3
+  %231 = trunc i64 %230 to i32
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit
-  %247 = phi ptr [ %338, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %224, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %248 = phi ptr [ %339, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %225, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %249 = phi ptr [ %340, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %226, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %250 = phi ptr [ %341, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %227, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %251 = phi ptr [ %342, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %228, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %252 = phi ptr [ %343, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %229, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %253 = phi ptr [ %344, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %229, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %254 = phi ptr [ %345, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %228, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %233 = phi ptr [ %324, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %211, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %234 = phi ptr [ %325, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %212, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %235 = phi ptr [ %326, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %213, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %236 = phi ptr [ %327, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %214, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %237 = phi ptr [ %328, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %215, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %238 = phi ptr [ %329, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %215, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
+  %239 = phi ptr [ %330, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ %214, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit ], [ 0, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit ]
-  %255 = getelementptr inbounds nuw %"struct.cv::ximgproc::node", ptr %238, i64 %indvars.iv
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
-  %257 = load i32, ptr %256, align 4, !tbaa !146
-  %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds i8, ptr %30, i64 %258
-  %260 = load i8, ptr %259, align 1, !tbaa !231
-  %.not = icmp eq i8 %260, 0
-  br i1 %.not, label %261, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit
+  %240 = getelementptr inbounds nuw %"struct.cv::ximgproc::node", ptr %224, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
+  %242 = load i32, ptr %241, align 4, !tbaa !146
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds i8, ptr %30, i64 %243
+  %245 = load i8, ptr %244, align 1, !tbaa !231
+  %.not = icmp eq i8 %245, 0
+  br i1 %.not, label %246, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit
 
-261:                                              ; preds = %.lr.ph
-  %262 = load float, ptr %255, align 4, !tbaa !148
-  %263 = fadd float %262, %230
-  %264 = getelementptr inbounds i32, ptr %250, i64 %258
-  %265 = load i32, ptr %264, align 4, !tbaa !68
-  %.not.i = icmp eq i32 %265, 0
-  br i1 %.not.i, label %300, label %266
+246:                                              ; preds = %.lr.ph
+  %247 = load float, ptr %240, align 4, !tbaa !148
+  %248 = fadd float %247, %216
+  %249 = getelementptr inbounds i32, ptr %235, i64 %243
+  %250 = load i32, ptr %249, align 4, !tbaa !68
+  %.not.i = icmp eq i32 %250, 0
+  br i1 %.not.i, label %285, label %251
 
-266:                                              ; preds = %261
-  %267 = sext i32 %265 to i64
-  %268 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %249, i64 %267
-  %269 = load float, ptr %268, align 4, !tbaa !95
-  %270 = fcmp ogt float %269, %263
-  %.sroa.speculated.i = select i1 %270, float %263, float %269
-  store float %.sroa.speculated.i, ptr %268, align 4, !tbaa !148
-  %.0912.i = ashr i32 %265, 1
-  %271 = sext i32 %.0912.i to i64
-  %272 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %249, i64 %271
-  %273 = load float, ptr %272, align 4, !tbaa !148
-  %274 = fcmp olt float %.sroa.speculated.i, %273
-  br i1 %274, label %.lr.ph.i46, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit
+251:                                              ; preds = %246
+  %252 = sext i32 %250 to i64
+  %253 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %234, i64 %252
+  %254 = load float, ptr %253, align 4, !tbaa !95
+  %255 = fcmp ogt float %254, %248
+  %.sroa.speculated.i = select i1 %255, float %248, float %254
+  store float %.sroa.speculated.i, ptr %253, align 4, !tbaa !148
+  %.0912.i = ashr i32 %250, 1
+  %256 = sext i32 %.0912.i to i64
+  %257 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %234, i64 %256
+  %258 = load float, ptr %257, align 4, !tbaa !148
+  %259 = fcmp olt float %.sroa.speculated.i, %258
+  br i1 %259, label %.lr.ph.i44, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit
 
-.lr.ph.i46:                                       ; preds = %266, %.lr.ph.i46
-  %275 = phi ptr [ %297, %.lr.ph.i46 ], [ %272, %266 ]
-  %276 = phi i64 [ %296, %.lr.ph.i46 ], [ %271, %266 ]
-  %277 = phi ptr [ %294, %.lr.ph.i46 ], [ %268, %266 ]
-  %278 = phi i64 [ %293, %.lr.ph.i46 ], [ %267, %266 ]
-  %279 = phi ptr [ %290, %.lr.ph.i46 ], [ %249, %266 ]
-  %.0914.i = phi i32 [ %.09.i, %.lr.ph.i46 ], [ %.0912.i, %266 ]
-  %.013.i = phi i32 [ %.0914.i, %.lr.ph.i46 ], [ %265, %266 ]
-  %280 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %279, i64 %278, i32 1
-  %281 = load i32, ptr %280, align 4, !tbaa !146
-  %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds i32, ptr %248, i64 %282
-  store i32 %.0914.i, ptr %283, align 4, !tbaa !68
-  %284 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %279, i64 %276, i32 1
-  %285 = load i32, ptr %284, align 4, !tbaa !146
-  %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds i32, ptr %248, i64 %286
-  store i32 %.013.i, ptr %287, align 4, !tbaa !68
-  %288 = load i64, ptr %277, align 4
-  store i64 %288, ptr %32, align 8
-  %289 = load i64, ptr %275, align 4
-  store i64 %289, ptr %277, align 4
-  %290 = load ptr, ptr %3, align 8, !tbaa !224
-  %291 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %290, i64 %276
-  %292 = load i64, ptr %32, align 8
-  store i64 %292, ptr %291, align 4
+.lr.ph.i44:                                       ; preds = %251, %.lr.ph.i44
+  %260 = phi ptr [ %282, %.lr.ph.i44 ], [ %257, %251 ]
+  %261 = phi i64 [ %281, %.lr.ph.i44 ], [ %256, %251 ]
+  %262 = phi ptr [ %279, %.lr.ph.i44 ], [ %253, %251 ]
+  %263 = phi i64 [ %278, %.lr.ph.i44 ], [ %252, %251 ]
+  %264 = phi ptr [ %275, %.lr.ph.i44 ], [ %234, %251 ]
+  %.0914.i = phi i32 [ %.09.i, %.lr.ph.i44 ], [ %.0912.i, %251 ]
+  %.013.i = phi i32 [ %.0914.i, %.lr.ph.i44 ], [ %250, %251 ]
+  %265 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %264, i64 %263, i32 1
+  %266 = load i32, ptr %265, align 4, !tbaa !146
+  %267 = sext i32 %266 to i64
+  %268 = getelementptr inbounds i32, ptr %233, i64 %267
+  store i32 %.0914.i, ptr %268, align 4, !tbaa !68
+  %269 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %264, i64 %261, i32 1
+  %270 = load i32, ptr %269, align 4, !tbaa !146
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds i32, ptr %233, i64 %271
+  store i32 %.013.i, ptr %272, align 4, !tbaa !68
+  %273 = load i64, ptr %262, align 4
+  store i64 %273, ptr %32, align 8
+  %274 = load i64, ptr %260, align 4
+  store i64 %274, ptr %262, align 4
+  %275 = load ptr, ptr %3, align 8, !tbaa !224
+  %276 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %275, i64 %261
+  %277 = load i64, ptr %32, align 8
+  store i64 %277, ptr %276, align 4
   %.09.i = ashr i32 %.0914.i, 1
-  %293 = sext i32 %.0914.i to i64
-  %294 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %290, i64 %293
-  %295 = load float, ptr %294, align 4, !tbaa !148
-  %296 = sext i32 %.09.i to i64
-  %297 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %290, i64 %296
-  %298 = load float, ptr %297, align 4, !tbaa !148
-  %299 = fcmp olt float %295, %298
-  br i1 %299, label %.lr.ph.i46, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit, !llvm.loop !232
+  %278 = sext i32 %.0914.i to i64
+  %279 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %275, i64 %278
+  %280 = load float, ptr %279, align 4, !tbaa !148
+  %281 = sext i32 %.09.i to i64
+  %282 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %275, i64 %281
+  %283 = load float, ptr %282, align 4, !tbaa !148
+  %284 = fcmp olt float %280, %283
+  br i1 %284, label %.lr.ph.i44, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit, !llvm.loop !232
 
-300:                                              ; preds = %261
-  %301 = load i32, ptr %28, align 8, !tbaa !226
-  %302 = add nsw i32 %301, 1
-  store i32 %302, ptr %28, align 8, !tbaa !226
-  %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %247, i64 %303
-  store float %263, ptr %304, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %304, i64 4
-  store i32 %257, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !68
-  %305 = load i32, ptr %28, align 8, !tbaa !226
-  store i32 %305, ptr %264, align 4, !tbaa !68
-  %.08.i.i = ashr i32 %305, 1
-  %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %247, i64 %306
-  %308 = load float, ptr %307, align 4, !tbaa !148
-  %309 = sext i32 %.08.i.i to i64
-  %310 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %247, i64 %309
-  %311 = load float, ptr %310, align 4, !tbaa !148
-  %312 = fcmp olt float %308, %311
-  br i1 %312, label %.lr.ph.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit
+285:                                              ; preds = %246
+  %286 = bitcast float %248 to i32
+  %.sroa.0.0.insert.ext = zext i32 %286 to i64
+  %.sroa.2.0.insert.ext = zext i32 %242 to i64
+  %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
+  %287 = load i32, ptr %28, align 8, !tbaa !226
+  %288 = add nsw i32 %287, 1
+  store i32 %288, ptr %28, align 8, !tbaa !226
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %234, i64 %289
+  store i64 %.sroa.0.0.insert.insert, ptr %290, align 4
+  %291 = load i32, ptr %28, align 8, !tbaa !226
+  %292 = load ptr, ptr %27, align 8, !tbaa !225
+  %293 = getelementptr inbounds i32, ptr %292, i64 %243
+  store i32 %291, ptr %293, align 4, !tbaa !68
+  %.08.i.i = ashr i32 %291, 1
+  %294 = load ptr, ptr %3, align 8, !tbaa !224
+  %295 = sext i32 %291 to i64
+  %296 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %294, i64 %295
+  %297 = load float, ptr %296, align 4, !tbaa !148
+  %298 = sext i32 %.08.i.i to i64
+  %299 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %294, i64 %298
+  %300 = load float, ptr %299, align 4, !tbaa !148
+  %301 = fcmp olt float %297, %300
+  br i1 %301, label %.lr.ph.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit
 
-.lr.ph.i.i:                                       ; preds = %300, %.lr.ph.i.i
-  %313 = phi ptr [ %335, %.lr.ph.i.i ], [ %310, %300 ]
-  %314 = phi i64 [ %334, %.lr.ph.i.i ], [ %309, %300 ]
-  %315 = phi ptr [ %332, %.lr.ph.i.i ], [ %307, %300 ]
-  %316 = phi i64 [ %331, %.lr.ph.i.i ], [ %306, %300 ]
-  %317 = phi ptr [ %328, %.lr.ph.i.i ], [ %247, %300 ]
-  %.010.i.i = phi i32 [ %.0.i.i, %.lr.ph.i.i ], [ %.08.i.i, %300 ]
-  %.079.i.i = phi i32 [ %.010.i.i, %.lr.ph.i.i ], [ %305, %300 ]
-  %318 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %317, i64 %316, i32 1
-  %319 = load i32, ptr %318, align 4, !tbaa !146
-  %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds i32, ptr %223, i64 %320
-  store i32 %.010.i.i, ptr %321, align 4, !tbaa !68
-  %322 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %317, i64 %314, i32 1
-  %323 = load i32, ptr %322, align 4, !tbaa !146
-  %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds i32, ptr %223, i64 %324
-  store i32 %.079.i.i, ptr %325, align 4, !tbaa !68
-  %326 = load i64, ptr %315, align 4
-  store i64 %326, ptr %32, align 8
-  %327 = load i64, ptr %313, align 4
-  store i64 %327, ptr %315, align 4
-  %328 = load ptr, ptr %3, align 8, !tbaa !224
-  %329 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %328, i64 %314
-  %330 = load i64, ptr %32, align 8
-  store i64 %330, ptr %329, align 4
+.lr.ph.i.i:                                       ; preds = %285, %.lr.ph.i.i
+  %302 = phi ptr [ %321, %.lr.ph.i.i ], [ %299, %285 ]
+  %303 = phi i64 [ %320, %.lr.ph.i.i ], [ %298, %285 ]
+  %304 = phi ptr [ %318, %.lr.ph.i.i ], [ %296, %285 ]
+  %305 = phi i64 [ %317, %.lr.ph.i.i ], [ %295, %285 ]
+  %.010.i.i = phi i32 [ %.0.i.i, %.lr.ph.i.i ], [ %.08.i.i, %285 ]
+  %.079.i.i = phi i32 [ %.010.i.i, %.lr.ph.i.i ], [ %291, %285 ]
+  %306 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %294, i64 %305, i32 1
+  %307 = load i32, ptr %306, align 4, !tbaa !146
+  %308 = sext i32 %307 to i64
+  %309 = getelementptr inbounds i32, ptr %292, i64 %308
+  store i32 %.010.i.i, ptr %309, align 4, !tbaa !68
+  %310 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %294, i64 %303, i32 1
+  %311 = load i32, ptr %310, align 4, !tbaa !146
+  %312 = sext i32 %311 to i64
+  %313 = getelementptr inbounds i32, ptr %292, i64 %312
+  store i32 %.079.i.i, ptr %313, align 4, !tbaa !68
+  %314 = load i64, ptr %304, align 4
+  store i64 %314, ptr %32, align 8
+  %315 = load i64, ptr %302, align 4
+  store i64 %315, ptr %304, align 4
+  %316 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %294, i64 %303
+  store i64 %314, ptr %316, align 4
   %.0.i.i = ashr i32 %.010.i.i, 1
-  %331 = sext i32 %.010.i.i to i64
-  %332 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %328, i64 %331
-  %333 = load float, ptr %332, align 4, !tbaa !148
-  %334 = sext i32 %.0.i.i to i64
-  %335 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %328, i64 %334
-  %336 = load float, ptr %335, align 4, !tbaa !148
-  %337 = fcmp olt float %333, %336
-  br i1 %337, label %.lr.ph.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit, !llvm.loop !227
+  %317 = sext i32 %.010.i.i to i64
+  %318 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %294, i64 %317
+  %319 = load float, ptr %318, align 4, !tbaa !148
+  %320 = sext i32 %.0.i.i to i64
+  %321 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %294, i64 %320
+  %322 = load float, ptr %321, align 4, !tbaa !148
+  %323 = fcmp olt float %319, %322
+  br i1 %323, label %.lr.ph.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit, !llvm.loop !227
 
-_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit: ; preds = %.lr.ph.i46, %.lr.ph.i.i, %300, %266, %.lr.ph
-  %338 = phi ptr [ %247, %300 ], [ %247, %266 ], [ %247, %.lr.ph ], [ %328, %.lr.ph.i.i ], [ %290, %.lr.ph.i46 ]
-  %339 = phi ptr [ %248, %300 ], [ %248, %266 ], [ %248, %.lr.ph ], [ %223, %.lr.ph.i.i ], [ %248, %.lr.ph.i46 ]
-  %340 = phi ptr [ %247, %300 ], [ %249, %266 ], [ %249, %.lr.ph ], [ %328, %.lr.ph.i.i ], [ %290, %.lr.ph.i46 ]
-  %341 = phi ptr [ %250, %300 ], [ %250, %266 ], [ %250, %.lr.ph ], [ %223, %.lr.ph.i.i ], [ %248, %.lr.ph.i46 ]
-  %342 = phi ptr [ %250, %300 ], [ %250, %266 ], [ %251, %.lr.ph ], [ %223, %.lr.ph.i.i ], [ %248, %.lr.ph.i46 ]
-  %343 = phi ptr [ %247, %300 ], [ %249, %266 ], [ %252, %.lr.ph ], [ %328, %.lr.ph.i.i ], [ %290, %.lr.ph.i46 ]
-  %344 = phi ptr [ %247, %300 ], [ %249, %266 ], [ %253, %.lr.ph ], [ %328, %.lr.ph.i.i ], [ %290, %.lr.ph.i46 ]
-  %345 = phi ptr [ %250, %300 ], [ %250, %266 ], [ %254, %.lr.ph ], [ %223, %.lr.ph.i.i ], [ %248, %.lr.ph.i46 ]
+_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit: ; preds = %.lr.ph.i44, %.lr.ph.i.i, %285, %251, %.lr.ph
+  %324 = phi ptr [ %292, %285 ], [ %233, %251 ], [ %233, %.lr.ph ], [ %292, %.lr.ph.i.i ], [ %233, %.lr.ph.i44 ]
+  %325 = phi ptr [ %294, %285 ], [ %234, %251 ], [ %234, %.lr.ph ], [ %294, %.lr.ph.i.i ], [ %275, %.lr.ph.i44 ]
+  %326 = phi ptr [ %292, %285 ], [ %235, %251 ], [ %235, %.lr.ph ], [ %292, %.lr.ph.i.i ], [ %233, %.lr.ph.i44 ]
+  %327 = phi ptr [ %292, %285 ], [ %235, %251 ], [ %236, %.lr.ph ], [ %292, %.lr.ph.i.i ], [ %233, %.lr.ph.i44 ]
+  %328 = phi ptr [ %294, %285 ], [ %234, %251 ], [ %237, %.lr.ph ], [ %294, %.lr.ph.i.i ], [ %275, %.lr.ph.i44 ]
+  %329 = phi ptr [ %294, %285 ], [ %234, %251 ], [ %238, %.lr.ph ], [ %294, %.lr.ph.i.i ], [ %275, %.lr.ph.i44 ]
+  %330 = phi ptr [ %292, %285 ], [ %235, %251 ], [ %239, %.lr.ph ], [ %292, %.lr.ph.i.i ], [ %233, %.lr.ph.i44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %346 = load ptr, ptr %8, align 8, !tbaa !108
-  %347 = getelementptr inbounds nuw i8, ptr %346, i64 24
-  %348 = load ptr, ptr %347, align 8, !tbaa !77
-  %349 = getelementptr inbounds %"class.std::vector.3", ptr %348, i64 %149
-  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
-  %351 = load ptr, ptr %350, align 8, !tbaa !144
-  %352 = load ptr, ptr %349, align 8, !tbaa !86
-  %353 = ptrtoint ptr %351 to i64
-  %354 = ptrtoint ptr %352 to i64
-  %355 = sub i64 %353, %354
-  %sext = shl i64 %355, 29
-  %356 = ashr i64 %sext, 32
-  %357 = icmp slt i64 %indvars.iv.next, %356
-  br i1 %357, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !233
+  %331 = load ptr, ptr %8, align 8, !tbaa !108
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
+  %333 = load ptr, ptr %332, align 8, !tbaa !77
+  %334 = getelementptr inbounds %"class.std::vector.3", ptr %333, i64 %139
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
+  %336 = load ptr, ptr %335, align 8, !tbaa !144
+  %337 = load ptr, ptr %334, align 8, !tbaa !86
+  %338 = ptrtoint ptr %336 to i64
+  %339 = ptrtoint ptr %337 to i64
+  %340 = sub i64 %338, %339
+  %sext = shl i64 %340, 29
+  %341 = ashr i64 %sext, 32
+  %342 = icmp slt i64 %indvars.iv.next, %341
+  br i1 %342, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !233
 
 .critedge:                                        ; preds = %.loopexit, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit, %38
-  %358 = phi ptr [ %39, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %39, %38 ], [ %223, %.loopexit ]
-  %359 = phi ptr [ %101, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %40, %38 ], [ %128, %.loopexit ]
-  %360 = phi ptr [ %41, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %41, %38 ], [ %129, %.loopexit ]
-  %361 = phi ptr [ %102, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %42, %38 ], [ %130, %.loopexit ]
-  %362 = phi ptr [ %43, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %43, %38 ], [ %131, %.loopexit ]
-  %363 = phi ptr [ %44, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %44, %38 ], [ %132, %.loopexit ]
-  %364 = phi ptr [ %103, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %45, %38 ], [ %133, %.loopexit ]
-  %365 = phi ptr [ %46, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %46, %38 ], [ %135, %.loopexit ]
-  %366 = phi ptr [ %105, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %47, %38 ], [ %135, %.loopexit ]
-  %367 = phi ptr [ %106, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %48, %38 ], [ %134, %.loopexit ]
-  %368 = phi ptr [ %105, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %49, %38 ], [ %135, %.loopexit ]
-  %369 = phi ptr [ %107, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %50, %38 ], [ %127, %.loopexit ]
-  %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next70 to i32
+  %343 = phi ptr [ %62, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %39, %38 ], [ %121, %.loopexit ]
+  %344 = phi ptr [ %96, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %40, %38 ], [ %122, %.loopexit ]
+  %345 = phi ptr [ %97, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %41, %38 ], [ %125, %.loopexit ]
+  %346 = phi ptr [ %99, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %42, %38 ], [ %126, %.loopexit ]
+  %347 = phi ptr [ %99, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %43, %38 ], [ %126, %.loopexit ]
+  %348 = phi ptr [ %62, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %44, %38 ], [ %127, %.loopexit ]
+  %349 = phi ptr [ %100, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ], [ %45, %38 ], [ %120, %.loopexit ]
+  %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
   %exitcond.not = icmp eq i32 %35, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !234
 
 ._crit_edge:                                      ; preds = %.critedge
   tail call void @_ZdaPv(ptr noundef nonnull %30) #33
-  %370 = icmp eq ptr %359, null
-  br i1 %370, label %374, label %371
+  %350 = icmp eq ptr %344, null
+  br i1 %350, label %354, label %351
 
-371:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %372 = phi ptr [ %21, %._crit_edge.thread ], [ %359, %._crit_edge ]
-  %373 = phi ptr [ %26, %._crit_edge.thread ], [ %358, %._crit_edge ]
-  tail call void @_ZdaPv(ptr noundef nonnull %372) #33
-  br label %374
+351:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  %352 = phi ptr [ %21, %._crit_edge.thread ], [ %344, %._crit_edge ]
+  %353 = phi ptr [ %26, %._crit_edge.thread ], [ %343, %._crit_edge ]
+  tail call void @_ZdaPv(ptr noundef nonnull %352) #33
+  br label %354
 
-374:                                              ; preds = %371, %._crit_edge
-  %375 = phi ptr [ %373, %371 ], [ %358, %._crit_edge ]
-  %376 = icmp eq ptr %375, null
-  br i1 %376, label %_ZN2cv8ximgproc8nodeHeapD2Ev.exit, label %377
+354:                                              ; preds = %351, %._crit_edge
+  %355 = phi ptr [ %353, %351 ], [ %343, %._crit_edge ]
+  %356 = icmp eq ptr %355, null
+  br i1 %356, label %_ZN2cv8ximgproc8nodeHeapD2Ev.exit, label %357
 
-377:                                              ; preds = %374
-  tail call void @_ZdaPv(ptr noundef nonnull %375) #33
+357:                                              ; preds = %354
+  tail call void @_ZdaPv(ptr noundef nonnull %355) #33
   br label %_ZN2cv8ximgproc8nodeHeapD2Ev.exit
 
-_ZN2cv8ximgproc8nodeHeapD2Ev.exit:                ; preds = %374, %377
+_ZN2cv8ximgproc8nodeHeapD2Ev.exit:                ; preds = %354, %357
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #31
   ret void
 }
@@ -16434,8 +16415,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i.i:         ; preds = %_ZSt6fill_nIPjmjET_
   br label %59
 
 ._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i.i
-  %49 = phi ptr [ %29, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i.i ], [ %362, %.critedge.i.i.i ]
-  %50 = phi ptr [ %24, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i.i ], [ %363, %.critedge.i.i.i ]
+  %49 = phi ptr [ %29, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i.i ], [ %347, %.critedge.i.i.i ]
+  %50 = phi ptr [ %24, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i.i ], [ %348, %.critedge.i.i.i ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.04.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i, label %51
 
@@ -16467,118 +16448,110 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i:              ; preds = %51, %._crit_edge.i.
   resume { ptr, i32 } %58
 
 59:                                               ; preds = %.critedge.i.i.i, %.lr.ph26.i.i.i
-  %60 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %362, %.critedge.i.i.i ]
-  %61 = phi ptr [ %24, %.lr.ph26.i.i.i ], [ %363, %.critedge.i.i.i ]
-  %62 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %364, %.critedge.i.i.i ]
-  %63 = phi ptr [ %24, %.lr.ph26.i.i.i ], [ %365, %.critedge.i.i.i ]
-  %64 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %366, %.critedge.i.i.i ]
-  %65 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %367, %.critedge.i.i.i ]
-  %66 = phi ptr [ %24, %.lr.ph26.i.i.i ], [ %368, %.critedge.i.i.i ]
-  %67 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %369, %.critedge.i.i.i ]
-  %68 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %370, %.critedge.i.i.i ]
-  %69 = phi ptr [ %24, %.lr.ph26.i.i.i ], [ %371, %.critedge.i.i.i ]
-  %70 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %372, %.critedge.i.i.i ]
+  %60 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %347, %.critedge.i.i.i ]
+  %61 = phi ptr [ %24, %.lr.ph26.i.i.i ], [ %348, %.critedge.i.i.i ]
+  %62 = phi ptr [ %24, %.lr.ph26.i.i.i ], [ %349, %.critedge.i.i.i ]
+  %63 = phi ptr [ %24, %.lr.ph26.i.i.i ], [ %350, %.critedge.i.i.i ]
+  %64 = phi ptr [ %24, %.lr.ph26.i.i.i ], [ %351, %.critedge.i.i.i ]
+  %65 = phi ptr [ %29, %.lr.ph26.i.i.i ], [ %352, %.critedge.i.i.i ]
   %indvars.iv35.i.i.i = phi i64 [ %smin.i.i.i, %.lr.ph26.i.i.i ], [ %indvars.iv.next36.i.i.i, %.critedge.i.i.i ]
-  %71 = load ptr, ptr %41, align 8, !tbaa !292
-  %72 = getelementptr inbounds nuw %"class.std::vector.3", ptr %71, i64 %indvars.iv35.i.i.i
-  %73 = load ptr, ptr %72, align 8, !tbaa !213
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !213
-  %76 = icmp eq ptr %73, %75
-  br i1 %76, label %.critedge.i.i.i, label %77
+  %66 = load ptr, ptr %41, align 8, !tbaa !292
+  %67 = getelementptr inbounds nuw %"class.std::vector.3", ptr %66, i64 %indvars.iv35.i.i.i
+  %68 = load ptr, ptr %67, align 8, !tbaa !213
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !213
+  %71 = icmp eq ptr %68, %70
+  br i1 %71, label %.critedge.i.i.i, label %72
 
-77:                                               ; preds = %59
+72:                                               ; preds = %59
   br i1 %.not5.i.i.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %77
+.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %72
   tail call void @llvm.memset.p0.i64(ptr align 4 %.sroa.04.0.i.i.i, i8 0, i64 %48, i1 false), !tbaa !68
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i, %77
-  %78 = load i32, ptr %18, align 4, !tbaa !222
-  %79 = sext i32 %78 to i64
-  %80 = shl nsw i64 %79, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %70, i8 0, i64 %80, i1 false)
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i, %72
+  %73 = load i32, ptr %18, align 4, !tbaa !222
+  %74 = sext i32 %73 to i64
+  %75 = shl nsw i64 %74, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %65, i8 0, i64 %75, i1 false)
+  %.sroa.22.0.insert.ext.i.i.i = shl i64 %indvars.iv35.i.i.i, 32
   store i32 1, ptr %31, align 8, !tbaa !226
-  %81 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i32 0, ptr %81, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %82 = trunc nsw i64 %indvars.iv35.i.i.i to i32
-  store i32 %82, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 4, !tbaa !68
-  %83 = load i32, ptr %31, align 8, !tbaa !226
-  %84 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv35.i.i.i
-  store i32 %83, ptr %84, align 4, !tbaa !68
-  %.08.i.i.i.i = ashr i32 %83, 1
-  %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %69, i64 %85
-  %87 = load float, ptr %86, align 4, !tbaa !148
-  %88 = sext i32 %.08.i.i.i.i to i64
-  %89 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %69, i64 %88
-  %90 = load float, ptr %89, align 4, !tbaa !148
-  %91 = fcmp olt float %87, %90
-  br i1 %91, label %.lr.ph.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i64 %.sroa.22.0.insert.ext.i.i.i, ptr %76, align 4
+  %77 = load i32, ptr %31, align 8, !tbaa !226
+  %78 = load ptr, ptr %30, align 8, !tbaa !225
+  %79 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv35.i.i.i
+  store i32 %77, ptr %79, align 4, !tbaa !68
+  %.08.i.i.i.i = ashr i32 %77, 1
+  %80 = sext i32 %77 to i64
+  %81 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %63, i64 %80
+  %82 = load float, ptr %81, align 4, !tbaa !148
+  %83 = sext i32 %.08.i.i.i.i to i64
+  %84 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %63, i64 %83
+  %85 = load float, ptr %84, align 4, !tbaa !148
+  %86 = fcmp olt float %82, %85
+  br i1 %86, label %.lr.ph.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i, %.lr.ph.i.i.i.i
-  %92 = phi ptr [ %114, %.lr.ph.i.i.i.i ], [ %89, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %93 = phi i64 [ %113, %.lr.ph.i.i.i.i ], [ %88, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %94 = phi ptr [ %111, %.lr.ph.i.i.i.i ], [ %86, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %95 = phi i64 [ %110, %.lr.ph.i.i.i.i ], [ %85, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %96 = phi ptr [ %107, %.lr.ph.i.i.i.i ], [ %69, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %87 = phi ptr [ %109, %.lr.ph.i.i.i.i ], [ %84, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %88 = phi i64 [ %108, %.lr.ph.i.i.i.i ], [ %83, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %89 = phi ptr [ %106, %.lr.ph.i.i.i.i ], [ %81, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %90 = phi i64 [ %105, %.lr.ph.i.i.i.i ], [ %80, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %91 = phi ptr [ %102, %.lr.ph.i.i.i.i ], [ %63, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
   %.010.i.i.i.i = phi i32 [ %.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %.079.i.i.i.i = phi i32 [ %.010.i.i.i.i, %.lr.ph.i.i.i.i ], [ %83, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %97 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %96, i64 %95, i32 1
-  %98 = load i32, ptr %97, align 4, !tbaa !146
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %67, i64 %99
-  store i32 %.010.i.i.i.i, ptr %100, align 4, !tbaa !68
-  %101 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %96, i64 %93, i32 1
-  %102 = load i32, ptr %101, align 4, !tbaa !146
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr %67, i64 %103
-  store i32 %.079.i.i.i.i, ptr %104, align 4, !tbaa !68
-  %105 = load i64, ptr %94, align 4
-  store i64 %105, ptr %42, align 8
-  %106 = load i64, ptr %92, align 4
-  store i64 %106, ptr %94, align 4
-  %107 = load ptr, ptr %3, align 8, !tbaa !224
-  %108 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %107, i64 %93
-  %109 = load i64, ptr %42, align 8
-  store i64 %109, ptr %108, align 4
+  %.079.i.i.i.i = phi i32 [ %.010.i.i.i.i, %.lr.ph.i.i.i.i ], [ %77, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %92 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %91, i64 %90, i32 1
+  %93 = load i32, ptr %92, align 4, !tbaa !146
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i32, ptr %78, i64 %94
+  store i32 %.010.i.i.i.i, ptr %95, align 4, !tbaa !68
+  %96 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %91, i64 %88, i32 1
+  %97 = load i32, ptr %96, align 4, !tbaa !146
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i32, ptr %78, i64 %98
+  store i32 %.079.i.i.i.i, ptr %99, align 4, !tbaa !68
+  %100 = load i64, ptr %89, align 4
+  store i64 %100, ptr %42, align 8
+  %101 = load i64, ptr %87, align 4
+  store i64 %101, ptr %89, align 4
+  %102 = load ptr, ptr %3, align 8, !tbaa !224
+  %103 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %102, i64 %88
+  %104 = load i64, ptr %42, align 8
+  store i64 %104, ptr %103, align 4
   %.0.i.i.i.i = ashr i32 %.010.i.i.i.i, 1
-  %110 = sext i32 %.010.i.i.i.i to i64
-  %111 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %107, i64 %110
-  %112 = load float, ptr %111, align 4, !tbaa !148
-  %113 = sext i32 %.0.i.i.i.i to i64
-  %114 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %107, i64 %113
-  %115 = load float, ptr %114, align 4, !tbaa !148
-  %116 = fcmp olt float %112, %115
-  br i1 %116, label %.lr.ph.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i, !llvm.loop !227
+  %105 = sext i32 %.010.i.i.i.i to i64
+  %106 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %102, i64 %105
+  %107 = load float, ptr %106, align 4, !tbaa !148
+  %108 = sext i32 %.0.i.i.i.i to i64
+  %109 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %102, i64 %108
+  %110 = load float, ptr %109, align 4, !tbaa !148
+  %111 = fcmp olt float %107, %110
+  br i1 %111, label %.lr.ph.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i, !llvm.loop !227
 
 _ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load i32, ptr %31, align 8
   br label %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i
 
 _ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i: ; preds = %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i
-  %117 = phi ptr [ %107, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %61, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %118 = phi ptr [ %107, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %63, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %119 = phi ptr [ %107, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %66, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %120 = phi i32 [ %.pre.i.i.i, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %83, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %121 = phi ptr [ %67, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %68, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %122 = phi ptr [ %107, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %69, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
-  %123 = load ptr, ptr %43, align 8, !tbaa !89
-  %124 = load ptr, ptr %44, align 8, !tbaa !90
-  %125 = load i64, ptr %124, align 8, !tbaa !69
-  %126 = mul i64 %125, %indvars.iv35.i.i.i
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 %126
-  %128 = load ptr, ptr %45, align 8, !tbaa !89
-  %129 = load ptr, ptr %46, align 8, !tbaa !90
-  %130 = load i64, ptr %129, align 8, !tbaa !69
-  %131 = mul i64 %130, %indvars.iv35.i.i.i
-  %132 = getelementptr inbounds nuw i8, ptr %128, i64 %131
-  %133 = load i32, ptr %47, align 4, !tbaa !254
-  %134 = icmp slt i32 %133, 1
-  %135 = icmp eq i32 %120, 0
-  %or.cond22.i.i.i = select i1 %134, i1 true, i1 %135
+  %112 = phi ptr [ %102, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %61, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %113 = phi ptr [ %102, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %62, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %114 = phi i32 [ %.pre.i.i.i, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %77, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %115 = phi ptr [ %102, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.loopexit.i.i.i ], [ %63, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit.i.i.i ]
+  %116 = load ptr, ptr %43, align 8, !tbaa !89
+  %117 = load ptr, ptr %44, align 8, !tbaa !90
+  %118 = load i64, ptr %117, align 8, !tbaa !69
+  %119 = mul i64 %118, %indvars.iv35.i.i.i
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 %119
+  %121 = load ptr, ptr %45, align 8, !tbaa !89
+  %122 = load ptr, ptr %46, align 8, !tbaa !90
+  %123 = load i64, ptr %122, align 8, !tbaa !69
+  %124 = mul i64 %123, %indvars.iv35.i.i.i
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 %124
+  %126 = load i32, ptr %47, align 4, !tbaa !254
+  %127 = icmp slt i32 %126, 1
+  %128 = icmp eq i32 %114, 0
+  %or.cond22.i.i.i = select i1 %127, i1 true, i1 %128
   br i1 %or.cond22.i.i.i, label %.critedge.i.i.i, label %.lr.ph24.i.i.i
 
 .loopexit.loopexit.i.i.i:                         ; preds = %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i
@@ -16586,346 +16559,335 @@ _ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i: ; preds = %_ZN2cv8ximgproc8n
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i, %.loopexit.loopexit.i.i.i
-  %136 = phi i32 [ %.pre37.i.i.i, %.loopexit.loopexit.i.i.i ], [ %storemerge.i.i.i.i, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %137 = phi ptr [ %344, %.loopexit.loopexit.i.i.i ], [ %232, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %138 = phi ptr [ %345, %.loopexit.loopexit.i.i.i ], [ %233, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %139 = phi ptr [ %346, %.loopexit.loopexit.i.i.i ], [ %234, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %140 = phi ptr [ %347, %.loopexit.loopexit.i.i.i ], [ %235, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %141 = phi ptr [ %348, %.loopexit.loopexit.i.i.i ], [ %236, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %142 = phi ptr [ %349, %.loopexit.loopexit.i.i.i ], [ %237, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %143 = phi ptr [ %350, %.loopexit.loopexit.i.i.i ], [ %237, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %144 = phi ptr [ %351, %.loopexit.loopexit.i.i.i ], [ %236, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %145 = load i32, ptr %47, align 4, !tbaa !254
-  %146 = sext i32 %145 to i64
-  %147 = icmp sge i64 %indvars.iv.next33.i.i.i, %146
-  %148 = icmp eq i32 %136, 0
-  %or.cond.i.i.i = select i1 %147, i1 true, i1 %148
+  %129 = phi i32 [ %.pre37.i.i.i, %.loopexit.loopexit.i.i.i ], [ %storemerge.i.i.i.i, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %130 = phi ptr [ %330, %.loopexit.loopexit.i.i.i ], [ %219, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %131 = phi ptr [ %331, %.loopexit.loopexit.i.i.i ], [ %220, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %132 = phi ptr [ %332, %.loopexit.loopexit.i.i.i ], [ %221, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %133 = phi ptr [ %333, %.loopexit.loopexit.i.i.i ], [ %222, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %134 = phi ptr [ %334, %.loopexit.loopexit.i.i.i ], [ %223, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %135 = phi ptr [ %335, %.loopexit.loopexit.i.i.i ], [ %223, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %136 = phi ptr [ %336, %.loopexit.loopexit.i.i.i ], [ %222, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %137 = load i32, ptr %47, align 4, !tbaa !254
+  %138 = sext i32 %137 to i64
+  %139 = icmp sge i64 %indvars.iv.next33.i.i.i, %138
+  %140 = icmp eq i32 %129, 0
+  %or.cond.i.i.i = select i1 %139, i1 true, i1 %140
   br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %.lr.ph24.i.i.i, !llvm.loop !478
 
 .lr.ph24.i.i.i:                                   ; preds = %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i, %.loopexit.i.i.i
-  %149 = phi ptr [ %231, %.loopexit.i.i.i ], [ %60, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
-  %150 = phi ptr [ %137, %.loopexit.i.i.i ], [ %117, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
-  %151 = phi ptr [ %138, %.loopexit.i.i.i ], [ %62, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
-  %152 = phi ptr [ %139, %.loopexit.i.i.i ], [ %118, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
-  %153 = phi ptr [ %140, %.loopexit.i.i.i ], [ %64, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
-  %154 = phi ptr [ %141, %.loopexit.i.i.i ], [ %65, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
-  %155 = phi ptr [ %142, %.loopexit.i.i.i ], [ %119, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
+  %141 = phi ptr [ %130, %.loopexit.i.i.i ], [ %78, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
+  %142 = phi ptr [ %131, %.loopexit.i.i.i ], [ %112, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
+  %143 = phi ptr [ %132, %.loopexit.i.i.i ], [ %78, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
+  %144 = phi ptr [ %133, %.loopexit.i.i.i ], [ %78, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
+  %145 = phi ptr [ %134, %.loopexit.i.i.i ], [ %113, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
   %indvars.iv32.i.i.i = phi i64 [ %indvars.iv.next33.i.i.i, %.loopexit.i.i.i ], [ 0, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %.sroa.0.0.copyload28.i.i.i.i = load i32, ptr %156, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i44.i.i.i = getelementptr inbounds nuw i8, ptr %155, i64 12
-  %.sroa.2.0.copyload.i.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i44.i.i.i, align 4, !tbaa !68
-  %157 = sext i32 %.sroa.2.0.copyload.i.i.i.i to i64
-  %158 = getelementptr inbounds i32, ptr %154, i64 %157
-  store i32 0, ptr %158, align 4, !tbaa !68
-  %159 = load i32, ptr %31, align 8, !tbaa !226
-  %160 = icmp sgt i32 %159, 2
-  br i1 %160, label %.lr.ph.i46.i.i.i, label %._crit_edge.i.i.i.i
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %.sroa.0.0.copyload28.i.i.i.i = load i32, ptr %146, align 4, !tbaa !95
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 12
+  %.sroa.2.0.copyload.i.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 4, !tbaa !68
+  %147 = sext i32 %.sroa.2.0.copyload.i.i.i.i to i64
+  %148 = getelementptr inbounds i32, ptr %144, i64 %147
+  store i32 0, ptr %148, align 4, !tbaa !68
+  %149 = load i32, ptr %31, align 8, !tbaa !226
+  %150 = icmp sgt i32 %149, 2
+  br i1 %150, label %.lr.ph.i45.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i46.i.i.i:                                 ; preds = %.lr.ph24.i.i.i, %.lr.ph.i46.i.i.i
-  %161 = phi ptr [ %174, %.lr.ph.i46.i.i.i ], [ %155, %.lr.ph24.i.i.i ]
-  %162 = phi i32 [ %179, %.lr.ph.i46.i.i.i ], [ 2, %.lr.ph24.i.i.i ]
-  %.02530.i.i.i.i = phi i32 [ %.1.i.i.i.i, %.lr.ph.i46.i.i.i ], [ 1, %.lr.ph24.i.i.i ]
-  %163 = or disjoint i32 %162, 1
-  %164 = sext i32 %162 to i64
-  %165 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %161, i64 %164
-  %166 = load float, ptr %165, align 4, !tbaa !148
-  %167 = sext i32 %163 to i64
-  %168 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %161, i64 %167
-  %169 = load float, ptr %168, align 4, !tbaa !148
-  %170 = fcmp olt float %166, %169
-  %171 = sext i32 %.02530.i.i.i.i to i64
-  %172 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %161, i64 %171
-  %.sink.in.i.i.i.i = select i1 %170, ptr %165, ptr %168
-  %.1.i.i.i.i = select i1 %170, i32 %162, i32 %163
+.lr.ph.i45.i.i.i:                                 ; preds = %.lr.ph24.i.i.i, %.lr.ph.i45.i.i.i
+  %151 = phi ptr [ %164, %.lr.ph.i45.i.i.i ], [ %145, %.lr.ph24.i.i.i ]
+  %152 = phi i32 [ %169, %.lr.ph.i45.i.i.i ], [ 2, %.lr.ph24.i.i.i ]
+  %.02530.i.i.i.i = phi i32 [ %.1.i.i.i.i, %.lr.ph.i45.i.i.i ], [ 1, %.lr.ph24.i.i.i ]
+  %153 = or disjoint i32 %152, 1
+  %154 = sext i32 %152 to i64
+  %155 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %151, i64 %154
+  %156 = load float, ptr %155, align 4, !tbaa !148
+  %157 = sext i32 %153 to i64
+  %158 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %151, i64 %157
+  %159 = load float, ptr %158, align 4, !tbaa !148
+  %160 = fcmp olt float %156, %159
+  %161 = sext i32 %.02530.i.i.i.i to i64
+  %162 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %151, i64 %161
+  %.sink.in.i.i.i.i = select i1 %160, ptr %155, ptr %158
+  %.1.i.i.i.i = select i1 %160, i32 %152, i32 %153
   %.sink.i.i.i.i = load i64, ptr %.sink.in.i.i.i.i, align 4
-  store i64 %.sink.i.i.i.i, ptr %172, align 4
-  %173 = load ptr, ptr %30, align 8, !tbaa !225
-  %174 = load ptr, ptr %3, align 8, !tbaa !224
-  %175 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %174, i64 %171, i32 1
-  %176 = load i32, ptr %175, align 4, !tbaa !146
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds i32, ptr %173, i64 %177
-  store i32 %.02530.i.i.i.i, ptr %178, align 4, !tbaa !68
-  %179 = shl i32 %.1.i.i.i.i, 1
-  %180 = load i32, ptr %31, align 8, !tbaa !226
-  %181 = icmp slt i32 %179, %180
-  br i1 %181, label %.lr.ph.i46.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !229
+  store i64 %.sink.i.i.i.i, ptr %162, align 4
+  %163 = load ptr, ptr %30, align 8, !tbaa !225
+  %164 = load ptr, ptr %3, align 8, !tbaa !224
+  %165 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %164, i64 %161, i32 1
+  %166 = load i32, ptr %165, align 4, !tbaa !146
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds i32, ptr %163, i64 %167
+  store i32 %.02530.i.i.i.i, ptr %168, align 4, !tbaa !68
+  %169 = shl i32 %.1.i.i.i.i, 1
+  %170 = load i32, ptr %31, align 8, !tbaa !226
+  %171 = icmp slt i32 %169, %170
+  br i1 %171, label %.lr.ph.i45.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !229
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i46.i.i.i, %.lr.ph24.i.i.i
-  %182 = phi ptr [ %149, %.lr.ph24.i.i.i ], [ %173, %.lr.ph.i46.i.i.i ]
-  %183 = phi ptr [ %150, %.lr.ph24.i.i.i ], [ %174, %.lr.ph.i46.i.i.i ]
-  %184 = phi ptr [ %151, %.lr.ph24.i.i.i ], [ %173, %.lr.ph.i46.i.i.i ]
-  %185 = phi ptr [ %152, %.lr.ph24.i.i.i ], [ %174, %.lr.ph.i46.i.i.i ]
-  %186 = phi ptr [ %153, %.lr.ph24.i.i.i ], [ %173, %.lr.ph.i46.i.i.i ]
-  %187 = phi ptr [ %154, %.lr.ph24.i.i.i ], [ %173, %.lr.ph.i46.i.i.i ]
-  %188 = phi ptr [ %155, %.lr.ph24.i.i.i ], [ %174, %.lr.ph.i46.i.i.i ]
-  %.025.lcssa.i.i.i.i = phi i32 [ 1, %.lr.ph24.i.i.i ], [ %.1.i.i.i.i, %.lr.ph.i46.i.i.i ]
-  %.lcssa.i.i.i.i = phi i32 [ %159, %.lr.ph24.i.i.i ], [ %180, %.lr.ph.i46.i.i.i ]
-  %189 = icmp eq i32 %.025.lcssa.i.i.i.i, %.lcssa.i.i.i.i
-  br i1 %189, label %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i, label %190
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i45.i.i.i, %.lr.ph24.i.i.i
+  %172 = phi ptr [ %141, %.lr.ph24.i.i.i ], [ %163, %.lr.ph.i45.i.i.i ]
+  %173 = phi ptr [ %142, %.lr.ph24.i.i.i ], [ %164, %.lr.ph.i45.i.i.i ]
+  %174 = phi ptr [ %143, %.lr.ph24.i.i.i ], [ %163, %.lr.ph.i45.i.i.i ]
+  %175 = phi ptr [ %144, %.lr.ph24.i.i.i ], [ %163, %.lr.ph.i45.i.i.i ]
+  %176 = phi ptr [ %145, %.lr.ph24.i.i.i ], [ %164, %.lr.ph.i45.i.i.i ]
+  %.025.lcssa.i.i.i.i = phi i32 [ 1, %.lr.ph24.i.i.i ], [ %.1.i.i.i.i, %.lr.ph.i45.i.i.i ]
+  %.lcssa.i.i.i.i = phi i32 [ %149, %.lr.ph24.i.i.i ], [ %170, %.lr.ph.i45.i.i.i ]
+  %177 = icmp eq i32 %.025.lcssa.i.i.i.i, %.lcssa.i.i.i.i
+  br i1 %177, label %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i, label %178
 
-190:                                              ; preds = %._crit_edge.i.i.i.i
-  %191 = sext i32 %.lcssa.i.i.i.i to i64
-  %192 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %188, i64 %191
-  %193 = sext i32 %.025.lcssa.i.i.i.i to i64
-  %194 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %188, i64 %193
-  %195 = load i64, ptr %192, align 4
-  store i64 %195, ptr %194, align 4
-  %196 = load ptr, ptr %30, align 8, !tbaa !225
-  %197 = load ptr, ptr %3, align 8, !tbaa !224
-  %198 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %197, i64 %193, i32 1
-  %199 = load i32, ptr %198, align 4, !tbaa !146
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds i32, ptr %196, i64 %200
-  store i32 %.025.lcssa.i.i.i.i, ptr %201, align 4, !tbaa !68
+178:                                              ; preds = %._crit_edge.i.i.i.i
+  %179 = sext i32 %.lcssa.i.i.i.i to i64
+  %180 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %176, i64 %179
+  %181 = sext i32 %.025.lcssa.i.i.i.i to i64
+  %182 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %176, i64 %181
+  %183 = load i64, ptr %180, align 4
+  store i64 %183, ptr %182, align 4
+  %184 = load ptr, ptr %30, align 8, !tbaa !225
+  %185 = load ptr, ptr %3, align 8, !tbaa !224
+  %186 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %185, i64 %181, i32 1
+  %187 = load i32, ptr %186, align 4, !tbaa !146
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds i32, ptr %184, i64 %188
+  store i32 %.025.lcssa.i.i.i.i, ptr %189, align 4, !tbaa !68
   %.032.i.i.i.i = ashr i32 %.025.lcssa.i.i.i.i, 1
-  %202 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %197, i64 %193
-  %203 = load float, ptr %202, align 4, !tbaa !148
-  %204 = sext i32 %.032.i.i.i.i to i64
-  %205 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %197, i64 %204
-  %206 = load float, ptr %205, align 4, !tbaa !148
-  %207 = fcmp olt float %203, %206
-  br i1 %207, label %.lr.ph36.i.i.i.i, label %._crit_edge37.i.i.i.i
+  %190 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %185, i64 %181
+  %191 = load float, ptr %190, align 4, !tbaa !148
+  %192 = sext i32 %.032.i.i.i.i to i64
+  %193 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %185, i64 %192
+  %194 = load float, ptr %193, align 4, !tbaa !148
+  %195 = fcmp olt float %191, %194
+  br i1 %195, label %.lr.ph36.i.i.i.i, label %._crit_edge37.i.i.i.i
 
-.lr.ph36.i.i.i.i:                                 ; preds = %190, %.lr.ph36.i.i.i.i
-  %208 = phi ptr [ %227, %.lr.ph36.i.i.i.i ], [ %205, %190 ]
-  %209 = phi i64 [ %226, %.lr.ph36.i.i.i.i ], [ %204, %190 ]
-  %210 = phi ptr [ %224, %.lr.ph36.i.i.i.i ], [ %202, %190 ]
-  %211 = phi i64 [ %223, %.lr.ph36.i.i.i.i ], [ %193, %190 ]
-  %.034.i.i.i.i = phi i32 [ %.0.i45.i.i.i, %.lr.ph36.i.i.i.i ], [ %.032.i.i.i.i, %190 ]
-  %.233.i.i.i.i = phi i32 [ %.034.i.i.i.i, %.lr.ph36.i.i.i.i ], [ %.025.lcssa.i.i.i.i, %190 ]
-  %212 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %197, i64 %211, i32 1
-  %213 = load i32, ptr %212, align 4, !tbaa !146
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i32, ptr %196, i64 %214
-  store i32 %.034.i.i.i.i, ptr %215, align 4, !tbaa !68
-  %216 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %197, i64 %209, i32 1
-  %217 = load i32, ptr %216, align 4, !tbaa !146
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds i32, ptr %196, i64 %218
-  store i32 %.233.i.i.i.i, ptr %219, align 4, !tbaa !68
-  %220 = load i64, ptr %210, align 4
-  store i64 %220, ptr %42, align 8
-  %221 = load i64, ptr %208, align 4
-  store i64 %221, ptr %210, align 4
-  %222 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %197, i64 %209
-  store i64 %220, ptr %222, align 4
-  %.0.i45.i.i.i = ashr i32 %.034.i.i.i.i, 1
-  %223 = sext i32 %.034.i.i.i.i to i64
-  %224 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %197, i64 %223
-  %225 = load float, ptr %224, align 4, !tbaa !148
-  %226 = sext i32 %.0.i45.i.i.i to i64
-  %227 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %197, i64 %226
-  %228 = load float, ptr %227, align 4, !tbaa !148
-  %229 = fcmp olt float %225, %228
-  br i1 %229, label %.lr.ph36.i.i.i.i, label %._crit_edge37.i.i.i.i, !llvm.loop !230
+.lr.ph36.i.i.i.i:                                 ; preds = %178, %.lr.ph36.i.i.i.i
+  %196 = phi ptr [ %215, %.lr.ph36.i.i.i.i ], [ %193, %178 ]
+  %197 = phi i64 [ %214, %.lr.ph36.i.i.i.i ], [ %192, %178 ]
+  %198 = phi ptr [ %212, %.lr.ph36.i.i.i.i ], [ %190, %178 ]
+  %199 = phi i64 [ %211, %.lr.ph36.i.i.i.i ], [ %181, %178 ]
+  %.034.i.i.i.i = phi i32 [ %.0.i44.i.i.i, %.lr.ph36.i.i.i.i ], [ %.032.i.i.i.i, %178 ]
+  %.233.i.i.i.i = phi i32 [ %.034.i.i.i.i, %.lr.ph36.i.i.i.i ], [ %.025.lcssa.i.i.i.i, %178 ]
+  %200 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %185, i64 %199, i32 1
+  %201 = load i32, ptr %200, align 4, !tbaa !146
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds i32, ptr %184, i64 %202
+  store i32 %.034.i.i.i.i, ptr %203, align 4, !tbaa !68
+  %204 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %185, i64 %197, i32 1
+  %205 = load i32, ptr %204, align 4, !tbaa !146
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr inbounds i32, ptr %184, i64 %206
+  store i32 %.233.i.i.i.i, ptr %207, align 4, !tbaa !68
+  %208 = load i64, ptr %198, align 4
+  store i64 %208, ptr %42, align 8
+  %209 = load i64, ptr %196, align 4
+  store i64 %209, ptr %198, align 4
+  %210 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %185, i64 %197
+  store i64 %208, ptr %210, align 4
+  %.0.i44.i.i.i = ashr i32 %.034.i.i.i.i, 1
+  %211 = sext i32 %.034.i.i.i.i to i64
+  %212 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %185, i64 %211
+  %213 = load float, ptr %212, align 4, !tbaa !148
+  %214 = sext i32 %.0.i44.i.i.i to i64
+  %215 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %185, i64 %214
+  %216 = load float, ptr %215, align 4, !tbaa !148
+  %217 = fcmp olt float %213, %216
+  br i1 %217, label %.lr.ph36.i.i.i.i, label %._crit_edge37.i.i.i.i, !llvm.loop !230
 
-._crit_edge37.i.i.i.i:                            ; preds = %.lr.ph36.i.i.i.i, %190
-  %230 = load i32, ptr %31, align 8, !tbaa !226
+._crit_edge37.i.i.i.i:                            ; preds = %.lr.ph36.i.i.i.i, %178
+  %218 = load i32, ptr %31, align 8, !tbaa !226
   br label %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i
 
 _ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i:     ; preds = %._crit_edge37.i.i.i.i, %._crit_edge.i.i.i.i
-  %231 = phi ptr [ %196, %._crit_edge37.i.i.i.i ], [ %182, %._crit_edge.i.i.i.i ]
-  %232 = phi ptr [ %197, %._crit_edge37.i.i.i.i ], [ %183, %._crit_edge.i.i.i.i ]
-  %233 = phi ptr [ %196, %._crit_edge37.i.i.i.i ], [ %184, %._crit_edge.i.i.i.i ]
-  %234 = phi ptr [ %197, %._crit_edge37.i.i.i.i ], [ %185, %._crit_edge.i.i.i.i ]
-  %235 = phi ptr [ %196, %._crit_edge37.i.i.i.i ], [ %186, %._crit_edge.i.i.i.i ]
-  %236 = phi ptr [ %196, %._crit_edge37.i.i.i.i ], [ %187, %._crit_edge.i.i.i.i ]
-  %237 = phi ptr [ %197, %._crit_edge37.i.i.i.i ], [ %188, %._crit_edge.i.i.i.i ]
-  %storemerge.in.i.i.i.i = phi i32 [ %230, %._crit_edge37.i.i.i.i ], [ %.025.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %219 = phi ptr [ %184, %._crit_edge37.i.i.i.i ], [ %172, %._crit_edge.i.i.i.i ]
+  %220 = phi ptr [ %185, %._crit_edge37.i.i.i.i ], [ %173, %._crit_edge.i.i.i.i ]
+  %221 = phi ptr [ %184, %._crit_edge37.i.i.i.i ], [ %174, %._crit_edge.i.i.i.i ]
+  %222 = phi ptr [ %184, %._crit_edge37.i.i.i.i ], [ %175, %._crit_edge.i.i.i.i ]
+  %223 = phi ptr [ %185, %._crit_edge37.i.i.i.i ], [ %176, %._crit_edge.i.i.i.i ]
+  %storemerge.in.i.i.i.i = phi i32 [ %218, %._crit_edge37.i.i.i.i ], [ %.025.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %storemerge.i.i.i.i = add nsw i32 %storemerge.in.i.i.i.i, -1
   store i32 %storemerge.i.i.i.i, ptr %31, align 8, !tbaa !226
-  %238 = bitcast i32 %.sroa.0.0.copyload28.i.i.i.i to float
-  %239 = getelementptr inbounds nuw i32, ptr %.sroa.04.0.i.i.i, i64 %157
-  store i32 1, ptr %239, align 4, !tbaa !68
-  %240 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv32.i.i.i
-  store i32 %.sroa.2.0.copyload.i.i.i.i, ptr %240, align 4, !tbaa !68
-  %241 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv32.i.i.i
-  store i32 %.sroa.0.0.copyload28.i.i.i.i, ptr %241, align 4, !tbaa !95
+  %224 = bitcast i32 %.sroa.0.0.copyload28.i.i.i.i to float
+  %225 = getelementptr inbounds nuw i32, ptr %.sroa.04.0.i.i.i, i64 %147
+  store i32 1, ptr %225, align 4, !tbaa !68
+  %226 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv32.i.i.i
+  store i32 %.sroa.2.0.copyload.i.i.i.i, ptr %226, align 4, !tbaa !68
+  %227 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv32.i.i.i
+  store i32 %.sroa.0.0.copyload28.i.i.i.i, ptr %227, align 4, !tbaa !95
   %indvars.iv.next33.i.i.i = add nuw nsw i64 %indvars.iv32.i.i.i, 1
-  %242 = load ptr, ptr %41, align 8, !tbaa !292
-  %243 = getelementptr inbounds nuw %"class.std::vector.3", ptr %242, i64 %157
-  %244 = load ptr, ptr %243, align 8, !tbaa !213
-  %245 = getelementptr inbounds nuw %"class.std::vector.3", ptr %242, i64 %157, i32 0, i32 0, i32 0, i32 1
-  %246 = load ptr, ptr %245, align 8, !tbaa !144
-  %247 = ptrtoint ptr %246 to i64
-  %248 = ptrtoint ptr %244 to i64
-  %249 = sub i64 %247, %248
-  %250 = lshr exact i64 %249, 3
-  %251 = trunc i64 %250 to i32
-  %252 = icmp sgt i32 %251, 0
-  br i1 %252, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
+  %228 = load ptr, ptr %41, align 8, !tbaa !292
+  %229 = getelementptr inbounds nuw %"class.std::vector.3", ptr %228, i64 %147
+  %230 = load ptr, ptr %229, align 8, !tbaa !213
+  %231 = getelementptr inbounds nuw %"class.std::vector.3", ptr %228, i64 %147, i32 0, i32 0, i32 0, i32 1
+  %232 = load ptr, ptr %231, align 8, !tbaa !144
+  %233 = ptrtoint ptr %232 to i64
+  %234 = ptrtoint ptr %230 to i64
+  %235 = sub i64 %233, %234
+  %236 = lshr exact i64 %235, 3
+  %237 = trunc i64 %236 to i32
+  %238 = icmp sgt i32 %237, 0
+  br i1 %238, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i
-  %253 = phi ptr [ %344, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %232, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %254 = phi ptr [ %345, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %233, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %255 = phi ptr [ %346, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %234, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %256 = phi ptr [ %347, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %235, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %257 = phi ptr [ %348, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %236, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %258 = phi ptr [ %349, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %237, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %259 = phi ptr [ %350, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %237, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %260 = phi ptr [ %351, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %236, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %239 = phi ptr [ %330, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %219, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %240 = phi ptr [ %331, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %220, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %241 = phi ptr [ %332, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %221, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %242 = phi ptr [ %333, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %222, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %243 = phi ptr [ %334, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %223, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %244 = phi ptr [ %335, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %223, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
+  %245 = phi ptr [ %336, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ %222, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i ], [ 0, %_ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i ]
-  %261 = getelementptr inbounds nuw %"struct.cv::ximgproc::node", ptr %244, i64 %indvars.iv.i.i.i
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
-  %263 = load i32, ptr %262, align 4, !tbaa !146
-  %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds nuw i32, ptr %.sroa.04.0.i.i.i, i64 %264
-  %266 = load i32, ptr %265, align 4, !tbaa !68
-  %.not.i.i.i = icmp eq i32 %266, 0
-  br i1 %.not.i.i.i, label %267, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i
+  %246 = getelementptr inbounds nuw %"struct.cv::ximgproc::node", ptr %230, i64 %indvars.iv.i.i.i
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 4
+  %248 = load i32, ptr %247, align 4, !tbaa !146
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr inbounds nuw i32, ptr %.sroa.04.0.i.i.i, i64 %249
+  %251 = load i32, ptr %250, align 4, !tbaa !68
+  %.not.i.i.i = icmp eq i32 %251, 0
+  br i1 %.not.i.i.i, label %252, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i
 
-267:                                              ; preds = %.lr.ph.i.i.i
-  %268 = load float, ptr %261, align 4, !tbaa !148
-  %269 = fadd float %268, %238
-  %270 = getelementptr inbounds i32, ptr %256, i64 %264
-  %271 = load i32, ptr %270, align 4, !tbaa !68
-  %.not.i.i.i.i = icmp eq i32 %271, 0
-  br i1 %.not.i.i.i.i, label %306, label %272
+252:                                              ; preds = %.lr.ph.i.i.i
+  %253 = load float, ptr %246, align 4, !tbaa !148
+  %254 = fadd float %253, %224
+  %255 = getelementptr inbounds i32, ptr %241, i64 %249
+  %256 = load i32, ptr %255, align 4, !tbaa !68
+  %.not.i.i.i.i = icmp eq i32 %256, 0
+  br i1 %.not.i.i.i.i, label %291, label %257
 
-272:                                              ; preds = %267
-  %273 = sext i32 %271 to i64
-  %274 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %255, i64 %273
-  %275 = load float, ptr %274, align 4, !tbaa !95
-  %276 = fcmp ogt float %275, %269
-  %.sroa.speculated.i.i.i.i = select i1 %276, float %269, float %275
-  store float %.sroa.speculated.i.i.i.i, ptr %274, align 4, !tbaa !148
-  %.0912.i.i.i.i = ashr i32 %271, 1
-  %277 = sext i32 %.0912.i.i.i.i to i64
-  %278 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %255, i64 %277
-  %279 = load float, ptr %278, align 4, !tbaa !148
-  %280 = fcmp olt float %.sroa.speculated.i.i.i.i, %279
-  br i1 %280, label %.lr.ph.i48.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i
+257:                                              ; preds = %252
+  %258 = sext i32 %256 to i64
+  %259 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %240, i64 %258
+  %260 = load float, ptr %259, align 4, !tbaa !95
+  %261 = fcmp ogt float %260, %254
+  %.sroa.speculated.i.i.i.i = select i1 %261, float %254, float %260
+  store float %.sroa.speculated.i.i.i.i, ptr %259, align 4, !tbaa !148
+  %.0912.i.i.i.i = ashr i32 %256, 1
+  %262 = sext i32 %.0912.i.i.i.i to i64
+  %263 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %240, i64 %262
+  %264 = load float, ptr %263, align 4, !tbaa !148
+  %265 = fcmp olt float %.sroa.speculated.i.i.i.i, %264
+  br i1 %265, label %.lr.ph.i46.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i
 
-.lr.ph.i48.i.i.i:                                 ; preds = %272, %.lr.ph.i48.i.i.i
-  %281 = phi ptr [ %303, %.lr.ph.i48.i.i.i ], [ %278, %272 ]
-  %282 = phi i64 [ %302, %.lr.ph.i48.i.i.i ], [ %277, %272 ]
-  %283 = phi ptr [ %300, %.lr.ph.i48.i.i.i ], [ %274, %272 ]
-  %284 = phi i64 [ %299, %.lr.ph.i48.i.i.i ], [ %273, %272 ]
-  %285 = phi ptr [ %296, %.lr.ph.i48.i.i.i ], [ %255, %272 ]
-  %.0914.i.i.i.i = phi i32 [ %.09.i.i.i.i, %.lr.ph.i48.i.i.i ], [ %.0912.i.i.i.i, %272 ]
-  %.013.i.i.i.i = phi i32 [ %.0914.i.i.i.i, %.lr.ph.i48.i.i.i ], [ %271, %272 ]
-  %286 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %285, i64 %284, i32 1
-  %287 = load i32, ptr %286, align 4, !tbaa !146
-  %288 = sext i32 %287 to i64
-  %289 = getelementptr inbounds i32, ptr %254, i64 %288
-  store i32 %.0914.i.i.i.i, ptr %289, align 4, !tbaa !68
-  %290 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %285, i64 %282, i32 1
-  %291 = load i32, ptr %290, align 4, !tbaa !146
-  %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds i32, ptr %254, i64 %292
-  store i32 %.013.i.i.i.i, ptr %293, align 4, !tbaa !68
-  %294 = load i64, ptr %283, align 4
-  store i64 %294, ptr %42, align 8
-  %295 = load i64, ptr %281, align 4
-  store i64 %295, ptr %283, align 4
-  %296 = load ptr, ptr %3, align 8, !tbaa !224
-  %297 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %296, i64 %282
-  %298 = load i64, ptr %42, align 8
-  store i64 %298, ptr %297, align 4
+.lr.ph.i46.i.i.i:                                 ; preds = %257, %.lr.ph.i46.i.i.i
+  %266 = phi ptr [ %288, %.lr.ph.i46.i.i.i ], [ %263, %257 ]
+  %267 = phi i64 [ %287, %.lr.ph.i46.i.i.i ], [ %262, %257 ]
+  %268 = phi ptr [ %285, %.lr.ph.i46.i.i.i ], [ %259, %257 ]
+  %269 = phi i64 [ %284, %.lr.ph.i46.i.i.i ], [ %258, %257 ]
+  %270 = phi ptr [ %281, %.lr.ph.i46.i.i.i ], [ %240, %257 ]
+  %.0914.i.i.i.i = phi i32 [ %.09.i.i.i.i, %.lr.ph.i46.i.i.i ], [ %.0912.i.i.i.i, %257 ]
+  %.013.i.i.i.i = phi i32 [ %.0914.i.i.i.i, %.lr.ph.i46.i.i.i ], [ %256, %257 ]
+  %271 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %270, i64 %269, i32 1
+  %272 = load i32, ptr %271, align 4, !tbaa !146
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds i32, ptr %239, i64 %273
+  store i32 %.0914.i.i.i.i, ptr %274, align 4, !tbaa !68
+  %275 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %270, i64 %267, i32 1
+  %276 = load i32, ptr %275, align 4, !tbaa !146
+  %277 = sext i32 %276 to i64
+  %278 = getelementptr inbounds i32, ptr %239, i64 %277
+  store i32 %.013.i.i.i.i, ptr %278, align 4, !tbaa !68
+  %279 = load i64, ptr %268, align 4
+  store i64 %279, ptr %42, align 8
+  %280 = load i64, ptr %266, align 4
+  store i64 %280, ptr %268, align 4
+  %281 = load ptr, ptr %3, align 8, !tbaa !224
+  %282 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %281, i64 %267
+  %283 = load i64, ptr %42, align 8
+  store i64 %283, ptr %282, align 4
   %.09.i.i.i.i = ashr i32 %.0914.i.i.i.i, 1
-  %299 = sext i32 %.0914.i.i.i.i to i64
-  %300 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %296, i64 %299
-  %301 = load float, ptr %300, align 4, !tbaa !148
-  %302 = sext i32 %.09.i.i.i.i to i64
-  %303 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %296, i64 %302
-  %304 = load float, ptr %303, align 4, !tbaa !148
-  %305 = fcmp olt float %301, %304
-  br i1 %305, label %.lr.ph.i48.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i, !llvm.loop !232
+  %284 = sext i32 %.0914.i.i.i.i to i64
+  %285 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %281, i64 %284
+  %286 = load float, ptr %285, align 4, !tbaa !148
+  %287 = sext i32 %.09.i.i.i.i to i64
+  %288 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %281, i64 %287
+  %289 = load float, ptr %288, align 4, !tbaa !148
+  %290 = fcmp olt float %286, %289
+  br i1 %290, label %.lr.ph.i46.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i, !llvm.loop !232
 
-306:                                              ; preds = %267
-  %307 = load i32, ptr %31, align 8, !tbaa !226
-  %308 = add nsw i32 %307, 1
-  store i32 %308, ptr %31, align 8, !tbaa !226
-  %309 = sext i32 %308 to i64
-  %310 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %253, i64 %309
-  store float %269, ptr %310, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %310, i64 4
-  store i32 %263, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 4, !tbaa !68
-  %311 = load i32, ptr %31, align 8, !tbaa !226
-  store i32 %311, ptr %270, align 4, !tbaa !68
-  %.08.i.i.i.i.i = ashr i32 %311, 1
-  %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %253, i64 %312
-  %314 = load float, ptr %313, align 4, !tbaa !148
-  %315 = sext i32 %.08.i.i.i.i.i to i64
-  %316 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %253, i64 %315
-  %317 = load float, ptr %316, align 4, !tbaa !148
-  %318 = fcmp olt float %314, %317
-  br i1 %318, label %.lr.ph.i.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i
+291:                                              ; preds = %252
+  %292 = bitcast float %254 to i32
+  %.sroa.0.0.insert.ext.i.i.i = zext i32 %292 to i64
+  %.sroa.2.0.insert.ext.i.i.i = zext i32 %248 to i64
+  %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
+  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
+  %293 = load i32, ptr %31, align 8, !tbaa !226
+  %294 = add nsw i32 %293, 1
+  store i32 %294, ptr %31, align 8, !tbaa !226
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %240, i64 %295
+  store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %296, align 4
+  %297 = load i32, ptr %31, align 8, !tbaa !226
+  %298 = load ptr, ptr %30, align 8, !tbaa !225
+  %299 = getelementptr inbounds i32, ptr %298, i64 %249
+  store i32 %297, ptr %299, align 4, !tbaa !68
+  %.08.i.i.i.i.i = ashr i32 %297, 1
+  %300 = load ptr, ptr %3, align 8, !tbaa !224
+  %301 = sext i32 %297 to i64
+  %302 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %300, i64 %301
+  %303 = load float, ptr %302, align 4, !tbaa !148
+  %304 = sext i32 %.08.i.i.i.i.i to i64
+  %305 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %300, i64 %304
+  %306 = load float, ptr %305, align 4, !tbaa !148
+  %307 = fcmp olt float %303, %306
+  br i1 %307, label %.lr.ph.i.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %306, %.lr.ph.i.i.i.i.i
-  %319 = phi ptr [ %341, %.lr.ph.i.i.i.i.i ], [ %316, %306 ]
-  %320 = phi i64 [ %340, %.lr.ph.i.i.i.i.i ], [ %315, %306 ]
-  %321 = phi ptr [ %338, %.lr.ph.i.i.i.i.i ], [ %313, %306 ]
-  %322 = phi i64 [ %337, %.lr.ph.i.i.i.i.i ], [ %312, %306 ]
-  %323 = phi ptr [ %334, %.lr.ph.i.i.i.i.i ], [ %253, %306 ]
-  %.010.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.08.i.i.i.i.i, %306 ]
-  %.079.i.i.i.i.i = phi i32 [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %311, %306 ]
-  %324 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %323, i64 %322, i32 1
-  %325 = load i32, ptr %324, align 4, !tbaa !146
-  %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds i32, ptr %231, i64 %326
-  store i32 %.010.i.i.i.i.i, ptr %327, align 4, !tbaa !68
-  %328 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %323, i64 %320, i32 1
-  %329 = load i32, ptr %328, align 4, !tbaa !146
-  %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds i32, ptr %231, i64 %330
-  store i32 %.079.i.i.i.i.i, ptr %331, align 4, !tbaa !68
-  %332 = load i64, ptr %321, align 4
-  store i64 %332, ptr %42, align 8
-  %333 = load i64, ptr %319, align 4
-  store i64 %333, ptr %321, align 4
-  %334 = load ptr, ptr %3, align 8, !tbaa !224
-  %335 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %334, i64 %320
-  %336 = load i64, ptr %42, align 8
-  store i64 %336, ptr %335, align 4
+.lr.ph.i.i.i.i.i:                                 ; preds = %291, %.lr.ph.i.i.i.i.i
+  %308 = phi ptr [ %327, %.lr.ph.i.i.i.i.i ], [ %305, %291 ]
+  %309 = phi i64 [ %326, %.lr.ph.i.i.i.i.i ], [ %304, %291 ]
+  %310 = phi ptr [ %324, %.lr.ph.i.i.i.i.i ], [ %302, %291 ]
+  %311 = phi i64 [ %323, %.lr.ph.i.i.i.i.i ], [ %301, %291 ]
+  %.010.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.08.i.i.i.i.i, %291 ]
+  %.079.i.i.i.i.i = phi i32 [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %297, %291 ]
+  %312 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %300, i64 %311, i32 1
+  %313 = load i32, ptr %312, align 4, !tbaa !146
+  %314 = sext i32 %313 to i64
+  %315 = getelementptr inbounds i32, ptr %298, i64 %314
+  store i32 %.010.i.i.i.i.i, ptr %315, align 4, !tbaa !68
+  %316 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %300, i64 %309, i32 1
+  %317 = load i32, ptr %316, align 4, !tbaa !146
+  %318 = sext i32 %317 to i64
+  %319 = getelementptr inbounds i32, ptr %298, i64 %318
+  store i32 %.079.i.i.i.i.i, ptr %319, align 4, !tbaa !68
+  %320 = load i64, ptr %310, align 4
+  store i64 %320, ptr %42, align 8
+  %321 = load i64, ptr %308, align 4
+  store i64 %321, ptr %310, align 4
+  %322 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %300, i64 %309
+  store i64 %320, ptr %322, align 4
   %.0.i.i.i.i.i = ashr i32 %.010.i.i.i.i.i, 1
-  %337 = sext i32 %.010.i.i.i.i.i to i64
-  %338 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %334, i64 %337
-  %339 = load float, ptr %338, align 4, !tbaa !148
-  %340 = sext i32 %.0.i.i.i.i.i to i64
-  %341 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %334, i64 %340
-  %342 = load float, ptr %341, align 4, !tbaa !148
-  %343 = fcmp olt float %339, %342
-  br i1 %343, label %.lr.ph.i.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i, !llvm.loop !227
+  %323 = sext i32 %.010.i.i.i.i.i to i64
+  %324 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %300, i64 %323
+  %325 = load float, ptr %324, align 4, !tbaa !148
+  %326 = sext i32 %.0.i.i.i.i.i to i64
+  %327 = getelementptr inbounds %"struct.cv::ximgproc::node", ptr %300, i64 %326
+  %328 = load float, ptr %327, align 4, !tbaa !148
+  %329 = fcmp olt float %325, %328
+  br i1 %329, label %.lr.ph.i.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i, !llvm.loop !227
 
-_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i: ; preds = %.lr.ph.i48.i.i.i, %.lr.ph.i.i.i.i.i, %306, %272, %.lr.ph.i.i.i
-  %344 = phi ptr [ %253, %306 ], [ %253, %272 ], [ %253, %.lr.ph.i.i.i ], [ %334, %.lr.ph.i.i.i.i.i ], [ %296, %.lr.ph.i48.i.i.i ]
-  %345 = phi ptr [ %254, %306 ], [ %254, %272 ], [ %254, %.lr.ph.i.i.i ], [ %231, %.lr.ph.i.i.i.i.i ], [ %254, %.lr.ph.i48.i.i.i ]
-  %346 = phi ptr [ %253, %306 ], [ %255, %272 ], [ %255, %.lr.ph.i.i.i ], [ %334, %.lr.ph.i.i.i.i.i ], [ %296, %.lr.ph.i48.i.i.i ]
-  %347 = phi ptr [ %256, %306 ], [ %256, %272 ], [ %256, %.lr.ph.i.i.i ], [ %231, %.lr.ph.i.i.i.i.i ], [ %254, %.lr.ph.i48.i.i.i ]
-  %348 = phi ptr [ %256, %306 ], [ %256, %272 ], [ %257, %.lr.ph.i.i.i ], [ %231, %.lr.ph.i.i.i.i.i ], [ %254, %.lr.ph.i48.i.i.i ]
-  %349 = phi ptr [ %253, %306 ], [ %255, %272 ], [ %258, %.lr.ph.i.i.i ], [ %334, %.lr.ph.i.i.i.i.i ], [ %296, %.lr.ph.i48.i.i.i ]
-  %350 = phi ptr [ %253, %306 ], [ %255, %272 ], [ %259, %.lr.ph.i.i.i ], [ %334, %.lr.ph.i.i.i.i.i ], [ %296, %.lr.ph.i48.i.i.i ]
-  %351 = phi ptr [ %256, %306 ], [ %256, %272 ], [ %260, %.lr.ph.i.i.i ], [ %231, %.lr.ph.i.i.i.i.i ], [ %254, %.lr.ph.i48.i.i.i ]
+_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i: ; preds = %.lr.ph.i46.i.i.i, %.lr.ph.i.i.i.i.i, %291, %257, %.lr.ph.i.i.i
+  %330 = phi ptr [ %298, %291 ], [ %239, %257 ], [ %239, %.lr.ph.i.i.i ], [ %298, %.lr.ph.i.i.i.i.i ], [ %239, %.lr.ph.i46.i.i.i ]
+  %331 = phi ptr [ %300, %291 ], [ %240, %257 ], [ %240, %.lr.ph.i.i.i ], [ %300, %.lr.ph.i.i.i.i.i ], [ %281, %.lr.ph.i46.i.i.i ]
+  %332 = phi ptr [ %298, %291 ], [ %241, %257 ], [ %241, %.lr.ph.i.i.i ], [ %298, %.lr.ph.i.i.i.i.i ], [ %239, %.lr.ph.i46.i.i.i ]
+  %333 = phi ptr [ %298, %291 ], [ %241, %257 ], [ %242, %.lr.ph.i.i.i ], [ %298, %.lr.ph.i.i.i.i.i ], [ %239, %.lr.ph.i46.i.i.i ]
+  %334 = phi ptr [ %300, %291 ], [ %240, %257 ], [ %243, %.lr.ph.i.i.i ], [ %300, %.lr.ph.i.i.i.i.i ], [ %281, %.lr.ph.i46.i.i.i ]
+  %335 = phi ptr [ %300, %291 ], [ %240, %257 ], [ %244, %.lr.ph.i.i.i ], [ %300, %.lr.ph.i.i.i.i.i ], [ %281, %.lr.ph.i46.i.i.i ]
+  %336 = phi ptr [ %298, %291 ], [ %241, %257 ], [ %245, %.lr.ph.i.i.i ], [ %298, %.lr.ph.i.i.i.i.i ], [ %239, %.lr.ph.i46.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %352 = load ptr, ptr %41, align 8, !tbaa !292
-  %353 = getelementptr inbounds nuw %"class.std::vector.3", ptr %352, i64 %157
-  %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
-  %355 = load ptr, ptr %354, align 8, !tbaa !144
-  %356 = load ptr, ptr %353, align 8, !tbaa !86
-  %357 = ptrtoint ptr %355 to i64
-  %358 = ptrtoint ptr %356 to i64
-  %359 = sub i64 %357, %358
-  %sext.i.i.i = shl i64 %359, 29
-  %360 = ashr i64 %sext.i.i.i, 32
-  %361 = icmp slt i64 %indvars.iv.next.i.i.i, %360
-  br i1 %361, label %.lr.ph.i.i.i, label %.loopexit.loopexit.i.i.i, !llvm.loop !479
+  %337 = load ptr, ptr %41, align 8, !tbaa !292
+  %338 = getelementptr inbounds nuw %"class.std::vector.3", ptr %337, i64 %147
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
+  %340 = load ptr, ptr %339, align 8, !tbaa !144
+  %341 = load ptr, ptr %338, align 8, !tbaa !86
+  %342 = ptrtoint ptr %340 to i64
+  %343 = ptrtoint ptr %341 to i64
+  %344 = sub i64 %342, %343
+  %sext.i.i.i = shl i64 %344, 29
+  %345 = ashr i64 %sext.i.i.i, 32
+  %346 = icmp slt i64 %indvars.iv.next.i.i.i, %345
+  br i1 %346, label %.lr.ph.i.i.i, label %.loopexit.loopexit.i.i.i, !llvm.loop !479
 
 .critedge.i.i.i:                                  ; preds = %.loopexit.i.i.i, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i, %59
-  %362 = phi ptr [ %60, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %60, %59 ], [ %231, %.loopexit.i.i.i ]
-  %363 = phi ptr [ %117, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %61, %59 ], [ %137, %.loopexit.i.i.i ]
-  %364 = phi ptr [ %62, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %62, %59 ], [ %138, %.loopexit.i.i.i ]
-  %365 = phi ptr [ %118, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %63, %59 ], [ %139, %.loopexit.i.i.i ]
-  %366 = phi ptr [ %64, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %64, %59 ], [ %140, %.loopexit.i.i.i ]
-  %367 = phi ptr [ %65, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %65, %59 ], [ %141, %.loopexit.i.i.i ]
-  %368 = phi ptr [ %119, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %66, %59 ], [ %142, %.loopexit.i.i.i ]
-  %369 = phi ptr [ %67, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %67, %59 ], [ %144, %.loopexit.i.i.i ]
-  %370 = phi ptr [ %121, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %68, %59 ], [ %144, %.loopexit.i.i.i ]
-  %371 = phi ptr [ %122, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %69, %59 ], [ %143, %.loopexit.i.i.i ]
-  %372 = phi ptr [ %121, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %70, %59 ], [ %144, %.loopexit.i.i.i ]
+  %347 = phi ptr [ %78, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %60, %59 ], [ %130, %.loopexit.i.i.i ]
+  %348 = phi ptr [ %112, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %61, %59 ], [ %131, %.loopexit.i.i.i ]
+  %349 = phi ptr [ %113, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %62, %59 ], [ %134, %.loopexit.i.i.i ]
+  %350 = phi ptr [ %115, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %63, %59 ], [ %135, %.loopexit.i.i.i ]
+  %351 = phi ptr [ %115, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %64, %59 ], [ %135, %.loopexit.i.i.i ]
+  %352 = phi ptr [ %78, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ], [ %65, %59 ], [ %136, %.loopexit.i.i.i ]
   %indvars.iv.next36.i.i.i = add nsw i64 %indvars.iv35.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next36.i.i.i to i32
   %exitcond.not.i.i.i = icmp eq i32 %.sroa.speculated.i.i.i, %lftr.wideiv.i.i.i

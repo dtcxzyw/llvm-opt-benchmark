@@ -177389,16 +177389,11 @@ define noundef nonnull ptr @"_ZN5typst5model5quote1_96_$LT$impl$u20$typst..found
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load i64, ptr %94, align 8, !range !1376, !alias.scope !39359, !noalias !39362, !noundef !5
   %96 = ptrtoint ptr %93 to i64
-  %.sroa.554.0.extract.trunc = trunc i64 %96 to i32
-  %.sroa.554.4.extract.shift = lshr i64 %96, 32
-  %.sroa.554.4.extract.trunc = trunc nuw i64 %.sroa.554.4.extract.shift to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !39372)
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %84, ptr %97, align 8, !alias.scope !39375, !noalias !39368
   %.sroa.3.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %.sroa.554.0.extract.trunc, ptr %.sroa.3.0..sroa_idx2.i, align 8, !alias.scope !39375, !noalias !39368
-  %.sroa.4.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %.sroa.554.4.extract.trunc, ptr %.sroa.4.0..sroa_idx4.i, align 4, !alias.scope !39381
+  store i64 %96, ptr %.sroa.3.0..sroa_idx2.i, align 8, !alias.scope !39381
   %.sroa.8.sroa.4.0..sroa.4.0..sroa_idx4.i.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %95, ptr %.sroa.8.sroa.4.0..sroa.4.0..sroa_idx4.i.sroa_idx, align 8, !alias.scope !39381
   br label %104

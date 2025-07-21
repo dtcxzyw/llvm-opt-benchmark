@@ -2961,9 +2961,6 @@ _ZN5serde2de9MapAccess8next_key17h6aba98c59800bbd9E.exit: ; preds = %19
           to label %28 unwind label %.loopexit.loopexit.loopexit
 
 27:                                               ; preds = %24
-  %.sroa.465.1.extract.trunc = trunc i16 %.sroa.9.0 to i8
-  %.sroa.465.2.extract.shift = lshr i16 %.sroa.9.0, 8
-  %.sroa.465.2.extract.trunc = trunc nuw i16 %.sroa.465.2.extract.shift to i8
   br i1 %.sroa.058.0.ph, label %62, label %65, !prof !44
 
 28:                                               ; preds = %25
@@ -3144,9 +3141,7 @@ _ZN5serde2de9MapAccess10next_value17hba04901f7b507abaE.exit122: ; preds = %56
   %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.463.0.ph453, ptr %.sroa.467.0..sroa_idx, align 8
   %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.465.1.extract.trunc, ptr %.sroa.568.0..sroa_idx, align 8
-  %.sroa.669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 %.sroa.465.2.extract.trunc, ptr %.sroa.669.0..sroa_idx, align 1
+  store i16 %.sroa.9.0, ptr %.sroa.568.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %77
 
@@ -4458,9 +4453,6 @@ _ZN5serde2de9MapAccess8next_key17head28d4d475e00d7E.exit: ; preds = %19
           to label %28 unwind label %.loopexit.loopexit.loopexit
 
 27:                                               ; preds = %24
-  %.sroa.465.1.extract.trunc = trunc i16 %.sroa.9.0 to i8
-  %.sroa.465.2.extract.shift = lshr i16 %.sroa.9.0, 8
-  %.sroa.465.2.extract.trunc = trunc nuw i16 %.sroa.465.2.extract.shift to i8
   br i1 %.sroa.058.0.ph, label %62, label %65, !prof !44
 
 28:                                               ; preds = %25
@@ -4641,9 +4633,7 @@ _ZN5serde2de9MapAccess10next_value17h8bb51206e80de8a1E.exit122: ; preds = %56
   %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.463.0.ph453, ptr %.sroa.467.0..sroa_idx, align 8
   %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.465.1.extract.trunc, ptr %.sroa.568.0..sroa_idx, align 8
-  %.sroa.669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 %.sroa.465.2.extract.trunc, ptr %.sroa.669.0..sroa_idx, align 1
+  store i16 %.sroa.9.0, ptr %.sroa.568.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %77
 
@@ -7440,9 +7430,6 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br i1 %17, label %22, label %20
 
 18:                                               ; preds = %13
-  %.sroa.465.1.extract.trunc = trunc i16 %.sroa.9.0202 to i8
-  %.sroa.465.2.extract.shift = lshr i16 %.sroa.9.0202, 8
-  %.sroa.465.2.extract.trunc = trunc nuw i16 %.sroa.465.2.extract.shift to i8
   %19 = trunc nuw i64 %.sroa.058.0198 to i1
   br i1 %19, label %51, label %54, !prof !44
 
@@ -7585,9 +7572,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.463.0201, ptr %.sroa.467.0..sroa_idx, align 8
   %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.465.1.extract.trunc, ptr %.sroa.568.0..sroa_idx, align 8
-  %.sroa.669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 %.sroa.465.2.extract.trunc, ptr %.sroa.669.0..sroa_idx, align 1
+  store i16 %.sroa.9.0202, ptr %.sroa.568.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %61
 

@@ -8353,7 +8353,7 @@ declare ptr @rb_default_external_encoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @gzfile_writer_end_run(i64 noundef %0) #0 {
-  %2 = alloca [8 x i8], align 1
+  %2 = alloca [8 x i8], align 4
   %3 = alloca %struct.zstream_run_args, align 8
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8, !tbaa !113
@@ -8409,79 +8409,55 @@ zstream_run.exit:                                 ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %28 = load i64, ptr %27, align 8, !tbaa !118
-  %29 = trunc i64 %28 to i8
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %29, ptr %2, align 1, !tbaa !149
-  %31 = lshr i64 %28, 8
-  %32 = trunc i64 %31 to i8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %32, ptr %30, align 1, !tbaa !149
-  %34 = lshr i64 %28, 16
-  %35 = trunc i64 %34 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %35, ptr %33, align 1, !tbaa !149
-  %37 = lshr i64 %28, 24
-  %38 = trunc i64 %37 to i8
-  store i8 %38, ptr %36, align 1, !tbaa !149
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %40 = load i64, ptr %39, align 8, !tbaa !135
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %42 = trunc i64 %40 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store i8 %42, ptr %41, align 1, !tbaa !149
-  %44 = lshr i64 %40, 8
-  %45 = trunc i64 %44 to i8
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %45, ptr %43, align 1, !tbaa !149
-  %47 = lshr i64 %40, 16
-  %48 = trunc i64 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  store i8 %48, ptr %46, align 1, !tbaa !149
-  %50 = lshr i64 %40, 24
-  %51 = trunc i64 %50 to i8
-  store i8 %51, ptr %49, align 1, !tbaa !149
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %2, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %31 = load i64, ptr %30, align 8, !tbaa !135
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %33 = trunc i64 %31 to i32
+  store i32 %33, ptr %32, align 4
   call fastcc void @zstream_append_buffer(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef 8)
-  %52 = load i64, ptr %4, align 8, !tbaa !113
-  %53 = or i64 %52, 512
-  store i64 %53, ptr %4, align 8, !tbaa !113
+  %34 = load i64, ptr %4, align 8, !tbaa !113
+  %35 = or i64 %34, 512
+  store i64 %35, ptr %4, align 8, !tbaa !113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %55 = load i64, ptr %54, align 8, !tbaa !132
-  %56 = icmp eq i64 %55, 4
-  br i1 %56, label %gzfile_write_raw.exit, label %57
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !132
+  %38 = icmp eq i64 %37, 4
+  br i1 %38, label %gzfile_write_raw.exit, label %39
 
-57:                                               ; preds = %zstream_run.exit
-  %58 = inttoptr i64 %55 to ptr
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load i64, ptr %59, align 8, !tbaa !21
-  %61 = icmp sgt i64 %60, 0
-  br i1 %61, label %62, label %gzfile_write_raw.exit
+39:                                               ; preds = %zstream_run.exit
+  %40 = inttoptr i64 %37 to ptr
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !tbaa !21
+  %43 = icmp sgt i64 %42, 0
+  br i1 %43, label %44, label %gzfile_write_raw.exit
 
-62:                                               ; preds = %57
-  %63 = call fastcc i64 @zstream_detach_buffer(ptr noundef nonnull %4)
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %65 = load i64, ptr %64, align 8, !tbaa !117
-  %66 = load i64, ptr @id_write, align 8, !tbaa !6
-  %67 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %65, i64 noundef %66, i32 noundef 1, i64 noundef %63) #18
-  %68 = load i64, ptr %4, align 8, !tbaa !113
-  %69 = and i64 %68, 128
-  %.not.i5 = icmp eq i64 %69, 0
-  br i1 %.not.i5, label %gzfile_write_raw.exit, label %70
+44:                                               ; preds = %39
+  %45 = call fastcc i64 @zstream_detach_buffer(ptr noundef nonnull %4)
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %47 = load i64, ptr %46, align 8, !tbaa !117
+  %48 = load i64, ptr @id_write, align 8, !tbaa !6
+  %49 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %47, i64 noundef %48, i32 noundef 1, i64 noundef %45) #18
+  %50 = load i64, ptr %4, align 8, !tbaa !113
+  %51 = and i64 %50, 128
+  %.not.i5 = icmp eq i64 %51, 0
+  br i1 %.not.i5, label %gzfile_write_raw.exit, label %52
 
-70:                                               ; preds = %62
-  %71 = load i64, ptr %64, align 8, !tbaa !117
-  %72 = load i64, ptr @id_flush, align 8, !tbaa !6
-  %73 = call i32 @rb_respond_to(i64 noundef %71, i64 noundef %72) #18
-  %.not7.i = icmp eq i32 %73, 0
-  br i1 %.not7.i, label %gzfile_write_raw.exit, label %74
+52:                                               ; preds = %44
+  %53 = load i64, ptr %46, align 8, !tbaa !117
+  %54 = load i64, ptr @id_flush, align 8, !tbaa !6
+  %55 = call i32 @rb_respond_to(i64 noundef %53, i64 noundef %54) #18
+  %.not7.i = icmp eq i32 %55, 0
+  br i1 %.not7.i, label %gzfile_write_raw.exit, label %56
 
-74:                                               ; preds = %70
-  %75 = load i64, ptr %64, align 8, !tbaa !117
-  %76 = load i64, ptr @id_flush, align 8, !tbaa !6
-  %77 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %75, i64 noundef %76, i32 noundef 0) #18
+56:                                               ; preds = %52
+  %57 = load i64, ptr %46, align 8, !tbaa !117
+  %58 = load i64, ptr @id_flush, align 8, !tbaa !6
+  %59 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %57, i64 noundef %58, i32 noundef 0) #18
   br label %gzfile_write_raw.exit
 
-gzfile_write_raw.exit:                            ; preds = %zstream_run.exit, %57, %62, %70, %74
+gzfile_write_raw.exit:                            ; preds = %zstream_run.exit, %39, %44, %52, %56
   ret i64 4
 }
 
@@ -8530,81 +8506,69 @@ define internal fastcc void @gzfile_make_header(ptr noundef captures(none) initi
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %.1, ptr %21, align 1, !tbaa !149
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %23 = trunc i64 %16 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store i8 %23, ptr %22, align 1, !tbaa !149
-  %25 = lshr i64 %16, 8
-  %26 = trunc i64 %25 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %26, ptr %24, align 1, !tbaa !149
-  %28 = lshr i64 %16, 16
-  %29 = trunc i64 %28 to i8
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  store i8 %29, ptr %27, align 1, !tbaa !149
-  %31 = lshr i64 %16, 24
-  %32 = trunc i64 %31 to i8
-  store i8 %32, ptr %30, align 1, !tbaa !149
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %switch.select28, ptr %33, align 1, !tbaa !149
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %35 = load i32, ptr %34, align 4, !tbaa !121
-  %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  store i8 %36, ptr %37, align 1, !tbaa !149
+  %23 = trunc i64 %16 to i32
+  store i32 %23, ptr %22, align 1
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i8 %switch.select28, ptr %24, align 1, !tbaa !149
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %26 = load i32, ptr %25, align 4, !tbaa !121
+  %27 = trunc i32 %26 to i8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  store i8 %27, ptr %28, align 1, !tbaa !149
   call fastcc void @zstream_append_buffer(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 10)
-  %38 = load i64, ptr %3, align 8, !tbaa !122
-  %39 = icmp eq i64 %38, 4
-  br i1 %39, label %48, label %40
+  %29 = load i64, ptr %3, align 8, !tbaa !122
+  %30 = icmp eq i64 %29, 4
+  br i1 %30, label %39, label %31
 
-40:                                               ; preds = %15
-  %41 = inttoptr i64 %38 to ptr
-  %42 = load i64, ptr %41, align 8, !tbaa !16, !noalias !262
-  %43 = and i64 %42, 8192
-  %.not.i.i = icmp eq i64 %43, 0
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %45
+31:                                               ; preds = %15
+  %32 = inttoptr i64 %29 to ptr
+  %33 = load i64, ptr %32, align 8, !tbaa !16, !noalias !262
+  %34 = and i64 %33, 8192
+  %.not.i.i = icmp eq i64 %34, 0
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %36
 
-45:                                               ; preds = %40
-  %.sroa.2.0.copyload.i = load ptr, ptr %44, align 8
+36:                                               ; preds = %31
+  %.sroa.2.0.copyload.i = load ptr, ptr %35, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %40, %45
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %45 ], [ %44, %40 ]
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !21
-  call fastcc void @zstream_append_buffer(ptr noundef nonnull %0, ptr noundef %.sroa.2.0.i, i64 noundef %47)
+RSTRING_PTR.exit:                                 ; preds = %31, %36
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %36 ], [ %35, %31 ]
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %38 = load i64, ptr %37, align 8, !tbaa !21
+  call fastcc void @zstream_append_buffer(ptr noundef nonnull %0, ptr noundef %.sroa.2.0.i, i64 noundef %38)
   call fastcc void @zstream_append_buffer(ptr noundef nonnull %0, ptr noundef nonnull @.str.169, i64 noundef 1)
-  br label %48
+  br label %39
 
-48:                                               ; preds = %RSTRING_PTR.exit, %15
-  %49 = load i64, ptr %6, align 8, !tbaa !123
-  %50 = icmp eq i64 %49, 4
-  br i1 %50, label %59, label %51
+39:                                               ; preds = %RSTRING_PTR.exit, %15
+  %40 = load i64, ptr %6, align 8, !tbaa !123
+  %41 = icmp eq i64 %40, 4
+  br i1 %41, label %50, label %42
 
-51:                                               ; preds = %48
-  %52 = inttoptr i64 %49 to ptr
-  %53 = load i64, ptr %52, align 8, !tbaa !16, !noalias !265
-  %54 = and i64 %53, 8192
-  %.not.i.i29 = icmp eq i64 %54, 0
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  br i1 %.not.i.i29, label %RSTRING_PTR.exit32, label %56
+42:                                               ; preds = %39
+  %43 = inttoptr i64 %40 to ptr
+  %44 = load i64, ptr %43, align 8, !tbaa !16, !noalias !265
+  %45 = and i64 %44, 8192
+  %.not.i.i29 = icmp eq i64 %45, 0
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  br i1 %.not.i.i29, label %RSTRING_PTR.exit32, label %47
 
-56:                                               ; preds = %51
-  %.sroa.2.0.copyload.i30 = load ptr, ptr %55, align 8
+47:                                               ; preds = %42
+  %.sroa.2.0.copyload.i30 = load ptr, ptr %46, align 8
   br label %RSTRING_PTR.exit32
 
-RSTRING_PTR.exit32:                               ; preds = %51, %56
-  %.sroa.2.0.i31 = phi ptr [ %.sroa.2.0.copyload.i30, %56 ], [ %55, %51 ]
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %58 = load i64, ptr %57, align 8, !tbaa !21
-  call fastcc void @zstream_append_buffer(ptr noundef nonnull %0, ptr noundef %.sroa.2.0.i31, i64 noundef %58)
+RSTRING_PTR.exit32:                               ; preds = %42, %47
+  %.sroa.2.0.i31 = phi ptr [ %.sroa.2.0.copyload.i30, %47 ], [ %46, %42 ]
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %49 = load i64, ptr %48, align 8, !tbaa !21
+  call fastcc void @zstream_append_buffer(ptr noundef nonnull %0, ptr noundef %.sroa.2.0.i31, i64 noundef %49)
   call fastcc void @zstream_append_buffer(ptr noundef nonnull %0, ptr noundef nonnull @.str.169, i64 noundef 1)
-  br label %59
+  br label %50
 
-59:                                               ; preds = %RSTRING_PTR.exit32, %48
-  %60 = load i64, ptr %0, align 8, !tbaa !113
-  %61 = or i64 %60, 256
-  store i64 %61, ptr %0, align 8, !tbaa !113
+50:                                               ; preds = %RSTRING_PTR.exit32, %39
+  %51 = load i64, ptr %0, align 8, !tbaa !113
+  %52 = or i64 %51, 256
+  store i64 %52, ptr %0, align 8, !tbaa !113
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #18
   ret void
 }
@@ -10995,7 +10959,7 @@ declare i64 @rb_enc_from_encoding(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @zlib_gzip_end(ptr noundef %0) #0 {
-  %2 = alloca [8 x i8], align 1
+  %2 = alloca [8 x i8], align 4
   %3 = alloca %struct.zstream_run_args, align 8
   %4 = load i64, ptr %0, align 8, !tbaa !113
   %5 = or i64 %4, 8
@@ -11041,41 +11005,17 @@ zstream_run.exit:                                 ; preds = %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %24 = load i64, ptr %23, align 8, !tbaa !118
-  %25 = trunc i64 %24 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %25, ptr %2, align 1, !tbaa !149
-  %27 = lshr i64 %24, 8
-  %28 = trunc i64 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %28, ptr %26, align 1, !tbaa !149
-  %30 = lshr i64 %24, 16
-  %31 = trunc i64 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %31, ptr %29, align 1, !tbaa !149
-  %33 = lshr i64 %24, 24
-  %34 = trunc i64 %33 to i8
-  store i8 %34, ptr %32, align 1, !tbaa !149
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = load i64, ptr %35, align 8, !tbaa !135
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %38 = trunc i64 %36 to i8
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store i8 %38, ptr %37, align 1, !tbaa !149
-  %40 = lshr i64 %36, 8
-  %41 = trunc i64 %40 to i8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %41, ptr %39, align 1, !tbaa !149
-  %43 = lshr i64 %36, 16
-  %44 = trunc i64 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  store i8 %44, ptr %42, align 1, !tbaa !149
-  %46 = lshr i64 %36, 24
-  %47 = trunc i64 %46 to i8
-  store i8 %47, ptr %45, align 1, !tbaa !149
+  %25 = trunc i64 %24 to i32
+  store i32 %25, ptr %2, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %27 = load i64, ptr %26, align 8, !tbaa !135
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %29 = trunc i64 %27 to i32
+  store i32 %29, ptr %28, align 4
   call fastcc void @zstream_append_buffer(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 8)
-  %48 = load i64, ptr %0, align 8, !tbaa !113
-  %49 = or i64 %48, 512
-  store i64 %49, ptr %0, align 8, !tbaa !113
+  %30 = load i64, ptr %0, align 8, !tbaa !113
+  %31 = or i64 %30, 512
+  store i64 %31, ptr %0, align 8, !tbaa !113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
   call fastcc void @zstream_end(ptr noundef nonnull %0)
   ret void

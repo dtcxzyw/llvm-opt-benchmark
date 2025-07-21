@@ -1138,13 +1138,9 @@ _ZN5alloc5slice11stable_sort17h7e199d352faa924dE.exit: ; preds = %_ZN4core5slice
   br i1 %exitcond.not, label %296, label %.preheader.split
 
 333:                                              ; preds = %310
-  %.sroa.522.0.extract.shift = lshr i24 %315, 16
-  %.sroa.522.0.extract.trunc = trunc nuw i24 %.sroa.522.0.extract.shift to i8
-  %.sroa.421.0.extract.shift = lshr i24 %315, 8
-  %.sroa.421.0.extract.trunc = trunc i24 %.sroa.421.0.extract.shift to i8
-  store i8 %.sroa.421.0.extract.trunc, ptr %313, align 1
-  %334 = getelementptr inbounds nuw i8, ptr %313, i64 1
-  store i8 %.sroa.522.0.extract.trunc, ptr %334, align 1
+  %334 = lshr i24 %315, 8
+  %335 = trunc nuw i24 %334 to i16
+  store i16 %335, ptr %313, align 1
   br label %.backedge
 }
 

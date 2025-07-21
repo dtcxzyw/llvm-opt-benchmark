@@ -1356,34 +1356,11 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   %301 = tail call i16 @llvm.umin.i16(i16 %298, i16 %297)
   %302 = tail call i16 @llvm.umax.i16(i16 %298, i16 %297)
   %.5 = select i1 %299, i32 %300, i32 %.0
-  %303 = trunc i16 %302 to i8
-  store i8 %303, ptr %0, align 1, !tbaa !3
-  %304 = lshr i16 %302, 8
-  %305 = trunc nuw i16 %304 to i8
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %305, ptr %306, align 1, !tbaa !3
-  %307 = trunc i16 %301 to i8
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %307, ptr %308, align 1, !tbaa !3
-  %309 = lshr i16 %301, 8
-  %310 = trunc nuw i16 %309 to i8
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %310, ptr %311, align 1, !tbaa !3
-  %312 = trunc i32 %.5 to i8
-  %313 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %312, ptr %313, align 1, !tbaa !3
-  %314 = lshr i32 %.5, 8
-  %315 = trunc i32 %314 to i8
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %315, ptr %316, align 1, !tbaa !3
-  %317 = lshr i32 %.5, 16
-  %318 = trunc i32 %317 to i8
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %318, ptr %319, align 1, !tbaa !3
-  %320 = lshr i32 %.5, 24
-  %321 = trunc nuw i32 %320 to i8
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %321, ptr %322, align 1, !tbaa !3
+  store i16 %302, ptr %0, align 1
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i16 %301, ptr %303, align 1
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.5, ptr %304, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #10

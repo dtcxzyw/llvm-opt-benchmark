@@ -537,9 +537,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %.sroa.0.0.insert.insert.i = tail call i64 @llvm.bswap.i64(i64 %114)
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.insert.insert.i to i32
   %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %102, align 8, !tbaa !20
-  store i32 %.sroa.4.0.extract.trunc, ptr %103, align 4, !tbaa !14
+  store i64 %.sroa.0.0.insert.insert.i, ptr %102, align 8
   %115 = icmp ult i64 %.sroa.0.0.insert.insert.i, 4294967296
   br i1 %115, label %_ZN4llvm5ErrorD2Ev.exit59, label %119
 

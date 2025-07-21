@@ -129,26 +129,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define void @_ZN5boost4urls12ipv6_addressC2ERKNS0_12ipv4_addressE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, i8 0, i64 16, i1 false), !tbaa !3
   %3 = tail call i32 @_ZNK5boost4urls12ipv4_address8to_bytesEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #23
-  %.sroa.03.0.extract.trunc = trunc i32 %3 to i8
-  %.sroa.44.0.extract.shift = lshr i32 %3, 8
-  %.sroa.44.0.extract.trunc = trunc i32 %.sroa.44.0.extract.shift to i8
-  %.sroa.55.0.extract.shift = lshr i32 %3, 16
-  %.sroa.55.0.extract.trunc = trunc i32 %.sroa.55.0.extract.shift to i8
-  %.sroa.66.0.extract.shift = lshr i32 %3, 24
-  %.sroa.66.0.extract.trunc = trunc nuw i32 %.sroa.66.0.extract.shift to i8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, i8 0, i64 10, i1 false)
   store i8 -1, ptr %.sroa.13.0..sroa_idx, align 1
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 -1, ptr %.sroa.14.0..sroa_idx, align 1
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %.sroa.03.0.extract.trunc, ptr %.sroa.15.0..sroa_idx, align 1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %.sroa.44.0.extract.trunc, ptr %.sroa.16.0..sroa_idx, align 1
-  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %.sroa.55.0.extract.trunc, ptr %.sroa.17.0..sroa_idx, align 1
-  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %.sroa.66.0.extract.trunc, ptr %.sroa.18.0..sroa_idx, align 1
+  store i32 %3, ptr %.sroa.15.0..sroa_idx, align 1
   ret void
 }
 

@@ -1788,9 +1788,7 @@ define dso_local void @_ZN4pbrt11DisplayItemC2ERKNSt7__cxx1112basic_stringIcSt11
   store i64 0, ptr %11, align 8, !tbaa !15
   store i8 0, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sroa.0.0.extract.trunc, ptr %12, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.sroa.3.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 4
+  store i64 %2, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72

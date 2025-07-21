@@ -92180,17 +92180,12 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.body.thread unwind label %93
 
 96:                                               ; preds = %68
-  %.sroa.757.8.extract.trunc = trunc i64 %.sroa.719.0.copyload.i.i to i32
-  %.sroa.757.12.extract.shift = lshr i64 %.sroa.719.0.copyload.i.i, 32
-  %.sroa.757.12.extract.trunc = trunc nuw i64 %.sroa.757.12.extract.shift to i32
   %.sroa.441.sroa.2.0..sroa.441.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.441.sroa.2.0..sroa.441.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.12, i64 40, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.017.0.copyload.i.i, ptr %97, align 8
   %.sroa.239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.757.8.extract.trunc, ptr %.sroa.239.0..sroa_idx, align 8
-  %.sroa.340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.757.12.extract.trunc, ptr %.sroa.340.0..sroa_idx, align 4
+  store i64 %.sroa.719.0.copyload.i.i, ptr %.sroa.239.0..sroa_idx, align 8
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.822.sroa.0.0.copyload.i.i, ptr %.sroa.441.0..sroa_idx, align 8
   store i8 39, ptr %0, align 8
@@ -98976,17 +98971,12 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.body.thread unwind label %93
 
 96:                                               ; preds = %68
-  %.sroa.757.8.extract.trunc = trunc i64 %.sroa.719.0.copyload.i.i to i32
-  %.sroa.757.12.extract.shift = lshr i64 %.sroa.719.0.copyload.i.i, 32
-  %.sroa.757.12.extract.trunc = trunc nuw i64 %.sroa.757.12.extract.shift to i32
   %.sroa.441.sroa.2.0..sroa.441.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.441.sroa.2.0..sroa.441.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.12, i64 40, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.017.0.copyload.i.i, ptr %97, align 8
   %.sroa.239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.757.8.extract.trunc, ptr %.sroa.239.0..sroa_idx, align 8
-  %.sroa.340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.757.12.extract.trunc, ptr %.sroa.340.0..sroa_idx, align 4
+  store i64 %.sroa.719.0.copyload.i.i, ptr %.sroa.239.0..sroa_idx, align 8
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.822.sroa.0.0.copyload.i.i, ptr %.sroa.441.0..sroa_idx, align 8
   store i8 39, ptr %0, align 8

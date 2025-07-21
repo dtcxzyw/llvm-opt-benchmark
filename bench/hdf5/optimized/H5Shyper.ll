@@ -686,7 +686,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_serialize(ptr noundef readonly 
   %14 = trunc nuw i8 %13 to i1
   %15 = xor i1 %14, true
   %16 = select i1 %12, i1 true, i1 %15
-  br i1 %16, label %17, label %549, !prof !9
+  br i1 %16, label %17, label %539, !prof !9
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %1, align 8, !tbaa !39
@@ -750,7 +750,7 @@ H5S__get_select_hyper_nblocks.exit:               ; preds = %.lr.ph.split.i, %38
   %45 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
   %46 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_serialize, i32 noundef 3979, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.62) #14
-  br label %549
+  br label %539
 
 48:                                               ; preds = %H5S__get_select_hyper_nblocks.exit
   %49 = load i8, ptr @H5S_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -1383,7 +1383,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
   %380 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
   %381 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
   %382 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_serialize, i32 noundef 4065, i64 noundef %380, i64 noundef %381, ptr noundef nonnull @.str.68) #14
-  br label %549
+  br label %539
 
 383:                                              ; preds = %171
   %384 = add i32 %20, -1
@@ -1666,7 +1666,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
   %516 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
   %517 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
   %518 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_serialize, i32 noundef 4168, i64 noundef %516, i64 noundef %517, ptr noundef nonnull @.str.68) #14
-  br label %549
+  br label %539
 
 .sink.split:                                      ; preds = %499, %501
   %.sink = phi i64 [ 24, %501 ], [ 8, %499 ]
@@ -1704,33 +1704,20 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
   %534 = phi i32 [ %91, %._crit_edge404 ], [ %91, %.loopexit480 ], [ %91, %.preheader331 ], [ %91, %.preheader332 ], [ %.pre460, %.loopexit.loopexit422 ], [ %91, %226 ], [ %91, %326 ]
   %.3300 = phi i32 [ %.0297, %._crit_edge404 ], [ %.4301, %.loopexit480 ], [ %.0297, %.preheader331 ], [ %.0297, %.preheader332 ], [ %.2299.lcssa, %.loopexit.loopexit422 ], [ %.0297, %226 ], [ %.0297, %326 ]
   %535 = icmp ult i32 %534, 3
-  br i1 %535, label %536, label %547
+  br i1 %535, label %536, label %537
 
 536:                                              ; preds = %.loopexit.thread, %.loopexit
   %.3300462 = phi i32 [ %378, %.loopexit.thread ], [ %.3300, %.loopexit ]
-  %537 = trunc i32 %.3300462 to i8
-  store i8 %537, ptr %.0291, align 1, !tbaa !10
-  %538 = getelementptr inbounds nuw i8, ptr %.0291, i64 1
-  %539 = lshr i32 %.3300462, 8
-  %540 = trunc i32 %539 to i8
-  store i8 %540, ptr %538, align 1, !tbaa !10
-  %541 = getelementptr inbounds nuw i8, ptr %.0291, i64 2
-  %542 = lshr i32 %.3300462, 16
-  %543 = trunc i32 %542 to i8
-  store i8 %543, ptr %541, align 1, !tbaa !10
-  %544 = getelementptr inbounds nuw i8, ptr %.0291, i64 3
-  %545 = lshr i32 %.3300462, 24
-  %546 = trunc nuw i32 %545 to i8
-  store i8 %546, ptr %544, align 1, !tbaa !10
-  br label %547
+  store i32 %.3300462, ptr %.0291, align 1
+  br label %537
 
-547:                                              ; preds = %536, %.loopexit
-  %548 = load ptr, ptr %8, align 8, !tbaa !39
-  store ptr %548, ptr %1, align 8, !tbaa !39
-  br label %549
+537:                                              ; preds = %536, %.loopexit
+  %538 = load ptr, ptr %8, align 8, !tbaa !39
+  store ptr %538, ptr %1, align 8, !tbaa !39
+  br label %539
 
-549:                                              ; preds = %44, %379, %515, %547, %2
-  %.0290 = phi i32 [ -1, %44 ], [ -1, %379 ], [ 0, %547 ], [ -1, %515 ], [ 0, %2 ]
+539:                                              ; preds = %44, %379, %515, %537, %2
+  %.0290 = phi i32 [ -1, %44 ], [ -1, %379 ], [ 0, %537 ], [ -1, %515 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14

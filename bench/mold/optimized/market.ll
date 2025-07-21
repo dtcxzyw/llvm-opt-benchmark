@@ -1004,15 +1004,13 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit: ; preds = 
           to label %36 unwind label %75
 
 36:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit
-  %.sroa.0.0.extract.trunc.i = trunc i64 %35 to i32
   %.sroa.4.0.extract.shift.i = lshr i64 %35, 32
   %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !23
   %39 = sub nsw i32 %.sroa.4.0.extract.trunc.i, %38
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %40, align 8, !tbaa !21
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %37, align 4, !tbaa !23
+  store i64 %35, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !101
   %43 = add nsw i32 %42, %39

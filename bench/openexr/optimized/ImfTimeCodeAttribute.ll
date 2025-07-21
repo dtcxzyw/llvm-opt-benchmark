@@ -380,50 +380,24 @@ declare void @_ZN7Imf_3_49Attribute23unRegisterAttributeTypeEPKc(ptr noundef) lo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_414TypedAttributeINS_8TimeCodeEE12writeValueToERNS_7OStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2) unnamed_addr #3 align 2 {
-  %4 = alloca [4 x i8], align 1
-  %5 = alloca [4 x i8], align 1
+  %4 = alloca [4 x i8], align 4
+  %5 = alloca [4 x i8], align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call noundef i32 @_ZNK7Imf_3_48TimeCode12timeAndFlagsENS0_7PackingE(ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  %8 = trunc i32 %7 to i8
-  store i8 %8, ptr %5, align 1, !tbaa !6
-  %9 = lshr i32 %7, 8
-  %10 = trunc i32 %9 to i8
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %10, ptr %11, align 1, !tbaa !6
-  %12 = lshr i32 %7, 16
-  %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %13, ptr %14, align 1, !tbaa !6
-  %15 = lshr i32 %7, 24
-  %16 = trunc nuw i32 %15 to i8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %16, ptr %17, align 1, !tbaa !6
-  %18 = load ptr, ptr %1, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 4)
+  store i32 %7, ptr %5, align 4
+  %8 = load ptr, ptr %1, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  %21 = call noundef i32 @_ZNK7Imf_3_48TimeCode8userDataEv(ptr noundef nonnull align 4 dereferenceable(8) %6)
+  %11 = call noundef i32 @_ZNK7Imf_3_48TimeCode8userDataEv(ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  %22 = trunc i32 %21 to i8
-  store i8 %22, ptr %4, align 1, !tbaa !6
-  %23 = lshr i32 %21, 8
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %24, ptr %25, align 1, !tbaa !6
-  %26 = lshr i32 %21, 16
-  %27 = trunc i32 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %27, ptr %28, align 1, !tbaa !6
-  %29 = lshr i32 %21, 24
-  %30 = trunc nuw i32 %29 to i8
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %30, ptr %31, align 1, !tbaa !6
-  %32 = load ptr, ptr %1, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
+  store i32 %11, ptr %4, align 4
+  %12 = load ptr, ptr %1, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   ret void
 }
@@ -497,5 +471,3 @@ attributes #18 = { noreturn }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"vtable pointer", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"omnipotent char", !5, i64 0}

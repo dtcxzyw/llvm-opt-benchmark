@@ -442,13 +442,8 @@ define hidden noundef i64 @_ZNK3sat6clause14get_new_offsetEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3sat6clause14set_new_offsetEm(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) initializes((20, 28)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = trunc i64 %1 to i32
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %3, ptr %4, align 4, !tbaa !16
-  %5 = lshr i64 %1, 32
-  %6 = trunc nuw i64 %5 to i32
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %6, ptr %7, align 4, !tbaa !16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i64 %1, ptr %3, align 4
   ret void
 }
 

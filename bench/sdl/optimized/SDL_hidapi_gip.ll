@@ -363,48 +363,32 @@ define internal zeroext i1 @HIDAPI_DriverGIP_UpdateDevice(ptr noundef %0) #0 {
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 5
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 6
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 7
-  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.8.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %.sroa.9.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 10
   %.sroa.10.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 11
-  %.sroa.11.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 12
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 5
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 6
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 7
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 10
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 11
-  %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %.sroa.4.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %.sroa.5.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %.sroa.6.0..sroa_idx.i.i63 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  %.sroa.7.0..sroa_idx.i.i64 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.8.0..sroa_idx.i.i65 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %.sroa.9.0..sroa_idx.i.i66 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %.sroa.10.0..sroa_idx.i.i67 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %.sroa.11.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.sroa.10.0..sroa_idx.i.i64 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %.sroa.4.0..sroa_idx.i130.i = getelementptr inbounds nuw i8, ptr %5, i64 5
   %.sroa.5.0..sroa_idx.i131.i = getelementptr inbounds nuw i8, ptr %5, i64 6
   %.sroa.6.0..sroa_idx.i132.i = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %.sroa.7.0..sroa_idx.i133.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.8.0..sroa_idx.i134.i = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %.sroa.9.0..sroa_idx.i135.i = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %.sroa.10.0..sroa_idx.i136.i = getelementptr inbounds nuw i8, ptr %5, i64 11
-  %.sroa.11.0..sroa_idx.i137.i = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.sroa.10.0..sroa_idx.i133.i = getelementptr inbounds nuw i8, ptr %5, i64 11
   br label %33
 
 33:                                               ; preds = %.lr.ph, %GIP_ReceivePacket.exit
-  %34 = phi i32 [ %15, %.lr.ph ], [ %273, %GIP_ReceivePacket.exit ]
+  %34 = phi i32 [ %15, %.lr.ph ], [ %234, %GIP_ReceivePacket.exit ]
   store i32 0, ptr %12, align 4
   %35 = icmp samesign ult i32 %34, 5
   br i1 %35, label %GIP_ReceivePacket.exit, label %.lr.ph.i.i
@@ -473,7 +457,7 @@ GIP_DecodeLength.exit.i:                          ; preds = %49, %.split.loop.ex
 
 GIP_EnsureAttachment.exit.i:                      ; preds = %61, %GIP_DecodeLength.exit.i
   %.0.i.i = phi ptr [ %55, %GIP_DecodeLength.exit.i ], [ %57, %61 ]
-  br i1 %.not.i, label %242, label %64
+  br i1 %.not.i, label %212, label %64
 
 64:                                               ; preds = %GIP_EnsureAttachment.exit.i
   %65 = and i8 %37, 64
@@ -544,8 +528,8 @@ GIP_DecodeLength.exit119.GIP_DecodeLength.exit119.thread_crit_edge.i: ; preds = 
 GIP_DecodeLength.exit119.thread.i:                ; preds = %GIP_DecodeLength.exit119.GIP_DecodeLength.exit119.thread_crit_edge.i, %73
   %.pre-phi.i = phi i32 [ %.pre.i, %GIP_DecodeLength.exit119.GIP_DecodeLength.exit119.thread_crit_edge.i ], [ %76, %73 ]
   %92 = phi i32 [ %91, %GIP_DecodeLength.exit119.GIP_DecodeLength.exit119.thread_crit_edge.i ], [ %.1.i.i, %73 ]
-  %.0147.i = phi i64 [ %86, %GIP_DecodeLength.exit119.GIP_DecodeLength.exit119.thread_crit_edge.i ], [ 0, %73 ]
-  %93 = trunc nuw nsw i64 %.0147.i to i16
+  %.0143.i = phi i64 [ %86, %GIP_DecodeLength.exit119.GIP_DecodeLength.exit119.thread_crit_edge.i ], [ 0, %73 ]
+  %93 = trunc nuw nsw i64 %.0143.i to i16
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
   store i16 %93, ptr %94, align 2
   store i8 %36, ptr %66, align 4
@@ -558,16 +542,16 @@ GIP_DecodeLength.exit119.thread.i:                ; preds = %GIP_DecodeLength.ex
   br label %GIP_ReceivePacket.exit
 
 98:                                               ; preds = %GIP_DecodeLength.exit119.thread.i
-  %99 = icmp ugt i64 %48, %.0147.i
-  br i1 %99, label %100, label %.thread153.i
+  %99 = icmp ugt i64 %48, %.0143.i
+  br i1 %99, label %100, label %.thread149.i
 
 100:                                              ; preds = %98
-  %101 = trunc nuw nsw i64 %.0147.i to i32
+  %101 = trunc nuw nsw i64 %.0143.i to i32
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.11, i64 noundef %48, i32 noundef %101) #10
   br label %GIP_ReceivePacket.exit
 
-.thread153.i:                                     ; preds = %98
-  %102 = call noalias ptr @SDL_malloc_REAL(i64 noundef %.0147.i) #10
+.thread149.i:                                     ; preds = %98
+  %102 = call noalias ptr @SDL_malloc_REAL(i64 noundef %.0143.i) #10
   %103 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   store ptr %102, ptr %103, align 8
   %104 = sext i32 %92 to i64
@@ -583,7 +567,7 @@ GIP_DecodeLength.exit119.thread.i:                ; preds = %GIP_DecodeLength.ex
 
 111:                                              ; preds = %64
   %.not98.i = icmp eq i8 %36, %67
-  br i1 %.not98.i, label %145, label %112
+  br i1 %.not98.i, label %135, label %112
 
 112:                                              ; preds = %111
   %113 = zext i8 %67 to i32
@@ -623,487 +607,432 @@ GIP_FragmentFailed.exit.i:                        ; preds = %123, %112
   %131 = getelementptr i8, ptr %.val.i.i, i64 128
   %.val.val.i.i = load ptr, ptr %131, align 8
   %132 = and i8 %37, 32
-  %133 = trunc i32 %126 to i8
-  %134 = lshr i32 %126, 8
-  %135 = trunc i32 %134 to i8
-  %136 = lshr i32 %126, 16
-  %137 = trunc i32 %136 to i8
-  %138 = lshr i32 %126, 24
-  %139 = trunc nuw i32 %138 to i8
-  %140 = trunc i16 %130 to i8
-  %141 = lshr i16 %130, 8
-  %142 = trunc nuw i16 %141 to i8
-  %143 = or disjoint i8 %52, 32
+  %133 = or disjoint i8 %52, 32
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %7) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %7, i8 0, i64 2054, i1 false)
   store i8 1, ptr %7, align 16
-  store i8 %143, ptr %21, align 1
+  store i8 %133, ptr %21, align 1
   store i8 %38, ptr %22, align 2
   store i8 9, ptr %23, align 1
   store i8 %36, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1
   store i8 %132, ptr %.sroa.5.0..sroa_idx.i.i.i, align 2
-  store i8 %133, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1
-  store i8 %135, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8
-  store i8 %137, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1
-  store i8 %139, ptr %.sroa.9.0..sroa_idx.i.i.i, align 2
-  store i8 %140, ptr %.sroa.10.0..sroa_idx.i.i.i, align 1
-  store i8 %142, ptr %.sroa.11.0..sroa_idx.i.i.i, align 4
-  %144 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i.i, ptr noundef nonnull %7, i64 noundef 13) #10
+  store i32 %126, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1
+  store i16 %130, ptr %.sroa.10.0..sroa_idx.i.i.i, align 1
+  %134 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i.i, ptr noundef nonnull %7, i64 noundef 13) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %7) #10
   br label %GIP_ReceivePacket.exit
 
-145:                                              ; preds = %111
-  %146 = sext i32 %.1.i.i to i64
-  %147 = getelementptr inbounds i8, ptr %8, i64 %146
-  %148 = sub nsw i32 %34, %.1.i.i
-  %149 = icmp sgt i32 %148, 0
-  br i1 %149, label %.lr.ph.i122.i, label %GIP_DecodeLength.exit129.i
+135:                                              ; preds = %111
+  %136 = sext i32 %.1.i.i to i64
+  %137 = getelementptr inbounds i8, ptr %8, i64 %136
+  %138 = sub nsw i32 %34, %.1.i.i
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %.lr.ph.i122.i, label %GIP_DecodeLength.exit129.i
 
-.lr.ph.i122.i:                                    ; preds = %145
-  %wide.trip.count.i123.i = zext nneg i32 %148 to i64
-  br label %150
+.lr.ph.i122.i:                                    ; preds = %135
+  %wide.trip.count.i123.i = zext nneg i32 %138 to i64
+  br label %140
 
-150:                                              ; preds = %159, %.lr.ph.i122.i
-  %indvars.iv.i124.i = phi i64 [ 0, %.lr.ph.i122.i ], [ %indvars.iv.next.i126.i, %159 ]
-  %151 = phi i64 [ 0, %.lr.ph.i122.i ], [ %158, %159 ]
-  %152 = getelementptr inbounds nuw i8, ptr %147, i64 %indvars.iv.i124.i
-  %153 = load i8, ptr %152, align 1
-  %154 = and i8 %153, 127
-  %155 = zext nneg i8 %154 to i64
-  %156 = mul nuw nsw i64 %indvars.iv.i124.i, 7
-  %157 = shl i64 %155, %156
-  %158 = or i64 %157, %151
-  %.not.i125.i = icmp sgt i8 %153, -1
-  br i1 %.not.i125.i, label %.split.loop.exit.i128.i, label %159
+140:                                              ; preds = %149, %.lr.ph.i122.i
+  %indvars.iv.i124.i = phi i64 [ 0, %.lr.ph.i122.i ], [ %indvars.iv.next.i126.i, %149 ]
+  %141 = phi i64 [ 0, %.lr.ph.i122.i ], [ %148, %149 ]
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv.i124.i
+  %143 = load i8, ptr %142, align 1
+  %144 = and i8 %143, 127
+  %145 = zext nneg i8 %144 to i64
+  %146 = mul nuw nsw i64 %indvars.iv.i124.i, 7
+  %147 = shl i64 %145, %146
+  %148 = or i64 %147, %141
+  %.not.i125.i = icmp sgt i8 %143, -1
+  br i1 %.not.i125.i, label %.split.loop.exit.i128.i, label %149
 
-159:                                              ; preds = %150
+149:                                              ; preds = %140
   %indvars.iv.next.i126.i = add nuw nsw i64 %indvars.iv.i124.i, 1
   %exitcond.not.i127.i = icmp eq i64 %indvars.iv.next.i126.i, %wide.trip.count.i123.i
-  br i1 %exitcond.not.i127.i, label %GIP_DecodeLength.exit129.i, label %150, !llvm.loop !8
+  br i1 %exitcond.not.i127.i, label %GIP_DecodeLength.exit129.i, label %140, !llvm.loop !8
 
-.split.loop.exit.i128.i:                          ; preds = %150
-  %160 = trunc nuw nsw i64 %indvars.iv.i124.i to i32
-  %161 = add nuw nsw i32 %160, 1
+.split.loop.exit.i128.i:                          ; preds = %140
+  %150 = trunc nuw nsw i64 %indvars.iv.i124.i to i32
+  %151 = add nuw nsw i32 %150, 1
   br label %GIP_DecodeLength.exit129.i
 
-GIP_DecodeLength.exit129.i:                       ; preds = %159, %.split.loop.exit.i128.i, %145
-  %.3.i = phi i64 [ %158, %.split.loop.exit.i128.i ], [ 0, %145 ], [ %158, %159 ]
-  %.1.i121.i = phi i32 [ %161, %.split.loop.exit.i128.i ], [ 0, %145 ], [ %148, %159 ]
-  %162 = add nsw i32 %.1.i121.i, %.1.i.i
-  %163 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
-  %164 = load i32, ptr %163, align 8
-  %165 = zext i32 %164 to i64
-  %.not99.i = icmp eq i64 %.3.i, %165
-  br i1 %.not99.i, label %186, label %166
+GIP_DecodeLength.exit129.i:                       ; preds = %149, %.split.loop.exit.i128.i, %135
+  %.3.i = phi i64 [ %148, %.split.loop.exit.i128.i ], [ 0, %135 ], [ %148, %149 ]
+  %.1.i121.i = phi i32 [ %151, %.split.loop.exit.i128.i ], [ 0, %135 ], [ %138, %149 ]
+  %152 = add nsw i32 %.1.i121.i, %.1.i.i
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
+  %154 = load i32, ptr %153, align 8
+  %155 = zext i32 %154 to i64
+  %.not99.i = icmp eq i64 %.3.i, %155
+  br i1 %.not99.i, label %166, label %156
 
-166:                                              ; preds = %GIP_DecodeLength.exit129.i
-  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.13, i64 noundef %.3.i, i32 noundef %164) #10
-  %167 = load i32, ptr %163, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
-  %169 = load i16, ptr %168, align 2
-  %170 = trunc i32 %167 to i16
-  %171 = sub i16 %169, %170
+156:                                              ; preds = %GIP_DecodeLength.exit129.i
+  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.13, i64 noundef %.3.i, i32 noundef %154) #10
+  %157 = load i32, ptr %153, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
+  %159 = load i16, ptr %158, align 2
+  %160 = trunc i32 %157 to i16
+  %161 = sub i16 %159, %160
   %.val.i = load ptr, ptr %10, align 8
-  %172 = getelementptr i8, ptr %.val.i, i64 128
-  %.val.val.i = load ptr, ptr %172, align 8
-  %173 = and i8 %37, 32
-  %174 = trunc i32 %167 to i8
-  %175 = lshr i32 %167, 8
-  %176 = trunc i32 %175 to i8
-  %177 = lshr i32 %167, 16
-  %178 = trunc i32 %177 to i8
-  %179 = lshr i32 %167, 24
-  %180 = trunc nuw i32 %179 to i8
-  %181 = trunc i16 %171 to i8
-  %182 = lshr i16 %171, 8
-  %183 = trunc nuw i16 %182 to i8
-  %184 = or disjoint i8 %52, 32
+  %162 = getelementptr i8, ptr %.val.i, i64 128
+  %.val.val.i = load ptr, ptr %162, align 8
+  %163 = and i8 %37, 32
+  %164 = or disjoint i8 %52, 32
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %6) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %6, i8 0, i64 2054, i1 false)
   store i8 1, ptr %6, align 16
-  store i8 %184, ptr %24, align 1
+  store i8 %164, ptr %24, align 1
   store i8 %38, ptr %25, align 2
   store i8 9, ptr %26, align 1
   store i8 %36, ptr %.sroa.4.0..sroa_idx.i.i, align 1
-  store i8 %173, ptr %.sroa.5.0..sroa_idx.i.i, align 2
-  store i8 %174, ptr %.sroa.6.0..sroa_idx.i.i, align 1
-  store i8 %176, ptr %.sroa.7.0..sroa_idx.i.i, align 8
-  store i8 %178, ptr %.sroa.8.0..sroa_idx.i.i, align 1
-  store i8 %180, ptr %.sroa.9.0..sroa_idx.i.i, align 2
-  store i8 %181, ptr %.sroa.10.0..sroa_idx.i.i, align 1
-  store i8 %183, ptr %.sroa.11.0..sroa_idx.i.i, align 4
-  %185 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i, ptr noundef nonnull %6, i64 noundef 13) #10
+  store i8 %163, ptr %.sroa.5.0..sroa_idx.i.i, align 2
+  store i32 %157, ptr %.sroa.6.0..sroa_idx.i.i, align 1
+  store i16 %161, ptr %.sroa.10.0..sroa_idx.i.i, align 1
+  %165 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i, ptr noundef nonnull %6, i64 noundef 13) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %6) #10
   br label %GIP_ReceivePacket.exit
 
-186:                                              ; preds = %GIP_DecodeLength.exit129.i
-  %187 = add i64 %.3.i, %48
-  %188 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
-  %189 = load i16, ptr %188, align 2
-  %190 = zext i16 %189 to i64
-  %191 = icmp ugt i64 %187, %190
-  br i1 %191, label %192, label %222
+166:                                              ; preds = %GIP_DecodeLength.exit129.i
+  %167 = add i64 %.3.i, %48
+  %168 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
+  %169 = load i16, ptr %168, align 2
+  %170 = zext i16 %169 to i64
+  %171 = icmp ugt i64 %167, %170
+  br i1 %171, label %172, label %192
 
-192:                                              ; preds = %186
-  %193 = zext i16 %189 to i32
-  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.14, i64 noundef %187, i32 noundef %193) #10
-  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
-  %195 = load i32, ptr %194, align 8
-  %196 = add nsw i32 %195, 1
-  store i32 %196, ptr %194, align 8
-  %197 = icmp sgt i32 %195, 7
-  br i1 %197, label %198, label %GIP_FragmentFailed.exit
+172:                                              ; preds = %166
+  %173 = zext i16 %169 to i32
+  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.14, i64 noundef %167, i32 noundef %173) #10
+  %174 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
+  %175 = load i32, ptr %174, align 8
+  %176 = add nsw i32 %175, 1
+  store i32 %176, ptr %174, align 8
+  %177 = icmp sgt i32 %175, 7
+  br i1 %177, label %178, label %GIP_FragmentFailed.exit
 
-198:                                              ; preds = %192
-  %199 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %200 = load ptr, ptr %199, align 8
-  %.not.i69 = icmp eq ptr %200, null
-  br i1 %.not.i69, label %202, label %201
+178:                                              ; preds = %172
+  %179 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %180 = load ptr, ptr %179, align 8
+  %.not.i65 = icmp eq ptr %180, null
+  br i1 %.not.i65, label %182, label %181
 
-201:                                              ; preds = %198
-  call void @SDL_free_REAL(ptr noundef nonnull %200) #10
-  store ptr null, ptr %199, align 8
-  br label %202
+181:                                              ; preds = %178
+  call void @SDL_free_REAL(ptr noundef nonnull %180) #10
+  store ptr null, ptr %179, align 8
+  br label %182
 
-202:                                              ; preds = %201, %198
+182:                                              ; preds = %181, %178
   store i8 0, ptr %66, align 4
   br label %GIP_FragmentFailed.exit
 
-GIP_FragmentFailed.exit:                          ; preds = %192, %202
-  %203 = load ptr, ptr %.0.i.i, align 8
-  %204 = load i32, ptr %163, align 8
-  %205 = load i16, ptr %188, align 2
-  %206 = trunc i32 %204 to i16
-  %207 = sub i16 %205, %206
-  %.val.i59 = load ptr, ptr %203, align 8
-  %208 = getelementptr i8, ptr %.val.i59, i64 128
-  %.val.val.i60 = load ptr, ptr %208, align 8
-  %209 = and i8 %37, 32
-  %210 = trunc i32 %204 to i8
-  %211 = lshr i32 %204, 8
-  %212 = trunc i32 %211 to i8
-  %213 = lshr i32 %204, 16
-  %214 = trunc i32 %213 to i8
-  %215 = lshr i32 %204, 24
-  %216 = trunc nuw i32 %215 to i8
-  %217 = trunc i16 %207 to i8
-  %218 = lshr i16 %207, 8
-  %219 = trunc nuw i16 %218 to i8
-  %220 = or disjoint i8 %52, 32
+GIP_FragmentFailed.exit:                          ; preds = %172, %182
+  %183 = load ptr, ptr %.0.i.i, align 8
+  %184 = load i32, ptr %153, align 8
+  %185 = load i16, ptr %168, align 2
+  %186 = trunc i32 %184 to i16
+  %187 = sub i16 %185, %186
+  %.val.i59 = load ptr, ptr %183, align 8
+  %188 = getelementptr i8, ptr %.val.i59, i64 128
+  %.val.val.i60 = load ptr, ptr %188, align 8
+  %189 = and i8 %37, 32
+  %190 = or disjoint i8 %52, 32
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %2, i8 0, i64 2054, i1 false)
   store i8 1, ptr %2, align 16
-  store i8 %220, ptr %27, align 1
+  store i8 %190, ptr %27, align 1
   store i8 %38, ptr %28, align 2
   store i8 9, ptr %29, align 1
   store i8 %36, ptr %.sroa.4.0..sroa_idx.i.i61, align 1
-  store i8 %209, ptr %.sroa.5.0..sroa_idx.i.i62, align 2
-  store i8 %210, ptr %.sroa.6.0..sroa_idx.i.i63, align 1
-  store i8 %212, ptr %.sroa.7.0..sroa_idx.i.i64, align 8
-  store i8 %214, ptr %.sroa.8.0..sroa_idx.i.i65, align 1
-  store i8 %216, ptr %.sroa.9.0..sroa_idx.i.i66, align 2
-  store i8 %217, ptr %.sroa.10.0..sroa_idx.i.i67, align 1
-  store i8 %219, ptr %.sroa.11.0..sroa_idx.i.i68, align 4
-  %221 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i60, ptr noundef nonnull %2, i64 noundef 13) #10
+  store i8 %189, ptr %.sroa.5.0..sroa_idx.i.i62, align 2
+  store i32 %184, ptr %.sroa.6.0..sroa_idx.i.i63, align 1
+  store i16 %187, ptr %.sroa.10.0..sroa_idx.i.i64, align 1
+  %191 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i60, ptr noundef nonnull %2, i64 noundef 13) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %2) #10
   br label %GIP_ReceivePacket.exit
 
-222:                                              ; preds = %186
-  %223 = trunc nuw i64 %187 to i16
-  %224 = sub i16 %189, %223
+192:                                              ; preds = %166
+  %193 = trunc nuw i64 %167 to i16
+  %194 = sub i16 %169, %193
   %.not100.i = icmp eq i64 %48, 0
-  br i1 %.not100.i, label %231, label %.critedge.i
+  br i1 %.not100.i, label %201, label %.critedge.i
 
-.critedge.i:                                      ; preds = %222
-  %225 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 %.3.i
-  %228 = sext i32 %162 to i64
-  %229 = getelementptr inbounds i8, ptr %8, i64 %228
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %227, ptr nonnull align 1 %229, i64 %48, i1 false)
-  %230 = trunc nuw nsw i64 %187 to i32
-  store i32 %230, ptr %163, align 8
+.critedge.i:                                      ; preds = %192
+  %195 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.3.i
+  %198 = sext i32 %152 to i64
+  %199 = getelementptr inbounds i8, ptr %8, i64 %198
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %197, ptr nonnull align 1 %199, i64 %48, i1 false)
+  %200 = trunc nuw nsw i64 %167 to i32
+  store i32 %200, ptr %153, align 8
   br label %.sink.split.i
 
-231:                                              ; preds = %222
-  %232 = zext i16 %189 to i32
-  %233 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %234 = load ptr, ptr %233, align 8
-  %235 = call fastcc zeroext i1 @GIP_HandleMessage(ptr noundef nonnull %.0.i.i, i8 %36, i8 %37, ptr noundef %234, i32 noundef %232)
-  %236 = load ptr, ptr %233, align 8
-  %.not101.i = icmp eq ptr %236, null
-  br i1 %.not101.i, label %238, label %237
+201:                                              ; preds = %192
+  %202 = zext i16 %169 to i32
+  %203 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %204 = load ptr, ptr %203, align 8
+  %205 = call fastcc zeroext i1 @GIP_HandleMessage(ptr noundef nonnull %.0.i.i, i8 %36, i8 %37, ptr noundef %204, i32 noundef %202)
+  %206 = load ptr, ptr %203, align 8
+  %.not101.i = icmp eq ptr %206, null
+  br i1 %.not101.i, label %208, label %207
 
-237:                                              ; preds = %231
-  call void @SDL_free_REAL(ptr noundef nonnull %236) #10
-  store ptr null, ptr %233, align 8
-  br label %238
+207:                                              ; preds = %201
+  call void @SDL_free_REAL(ptr noundef nonnull %206) #10
+  store ptr null, ptr %203, align 8
+  br label %208
 
-238:                                              ; preds = %237, %231
+208:                                              ; preds = %207, %201
   store i8 0, ptr %66, align 4
-  %239 = trunc nuw i64 %.3.i to i32
-  store i32 %239, ptr %163, align 8
-  %240 = call i64 @SDL_GetTicks_REAL() #10
-  %241 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
-  store i64 %240, ptr %241, align 8
-  br i1 %235, label %254, label %GIP_ReceivePacket.exit
+  %209 = trunc nuw i64 %.3.i to i32
+  store i32 %209, ptr %153, align 8
+  %210 = call i64 @SDL_GetTicks_REAL() #10
+  %211 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
+  store i64 %210, ptr %211, align 8
+  br i1 %205, label %224, label %GIP_ReceivePacket.exit
 
-242:                                              ; preds = %GIP_EnsureAttachment.exit.i
-  %243 = sext i32 %.1.i.i to i64
-  %244 = add i64 %48, %243
-  %245 = zext nneg i32 %34 to i64
-  %246 = icmp ugt i64 %244, %245
-  br i1 %246, label %247, label %248
+212:                                              ; preds = %GIP_EnsureAttachment.exit.i
+  %213 = sext i32 %.1.i.i to i64
+  %214 = add i64 %48, %213
+  %215 = zext nneg i32 %34 to i64
+  %216 = icmp ugt i64 %214, %215
+  br i1 %216, label %217, label %218
 
-247:                                              ; preds = %242
-  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef %244, i32 noundef range(i32 1, -2147483648) %34) #10
+217:                                              ; preds = %212
+  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef %214, i32 noundef range(i32 1, -2147483648) %34) #10
   br label %GIP_ReceivePacket.exit
 
-248:                                              ; preds = %242
-  %249 = sub nsw i32 %34, %.1.i.i
-  %250 = getelementptr inbounds i8, ptr %8, i64 %243
-  %251 = call fastcc zeroext i1 @GIP_HandleMessage(ptr noundef nonnull %.0.i.i, i8 %36, i8 %37, ptr noundef nonnull %250, i32 noundef %249)
-  br i1 %251, label %254, label %GIP_ReceivePacket.exit
+218:                                              ; preds = %212
+  %219 = sub nsw i32 %34, %.1.i.i
+  %220 = getelementptr inbounds i8, ptr %8, i64 %213
+  %221 = call fastcc zeroext i1 @GIP_HandleMessage(ptr noundef nonnull %.0.i.i, i8 %36, i8 %37, ptr noundef nonnull %220, i32 noundef %219)
+  br i1 %221, label %224, label %GIP_ReceivePacket.exit
 
-.sink.split.i:                                    ; preds = %.critedge.i, %.thread153.i
-  %.2152.ph.i = phi i16 [ %224, %.critedge.i ], [ %110, %.thread153.i ]
-  %.2144151.ph.i = phi i64 [ %187, %.critedge.i ], [ %48, %.thread153.i ]
-  %252 = call i64 @SDL_GetTicks_REAL() #10
-  %253 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
-  store i64 %252, ptr %253, align 8
-  br label %254
+.sink.split.i:                                    ; preds = %.critedge.i, %.thread149.i
+  %.2148.ph.i = phi i16 [ %194, %.critedge.i ], [ %110, %.thread149.i ]
+  %.2140147.ph.i = phi i64 [ %167, %.critedge.i ], [ %48, %.thread149.i ]
+  %222 = call i64 @SDL_GetTicks_REAL() #10
+  %223 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
+  store i64 %222, ptr %223, align 8
+  br label %224
 
-254:                                              ; preds = %.sink.split.i, %248, %238
-  %.2152.i = phi i16 [ %224, %238 ], [ 0, %248 ], [ %.2152.ph.i, %.sink.split.i ]
-  %.2144151.i = phi i64 [ %187, %238 ], [ %48, %248 ], [ %.2144151.ph.i, %.sink.split.i ]
-  %255 = and i8 %37, 16
-  %.not104.i = icmp eq i8 %255, 0
-  br i1 %.not104.i, label %GIP_ReceivePacket.exit, label %256
+224:                                              ; preds = %.sink.split.i, %218, %208
+  %.2148.i = phi i16 [ %194, %208 ], [ 0, %218 ], [ %.2148.ph.i, %.sink.split.i ]
+  %.2140147.i = phi i64 [ %167, %208 ], [ %48, %218 ], [ %.2140147.ph.i, %.sink.split.i ]
+  %225 = and i8 %37, 16
+  %.not104.i = icmp eq i8 %225, 0
+  br i1 %.not104.i, label %GIP_ReceivePacket.exit, label %226
 
-256:                                              ; preds = %254
+226:                                              ; preds = %224
+  %227 = trunc i64 %.2140147.i to i32
   %.val105.i = load ptr, ptr %10, align 8
-  %257 = getelementptr i8, ptr %.val105.i, i64 128
-  %.val105.val.i = load ptr, ptr %257, align 8
-  %258 = and i8 %37, 32
-  %259 = trunc i64 %.2144151.i to i8
-  %260 = lshr i64 %.2144151.i, 8
-  %261 = trunc i64 %260 to i8
-  %262 = lshr i64 %.2144151.i, 16
-  %263 = trunc i64 %262 to i8
-  %264 = lshr i64 %.2144151.i, 24
-  %265 = trunc i64 %264 to i8
-  %266 = trunc i16 %.2152.i to i8
-  %267 = lshr i16 %.2152.i, 8
-  %268 = trunc nuw i16 %267 to i8
-  %269 = or disjoint i8 %52, 32
+  %228 = getelementptr i8, ptr %.val105.i, i64 128
+  %.val105.val.i = load ptr, ptr %228, align 8
+  %229 = and i8 %37, 32
+  %230 = or disjoint i8 %52, 32
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %5, i8 0, i64 2054, i1 false)
   store i8 1, ptr %5, align 16
-  store i8 %269, ptr %30, align 1
+  store i8 %230, ptr %30, align 1
   store i8 %38, ptr %31, align 2
   store i8 9, ptr %32, align 1
   store i8 %36, ptr %.sroa.4.0..sroa_idx.i130.i, align 1
-  store i8 %258, ptr %.sroa.5.0..sroa_idx.i131.i, align 2
-  store i8 %259, ptr %.sroa.6.0..sroa_idx.i132.i, align 1
-  store i8 %261, ptr %.sroa.7.0..sroa_idx.i133.i, align 8
-  store i8 %263, ptr %.sroa.8.0..sroa_idx.i134.i, align 1
-  store i8 %265, ptr %.sroa.9.0..sroa_idx.i135.i, align 2
-  store i8 %266, ptr %.sroa.10.0..sroa_idx.i136.i, align 1
-  store i8 %268, ptr %.sroa.11.0..sroa_idx.i137.i, align 4
-  %270 = call i32 @SDL_hid_write_REAL(ptr noundef %.val105.val.i, ptr noundef nonnull %5, i64 noundef 13) #10
+  store i8 %229, ptr %.sroa.5.0..sroa_idx.i131.i, align 2
+  store i32 %227, ptr %.sroa.6.0..sroa_idx.i132.i, align 1
+  store i16 %.2148.i, ptr %.sroa.10.0..sroa_idx.i133.i, align 1
+  %231 = call i32 @SDL_hid_write_REAL(ptr noundef %.val105.val.i, ptr noundef nonnull %5, i64 noundef 13) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %5) #10
   br label %GIP_ReceivePacket.exit
 
-GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLength.exit119.i, %97, %100, %GIP_FragmentFailed.exit.i, %166, %GIP_FragmentFailed.exit, %238, %247, %248, %254, %256
-  %271 = load ptr, ptr %11, align 8
-  %272 = load i32, ptr %12, align 4
-  %273 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %271, ptr noundef nonnull %8, i64 noundef 64, i32 noundef %272) #10
-  %274 = icmp sgt i32 %273, 0
-  br i1 %274, label %33, label %._crit_edge, !llvm.loop !9
+GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLength.exit119.i, %97, %100, %GIP_FragmentFailed.exit.i, %156, %GIP_FragmentFailed.exit, %208, %217, %218, %224, %226
+  %232 = load ptr, ptr %11, align 8
+  %233 = load i32, ptr %12, align 4
+  %234 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %232, ptr noundef nonnull %8, i64 noundef 64, i32 noundef %233) #10
+  %235 = icmp sgt i32 %234, 0
+  br i1 %235, label %33, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %GIP_ReceivePacket.exit, %1
-  %.lcssa80 = phi i32 [ %15, %1 ], [ %273, %GIP_ReceivePacket.exit ]
-  %275 = call i64 @SDL_GetTicks_REAL() #10
-  %276 = freeze i64 %275
-  %277 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %278 = load i64, ptr %277, align 8
-  %279 = add i64 %278, -1
-  %or.cond.not = icmp ult i64 %279, %276
-  br i1 %or.cond.not, label %280, label %281
+  %.lcssa76 = phi i32 [ %15, %1 ], [ %234, %GIP_ReceivePacket.exit ]
+  %236 = call i64 @SDL_GetTicks_REAL() #10
+  %237 = freeze i64 %236
+  %238 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %239 = load i64, ptr %238, align 8
+  %240 = add i64 %239, -1
+  %or.cond.not = icmp ult i64 %240, %237
+  br i1 %or.cond.not, label %241, label %242
 
-280:                                              ; preds = %._crit_edge
-  store i64 0, ptr %277, align 8
-  br label %281
+241:                                              ; preds = %._crit_edge
+  store i64 0, ptr %238, align 8
+  br label %242
 
-281:                                              ; preds = %280, %._crit_edge
-  %282 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %283 = add i64 %276, 500
-  %284 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %285 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %286 = getelementptr inbounds nuw i8, ptr %10, i64 17
-  %287 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %288 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %289 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %290 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br label %291
+242:                                              ; preds = %241, %._crit_edge
+  %243 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %244 = add i64 %237, 500
+  %245 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %246 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %247 = getelementptr inbounds nuw i8, ptr %10, i64 17
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %249 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %250 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %251 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  br label %252
 
-291:                                              ; preds = %281, %347
-  %indvars.iv = phi i64 [ 0, %281 ], [ %indvars.iv.next, %347 ]
-  %.14581 = phi i1 [ %or.cond.not, %281 ], [ %.2, %347 ]
-  %292 = getelementptr inbounds nuw [8 x ptr], ptr %282, i64 0, i64 %indvars.iv
-  %293 = load ptr, ptr %292, align 8
-  %.not54 = icmp eq ptr %293, null
-  br i1 %.not54, label %347, label %294
+252:                                              ; preds = %242, %308
+  %indvars.iv = phi i64 [ 0, %242 ], [ %indvars.iv.next, %308 ]
+  %.14577 = phi i1 [ %or.cond.not, %242 ], [ %.2, %308 ]
+  %253 = getelementptr inbounds nuw [8 x ptr], ptr %243, i64 0, i64 %indvars.iv
+  %254 = load ptr, ptr %253, align 8
+  %.not54 = icmp eq ptr %254, null
+  br i1 %.not54, label %308, label %255
 
-294:                                              ; preds = %291
-  %295 = getelementptr inbounds nuw i8, ptr %293, i64 20
-  %296 = load i8, ptr %295, align 4
-  %.not55 = icmp eq i8 %296, 0
-  br i1 %.not55, label %302, label %297
+255:                                              ; preds = %252
+  %256 = getelementptr inbounds nuw i8, ptr %254, i64 20
+  %257 = load i8, ptr %256, align 4
+  %.not55 = icmp eq i8 %257, 0
+  br i1 %.not55, label %263, label %258
 
-297:                                              ; preds = %294
-  %298 = getelementptr inbounds nuw i8, ptr %293, i64 40
-  %299 = load i64, ptr %298, align 8
-  %300 = add i64 %299, 1000
-  %.not56 = icmp ult i64 %276, %300
-  br i1 %.not56, label %302, label %301
+258:                                              ; preds = %255
+  %259 = getelementptr inbounds nuw i8, ptr %254, i64 40
+  %260 = load i64, ptr %259, align 8
+  %261 = add i64 %260, 1000
+  %.not56 = icmp ult i64 %237, %261
+  br i1 %.not56, label %263, label %262
 
-301:                                              ; preds = %297
+262:                                              ; preds = %258
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.8) #10
-  store i8 0, ptr %295, align 4
-  br label %302
+  store i8 0, ptr %256, align 4
+  br label %263
 
-302:                                              ; preds = %301, %297, %294
-  %303 = phi i8 [ 0, %301 ], [ %296, %297 ], [ 0, %294 ]
-  br i1 %.14581, label %329, label %304
+263:                                              ; preds = %262, %258, %255
+  %264 = phi i8 [ 0, %262 ], [ %257, %258 ], [ 0, %255 ]
+  br i1 %.14577, label %290, label %265
 
-304:                                              ; preds = %302
-  %305 = getelementptr inbounds nuw i8, ptr %293, i64 56
-  %306 = load i32, ptr %305, align 8
-  %307 = icmp eq i32 %306, 3
-  br i1 %307, label %308, label %.thread
+265:                                              ; preds = %263
+  %266 = getelementptr inbounds nuw i8, ptr %254, i64 56
+  %267 = load i32, ptr %266, align 8
+  %268 = icmp eq i32 %267, 3
+  br i1 %268, label %269, label %.thread
 
-308:                                              ; preds = %304
-  %309 = getelementptr inbounds nuw i8, ptr %293, i64 64
-  %310 = load i64, ptr %309, align 8
-  %.not57 = icmp ult i64 %276, %310
-  %.not58 = icmp eq i8 %303, 4
+269:                                              ; preds = %265
+  %270 = getelementptr inbounds nuw i8, ptr %254, i64 64
+  %271 = load i64, ptr %270, align 8
+  %.not57 = icmp ult i64 %237, %271
+  %.not58 = icmp eq i8 %264, 4
   %or.cond = or i1 %.not57, %.not58
-  br i1 %or.cond, label %.thread, label %311
+  br i1 %or.cond, label %.thread, label %272
 
-311:                                              ; preds = %308
-  %312 = getelementptr inbounds nuw i8, ptr %293, i64 72
-  %313 = load i32, ptr %312, align 8
-  %314 = icmp slt i32 %313, 3
-  br i1 %314, label %315, label %329
+272:                                              ; preds = %269
+  %273 = getelementptr inbounds nuw i8, ptr %254, i64 72
+  %274 = load i32, ptr %273, align 8
+  %275 = icmp slt i32 %274, 3
+  br i1 %275, label %276, label %290
 
-315:                                              ; preds = %311
+276:                                              ; preds = %272
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.9) #10
-  %316 = load i32, ptr %312, align 8
-  %317 = add nsw i32 %316, 1
-  store i32 %317, ptr %312, align 8
-  store i64 %283, ptr %309, align 8
-  %318 = load ptr, ptr %293, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %320 = load i8, ptr %319, align 8
-  %321 = or i8 %320, 32
-  %322 = getelementptr inbounds nuw i8, ptr %293, i64 216
-  %323 = load i8, ptr %322, align 8
-  %324 = add i8 %323, 1
-  %.not27.i.i = icmp eq i8 %323, 0
-  %spec.store.select30.i.i = select i1 %.not27.i.i, i8 2, i8 %324
-  store i8 %spec.store.select30.i.i, ptr %322, align 8
-  %spec.select.i.i = call i8 @llvm.umax.i8(i8 %323, i8 1)
+  %277 = load i32, ptr %273, align 8
+  %278 = add nsw i32 %277, 1
+  store i32 %278, ptr %273, align 8
+  store i64 %244, ptr %270, align 8
+  %279 = load ptr, ptr %254, align 8
+  %280 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  %281 = load i8, ptr %280, align 8
+  %282 = or i8 %281, 32
+  %283 = getelementptr inbounds nuw i8, ptr %254, i64 216
+  %284 = load i8, ptr %283, align 8
+  %285 = add i8 %284, 1
+  %.not27.i.i = icmp eq i8 %284, 0
+  %spec.store.select30.i.i = select i1 %.not27.i.i, i8 2, i8 %285
+  store i8 %spec.store.select30.i.i, ptr %283, align 8
+  %spec.select.i.i = call i8 @llvm.umax.i8(i8 %284, i8 1)
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %4, i8 0, i64 2054, i1 false)
   store i8 4, ptr %4, align 16
-  store i8 %321, ptr %284, align 1
-  store i8 %spec.select.i.i, ptr %285, align 2
-  %325 = load ptr, ptr %318, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 128
-  %327 = load ptr, ptr %326, align 8
-  %328 = call i32 @SDL_hid_write_REAL(ptr noundef %327, ptr noundef nonnull %4, i64 noundef 4) #10
+  store i8 %282, ptr %245, align 1
+  store i8 %spec.select.i.i, ptr %246, align 2
+  %286 = load ptr, ptr %279, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 128
+  %288 = load ptr, ptr %287, align 8
+  %289 = call i32 @SDL_hid_write_REAL(ptr noundef %288, ptr noundef nonnull %4, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %4) #10
   br label %.thread
 
-329:                                              ; preds = %302, %311
-  %330 = load i8, ptr %286, align 1, !range !3, !noundef !4
-  %331 = trunc nuw i8 %330 to i1
-  br i1 %331, label %332, label %344
+290:                                              ; preds = %263, %272
+  %291 = load i8, ptr %247, align 1, !range !3, !noundef !4
+  %292 = trunc nuw i8 %291 to i1
+  br i1 %292, label %293, label %305
 
-332:                                              ; preds = %329
-  %333 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %334 = load i8, ptr %333, align 8
-  %335 = load ptr, ptr %293, align 8
-  %336 = or i8 %334, 32
-  %337 = getelementptr inbounds nuw i8, ptr %293, i64 216
-  %338 = load i8, ptr %337, align 8
-  %339 = add i8 %338, 1
-  %.not27.i.i.i = icmp eq i8 %338, 0
-  %spec.store.select30.i.i.i = select i1 %.not27.i.i.i, i8 2, i8 %339
-  store i8 %spec.store.select30.i.i.i, ptr %337, align 8
-  %spec.select.i.i.i = call i8 @llvm.umax.i8(i8 %338, i8 1)
+293:                                              ; preds = %290
+  %294 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  %295 = load i8, ptr %294, align 8
+  %296 = load ptr, ptr %254, align 8
+  %297 = or i8 %295, 32
+  %298 = getelementptr inbounds nuw i8, ptr %254, i64 216
+  %299 = load i8, ptr %298, align 8
+  %300 = add i8 %299, 1
+  %.not27.i.i.i = icmp eq i8 %299, 0
+  %spec.store.select30.i.i.i = select i1 %.not27.i.i.i, i8 2, i8 %300
+  store i8 %spec.store.select30.i.i.i, ptr %298, align 8
+  %spec.select.i.i.i = call i8 @llvm.umax.i8(i8 %299, i8 1)
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %3, i8 0, i64 2054, i1 false)
   store i8 5, ptr %3, align 16
-  store i8 %336, ptr %287, align 1
-  store i8 %spec.select.i.i.i, ptr %288, align 2
-  store i8 1, ptr %289, align 1
-  store i8 7, ptr %290, align 4
-  %340 = load ptr, ptr %335, align 8
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 128
-  %342 = load ptr, ptr %341, align 8
-  %343 = call i32 @SDL_hid_write_REAL(ptr noundef %342, ptr noundef nonnull %3, i64 noundef 5) #10
+  store i8 %297, ptr %248, align 1
+  store i8 %spec.select.i.i.i, ptr %249, align 2
+  store i8 1, ptr %250, align 1
+  store i8 7, ptr %251, align 4
+  %301 = load ptr, ptr %296, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 128
+  %303 = load ptr, ptr %302, align 8
+  %304 = call i32 @SDL_hid_write_REAL(ptr noundef %303, ptr noundef nonnull %3, i64 noundef 5) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %3) #10
   br label %.thread
 
-344:                                              ; preds = %329
-  call fastcc void @GIP_SetMetadataDefaults(ptr noundef nonnull %293)
-  %345 = call fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef nonnull %293)
+305:                                              ; preds = %290
+  call fastcc void @GIP_SetMetadataDefaults(ptr noundef nonnull %254)
+  %306 = call fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef nonnull %254)
   br label %.thread
 
-.thread:                                          ; preds = %304, %308, %315, %332, %344
-  %346 = call fastcc zeroext i1 @HIDAPI_DriverGIP_UpdateRumble(ptr noundef %293)
-  br label %347
+.thread:                                          ; preds = %265, %269, %276, %293, %305
+  %307 = call fastcc zeroext i1 @HIDAPI_DriverGIP_UpdateRumble(ptr noundef %254)
+  br label %308
 
-347:                                              ; preds = %291, %.thread
-  %.2 = phi i1 [ false, %.thread ], [ %.14581, %291 ]
+308:                                              ; preds = %252, %.thread
+  %.2 = phi i1 [ false, %.thread ], [ %.14577, %252 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %348, label %291, !llvm.loop !10
+  br i1 %exitcond.not, label %309, label %252, !llvm.loop !10
 
-348:                                              ; preds = %347
-  %349 = icmp slt i32 %.lcssa80, 0
-  br i1 %349, label %350, label %.loopexit
+309:                                              ; preds = %308
+  %310 = icmp slt i32 %.lcssa76, 0
+  br i1 %310, label %311, label %.loopexit
 
-350:                                              ; preds = %348
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %352 = load i32, ptr %351, align 4
-  %353 = icmp sgt i32 %352, 0
-  br i1 %353, label %.preheader, label %.loopexit
+311:                                              ; preds = %309
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %313 = load i32, ptr %312, align 4
+  %314 = icmp sgt i32 %313, 0
+  br i1 %314, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %350, %359
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %359 ], [ 0, %350 ]
-  %354 = getelementptr inbounds nuw [8 x ptr], ptr %282, i64 0, i64 %indvars.iv93
-  %355 = load ptr, ptr %354, align 8
-  %.not53 = icmp eq ptr %355, null
-  br i1 %.not53, label %359, label %356
+.preheader:                                       ; preds = %311, %320
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %320 ], [ 0, %311 ]
+  %315 = getelementptr inbounds nuw [8 x ptr], ptr %243, i64 0, i64 %indvars.iv89
+  %316 = load ptr, ptr %315, align 8
+  %.not53 = icmp eq ptr %316, null
+  br i1 %.not53, label %320, label %317
 
-356:                                              ; preds = %.preheader
-  %357 = getelementptr inbounds nuw i8, ptr %355, i64 12
-  %358 = load i32, ptr %357, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef %0, i32 noundef %358) #10
-  br label %359
+317:                                              ; preds = %.preheader
+  %318 = getelementptr inbounds nuw i8, ptr %316, i64 12
+  %319 = load i32, ptr %318, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef %0, i32 noundef %319) #10
+  br label %320
 
-359:                                              ; preds = %356, %.preheader
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 8
-  br i1 %exitcond96.not, label %.loopexit, label %.preheader, !llvm.loop !11
+320:                                              ; preds = %317, %.preheader
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 8
+  br i1 %exitcond92.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
-.loopexit:                                        ; preds = %359, %350, %348
-  %360 = icmp eq i32 %.lcssa80, 0
+.loopexit:                                        ; preds = %320, %311, %309
+  %321 = icmp eq i32 %.lcssa76, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #10
-  ret i1 %360
+  ret i1 %321
 }
 
 ; Function Attrs: nounwind uwtable

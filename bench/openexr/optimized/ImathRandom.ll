@@ -131,11 +131,8 @@ define noundef range(i64 0, 2147483648) i64 @_ZN9Imath_3_27lrand48Ev() local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @_ZN9Imath_3_27srand48El(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = lshr i64 %0, 16
-  %3 = trunc i64 %2 to i16
-  store i16 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Imath_3_212_GLOBAL__N_111staticStateE, i64 4), align 2, !tbaa !3
-  %4 = trunc i64 %0 to i16
-  store i16 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Imath_3_212_GLOBAL__N_111staticStateE, i64 2), align 2, !tbaa !3
+  %2 = trunc i64 %0 to i32
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Imath_3_212_GLOBAL__N_111staticStateE, i64 2), align 2
   store i16 13070, ptr @_ZN9Imath_3_212_GLOBAL__N_111staticStateE, align 2, !tbaa !3
   ret void
 }

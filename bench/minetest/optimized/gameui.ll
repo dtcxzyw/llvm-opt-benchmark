@@ -1372,9 +1372,7 @@ if.end46.i:                                       ; preds = %if.then36.i, %if.en
   %ref.tmp92.sroa.6.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 100
   store i32 5, ptr %ref.tmp92.sroa.6.0.DesiredRect.i.sroa_idx, align 4, !tbaa !40
   %ref.tmp92.sroa.8.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 104
-  store i32 %screensize.sroa.0.0.extract.trunc, ptr %ref.tmp92.sroa.8.0.DesiredRect.i.sroa_idx, align 8, !tbaa !40
-  %ref.tmp92.sroa.10.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 108
-  store i32 %screensize.sroa.7.0.extract.trunc, ptr %ref.tmp92.sroa.10.0.DesiredRect.i.sroa_idx, align 4, !tbaa !40
+  store i64 %call.i, ptr %ref.tmp92.sroa.8.0.DesiredRect.i.sroa_idx, align 8
   %vtable.i461 = load ptr, ptr %30, align 8, !tbaa !38
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i461, i64 24
   %36 = load ptr, ptr %vfn.i, align 8
@@ -2025,9 +2023,7 @@ if.end46.i697:                                    ; preds = %if.then36.i701, %if
   %ref.tmp231.sroa.6.0.DesiredRect.i698.sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 100
   store i32 %minimal_debug_height.0, ptr %ref.tmp231.sroa.6.0.DesiredRect.i698.sroa_idx, align 4, !tbaa !40
   %ref.tmp231.sroa.8.0.DesiredRect.i698.sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 104
-  store i32 %screensize.sroa.0.0.extract.trunc, ptr %ref.tmp231.sroa.8.0.DesiredRect.i698.sroa_idx, align 8, !tbaa !40
-  %ref.tmp231.sroa.10.0.DesiredRect.i698.sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 108
-  store i32 %screensize.sroa.7.0.extract.trunc, ptr %ref.tmp231.sroa.10.0.DesiredRect.i698.sroa_idx, align 4, !tbaa !40
+  store i64 %call.i, ptr %ref.tmp231.sroa.8.0.DesiredRect.i698.sroa_idx, align 8
   %vtable.i699 = load ptr, ptr %111, align 8, !tbaa !38
   %vfn.i700 = getelementptr inbounds nuw i8, ptr %vtable.i699, i64 24
   %117 = load ptr, ptr %vfn.i700, align 8

@@ -4745,199 +4745,195 @@ define internal void @ahci_pio_transfer(ptr noundef %0) #0 {
   %21 = and i32 %15, 96
   %22 = icmp eq i32 %21, 0
   %23 = select i1 %20, i1 true, i1 %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2464
-  %25 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %ahci_write_fis_pio.exit, label %26
+  %24 = trunc i64 %10 to i16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2464
+  %26 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %ahci_write_fis_pio.exit, label %27
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2396
-  %28 = load i32, ptr %27, align 4
-  %29 = and i32 %28, 16
-  %.not45.i = icmp eq i32 %29, 0
-  br i1 %.not45.i, label %ahci_write_fis_pio.exit, label %30
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2396
+  %29 = load i32, ptr %28, align 4
+  %30 = and i32 %29, 16
+  %.not45.i = icmp eq i32 %30, 0
+  br i1 %.not45.i, label %ahci_write_fis_pio.exit, label %31
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i8 95, ptr %31, align 1
-  %32 = select i1 %23, i8 64, i8 0
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 33
-  store i8 %32, ptr %33, align 1
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 857
-  %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %25, i64 34
-  store i8 %35, ptr %36, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 841
-  %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %25, i64 35
-  store i8 %38, ptr %39, align 1
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %41 = load i8, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %25, i64 36
-  store i8 %41, ptr %42, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 849
-  %44 = load i8, ptr %43, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %25, i64 37
-  store i8 %44, ptr %45, align 1
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 850
-  %47 = load i8, ptr %46, align 2
-  %48 = getelementptr inbounds nuw i8, ptr %25, i64 38
-  store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %50 = load i8, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %25, i64 39
-  store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 853
-  %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 854
-  %56 = load i8, ptr %55, align 2
-  %57 = getelementptr inbounds nuw i8, ptr %25, i64 41
-  store i8 %56, ptr %57, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 855
-  %59 = load i8, ptr %58, align 1
-  %60 = getelementptr inbounds nuw i8, ptr %25, i64 42
-  store i8 %59, ptr %60, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %25, i64 43
-  store i8 0, ptr %61, align 1
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 844
-  %63 = load i32, ptr %62, align 4
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %25, i64 44
-  store i8 %64, ptr %65, align 1
-  %66 = load i32, ptr %62, align 4
-  %67 = lshr i32 %66, 8
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %25, i64 45
-  store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds nuw i8, ptr %25, i64 46
-  store i8 0, ptr %70, align 1
-  %71 = load i8, ptr %34, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %25, i64 47
-  store i8 %71, ptr %72, align 1
-  %73 = trunc i64 %10 to i8
-  %74 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  store i8 %73, ptr %74, align 1
-  %75 = lshr i64 %10, 8
-  %76 = trunc i64 %75 to i8
-  %77 = getelementptr inbounds nuw i8, ptr %25, i64 49
-  store i8 %76, ptr %77, align 1
-  %78 = getelementptr inbounds nuw i8, ptr %25, i64 50
-  store i8 0, ptr %78, align 1
-  %79 = getelementptr inbounds nuw i8, ptr %25, i64 51
-  store i8 0, ptr %79, align 1
-  %80 = load i8, ptr %37, align 1
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store i8 95, ptr %32, align 1
+  %33 = select i1 %23, i8 64, i8 0
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 33
+  store i8 %33, ptr %34, align 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 857
+  %36 = load i8, ptr %35, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 34
+  store i8 %36, ptr %37, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 841
+  %39 = load i8, ptr %38, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 35
+  store i8 %39, ptr %40, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %42 = load i8, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 36
+  store i8 %42, ptr %43, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 849
+  %45 = load i8, ptr %44, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %26, i64 37
+  store i8 %45, ptr %46, align 1
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 850
+  %48 = load i8, ptr %47, align 2
+  %49 = getelementptr inbounds nuw i8, ptr %26, i64 38
+  store i8 %48, ptr %49, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %51 = load i8, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 39
+  store i8 %51, ptr %52, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 853
+  %54 = load i8, ptr %53, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  store i8 %54, ptr %55, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 854
+  %57 = load i8, ptr %56, align 2
+  %58 = getelementptr inbounds nuw i8, ptr %26, i64 41
+  store i8 %57, ptr %58, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 855
+  %60 = load i8, ptr %59, align 1
+  %61 = getelementptr inbounds nuw i8, ptr %26, i64 42
+  store i8 %60, ptr %61, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %26, i64 43
+  store i8 0, ptr %62, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 844
+  %64 = load i32, ptr %63, align 4
+  %65 = trunc i32 %64 to i8
+  %66 = getelementptr inbounds nuw i8, ptr %26, i64 44
+  store i8 %65, ptr %66, align 1
+  %67 = load i32, ptr %63, align 4
+  %68 = lshr i32 %67, 8
+  %69 = trunc i32 %68 to i8
+  %70 = getelementptr inbounds nuw i8, ptr %26, i64 45
+  store i8 %69, ptr %70, align 1
+  %71 = getelementptr inbounds nuw i8, ptr %26, i64 46
+  store i8 0, ptr %71, align 1
+  %72 = load i8, ptr %35, align 1
+  %73 = getelementptr inbounds nuw i8, ptr %26, i64 47
+  store i8 %72, ptr %73, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  store i16 %24, ptr %74, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %26, i64 50
+  store i8 0, ptr %75, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %26, i64 51
+  store i8 0, ptr %76, align 1
+  %77 = load i8, ptr %38, align 1
+  %78 = zext i8 %77 to i32
+  %79 = shl nuw nsw i32 %78, 8
+  %80 = load i8, ptr %35, align 1
   %81 = zext i8 %80 to i32
-  %82 = shl nuw nsw i32 %81, 8
-  %83 = load i8, ptr %34, align 1
-  %84 = zext i8 %83 to i32
-  %85 = or disjoint i32 %82, %84
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 2404
-  store i32 %85, ptr %86, align 4
-  %87 = load i8, ptr %36, align 1
-  %88 = and i8 %87, 1
-  %.not46.i = icmp eq i8 %88, 0
-  br i1 %.not46.i, label %ahci_write_fis_pio.exit, label %89
+  %82 = or disjoint i32 %79, %81
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 2404
+  store i32 %82, ptr %83, align 4
+  %84 = load i8, ptr %37, align 1
+  %85 = and i8 %84, 1
+  %.not46.i = icmp eq i8 %85, 0
+  br i1 %.not46.i, label %ahci_write_fis_pio.exit, label %86
 
-89:                                               ; preds = %30
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  %91 = load ptr, ptr %90, align 8
-  tail call fastcc void @ahci_trigger_irq(ptr noundef %91, ptr noundef nonnull %0, i32 noundef 30)
+86:                                               ; preds = %31
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2440
+  %88 = load ptr, ptr %87, align 8
+  tail call fastcc void @ahci_trigger_irq(ptr noundef %88, ptr noundef nonnull %0, i32 noundef 30)
   br label %ahci_write_fis_pio.exit
 
-ahci_write_fis_pio.exit:                          ; preds = %1, %26, %30, %89
+ahci_write_fis_pio.exit:                          ; preds = %1, %27, %31, %86
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %95, label %92
+  br i1 %.not, label %92, label %89
 
-92:                                               ; preds = %ahci_write_fis_pio.exit
-  %93 = load i8, ptr %18, align 8, !range !9, !noundef !10
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %129
+89:                                               ; preds = %ahci_write_fis_pio.exit
+  %90 = load i8, ptr %18, align 8, !range !9, !noundef !10
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %92, label %126
 
-95:                                               ; preds = %92, %ahci_write_fis_pio.exit
-  %96 = phi ptr [ @.str.176, %92 ], [ @.str.177, %ahci_write_fis_pio.exit ]
-  %97 = tail call i32 @ahci_dma_prepare_buf(ptr noundef nonnull %0, i32 noundef %11)
-  %.not46 = icmp ne i32 %97, 0
+92:                                               ; preds = %89, %ahci_write_fis_pio.exit
+  %93 = phi ptr [ @.str.176, %89 ], [ @.str.177, %ahci_write_fis_pio.exit ]
+  %94 = tail call i32 @ahci_dma_prepare_buf(ptr noundef nonnull %0, i32 noundef %11)
+  %.not46 = icmp ne i32 %94, 0
   %spec.select = select i1 %.not46, ptr @.str.178, ptr @.str.179
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 2360
-  %101 = load i32, ptr %100, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2440
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 2360
+  %98 = load i32, ptr %97, align 8
   %.not47 = icmp eq i32 %16, 0
-  %102 = select i1 %.not47, ptr @.str.175, ptr @.str.174
-  %103 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i = icmp eq i32 %103, 0
-  br i1 %.not.i.i, label %trace_ahci_pio_transfer.exit, label %104, !prof !7
+  %99 = select i1 %.not47, ptr @.str.175, ptr @.str.174
+  %100 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %100, 0
+  br i1 %.not.i.i, label %trace_ahci_pio_transfer.exit, label %101, !prof !7
 
-104:                                              ; preds = %95
-  %105 = load i16, ptr @_TRACE_AHCI_PIO_TRANSFER_DSTATE, align 2
-  %.not11.i.i = icmp eq i16 %105, 0
-  br i1 %.not11.i.i, label %trace_ahci_pio_transfer.exit, label %106
+101:                                              ; preds = %92
+  %102 = load i16, ptr @_TRACE_AHCI_PIO_TRANSFER_DSTATE, align 2
+  %.not11.i.i = icmp eq i16 %102, 0
+  br i1 %.not11.i.i, label %trace_ahci_pio_transfer.exit, label %103
 
-106:                                              ; preds = %104
-  %107 = load i32, ptr @qemu_loglevel, align 4
-  %108 = and i32 %107, 32768
-  %.not12.i.i = icmp eq i32 %108, 0
-  br i1 %.not12.i.i, label %trace_ahci_pio_transfer.exit, label %109
+103:                                              ; preds = %101
+  %104 = load i32, ptr @qemu_loglevel, align 4
+  %105 = and i32 %104, 32768
+  %.not12.i.i = icmp eq i32 %105, 0
+  br i1 %.not12.i.i, label %trace_ahci_pio_transfer.exit, label %106
+
+106:                                              ; preds = %103
+  %107 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %109, label %115
 
 109:                                              ; preds = %106
-  %110 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %112, label %118
-
-112:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
-  %113 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
-  %114 = tail call i32 @qemu_get_thread_id() #14
-  %115 = load i64, ptr %2, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %117 = load i64, ptr %116, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.180, i32 noundef %114, i64 noundef %115, i64 noundef %117, ptr noundef %99, i32 noundef %101, ptr noundef nonnull %102, i32 noundef %11, ptr noundef nonnull %96, ptr noundef nonnull %spec.select) #14
+  %110 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
+  %111 = tail call i32 @qemu_get_thread_id() #14
+  %112 = load i64, ptr %2, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %114 = load i64, ptr %113, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.180, i32 noundef %111, i64 noundef %112, i64 noundef %114, ptr noundef %96, i32 noundef %98, ptr noundef nonnull %99, i32 noundef %11, ptr noundef nonnull %93, ptr noundef nonnull %spec.select) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
   br label %trace_ahci_pio_transfer.exit
 
-118:                                              ; preds = %109
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.181, ptr noundef %99, i32 noundef %101, ptr noundef nonnull %102, i32 noundef %11, ptr noundef nonnull %96, ptr noundef nonnull %spec.select) #14
+115:                                              ; preds = %106
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.181, ptr noundef %96, i32 noundef %98, ptr noundef nonnull %99, i32 noundef %11, ptr noundef nonnull %93, ptr noundef nonnull %spec.select) #14
   br label %trace_ahci_pio_transfer.exit
 
-trace_ahci_pio_transfer.exit:                     ; preds = %95, %104, %106, %112, %118
-  %119 = icmp ne i32 %11, 0
-  %or.cond = select i1 %.not46, i1 %119, i1 false
-  br i1 %or.cond, label %120, label %128
+trace_ahci_pio_transfer.exit:                     ; preds = %92, %101, %103, %109, %115
+  %116 = icmp ne i32 %11, 0
+  %or.cond = select i1 %.not46, i1 %116, i1 false
+  br i1 %or.cond, label %117, label %125
 
-120:                                              ; preds = %trace_ahci_pio_transfer.exit
-  %121 = load ptr, ptr %6, align 8
-  %122 = and i64 %10, 4294967295
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  br i1 %.not47, label %126, label %124
+117:                                              ; preds = %trace_ahci_pio_transfer.exit
+  %118 = load ptr, ptr %6, align 8
+  %119 = and i64 %10, 4294967295
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  br i1 %.not47, label %123, label %121
 
-124:                                              ; preds = %120
-  %125 = tail call i32 @dma_buf_write(ptr noundef %121, i64 noundef %122, ptr noundef null, ptr noundef nonnull %123, i64 4294967296) #14
-  br label %128
+121:                                              ; preds = %117
+  %122 = tail call i32 @dma_buf_write(ptr noundef %118, i64 noundef %119, ptr noundef null, ptr noundef nonnull %120, i64 4294967296) #14
+  br label %125
 
-126:                                              ; preds = %120
-  %127 = tail call i32 @dma_buf_read(ptr noundef %121, i64 noundef %122, ptr noundef null, ptr noundef nonnull %123, i64 4294967296) #14
-  br label %128
+123:                                              ; preds = %117
+  %124 = tail call i32 @dma_buf_read(ptr noundef %118, i64 noundef %119, ptr noundef null, ptr noundef nonnull %120, i64 4294967296) #14
+  br label %125
 
-128:                                              ; preds = %124, %126, %trace_ahci_pio_transfer.exit
+125:                                              ; preds = %121, %123, %trace_ahci_pio_transfer.exit
   tail call void @dma_buf_commit(ptr noundef nonnull %3, i32 noundef %11) #14
-  br label %129
+  br label %126
 
-129:                                              ; preds = %92, %128
-  %130 = load ptr, ptr %4, align 8
-  store ptr %130, ptr %6, align 8
+126:                                              ; preds = %89, %125
+  %127 = load ptr, ptr %4, align 8
+  store ptr %127, ptr %6, align 8
   store i8 1, ptr %18, align 8
-  br i1 %23, label %131, label %134
+  br i1 %23, label %128, label %131
 
-131:                                              ; preds = %129
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  %133 = load ptr, ptr %132, align 8
-  tail call fastcc void @ahci_trigger_irq(ptr noundef %133, ptr noundef nonnull %0, i32 noundef 1)
-  br label %134
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 2440
+  %130 = load ptr, ptr %129, align 8
+  tail call fastcc void @ahci_trigger_irq(ptr noundef %130, ptr noundef nonnull %0, i32 noundef 1)
+  br label %131
 
-134:                                              ; preds = %131, %129
+131:                                              ; preds = %128, %126
   ret void
 }
 

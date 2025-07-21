@@ -1441,12 +1441,7 @@ entry:
   %mul32 = mul nsw i64 %add31, 1000
   %add34 = add nsw i64 %mul32, %conv14.i
   %mul35 = mul nsw i64 %add34, 10000
-  %conv36 = trunc i64 %mul35 to i32
-  store i32 %conv36, ptr %time, align 4
-  %shr = lshr i64 %mul35, 32
-  %conv37 = trunc nuw i64 %shr to i32
-  %dwHighDateTime = getelementptr inbounds nuw i8, ptr %time, i64 4
-  store i32 %conv37, ptr %dwHighDateTime, align 4
+  store i64 %mul35, ptr %time, align 4
   ret void
 }
 

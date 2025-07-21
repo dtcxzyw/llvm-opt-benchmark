@@ -15667,9 +15667,9 @@ define hidden void @"_ZN99_$LT$backoff..future..Retry$LT$S$C$B$C$N$C$Fn$C$Fut$GT
   %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 7368
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 7376
-  %.sroa.5530.0..sroa_idx531 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %.sroa.6.0..sroa_idx533 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %.sroa.7536.0..sroa_idx537 = getelementptr inbounds nuw i8, ptr %1, i64 7352
+  %.sroa.5518.0..sroa_idx519 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %.sroa.6.0..sroa_idx521 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %.sroa.7524.0..sroa_idx525 = getelementptr inbounds nuw i8, ptr %1, i64 7352
   br label %94
 
 94:                                               ; preds = %371, %3
@@ -17116,8 +17116,6 @@ common.resume:                                    ; preds = %372, %360, %363, %"
   br label %343
 
 344:                                              ; preds = %"_ZN13deltalake_aws18DynamoDbLockClient18get_latest_entries28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he12003ea5384327dE.exit"
-  %.sroa.1287.sroa.5.0.extract.shift.le = lshr i64 %.sroa.415.sroa.8.0.i, 32
-  %.sroa.1287.sroa.5.0.extract.trunc.le = trunc nuw i64 %.sroa.1287.sroa.5.0.extract.shift.le to i32
   store i64 %.sroa.013.0.i, ptr %0, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.415.sroa.0.0.i, ptr %.sroa.417.0..sroa_idx, align 8
@@ -17126,9 +17124,7 @@ common.resume:                                    ; preds = %372, %360, %363, %"
   %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.415.sroa.7.0.i, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.sroa.1287.sroa.0.0.extract.trunc, ptr %.sroa.720.0..sroa_idx, align 8
-  %.sroa.821.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %.sroa.1287.sroa.5.0.extract.trunc.le, ptr %.sroa.821.0..sroa_idx, align 4
+  store i64 %.sroa.415.sroa.8.0.i, ptr %.sroa.720.0..sroa_idx, align 8
   %.sroa.821.sroa.4.0..sroa.821.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.821.sroa.4.0..sroa.821.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6.sroa.0.i, i64 136, i1 false)
   %.sroa.821.sroa.5.0..sroa.821.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -17210,12 +17206,12 @@ common.resume:                                    ; preds = %372, %360, %363, %"
   %364 = landingpad { ptr, i32 }
           cleanup
   store ptr %366, ptr %50, align 8, !noalias !3128
-  %.sroa.5530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 216
-  store ptr %367, ptr %.sroa.5530.0..sroa_idx, align 8, !noalias !3128
+  %.sroa.5518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 216
+  store ptr %367, ptr %.sroa.5518.0..sroa_idx, align 8, !noalias !3128
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr %368, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !3128
-  %.sroa.7536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 7352
-  store i8 0, ptr %.sroa.7536.0..sroa_idx, align 8, !noalias !3128
+  %.sroa.7524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 7352
+  store i8 0, ptr %.sroa.7524.0..sroa_idx, align 8, !noalias !3128
   br label %common.resume
 
 365:                                              ; preds = %362, %"_ZN78_$LT$backoff..retry..NoopNotify$u20$as$u20$backoff..retry..Notify$LT$E$GT$$GT$6notify17h7e66b367c228aecfE.exit"
@@ -17234,9 +17230,9 @@ common.resume:                                    ; preds = %372, %360, %363, %"
 
 371:                                              ; preds = %370, %365
   store ptr %366, ptr %50, align 8, !noalias !3128
-  store ptr %367, ptr %.sroa.5530.0..sroa_idx531, align 8, !noalias !3128
-  store ptr %368, ptr %.sroa.6.0..sroa_idx533, align 8, !noalias !3128
-  store i8 0, ptr %.sroa.7536.0..sroa_idx537, align 8, !noalias !3128
+  store ptr %367, ptr %.sroa.5518.0..sroa_idx519, align 8, !noalias !3128
+  store ptr %368, ptr %.sroa.6.0..sroa_idx521, align 8, !noalias !3128
+  store i8 0, ptr %.sroa.7524.0..sroa_idx525, align 8, !noalias !3128
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46)
   br label %94
 
@@ -17461,10 +17457,10 @@ define hidden void @"_ZN99_$LT$backoff..future..Retry$LT$S$C$B$C$N$C$Fn$C$Fut$GT
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 6288
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 6296
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 6304
-  %.sroa.5526.0..sroa_idx527 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %.sroa.6.0..sroa_idx529 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %.sroa.7.0..sroa_idx531 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %.sroa.8534.0..sroa_idx535 = getelementptr inbounds nuw i8, ptr %1, i64 6272
+  %.sroa.5514.0..sroa_idx515 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %.sroa.6.0..sroa_idx517 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %.sroa.7.0..sroa_idx519 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %.sroa.8522.0..sroa_idx523 = getelementptr inbounds nuw i8, ptr %1, i64 6272
   br label %68
 
 68:                                               ; preds = %306, %3
@@ -18709,8 +18705,6 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   br label %277
 
 278:                                              ; preds = %"_ZN13deltalake_aws18DynamoDbLockClient16get_commit_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9fa439003a1581f9E.exit"
-  %.sroa.13.sroa.5.0.extract.shift.le = lshr i64 %.sroa.49.sroa.10.0.i, 32
-  %.sroa.13.sroa.5.0.extract.trunc.le = trunc nuw i64 %.sroa.13.sroa.5.0.extract.shift.le to i32
   store i64 %.sroa.07.0.i, ptr %0, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.49.sroa.0.0.i, ptr %.sroa.417.0..sroa_idx, align 8
@@ -18721,9 +18715,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.49.sroa.8.0.i, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.sroa.13.sroa.0.0.extract.trunc, ptr %.sroa.720.0..sroa_idx, align 8
-  %.sroa.821.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %.sroa.13.sroa.5.0.extract.trunc.le, ptr %.sroa.821.0..sroa_idx, align 4
+  store i64 %.sroa.49.sroa.10.0.i, ptr %.sroa.720.0..sroa_idx, align 8
   %.sroa.821.sroa.4.0..sroa.821.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sroa.6.sroa.0.sroa.0.0.i, ptr %.sroa.821.sroa.4.0..sroa.821.0..sroa_idx.sroa_idx, align 8
   %.sroa.821.sroa.5.0..sroa.821.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -18810,14 +18802,14 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   %298 = landingpad { ptr, i32 }
           cleanup
   store ptr %300, ptr %38, align 8, !noalias !3299
-  %.sroa.5526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 216
-  store ptr %301, ptr %.sroa.5526.0..sroa_idx, align 8, !noalias !3299
+  %.sroa.5514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 216
+  store ptr %301, ptr %.sroa.5514.0..sroa_idx, align 8, !noalias !3299
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr %302, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !3299
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i64 %303, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !3299
-  %.sroa.8534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 6272
-  store i8 0, ptr %.sroa.8534.0..sroa_idx, align 8, !noalias !3299
+  %.sroa.8522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 6272
+  store i8 0, ptr %.sroa.8522.0..sroa_idx, align 8, !noalias !3299
   br label %common.resume
 
 299:                                              ; preds = %296, %"_ZN78_$LT$backoff..retry..NoopNotify$u20$as$u20$backoff..retry..Notify$LT$E$GT$$GT$6notify17h7e66b367c228aecfE.exit"
@@ -18837,10 +18829,10 @@ common.resume:                                    ; preds = %307, %294, %297, %"
 
 306:                                              ; preds = %305, %299
   store ptr %300, ptr %38, align 8, !noalias !3299
-  store ptr %301, ptr %.sroa.5526.0..sroa_idx527, align 8, !noalias !3299
-  store ptr %302, ptr %.sroa.6.0..sroa_idx529, align 8, !noalias !3299
-  store i64 %303, ptr %.sroa.7.0..sroa_idx531, align 8, !noalias !3299
-  store i8 0, ptr %.sroa.8534.0..sroa_idx535, align 8, !noalias !3299
+  store ptr %301, ptr %.sroa.5514.0..sroa_idx515, align 8, !noalias !3299
+  store ptr %302, ptr %.sroa.6.0..sroa_idx517, align 8, !noalias !3299
+  store i64 %303, ptr %.sroa.7.0..sroa_idx519, align 8, !noalias !3299
+  store i8 0, ptr %.sroa.8522.0..sroa_idx523, align 8, !noalias !3299
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34)
   br label %68
 

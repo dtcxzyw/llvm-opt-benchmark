@@ -41526,14 +41526,9 @@ define void @"_ZN87_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core
   tail call void @llvm.assume(i1 %41)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5574
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %.sroa.0.0, i64 %.sroa.7.0, i1 false), !noalias !5581
-  %.sroa.0.0.extract.trunc = trunc i64 %36 to i8
-  %.sroa.0.1.extract.shift = lshr i64 %36, 8
-  %.sroa.0.1.extract.trunc = trunc nuw i64 %.sroa.0.1.extract.shift to i56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.0.0.extract.trunc, ptr %42, align 8
-  %.sroa.2109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.0.1.extract.trunc, ptr %.sroa.2109.0..sroa_idx, align 1
+  store i64 %36, ptr %42, align 8
   %.sroa.3110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %40, ptr %.sroa.3110.0..sroa_idx, align 8
   %.sroa.4111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42538,14 +42533,9 @@ define void @_ZN11ruff_linter13rule_selector12RuleSelector17parse_no_redirect17h
   tail call void @llvm.assume(i1 %33)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5686
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !5693
-  %.sroa.0.0.extract.trunc = trunc i64 %28 to i8
-  %.sroa.0.1.extract.shift = lshr i64 %28, 8
-  %.sroa.0.1.extract.trunc = trunc nuw i64 %.sroa.0.1.extract.shift to i56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.0.0.extract.trunc, ptr %34, align 8
-  %.sroa.299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.0.1.extract.trunc, ptr %.sroa.299.0..sroa_idx, align 1
+  store i64 %28, ptr %34, align 8
   %.sroa.3100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %32, ptr %.sroa.3100.0..sroa_idx, align 8
   %.sroa.4101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

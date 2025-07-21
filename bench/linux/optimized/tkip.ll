@@ -111,128 +111,129 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local void @ieee80211_get_tkip_rx_p1k(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = trunc i32 %2 to i16
-  %7 = lshr i32 %2, 16
-  %8 = trunc nuw i32 %7 to i16
-  %9 = load i16, ptr %1, align 1
-  %10 = getelementptr i8, ptr %1, i64 2
-  %11 = load i16, ptr %10, align 1
-  %12 = getelementptr i8, ptr %1, i64 4
-  %13 = load i16, ptr %12, align 1
-  %14 = getelementptr i8, ptr %0, i64 24
-  %15 = getelementptr i8, ptr %0, i64 28
-  %16 = getelementptr i8, ptr %0, i64 32
-  br label %17
+  %.sroa.0.sroa.6.0.extract.shift = lshr i32 %2, 16
+  %7 = trunc nuw i32 %.sroa.0.sroa.6.0.extract.shift to i16
+  %8 = load i16, ptr %1, align 1
+  %9 = getelementptr i8, ptr %1, i64 2
+  %10 = load i16, ptr %9, align 1
+  %11 = getelementptr i8, ptr %1, i64 4
+  %12 = load i16, ptr %11, align 1
+  %13 = getelementptr i8, ptr %0, i64 24
+  %14 = getelementptr i8, ptr %0, i64 28
+  %15 = getelementptr i8, ptr %0, i64 32
+  br label %16
 
-17:                                               ; preds = %17, %4
-  %18 = phi i32 [ 0, %4 ], [ %102, %17 ]
-  %19 = phi i16 [ %13, %4 ], [ %101, %17 ]
-  %20 = phi i16 [ %6, %4 ], [ %41, %17 ]
-  %21 = phi i16 [ %8, %4 ], [ %56, %17 ]
-  %22 = phi i16 [ %9, %4 ], [ %71, %17 ]
-  %23 = phi i16 [ %11, %4 ], [ %86, %17 ]
-  %24 = shl nuw nsw i32 %18, 1
-  %25 = and i32 %24, 2
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr i8, ptr %5, i64 %26
-  %28 = load i16, ptr %27, align 1
-  %29 = xor i16 %28, %19
-  %30 = zext i16 %29 to i32
-  %31 = and i32 %30, 255
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %32
-  %34 = load i16, ptr %33, align 2
-  %35 = lshr i32 %30, 8
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %36
-  %38 = load i16, ptr %37, align 2
-  %39 = tail call i16 @llvm.bswap.i16(i16 %38)
-  %40 = xor i16 %39, %34
-  %41 = add i16 %40, %20
-  %42 = getelementptr i8, ptr %14, i64 %26
-  %43 = load i16, ptr %42, align 1
-  %44 = xor i16 %41, %43
-  %45 = zext i16 %44 to i32
-  %46 = and i32 %45, 255
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %47
-  %49 = load i16, ptr %48, align 2
-  %50 = lshr i32 %45, 8
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %51
-  %53 = load i16, ptr %52, align 2
-  %54 = tail call i16 @llvm.bswap.i16(i16 %53)
-  %55 = xor i16 %54, %49
-  %56 = add i16 %55, %21
-  %57 = getelementptr i8, ptr %15, i64 %26
-  %58 = load i16, ptr %57, align 1
-  %59 = xor i16 %56, %58
-  %60 = zext i16 %59 to i32
-  %61 = and i32 %60, 255
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2
-  %65 = lshr i32 %60, 8
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %66
-  %68 = load i16, ptr %67, align 2
-  %69 = tail call i16 @llvm.bswap.i16(i16 %68)
-  %70 = xor i16 %69, %64
-  %71 = add i16 %70, %22
-  %72 = getelementptr i8, ptr %16, i64 %26
-  %73 = load i16, ptr %72, align 1
-  %74 = xor i16 %71, %73
-  %75 = zext i16 %74 to i32
-  %76 = and i32 %75, 255
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %77
-  %79 = load i16, ptr %78, align 2
-  %80 = lshr i32 %75, 8
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %81
-  %83 = load i16, ptr %82, align 2
-  %84 = tail call i16 @llvm.bswap.i16(i16 %83)
-  %85 = xor i16 %84, %79
-  %86 = add i16 %85, %23
-  %87 = xor i16 %86, %28
-  %88 = zext i16 %87 to i32
-  %89 = and i32 %88, 255
-  %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %90
-  %92 = load i16, ptr %91, align 2
-  %93 = lshr i32 %88, 8
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %94
-  %96 = load i16, ptr %95, align 2
-  %97 = tail call i16 @llvm.bswap.i16(i16 %96)
-  %98 = xor i16 %97, %92
-  %99 = trunc i32 %18 to i16
-  %100 = add i16 %19, %99
-  %101 = add i16 %100, %98
-  %102 = add nuw nsw i32 %18, 1
-  %103 = icmp eq i32 %102, 8
-  br i1 %103, label %tkip_mixing_phase1.exit, label %17, !llvm.loop !6
+16:                                               ; preds = %16, %4
+  %17 = phi i32 [ 0, %4 ], [ %101, %16 ]
+  %18 = phi i16 [ %12, %4 ], [ %100, %16 ]
+  %19 = phi i16 [ %6, %4 ], [ %40, %16 ]
+  %20 = phi i16 [ %7, %4 ], [ %55, %16 ]
+  %21 = phi i16 [ %8, %4 ], [ %70, %16 ]
+  %22 = phi i16 [ %10, %4 ], [ %85, %16 ]
+  %23 = shl nuw nsw i32 %17, 1
+  %24 = and i32 %23, 2
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr i8, ptr %5, i64 %25
+  %27 = load i16, ptr %26, align 1
+  %28 = xor i16 %27, %18
+  %29 = zext i16 %28 to i32
+  %30 = and i32 %29, 255
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = lshr i32 %29, 8
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %35
+  %37 = load i16, ptr %36, align 2
+  %38 = tail call i16 @llvm.bswap.i16(i16 %37)
+  %39 = xor i16 %38, %33
+  %40 = add i16 %39, %19
+  %41 = getelementptr i8, ptr %13, i64 %25
+  %42 = load i16, ptr %41, align 1
+  %43 = xor i16 %40, %42
+  %44 = zext i16 %43 to i32
+  %45 = and i32 %44, 255
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %46
+  %48 = load i16, ptr %47, align 2
+  %49 = lshr i32 %44, 8
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %50
+  %52 = load i16, ptr %51, align 2
+  %53 = tail call i16 @llvm.bswap.i16(i16 %52)
+  %54 = xor i16 %53, %48
+  %55 = add i16 %54, %20
+  %56 = getelementptr i8, ptr %14, i64 %25
+  %57 = load i16, ptr %56, align 1
+  %58 = xor i16 %55, %57
+  %59 = zext i16 %58 to i32
+  %60 = and i32 %59, 255
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %61
+  %63 = load i16, ptr %62, align 2
+  %64 = lshr i32 %59, 8
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %65
+  %67 = load i16, ptr %66, align 2
+  %68 = tail call i16 @llvm.bswap.i16(i16 %67)
+  %69 = xor i16 %68, %63
+  %70 = add i16 %69, %21
+  %71 = getelementptr i8, ptr %15, i64 %25
+  %72 = load i16, ptr %71, align 1
+  %73 = xor i16 %70, %72
+  %74 = zext i16 %73 to i32
+  %75 = and i32 %74, 255
+  %76 = zext nneg i32 %75 to i64
+  %77 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %76
+  %78 = load i16, ptr %77, align 2
+  %79 = lshr i32 %74, 8
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %80
+  %82 = load i16, ptr %81, align 2
+  %83 = tail call i16 @llvm.bswap.i16(i16 %82)
+  %84 = xor i16 %83, %78
+  %85 = add i16 %84, %22
+  %86 = xor i16 %85, %27
+  %87 = zext i16 %86 to i32
+  %88 = and i32 %87, 255
+  %89 = zext nneg i32 %88 to i64
+  %90 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %89
+  %91 = load i16, ptr %90, align 2
+  %92 = lshr i32 %87, 8
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr [256 x i16], ptr @tkip_sbox, i64 0, i64 %93
+  %95 = load i16, ptr %94, align 2
+  %96 = tail call i16 @llvm.bswap.i16(i16 %95)
+  %97 = xor i16 %96, %91
+  %98 = trunc i32 %17 to i16
+  %99 = add i16 %18, %98
+  %100 = add i16 %99, %97
+  %101 = add nuw nsw i32 %17, 1
+  %102 = icmp eq i32 %101, 8
+  br i1 %102, label %tkip_mixing_phase1.exit, label %16, !llvm.loop !6
 
-tkip_mixing_phase1.exit:                          ; preds = %17
-  store i16 %41, ptr %3, align 2
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %56, ptr %.sroa.6.0..sroa_idx, align 2
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 %71, ptr %.sroa.8.0..sroa_idx, align 2
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i16 %86, ptr %.sroa.10.0..sroa_idx, align 2
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i16 %101, ptr %.sroa.12.0..sroa_idx, align 2
+tkip_mixing_phase1.exit:                          ; preds = %16
+  %.sroa.0.sroa.6.0.insert.ext = zext i16 %55 to i32
+  %.sroa.0.sroa.6.0.insert.shift = shl nuw i32 %.sroa.0.sroa.6.0.insert.ext, 16
+  %.sroa.0.sroa.0.0.insert.ext = zext i16 %40 to i32
+  %.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.6.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
+  store i32 %.sroa.0.sroa.0.0.insert.insert, ptr %3, align 2
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 %70, ptr %.sroa.7.0..sroa_idx, align 2
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 %85, ptr %.sroa.9.0..sroa_idx, align 2
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i16 %100, ptr %.sroa.11.0..sroa_idx, align 2
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define internal fastcc void @tkip_mixing_phase1(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 10)) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #4 align 16 {
   %5 = trunc i32 %3 to i16
-  store i16 %5, ptr %1, align 2
+  store i32 %3, ptr %1, align 2
   %6 = lshr i32 %3, 16
   %7 = trunc nuw i32 %6 to i16
   %8 = getelementptr i8, ptr %1, i64 2
-  store i16 %7, ptr %8, align 2
   %9 = load i16, ptr %2, align 1
   %10 = getelementptr i8, ptr %1, i64 4
   store i16 %9, ptr %10, align 2

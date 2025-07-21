@@ -110277,7 +110277,7 @@ pm_compile_builtin_attr.exit:                     ; preds = %iseq_set_use_block.
 define internal fastcc void @pm_compile_call(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.pm_node_location_t, align 4
-  %10 = alloca %struct.rb_code_location_struct, align 4
+  %10 = alloca %struct.rb_code_location_struct, align 8
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca %struct.pm_scope_node, align 8
@@ -110587,7 +110587,7 @@ new_label_body.exit220:                           ; preds = %ISEQ_COMPILE_DATA.e
   %161 = getelementptr inbounds nuw i8, ptr %147, i64 28
   store i32 -1, ptr %161, align 4, !tbaa !106
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %163 = load i16, ptr %162, align 2, !tbaa !478
   %164 = and i16 %163, 4
@@ -110662,24 +110662,14 @@ RARRAY_AREF.exit:                                 ; preds = %174, %176
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 664
   %208 = load i32, ptr %207, align 8, !tbaa !456
   %209 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %205, ptr noundef %206, i32 noundef %208) #38
-  %.sroa.019.0.extract.trunc = trunc i64 %209 to i32
-  %.sroa.420.0.extract.shift = lshr i64 %209, 32
-  %.sroa.420.0.extract.trunc = trunc nuw i64 %.sroa.420.0.extract.shift to i32
   %210 = load ptr, ptr %18, align 8, !tbaa !407
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 600
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 664
   %213 = load i32, ptr %212, align 8, !tbaa !456
   %214 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %211, ptr noundef %spec.select261, i32 noundef %213) #38
-  %.sroa.017.0.extract.trunc = trunc i64 %214 to i32
-  %.sroa.418.0.extract.shift = lshr i64 %214, 32
-  %.sroa.418.0.extract.trunc = trunc nuw i64 %.sroa.418.0.extract.shift to i32
-  store i32 %.sroa.019.0.extract.trunc, ptr %10, align 4, !tbaa !39
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %.sroa.420.0.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !39
+  store i64 %209, ptr %10, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.017.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !39
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.418.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !39
+  store i64 %214, ptr %.sroa.3.0..sroa_idx, align 8
   %215 = ptrtoint ptr %1 to i64
   %216 = tail call i64 @rb_int2inum(i64 noundef %215) #38
   %.val = load ptr, ptr %166, align 8, !tbaa !45
@@ -118220,9 +118210,7 @@ define internal fastcc void @pm_parse_errors_format(ptr noundef %0, ptr noundef 
   %60 = getelementptr %struct.pm_parse_error_t, ptr %10, i64 %.055.lcssa.i
   store ptr %.05474.i, ptr %60, align 8, !tbaa !162
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i32 %.sroa.018.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !39
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 12
-  store i32 %.sroa.9.0.extract.trunc.i, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !39
+  store i64 %17, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 %spec.select.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !39
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 20

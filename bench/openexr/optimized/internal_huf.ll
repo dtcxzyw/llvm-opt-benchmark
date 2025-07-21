@@ -1173,79 +1173,29 @@ hufPackEncTable.exit:                             ; preds = %336, %._crit_edge20
   br i1 %507, label %hufPackEncTable.exit.thread, label %508
 
 508:                                              ; preds = %500
-  %509 = ptrtoint ptr %9 to i64
-  %510 = sub i64 %502, %509
-  %511 = add nuw nsw i64 %506, 7
-  %512 = lshr i64 %511, 3
-  %513 = trunc i32 %storemerge.i to i8
-  store i8 %513, ptr %1, align 1, !tbaa !26
-  %514 = lshr i32 %storemerge.i, 8
-  %515 = trunc i32 %514 to i8
-  %516 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %515, ptr %516, align 1, !tbaa !26
-  %517 = lshr i32 %storemerge.i, 16
-  %518 = trunc i32 %517 to i8
-  %519 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %518, ptr %519, align 1, !tbaa !26
-  %520 = lshr i32 %storemerge.i, 24
-  %521 = trunc nuw i32 %520 to i8
-  %522 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %521, ptr %522, align 1, !tbaa !26
-  %523 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %524 = trunc i32 %243 to i8
-  store i8 %524, ptr %523, align 1, !tbaa !26
-  %525 = lshr i32 %243, 8
-  %526 = trunc i32 %525 to i8
-  %527 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %526, ptr %527, align 1, !tbaa !26
-  %528 = lshr i32 %243, 16
-  %529 = trunc i32 %528 to i8
-  %530 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %529, ptr %530, align 1, !tbaa !26
-  %531 = lshr i32 %243, 24
-  %532 = trunc nuw i32 %531 to i8
-  %533 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %532, ptr %533, align 1, !tbaa !26
-  %534 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %535 = trunc i64 %510 to i8
-  store i8 %535, ptr %534, align 1, !tbaa !26
-  %536 = lshr i64 %510, 8
-  %537 = trunc i64 %536 to i8
-  %538 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %537, ptr %538, align 1, !tbaa !26
-  %539 = lshr i64 %510, 16
-  %540 = trunc i64 %539 to i8
-  %541 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %540, ptr %541, align 1, !tbaa !26
-  %542 = lshr i64 %510, 24
-  %543 = trunc i64 %542 to i8
-  %544 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  store i8 %543, ptr %544, align 1, !tbaa !26
-  %545 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %546 = trunc i64 %506 to i8
-  store i8 %546, ptr %545, align 1, !tbaa !26
-  %547 = lshr i64 %506, 8
-  %548 = trunc i64 %547 to i8
-  %549 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 %548, ptr %549, align 1, !tbaa !26
-  %550 = lshr i64 %506, 16
-  %551 = trunc i64 %550 to i8
-  %552 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i8 %551, ptr %552, align 1, !tbaa !26
-  %553 = lshr i64 %506, 24
-  %554 = trunc nuw i64 %553 to i8
-  %555 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  store i8 %554, ptr %555, align 1, !tbaa !26
-  %556 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %557 = and i64 %512, 536870911
-  %558 = ptrtoint ptr %1 to i64
-  %559 = sub i64 %502, %558
-  %560 = add i64 %559, %557
-  store i32 0, ptr %556, align 1
+  %509 = trunc nuw i64 %506 to i32
+  %510 = ptrtoint ptr %9 to i64
+  %511 = sub i64 %502, %510
+  %512 = trunc i64 %511 to i32
+  %513 = add nuw nsw i64 %506, 7
+  %514 = lshr i64 %513, 3
+  store i32 %storemerge.i, ptr %1, align 1
+  %515 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %243, ptr %515, align 1
+  %516 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %512, ptr %516, align 1
+  %517 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %509, ptr %517, align 1
+  %518 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 0, ptr %518, align 1
+  %519 = and i64 %514, 536870911
+  %520 = ptrtoint ptr %1 to i64
+  %521 = sub i64 %502, %520
+  %522 = add i64 %521, %519
   br label %hufPackEncTable.exit.thread.sink.split
 
 hufPackEncTable.exit.thread.sink.split:           ; preds = %7, %508
-  %.sink = phi i64 [ %560, %508 ], [ 0, %7 ]
+  %.sink = phi i64 [ %522, %508 ], [ 0, %7 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !7
   br label %hufPackEncTable.exit.thread
 

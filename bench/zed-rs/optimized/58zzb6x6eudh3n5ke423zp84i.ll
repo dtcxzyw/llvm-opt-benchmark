@@ -100015,12 +100015,7 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit.i: ; preds = %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !29226
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !29226
   %56 = ptrtoint ptr %54 to i64
-  %.sroa.066.0.extract.trunc69.i = trunc i64 %56 to i32
-  %.sroa.066.4.extract.shift.i = lshr i64 %56, 32
-  %.sroa.066.4.extract.trunc.i = trunc nuw i64 %.sroa.066.4.extract.shift.i to i32
-  store i32 %.sroa.066.0.extract.trunc69.i, ptr %4, align 8, !noalias !29226
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.sroa.066.4.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !29226
+  store i64 %56, ptr %4, align 8, !noalias !29226
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 %48, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !29226
   %.sroa.428.sroa.2.0..sroa.428.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32

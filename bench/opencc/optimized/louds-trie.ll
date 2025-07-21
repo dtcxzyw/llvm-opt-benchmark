@@ -12819,15 +12819,15 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIPSt4pairIjjEN9__gnu_cxx5_
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %7, label %57
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %9
 
-9:                                                ; preds = %42, %7
-  %.020.i.idx = phi i64 [ 8, %7 ], [ %.020.i.add, %42 ]
-  %.pn19.i = phi ptr [ %0, %7 ], [ %.020.i.ptr, %42 ]
+9:                                                ; preds = %41, %7
+  %.020.i.idx = phi i64 [ 8, %7 ], [ %.020.i.add, %41 ]
+  %.pn19.i = phi ptr [ %0, %7 ], [ %.020.i.ptr, %41 ]
   %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
   %10 = load i32, ptr %.020.i.ptr, align 4, !tbaa !65
   %11 = load i32, ptr %0, align 4, !tbaa !65
@@ -12847,9 +12847,6 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i: ; preds 
 
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i
   %19 = load i64, ptr %.020.i.ptr, align 4
-  %.sroa.0.0.extract.trunc.i = trunc i64 %19 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %19, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %20 = lshr exact i64 %.020.i.idx, 3
   %21 = getelementptr inbounds nuw i8, ptr %.pn19.i, i64 16
   br label %.lr.ph.i.i.i.i.i.i
@@ -12871,9 +12868,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i: ; preds 
   br i1 %29, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i, !llvm.loop !274
 
 _ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %0, align 4, !tbaa !65
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %8, align 4, !tbaa !67
-  br label %42
+  store i64 %19, ptr %0, align 4
+  br label %41
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i, %13
   %30 = load i64, ptr %.020.i.ptr, align 4
@@ -12912,182 +12908,172 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i:
   br label %31, !llvm.loop !275
 
 _ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i, %34
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %.09.i.i, align 4, !tbaa !65
-  %41 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 4
-  store i32 %.sroa.5.0.extract.trunc.i.i, ptr %41, align 4, !tbaa !67
-  br label %42
+  store i64 %30, ptr %.09.i.i, align 4
+  br label %41
 
-42:                                               ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i
+41:                                               ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 8
   %.not.i = icmp eq i64 %.020.i.add, 128
   br i1 %.not.i, label %_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %9, !llvm.loop !276
 
-_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %42
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not5.i = icmp eq ptr %43, %1
+_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %41
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not5.i = icmp eq ptr %42, %1
   br i1 %.not5.i, label %_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14
-  %.06.i = phi ptr [ %56, %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14 ], [ %43, %_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit ]
-  %44 = load i64, ptr %.06.i, align 4
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %44 to i32
-  %.sroa.5.0.extract.shift.i.i9 = lshr i64 %44, 32
+  %.06.i = phi ptr [ %54, %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14 ], [ %42, %_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit ]
+  %43 = load i64, ptr %.06.i, align 4
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %43 to i32
+  %.sroa.5.0.extract.shift.i.i9 = lshr i64 %43, 32
   %.sroa.5.0.extract.trunc.i.i10 = trunc nuw i64 %.sroa.5.0.extract.shift.i.i9 to i32
-  br label %45
+  br label %44
 
-45:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i16, %.lr.ph.i
+44:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i16, %.lr.ph.i
   %.09.i.i11 = phi ptr [ %.06.i, %.lr.ph.i ], [ %.0.i.i12, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i16 ]
   %.0.i.i12 = getelementptr inbounds i8, ptr %.09.i.i11, i64 -8
-  %46 = load i32, ptr %.0.i.i12, align 4, !tbaa !65
-  %47 = icmp ugt i32 %46, %.sroa.0.0.extract.trunc.i.i8
-  br i1 %47, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i17, label %48
+  %45 = load i32, ptr %.0.i.i12, align 4, !tbaa !65
+  %46 = icmp ugt i32 %45, %.sroa.0.0.extract.trunc.i.i8
+  br i1 %46, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i17, label %47
 
-._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i17: ; preds = %45
+._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i17: ; preds = %44
   %.phi.trans.insert.i.i18 = getelementptr inbounds i8, ptr %.09.i.i11, i64 -4
   %.pre.i.i19 = load i32, ptr %.phi.trans.insert.i.i18, align 4, !tbaa !63
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i16
 
-48:                                               ; preds = %45
-  %49 = icmp ult i32 %46, %.sroa.0.0.extract.trunc.i.i8
-  br i1 %49, label %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13
+47:                                               ; preds = %44
+  %48 = icmp ult i32 %45, %.sroa.0.0.extract.trunc.i.i8
+  br i1 %48, label %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13: ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %.09.i.i11, i64 -4
-  %51 = load i32, ptr %50, align 4, !tbaa !67
-  %52 = icmp ugt i32 %51, %.sroa.5.0.extract.trunc.i.i10
-  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i16, label %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13: ; preds = %47
+  %49 = getelementptr inbounds i8, ptr %.09.i.i11, i64 -4
+  %50 = load i32, ptr %49, align 4, !tbaa !67
+  %51 = icmp ugt i32 %50, %.sroa.5.0.extract.trunc.i.i10
+  br i1 %51, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i16, label %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i16: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i17
-  %53 = phi i32 [ %.pre.i.i19, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i17 ], [ %51, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13 ]
-  store i32 %46, ptr %.09.i.i11, align 4, !tbaa !65
-  %54 = getelementptr inbounds nuw i8, ptr %.09.i.i11, i64 4
-  store i32 %53, ptr %54, align 4, !tbaa !67
-  br label %45, !llvm.loop !275
+  %52 = phi i32 [ %.pre.i.i19, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i17 ], [ %50, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13 ]
+  store i32 %45, ptr %.09.i.i11, align 4, !tbaa !65
+  %53 = getelementptr inbounds nuw i8, ptr %.09.i.i11, i64 4
+  store i32 %52, ptr %53, align 4, !tbaa !67
+  br label %44, !llvm.loop !275
 
-_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13, %48
-  store i32 %.sroa.0.0.extract.trunc.i.i8, ptr %.09.i.i11, align 4, !tbaa !65
-  %55 = getelementptr inbounds nuw i8, ptr %.09.i.i11, i64 4
-  store i32 %.sroa.5.0.extract.trunc.i.i10, ptr %55, align 4, !tbaa !67
-  %56 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
-  %.not.i15 = icmp eq ptr %56, %1
+_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i13, %47
+  store i64 %43, ptr %.09.i.i11, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
+  %.not.i15 = icmp eq ptr %54, %1
   br i1 %.not.i15, label %_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.lr.ph.i, !llvm.loop !277
 
-57:                                               ; preds = %2
-  %58 = icmp eq ptr %0, %1
-  br i1 %58, label %_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.preheader.i
+55:                                               ; preds = %2
+  %56 = icmp eq ptr %0, %1
+  br i1 %56, label %_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %57
+.preheader.i:                                     ; preds = %55
   %.017.i20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not18.i = icmp eq ptr %.017.i20, %1
   br i1 %.not18.i, label %_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.preheader.i
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %60
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  br label %58
 
-60:                                               ; preds = %96, %.lr.ph.i21
-  %.020.i22 = phi ptr [ %.017.i20, %.lr.ph.i21 ], [ %.0.i33, %96 ]
-  %.pn19.i23 = phi ptr [ %0, %.lr.ph.i21 ], [ %.020.i22, %96 ]
-  %61 = load i32, ptr %.020.i22, align 4, !tbaa !65
-  %62 = load i32, ptr %0, align 4, !tbaa !65
-  %63 = icmp ult i32 %61, %62
-  br i1 %63, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39, label %64
+58:                                               ; preds = %93, %.lr.ph.i21
+  %.020.i22 = phi ptr [ %.017.i20, %.lr.ph.i21 ], [ %.0.i33, %93 ]
+  %.pn19.i23 = phi ptr [ %0, %.lr.ph.i21 ], [ %.020.i22, %93 ]
+  %59 = load i32, ptr %.020.i22, align 4, !tbaa !65
+  %60 = load i32, ptr %0, align 4, !tbaa !65
+  %61 = icmp ult i32 %59, %60
+  br i1 %61, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39, label %62
 
-64:                                               ; preds = %60
-  %65 = icmp ult i32 %62, %61
-  br i1 %65, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i24
+62:                                               ; preds = %58
+  %63 = icmp ult i32 %60, %59
+  br i1 %63, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i24
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i24: ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.pn19.i23, i64 12
-  %67 = load i32, ptr %66, align 4, !tbaa !67
-  %68 = load i32, ptr %59, align 4, !tbaa !67
-  %69 = icmp ult i32 %67, %68
-  br i1 %69, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i24: ; preds = %62
+  %64 = getelementptr inbounds nuw i8, ptr %.pn19.i23, i64 12
+  %65 = load i32, ptr %64, align 4, !tbaa !67
+  %66 = load i32, ptr %57, align 4, !tbaa !67
+  %67 = icmp ult i32 %65, %66
+  br i1 %67, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i24, %60
-  %70 = load i64, ptr %.020.i22, align 4
-  %.sroa.0.0.extract.trunc.i40 = trunc i64 %70 to i32
-  %.sroa.4.0.extract.shift.i41 = lshr i64 %70, 32
-  %.sroa.4.0.extract.trunc.i42 = trunc nuw i64 %.sroa.4.0.extract.shift.i41 to i32
-  %71 = ptrtoint ptr %.020.i22 to i64
-  %72 = sub i64 %71, %4
-  %73 = ashr exact i64 %72, 3
-  %74 = icmp sgt i64 %73, 0
-  br i1 %74, label %.lr.ph.i.i.i.i.i.preheader.i44, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i43
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i24, %58
+  %68 = load i64, ptr %.020.i22, align 4
+  %69 = ptrtoint ptr %.020.i22 to i64
+  %70 = sub i64 %69, %4
+  %71 = ashr exact i64 %70, 3
+  %72 = icmp sgt i64 %71, 0
+  br i1 %72, label %.lr.ph.i.i.i.i.i.preheader.i41, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i40
 
-.lr.ph.i.i.i.i.i.preheader.i44:                   ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39
-  %75 = getelementptr inbounds nuw i8, ptr %.pn19.i23, i64 16
-  br label %.lr.ph.i.i.i.i.i.i45
+.lr.ph.i.i.i.i.i.preheader.i41:                   ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39
+  %73 = getelementptr inbounds nuw i8, ptr %.pn19.i23, i64 16
+  br label %.lr.ph.i.i.i.i.i.i42
 
-.lr.ph.i.i.i.i.i.i45:                             ; preds = %.lr.ph.i.i.i.i.i.i45, %.lr.ph.i.i.i.i.i.preheader.i44
-  %.010.i.i.i.i.i.i46 = phi i64 [ %82, %.lr.ph.i.i.i.i.i.i45 ], [ %73, %.lr.ph.i.i.i.i.i.preheader.i44 ]
-  %.069.i.i.i.i.i.i47 = phi ptr [ %77, %.lr.ph.i.i.i.i.i.i45 ], [ %75, %.lr.ph.i.i.i.i.i.preheader.i44 ]
-  %.078.i.i.i.i.i.i48 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i45 ], [ %.020.i22, %.lr.ph.i.i.i.i.i.preheader.i44 ]
-  %76 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i48, i64 -8
-  %77 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i47, i64 -8
-  %78 = load i32, ptr %76, align 4, !tbaa !63
-  store i32 %78, ptr %77, align 4, !tbaa !65
-  %79 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i48, i64 -4
-  %80 = load i32, ptr %79, align 4, !tbaa !63
-  %81 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i47, i64 -4
-  store i32 %80, ptr %81, align 4, !tbaa !67
-  %82 = add nsw i64 %.010.i.i.i.i.i.i46, -1
-  %83 = icmp samesign ugt i64 %.010.i.i.i.i.i.i46, 1
-  br i1 %83, label %.lr.ph.i.i.i.i.i.i45, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i43, !llvm.loop !274
+.lr.ph.i.i.i.i.i.i42:                             ; preds = %.lr.ph.i.i.i.i.i.i42, %.lr.ph.i.i.i.i.i.preheader.i41
+  %.010.i.i.i.i.i.i43 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i42 ], [ %71, %.lr.ph.i.i.i.i.i.preheader.i41 ]
+  %.069.i.i.i.i.i.i44 = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i42 ], [ %73, %.lr.ph.i.i.i.i.i.preheader.i41 ]
+  %.078.i.i.i.i.i.i45 = phi ptr [ %74, %.lr.ph.i.i.i.i.i.i42 ], [ %.020.i22, %.lr.ph.i.i.i.i.i.preheader.i41 ]
+  %74 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i45, i64 -8
+  %75 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i44, i64 -8
+  %76 = load i32, ptr %74, align 4, !tbaa !63
+  store i32 %76, ptr %75, align 4, !tbaa !65
+  %77 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i45, i64 -4
+  %78 = load i32, ptr %77, align 4, !tbaa !63
+  %79 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i44, i64 -4
+  store i32 %78, ptr %79, align 4, !tbaa !67
+  %80 = add nsw i64 %.010.i.i.i.i.i.i43, -1
+  %81 = icmp samesign ugt i64 %.010.i.i.i.i.i.i43, 1
+  br i1 %81, label %.lr.ph.i.i.i.i.i.i42, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i40, !llvm.loop !274
 
-_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i43: ; preds = %.lr.ph.i.i.i.i.i.i45, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39
-  store i32 %.sroa.0.0.extract.trunc.i40, ptr %0, align 4, !tbaa !65
-  store i32 %.sroa.4.0.extract.trunc.i42, ptr %59, align 4, !tbaa !67
-  br label %96
+_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i40: ; preds = %.lr.ph.i.i.i.i.i.i42, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i39
+  store i64 %68, ptr %0, align 4
+  br label %93
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i24, %64
-  %84 = load i64, ptr %.020.i22, align 4
-  %.sroa.0.0.extract.trunc.i.i26 = trunc i64 %84 to i32
-  %.sroa.5.0.extract.shift.i.i27 = lshr i64 %84, 32
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i24, %62
+  %82 = load i64, ptr %.020.i22, align 4
+  %.sroa.0.0.extract.trunc.i.i26 = trunc i64 %82 to i32
+  %.sroa.5.0.extract.shift.i.i27 = lshr i64 %82, 32
   %.sroa.5.0.extract.trunc.i.i28 = trunc nuw i64 %.sroa.5.0.extract.shift.i.i27 to i32
-  br label %85
+  br label %83
 
-85:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i35, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25
+83:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i35, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25
   %.09.i.i29 = phi ptr [ %.020.i22, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread16.i25 ], [ %.0.i.i30, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i35 ]
   %.0.i.i30 = getelementptr inbounds i8, ptr %.09.i.i29, i64 -8
-  %86 = load i32, ptr %.0.i.i30, align 4, !tbaa !65
-  %87 = icmp ugt i32 %86, %.sroa.0.0.extract.trunc.i.i26
-  br i1 %87, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i36, label %88
+  %84 = load i32, ptr %.0.i.i30, align 4, !tbaa !65
+  %85 = icmp ugt i32 %84, %.sroa.0.0.extract.trunc.i.i26
+  br i1 %85, label %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i36, label %86
 
-._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i36: ; preds = %85
+._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i36: ; preds = %83
   %.phi.trans.insert.i.i37 = getelementptr inbounds i8, ptr %.09.i.i29, i64 -4
   %.pre.i.i38 = load i32, ptr %.phi.trans.insert.i.i37, align 4, !tbaa !63
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i35
 
-88:                                               ; preds = %85
-  %89 = icmp ult i32 %86, %.sroa.0.0.extract.trunc.i.i26
-  br i1 %89, label %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i32, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31
+86:                                               ; preds = %83
+  %87 = icmp ult i32 %84, %.sroa.0.0.extract.trunc.i.i26
+  br i1 %87, label %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i32, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31: ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.09.i.i29, i64 -4
-  %91 = load i32, ptr %90, align 4, !tbaa !67
-  %92 = icmp ugt i32 %91, %.sroa.5.0.extract.trunc.i.i28
-  br i1 %92, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i35, label %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i32
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31: ; preds = %86
+  %88 = getelementptr inbounds i8, ptr %.09.i.i29, i64 -4
+  %89 = load i32, ptr %88, align 4, !tbaa !67
+  %90 = icmp ugt i32 %89, %.sroa.5.0.extract.trunc.i.i28
+  br i1 %90, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i35, label %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i32
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread.i.i35: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i36
-  %93 = phi i32 [ %.pre.i.i38, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i36 ], [ %91, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31 ]
-  store i32 %86, ptr %.09.i.i29, align 4, !tbaa !65
-  %94 = getelementptr inbounds nuw i8, ptr %.09.i.i29, i64 4
-  store i32 %93, ptr %94, align 4, !tbaa !67
-  br label %85, !llvm.loop !275
+  %91 = phi i32 [ %.pre.i.i38, %._ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.thread_crit_edge.i.i36 ], [ %89, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31 ]
+  store i32 %84, ptr %.09.i.i29, align 4, !tbaa !65
+  %92 = getelementptr inbounds nuw i8, ptr %.09.i.i29, i64 4
+  store i32 %91, ptr %92, align 4, !tbaa !67
+  br label %83, !llvm.loop !275
 
-_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i32: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31, %88
-  store i32 %.sroa.0.0.extract.trunc.i.i26, ptr %.09.i.i29, align 4, !tbaa !65
-  %95 = getelementptr inbounds nuw i8, ptr %.09.i.i29, i64 4
-  store i32 %.sroa.5.0.extract.trunc.i.i28, ptr %95, align 4, !tbaa !67
-  br label %96
+_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i32: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjjEPS4_EEbRT_T0_.exit.i.i31, %86
+  store i64 %82, ptr %.09.i.i29, align 4
+  br label %93
 
-96:                                               ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i32, %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i43
+93:                                               ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i32, %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i40
   %.0.i33 = getelementptr inbounds nuw i8, ptr %.020.i22, i64 8
   %.not.i34 = icmp eq ptr %.0.i33, %1
-  br i1 %.not.i34, label %_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %60, !llvm.loop !276
+  br i1 %.not.i34, label %_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %58, !llvm.loop !276
 
-_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %96, %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14, %.preheader.i, %57, %_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
+_ZSt26__unguarded_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %93, %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14, %.preheader.i, %55, %_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
   ret void
 }
 
@@ -13417,11 +13403,9 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.thread.i.i.
 _ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit: ; preds = %65, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.thread.i.i.i, %60
   %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %60 ], [ %.01319.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.thread.i.i.i ], [ %.01319.i.i.i, %65 ]
   %73 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i.i, ptr %73, align 4, !tbaa !65
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i.i, ptr %74, align 4, !tbaa !67
-  %75 = icmp sgt i64 %15, 8
-  br i1 %75, label %9, label %._crit_edge, !llvm.loop !283
+  store i64 %.sroa.01.0.copyload.i, ptr %73, align 4
+  %74 = icmp sgt i64 %15, 8
+  br i1 %74, label %9, label %._crit_edge, !llvm.loop !283
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit, %3
   ret void
@@ -13452,7 +13436,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter
   br label %22
 
 22:                                               ; preds = %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit, %9
-  %.013 = phi i64 [ %11, %9 ], [ %70, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit ]
+  %.013 = phi i64 [ %11, %9 ], [ %69, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit ]
   %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013
   %.sroa.01.0.copyload = load i64, ptr %23, align 4
   %24 = icmp slt i64 %.013, %13
@@ -13559,11 +13543,9 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.thread.i.i:
 _ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit: ; preds = %59, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.thread.i.i, %54
   %.013.lcssa.i.i = phi i64 [ %.1.i, %54 ], [ %.01319.i.i, %59 ], [ %.020.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.thread.i.i ], [ %.01319.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIjjES4_EEbT_RT0_.exit.i.i ]
   %68 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %68, align 4, !tbaa !65
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i, ptr %69, align 4, !tbaa !67
+  store i64 %.sroa.01.0.copyload, ptr %68, align 4
   %.not = icmp eq i64 %.013, 0
-  %70 = add nsw i64 %.013, -1
+  %69 = add nsw i64 %.013, -1
   br i1 %.not, label %.loopexit, label %22, !llvm.loop !284
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit, %3

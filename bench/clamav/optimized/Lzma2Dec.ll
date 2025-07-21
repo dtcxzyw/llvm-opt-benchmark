@@ -30,26 +30,13 @@ define i32 @Lzma2Dec_AllocateProbs(ptr noundef %0, i8 noundef zeroext %1, ptr no
 15:                                               ; preds = %7, %9
   %16 = phi i32 [ %14, %9 ], [ -1, %7 ]
   store i8 4, ptr %4, align 1, !tbaa !3
-  %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %17, ptr %18, align 1, !tbaa !3
-  %19 = lshr i32 %16, 8
-  %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %20, ptr %21, align 1, !tbaa !3
-  %22 = lshr i32 %16, 16
-  %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %23, ptr %24, align 1, !tbaa !3
-  %25 = lshr i32 %16, 24
-  %26 = trunc nuw i32 %25 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %26, ptr %27, align 1, !tbaa !3
-  %28 = call i32 @LzmaDec_AllocateProbs(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 5, ptr noundef %2) #5
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i32 %16, ptr %17, align 1
+  %18 = call i32 @LzmaDec_AllocateProbs(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 5, ptr noundef %2) #5
   br label %Lzma2Dec_GetOldProps.exit
 
 Lzma2Dec_GetOldProps.exit:                        ; preds = %3, %15
-  %.1 = phi i32 [ %28, %15 ], [ 4, %3 ]
+  %.1 = phi i32 [ %18, %15 ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #5
   ret i32 %.1
 }
@@ -85,26 +72,13 @@ define i32 @Lzma2Dec_Allocate(ptr noundef %0, i8 noundef zeroext %1, ptr noundef
 15:                                               ; preds = %7, %9
   %16 = phi i32 [ %14, %9 ], [ -1, %7 ]
   store i8 4, ptr %4, align 1, !tbaa !3
-  %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %17, ptr %18, align 1, !tbaa !3
-  %19 = lshr i32 %16, 8
-  %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %20, ptr %21, align 1, !tbaa !3
-  %22 = lshr i32 %16, 16
-  %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %23, ptr %24, align 1, !tbaa !3
-  %25 = lshr i32 %16, 24
-  %26 = trunc nuw i32 %25 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %26, ptr %27, align 1, !tbaa !3
-  %28 = call i32 @LzmaDec_Allocate(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 5, ptr noundef %2) #5
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i32 %16, ptr %17, align 1
+  %18 = call i32 @LzmaDec_Allocate(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 5, ptr noundef %2) #5
   br label %Lzma2Dec_GetOldProps.exit
 
 Lzma2Dec_GetOldProps.exit:                        ; preds = %3, %15
-  %.1 = phi i32 [ %28, %15 ], [ 4, %3 ]
+  %.1 = phi i32 [ %18, %15 ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #5
   ret i32 %.1
 }
@@ -640,47 +614,34 @@ define i32 @Lzma2Decode(ptr noundef %0, ptr noundef captures(none) %1, ptr nound
 26:                                               ; preds = %18, %20
   %27 = phi i32 [ %25, %20 ], [ -1, %18 ]
   store i8 4, ptr %10, align 1, !tbaa !3
-  %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 %28, ptr %29, align 1, !tbaa !3
-  %30 = lshr i32 %27, 8
-  %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 %31, ptr %32, align 1, !tbaa !3
-  %33 = lshr i32 %27, 16
-  %34 = trunc i32 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 %34, ptr %35, align 1, !tbaa !3
-  %36 = lshr i32 %27, 24
-  %37 = trunc nuw i32 %36 to i8
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i8 %37, ptr %38, align 1, !tbaa !3
-  %39 = call i32 @LzmaDec_AllocateProbs(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 5, ptr noundef %7) #5
-  %.not33 = icmp eq i32 %39, 0
-  br i1 %.not33, label %40, label %Lzma2Dec_GetOldProps.exit
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i32 %27, ptr %28, align 1
+  %29 = call i32 @LzmaDec_AllocateProbs(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 5, ptr noundef %7) #5
+  %.not33 = icmp eq i32 %29, 0
+  br i1 %.not33, label %30, label %Lzma2Dec_GetOldProps.exit
 
-40:                                               ; preds = %26
+30:                                               ; preds = %26
   store i64 %12, ptr %3, align 8, !tbaa !18
-  %41 = call i32 @Lzma2Dec_DecodeToDic(ptr noundef nonnull %9, i64 noundef %11, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %5, ptr noundef nonnull %6)
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %43 = load i64, ptr %42, align 8, !tbaa !20
-  store i64 %43, ptr %1, align 8, !tbaa !18
-  %44 = icmp eq i32 %41, 0
-  br i1 %44, label %45, label %48
+  %31 = call i32 @Lzma2Dec_DecodeToDic(ptr noundef nonnull %9, i64 noundef %11, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %5, ptr noundef nonnull %6)
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %33 = load i64, ptr %32, align 8, !tbaa !20
+  store i64 %33, ptr %1, align 8, !tbaa !18
+  %34 = icmp eq i32 %31, 0
+  br i1 %34, label %35, label %38
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr %6, align 4, !tbaa !19
-  %47 = icmp eq i32 %46, 3
-  %spec.select = select i1 %47, i32 6, i32 0
-  br label %48
+35:                                               ; preds = %30
+  %36 = load i32, ptr %6, align 4, !tbaa !19
+  %37 = icmp eq i32 %36, 3
+  %spec.select = select i1 %37, i32 6, i32 0
+  br label %38
 
-48:                                               ; preds = %45, %40
-  %.030 = phi i32 [ %41, %40 ], [ %spec.select, %45 ]
+38:                                               ; preds = %35, %30
+  %.030 = phi i32 [ %31, %30 ], [ %spec.select, %35 ]
   call void @LzmaDec_FreeProbs(ptr noundef nonnull %9, ptr noundef %7) #5
   br label %Lzma2Dec_GetOldProps.exit
 
-Lzma2Dec_GetOldProps.exit:                        ; preds = %8, %26, %48
-  %.1 = phi i32 [ %.030, %48 ], [ %39, %26 ], [ 4, %8 ]
+Lzma2Dec_GetOldProps.exit:                        ; preds = %8, %26, %38
+  %.1 = phi i32 [ %.030, %38 ], [ %29, %26 ], [ 4, %8 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %9) #5
   ret i32 %.1

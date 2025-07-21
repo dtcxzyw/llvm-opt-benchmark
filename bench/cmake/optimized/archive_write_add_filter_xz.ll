@@ -585,7 +585,7 @@ define internal i32 @archive_compressor_xz_close(ptr noundef readonly captures(n
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = tail call fastcc i32 @drive_compressor(ptr noundef %0, ptr noundef %3, i32 noundef 1)
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %91
+  br i1 %5, label %6, label %39
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 304
@@ -607,103 +607,32 @@ define internal i32 @archive_compressor_xz_close(ptr noundef readonly captures(n
   %22 = icmp eq i32 %21, 9
   %23 = icmp eq i32 %19, 0
   %or.cond = select i1 %22, i1 %23, i1 false
-  br i1 %or.cond, label %24, label %91
+  br i1 %or.cond, label %24, label %39
 
 24:                                               ; preds = %6
   %25 = load ptr, ptr %17, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %27 = load i32, ptr %26, align 8, !tbaa !61
-  %28 = trunc i32 %27 to i8
-  store i8 %28, ptr %25, align 1, !tbaa !62
-  %29 = lshr i32 %27, 8
-  %30 = trunc i32 %29 to i8
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %30, ptr %31, align 1, !tbaa !62
-  %32 = lshr i32 %27, 16
-  %33 = trunc i32 %32 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 2
-  store i8 %33, ptr %34, align 1, !tbaa !62
-  %35 = lshr i32 %27, 24
-  %36 = trunc nuw i32 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 3
-  store i8 %36, ptr %37, align 1, !tbaa !62
-  %38 = load ptr, ptr %17, align 8, !tbaa !27
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  %41 = load i64, ptr %40, align 8, !tbaa !65
-  %42 = trunc i64 %41 to i8
-  store i8 %42, ptr %39, align 1, !tbaa !62
-  %43 = lshr i64 %41, 8
-  %44 = trunc i64 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 5
-  store i8 %44, ptr %45, align 1, !tbaa !62
-  %46 = lshr i64 %41, 16
-  %47 = trunc i64 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 6
-  store i8 %47, ptr %48, align 1, !tbaa !62
-  %49 = lshr i64 %41, 24
-  %50 = trunc i64 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %38, i64 7
-  store i8 %50, ptr %51, align 1, !tbaa !62
-  %52 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %53 = lshr i64 %41, 32
-  %54 = trunc i64 %53 to i8
-  store i8 %54, ptr %52, align 1, !tbaa !62
-  %55 = lshr i64 %41, 40
-  %56 = trunc i64 %55 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %38, i64 9
-  store i8 %56, ptr %57, align 1, !tbaa !62
-  %58 = lshr i64 %41, 48
-  %59 = trunc i64 %58 to i8
-  %60 = getelementptr inbounds nuw i8, ptr %38, i64 10
-  store i8 %59, ptr %60, align 1, !tbaa !62
-  %sum.shift.i = lshr i64 %41, 56
-  %61 = trunc nuw i64 %sum.shift.i to i8
-  %62 = getelementptr inbounds nuw i8, ptr %38, i64 11
-  store i8 %61, ptr %62, align 1, !tbaa !62
-  %63 = load ptr, ptr %17, align 8, !tbaa !27
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %65 = load i64, ptr %12, align 8, !tbaa !63
-  %66 = add nsw i64 %65, 20
-  %67 = trunc i64 %66 to i8
-  store i8 %67, ptr %64, align 1, !tbaa !62
-  %68 = lshr i64 %66, 8
-  %69 = trunc i64 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 13
-  store i8 %69, ptr %70, align 1, !tbaa !62
-  %71 = lshr i64 %66, 16
-  %72 = trunc i64 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %63, i64 14
-  store i8 %72, ptr %73, align 1, !tbaa !62
-  %74 = lshr i64 %66, 24
-  %75 = trunc i64 %74 to i8
-  %76 = getelementptr inbounds nuw i8, ptr %63, i64 15
-  store i8 %75, ptr %76, align 1, !tbaa !62
-  %77 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %78 = lshr i64 %66, 32
-  %79 = trunc i64 %78 to i8
-  store i8 %79, ptr %77, align 1, !tbaa !62
-  %80 = lshr i64 %66, 40
-  %81 = trunc i64 %80 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %63, i64 17
-  store i8 %81, ptr %82, align 1, !tbaa !62
-  %83 = lshr i64 %66, 48
-  %84 = trunc i64 %83 to i8
-  %85 = getelementptr inbounds nuw i8, ptr %63, i64 18
-  store i8 %84, ptr %85, align 1, !tbaa !62
-  %sum.shift.i24 = lshr i64 %66, 56
-  %86 = trunc nuw i64 %sum.shift.i24 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %63, i64 19
-  store i8 %86, ptr %87, align 1, !tbaa !62
-  %88 = load ptr, ptr %15, align 8, !tbaa !64
-  %89 = load ptr, ptr %17, align 8, !tbaa !27
-  %90 = tail call i32 @__archive_write_filter(ptr noundef %88, ptr noundef %89, i64 noundef 20) #13
-  br label %91
+  store i32 %27, ptr %25, align 1
+  %28 = load ptr, ptr %17, align 8, !tbaa !27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  %31 = load i64, ptr %30, align 8, !tbaa !65
+  store i64 %31, ptr %29, align 1
+  %32 = load ptr, ptr %17, align 8, !tbaa !27
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  %34 = load i64, ptr %12, align 8, !tbaa !63
+  %35 = add nsw i64 %34, 20
+  store i64 %35, ptr %33, align 1
+  %36 = load ptr, ptr %15, align 8, !tbaa !64
+  %37 = load ptr, ptr %17, align 8, !tbaa !27
+  %38 = tail call i32 @__archive_write_filter(ptr noundef %36, ptr noundef %37, i64 noundef 20) #13
+  br label %39
 
-91:                                               ; preds = %6, %24, %1
-  %.0 = phi i32 [ %90, %24 ], [ %19, %6 ], [ %4, %1 ]
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @lzma_end(ptr noundef nonnull %92) #13
+39:                                               ; preds = %6, %24, %1
+  %.0 = phi i32 [ %38, %24 ], [ %19, %6 ], [ %4, %1 ]
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @lzma_end(ptr noundef nonnull %40) #13
   ret i32 %.0
 }
 

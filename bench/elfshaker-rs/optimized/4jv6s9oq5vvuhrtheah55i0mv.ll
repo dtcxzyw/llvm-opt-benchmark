@@ -6196,16 +6196,11 @@ define hidden void @_ZN9elfshaker4repo6remote11RemoteIndex4load17h817f134ec86bb8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = ptrtoint ptr %16 to i64
-  %.sroa.422.0.extract.trunc = trunc i64 %17 to i32
-  %.sroa.422.4.extract.shift = lshr i64 %17, 32
-  %.sroa.422.4.extract.trunc = trunc nuw i64 %.sroa.422.4.extract.shift to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %18, align 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.422.0.extract.trunc, ptr %.sroa.232.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.422.4.extract.trunc, ptr %.sroa.3.0..sroa_idx33, align 4
+  store i64 %17, ptr %.sroa.232.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %47
 
@@ -6356,16 +6351,11 @@ define hidden void @_ZN9elfshaker4repo6remote11RemoteIndex4load17hb9a9c1b324f1f2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
   %20 = ptrtoint ptr %19 to i64
-  %.sroa.422.0.extract.trunc = trunc i64 %20 to i32
-  %.sroa.422.4.extract.shift = lshr i64 %20, 32
-  %.sroa.422.4.extract.trunc = trunc nuw i64 %.sroa.422.4.extract.shift to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %21, align 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.422.0.extract.trunc, ptr %.sroa.232.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.422.4.extract.trunc, ptr %.sroa.3.0..sroa_idx33, align 4
+  store i64 %20, ptr %.sroa.232.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %58
 

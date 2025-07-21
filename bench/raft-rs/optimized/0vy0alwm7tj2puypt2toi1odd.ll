@@ -5398,14 +5398,9 @@ define void @"_ZN81_$LT$raft_proto..protos..eraftpb..Entry$u20$as$u20$protobuf..
   %.sroa.7285.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7285.0.copyload = load i64, ptr %.sroa.7285.0..sroa_idx, align 8, !noalias !850
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !850
-  %.sroa.4135.sroa.0.0.extract.trunc = trunc i32 %.sroa.5283.0.copyload to i8
-  %.sroa.4135.sroa.4.0.extract.shift = lshr i32 %.sroa.5283.0.copyload, 8
-  %.sroa.4135.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4135.sroa.4.0.extract.shift to i24
   store i32 %30, ptr %0, align 8
   %.sroa.2149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4135.sroa.0.0.extract.trunc, ptr %.sroa.2149.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx150 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4135.sroa.4.0.extract.trunc, ptr %.sroa.3.0..sroa_idx150, align 1
+  store i32 %.sroa.5283.0.copyload, ptr %.sroa.2149.0..sroa_idx, align 4
   %.sroa.4151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6284.0.copyload, ptr %.sroa.4151.0..sroa_idx, align 8
   %.sroa.5152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6659,14 +6654,9 @@ define void @"_ZN92_$LT$raft_proto..protos..eraftpb..SnapshotMetadata$u20$as$u20
   %.sroa.7202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7202.0.copyload = load i64, ptr %.sroa.7202.0..sroa_idx, align 8, !noalias !928
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !928
-  %.sroa.497.sroa.0.0.extract.trunc = trunc i32 %.sroa.5200.0.copyload to i8
-  %.sroa.497.sroa.4.0.extract.shift = lshr i32 %.sroa.5200.0.copyload, 8
-  %.sroa.497.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.497.sroa.4.0.extract.shift to i24
   store i32 %22, ptr %0, align 8
   %.sroa.2111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.497.sroa.0.0.extract.trunc, ptr %.sroa.2111.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.497.sroa.4.0.extract.trunc, ptr %.sroa.3.0..sroa_idx112, align 1
+  store i32 %.sroa.5200.0.copyload, ptr %.sroa.2111.0..sroa_idx, align 4
   %.sroa.4113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6201.0.copyload, ptr %.sroa.4113.0..sroa_idx, align 8
   %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7834,14 +7824,9 @@ _ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417hd5ed7b02
   %.sroa.7123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7123.0.copyload = load i64, ptr %.sroa.7123.0..sroa_idx, align 8, !noalias !1000
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1000
-  %.sroa.657.sroa.0.0.extract.trunc = trunc i32 %.sroa.5121.0.copyload to i8
-  %.sroa.657.sroa.6.0.extract.shift = lshr i32 %.sroa.5121.0.copyload, 8
-  %.sroa.657.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.657.sroa.6.0.extract.shift to i24
   store i32 %18, ptr %0, align 8
   %.sroa.273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.657.sroa.0.0.extract.trunc, ptr %.sroa.273.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.657.sroa.6.0.extract.trunc, ptr %.sroa.3.0..sroa_idx74, align 1
+  store i32 %.sroa.5121.0.copyload, ptr %.sroa.273.0..sroa_idx, align 4
   %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6122.0.copyload, ptr %.sroa.475.0..sroa_idx, align 8
   %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9163,14 +9148,9 @@ define void @"_ZN83_$LT$raft_proto..protos..eraftpb..Message$u20$as$u20$protobuf
   %.sroa.7626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7626.0.copyload = load i64, ptr %.sroa.7626.0..sroa_idx, align 8, !noalias !1096
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1096
-  %.sroa.4303.sroa.0.0.extract.trunc = trunc i32 %.sroa.5624.0.copyload to i8
-  %.sroa.4303.sroa.4.0.extract.shift = lshr i32 %.sroa.5624.0.copyload, 8
-  %.sroa.4303.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4303.sroa.4.0.extract.shift to i24
   store i32 %59, ptr %0, align 8
   %.sroa.2317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4303.sroa.0.0.extract.trunc, ptr %.sroa.2317.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx318 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4303.sroa.4.0.extract.trunc, ptr %.sroa.3.0..sroa_idx318, align 1
+  store i32 %.sroa.5624.0.copyload, ptr %.sroa.2317.0..sroa_idx, align 4
   %.sroa.4319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6625.0.copyload, ptr %.sroa.4319.0..sroa_idx, align 8
   %.sroa.5320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11061,14 +11041,9 @@ define void @"_ZN85_$LT$raft_proto..protos..eraftpb..HardState$u20$as$u20$protob
   %.sroa.7237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7237.0.copyload = load i64, ptr %.sroa.7237.0..sroa_idx, align 8, !noalias !1140
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1140
-  %.sroa.4115.sroa.0.0.extract.trunc = trunc i32 %.sroa.5235.0.copyload to i8
-  %.sroa.4115.sroa.4.0.extract.shift = lshr i32 %.sroa.5235.0.copyload, 8
-  %.sroa.4115.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4115.sroa.4.0.extract.shift to i24
   store i32 %23, ptr %0, align 8
   %.sroa.2129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4115.sroa.0.0.extract.trunc, ptr %.sroa.2129.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4115.sroa.4.0.extract.trunc, ptr %.sroa.3.0..sroa_idx130, align 1
+  store i32 %.sroa.5235.0.copyload, ptr %.sroa.2129.0..sroa_idx, align 4
   %.sroa.4131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6236.0.copyload, ptr %.sroa.4131.0..sroa_idx, align 8
   %.sroa.5132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12002,14 +11977,9 @@ define void @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20$protob
   %.sroa.7163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7163.0.copyload = load i64, ptr %.sroa.7163.0..sroa_idx, align 8, !noalias !1174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1174
-  %.sroa.474.sroa.0.0.extract.trunc = trunc i32 %.sroa.5161.0.copyload to i8
-  %.sroa.474.sroa.4.0.extract.shift = lshr i32 %.sroa.5161.0.copyload, 8
-  %.sroa.474.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.474.sroa.4.0.extract.shift to i24
   store i32 %25, ptr %0, align 8
   %.sroa.288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.474.sroa.0.0.extract.trunc, ptr %.sroa.288.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.474.sroa.4.0.extract.trunc, ptr %.sroa.3.0..sroa_idx89, align 1
+  store i32 %.sroa.5161.0.copyload, ptr %.sroa.288.0..sroa_idx, align 4
   %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6162.0.copyload, ptr %.sroa.490.0..sroa_idx, align 8
   %.sroa.591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13034,14 +13004,9 @@ define void @"_ZN86_$LT$raft_proto..protos..eraftpb..ConfChange$u20$as$u20$proto
   %.sroa.7242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7242.0.copyload = load i64, ptr %.sroa.7242.0..sroa_idx, align 8, !noalias !1225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1225
-  %.sroa.4116.sroa.0.0.extract.trunc = trunc i32 %.sroa.5240.0.copyload to i8
-  %.sroa.4116.sroa.4.0.extract.shift = lshr i32 %.sroa.5240.0.copyload, 8
-  %.sroa.4116.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4116.sroa.4.0.extract.shift to i24
   store i32 %25, ptr %0, align 8
   %.sroa.2130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.4116.sroa.0.0.extract.trunc, ptr %.sroa.2130.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.4116.sroa.4.0.extract.trunc, ptr %.sroa.3.0..sroa_idx131, align 1
+  store i32 %.sroa.5240.0.copyload, ptr %.sroa.2130.0..sroa_idx, align 4
   %.sroa.4132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6241.0.copyload, ptr %.sroa.4132.0..sroa_idx, align 8
   %.sroa.5133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13868,14 +13833,9 @@ define void @"_ZN92_$LT$raft_proto..protos..eraftpb..ConfChangeSingle$u20$as$u20
   %.sroa.7178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7178.0.copyload = load i64, ptr %.sroa.7178.0..sroa_idx, align 8, !noalias !1269
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1269
-  %.sroa.586.sroa.0.0.extract.trunc = trunc i32 %.sroa.5176.0.copyload to i8
-  %.sroa.586.sroa.5.0.extract.shift = lshr i32 %.sroa.5176.0.copyload, 8
-  %.sroa.586.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.586.sroa.5.0.extract.shift to i24
   store i32 %20, ptr %0, align 8
   %.sroa.2100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.586.sroa.0.0.extract.trunc, ptr %.sroa.2100.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.586.sroa.5.0.extract.trunc, ptr %.sroa.3.0..sroa_idx101, align 1
+  store i32 %.sroa.5176.0.copyload, ptr %.sroa.2100.0..sroa_idx, align 4
   %.sroa.4102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6177.0.copyload, ptr %.sroa.4102.0..sroa_idx, align 8
   %.sroa.5103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14668,14 +14628,9 @@ define void @"_ZN88_$LT$raft_proto..protos..eraftpb..ConfChangeV2$u20$as$u20$pro
   %.sroa.7146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7146.0.copyload = load i64, ptr %.sroa.7146.0..sroa_idx, align 8, !noalias !1320
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1320
-  %.sroa.468.sroa.0.0.extract.trunc = trunc i32 %.sroa.5144.0.copyload to i8
-  %.sroa.468.sroa.4.0.extract.shift = lshr i32 %.sroa.5144.0.copyload, 8
-  %.sroa.468.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.468.sroa.4.0.extract.shift to i24
   store i32 %21, ptr %0, align 8
   %.sroa.282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.468.sroa.0.0.extract.trunc, ptr %.sroa.282.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.468.sroa.4.0.extract.trunc, ptr %.sroa.3.0..sroa_idx83, align 1
+  store i32 %.sroa.5144.0.copyload, ptr %.sroa.282.0..sroa_idx, align 4
   %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6145.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8
   %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

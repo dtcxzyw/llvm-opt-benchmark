@@ -2916,7 +2916,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %20
 
 23:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11
   invoke void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTIN7Iex_3_46ArgExcE, ptr nonnull @_ZN7Iex_3_46ArgExcD1Ev) #30
-          to label %44 unwind label %24
+          to label %43 unwind label %24
 
 24:                                               ; preds = %20, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %15, %23, %_ZNK7Imf_3_414TiledInputFile8fileNameEv.exit
   %25 = landingpad { ptr, i32 }
@@ -2953,17 +2953,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %20
   %39 = add i32 %38, -1
   %40 = add i32 %39, %.sroa.0.4.extract.trunc
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.0.0.extract.trunc, ptr %0, align 4, !tbaa !187
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.0.4.extract.trunc, ptr %42, align 4, !tbaa !189
+  store i64 %34, ptr %0, align 4
   store i32 %37, ptr %41, align 4, !tbaa !187
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %40, ptr %43, align 4, !tbaa !189
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %40, ptr %42, align 4, !tbaa !189
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
   ret void
 
-44:                                               ; preds = %23
+43:                                               ; preds = %23
   unreachable
 }
 

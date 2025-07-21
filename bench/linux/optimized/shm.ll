@@ -1166,19 +1166,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
   %17 = load ptr, ptr %16, align 8
   %18 = or i32 %1, %0
   %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %20, label %206
+  br i1 %19, label %20, label %194
 
 20:                                               ; preds = %4
-  switch i32 %1, label %206 [
+  switch i32 %1, label %194 [
     i32 3, label %21
     i32 14, label %78
     i32 2, label %110
     i32 15, label %110
     i32 13, label %110
-    i32 1, label %191
-    i32 0, label %200
-    i32 11, label %203
-    i32 12, label %203
+    i32 1, label %179
+    i32 0, label %188
+    i32 11, label %191
+    i32 12, label %191
   ]
 
 21:                                               ; preds = %20
@@ -1278,7 +1278,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
 75:                                               ; preds = %70, %46
   %76 = phi i32 [ %74, %70 ], [ %22, %46 ]
   %77 = sext i32 %76 to i64
-  br label %206
+  br label %194
 
 78:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #12
@@ -1327,7 +1327,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
   %108 = phi i32 [ %106, %81 ], [ %79, %78 ]
   %109 = sext i32 %108 to i64
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #12
-  br label %206
+  br label %194
 
 110:                                              ; preds = %20, %20, %20
   %111 = call fastcc i32 @shmctl_stat(ptr noundef %17, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %10)
@@ -1336,11 +1336,11 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
 
 113:                                              ; preds = %110
   %114 = sext i32 %111 to i64
-  br label %206
+  br label %194
 
 115:                                              ; preds = %110
   %116 = icmp eq i32 %3, 256
-  br i1 %116, label %117, label %154
+  br i1 %116, label %117, label %142
 
 117:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %5) #12
@@ -1348,137 +1348,122 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
   call void @to_compat_ipc64_perm(ptr noundef nonnull %5, ptr noundef nonnull %10) #12
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %119 = load i64, ptr %118, align 8
-  %120 = trunc i64 %119 to i32
-  %121 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %120, ptr %121, align 4
-  %122 = lshr i64 %119, 32
-  %123 = trunc nuw i64 %122 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i32 %123, ptr %124, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %126 = load i64, ptr %125, align 8
-  %127 = trunc i64 %126 to i32
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %127, ptr %128, align 4
-  %129 = lshr i64 %126, 32
-  %130 = trunc nuw i64 %129 to i32
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 %130, ptr %131, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %133 = load i64, ptr %132, align 8
-  %134 = trunc i64 %133 to i32
-  %135 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %134, ptr %135, align 4
-  %136 = lshr i64 %133, 32
-  %137 = trunc nuw i64 %136 to i32
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store i32 %137, ptr %138, align 4
-  %139 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %140 = load i64, ptr %139, align 8
-  %141 = trunc i64 %140 to i32
-  %142 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %141, ptr %142, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %144 = load i64, ptr %143, align 8
-  %145 = trunc i64 %144 to i32
-  %146 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 %145, ptr %146, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %148 = load i32, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i32 %148, ptr %149, align 4
-  %150 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  store i32 %151, ptr %152, align 4
-  %153 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 84) #12
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %119, ptr %120, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %122 = load i64, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i64 %122, ptr %123, align 4
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %125 = load i64, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %125, ptr %126, align 4
+  %127 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %128 = load i64, ptr %127, align 8
+  %129 = trunc i64 %128 to i32
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 %129, ptr %130, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %132 = load i64, ptr %131, align 8
+  %133 = trunc i64 %132 to i32
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store i32 %133, ptr %134, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %136 = load i32, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i32 %136, ptr %137, align 4
+  %138 = getelementptr inbounds nuw i8, ptr %10, i64 84
+  %139 = load i32, ptr %138, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 68
+  store i32 %139, ptr %140, align 4
+  %141 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 84) #12
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %5) #12
-  br label %185
+  br label %173
 
-154:                                              ; preds = %115
+142:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @to_compat_ipc_perm(ptr noundef nonnull %6, ptr noundef nonnull %10) #12
-  %155 = load i32, ptr %10, align 8
-  store i32 %155, ptr %6, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %143 = load i32, ptr %10, align 8
+  store i32 %143, ptr %6, align 4
+  %144 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %145 = load i64, ptr %144, align 8
+  %146 = trunc i64 %145 to i32
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 %146, ptr %147, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %149 = load i64, ptr %148, align 8
+  %150 = trunc i64 %149 to i32
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %150, ptr %151, align 4
+  %152 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %153 = load i64, ptr %152, align 8
+  %154 = trunc i64 %153 to i32
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i32 %154, ptr %155, align 4
+  %156 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %157 = load i64, ptr %156, align 8
   %158 = trunc i64 %157 to i32
-  %159 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %158, ptr %159, align 4
-  %160 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %161 = load i64, ptr %160, align 8
-  %162 = trunc i64 %161 to i32
-  %163 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %162, ptr %163, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %165 = load i64, ptr %164, align 8
-  %166 = trunc i64 %165 to i32
-  %167 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 %166, ptr %167, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %169 = load i64, ptr %168, align 8
-  %170 = trunc i64 %169 to i32
-  %171 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %170, ptr %171, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %173 = load i64, ptr %172, align 8
-  %174 = trunc i64 %173 to i16
-  %175 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i16 %174, ptr %175, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %177 = load i32, ptr %176, align 8
-  %178 = trunc i32 %177 to i16
-  %179 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i16 %178, ptr %179, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  %181 = load i32, ptr %180, align 4
-  %182 = trunc i32 %181 to i16
-  %183 = getelementptr inbounds nuw i8, ptr %6, i64 34
-  store i16 %182, ptr %183, align 2
-  %184 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %6, i64 noundef 48) #12
+  %162 = trunc i64 %161 to i16
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store i16 %162, ptr %163, align 4
+  %164 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %165 = load i32, ptr %164, align 8
+  %166 = trunc i32 %165 to i16
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i16 %166, ptr %167, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %10, i64 84
+  %169 = load i32, ptr %168, align 4
+  %170 = trunc i32 %169 to i16
+  %171 = getelementptr inbounds nuw i8, ptr %6, i64 34
+  store i16 %170, ptr %171, align 2
+  %172 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %6, i64 noundef 48) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  br label %173
+
+173:                                              ; preds = %142, %117
+  %174 = phi i64 [ %141, %117 ], [ %172, %142 ]
+  %175 = and i64 %174, 4294967295
+  %176 = icmp eq i64 %175, 0
+  %177 = zext nneg i32 %111 to i64
+  %178 = select i1 %176, i64 %177, i64 -14
+  br label %194
+
+179:                                              ; preds = %20
+  %180 = icmp eq i32 %3, 256
+  br i1 %180, label %181, label %183
+
+181:                                              ; preds = %179
+  %182 = call i32 @get_compat_ipc64_perm(ptr noundef nonnull %10, ptr noundef %2) #12
   br label %185
 
-185:                                              ; preds = %154, %117
-  %186 = phi i64 [ %153, %117 ], [ %184, %154 ]
-  %187 = and i64 %186, 4294967295
-  %188 = icmp eq i64 %187, 0
-  %189 = zext nneg i32 %111 to i64
-  %190 = select i1 %188, i64 %189, i64 -14
-  br label %206
+183:                                              ; preds = %179
+  %184 = call i32 @get_compat_ipc_perm(ptr noundef nonnull %10, ptr noundef %2) #12
+  br label %185
 
-191:                                              ; preds = %20
-  %192 = icmp eq i32 %3, 256
-  br i1 %192, label %193, label %195
+185:                                              ; preds = %183, %181
+  %186 = phi i32 [ %182, %181 ], [ %184, %183 ]
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %188, label %194
 
-193:                                              ; preds = %191
-  %194 = call i32 @get_compat_ipc64_perm(ptr noundef nonnull %10, ptr noundef %2) #12
-  br label %197
+188:                                              ; preds = %185, %20
+  %189 = call fastcc i32 @shmctl_down(ptr noundef %17, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %10)
+  %190 = sext i32 %189 to i64
+  br label %194
 
-195:                                              ; preds = %191
-  %196 = call i32 @get_compat_ipc_perm(ptr noundef nonnull %10, ptr noundef %2) #12
-  br label %197
+191:                                              ; preds = %20, %20
+  %192 = tail call fastcc i32 @shmctl_do_lock(ptr noundef %17, i32 noundef %0, i32 noundef %1)
+  %193 = sext i32 %192 to i64
+  br label %194
 
-197:                                              ; preds = %195, %193
-  %198 = phi i32 [ %194, %193 ], [ %196, %195 ]
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %200, label %206
-
-200:                                              ; preds = %197, %20
-  %201 = call fastcc i32 @shmctl_down(ptr noundef %17, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %10)
-  %202 = sext i32 %201 to i64
-  br label %206
-
-203:                                              ; preds = %20, %20
-  %204 = tail call fastcc i32 @shmctl_do_lock(ptr noundef %17, i32 noundef %0, i32 noundef %1)
-  %205 = sext i32 %204 to i64
-  br label %206
-
-206:                                              ; preds = %203, %200, %197, %185, %113, %107, %75, %20, %4
-  %207 = phi i64 [ %205, %203 ], [ %202, %200 ], [ %114, %113 ], [ %190, %185 ], [ %109, %107 ], [ %77, %75 ], [ -22, %4 ], [ -14, %197 ], [ -22, %20 ]
+194:                                              ; preds = %191, %188, %185, %173, %113, %107, %75, %20, %4
+  %195 = phi i64 [ %193, %191 ], [ %190, %188 ], [ %114, %113 ], [ %178, %173 ], [ %109, %107 ], [ %77, %75 ], [ -22, %4 ], [ -14, %185 ], [ -22, %20 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #12
-  ret i64 %207
+  ret i64 %195
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

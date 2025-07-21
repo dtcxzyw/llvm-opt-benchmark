@@ -4475,7 +4475,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_xmit_fast_finish(p
 16:                                               ; preds = %5
   %17 = tail call fastcc i32 @ieee80211_tx_h_rate_ctrl(ptr noundef %4), !range !79
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %138
+  br i1 %18, label %19, label %126
 
 19:                                               ; preds = %16, %5
   %20 = icmp eq ptr %3, null
@@ -4591,12 +4591,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_xmit_fast_finish(p
   %105 = add i64 %104, 1
   store i64 %105, ptr %103, align 8
   %106 = icmp eq i8 %2, 0
-  br i1 %106, label %138, label %107
+  br i1 %106, label %126, label %107
 
 107:                                              ; preds = %75
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %109 = load i32, ptr %108, align 8
-  switch i32 %109, label %138 [
+  switch i32 %109, label %126 [
     i32 1027076, label %110
     i32 1027082, label %110
     i32 1027080, label %110
@@ -4610,39 +4610,23 @@ define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_xmit_fast_finish(p
   %114 = getelementptr i8, ptr %112, i64 %113
   %115 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %111, i64 1, ptr nonnull elementtype(i64) %111) #20, !srcloc !104
   %116 = add i64 %115, 1
-  %117 = trunc i64 %116 to i8
-  store i8 %117, ptr %114, align 1
-  %118 = lshr i64 %116, 8
-  %119 = trunc i64 %118 to i8
-  %120 = getelementptr i8, ptr %114, i64 1
-  store i8 %119, ptr %120, align 1
-  %121 = getelementptr inbounds nuw i8, ptr %3, i64 551
-  %122 = load i8, ptr %121, align 1
-  %123 = shl i8 %122, 6
-  %124 = or disjoint i8 %123, 32
-  %125 = getelementptr i8, ptr %114, i64 3
-  store i8 %124, ptr %125, align 1
-  %126 = lshr i64 %116, 16
-  %127 = trunc i64 %126 to i8
-  %128 = getelementptr i8, ptr %114, i64 4
-  store i8 %127, ptr %128, align 1
-  %129 = lshr i64 %116, 24
-  %130 = trunc i64 %129 to i8
-  %131 = getelementptr i8, ptr %114, i64 5
-  store i8 %130, ptr %131, align 1
-  %132 = lshr i64 %116, 32
-  %133 = trunc i64 %132 to i8
-  %134 = getelementptr i8, ptr %114, i64 6
-  store i8 %133, ptr %134, align 1
-  %135 = lshr i64 %116, 40
-  %136 = trunc i64 %135 to i8
-  %137 = getelementptr i8, ptr %114, i64 7
-  store i8 %136, ptr %137, align 1
-  br label %138
+  %117 = trunc i64 %116 to i16
+  store i16 %117, ptr %114, align 1
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 551
+  %119 = load i8, ptr %118, align 1
+  %120 = shl i8 %119, 6
+  %121 = or disjoint i8 %120, 32
+  %122 = getelementptr i8, ptr %114, i64 3
+  store i8 %121, ptr %122, align 1
+  %123 = getelementptr i8, ptr %114, i64 4
+  %124 = lshr i64 %116, 16
+  %125 = trunc i64 %124 to i32
+  store i32 %125, ptr %123, align 1
+  br label %126
 
-138:                                              ; preds = %110, %107, %75, %16
-  %139 = phi i32 [ 1, %16 ], [ 0, %110 ], [ 0, %107 ], [ 0, %75 ]
-  ret i32 %139
+126:                                              ; preds = %110, %107, %75, %16
+  %127 = phi i32 [ 1, %16 ], [ 0, %110 ], [ 0, %107 ], [ 0, %75 ]
+  ret i32 %127
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

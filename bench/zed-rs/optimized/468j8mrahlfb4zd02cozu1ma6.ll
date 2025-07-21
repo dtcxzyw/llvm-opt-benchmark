@@ -5473,17 +5473,11 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
   %3 = trunc nuw i32 %.sroa.0.0.copyload to i1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.522.4.extract.trunc.i = trunc i64 %.sroa.4.0.copyload to i32
-  %.sroa.522.8.extract.shift.i = lshr i64 %.sroa.4.0.copyload, 32
-  %.sroa.522.8.extract.trunc.i = trunc nuw i64 %.sroa.522.8.extract.shift.i to i32
-  %.sroa.6.0 = select i1 %3, i32 %.sroa.522.8.extract.trunc.i, i32 undef
-  %.sroa.5.0 = select i1 %3, i32 %.sroa.522.4.extract.trunc.i, i32 undef
+  %.sroa.5.0 = select i1 %3, i64 %.sroa.4.0.copyload, i64 undef
   %.sroa.5.0.lcssa.i = and i32 %.sroa.0.0.copyload, 1
   store i32 %.sroa.5.0.lcssa.i, ptr %0, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 4
+  store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 4
   ret void
 }
 
@@ -75940,17 +75934,14 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   %5 = zext i32 %4 to i64
   %.idx = shl nuw nsw i64 %5, 3
   %.sroa.016.0.copyload = load i32, ptr %1, align 4, !alias.scope !24200
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.518.0.copyload = load i64, ptr %.sroa.518.0..sroa_idx, align 4, !alias.scope !24200
   %6 = trunc nuw i32 %.sroa.016.0.copyload to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.sroa.0.0.ptr24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  br i1 %6, label %.lr.ph, label %14
+  br i1 %6, label %.lr.ph, label %13
 
 .lr.ph:                                           ; preds = %3
-  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.518.0.copyload = load i64, ptr %.sroa.518.0..sroa_idx, align 4, !alias.scope !24200
-  %.sroa.522.4.extract.trunc = trunc i64 %.sroa.518.0.copyload to i32
-  %.sroa.522.8.extract.shift = lshr i64 %.sroa.518.0.copyload, 32
-  %.sroa.522.8.extract.trunc = trunc nuw i64 %.sroa.522.8.extract.shift to i32
   %8 = icmp eq i32 %4, 12
   br i1 %8, label %9, label %._crit_edge
 
@@ -75965,14 +75956,12 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   resume { ptr, i32 } %11
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph
-  store i32 %.sroa.522.4.extract.trunc, ptr %.sroa.0.0.ptr24, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %.sroa.522.8.extract.trunc, ptr %12, align 4
-  %13 = add i32 %4, 1
-  br label %14
+  store i64 %.sroa.518.0.copyload, ptr %.sroa.0.0.ptr24, align 4
+  %12 = add i32 %4, 1
+  br label %13
 
-14:                                               ; preds = %._crit_edge, %3
-  %.sroa.5.0.lcssa = phi i32 [ %13, %._crit_edge ], [ %4, %3 ]
+13:                                               ; preds = %._crit_edge, %3
+  %.sroa.5.0.lcssa = phi i32 [ %12, %._crit_edge ], [ %4, %3 ]
   store i32 %.sroa.5.0.lcssa, ptr %0, align 4, !noalias !24212
   ret void
 }

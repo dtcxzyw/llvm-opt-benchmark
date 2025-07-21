@@ -48471,14 +48471,9 @@ define hidden void @_ZN4fish9text_face27parse_text_face_and_options17h8e1ae87d9d
 
 61:                                               ; preds = %60
   %62 = ptrtoint ptr %46 to i64
-  %.sroa.4161.0.extract.trunc = trunc i64 %62 to i32
-  %.sroa.4161.4.extract.shift = lshr i64 %62, 32
-  %.sroa.4161.4.extract.trunc = trunc nuw i64 %.sroa.4161.4.extract.shift to i32
   store i64 1, ptr %0, align 8
   %.sroa.2175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.4161.0.extract.trunc, ptr %.sroa.2175.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx176 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.4161.4.extract.trunc, ptr %.sroa.3.0..sroa_idx176, align 4
+  store i64 %62, ptr %.sroa.2175.0..sroa_idx, align 8
   %.sroa.4177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %47, ptr %.sroa.4177.0..sroa_idx, align 8
   br label %.split613.thread
@@ -48619,14 +48614,9 @@ define hidden void @_ZN4fish9text_face27parse_text_face_and_options17h8e1ae87d9d
 
 97:                                               ; preds = %96
   %98 = ptrtoint ptr %48 to i64
-  %.sroa.4181.0.extract.trunc = trunc i64 %98 to i32
-  %.sroa.4181.4.extract.shift = lshr i64 %98, 32
-  %.sroa.4181.4.extract.trunc = trunc nuw i64 %.sroa.4181.4.extract.shift to i32
   store i64 1, ptr %0, align 8
   %.sroa.2195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.4181.0.extract.trunc, ptr %.sroa.2195.0..sroa_idx, align 8
-  %.sroa.3196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.4181.4.extract.trunc, ptr %.sroa.3196.0..sroa_idx, align 4
+  store i64 %98, ptr %.sroa.2195.0..sroa_idx, align 8
   %.sroa.4197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %49, ptr %.sroa.4197.0..sroa_idx, align 8
   br label %.split613.thread
@@ -49020,14 +49010,9 @@ define hidden void @_ZN4fish9text_face27parse_text_face_and_options17h8e1ae87d9d
 
 "_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$fish..color..Color$GT$$GT$17h20c16d9198b640f5E.exit": ; preds = %190
   %222 = ptrtoint ptr %187 to i64
-  %.sroa.4213.0.extract.trunc = trunc i64 %222 to i32
-  %.sroa.4213.4.extract.shift = lshr i64 %222, 32
-  %.sroa.4213.4.extract.trunc = trunc nuw i64 %.sroa.4213.4.extract.shift to i32
   store i64 1, ptr %0, align 8
   %.sroa.2227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.4213.0.extract.trunc, ptr %.sroa.2227.0..sroa_idx, align 8
-  %.sroa.3228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.4213.4.extract.trunc, ptr %.sroa.3228.0..sroa_idx, align 4
+  store i64 %222, ptr %.sroa.2227.0..sroa_idx, align 8
   %.sroa.4229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %188, ptr %.sroa.4229.0..sroa_idx, align 8
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 24

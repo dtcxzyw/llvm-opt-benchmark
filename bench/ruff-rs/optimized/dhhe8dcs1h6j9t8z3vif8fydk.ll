@@ -1735,9 +1735,6 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %10
           to label %22 unwind label %.loopexit.loopexit.loopexit
 
 21:                                               ; preds = %16
-  %.sroa.442.1.extract.trunc = trunc i16 %.sroa.9.0 to i8
-  %.sroa.442.2.extract.shift = lshr i16 %.sroa.9.0, 8
-  %.sroa.442.2.extract.trunc = trunc nuw i16 %.sroa.442.2.extract.shift to i8
   br i1 %.sroa.035.0.ph, label %63, label %66, !prof !9
 
 22:                                               ; preds = %19
@@ -1880,9 +1877,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %55
   %.sroa.444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.440.0.ph341, ptr %.sroa.444.0..sroa_idx, align 8
   %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.442.1.extract.trunc, ptr %.sroa.545.0..sroa_idx, align 8
-  %.sroa.646.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 %.sroa.442.2.extract.trunc, ptr %.sroa.646.0..sroa_idx, align 1
+  store i16 %.sroa.9.0, ptr %.sroa.545.0..sroa_idx, align 8
   br label %77
 
 75:                                               ; preds = %.invoke278

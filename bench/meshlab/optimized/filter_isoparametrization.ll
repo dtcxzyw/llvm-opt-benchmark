@@ -89072,8 +89072,8 @@ _Z4AreaI8BaseMeshENT_10ScalarTypeERS1_.exit:      ; preds = %81, %_ZNSt6vectorIN
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = load ptr, ptr %98, align 8
-  %.not58 = icmp eq ptr %100, %101
-  br i1 %.not58, label %_Z4AreaI8BaseMeshENT_10ScalarTypeERS1_.exit.._crit_edge_crit_edge, label %.lr.ph
+  %.not55 = icmp eq ptr %100, %101
+  br i1 %.not55, label %_Z4AreaI8BaseMeshENT_10ScalarTypeERS1_.exit.._crit_edge_crit_edge, label %.lr.ph
 
 _Z4AreaI8BaseMeshENT_10ScalarTypeERS1_.exit.._crit_edge_crit_edge: ; preds = %_Z4AreaI8BaseMeshENT_10ScalarTypeERS1_.exit
   %.pre = load ptr, ptr %19, align 8
@@ -89086,7 +89086,7 @@ _Z4AreaI8BaseMeshENT_10ScalarTypeERS1_.exit.._crit_edge_crit_edge: ; preds = %_Z
 103:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit
   %104 = phi ptr [ %101, %.lr.ph ], [ %141, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit ]
   %105 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit ]
-  %.052 = phi i32 [ 0, %.lr.ph ], [ %135, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit ]
+  %.049 = phi i32 [ 0, %.lr.ph ], [ %135, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit ]
   %106 = getelementptr inbounds nuw %class.BaseVertex, ptr %104, i64 %105
   %107 = call noundef float @_ZN16PatchesOptimizerI8BaseMeshE8PriorityEP10BaseVertex(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %106)
   %108 = load i32, ptr %6, align 8
@@ -89131,10 +89131,10 @@ _ZNKSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE12_M_check_lenEmPKc.ex
   %127 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %126) #38
   %128 = getelementptr inbounds i8, ptr %127, i64 %118
   store ptr %106, ptr %128, align 8
-  %.sroa.3.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store float %107, ptr %.sroa.3.0..sroa_idx48, align 8
-  %.sroa.4.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %128, i64 12
-  store i32 %108, ptr %.sroa.4.0..sroa_idx50, align 4
+  %.sroa.3.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store float %107, ptr %.sroa.3.0..sroa_idx45, align 8
+  %.sroa.4.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %128, i64 12
+  store i32 %108, ptr %.sroa.4.0..sroa_idx47, align 4
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %115, %109
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -89166,7 +89166,7 @@ _ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE17_M_realloc_insertIJS3
 
 _ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit: ; preds = %111, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
   %134 = phi ptr [ %113, %111 ], [ %131, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
-  %135 = add i32 %.052, 1
+  %135 = add i32 %.049, 1
   %136 = zext i32 %135 to i64
   %137 = load ptr, ptr %85, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -89240,11 +89240,11 @@ _ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit: ;
 
 178:                                              ; preds = %177, %._crit_edge.i.i.i
   %.1.i.i.i = phi i64 [ %160, %177 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.sroa.23.0.copyload.i.i to i32
   %179 = icmp sgt i64 %.1.i.i.i, %.0.i.i
   br i1 %179, label %.lr.ph.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %178
+  %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.sroa.23.0.copyload.i.i to i32
   %180 = bitcast i32 %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i to float
   br label %181
 
@@ -89266,14 +89266,10 @@ _ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit: ;
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i: ; preds = %186, %181, %178
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %178 ], [ %.0922.i.i.i.i, %186 ], [ %.021.i.i.i.i, %181 ]
-  %.sroa.2.sroa.3.0.extract.shift.i.i.i.i = lshr i64 %.sroa.23.0.copyload.i.i, 32
-  %.sroa.2.sroa.3.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.2.sroa.3.0.extract.shift.i.i.i.i to i32
   %189 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %148, i64 %.0.lcssa.i.i.i.i
   store ptr %.sroa.02.0.copyload.i.i, ptr %189, align 8
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %189, i64 8
-  store i32 %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8
-  %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %189, i64 12
-  store i32 %.sroa.2.sroa.3.0.extract.trunc.i.i.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i.i, align 4
+  store i64 %.sroa.23.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8
   %190 = icmp eq i64 %.0.i.i, 0
   %191 = add nsw i64 %.0.i.i, -1
   br i1 %190, label %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit, label %163, !llvm.loop !1095
@@ -89285,12 +89281,12 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4El
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit, %259
-  %.02256 = phi float [ %192, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit ], [ %261, %259 ]
-  %.02355 = phi float [ %193, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit ], [ %266, %259 ]
+  %.02253 = phi float [ %192, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit ], [ %261, %259 ]
+  %.02352 = phi float [ %193, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit ], [ %266, %259 ]
   br label %195
 
 195:                                              ; preds = %.preheader, %257
-  %.02553 = phi i32 [ 0, %.preheader ], [ %.126, %257 ]
+  %.02550 = phi i32 [ 0, %.preheader ], [ %.126, %257 ]
   %196 = load ptr, ptr %17, align 8
   %197 = load ptr, ptr %19, align 8
   %198 = ptrtoint ptr %197 to i64
@@ -89311,11 +89307,11 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4El
   %207 = add nsw i64 %206, -1
   %208 = sdiv i64 %207, 2
   %209 = icmp sgt i64 %206, 2
-  br i1 %209, label %.lr.ph.i.i.i44, label %._crit_edge.i.i.i32
+  br i1 %209, label %.lr.ph.i.i.i41, label %._crit_edge.i.i.i32
 
-.lr.ph.i.i.i44:                                   ; preds = %202, %.lr.ph.i.i.i44
-  %.036.i.i.i45 = phi i64 [ %spec.select.i.i.i46, %.lr.ph.i.i.i44 ], [ 0, %202 ]
-  %210 = shl i64 %.036.i.i.i45, 1
+.lr.ph.i.i.i41:                                   ; preds = %202, %.lr.ph.i.i.i41
+  %.036.i.i.i42 = phi i64 [ %spec.select.i.i.i43, %.lr.ph.i.i.i41 ], [ 0, %202 ]
+  %210 = shl i64 %.036.i.i.i42, 1
   %211 = add i64 %210, 2
   %212 = or disjoint i64 %210, 1
   %213 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %211, i32 1
@@ -89323,15 +89319,15 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4El
   %215 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %212, i32 1
   %216 = load float, ptr %215, align 8
   %217 = fcmp olt float %214, %216
-  %spec.select.i.i.i46 = select i1 %217, i64 %212, i64 %211
-  %218 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %spec.select.i.i.i46
-  %219 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %.036.i.i.i45
+  %spec.select.i.i.i43 = select i1 %217, i64 %212, i64 %211
+  %218 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %spec.select.i.i.i43
+  %219 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %.036.i.i.i42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %218, i64 16, i1 false)
-  %220 = icmp slt i64 %spec.select.i.i.i46, %208
-  br i1 %220, label %.lr.ph.i.i.i44, label %._crit_edge.i.i.i32, !llvm.loop !1093
+  %220 = icmp slt i64 %spec.select.i.i.i43, %208
+  br i1 %220, label %.lr.ph.i.i.i41, label %._crit_edge.i.i.i32, !llvm.loop !1093
 
-._crit_edge.i.i.i32:                              ; preds = %.lr.ph.i.i.i44, %202
-  %.0.lcssa.i.i.i33 = phi i64 [ 0, %202 ], [ %spec.select.i.i.i46, %.lr.ph.i.i.i44 ]
+._crit_edge.i.i.i32:                              ; preds = %.lr.ph.i.i.i41, %202
+  %.0.lcssa.i.i.i33 = phi i64 [ 0, %202 ], [ %spec.select.i.i.i43, %.lr.ph.i.i.i41 ]
   %221 = and i64 %205, 16
   %222 = icmp eq i64 %221, 0
   br i1 %222, label %223, label %231
@@ -89348,25 +89344,23 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4El
   %229 = getelementptr inbounds nuw %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %228
   %230 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %.0.lcssa.i.i.i33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %229, i64 16, i1 false)
-  %.sroa.2.sroa.0.0.extract.trunc.i.i9.i.i = trunc i64 %.sroa.23.0.copyload.i.i31 to i32
-  br label %.lr.ph.i.i.i.i36
+  br label %.lr.ph.i.i.i.i35
 
 231:                                              ; preds = %223, %._crit_edge.i.i.i32
-  %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i34 = trunc i64 %.sroa.23.0.copyload.i.i31 to i32
-  %.not.i.i35 = icmp eq i64 %.0.lcssa.i.i.i33, 0
-  br i1 %.not.i.i35, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i, label %.lr.ph.i.i.i.i36
+  %.not.i.i34 = icmp eq i64 %.0.lcssa.i.i.i33, 0
+  br i1 %.not.i.i34, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i, label %.lr.ph.i.i.i.i35
 
-.lr.ph.i.i.i.i36:                                 ; preds = %231, %.thread.i.i
-  %.sroa.2.sroa.0.0.extract.trunc.i.i12.i.i = phi i32 [ %.sroa.2.sroa.0.0.extract.trunc.i.i9.i.i, %.thread.i.i ], [ %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i34, %231 ]
-  %.1.i10.i.i = phi i64 [ %228, %.thread.i.i ], [ %.0.lcssa.i.i.i33, %231 ]
-  %232 = bitcast i32 %.sroa.2.sroa.0.0.extract.trunc.i.i12.i.i to float
+.lr.ph.i.i.i.i35:                                 ; preds = %231, %.thread.i.i
+  %.1.i9.i.i = phi i64 [ %228, %.thread.i.i ], [ %.0.lcssa.i.i.i33, %231 ]
+  %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i36 = trunc i64 %.sroa.23.0.copyload.i.i31 to i32
+  %232 = bitcast i32 %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i36 to float
   br label %233
 
-233:                                              ; preds = %238, %.lr.ph.i.i.i.i36
-  %.021.i.i.i.i37 = phi i64 [ %.1.i10.i.i, %.lr.ph.i.i.i.i36 ], [ %.0922.i.i1314.i.i, %238 ]
+233:                                              ; preds = %238, %.lr.ph.i.i.i.i35
+  %.021.i.i.i.i37 = phi i64 [ %.1.i9.i.i, %.lr.ph.i.i.i.i35 ], [ %.0922.i.i1011.i.i, %238 ]
   %.0922.in.i.i.i.i38 = add nsw i64 %.021.i.i.i.i37, -1
-  %.0922.i.i1314.i.i = lshr i64 %.0922.in.i.i.i.i38, 1
-  %234 = getelementptr inbounds nuw %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %.0922.i.i1314.i.i
+  %.0922.i.i1011.i.i = lshr i64 %.0922.in.i.i.i.i38, 1
+  %234 = getelementptr inbounds nuw %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %.0922.i.i1011.i.i
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load float, ptr %235, align 8
   %237 = fcmp olt float %236, %232
@@ -89375,25 +89369,20 @@ _ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4El
 238:                                              ; preds = %233
   %239 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %.021.i.i.i.i37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef nonnull align 8 dereferenceable(16) %234, i64 16, i1 false)
-  %.not15.i.i = icmp ult i64 %.0922.in.i.i.i.i38, 2
-  br i1 %.not15.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i, label %233, !llvm.loop !1094
+  %.not12.i.i = icmp ult i64 %.0922.in.i.i.i.i38, 2
+  br i1 %.not12.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i, label %233, !llvm.loop !1094
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i: ; preds = %238, %233, %231
-  %.sroa.2.sroa.0.0.extract.trunc.i.i11.i.i = phi i32 [ %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i34, %231 ], [ %.sroa.2.sroa.0.0.extract.trunc.i.i12.i.i, %233 ], [ %.sroa.2.sroa.0.0.extract.trunc.i.i12.i.i, %238 ]
   %.0.lcssa.i.i.i.i39 = phi i64 [ 0, %231 ], [ 0, %238 ], [ %.021.i.i.i.i37, %233 ]
-  %.sroa.2.sroa.3.0.extract.shift.i.i.i.i40 = lshr i64 %.sroa.23.0.copyload.i.i31, 32
-  %.sroa.2.sroa.3.0.extract.trunc.i.i.i.i41 = trunc nuw i64 %.sroa.2.sroa.3.0.extract.shift.i.i.i.i40 to i32
   %240 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %196, i64 %.0.lcssa.i.i.i.i39
   store ptr %.sroa.02.0.copyload.i.i29, ptr %240, align 8
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  store i32 %.sroa.2.sroa.0.0.extract.trunc.i.i11.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i42, align 8
-  %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %240, i64 12
-  store i32 %.sroa.2.sroa.3.0.extract.trunc.i.i.i.i41, ptr %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i.i43, align 4
-  %.pre59 = load ptr, ptr %19, align 8
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  store i64 %.sroa.23.0.copyload.i.i31, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i40, align 8
+  %.pre56 = load ptr, ptr %19, align 8
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit: ; preds = %195, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i
-  %241 = phi ptr [ %197, %195 ], [ %.pre59, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i ]
+  %241 = phi ptr [ %197, %195 ], [ %.pre56, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i ]
   %242 = getelementptr inbounds i8, ptr %241, i64 -16
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds i8, ptr %241, i64 -4
@@ -89413,11 +89402,11 @@ _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4Ele
 
 255:                                              ; preds = %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit
   call void @_ZN16PatchesOptimizerI8BaseMeshE7ExecuteEP10BaseVertex(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %243)
-  %256 = add nsw i32 %.02553, 1
+  %256 = add nsw i32 %.02550, 1
   br label %257
 
 257:                                              ; preds = %255, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit
-  %.126 = phi i32 [ %256, %255 ], [ %.02553, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit ]
+  %.126 = phi i32 [ %256, %255 ], [ %.02550, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4ElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit ]
   %258 = icmp slt i32 %.126, 20
   br i1 %258, label %195, label %259, !llvm.loop !1096
 
@@ -89425,12 +89414,12 @@ _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN16PatchesOptimizerI8BaseMeshE4Ele
   %260 = load ptr, ptr %85, align 8
   call void @_ZN16PatchesOptimizerI8BaseMeshE22FindVarianceLenghtAreaERS0_RKfS4_RfS5_(ptr noundef nonnull align 8 dereferenceable(628) %260, ptr noundef nonnull align 4 dereferenceable(4) %95, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %261 = load float, ptr %4, align 4
-  %262 = fsub float %.02256, %261
+  %262 = fsub float %.02253, %261
   %263 = fmul float %262, 1.000000e+02
   %264 = load float, ptr %95, align 4
   %265 = fdiv float %263, %264
   %266 = load float, ptr %5, align 4
-  %267 = fsub float %.02355, %266
+  %267 = fsub float %.02352, %266
   %268 = fmul float %267, 1.000000e+02
   %269 = load float, ptr %0, align 8
   %270 = fdiv float %268, %269
@@ -93464,11 +93453,11 @@ _ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit: ;
   %82 = sub i64 %80, %81
   %83 = ashr exact i64 %82, 4
   %84 = add nsw i64 %83, -1
-  %.sroa.2.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.23.0.copyload.i to i32
   %85 = icmp sgt i64 %83, 1
   br i1 %85, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit
+  %.sroa.2.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.23.0.copyload.i to i32
   %86 = bitcast i32 %.sroa.2.sroa.0.0.extract.trunc.i.i to float
   br label %87
 
@@ -93490,14 +93479,10 @@ _ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit: ;
 
 .loopexit:                                        ; preds = %92, %87, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit
   %.0.lcssa.i.i = phi i64 [ %84, %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EE9push_backEOS3_.exit ], [ 0, %92 ], [ %.021.i.i, %87 ]
-  %.sroa.2.sroa.3.0.extract.shift.i.i = lshr i64 %.sroa.23.0.copyload.i, 32
-  %.sroa.2.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.sroa.3.0.extract.shift.i.i to i32
   %94 = getelementptr inbounds %"struct.PatchesOptimizer<BaseMesh>::Elem", ptr %78, i64 %.0.lcssa.i.i
   store ptr %.sroa.02.0.copyload.i, ptr %94, align 8
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i32 %.sroa.2.sroa.0.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i, align 8
-  %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %94, i64 12
-  store i32 %.sroa.2.sroa.3.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i, align 4
+  store i64 %.sroa.23.0.copyload.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i, align 8
   %95 = add i32 %.01229, 1
   %96 = zext i32 %95 to i64
   %97 = load ptr, ptr %10, align 8

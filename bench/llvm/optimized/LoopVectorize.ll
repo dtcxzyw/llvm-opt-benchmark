@@ -112962,16 +112962,12 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIjjLj4ENS_12DenseMapInfo
 
 37:                                               ; preds = %35
   %38 = load i64, ptr %25, align 8
-  %.sroa.0.0.extract.trunc.i = trunc i64 %38 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %38, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   store i32 %31, ptr %25, align 8, !tbaa !1047
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !66
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %40, ptr %41, align 4, !tbaa !1049
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %26, align 8, !tbaa !1047
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %39, align 4, !tbaa !1049
+  store i64 %38, ptr %26, align 8
   br label %.thread69
 
 42:                                               ; preds = %35

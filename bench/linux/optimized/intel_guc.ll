@@ -1639,53 +1639,48 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_guc_self_cfg64(ptr noundef
   %8 = or disjoint i32 %7, 2
   store i32 %8, ptr %5, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = trunc i64 %2 to i32
-  store i32 %10, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %12 = lshr i64 %2, 32
-  %13 = trunc nuw i64 %12 to i32
-  store i32 %13, ptr %11, align 4
-  %14 = call i32 @intel_guc_send_mmio(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 4, ptr noundef null, i32 noundef 0)
-  %15 = icmp slt i32 %14, 0
+  store i64 %2, ptr %9, align 8
+  %10 = call i32 @intel_guc_send_mmio(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 4, ptr noundef null, i32 noundef 0)
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %select.unfold, label %12, !prof !17
+
+12:                                               ; preds = %3
+  %13 = icmp samesign ugt i32 %10, 1
+  br i1 %13, label %select.unfold, label %14, !prof !17
+
+14:                                               ; preds = %12
+  %15 = icmp eq i32 %10, 0
   br i1 %15, label %select.unfold, label %16, !prof !17
 
-16:                                               ; preds = %3
-  %17 = icmp samesign ugt i32 %14, 1
-  br i1 %17, label %select.unfold, label %18, !prof !17
-
-18:                                               ; preds = %16
-  %19 = icmp eq i32 %14, 0
-  br i1 %19, label %select.unfold, label %20, !prof !17
-
-20:                                               ; preds = %18
+16:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  br label %33
+  br label %29
 
-select.unfold:                                    ; preds = %18, %3, %16
-  %.ph = phi i32 [ -71, %16 ], [ %14, %3 ], [ -126, %18 ]
+select.unfold:                                    ; preds = %14, %3, %12
+  %.ph = phi i32 [ -71, %12 ], [ %10, %3 ], [ -126, %14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  %21 = getelementptr i8, ptr %0, i64 -632
+  %17 = getelementptr i8, ptr %0, i64 -632
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %23, label %20
+
+20:                                               ; preds = %select.unfold
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %27, label %24
+  br label %23
 
-24:                                               ; preds = %select.unfold
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %26 = load ptr, ptr %25, align 8
-  br label %27
+23:                                               ; preds = %20, %select.unfold
+  %24 = phi ptr [ %22, %20 ], [ null, %select.unfold ]
+  %25 = getelementptr i8, ptr %0, i64 4320
+  %26 = load i32, ptr %25, align 8
+  %27 = sext i32 %.ph to i64
+  %28 = inttoptr i64 %27 to ptr
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %24, ptr noundef nonnull @.str.36, i32 noundef %26, ptr noundef nonnull %28, i32 noundef %6, i64 noundef %2) #8
+  br label %29
 
-27:                                               ; preds = %24, %select.unfold
-  %28 = phi ptr [ %26, %24 ], [ null, %select.unfold ]
-  %29 = getelementptr i8, ptr %0, i64 4320
-  %30 = load i32, ptr %29, align 8
-  %31 = sext i32 %.ph to i64
-  %32 = inttoptr i64 %31 to ptr
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %28, ptr noundef nonnull @.str.36, i32 noundef %30, ptr noundef nonnull %32, i32 noundef %6, i64 noundef %2) #8
-  br label %33
-
-33:                                               ; preds = %20, %27
-  %34 = phi i32 [ %.ph, %27 ], [ 0, %20 ]
-  ret i32 %34
+29:                                               ; preds = %16, %23
+  %30 = phi i32 [ %.ph, %23 ], [ 0, %16 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -633,132 +633,104 @@ define internal fastcc void @fe_tobytes(ptr noundef writeonly captures(none) ini
   %83 = trunc i32 %82 to i8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %83, ptr %84, align 1, !tbaa !6
-  %85 = lshr i32 %48, 6
-  %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %86, ptr %87, align 1, !tbaa !6
-  %88 = lshr i32 %48, 14
-  %89 = trunc i32 %88 to i8
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %89, ptr %90, align 1, !tbaa !6
-  %91 = lshr i32 %51, 22
-  %92 = shl nuw nsw i32 %54, 3
-  %93 = or disjoint i32 %92, %91
-  %94 = trunc i32 %93 to i8
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %94, ptr %95, align 1, !tbaa !6
-  %96 = lshr i32 %50, 5
-  %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %97, ptr %98, align 1, !tbaa !6
-  %99 = lshr i32 %50, 13
-  %100 = trunc i32 %99 to i8
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %100, ptr %101, align 1, !tbaa !6
-  %102 = lshr i32 %54, 21
-  %103 = shl nuw nsw i32 %57, 5
-  %104 = or disjoint i32 %103, %102
-  %105 = trunc i32 %104 to i8
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %105, ptr %106, align 1, !tbaa !6
-  %107 = lshr i32 %53, 3
-  %108 = trunc i32 %107 to i8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %108, ptr %109, align 1, !tbaa !6
-  %110 = lshr i32 %53, 11
-  %111 = trunc i32 %110 to i8
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %111, ptr %112, align 1, !tbaa !6
-  %113 = lshr i32 %57, 19
-  %114 = shl i32 %56, 6
-  %115 = or disjoint i32 %114, %113
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %86 = lshr i32 %48, 6
+  %87 = trunc i32 %86 to i16
+  store i16 %87, ptr %85, align 1
+  %88 = lshr i32 %51, 22
+  %89 = shl nuw nsw i32 %54, 3
+  %90 = or disjoint i32 %89, %88
+  %91 = trunc i32 %90 to i8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i8 %91, ptr %92, align 1, !tbaa !6
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %94 = lshr i32 %50, 5
+  %95 = trunc i32 %94 to i16
+  store i16 %95, ptr %93, align 1
+  %96 = lshr i32 %54, 21
+  %97 = shl nuw nsw i32 %57, 5
+  %98 = or disjoint i32 %97, %96
+  %99 = trunc i32 %98 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %99, ptr %100, align 1, !tbaa !6
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %102 = lshr i32 %53, 3
+  %103 = trunc i32 %102 to i16
+  store i16 %103, ptr %101, align 1
+  %104 = lshr i32 %57, 19
+  %105 = shl i32 %56, 6
+  %106 = or disjoint i32 %105, %104
+  %107 = trunc i32 %106 to i8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 %107, ptr %108, align 1, !tbaa !6
+  %109 = lshr i32 %56, 2
+  %110 = trunc i32 %109 to i8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store i8 %110, ptr %111, align 1, !tbaa !6
+  %112 = lshr i32 %56, 10
+  %113 = trunc i32 %112 to i8
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 %113, ptr %114, align 1, !tbaa !6
+  %115 = lshr i32 %56, 18
   %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 %116, ptr %117, align 1, !tbaa !6
-  %118 = lshr i32 %56, 2
-  %119 = trunc i32 %118 to i8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %119, ptr %120, align 1, !tbaa !6
-  %121 = lshr i32 %56, 10
-  %122 = trunc i32 %121 to i8
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %122, ptr %123, align 1, !tbaa !6
-  %124 = lshr i32 %56, 18
-  %125 = trunc i32 %124 to i8
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %125, ptr %126, align 1, !tbaa !6
-  %127 = trunc i32 %59 to i8
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %127, ptr %128, align 1, !tbaa !6
-  %129 = lshr i32 %59, 8
+  %118 = trunc i32 %59 to i8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %118, ptr %119, align 1, !tbaa !6
+  %120 = lshr i32 %59, 8
+  %121 = trunc i32 %120 to i8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 %121, ptr %122, align 1, !tbaa !6
+  %123 = lshr i32 %59, 16
+  %124 = trunc i32 %123 to i8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i8 %124, ptr %125, align 1, !tbaa !6
+  %126 = lshr i32 %59, 24
+  %127 = and i32 %126, 1
+  %128 = shl nuw nsw i32 %64, 1
+  %129 = or disjoint i32 %128, %127
   %130 = trunc i32 %129 to i8
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 %130, ptr %131, align 1, !tbaa !6
-  %132 = lshr i32 %59, 16
-  %133 = trunc i32 %132 to i8
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %133, ptr %134, align 1, !tbaa !6
-  %135 = lshr i32 %59, 24
-  %136 = and i32 %135, 1
-  %137 = shl nuw nsw i32 %64, 1
-  %138 = or disjoint i32 %137, %136
-  %139 = trunc i32 %138 to i8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 %139, ptr %140, align 1, !tbaa !6
-  %141 = lshr i32 %61, 7
-  %142 = trunc i32 %141 to i8
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %142, ptr %143, align 1, !tbaa !6
-  %144 = lshr i32 %61, 15
-  %145 = trunc i32 %144 to i8
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 %145, ptr %146, align 1, !tbaa !6
-  %147 = lshr i32 %64, 23
-  %148 = shl nuw nsw i32 %67, 3
-  %149 = or disjoint i32 %148, %147
-  %150 = trunc i32 %149 to i8
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i8 %150, ptr %151, align 1, !tbaa !6
-  %152 = lshr i32 %63, 5
-  %153 = trunc i32 %152 to i8
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  store i8 %153, ptr %154, align 1, !tbaa !6
-  %155 = lshr i32 %63, 13
-  %156 = trunc i32 %155 to i8
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %156, ptr %157, align 1, !tbaa !6
-  %158 = lshr i32 %67, 21
-  %159 = shl nuw nsw i32 %70, 4
-  %160 = or disjoint i32 %159, %158
-  %161 = trunc i32 %160 to i8
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 %161, ptr %162, align 1, !tbaa !6
-  %163 = lshr i32 %66, 4
-  %164 = trunc i32 %163 to i8
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i8 %164, ptr %165, align 1, !tbaa !6
-  %166 = lshr i32 %66, 12
-  %167 = trunc i32 %166 to i8
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  store i8 %167, ptr %168, align 1, !tbaa !6
-  %169 = lshr i32 %70, 20
-  %170 = shl nuw nsw i32 %71, 6
-  %171 = or disjoint i32 %170, %169
-  %172 = trunc i32 %171 to i8
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 %172, ptr %173, align 1, !tbaa !6
-  %174 = lshr i32 %69, 2
-  %175 = trunc i32 %174 to i8
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 %175, ptr %176, align 1, !tbaa !6
-  %177 = lshr i32 %69, 10
-  %178 = trunc i32 %177 to i8
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  store i8 %178, ptr %179, align 1, !tbaa !6
-  %180 = lshr i32 %71, 18
-  %181 = trunc nuw nsw i32 %180 to i8
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  store i8 %181, ptr %182, align 1, !tbaa !6
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %133 = lshr i32 %61, 7
+  %134 = trunc i32 %133 to i16
+  store i16 %134, ptr %132, align 1
+  %135 = lshr i32 %64, 23
+  %136 = shl nuw nsw i32 %67, 3
+  %137 = or disjoint i32 %136, %135
+  %138 = trunc i32 %137 to i8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i8 %138, ptr %139, align 1, !tbaa !6
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  %141 = lshr i32 %63, 5
+  %142 = trunc i32 %141 to i16
+  store i16 %142, ptr %140, align 1
+  %143 = lshr i32 %67, 21
+  %144 = shl nuw nsw i32 %70, 4
+  %145 = or disjoint i32 %144, %143
+  %146 = trunc i32 %145 to i8
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  store i8 %146, ptr %147, align 1, !tbaa !6
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %149 = lshr i32 %66, 4
+  %150 = trunc i32 %149 to i16
+  store i16 %150, ptr %148, align 1
+  %151 = lshr i32 %70, 20
+  %152 = shl nuw nsw i32 %71, 6
+  %153 = or disjoint i32 %152, %151
+  %154 = trunc i32 %153 to i8
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 %154, ptr %155, align 1, !tbaa !6
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  %157 = lshr i32 %69, 2
+  %158 = trunc i32 %157 to i16
+  store i16 %158, ptr %156, align 1
+  %159 = lshr i32 %71, 18
+  %160 = trunc nuw nsw i32 %159 to i8
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 31
+  store i8 %160, ptr %161, align 1, !tbaa !6
   ret void
 }
 
@@ -3447,7 +3419,7 @@ x25519_ge_p3_to_cached.exit:                      ; preds = %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @x25519_sc_reduce(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @x25519_sc_reduce(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i16, ptr %0, align 1
   %3 = zext i16 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -3954,140 +3926,109 @@ define hidden void @x25519_sc_reduce(ptr noundef %0) local_unnamed_addr #2 {
   %474 = ashr i64 %472, 21
   %475 = add nsw i64 %474, %436
   %476 = and i64 %472, 2097151
-  %477 = trunc i64 %438 to i8
-  store i8 %477, ptr %0, align 1, !tbaa !6
-  %478 = lshr i64 %438, 8
-  %479 = trunc i64 %478 to i8
-  %480 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %479, ptr %480, align 1, !tbaa !6
-  %481 = lshr i64 %438, 16
-  %482 = and i64 %481, 31
-  %483 = shl nuw nsw i64 %451, 5
-  %484 = or disjoint i64 %483, %482
-  %485 = trunc i64 %484 to i8
-  store i8 %485, ptr %4, align 1, !tbaa !6
-  %486 = lshr i64 %448, 3
-  %487 = trunc i64 %486 to i8
-  %488 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %487, ptr %488, align 1, !tbaa !6
-  %489 = lshr i64 %448, 11
-  %490 = trunc i64 %489 to i8
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %490, ptr %491, align 1, !tbaa !6
-  %492 = lshr i64 %451, 19
-  %493 = shl nuw nsw i64 %454, 2
-  %494 = or disjoint i64 %493, %492
-  %495 = trunc i64 %494 to i8
-  store i8 %495, ptr %13, align 1, !tbaa !6
-  %496 = lshr i64 %450, 6
-  %497 = trunc i64 %496 to i8
-  %498 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %497, ptr %498, align 1, !tbaa !6
-  %499 = lshr i64 %454, 14
-  %500 = shl nuw nsw i64 %457, 7
-  %501 = or disjoint i64 %500, %499
-  %502 = trunc i64 %501 to i8
-  store i8 %502, ptr %16, align 1, !tbaa !6
-  %503 = lshr i64 %453, 1
-  %504 = trunc i64 %503 to i8
-  %505 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %504, ptr %505, align 1, !tbaa !6
-  %506 = lshr i64 %453, 9
-  %507 = trunc i64 %506 to i8
-  %508 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %507, ptr %508, align 1, !tbaa !6
-  %509 = lshr i64 %457, 17
-  %510 = shl nuw nsw i64 %460, 4
-  %511 = or disjoint i64 %510, %509
+  %477 = trunc i64 %438 to i16
+  store i16 %477, ptr %0, align 1
+  %478 = lshr i64 %438, 16
+  %479 = and i64 %478, 31
+  %480 = shl nuw nsw i64 %451, 5
+  %481 = or disjoint i64 %480, %479
+  %482 = trunc i64 %481 to i8
+  store i8 %482, ptr %4, align 1, !tbaa !6
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %484 = lshr i64 %448, 3
+  %485 = trunc i64 %484 to i16
+  store i16 %485, ptr %483, align 1
+  %486 = lshr i64 %451, 19
+  %487 = shl nuw nsw i64 %454, 2
+  %488 = or disjoint i64 %487, %486
+  %489 = trunc i64 %488 to i8
+  store i8 %489, ptr %13, align 1, !tbaa !6
+  %490 = lshr i64 %450, 6
+  %491 = trunc i64 %490 to i8
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i8 %491, ptr %492, align 1, !tbaa !6
+  %493 = lshr i64 %454, 14
+  %494 = shl nuw nsw i64 %457, 7
+  %495 = or disjoint i64 %494, %493
+  %496 = trunc i64 %495 to i8
+  store i8 %496, ptr %16, align 1, !tbaa !6
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %498 = lshr i64 %453, 1
+  %499 = trunc i64 %498 to i16
+  store i16 %499, ptr %497, align 1
+  %500 = lshr i64 %457, 17
+  %501 = shl nuw nsw i64 %460, 4
+  %502 = or disjoint i64 %501, %500
+  %503 = trunc i64 %502 to i8
+  store i8 %503, ptr %27, align 1, !tbaa !6
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %505 = lshr i64 %456, 4
+  %506 = trunc i64 %505 to i16
+  store i16 %506, ptr %504, align 1
+  %507 = lshr i64 %460, 20
+  %508 = shl nuw nsw i64 %463, 1
+  %509 = or disjoint i64 %508, %507
+  %510 = trunc i64 %509 to i8
+  store i8 %510, ptr %32, align 1, !tbaa !6
+  %511 = lshr i64 %459, 7
   %512 = trunc i64 %511 to i8
-  store i8 %512, ptr %27, align 1, !tbaa !6
-  %513 = lshr i64 %456, 4
-  %514 = trunc i64 %513 to i8
-  %515 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %514, ptr %515, align 1, !tbaa !6
-  %516 = lshr i64 %456, 12
+  %513 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 %512, ptr %513, align 1, !tbaa !6
+  %514 = lshr i64 %463, 15
+  %515 = shl nuw nsw i64 %466, 6
+  %516 = or disjoint i64 %515, %514
   %517 = trunc i64 %516 to i8
-  %518 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %517, ptr %518, align 1, !tbaa !6
-  %519 = lshr i64 %460, 20
-  %520 = shl nuw nsw i64 %463, 1
-  %521 = or disjoint i64 %520, %519
-  %522 = trunc i64 %521 to i8
-  store i8 %522, ptr %32, align 1, !tbaa !6
-  %523 = lshr i64 %459, 7
+  store i8 %517, ptr %35, align 1, !tbaa !6
+  %518 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %519 = lshr i64 %462, 2
+  %520 = trunc i64 %519 to i16
+  store i16 %520, ptr %518, align 1
+  %521 = lshr i64 %466, 18
+  %522 = shl nsw i64 %465, 3
+  %523 = or disjoint i64 %522, %521
   %524 = trunc i64 %523 to i8
-  %525 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %524, ptr %525, align 1, !tbaa !6
-  %526 = lshr i64 %463, 15
-  %527 = shl nuw nsw i64 %466, 6
-  %528 = or disjoint i64 %527, %526
-  %529 = trunc i64 %528 to i8
-  store i8 %529, ptr %35, align 1, !tbaa !6
-  %530 = lshr i64 %462, 2
-  %531 = trunc i64 %530 to i8
-  %532 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %531, ptr %532, align 1, !tbaa !6
-  %533 = lshr i64 %462, 10
-  %534 = trunc i64 %533 to i8
-  %535 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 %534, ptr %535, align 1, !tbaa !6
-  %536 = lshr i64 %466, 18
-  %537 = shl nsw i64 %465, 3
-  %538 = or disjoint i64 %537, %536
-  %539 = trunc i64 %538 to i8
-  store i8 %539, ptr %46, align 1, !tbaa !6
-  %540 = lshr i64 %465, 5
-  %541 = trunc i64 %540 to i8
-  %542 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 %541, ptr %542, align 1, !tbaa !6
-  %543 = lshr i64 %465, 13
-  %544 = trunc i64 %543 to i8
-  store i8 %544, ptr %49, align 1, !tbaa !6
-  %545 = trunc i64 %468 to i8
-  store i8 %545, ptr %55, align 1, !tbaa !6
-  %546 = lshr i64 %468, 8
+  store i8 %524, ptr %46, align 1, !tbaa !6
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 19
+  %526 = lshr i64 %465, 5
+  %527 = trunc i64 %526 to i16
+  store i16 %527, ptr %525, align 1
+  %528 = trunc i64 %468 to i16
+  store i16 %528, ptr %55, align 1
+  %529 = lshr i64 %468, 16
+  %530 = and i64 %529, 31
+  %531 = shl nuw nsw i64 %473, 5
+  %532 = or disjoint i64 %531, %530
+  %533 = trunc i64 %532 to i8
+  store i8 %533, ptr %58, align 1, !tbaa !6
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %535 = lshr i64 %470, 3
+  %536 = trunc i64 %535 to i16
+  store i16 %536, ptr %534, align 1
+  %537 = lshr i64 %473, 19
+  %538 = shl nuw nsw i64 %476, 2
+  %539 = or disjoint i64 %538, %537
+  %540 = trunc i64 %539 to i8
+  store i8 %540, ptr %67, align 1, !tbaa !6
+  %541 = lshr i64 %472, 6
+  %542 = trunc i64 %541 to i8
+  %543 = getelementptr inbounds nuw i8, ptr %0, i64 27
+  store i8 %542, ptr %543, align 1, !tbaa !6
+  %544 = lshr i64 %476, 14
+  %545 = shl nsw i64 %475, 7
+  %546 = or disjoint i64 %545, %544
   %547 = trunc i64 %546 to i8
-  %548 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i8 %547, ptr %548, align 1, !tbaa !6
-  %549 = lshr i64 %468, 16
-  %550 = and i64 %549, 31
-  %551 = shl nuw nsw i64 %473, 5
-  %552 = or disjoint i64 %551, %550
-  %553 = trunc i64 %552 to i8
-  store i8 %553, ptr %58, align 1, !tbaa !6
-  %554 = lshr i64 %470, 3
+  store i8 %547, ptr %70, align 1, !tbaa !6
+  %548 = lshr i64 %475, 1
+  %549 = trunc i64 %548 to i8
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  store i8 %549, ptr %550, align 1, !tbaa !6
+  %551 = lshr i64 %475, 9
+  %552 = trunc i64 %551 to i8
+  %553 = getelementptr inbounds nuw i8, ptr %0, i64 30
+  store i8 %552, ptr %553, align 1, !tbaa !6
+  %554 = lshr i64 %475, 17
   %555 = trunc i64 %554 to i8
-  %556 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %555, ptr %556, align 1, !tbaa !6
-  %557 = lshr i64 %470, 11
-  %558 = trunc i64 %557 to i8
-  %559 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 %558, ptr %559, align 1, !tbaa !6
-  %560 = lshr i64 %473, 19
-  %561 = shl nuw nsw i64 %476, 2
-  %562 = or disjoint i64 %561, %560
-  %563 = trunc i64 %562 to i8
-  store i8 %563, ptr %67, align 1, !tbaa !6
-  %564 = lshr i64 %472, 6
-  %565 = trunc i64 %564 to i8
-  %566 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  store i8 %565, ptr %566, align 1, !tbaa !6
-  %567 = lshr i64 %476, 14
-  %568 = shl nsw i64 %475, 7
-  %569 = or disjoint i64 %568, %567
-  %570 = trunc i64 %569 to i8
-  store i8 %570, ptr %70, align 1, !tbaa !6
-  %571 = lshr i64 %475, 1
-  %572 = trunc i64 %571 to i8
-  %573 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 %572, ptr %573, align 1, !tbaa !6
-  %574 = lshr i64 %475, 9
-  %575 = trunc i64 %574 to i8
-  %576 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  store i8 %575, ptr %576, align 1, !tbaa !6
-  %577 = lshr i64 %475, 17
-  %578 = trunc i64 %577 to i8
-  store i8 %578, ptr %81, align 1, !tbaa !6
+  store i8 %555, ptr %81, align 1, !tbaa !6
   ret void
 }
 
@@ -5193,153 +5134,121 @@ define hidden noundef i32 @ED25519_sign(ptr noundef initializes((0, 32)) %0, ptr
   %981 = ashr i64 %979, 21
   %982 = add nsw i64 %981, %943
   %983 = and i64 %979, 2097151
-  %984 = trunc i64 %945 to i8
-  store i8 %984, ptr %39, align 1, !tbaa !6
-  %985 = lshr i64 %945, 8
-  %986 = trunc i64 %985 to i8
-  %987 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 %986, ptr %987, align 1, !tbaa !6
-  %988 = lshr i64 %945, 16
-  %989 = and i64 %988, 31
-  %990 = shl nuw nsw i64 %958, 5
-  %991 = or disjoint i64 %990, %989
-  %992 = trunc i64 %991 to i8
-  %993 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i8 %992, ptr %993, align 1, !tbaa !6
-  %994 = lshr i64 %955, 3
-  %995 = trunc i64 %994 to i8
-  %996 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  store i8 %995, ptr %996, align 1, !tbaa !6
-  %997 = lshr i64 %955, 11
-  %998 = trunc i64 %997 to i8
-  %999 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i8 %998, ptr %999, align 1, !tbaa !6
-  %1000 = lshr i64 %958, 19
-  %1001 = shl nuw nsw i64 %961, 2
-  %1002 = or disjoint i64 %1001, %1000
-  %1003 = trunc i64 %1002 to i8
-  %1004 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  store i8 %1003, ptr %1004, align 1, !tbaa !6
-  %1005 = lshr i64 %957, 6
-  %1006 = trunc i64 %1005 to i8
-  %1007 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  store i8 %1006, ptr %1007, align 1, !tbaa !6
-  %1008 = lshr i64 %961, 14
-  %1009 = shl nuw nsw i64 %964, 7
-  %1010 = or disjoint i64 %1009, %1008
-  %1011 = trunc i64 %1010 to i8
-  %1012 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  store i8 %1011, ptr %1012, align 1, !tbaa !6
-  %1013 = lshr i64 %960, 1
-  %1014 = trunc i64 %1013 to i8
-  %1015 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %1014, ptr %1015, align 1, !tbaa !6
-  %1016 = lshr i64 %960, 9
-  %1017 = trunc i64 %1016 to i8
-  %1018 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %1017, ptr %1018, align 1, !tbaa !6
-  %1019 = lshr i64 %964, 17
-  %1020 = shl nuw nsw i64 %967, 4
-  %1021 = or disjoint i64 %1020, %1019
-  %1022 = trunc i64 %1021 to i8
-  %1023 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 %1022, ptr %1023, align 1, !tbaa !6
-  %1024 = lshr i64 %963, 4
-  %1025 = trunc i64 %1024 to i8
-  %1026 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  store i8 %1025, ptr %1026, align 1, !tbaa !6
-  %1027 = lshr i64 %963, 12
-  %1028 = trunc i64 %1027 to i8
-  %1029 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %1028, ptr %1029, align 1, !tbaa !6
-  %1030 = lshr i64 %967, 20
-  %1031 = shl nuw nsw i64 %970, 1
-  %1032 = or disjoint i64 %1031, %1030
-  %1033 = trunc i64 %1032 to i8
-  %1034 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  store i8 %1033, ptr %1034, align 1, !tbaa !6
-  %1035 = lshr i64 %966, 7
-  %1036 = trunc i64 %1035 to i8
-  %1037 = getelementptr inbounds nuw i8, ptr %0, i64 46
-  store i8 %1036, ptr %1037, align 1, !tbaa !6
-  %1038 = lshr i64 %970, 15
-  %1039 = shl nuw nsw i64 %973, 6
-  %1040 = or disjoint i64 %1039, %1038
-  %1041 = trunc i64 %1040 to i8
-  %1042 = getelementptr inbounds nuw i8, ptr %0, i64 47
-  store i8 %1041, ptr %1042, align 1, !tbaa !6
-  %1043 = lshr i64 %969, 2
-  %1044 = trunc i64 %1043 to i8
-  %1045 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %1044, ptr %1045, align 1, !tbaa !6
-  %1046 = lshr i64 %969, 10
-  %1047 = trunc i64 %1046 to i8
-  %1048 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 %1047, ptr %1048, align 1, !tbaa !6
-  %1049 = lshr i64 %973, 18
-  %1050 = shl nsw i64 %972, 3
-  %1051 = or disjoint i64 %1050, %1049
-  %1052 = trunc i64 %1051 to i8
-  %1053 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i8 %1052, ptr %1053, align 1, !tbaa !6
-  %1054 = lshr i64 %972, 5
-  %1055 = trunc i64 %1054 to i8
-  %1056 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  store i8 %1055, ptr %1056, align 1, !tbaa !6
-  %1057 = lshr i64 %972, 13
-  %1058 = trunc i64 %1057 to i8
-  %1059 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i8 %1058, ptr %1059, align 1, !tbaa !6
-  %1060 = trunc i64 %975 to i8
-  %1061 = getelementptr inbounds nuw i8, ptr %0, i64 53
-  store i8 %1060, ptr %1061, align 1, !tbaa !6
-  %1062 = lshr i64 %975, 8
-  %1063 = trunc i64 %1062 to i8
-  %1064 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  store i8 %1063, ptr %1064, align 1, !tbaa !6
-  %1065 = lshr i64 %975, 16
-  %1066 = and i64 %1065, 31
-  %1067 = shl nuw nsw i64 %980, 5
-  %1068 = or disjoint i64 %1067, %1066
-  %1069 = trunc i64 %1068 to i8
-  %1070 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  store i8 %1069, ptr %1070, align 1, !tbaa !6
-  %1071 = lshr i64 %977, 3
-  %1072 = trunc i64 %1071 to i8
-  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %1072, ptr %1073, align 1, !tbaa !6
-  %1074 = lshr i64 %977, 11
-  %1075 = trunc i64 %1074 to i8
-  %1076 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 %1075, ptr %1076, align 1, !tbaa !6
-  %1077 = lshr i64 %980, 19
-  %1078 = shl nuw nsw i64 %983, 2
-  %1079 = or disjoint i64 %1078, %1077
-  %1080 = trunc i64 %1079 to i8
-  %1081 = getelementptr inbounds nuw i8, ptr %0, i64 58
-  store i8 %1080, ptr %1081, align 1, !tbaa !6
-  %1082 = lshr i64 %979, 6
-  %1083 = trunc i64 %1082 to i8
-  %1084 = getelementptr inbounds nuw i8, ptr %0, i64 59
-  store i8 %1083, ptr %1084, align 1, !tbaa !6
-  %1085 = lshr i64 %983, 14
-  %1086 = shl nsw i64 %982, 7
-  %1087 = or disjoint i64 %1086, %1085
-  %1088 = trunc i64 %1087 to i8
-  %1089 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 %1088, ptr %1089, align 1, !tbaa !6
-  %1090 = lshr i64 %982, 1
-  %1091 = trunc i64 %1090 to i8
-  %1092 = getelementptr inbounds nuw i8, ptr %0, i64 61
-  store i8 %1091, ptr %1092, align 1, !tbaa !6
-  %1093 = lshr i64 %982, 9
-  %1094 = trunc i64 %1093 to i8
-  %1095 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i8 %1094, ptr %1095, align 1, !tbaa !6
-  %1096 = lshr i64 %982, 17
-  %1097 = trunc i64 %1096 to i8
-  %1098 = getelementptr inbounds nuw i8, ptr %0, i64 63
-  store i8 %1097, ptr %1098, align 1, !tbaa !6
+  %984 = trunc i64 %945 to i16
+  store i16 %984, ptr %39, align 1
+  %985 = lshr i64 %945, 16
+  %986 = and i64 %985, 31
+  %987 = shl nuw nsw i64 %958, 5
+  %988 = or disjoint i64 %987, %986
+  %989 = trunc i64 %988 to i8
+  %990 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  store i8 %989, ptr %990, align 1, !tbaa !6
+  %991 = getelementptr inbounds nuw i8, ptr %0, i64 35
+  %992 = lshr i64 %955, 3
+  %993 = trunc i64 %992 to i16
+  store i16 %993, ptr %991, align 1
+  %994 = lshr i64 %958, 19
+  %995 = shl nuw nsw i64 %961, 2
+  %996 = or disjoint i64 %995, %994
+  %997 = trunc i64 %996 to i8
+  %998 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  store i8 %997, ptr %998, align 1, !tbaa !6
+  %999 = lshr i64 %957, 6
+  %1000 = trunc i64 %999 to i8
+  %1001 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  store i8 %1000, ptr %1001, align 1, !tbaa !6
+  %1002 = lshr i64 %961, 14
+  %1003 = shl nuw nsw i64 %964, 7
+  %1004 = or disjoint i64 %1003, %1002
+  %1005 = trunc i64 %1004 to i8
+  %1006 = getelementptr inbounds nuw i8, ptr %0, i64 39
+  store i8 %1005, ptr %1006, align 1, !tbaa !6
+  %1007 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1008 = lshr i64 %960, 1
+  %1009 = trunc i64 %1008 to i16
+  store i16 %1009, ptr %1007, align 1
+  %1010 = lshr i64 %964, 17
+  %1011 = shl nuw nsw i64 %967, 4
+  %1012 = or disjoint i64 %1011, %1010
+  %1013 = trunc i64 %1012 to i8
+  %1014 = getelementptr inbounds nuw i8, ptr %0, i64 42
+  store i8 %1013, ptr %1014, align 1, !tbaa !6
+  %1015 = getelementptr inbounds nuw i8, ptr %0, i64 43
+  %1016 = lshr i64 %963, 4
+  %1017 = trunc i64 %1016 to i16
+  store i16 %1017, ptr %1015, align 1
+  %1018 = lshr i64 %967, 20
+  %1019 = shl nuw nsw i64 %970, 1
+  %1020 = or disjoint i64 %1019, %1018
+  %1021 = trunc i64 %1020 to i8
+  %1022 = getelementptr inbounds nuw i8, ptr %0, i64 45
+  store i8 %1021, ptr %1022, align 1, !tbaa !6
+  %1023 = lshr i64 %966, 7
+  %1024 = trunc i64 %1023 to i8
+  %1025 = getelementptr inbounds nuw i8, ptr %0, i64 46
+  store i8 %1024, ptr %1025, align 1, !tbaa !6
+  %1026 = lshr i64 %970, 15
+  %1027 = shl nuw nsw i64 %973, 6
+  %1028 = or disjoint i64 %1027, %1026
+  %1029 = trunc i64 %1028 to i8
+  %1030 = getelementptr inbounds nuw i8, ptr %0, i64 47
+  store i8 %1029, ptr %1030, align 1, !tbaa !6
+  %1031 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %1032 = lshr i64 %969, 2
+  %1033 = trunc i64 %1032 to i16
+  store i16 %1033, ptr %1031, align 1
+  %1034 = lshr i64 %973, 18
+  %1035 = shl nsw i64 %972, 3
+  %1036 = or disjoint i64 %1035, %1034
+  %1037 = trunc i64 %1036 to i8
+  %1038 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  store i8 %1037, ptr %1038, align 1, !tbaa !6
+  %1039 = getelementptr inbounds nuw i8, ptr %0, i64 51
+  %1040 = lshr i64 %972, 5
+  %1041 = trunc i64 %1040 to i16
+  store i16 %1041, ptr %1039, align 1
+  %1042 = getelementptr inbounds nuw i8, ptr %0, i64 53
+  %1043 = trunc i64 %975 to i16
+  store i16 %1043, ptr %1042, align 1
+  %1044 = lshr i64 %975, 16
+  %1045 = and i64 %1044, 31
+  %1046 = shl nuw nsw i64 %980, 5
+  %1047 = or disjoint i64 %1046, %1045
+  %1048 = trunc i64 %1047 to i8
+  %1049 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  store i8 %1048, ptr %1049, align 1, !tbaa !6
+  %1050 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %1051 = lshr i64 %977, 3
+  %1052 = trunc i64 %1051 to i16
+  store i16 %1052, ptr %1050, align 1
+  %1053 = lshr i64 %980, 19
+  %1054 = shl nuw nsw i64 %983, 2
+  %1055 = or disjoint i64 %1054, %1053
+  %1056 = trunc i64 %1055 to i8
+  %1057 = getelementptr inbounds nuw i8, ptr %0, i64 58
+  store i8 %1056, ptr %1057, align 1, !tbaa !6
+  %1058 = lshr i64 %979, 6
+  %1059 = trunc i64 %1058 to i8
+  %1060 = getelementptr inbounds nuw i8, ptr %0, i64 59
+  store i8 %1059, ptr %1060, align 1, !tbaa !6
+  %1061 = lshr i64 %983, 14
+  %1062 = shl nsw i64 %982, 7
+  %1063 = or disjoint i64 %1062, %1061
+  %1064 = trunc i64 %1063 to i8
+  %1065 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 %1064, ptr %1065, align 1, !tbaa !6
+  %1066 = lshr i64 %982, 1
+  %1067 = trunc i64 %1066 to i8
+  %1068 = getelementptr inbounds nuw i8, ptr %0, i64 61
+  store i8 %1067, ptr %1068, align 1, !tbaa !6
+  %1069 = lshr i64 %982, 9
+  %1070 = trunc i64 %1069 to i8
+  %1071 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  store i8 %1070, ptr %1071, align 1, !tbaa !6
+  %1072 = lshr i64 %982, 17
+  %1073 = trunc i64 %1072 to i8
+  %1074 = getelementptr inbounds nuw i8, ptr %0, i64 63
+  store i8 %1073, ptr %1074, align 1, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #8

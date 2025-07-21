@@ -2190,9 +2190,7 @@ default.unreachable.i.i.i:                        ; preds = %90
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 24
   store i32 %.sroa.4.0.copyload.i.i.i.i, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !840
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 28
-  store i32 %77, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !840
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 32
-  store i32 %79, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !840
+  store i64 %.sroa.6.sroa.0.0.copyload.i.i.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !840
   %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 36
   store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !840
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 40
@@ -2732,9 +2730,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ce46b078b1a9aa4E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ce46b078b1a9aa4E.exit": ; preds = %44, %49
-  %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !999
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %39, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !999
@@ -2747,11 +2742,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !999
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.23.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !999
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !999
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !999
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !999
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !999
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %20, %10
   br i1 %.not, label %._crit_edge, label %18
@@ -3940,9 +3933,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47548d519486a6ffE.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47548d519486a6ffE.exit": ; preds = %36, %41
-  %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !1245
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %31, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1245
@@ -3955,11 +3945,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1245
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.23.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1245
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1245
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1245
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1245
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1245
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %17, %9
   br i1 %.not, label %._crit_edge, label %15
@@ -4365,9 +4353,7 @@ default.unreachable.i.i.i:                        ; preds = %90
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 24
   store i32 %.sroa.4.0.copyload.i.i.i.i, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1300
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 28
-  store i32 %77, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1300
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 32
-  store i32 %79, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1300
+  store i64 %.sroa.6.sroa.0.0.copyload.i.i.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1300
   %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 36
   store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1300
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 40
@@ -4674,9 +4660,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h73964a2bae330299E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h73964a2bae330299E.exit": ; preds = %43, %48
-  %.sroa.21.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.21.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.21.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.21.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !1406
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %38, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1406
@@ -4689,11 +4672,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1406
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.21.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1406
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.21.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1406
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1406
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1406
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1406
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %23, %10
   br i1 %.not, label %._crit_edge, label %21
@@ -6896,9 +6877,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he07f334f8f1ed156E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he07f334f8f1ed156E.exit": ; preds = %36, %41
-  %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !1837
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %31, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1837
@@ -6911,11 +6889,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1837
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.23.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1837
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1837
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1837
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1837
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1837
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %17, %9
   br i1 %.not, label %._crit_edge, label %15
@@ -7534,9 +7510,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63f6ba24c134c6e6E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63f6ba24c134c6e6E.exit": ; preds = %44, %49
-  %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !1963
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %39, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1963
@@ -7549,11 +7522,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1963
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.23.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1963
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !1963
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1963
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1963
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1963
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %20, %10
   br i1 %.not, label %._crit_edge, label %18
@@ -10544,9 +10515,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h596a016165d28106E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h596a016165d28106E.exit": ; preds = %38, %43
-  %.sroa.21.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.21.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.21.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.21.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !2773
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %33, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2773
@@ -10559,11 +10527,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2773
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.21.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2773
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.21.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2773
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2773
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2773
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2773
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %20, %10
   br i1 %.not, label %._crit_edge, label %18
@@ -10696,9 +10662,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit": ; preds = %66, %71
-  %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !2795
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %61, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
@@ -10711,11 +10674,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.23.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %21, %10
   br i1 %.not, label %._crit_edge, label %19
@@ -10814,9 +10775,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he05c9ff2e18d882dE.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he05c9ff2e18d882dE.exit": ; preds = %36, %41
-  %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !2822
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %31, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2822
@@ -10829,11 +10787,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2822
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.23.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2822
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2822
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2822
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2822
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2822
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %17, %9
   br i1 %.not, label %._crit_edge, label %15
@@ -10949,9 +10905,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1103adb7e9c6a3c4E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1103adb7e9c6a3c4E.exit": ; preds = %40, %45
-  %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !2840
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %35, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2840
@@ -10964,11 +10917,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2840
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.23.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2840
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2840
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2840
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2840
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2840
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %17, %9
   br i1 %.not, label %._crit_edge, label %15
@@ -13454,9 +13405,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha10c33e3ee01d91eE.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha10c33e3ee01d91eE.exit": ; preds = %43, %48
-  %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
-  %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
-  %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !3527
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 8
   store i32 %38, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !3527
@@ -13469,11 +13417,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !3527
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 28
-  store i32 %.sroa.23.sroa.0.0.extract.trunc.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !3527
-  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 32
-  store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !3527
-  %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
-  store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !3527
+  store i64 %.sroa.716.0.copyload, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !3527
+  %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 36
+  store i8 0, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 4, !noalias !3527
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %19, %10
   br i1 %.not, label %._crit_edge, label %17

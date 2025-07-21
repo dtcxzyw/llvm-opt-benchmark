@@ -2506,6 +2506,9 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17h4b8
 30:                                               ; preds = %5
   %31 = and i64 %3, 72057594037927936
   %.not344.i = icmp eq i64 %31, 0
+  br i1 %.not344.i, label %32, label %178
+
+32:                                               ; preds = %30
   %.sroa.722.022.i = trunc i64 %3 to i32
   %.sroa.925.0.in23.i = lshr i64 %3, 32
   %.sroa.925.024.i = trunc i64 %.sroa.925.0.in23.i to i8
@@ -2513,9 +2516,6 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17h4b8
   %.sroa.10.026.i = trunc i64 %.sroa.10.0.in25.i to i8
   %.sroa.11.0.in27.i = lshr i64 %3, 48
   %.sroa.11.028.i = trunc i64 %.sroa.11.0.in27.i to i8
-  br i1 %.not344.i, label %32, label %178
-
-32:                                               ; preds = %30
   %trunc.i = trunc i32 %4 to i1
   br i1 %trunc.i, label %33, label %178
 
@@ -2933,16 +2933,16 @@ _ZN4time10utc_offset9UtcOffset11is_negative17hf4e1cce6a30b55d5E.exit.i: ; preds 
   invoke void @_ZN5alloc6string6String15from_utf8_lossy17h315d013babe5ee7cE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 1 %176, i64 noundef %177)
           to label %188 unwind label %174
 
-178:                                              ; preds = %.noexc45, %.noexc49, %.noexc48, %.noexc47, %.noexc46, %.noexc36, %.noexc35, %.noexc34, %.noexc33, %.noexc32, %.noexc31, %.noexc30, %.noexc29, %.noexc28, %.noexc26, %.noexc25, %.noexc23, %.noexc, %30, %5, %32, %33, %35, %39
-  %.sroa.0.0.ph = phi i64 [ 1, %39 ], [ 1, %35 ], [ 1, %33 ], [ 0, %32 ], [ 0, %5 ], [ 0, %30 ], [ 2, %.noexc ], [ 2, %.noexc23 ], [ 2, %.noexc25 ], [ 2, %.noexc26 ], [ 2, %.noexc28 ], [ 2, %.noexc29 ], [ 2, %.noexc30 ], [ 2, %.noexc31 ], [ 2, %.noexc32 ], [ 2, %.noexc33 ], [ 2, %.noexc34 ], [ 2, %.noexc35 ], [ 2, %.noexc36 ], [ 2, %.noexc46 ], [ 2, %.noexc47 ], [ 2, %.noexc48 ], [ 2, %.noexc49 ], [ 2, %.noexc45 ]
-  %.sroa.60.0.ph = phi i64 [ 13, %39 ], [ 11, %35 ], [ 4, %33 ], [ undef, %32 ], [ undef, %5 ], [ undef, %30 ], [ undef, %.noexc ], [ undef, %.noexc23 ], [ undef, %.noexc25 ], [ undef, %.noexc26 ], [ undef, %.noexc28 ], [ undef, %.noexc29 ], [ undef, %.noexc30 ], [ undef, %.noexc31 ], [ undef, %.noexc32 ], [ undef, %.noexc33 ], [ undef, %.noexc34 ], [ undef, %.noexc35 ], [ undef, %.noexc36 ], [ undef, %.noexc46 ], [ undef, %.noexc47 ], [ undef, %.noexc48 ], [ undef, %.noexc49 ], [ undef, %.noexc45 ]
-  %.sroa.29.0.ph = phi i64 [ ptrtoint (ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.83 to i64), %39 ], [ ptrtoint (ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.84 to i64), %35 ], [ ptrtoint (ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.75 to i64), %33 ], [ 0, %32 ], [ 0, %5 ], [ %3, %30 ], [ %46, %.noexc ], [ %50, %.noexc23 ], [ %55, %.noexc25 ], [ %59, %.noexc26 ], [ %64, %.noexc28 ], [ %68, %.noexc29 ], [ %73, %.noexc30 ], [ %77, %.noexc31 ], [ %82, %.noexc32 ], [ %86, %.noexc33 ], [ %91, %.noexc34 ], [ %104, %.noexc35 ], [ %148, %.noexc36 ], [ %159, %.noexc46 ], [ %163, %.noexc47 ], [ %167, %.noexc48 ], [ %173, %.noexc49 ], [ %156, %.noexc45 ]
+178:                                              ; preds = %.noexc45, %.noexc49, %.noexc48, %.noexc47, %.noexc46, %.noexc36, %.noexc35, %.noexc34, %.noexc33, %.noexc32, %.noexc31, %.noexc30, %.noexc29, %.noexc28, %.noexc26, %.noexc25, %.noexc23, %.noexc, %5, %30, %32, %33, %35, %39
+  %.sroa.0.0.ph = phi i64 [ 1, %39 ], [ 1, %35 ], [ 1, %33 ], [ 0, %32 ], [ 0, %30 ], [ 0, %5 ], [ 2, %.noexc ], [ 2, %.noexc23 ], [ 2, %.noexc25 ], [ 2, %.noexc26 ], [ 2, %.noexc28 ], [ 2, %.noexc29 ], [ 2, %.noexc30 ], [ 2, %.noexc31 ], [ 2, %.noexc32 ], [ 2, %.noexc33 ], [ 2, %.noexc34 ], [ 2, %.noexc35 ], [ 2, %.noexc36 ], [ 2, %.noexc46 ], [ 2, %.noexc47 ], [ 2, %.noexc48 ], [ 2, %.noexc49 ], [ 2, %.noexc45 ]
+  %.sroa.56.0.ph = phi i64 [ 13, %39 ], [ 11, %35 ], [ 4, %33 ], [ undef, %32 ], [ undef, %30 ], [ undef, %5 ], [ undef, %.noexc ], [ undef, %.noexc23 ], [ undef, %.noexc25 ], [ undef, %.noexc26 ], [ undef, %.noexc28 ], [ undef, %.noexc29 ], [ undef, %.noexc30 ], [ undef, %.noexc31 ], [ undef, %.noexc32 ], [ undef, %.noexc33 ], [ undef, %.noexc34 ], [ undef, %.noexc35 ], [ undef, %.noexc36 ], [ undef, %.noexc46 ], [ undef, %.noexc47 ], [ undef, %.noexc48 ], [ undef, %.noexc49 ], [ undef, %.noexc45 ]
+  %.sroa.29.0.ph = phi i64 [ ptrtoint (ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.83 to i64), %39 ], [ ptrtoint (ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.84 to i64), %35 ], [ ptrtoint (ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.75 to i64), %33 ], [ 0, %32 ], [ %3, %30 ], [ 0, %5 ], [ %46, %.noexc ], [ %50, %.noexc23 ], [ %55, %.noexc25 ], [ %59, %.noexc26 ], [ %64, %.noexc28 ], [ %68, %.noexc29 ], [ %73, %.noexc30 ], [ %77, %.noexc31 ], [ %82, %.noexc32 ], [ %86, %.noexc33 ], [ %91, %.noexc34 ], [ %104, %.noexc35 ], [ %148, %.noexc36 ], [ %159, %.noexc46 ], [ %163, %.noexc47 ], [ %167, %.noexc48 ], [ %173, %.noexc49 ], [ %156, %.noexc45 ]
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.ph, ptr %179, align 8
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.29.0.ph, ptr %.sroa.219.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.60.0.ph, ptr %.sroa.320.0..sroa_idx, align 8
+  store i64 %.sroa.56.0.ph, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !445
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8bacfafbb0293cf9E.llvm.11632439649900387884"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)

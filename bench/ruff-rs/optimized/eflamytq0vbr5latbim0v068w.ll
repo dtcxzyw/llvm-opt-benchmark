@@ -37337,9 +37337,7 @@ define hidden void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder33i
 
 90:                                               ; preds = %82
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 2, ptr %91, align 4, !alias.scope !2704, !noalias !2709
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.412.0.extract.trunc.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2704, !noalias !2709
+  store i64 %88, ptr %91, align 4, !alias.scope !2704, !noalias !2709
   store i8 12, ptr %0, align 8, !alias.scope !2704, !noalias !2709
   br label %_ZN18ty_python_semantic5types11subclass_of14SubclassOfType4from17h65a81acfe15c6147E.exit
 
@@ -37357,9 +37355,7 @@ define hidden void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder33i
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.011.0.extract.trunc.i, ptr %98, align 4, !alias.scope !2704, !noalias !2709
-  %.sroa.410.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.412.0.extract.trunc.i, ptr %.sroa.410.0..sroa_idx.i, align 8, !alias.scope !2704, !noalias !2709
+  store i64 %88, ptr %98, align 4, !alias.scope !2704, !noalias !2709
   store i8 12, ptr %0, align 8, !alias.scope !2704, !noalias !2709
   br label %_ZN18ty_python_semantic5types11subclass_of14SubclassOfType4from17h65a81acfe15c6147E.exit
 
@@ -40424,9 +40420,7 @@ define hidden void @_ZN18ty_python_semantic5types11subclass_of14SubclassOfType4f
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 2, ptr %7, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.416.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %3, ptr %7, align 4
   store i8 12, ptr %0, align 8
   br label %16
 
@@ -40444,9 +40438,7 @@ define hidden void @_ZN18ty_python_semantic5types11subclass_of14SubclassOfType4f
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.015.0.extract.trunc, ptr %14, align 4
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.416.0.extract.trunc, ptr %.sroa.413.0..sroa_idx, align 8
+  store i64 %3, ptr %14, align 4
   store i8 12, ptr %0, align 8
   br label %16
 
@@ -40469,9 +40461,7 @@ define hidden void @_ZN18ty_python_semantic5types11subclass_of14SubclassOfType4f
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 2, ptr %9, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %6, ptr %9, align 4
   store i8 12, ptr %0, align 8
   br label %18
 
@@ -40489,9 +40479,7 @@ define hidden void @_ZN18ty_python_semantic5types11subclass_of14SubclassOfType4f
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.011.0.extract.trunc, ptr %16, align 4
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.412.0.extract.trunc, ptr %.sroa.410.0..sroa_idx, align 8
+  store i64 %6, ptr %16, align 4
   store i8 12, ptr %0, align 8
   br label %18
 
@@ -45443,9 +45431,7 @@ define noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance
   br i1 %93, label %95, label %147
 
 94:                                               ; preds = %7
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx85, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 95:                                               ; preds = %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %45, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %125, %124, %121, %120, %119, %116, %115, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %94
@@ -45453,99 +45439,67 @@ define noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance
   ret i1 %.sroa.0173.0.shrunk
 
 96:                                               ; preds = %9
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx87, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 97:                                               ; preds = %11
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx89, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 98:                                               ; preds = %13
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx91, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 99:                                               ; preds = %15
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx93, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 100:                                              ; preds = %17
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx95, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 101:                                              ; preds = %19
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx97, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 102:                                              ; preds = %21
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx99, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 103:                                              ; preds = %23
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx101, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 104:                                              ; preds = %25
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx103, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 105:                                              ; preds = %27
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx105, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 106:                                              ; preds = %29
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx107, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 107:                                              ; preds = %31
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx109, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 108:                                              ; preds = %33
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx111, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 109:                                              ; preds = %35
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx113, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 110:                                              ; preds = %37
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx115 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx115, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 111:                                              ; preds = %39
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx117 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx117, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 112:                                              ; preds = %41
@@ -45554,9 +45508,7 @@ define noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance
   br label %95
 
 115:                                              ; preds = %41
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx119, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 116:                                              ; preds = %43
@@ -45565,15 +45517,11 @@ define noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance
   br label %95
 
 119:                                              ; preds = %43
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx121 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx121, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 120:                                              ; preds = %45
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx123, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 121:                                              ; preds = %47
@@ -45582,9 +45530,7 @@ define noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance
   br label %95
 
 124:                                              ; preds = %47
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx125, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 125:                                              ; preds = %49
@@ -45592,129 +45538,87 @@ define noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance
   br label %95
 
 127:                                              ; preds = %49
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx127, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 128:                                              ; preds = %54
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx129, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 129:                                              ; preds = %56
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx131, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 130:                                              ; preds = %58
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx133 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx133, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 131:                                              ; preds = %60
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx135, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 132:                                              ; preds = %62
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx137, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 133:                                              ; preds = %64
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx139, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 134:                                              ; preds = %66
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx141 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx141, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 135:                                              ; preds = %68
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx143 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx143, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 136:                                              ; preds = %70
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx145 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx145, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 137:                                              ; preds = %72
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx147 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx147, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 138:                                              ; preds = %74
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx149 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx149, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 139:                                              ; preds = %76
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx151 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx151, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 140:                                              ; preds = %78
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx153 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx153, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 141:                                              ; preds = %80
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx155 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx155, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 142:                                              ; preds = %82
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx157 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx157, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 143:                                              ; preds = %84
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx159 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx159, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 144:                                              ; preds = %86
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx161 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx161, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 145:                                              ; preds = %88
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx163 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx163, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 146:                                              ; preds = %90
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx165 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx165, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 
 147:                                              ; preds = %92
-  store i32 %.sroa.0172.0.extract.trunc, ptr %0, align 4
-  %.sroa.86.0..sroa_idx167 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.86.0..sroa_idx167, align 4
+  store i64 %1, ptr %0, align 4
   br label %95
 }
 

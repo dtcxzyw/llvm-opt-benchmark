@@ -158573,14 +158573,9 @@ default.unreachable434:                           ; preds = %3
   call void @llvm.assume(i1 %326)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %325, ptr noundef nonnull align 1 dereferenceable(28) @anon.ee42cc83d0486e413260d7ca4d417329.1182, i64 28, i1 false), !noalias !29359
   %327 = ptrtoint ptr %325 to i64
-  %.sroa.6285.0.extract.trunc290 = trunc i64 %327 to i32
-  %.sroa.6285.4.extract.shift = lshr i64 %327, 32
-  %.sroa.6285.4.extract.trunc = trunc nuw i64 %.sroa.6285.4.extract.shift to i32
   store i64 %324, ptr %36, align 8
   %.sroa.8273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 %.sroa.6285.0.extract.trunc290, ptr %.sroa.8273.0..sroa_idx, align 8
-  %.sroa.10276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 12
-  store i32 %.sroa.6285.4.extract.trunc, ptr %.sroa.10276.0..sroa_idx, align 4
+  store i64 %327, ptr %.sroa.8273.0..sroa_idx, align 8
   %.sroa.10276.sroa.6.0..sroa.10276.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 28, ptr %.sroa.10276.sroa.6.0..sroa.10276.0..sroa_idx.sroa_idx, align 8
   %.sroa.10278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 24

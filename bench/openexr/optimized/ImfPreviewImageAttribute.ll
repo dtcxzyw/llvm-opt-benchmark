@@ -395,62 +395,36 @@ define void @_ZNK7Imf_3_414TypedAttributeINS_12PreviewImageEE12writeValueToERNS_
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  %8 = alloca [4 x i8], align 1
-  %9 = alloca [4 x i8], align 1
+  %8 = alloca [4 x i8], align 4
+  %9 = alloca [4 x i8], align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  %12 = trunc i32 %11 to i8
-  store i8 %12, ptr %9, align 1, !tbaa !12
-  %13 = lshr i32 %11, 8
-  %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %14, ptr %15, align 1, !tbaa !12
-  %16 = lshr i32 %11, 16
-  %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i8 %17, ptr %18, align 1, !tbaa !12
-  %19 = lshr i32 %11, 24
-  %20 = trunc nuw i32 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 3
-  store i8 %20, ptr %21, align 1, !tbaa !12
-  %22 = load ptr, ptr %1, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %9, i32 noundef 4)
+  store i32 %11, ptr %9, align 4
+  %12 = load ptr, ptr %1, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %9, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %16 = load i32, ptr %15, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
-  %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %8, align 1, !tbaa !12
-  %28 = lshr i32 %26, 8
-  %29 = trunc i32 %28 to i8
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %29, ptr %30, align 1, !tbaa !12
-  %31 = lshr i32 %26, 16
-  %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %32, ptr %33, align 1, !tbaa !12
-  %34 = lshr i32 %26, 24
-  %35 = trunc nuw i32 %34 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %35, ptr %36, align 1, !tbaa !12
-  %37 = load ptr, ptr %1, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %8, i32 noundef 4)
+  store i32 %16, ptr %8, align 4
+  %17 = load ptr, ptr %1, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %8, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  %40 = load i32, ptr %10, align 8, !tbaa !6
-  %41 = load i32, ptr %25, align 4, !tbaa !13
-  %42 = mul i32 %41, %40
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !14
-  %45 = icmp sgt i32 %42, 0
-  br i1 %45, label %.lr.ph.preheader, label %._crit_edge
+  %20 = load i32, ptr %10, align 8, !tbaa !6
+  %21 = load i32, ptr %15, align 4, !tbaa !12
+  %22 = mul i32 %21, %20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !13
+  %25 = icmp sgt i32 %22, 0
+  br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
-  %wide.trip.count = zext nneg i32 %42 to i64
+  %wide.trip.count = zext nneg i32 %22 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -458,41 +432,41 @@ define void @_ZNK7Imf_3_414TypedAttributeINS_12PreviewImageEE12writeValueToERNS_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %46 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %44, i64 %indvars.iv
-  %47 = load i8, ptr %46, align 1, !tbaa !15
+  %26 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %24, i64 %indvars.iv
+  %27 = load i8, ptr %26, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  store i8 %47, ptr %7, align 1, !tbaa !12
-  %48 = load ptr, ptr %1, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %7, i32 noundef 1)
+  store i8 %27, ptr %7, align 1, !tbaa !16
+  %28 = load ptr, ptr %1, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %7, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %51 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  %52 = load i8, ptr %51, align 1, !tbaa !17
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %32 = load i8, ptr %31, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  store i8 %52, ptr %6, align 1, !tbaa !12
-  %53 = load ptr, ptr %1, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %6, i32 noundef 1)
+  store i8 %32, ptr %6, align 1, !tbaa !16
+  %33 = load ptr, ptr %1, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %6, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %56 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  %57 = load i8, ptr %56, align 1, !tbaa !18
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 2
+  %37 = load i8, ptr %36, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  store i8 %57, ptr %5, align 1, !tbaa !12
-  %58 = load ptr, ptr %1, align 8, !tbaa !3
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 1)
+  store i8 %37, ptr %5, align 1, !tbaa !16
+  %38 = load ptr, ptr %1, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %61 = getelementptr inbounds nuw i8, ptr %46, i64 3
-  %62 = load i8, ptr %61, align 1, !tbaa !19
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 3
+  %42 = load i8, ptr %41, align 1, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %62, ptr %4, align 1, !tbaa !12
-  %63 = load ptr, ptr %1, align 8, !tbaa !3
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 1)
+  store i8 %42, ptr %4, align 1, !tbaa !16
+  %43 = load ptr, ptr %1, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -568,10 +542,10 @@ define void @_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE13readValueFromERNS_
   call void @_ZN7Imf_3_412PreviewImageC1EjjPKNS_11PreviewRgbaE(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %12, i32 noundef %17, ptr noundef null)
   %38 = load i32, ptr %7, align 8, !tbaa !6
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !13
+  %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = mul i32 %40, %38
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !14
+  %43 = load ptr, ptr %42, align 8, !tbaa !13
   %44 = icmp sgt i32 %41, 0
   br i1 %44, label %.lr.ph.preheader, label %._crit_edge
 
@@ -696,14 +670,14 @@ attributes #18 = { noreturn }
 !9 = !{!"omnipotent char", !5, i64 0}
 !10 = !{!"p1 _ZTSN7Imf_3_411PreviewRgbaE", !11, i64 0}
 !11 = !{!"any pointer", !9, i64 0}
-!12 = !{!9, !9, i64 0}
-!13 = !{!7, !8, i64 4}
-!14 = !{!7, !10, i64 8}
-!15 = !{!16, !9, i64 0}
-!16 = !{!"_ZTSN7Imf_3_411PreviewRgbaE", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 3}
-!17 = !{!16, !9, i64 1}
-!18 = !{!16, !9, i64 2}
-!19 = !{!16, !9, i64 3}
+!12 = !{!7, !8, i64 4}
+!13 = !{!7, !10, i64 8}
+!14 = !{!15, !9, i64 0}
+!15 = !{!"_ZTSN7Imf_3_411PreviewRgbaE", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 3}
+!16 = !{!9, !9, i64 0}
+!17 = !{!15, !9, i64 1}
+!18 = !{!15, !9, i64 2}
+!19 = !{!15, !9, i64 3}
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
 !22 = distinct !{!22, !21}

@@ -563,8 +563,6 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_Z12as_ValueType10ciConstant(i8 %0, i64 %1) local_unnamed_addr #0 {
   %.sroa.2.sroa.0.0.extract.trunc = trunc i64 %1 to i32
-  %.sroa.2.sroa.6.0.extract.shift = lshr i64 %1, 32
-  %.sroa.2.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.2.sroa.6.0.extract.shift to i32
   switch i8 %0, label %178 [
     i8 8, label %3
     i8 5, label %3
@@ -659,9 +657,7 @@ _ZN22CompilationResourceObjnwEm.exit17:           ; preds = %42, %44
   store i32 1, ptr %49, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV12LongConstant, i64 16), ptr %.0.i.i.i16, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 16
-  store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %50, align 8
-  %.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 20
-  store i32 %.sroa.2.sroa.6.0.extract.trunc, ptr %.sroa_idx, align 4
+  store i64 %1, ptr %50, align 8
   br label %180
 
 51:                                               ; preds = %2

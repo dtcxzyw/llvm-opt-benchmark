@@ -6191,11 +6191,7 @@ common.resume:                                    ; preds = %.body.i87, %900, %.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.18.sroa.11)
   store i64 %.sroa.0124.0, ptr %63, align 8
   %.sroa.612.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i8 %.sroa.4171.0.extract.trunc, ptr %.sroa.612.0..sroa_idx13, align 8
-  %.sroa.612.sroa.7.0..sroa.612.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 9
-  store i8 %.sroa.4171.1.extract.trunc, ptr %.sroa.612.sroa.7.0..sroa.612.0..sroa_idx13.sroa_idx, align 1
-  %.sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 10
-  store i48 %.sroa.4171.2.extract.trunc, ptr %.sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx, align 2
+  store i64 %605, ptr %.sroa.612.0..sroa_idx13, align 8
   %.sroa.612.sroa.8.sroa.7.0..sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 %.sroa.14.0, ptr %.sroa.612.sroa.8.sroa.7.0..sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx.sroa_idx, align 8
   %.sroa.612.sroa.8.sroa.8.0..sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -9083,11 +9079,7 @@ common.resume:                                    ; preds = %.body.i87, %900, %.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.18.sroa.11)
   store i64 %.sroa.0124.0, ptr %63, align 8
   %.sroa.612.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i8 %.sroa.4171.0.extract.trunc, ptr %.sroa.612.0..sroa_idx13, align 8
-  %.sroa.612.sroa.7.0..sroa.612.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 9
-  store i8 %.sroa.4171.1.extract.trunc, ptr %.sroa.612.sroa.7.0..sroa.612.0..sroa_idx13.sroa_idx, align 1
-  %.sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 10
-  store i48 %.sroa.4171.2.extract.trunc, ptr %.sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx, align 2
+  store i64 %605, ptr %.sroa.612.0..sroa_idx13, align 8
   %.sroa.612.sroa.8.sroa.7.0..sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 %.sroa.14.0, ptr %.sroa.612.sroa.8.sroa.7.0..sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx.sroa_idx, align 8
   %.sroa.612.sroa.8.sroa.8.0..sroa.612.sroa.8.0..sroa.612.0..sroa_idx13.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 24

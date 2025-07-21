@@ -1192,7 +1192,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = icmp sgt i32 %1, 2
-  br i1 %5, label %53, label %6
+  br i1 %5, label %43, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 64
@@ -1217,55 +1217,42 @@ define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_write(ptr noundef r
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i8
   store i8 %21, ptr %15, align 4
-  %22 = trunc i32 %2 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 %22, ptr %23, align 8
-  %24 = lshr i32 %2, 8
-  %25 = trunc i32 %24 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  store i8 %25, ptr %26, align 1
-  %27 = lshr i32 %2, 16
-  %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i8 %28, ptr %29, align 2
-  %30 = lshr i32 %2, 24
-  %31 = trunc nuw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  store i8 %31, ptr %32, align 1
-  %33 = call i32 @ata_exec_internal(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %2, ptr %22, align 8
+  %23 = call i32 @ata_exec_internal(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %53, label %35
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %43, label %25
 
-35:                                               ; preds = %6
-  %36 = load ptr, ptr %0, align 64
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 14728
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %44
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %0, align 64
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 14728
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %34
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 14720
-  %42 = load ptr, ptr %41, align 64
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %49, label %44
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 14720
+  %32 = load ptr, ptr %31, align 64
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %39, label %34
 
-44:                                               ; preds = %40, %35
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 36
-  %46 = load i32, ptr %45, align 4
-  %47 = load i32, ptr %19, align 8
-  %48 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %46, i32 noundef %47, i32 noundef %1, i32 noundef %33) #10
-  br label %53
+34:                                               ; preds = %30, %25
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 36
+  %36 = load i32, ptr %35, align 4
+  %37 = load i32, ptr %19, align 8
+  %38 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %36, i32 noundef %37, i32 noundef %1, i32 noundef %23) #10
+  br label %43
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 36
-  %51 = load i32, ptr %50, align 4
-  %52 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %51, i32 noundef %1, i32 noundef %33) #10
-  br label %53
+39:                                               ; preds = %30
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 36
+  %41 = load i32, ptr %40, align 4
+  %42 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %41, i32 noundef %1, i32 noundef %23) #10
+  br label %43
 
-53:                                               ; preds = %49, %44, %6, %3
-  %54 = phi i32 [ -22, %3 ], [ -5, %49 ], [ -5, %44 ], [ 0, %6 ]
-  ret i32 %54
+43:                                               ; preds = %39, %34, %6, %3
+  %44 = phi i32 [ -22, %3 ], [ -5, %39 ], [ -5, %34 ], [ 0, %6 ]
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -471,14 +471,9 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
   %.sroa.349.sroa.4.0..sroa.349.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.349.sroa.4.0..sroa.349.0..sroa_idx.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.719.0..sroa_idx.i.i.i.i, i64 32, i1 false), !noalias !66
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !61
-  %.sroa.4.sroa.0.0.extract.trunc.i.i.i = trunc i32 %.sroa.416.0.copyload.i.i.i.i to i8
-  %.sroa.4.sroa.6.0.extract.shift.i.i.i = lshr i32 %.sroa.416.0.copyload.i.i.i.i, 8
-  %.sroa.4.sroa.6.0.extract.trunc.i.i.i = trunc nuw i32 %.sroa.4.sroa.6.0.extract.shift.i.i.i to i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !61
   %.sroa.248.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i8 %.sroa.4.sroa.0.0.extract.trunc.i.i.i, ptr %.sroa.248.0..sroa_idx.i.i.i, align 4, !alias.scope !67, !noalias !66
-  %.sroa.349.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 5
-  store i24 %.sroa.4.sroa.6.0.extract.trunc.i.i.i, ptr %.sroa.349.0..sroa_idx.i.i.i, align 1, !alias.scope !67, !noalias !66
+  store i32 %.sroa.416.0.copyload.i.i.i.i, ptr %.sroa.248.0..sroa_idx.i.i.i, align 4, !alias.scope !67, !noalias !66
   %.sroa.349.sroa.2.0..sroa.349.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.sroa.517.0.copyload.i.i.i.i, ptr %.sroa.349.sroa.2.0..sroa.349.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !67, !noalias !66
   %.sroa.349.sroa.3.0..sroa.349.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -622,12 +617,7 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
   br label %_ZN3der6reader6Reader6finish17hb5d2304ba0bebbb6E.exit
 
 76:                                               ; preds = %68
-  %.sroa.712.i.sroa.4.sroa.6.0.extract.shift109 = lshr i64 %.sroa.712.i.sroa.4.4.copyload, 32
-  %.sroa.712.i.sroa.4.sroa.6.0.extract.trunc110 = trunc nuw i64 %.sroa.712.i.sroa.4.sroa.6.0.extract.shift109 to i32
-  %.sroa.712.i.sroa.4.sroa.0.0.extract.trunc108 = trunc i64 %.sroa.712.i.sroa.4.4.copyload to i32
-  store i32 %.sroa.712.i.sroa.4.sroa.0.0.extract.trunc108, ptr %0, align 8, !alias.scope !102, !noalias !103
-  %.sroa.044.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.712.i.sroa.4.sroa.6.0.extract.trunc110, ptr %.sroa.044.sroa.4.0..sroa_idx, align 4, !alias.scope !102, !noalias !103
+  store i64 %.sroa.712.i.sroa.4.4.copyload, ptr %0, align 8, !alias.scope !102, !noalias !103
   %.sroa.044.sroa.4.sroa.0.sroa.4.0..sroa.044.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.712.i.sroa.8.4.copyload, ptr %.sroa.044.sroa.4.sroa.0.sroa.4.0..sroa.044.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !102, !noalias !103
   %.sroa.044.sroa.4.sroa.0.sroa.5.0..sroa.044.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

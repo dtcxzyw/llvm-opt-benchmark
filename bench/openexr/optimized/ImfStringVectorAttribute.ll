@@ -688,7 +688,7 @@ declare void @_ZN7Imf_3_49Attribute23unRegisterAttributeTypeEPKc(ptr noundef) lo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE12writeValueToERNS_7OStreamEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2) unnamed_addr #3 align 2 {
-  %4 = alloca [4 x i8], align 1
+  %4 = alloca [4 x i8], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !6
@@ -699,51 +699,38 @@ define void @_ZNK7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcS
   %12 = lshr exact i64 %11, 5
   %13 = trunc i64 %12 to i32
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
+.lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = and i64 %12, 2147483647
-  br label %18
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %18, %3
+._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
 
-18:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr %5, align 8, !tbaa !11
-  %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %indvars.iv, i32 1
-  %21 = load i64, ptr %20, align 8, !tbaa !20
-  %22 = trunc i64 %21 to i32
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %15 = load ptr, ptr %5, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %indvars.iv, i32 1
+  %17 = load i64, ptr %16, align 8, !tbaa !20
+  %18 = trunc i64 %17 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
-  %23 = trunc i64 %21 to i8
-  store i8 %23, ptr %4, align 1, !tbaa !21
-  %24 = lshr i64 %21, 8
-  %25 = trunc i64 %24 to i8
-  store i8 %25, ptr %15, align 1, !tbaa !21
-  %26 = lshr i64 %21, 16
-  %27 = trunc i64 %26 to i8
-  store i8 %27, ptr %16, align 1, !tbaa !21
-  %28 = lshr i64 %21, 24
-  %29 = trunc i64 %28 to i8
-  store i8 %29, ptr %17, align 1, !tbaa !21
-  %30 = load ptr, ptr %1, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
+  store i32 %18, ptr %4, align 4
+  %19 = load ptr, ptr %1, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #25
-  %33 = load ptr, ptr %5, align 8, !tbaa !11
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !15
-  %36 = load ptr, ptr %1, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %35, i32 noundef %22)
+  %22 = load ptr, ptr %5, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %indvars.iv
+  %24 = load ptr, ptr %23, align 8, !tbaa !15
+  %25 = load ptr, ptr %1, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %24, i32 noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress uwtable

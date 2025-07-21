@@ -60,7 +60,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %124, label %5
+  br i1 %or.cond, label %83, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -142,7 +142,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_
   %64 = and i64 %61, 17592186044415
   %65 = add nuw nsw i64 %55, %64
   %66 = lshr i64 %65, 44
-  %67 = and i64 %65, 16492674416640
+  %67 = and i64 %65, 17592186044415
   %68 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %61, i64 20)
   %69 = and i64 %68, 17592186044415
   %70 = add nuw nsw i64 %57, %69
@@ -154,71 +154,16 @@ define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_
   %76 = shl i64 %71, 44
   %77 = or disjoint i64 %76, %67
   %78 = lshr i64 %71, 20
-  %79 = shl i64 %75, 24
-  %80 = trunc i64 %65 to i8
-  store i8 %80, ptr %1, align 1, !tbaa !10
-  %81 = lshr i64 %65, 8
-  %82 = trunc i64 %81 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %82, ptr %83, align 1, !tbaa !10
-  %84 = lshr i64 %65, 16
-  %85 = trunc i64 %84 to i8
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %85, ptr %86, align 1, !tbaa !10
-  %87 = lshr i64 %65, 24
-  %88 = trunc i64 %87 to i8
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %88, ptr %89, align 1, !tbaa !10
-  %90 = lshr i64 %65, 32
-  %91 = trunc i64 %90 to i8
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %91, ptr %92, align 1, !tbaa !10
-  %93 = lshr exact i64 %77, 40
-  %94 = trunc i64 %93 to i8
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %94, ptr %95, align 1, !tbaa !10
-  %96 = lshr i64 %76, 48
-  %97 = trunc i64 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %97, ptr %98, align 1, !tbaa !10
-  %99 = lshr i64 %76, 56
-  %100 = trunc nuw i64 %99 to i8
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %100, ptr %101, align 1, !tbaa !10
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %103 = trunc i64 %78 to i8
-  store i8 %103, ptr %102, align 1, !tbaa !10
-  %104 = lshr i64 %71, 28
-  %105 = trunc i64 %104 to i8
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %105, ptr %106, align 1, !tbaa !10
-  %107 = lshr i64 %71, 36
-  %108 = trunc i64 %107 to i8
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %108, ptr %109, align 1, !tbaa !10
-  %110 = trunc i64 %75 to i8
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  store i8 %110, ptr %111, align 1, !tbaa !10
-  %112 = lshr i64 %79, 32
-  %113 = trunc i64 %112 to i8
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i8 %113, ptr %114, align 1, !tbaa !10
-  %115 = lshr i64 %79, 40
-  %116 = trunc i64 %115 to i8
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 %116, ptr %117, align 1, !tbaa !10
-  %118 = lshr i64 %79, 48
-  %119 = trunc i64 %118 to i8
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i8 %119, ptr %120, align 1, !tbaa !10
-  %121 = lshr i64 %79, 56
-  %122 = trunc nuw i64 %121 to i8
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  store i8 %122, ptr %123, align 1, !tbaa !10
+  %79 = and i64 %78, 16777215
+  %80 = shl i64 %75, 24
+  %81 = or disjoint i64 %80, %79
+  store i64 %77, ptr %1, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %81, ptr %82, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  br label %124
+  br label %83
 
-124:                                              ; preds = %2, %15
+83:                                               ; preds = %2, %15
   %.0100 = phi i32 [ 0, %15 ], [ -173, %2 ]
   ret i32 %.0100
 }

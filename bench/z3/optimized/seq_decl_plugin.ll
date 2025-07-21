@@ -21460,18 +21460,18 @@ _ZNK8seq_util3rex15get_cached_infoEP4expr.exit:   ; preds = %13, %_ZNK8seq_util3
   %.sroa.0.0.extract.trunc = trunc i64 %31 to i32
   %.sroa.0.4.extract.shift = lshr i64 %31, 32
   %.sroa.0.4.extract.trunc = trunc i64 %.sroa.0.4.extract.shift to i8
-  %.sroa.5.8.extract.trunc = trunc i64 %32 to i32
-  %.sroa.5.12.extract.shift = lshr i64 %32, 32
-  %.sroa.5.12.extract.trunc = trunc nuw i64 %.sroa.5.12.extract.shift to i32
+  %.sroa.99.8.extract.trunc10 = trunc i64 %32 to i32
+  %.sroa.14.8.extract.shift11 = lshr i64 %32, 32
+  %.sroa.14.8.extract.trunc12 = trunc nuw i64 %.sroa.14.8.extract.shift11 to i32
   %.pre = load i32, ptr %1, align 4, !tbaa !257
-  %.pre10 = load ptr, ptr %4, align 8, !tbaa !183
+  %.pre13 = load ptr, ptr %4, align 8, !tbaa !183
   br label %_ZN8seq_util3rex4infoaSERKS1_.exit
 
 _ZN8seq_util3rex4infoaSERKS1_.exit:               ; preds = %20, %29
-  %33 = phi ptr [ %.pre10, %29 ], [ %5, %20 ]
+  %33 = phi ptr [ %.pre13, %29 ], [ %5, %20 ]
   %34 = phi i32 [ %.pre, %29 ], [ %3, %20 ]
-  %.sroa.14.1 = phi i32 [ %.sroa.5.12.extract.trunc, %29 ], [ %28, %20 ]
-  %.sroa.99.1 = phi i32 [ %.sroa.5.8.extract.trunc, %29 ], [ %26, %20 ]
+  %.sroa.14.1 = phi i32 [ %.sroa.14.8.extract.trunc12, %29 ], [ %28, %20 ]
+  %.sroa.99.1 = phi i32 [ %.sroa.99.8.extract.trunc10, %29 ], [ %26, %20 ]
   %.sroa.6.1 = phi i8 [ %.sroa.0.4.extract.trunc, %29 ], [ %24, %20 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.extract.trunc, %29 ], [ %22, %20 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -21497,7 +21497,7 @@ _ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.thread.i.i: ; preds = %_ZNK6v
 
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.i.i6, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.thread.i.i
   %.ph = phi ptr [ %33, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.thread.i.i ], [ null, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.i.i6 ]
-  %.ph11 = phi i32 [ %40, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.thread.i.i ], [ %39, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.i.i6 ]
+  %.ph14 = phi i32 [ %40, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.thread.i.i ], [ %39, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.i.i6 ]
   %.0.i16.i.i.ph = phi i32 [ %38, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.thread.i.i ], [ 0, %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.i.i6 ]
   %.sroa.0.0.copyload11.i.ph = load i64, ptr %35, align 8
   %.sroa.2.0.copyload14.i.ph.in = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -21516,7 +21516,7 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.
 _ZNK6vectorIN8seq_util3rex4infoELb1EjE8capacityEv.exit.i.i: ; preds = %thread-pre-split.i.i
   %43 = getelementptr inbounds i8, ptr %41, i64 -8
   %44 = load i32, ptr %43, align 4, !tbaa !29
-  %45 = icmp ugt i32 %.ph11, %44
+  %45 = icmp ugt i32 %.ph14, %44
   br i1 %45, label %_ZNK6vectorIN8seq_util3rex4infoELb1EjE8capacityEv.exit.thread.i.i, label %46
 
 _ZNK6vectorIN8seq_util3rex4infoELb1EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIN8seq_util3rex4infoELb1EjE8capacityEv.exit.i.i, %thread-pre-split.i.i
@@ -21526,10 +21526,10 @@ _ZNK6vectorIN8seq_util3rex4infoELb1EjE8capacityEv.exit.thread.i.i: ; preds = %_Z
 
 46:                                               ; preds = %_ZNK6vectorIN8seq_util3rex4infoELb1EjE8capacityEv.exit.i.i
   %47 = getelementptr inbounds i8, ptr %41, i64 -4
-  store i32 %.ph11, ptr %47, align 4, !tbaa !29
-  %48 = zext i32 %.ph11 to i64
+  store i32 %.ph14, ptr %47, align 4, !tbaa !29
+  %48 = zext i32 %.ph14 to i64
   %49 = getelementptr inbounds nuw %"struct.seq_util::rex::info", ptr %41, i64 %48
-  %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph11
+  %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph14
   br i1 %.not1218.i.i, label %_ZN6vectorIN8seq_util3rex4infoELb1EjE6resizeIS2_EEvjT_z.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %46

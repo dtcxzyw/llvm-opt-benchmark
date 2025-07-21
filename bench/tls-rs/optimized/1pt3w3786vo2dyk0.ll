@@ -19087,14 +19087,9 @@ define void @"_ZN81_$LT$rustls..msgs..handshake..EchConfig$u20$as$u20$rustls..ms
   %36 = phi i64 [ %30, %28 ], [ %.pre.i.i, %.noexc ]
   %37 = trunc i64 %29 to i16
   %38 = call i16 @llvm.bswap.i16(i16 %37)
-  %.sroa.5.0.extract.shift = lshr i16 %38, 8
-  %.sroa.5.0.extract.trunc = trunc nuw i16 %.sroa.5.0.extract.shift to i8
-  %.sroa.0.0.extract.trunc = trunc i16 %38 to i8
   %39 = load ptr, ptr %18, align 8, !alias.scope !4728, !noalias !4726, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds i8, ptr %39, i64 %36
-  store i8 %.sroa.0.0.extract.trunc, ptr %40, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store i8 %.sroa.5.0.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 1
+  store i16 %38, ptr %40, align 1
   %41 = load i64, ptr %9, align 8, !alias.scope !4728, !noalias !4726, !noundef !4
   %42 = add i64 %41, 2
   store i64 %42, ptr %9, align 8, !alias.scope !4728, !noalias !4726

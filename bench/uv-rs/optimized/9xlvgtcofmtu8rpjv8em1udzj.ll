@@ -38524,17 +38524,12 @@ select.unfold.us.i.i:                             ; preds = %.split.us.preheader
   %.sroa.201142.sroa.0.31490 = phi i64 [ undef, %.thread1482 ], [ %.sroa.201142.sroa.0.2, %919 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %.sroa.8.sroa.5.sroa.4, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.201142.sroa.4, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.201142.sroa.4)
-  %.sroa.101140.0.extract.trunc1494 = trunc i64 %.sroa.101140.1.extract.trunc1495.in.in to i8
-  %.sroa.101140.1.extract.trunc1495.in = lshr i64 %.sroa.101140.1.extract.trunc1495.in.in, 8
-  %.sroa.101140.1.extract.trunc1495 = trunc nuw i64 %.sroa.101140.1.extract.trunc1495.in to i56
   %.sroa.3.sroa.3.sroa.2.0..sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3.sroa.3.sroa.2.0..sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(80) %.sroa.8.sroa.5.sroa.4, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.8.sroa.5.sroa.4)
   store i64 %.sroa.01139.11493, ptr %175, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i8 %.sroa.101140.0.extract.trunc1494, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 9
-  store i56 %.sroa.101140.1.extract.trunc1495, ptr %.sroa.3.0..sroa_idx, align 1
+  store i64 %.sroa.101140.1.extract.trunc1495.in.in, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i64 %.sroa.191141.31492, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8
   %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 24

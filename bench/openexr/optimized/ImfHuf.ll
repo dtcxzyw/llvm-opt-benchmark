@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 define noundef i32 @_ZN7Imf_3_411hufCompressEPKtiPc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca [59 x i64], align 16
   %5 = icmp eq i32 %1, 0
-  br i1 %5, label %563, label %6
+  br i1 %5, label %524, label %6
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(524296) ptr @_Znam(i64 noundef 524296) #11
@@ -49,7 +49,7 @@ define noundef i32 @_ZN7Imf_3_411hufCompressEPKtiPc(ptr noundef readonly capture
 
 _ZN7Imf_3_412_GLOBAL__N_116countFrequenciesEPmPKti.exit: ; preds = %.lr.ph.i, %6
   %15 = invoke noalias noundef nonnull dereferenceable(262148) ptr @_Znam(i64 noundef 262148) #11
-          to label %.noexc unwind label %561
+          to label %.noexc unwind label %522
 
 .noexc:                                           ; preds = %_ZN7Imf_3_412_GLOBAL__N_116countFrequenciesEPmPKti.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262148) %15, i8 0, i64 262148, i1 false)
@@ -1174,90 +1174,39 @@ _ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit:        ; preds = %497, %_ZN7Imf_3_412
   %506 = add i32 %505, %.3.i38
   %507 = ptrtoint ptr %267 to i64
   %508 = sub i64 %503, %507
-  %509 = add nsw i32 %506, 7
-  %510 = sdiv i32 %509, 8
-  %511 = trunc i64 %indvars.iv.i28 to i8
-  store i8 %511, ptr %2, align 1, !tbaa !28
-  %512 = lshr i64 %indvars.iv.i28, 8
-  %513 = trunc i64 %512 to i8
-  %514 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %513, ptr %514, align 1, !tbaa !28
-  %515 = lshr i64 %indvars.iv.i28, 16
-  %516 = trunc i64 %515 to i8
-  %517 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %516, ptr %517, align 1, !tbaa !28
-  %518 = lshr i64 %indvars.iv.i28, 24
-  %519 = trunc i64 %518 to i8
-  %520 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %519, ptr %520, align 1, !tbaa !28
-  %521 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %522 = trunc i32 %24 to i8
-  store i8 %522, ptr %521, align 1, !tbaa !28
-  %523 = lshr i32 %24, 8
-  %524 = trunc i32 %523 to i8
-  %525 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store i8 %524, ptr %525, align 1, !tbaa !28
-  %526 = lshr i32 %24, 16
-  %527 = trunc i32 %526 to i8
-  %528 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %527, ptr %528, align 1, !tbaa !28
-  %529 = lshr i32 %24, 24
-  %530 = trunc nuw i32 %529 to i8
-  %531 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  store i8 %530, ptr %531, align 1, !tbaa !28
-  %532 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %533 = trunc i64 %508 to i8
-  store i8 %533, ptr %532, align 1, !tbaa !28
-  %534 = lshr i64 %508, 8
-  %535 = trunc i64 %534 to i8
-  %536 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  store i8 %535, ptr %536, align 1, !tbaa !28
-  %537 = lshr i64 %508, 16
-  %538 = trunc i64 %537 to i8
-  %539 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %538, ptr %539, align 1, !tbaa !28
-  %540 = lshr i64 %508, 24
-  %541 = trunc i64 %540 to i8
-  %542 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  store i8 %541, ptr %542, align 1, !tbaa !28
-  %543 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %544 = trunc i32 %506 to i8
-  store i8 %544, ptr %543, align 1, !tbaa !28
-  %545 = lshr i32 %506, 8
-  %546 = trunc i32 %545 to i8
-  %547 = getelementptr inbounds nuw i8, ptr %2, i64 13
-  store i8 %546, ptr %547, align 1, !tbaa !28
-  %548 = lshr i32 %506, 16
-  %549 = trunc i32 %548 to i8
-  %550 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  store i8 %549, ptr %550, align 1, !tbaa !28
-  %551 = lshr i32 %506, 24
-  %552 = trunc nuw i32 %551 to i8
-  %553 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  store i8 %552, ptr %553, align 1, !tbaa !28
-  %554 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %555 = sext i32 %510 to i64
-  %556 = getelementptr inbounds i8, ptr %.467.i, i64 %555
-  %557 = ptrtoint ptr %556 to i64
-  %558 = ptrtoint ptr %2 to i64
-  %559 = sub i64 %557, %558
-  %560 = trunc i64 %559 to i32
-  store i32 0, ptr %554, align 1
+  %509 = trunc i64 %508 to i32
+  %510 = add nsw i32 %506, 7
+  %511 = sdiv i32 %510, 8
+  store i32 %20, ptr %2, align 1
+  %512 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %24, ptr %512, align 1
+  %513 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %509, ptr %513, align 1
+  %514 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %506, ptr %514, align 1
+  %515 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %515, align 1
+  %516 = sext i32 %511 to i64
+  %517 = getelementptr inbounds i8, ptr %.467.i, i64 %516
+  %518 = ptrtoint ptr %517 to i64
+  %519 = ptrtoint ptr %2 to i64
+  %520 = sub i64 %518, %519
+  %521 = trunc i64 %520 to i32
   tail call void @_ZdaPv(ptr noundef nonnull %7) #12
-  br label %563
+  br label %524
 
-561:                                              ; preds = %_ZN7Imf_3_412_GLOBAL__N_116countFrequenciesEPmPKti.exit
-  %562 = landingpad { ptr, i32 }
+522:                                              ; preds = %_ZN7Imf_3_412_GLOBAL__N_116countFrequenciesEPmPKti.exit
+  %523 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit56
 
-_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit56:      ; preds = %561, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit113.i
-  %.pn.pn = phi { ptr, i32 } [ %562, %561 ], [ %.pn.pn.pn.pn.i, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit113.i ]
+_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit56:      ; preds = %522, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit113.i
+  %.pn.pn = phi { ptr, i32 } [ %523, %522 ], [ %.pn.pn.pn.pn.i, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit113.i ]
   tail call void @_ZdaPv(ptr noundef nonnull %7) #12
   resume { ptr, i32 } %.pn.pn
 
-563:                                              ; preds = %3, %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit
-  %.0 = phi i32 [ %560, %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit ], [ 0, %3 ]
+524:                                              ; preds = %3, %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit
+  %.0 = phi i32 [ %521, %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 

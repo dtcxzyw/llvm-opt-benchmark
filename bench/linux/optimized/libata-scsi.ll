@@ -2327,52 +2327,48 @@ define internal noundef i32 @atapi_xlat(ptr noundef initializes((53, 54), (112, 
   %53 = tail call i32 @llvm.umin.i32(i32 %52, i32 64512)
   %54 = and i32 %53, 1
   %55 = add nuw nsw i32 %54, %53
-  %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i8 %56, ptr %57, align 2
-  %58 = lshr i32 %55, 8
-  %59 = trunc nuw i32 %58 to i8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  store i8 %59, ptr %60, align 1
-  br i1 %8, label %61, label %63
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %57 = trunc nuw i32 %55 to i16
+  store i16 %57, ptr %56, align 2
+  br i1 %8, label %58, label %60
 
-61:                                               ; preds = %48
+58:                                               ; preds = %48
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 8, ptr %59, align 8
+  br label %77
+
+60:                                               ; preds = %48
+  %61 = icmp eq i32 %51, 0
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 8, ptr %62, align 8
-  br label %80
+  br i1 %61, label %64, label %63
 
-63:                                               ; preds = %48
-  %64 = icmp eq i32 %51, 0
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %64, label %67, label %66
+63:                                               ; preds = %60
+  store i8 9, ptr %62, align 8
+  br label %77
 
-66:                                               ; preds = %63
-  store i8 9, ptr %65, align 8
-  br label %80
+64:                                               ; preds = %60
+  store i8 10, ptr %62, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 47
+  %66 = load i8, ptr %65, align 1
+  %67 = or i8 %66, 1
+  store i8 %67, ptr %65, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %69 = load i64, ptr %68, align 16
+  %70 = and i64 %69, 1024
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %77, label %72
 
-67:                                               ; preds = %63
-  store i8 10, ptr %65, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 47
-  %69 = load i8, ptr %68, align 1
-  %70 = or i8 %69, 1
-  store i8 %70, ptr %68, align 1
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %72 = load i64, ptr %71, align 16
-  %73 = and i64 %72, 1024
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %80, label %75
+72:                                               ; preds = %64
+  %73 = load i32, ptr %6, align 8
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %77, label %75
 
-75:                                               ; preds = %67
-  %76 = load i32, ptr %6, align 8
-  %77 = icmp eq i32 %76, 1
-  br i1 %77, label %80, label %78
+75:                                               ; preds = %72
+  %76 = or i8 %66, 5
+  store i8 %76, ptr %65, align 1
+  br label %77
 
-78:                                               ; preds = %75
-  %79 = or i8 %69, 5
-  store i8 %79, ptr %68, align 1
-  br label %80
-
-80:                                               ; preds = %78, %75, %67, %66, %61
+77:                                               ; preds = %75, %72, %64, %63, %58
   ret i32 0
 }
 
@@ -5198,7 +5194,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %12, align 8
   %13 = load i8, ptr %9, align 1
-  switch i8 %13, label %142 [
+  switch i8 %13, label %139 [
     i8 47, label %14
     i8 -113, label %27
   ]
@@ -5207,7 +5203,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 156
   %16 = load i16, ptr %15, align 4
   %17 = icmp ult i16 %16, 10
-  br i1 %17, label %142, label %18
+  br i1 %17, label %139, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %3, i64 166
@@ -5224,7 +5220,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 156
   %29 = load i16, ptr %28, align 4
   %30 = icmp ult i16 %29, 16
-  br i1 %30, label %142, label %31
+  br i1 %30, label %139, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %3, i64 166
@@ -5239,7 +5235,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %39 = phi i64 [ %34, %31 ], [ %22, %18 ]
   %40 = phi i32 [ %37, %31 ], [ %26, %18 ]
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %158, label %42
+  br i1 %41, label %155, label %42
 
 42:                                               ; preds = %38
   %43 = icmp uge i64 %39, %8
@@ -5247,7 +5243,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %45 = add i64 %39, %44
   %46 = icmp ugt i64 %45, %8
   %47 = or i1 %43, %46
-  br i1 %47, label %152, label %48
+  br i1 %47, label %149, label %48
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5281,13 +5277,13 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %69 = icmp ult i64 %68, 281474976710656
   %70 = icmp ult i32 %40, 65536
   %71 = and i1 %70, %69
-  br i1 %71, label %72, label %152
+  br i1 %71, label %72, label %149
 
 72:                                               ; preds = %66
   %73 = load i64, ptr %49, align 16
   %74 = and i64 %73, 2
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %152, label %76
+  br i1 %75, label %149, label %76
 
 76:                                               ; preds = %72
   %77 = or i64 %10, 23
@@ -5333,13 +5329,13 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %104 = or i8 %92, 64
   store i8 %104, ptr %103, align 4
-  br label %160
+  br label %157
 
 105:                                              ; preds = %48
   %106 = icmp ult i64 %45, 268435455
   %107 = icmp ult i32 %40, 257
   %108 = and i1 %107, %106
-  br i1 %108, label %109, label %152
+  br i1 %108, label %109, label %149
 
 109:                                              ; preds = %105
   %110 = trunc i64 %39 to i32
@@ -5358,7 +5354,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %123 = and i1 %121, %122
   %124 = icmp samesign ult i32 %120, 255
   %125 = and i1 %123, %124
-  br i1 %125, label %126, label %152
+  br i1 %125, label %126, label %149
 
 126:                                              ; preds = %109
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 53
@@ -5370,50 +5366,46 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef ca
   %131 = add nuw i8 %130, 1
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 %131, ptr %132, align 1
-  %133 = trunc i32 %118 to i8
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i8 %133, ptr %134, align 2
-  %135 = lshr i32 %118, 8
-  %136 = trunc nuw i32 %135 to i8
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  store i8 %136, ptr %137, align 1
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %139 = load i8, ptr %138, align 4
-  %140 = trunc nuw nsw i32 %119 to i8
-  %141 = or i8 %139, %140
-  store i8 %141, ptr %138, align 4
-  br label %160
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %134 = trunc nuw i32 %118 to i16
+  store i16 %134, ptr %133, align 2
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %136 = load i8, ptr %135, align 4
+  %137 = trunc nuw nsw i32 %119 to i8
+  %138 = or i8 %136, %137
+  store i8 %138, ptr %135, align 4
+  br label %157
 
-142:                                              ; preds = %27, %14, %1
-  %143 = phi i16 [ 9, %14 ], [ 15, %27 ], [ 0, %1 ]
-  %144 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %145 = load i64, ptr %144, align 16
-  %146 = trunc i64 %145 to i32
-  %147 = lshr i32 %146, 29
-  %148 = and i32 %147, 1
-  tail call void @scsi_build_sense(ptr noundef %3, i32 noundef %148, i8 noundef zeroext 5, i8 noundef zeroext 36, i8 noundef zeroext 0) #19
-  %149 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %150 = load ptr, ptr %149, align 8
-  %151 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %150, i32 noundef 96, i16 noundef zeroext %143, i8 noundef zeroext -1, i1 noundef zeroext true) #19
-  br label %160
+139:                                              ; preds = %27, %14, %1
+  %140 = phi i16 [ 9, %14 ], [ 15, %27 ], [ 0, %1 ]
+  %141 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %142 = load i64, ptr %141, align 16
+  %143 = trunc i64 %142 to i32
+  %144 = lshr i32 %143, 29
+  %145 = and i32 %144, 1
+  tail call void @scsi_build_sense(ptr noundef %3, i32 noundef %145, i8 noundef zeroext 5, i8 noundef zeroext 36, i8 noundef zeroext 0) #19
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 248
+  %147 = load ptr, ptr %146, align 8
+  %148 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %147, i32 noundef 96, i16 noundef zeroext %140, i8 noundef zeroext -1, i1 noundef zeroext true) #19
+  br label %157
 
-152:                                              ; preds = %109, %105, %72, %66, %42
-  %153 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %154 = load i64, ptr %153, align 16
-  %155 = trunc i64 %154 to i32
-  %156 = lshr i32 %155, 29
-  %157 = and i32 %156, 1
-  tail call void @scsi_build_sense(ptr noundef %3, i32 noundef %157, i8 noundef zeroext 5, i8 noundef zeroext 33, i8 noundef zeroext 0) #19
-  br label %160
+149:                                              ; preds = %109, %105, %72, %66, %42
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %151 = load i64, ptr %150, align 16
+  %152 = trunc i64 %151 to i32
+  %153 = lshr i32 %152, 29
+  %154 = and i32 %153, 1
+  tail call void @scsi_build_sense(ptr noundef %3, i32 noundef %154, i8 noundef zeroext 5, i8 noundef zeroext 33, i8 noundef zeroext 0) #19
+  br label %157
 
-158:                                              ; preds = %38
-  %159 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  store i32 0, ptr %159, align 8
-  br label %160
+155:                                              ; preds = %38
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  store i32 0, ptr %156, align 8
+  br label %157
 
-160:                                              ; preds = %158, %152, %142, %126, %91
-  %161 = phi i32 [ 1, %142 ], [ 1, %152 ], [ 1, %158 ], [ 0, %91 ], [ 0, %126 ]
-  ret i32 %161
+157:                                              ; preds = %155, %149, %139, %126, %91
+  %158 = phi i32 [ 1, %139 ], [ 1, %149 ], [ 1, %155 ], [ 0, %91 ], [ 0, %126 ]
+  ret i32 %158
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6630,7 +6622,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_security_inout_xlat(ptr no
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %28, i32 noundef 96, i16 noundef zeroext 1, i8 noundef zeroext 0, i1 noundef zeroext true) #19
-  br label %89
+  br label %86
 
 30:                                               ; preds = %1
   %31 = getelementptr i8, ptr %3, i64 168
@@ -6651,7 +6643,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_security_inout_xlat(ptr no
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %42, i32 noundef 96, i16 noundef zeroext 6, i8 noundef zeroext 0, i1 noundef zeroext true) #19
-  br label %89
+  br label %86
 
 44:                                               ; preds = %30
   %45 = icmp ugt i32 %15, 33553920
@@ -6665,7 +6657,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_security_inout_xlat(ptr no
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %51, i32 noundef 96, i16 noundef zeroext 6, i8 noundef zeroext 0, i1 noundef zeroext true) #19
-  br label %89
+  br label %86
 
 53:                                               ; preds = %44
   %54 = add nuw nsw i32 %15, 511
@@ -6682,55 +6674,50 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_security_inout_xlat(ptr no
   %62 = or i64 %60, %61
   store i64 %62, ptr %5, align 8
   %63 = icmp eq i32 %57, 0
-  br i1 %63, label %74, label %64
+  br i1 %63, label %70, label %64
 
 64:                                               ; preds = %56
   %65 = select i1 %21, i8 93, i8 92
   %66 = select i1 %21, i8 95, i8 94
   %.ph = select i1 %9, i8 %66, i8 %65
-  %67 = lshr i16 %12, 8
-  %68 = trunc nuw i16 %67 to i8
-  %69 = trunc i32 %57 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %69, ptr %70, align 8
-  %71 = lshr i32 %57, 8
-  %72 = trunc nuw i32 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 %72, ptr %73, align 1
-  br label %77
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  store i16 %12, ptr %67, align 2
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %69 = trunc nuw i32 %57 to i16
+  store i16 %69, ptr %68, align 8
+  br label %76
 
-74:                                               ; preds = %56
-  %75 = lshr i16 %12, 8
-  %76 = trunc nuw i16 %75 to i8
-  %spec.store.select = select i1 %9, i8 %76, i8 -128
-  br label %77
+70:                                               ; preds = %56
+  %71 = trunc i16 %12 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  store i8 %71, ptr %72, align 2
+  %73 = lshr i16 %12, 8
+  %74 = trunc nuw i16 %73 to i8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 51
+  %spec.store.select = select i1 %9, i8 %74, i8 -128
+  store i8 %spec.store.select, ptr %75, align 1
+  br label %76
 
-77:                                               ; preds = %74, %64
-  %.ph.sink = phi i8 [ 91, %74 ], [ %.ph, %64 ]
-  %.sink = phi i8 [ %spec.store.select, %74 ], [ %68, %64 ]
-  %.sink3 = trunc i16 %12 to i8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 53
-  store i8 %.ph.sink, ptr %78, align 1
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 47
-  store i8 %7, ptr %79, align 1
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i8 %.sink3, ptr %80, align 2
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  store i8 %.sink, ptr %81, align 1
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 272
+76:                                               ; preds = %70, %64
+  %.ph.sink = phi i8 [ 91, %70 ], [ %.ph, %64 ]
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 53
+  store i8 %.ph.sink, ptr %77, align 1
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 47
+  store i8 %7, ptr %78, align 1
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 272
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 %80, ptr %81, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %83, ptr %84, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %86 = load i32, ptr %85, align 8
-  %87 = add i32 %86, %83
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %87, ptr %88, align 8
-  br label %89
+  %84 = add i32 %83, %80
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %84, ptr %85, align 8
+  br label %86
 
-89:                                               ; preds = %77, %46, %37, %23
-  %90 = phi i32 [ 1, %23 ], [ 1, %37 ], [ 0, %77 ], [ 1, %46 ]
-  ret i32 %90
+86:                                               ; preds = %76, %46, %37, %23
+  %87 = phi i32 [ 1, %23 ], [ 1, %37 ], [ 0, %76 ], [ 1, %46 ]
+  ret i32 %87
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

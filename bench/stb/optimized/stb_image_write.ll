@@ -107,8 +107,8 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @stbiw__writefv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
   %4 = alloca i8, align 1
-  %5 = alloca [2 x i8], align 1
-  %6 = alloca [4 x i8], align 1
+  %5 = alloca [2 x i8], align 2
+  %6 = alloca [4 x i8], align 4
   %7 = load i8, ptr %1, align 1, !tbaa !11
   %.not20 = icmp eq i8 %7, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
@@ -116,135 +116,118 @@ define void @stbiw__writefv(ptr noundef readonly captures(none) %0, ptr noundef 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  br label %15
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %11
 
-15:                                               ; preds = %.lr.ph, %77
-  %16 = phi i8 [ %7, %.lr.ph ], [ %78, %77 ]
-  %.021 = phi ptr [ %1, %.lr.ph ], [ %17, %77 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  switch i8 %16, label %._crit_edge [
-    i8 32, label %77
-    i8 49, label %18
-    i8 50, label %35
-    i8 52, label %54
+11:                                               ; preds = %.lr.ph, %64
+  %12 = phi i8 [ %7, %.lr.ph ], [ %65, %64 ]
+  %.021 = phi ptr [ %1, %.lr.ph ], [ %13, %64 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  switch i8 %12, label %._crit_edge [
+    i8 32, label %64
+    i8 49, label %14
+    i8 50, label %31
+    i8 52, label %48
   ]
 
-18:                                               ; preds = %15
+14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #26
-  %19 = load i32, ptr %2, align 8
-  %20 = icmp ult i32 %19, 41
-  br i1 %20, label %21, label %26
+  %15 = load i32, ptr %2, align 8
+  %16 = icmp ult i32 %15, 41
+  br i1 %16, label %17, label %22
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %9, align 8
-  %23 = zext nneg i32 %19 to i64
-  %24 = getelementptr i8, ptr %22, i64 %23
-  %25 = add nuw nsw i32 %19, 8
-  store i32 %25, ptr %2, align 8
-  br label %29
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %9, align 8
+  %19 = zext nneg i32 %15 to i64
+  %20 = getelementptr i8, ptr %18, i64 %19
+  %21 = add nuw nsw i32 %15, 8
+  store i32 %21, ptr %2, align 8
+  br label %25
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr i8, ptr %27, i64 8
-  store ptr %28, ptr %8, align 8
-  br label %29
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr i8, ptr %23, i64 8
+  store ptr %24, ptr %8, align 8
+  br label %25
 
-29:                                               ; preds = %26, %21
-  %30 = phi ptr [ %24, %21 ], [ %27, %26 ]
-  %31 = load i32, ptr %30, align 4, !tbaa !3
-  %32 = trunc i32 %31 to i8
-  store i8 %32, ptr %4, align 1, !tbaa !11
-  %33 = load ptr, ptr %0, align 8, !tbaa !7
-  %34 = load ptr, ptr %13, align 8, !tbaa !10
-  call void %33(ptr noundef %34, ptr noundef nonnull %4, i32 noundef 1) #26
+25:                                               ; preds = %22, %17
+  %26 = phi ptr [ %20, %17 ], [ %23, %22 ]
+  %27 = load i32, ptr %26, align 4, !tbaa !3
+  %28 = trunc i32 %27 to i8
+  store i8 %28, ptr %4, align 1, !tbaa !11
+  %29 = load ptr, ptr %0, align 8, !tbaa !7
+  %30 = load ptr, ptr %10, align 8, !tbaa !10
+  call void %29(ptr noundef %30, ptr noundef nonnull %4, i32 noundef 1) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #26
-  br label %77
+  br label %64
 
-35:                                               ; preds = %15
-  %36 = load i32, ptr %2, align 8
-  %37 = icmp ult i32 %36, 41
-  br i1 %37, label %38, label %43
+31:                                               ; preds = %11
+  %32 = load i32, ptr %2, align 8
+  %33 = icmp ult i32 %32, 41
+  br i1 %33, label %34, label %39
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %9, align 8
-  %40 = zext nneg i32 %36 to i64
-  %41 = getelementptr i8, ptr %39, i64 %40
-  %42 = add nuw nsw i32 %36, 8
-  store i32 %42, ptr %2, align 8
-  br label %46
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %9, align 8
+  %36 = zext nneg i32 %32 to i64
+  %37 = getelementptr i8, ptr %35, i64 %36
+  %38 = add nuw nsw i32 %32, 8
+  store i32 %38, ptr %2, align 8
+  br label %42
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr i8, ptr %44, i64 8
-  store ptr %45, ptr %8, align 8
-  br label %46
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr i8, ptr %40, i64 8
+  store ptr %41, ptr %8, align 8
+  br label %42
 
-46:                                               ; preds = %43, %38
-  %47 = phi ptr [ %41, %38 ], [ %44, %43 ]
-  %48 = load i32, ptr %47, align 4, !tbaa !3
+42:                                               ; preds = %39, %34
+  %43 = phi ptr [ %37, %34 ], [ %40, %39 ]
+  %44 = load i32, ptr %43, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #26
-  %49 = trunc i32 %48 to i8
-  store i8 %49, ptr %5, align 1, !tbaa !11
-  %50 = lshr i32 %48, 8
-  %51 = trunc i32 %50 to i8
-  store i8 %51, ptr %14, align 1, !tbaa !11
-  %52 = load ptr, ptr %0, align 8, !tbaa !7
-  %53 = load ptr, ptr %13, align 8, !tbaa !10
-  call void %52(ptr noundef %53, ptr noundef nonnull %5, i32 noundef 2) #26
+  %45 = trunc i32 %44 to i16
+  store i16 %45, ptr %5, align 2
+  %46 = load ptr, ptr %0, align 8, !tbaa !7
+  %47 = load ptr, ptr %10, align 8, !tbaa !10
+  call void %46(ptr noundef %47, ptr noundef nonnull %5, i32 noundef 2) #26
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #26
-  br label %77
+  br label %64
 
-54:                                               ; preds = %15
-  %55 = load i32, ptr %2, align 8
-  %56 = icmp ult i32 %55, 41
-  br i1 %56, label %57, label %62
+48:                                               ; preds = %11
+  %49 = load i32, ptr %2, align 8
+  %50 = icmp ult i32 %49, 41
+  br i1 %50, label %51, label %56
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %9, align 8
-  %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr i8, ptr %58, i64 %59
-  %61 = add nuw nsw i32 %55, 8
-  store i32 %61, ptr %2, align 8
-  br label %65
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %9, align 8
+  %53 = zext nneg i32 %49 to i64
+  %54 = getelementptr i8, ptr %52, i64 %53
+  %55 = add nuw nsw i32 %49, 8
+  store i32 %55, ptr %2, align 8
+  br label %59
 
-62:                                               ; preds = %54
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr i8, ptr %63, i64 8
-  store ptr %64, ptr %8, align 8
-  br label %65
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr i8, ptr %57, i64 8
+  store ptr %58, ptr %8, align 8
+  br label %59
 
-65:                                               ; preds = %62, %57
-  %66 = phi ptr [ %60, %57 ], [ %63, %62 ]
-  %67 = load i32, ptr %66, align 4, !tbaa !3
+59:                                               ; preds = %56, %51
+  %60 = phi ptr [ %54, %51 ], [ %57, %56 ]
+  %61 = load i32, ptr %60, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #26
-  %68 = trunc i32 %67 to i8
-  store i8 %68, ptr %6, align 1, !tbaa !11
-  %69 = lshr i32 %67, 8
-  %70 = trunc i32 %69 to i8
-  store i8 %70, ptr %10, align 1, !tbaa !11
-  %71 = lshr i32 %67, 16
-  %72 = trunc i32 %71 to i8
-  store i8 %72, ptr %11, align 1, !tbaa !11
-  %73 = lshr i32 %67, 24
-  %74 = trunc nuw i32 %73 to i8
-  store i8 %74, ptr %12, align 1, !tbaa !11
-  %75 = load ptr, ptr %0, align 8, !tbaa !7
-  %76 = load ptr, ptr %13, align 8, !tbaa !10
-  call void %75(ptr noundef %76, ptr noundef nonnull %6, i32 noundef 4) #26
+  store i32 %61, ptr %6, align 4
+  %62 = load ptr, ptr %0, align 8, !tbaa !7
+  %63 = load ptr, ptr %10, align 8, !tbaa !10
+  call void %62(ptr noundef %63, ptr noundef nonnull %6, i32 noundef 4) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
-  br label %77
+  br label %64
 
-77:                                               ; preds = %65, %46, %29, %15
-  %78 = load i8, ptr %17, align 1, !tbaa !11
-  %.not = icmp eq i8 %78, 0
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !12
+64:                                               ; preds = %59, %42, %25, %11
+  %65 = load i8, ptr %13, align 1, !tbaa !11
+  %.not = icmp eq i8 %65, 0
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %77, %15, %3
+._crit_edge:                                      ; preds = %64, %11, %3
   ret void
 }
 

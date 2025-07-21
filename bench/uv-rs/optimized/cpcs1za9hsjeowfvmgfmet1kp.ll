@@ -14776,16 +14776,11 @@ define void @_ZN9uv_python9downloads21PythonDownloadRequest13fill_platform17hfe4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx.i, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !4091
-  %.sroa.528.sroa.0.0.extract.trunc = trunc i32 %.sroa.013.0.copyload.i to i8
-  %.sroa.528.sroa.7.0.extract.shift = lshr i32 %.sroa.013.0.copyload.i, 8
-  %.sroa.528.sroa.7.0.extract.trunc = trunc nuw i32 %.sroa.528.sroa.7.0.extract.shift to i24
   store i64 21, ptr %0, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %26, ptr %.sroa.431.0..sroa_idx, align 8
   %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.528.sroa.0.0.extract.trunc, ptr %.sroa.532.0..sroa_idx, align 8
-  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i24 %.sroa.528.sroa.7.0.extract.trunc, ptr %.sroa.633.0..sroa_idx, align 1
+  store i32 %.sroa.013.0.copyload.i, ptr %.sroa.532.0..sroa_idx, align 8
   %.sroa.734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i64 %.sroa.619.0.copyload.i, ptr %.sroa.734.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14928,16 +14923,11 @@ define void @_ZN9uv_python9downloads21PythonDownloadRequest8from_env17h5d5d9fc7e
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx.i, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !4104
-  %.sroa.537.sroa.0.0.extract.trunc = trunc i32 %.sroa.013.0.copyload.i to i8
-  %.sroa.537.sroa.7.0.extract.shift = lshr i32 %.sroa.013.0.copyload.i, 8
-  %.sroa.537.sroa.7.0.extract.trunc = trunc nuw i32 %.sroa.537.sroa.7.0.extract.shift to i24
   store i64 21, ptr %0, align 8
   %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %13, ptr %.sroa.443.0..sroa_idx, align 8
   %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.537.sroa.0.0.extract.trunc, ptr %.sroa.544.0..sroa_idx, align 8
-  %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i24 %.sroa.537.sroa.7.0.extract.trunc, ptr %.sroa.645.0..sroa_idx, align 1
+  store i32 %.sroa.013.0.copyload.i, ptr %.sroa.544.0..sroa_idx, align 8
   %.sroa.746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i64 %.sroa.619.0.copyload.i, ptr %.sroa.746.0..sroa_idx, align 4
   %20 = load i8, ptr %5, align 8, !range !1434, !alias.scope !4107, !noundef !10
@@ -20168,18 +20158,9 @@ define internal fastcc void @"_ZN72_$LT$uv_python..platform..Arch$u20$as$u20$cor
   tail call void @llvm.assume(i1 %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !4833
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !4840
-  %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %16 to i8
-  %.sroa.0.sroa.4.0.extract.shift = lshr i64 %16, 8
-  %.sroa.0.sroa.4.0.extract.trunc = trunc i64 %.sroa.0.sroa.4.0.extract.shift to i8
-  %.sroa.0.sroa.5.0.extract.shift = lshr i64 %16, 16
-  %.sroa.0.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.5.0.extract.shift to i48
   store i64 -9223372036854775807, ptr %0, align 8
   %.sroa.241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.0.sroa.0.0.extract.trunc, ptr %.sroa.241.0..sroa_idx, align 8
-  %.sroa.342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %.sroa.0.sroa.4.0.extract.trunc, ptr %.sroa.342.0..sroa_idx, align 1
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i48 %.sroa.0.sroa.5.0.extract.trunc, ptr %.sroa.443.0..sroa_idx, align 2
+  store i64 %16, ptr %.sroa.241.0..sroa_idx, align 8
   %.sroa.443.sroa.2.0..sroa.443.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %.sroa.443.sroa.2.0..sroa.443.0..sroa_idx.sroa_idx, align 8
   %.sroa.443.sroa.3.0..sroa.443.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -6550,14 +6550,9 @@ define void @_ZN10polars_row3row11RowsEncoded10into_array17hb5aad02cba645418E(pt
   %33 = icmp ult i64 %17, 1152921504606846976
   tail call void @llvm.assume(i1 %33)
   %34 = ptrtoint ptr %21 to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %34 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %34, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %.sroa.0.0.copyload.i, ptr %11, align 8, !alias.scope !467, !noalias !473
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !467, !noalias !473
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %11, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !467, !noalias !473
+  store i64 %34, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !467, !noalias !473
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %17, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !467, !noalias !473
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !466

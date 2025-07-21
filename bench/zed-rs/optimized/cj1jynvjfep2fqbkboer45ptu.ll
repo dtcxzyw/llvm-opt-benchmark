@@ -15727,7 +15727,7 @@ _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thre
   %18 = load ptr, ptr %17, align 8, !noalias !3517, !nonnull !9, !noundef !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !3517
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3510
-  br label %34
+  br label %_ZN4core3ops8function6FnOnce9call_once17h21bd22b11035788eE.exit
 
 _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i: ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -15759,32 +15759,22 @@ _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3510
   %31 = icmp eq i64 %.pre.i.i, -9223372036854775808
   %.pre.i = load ptr, ptr %5, align 8, !noalias !3510
-  br i1 %31, label %34, label %32
+  br i1 %31, label %_ZN4core3ops8function6FnOnce9call_once17h21bd22b11035788eE.exit, label %32
 
 32:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, i64 16, i1 false), !noalias !3525
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !3510
-  %33 = ptrtoint ptr %.pre.i to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %33 to i32
-  %.sroa.0.4.extract.shift.i.i = lshr i64 %33, 32
-  %.sroa.0.4.extract.trunc.i.i = trunc nuw i64 %.sroa.0.4.extract.shift.i.i to i32
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %0, align 8, !alias.scope !3526, !noalias !3525
-  %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.0.4.extract.trunc.i.i, ptr %.sroa.45.0..sroa_idx.i.i, align 4, !alias.scope !3526, !noalias !3525
   br label %_ZN4core3ops8function6FnOnce9call_once17h21bd22b11035788eE.exit
 
-34:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i
-  %35 = phi ptr [ %.pre.i, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i ], [ %18, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i ]
+_ZN4core3ops8function6FnOnce9call_once17h21bd22b11035788eE.exit: ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i, %32
+  %.sink13.in.i.i = phi ptr [ %.pre.i, %32 ], [ %.pre.i, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i ], [ %18, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i ]
+  %.sink.i.i = phi i64 [ %.pre.i.i, %32 ], [ -9223372036854775806, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i ], [ -9223372036854775806, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !3510
-  store ptr %35, ptr %0, align 8, !alias.scope !3526, !noalias !3525
-  br label %_ZN4core3ops8function6FnOnce9call_once17h21bd22b11035788eE.exit
-
-_ZN4core3ops8function6FnOnce9call_once17h21bd22b11035788eE.exit: ; preds = %32, %34
-  %.sink.i.i = phi i64 [ -9223372036854775806, %34 ], [ %.pre.i.i, %32 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i.i, ptr %36, align 8, !alias.scope !3526, !noalias !3525
+  %.sink13.i.i = ptrtoint ptr %.sink13.in.i.i to i64
+  store i64 %.sink13.i.i, ptr %0, align 8, !alias.scope !3526, !noalias !3525
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i.i, ptr %33, align 8, !alias.scope !3526, !noalias !3525
   ret void
 }
 
@@ -15852,7 +15842,7 @@ _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thre
   %18 = load ptr, ptr %17, align 8, !noalias !3549, !nonnull !9, !noundef !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !3549
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3542
-  br label %34
+  br label %_ZN4core3ops8function6FnOnce9call_once17hb08f5a4fc62d5fe9E.exit
 
 _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i: ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -15884,32 +15874,22 @@ _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3542
   %31 = icmp eq i64 %.pre.i.i, -9223372036854775808
   %.pre.i = load ptr, ptr %5, align 8, !noalias !3542
-  br i1 %31, label %34, label %32
+  br i1 %31, label %_ZN4core3ops8function6FnOnce9call_once17hb08f5a4fc62d5fe9E.exit, label %32
 
 32:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, i64 16, i1 false), !noalias !3556
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !3542
-  %33 = ptrtoint ptr %.pre.i to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %33 to i32
-  %.sroa.0.4.extract.shift.i.i = lshr i64 %33, 32
-  %.sroa.0.4.extract.trunc.i.i = trunc nuw i64 %.sroa.0.4.extract.shift.i.i to i32
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %0, align 8, !alias.scope !3557, !noalias !3556
-  %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.0.4.extract.trunc.i.i, ptr %.sroa.45.0..sroa_idx.i.i, align 4, !alias.scope !3557, !noalias !3556
   br label %_ZN4core3ops8function6FnOnce9call_once17hb08f5a4fc62d5fe9E.exit
 
-34:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i
-  %35 = phi ptr [ %.pre.i, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i ], [ %18, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i ]
+_ZN4core3ops8function6FnOnce9call_once17hb08f5a4fc62d5fe9E.exit: ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i, %32
+  %.sink13.in.i.i = phi ptr [ %.pre.i, %32 ], [ %.pre.i, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i ], [ %18, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i ]
+  %.sink.i.i = phi i64 [ %.pre.i.i, %32 ], [ -9223372036854775806, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.i.i ], [ -9223372036854775806, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !3542
-  store ptr %35, ptr %0, align 8, !alias.scope !3557, !noalias !3556
-  br label %_ZN4core3ops8function6FnOnce9call_once17hb08f5a4fc62d5fe9E.exit
-
-_ZN4core3ops8function6FnOnce9call_once17hb08f5a4fc62d5fe9E.exit: ; preds = %32, %34
-  %.sink.i.i = phi i64 [ -9223372036854775806, %34 ], [ %.pre.i.i, %32 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i.i, ptr %36, align 8, !alias.scope !3557, !noalias !3556
+  %.sink13.i.i = ptrtoint ptr %.sink13.in.i.i to i64
+  store i64 %.sink13.i.i, ptr %0, align 8, !alias.scope !3557, !noalias !3556
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i.i, ptr %33, align 8, !alias.scope !3557, !noalias !3556
   ret void
 }
 
@@ -140638,7 +140618,7 @@ _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thre
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !27279
   store ptr %18, ptr %5, align 8, !alias.scope !27276, !noalias !27281
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %34
+  br label %33
 
 _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit: ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -140669,33 +140649,27 @@ _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit: ; p
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !3524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %31 = icmp eq i64 %.pre, -9223372036854775808
-  br i1 %31, label %34, label %32
+  br i1 %31, label %33, label %32
 
 32:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit
   %.sroa.07.0.copyload = load ptr, ptr %5, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %33 = ptrtoint ptr %.sroa.07.0.copyload to i64
-  %.sroa.0.0.extract.trunc = trunc i64 %33 to i32
-  %.sroa.0.4.extract.shift = lshr i64 %33, 32
-  %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.0.4.extract.trunc, ptr %.sroa.45.0..sroa_idx, align 4
-  br label %36
+  br label %35
 
-34:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit
-  %35 = load ptr, ptr %5, align 8, !nonnull !9, !noundef !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  store ptr %35, ptr %0, align 8
-  br label %36
+33:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit
+  %34 = load ptr, ptr %5, align 8, !nonnull !9, !noundef !9
+  br label %35
 
-36:                                               ; preds = %34, %32
-  %.sink = phi i64 [ -9223372036854775806, %34 ], [ %.pre, %32 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %37, align 8
+35:                                               ; preds = %33, %32
+  %.sink13.in = phi ptr [ %34, %33 ], [ %.sroa.07.0.copyload, %32 ]
+  %.sink = phi i64 [ -9223372036854775806, %33 ], [ %.pre, %32 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  %.sink13 = ptrtoint ptr %.sink13.in to i64
+  store i64 %.sink13, ptr %0, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %36, align 8
   ret void
 }
 
@@ -140975,7 +140949,7 @@ _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thre
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !27321
   store ptr %18, ptr %5, align 8, !alias.scope !27318, !noalias !27323
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %34
+  br label %33
 
 _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit: ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -141006,33 +140980,27 @@ _ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit: ; p
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !3524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %31 = icmp eq i64 %.pre, -9223372036854775808
-  br i1 %31, label %34, label %32
+  br i1 %31, label %33, label %32
 
 32:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit
   %.sroa.07.0.copyload = load ptr, ptr %5, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %33 = ptrtoint ptr %.sroa.07.0.copyload to i64
-  %.sroa.0.0.extract.trunc = trunc i64 %33 to i32
-  %.sroa.0.4.extract.shift = lshr i64 %33, 32
-  %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.0.4.extract.trunc, ptr %.sroa.45.0..sroa_idx, align 4
-  br label %36
+  br label %35
 
-34:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit
-  %35 = load ptr, ptr %5, align 8, !nonnull !9, !noundef !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  store ptr %35, ptr %0, align 8
-  br label %36
+33:                                               ; preds = %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit.thread, %_ZN4gpui11text_system10TextSystem15rasterize_glyph17h077bc7d70ba58b8aE.exit
+  %34 = load ptr, ptr %5, align 8, !nonnull !9, !noundef !9
+  br label %35
 
-36:                                               ; preds = %34, %32
-  %.sink = phi i64 [ -9223372036854775806, %34 ], [ %.pre, %32 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %37, align 8
+35:                                               ; preds = %33, %32
+  %.sink13.in = phi ptr [ %34, %33 ], [ %.sroa.07.0.copyload, %32 ]
+  %.sink = phi i64 [ -9223372036854775806, %33 ], [ %.pre, %32 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  %.sink13 = ptrtoint ptr %.sink13.in to i64
+  store i64 %.sink13, ptr %0, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %36, align 8
   ret void
 }
 

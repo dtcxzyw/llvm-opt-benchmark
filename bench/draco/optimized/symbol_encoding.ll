@@ -2554,7 +2554,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi5EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %35
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !62
@@ -2562,142 +2562,121 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi5EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !13
-  %33 = load i32, ptr %25, align 8, !tbaa !63
-  %34 = add nsw i32 %33, 2
+  %29 = trunc nuw nsw i32 %9 to i16
+  store i16 %29, ptr %28, align 1
+  %30 = load i32, ptr %25, align 8, !tbaa !63
+  %31 = add nsw i32 %30, 2
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-35:                                               ; preds = %21
-  %36 = icmp ult i32 %10, 4194304
-  br i1 %36, label %37, label %53
+32:                                               ; preds = %21
+  %33 = icmp ult i32 %10, 4194304
+  br i1 %33, label %34, label %47
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = add nuw nsw i32 %9, 8372224
-  %44 = trunc i32 %9 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !13
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !13
-  %48 = lshr i32 %43, 16
-  %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %39, align 8, !tbaa !63
-  %52 = add nsw i32 %51, 3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !63
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = add nuw nsw i32 %9, 8372224
+  %41 = trunc i32 %9 to i8
+  store i8 %41, ptr %39, align 1, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %43 = lshr i32 %40, 8
+  %44 = trunc nuw i32 %43 to i16
+  store i16 %44, ptr %42, align 1
+  %45 = load i32, ptr %36, align 8, !tbaa !63
+  %46 = add nsw i32 %45, 3
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-53:                                               ; preds = %35
-  %54 = icmp ult i32 %10, 1073741824
-  br i1 %54, label %55, label %74
+47:                                               ; preds = %32
+  %48 = icmp ult i32 %10, 1073741824
+  br i1 %48, label %49, label %58
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8, !tbaa !62
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8, !tbaa !63
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = add nuw nsw i32 %9, -1073758208
-  %62 = trunc i32 %9 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !13
-  %63 = lshr i32 %61, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !13
-  %66 = lshr i32 %61, 16
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i8 %67, ptr %68, align 1, !tbaa !13
-  %69 = lshr i32 %61, 24
-  %70 = trunc nuw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 3
-  store i8 %70, ptr %71, align 1, !tbaa !13
-  %72 = load i32, ptr %57, align 8, !tbaa !63
-  %73 = add nsw i32 %72, 4
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8, !tbaa !63
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = add nuw nsw i32 %9, -1073758208
+  store i32 %55, ptr %54, align 1
+  %56 = load i32, ptr %51, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 4
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load i32, ptr %59, align 8, !tbaa !63
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %37, %55, %74
-  %.0.i = phi i32 [ %20, %12 ], [ %34, %23 ], [ %52, %37 ], [ %73, %55 ], [ %76, %74 ]
-  %77 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, %58
+  %.0.i = phi i32 [ %20, %12 ], [ %31, %23 ], [ %46, %34 ], [ %57, %49 ], [ %60, %58 ]
+  %61 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %78 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %77, ptr noundef nonnull %3)
-          to label %79 unwind label %102
+  %62 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %61, ptr noundef nonnull %3)
+          to label %63 unwind label %86
 
-79:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
-  %83 = load ptr, ptr %3, align 8, !tbaa !60
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %80, i64 %77, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %83, i64 %87, i1 false)
-  %89 = load i64, ptr %5, align 8, !tbaa !61
-  %90 = add nsw i64 %87, %77
-  %91 = add i64 %90, %89
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %91)
-          to label %92 unwind label %104
+63:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %67 = load ptr, ptr %3, align 8, !tbaa !60
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = and i64 %70, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %64, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %71, i1 false)
+  %73 = load i64, ptr %5, align 8, !tbaa !61
+  %74 = add nsw i64 %71, %61
+  %75 = add i64 %74, %73
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %75)
+          to label %76 unwind label %88
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %94, null
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %92
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %92
-  store ptr null, ptr %93, align 8, !tbaa !71
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %96
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
+  store ptr null, ptr %77, align 8, !tbaa !71
+  %79 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %80
 
-96:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19
+80:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %79 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %96
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-102:                                              ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %103 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-104:                                              ; preds = %79
-  %105 = landingpad { ptr, i32 }
+88:                                               ; preds = %63
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-106:                                              ; preds = %104, %102
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -8445,7 +8424,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi1EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %35
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !62
@@ -8453,142 +8432,121 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi1EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !13
-  %33 = load i32, ptr %25, align 8, !tbaa !63
-  %34 = add nsw i32 %33, 2
+  %29 = trunc nuw nsw i32 %9 to i16
+  store i16 %29, ptr %28, align 1
+  %30 = load i32, ptr %25, align 8, !tbaa !63
+  %31 = add nsw i32 %30, 2
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-35:                                               ; preds = %21
-  %36 = icmp ult i32 %10, 4194304
-  br i1 %36, label %37, label %53
+32:                                               ; preds = %21
+  %33 = icmp ult i32 %10, 4194304
+  br i1 %33, label %34, label %47
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = add nuw nsw i32 %9, 8372224
-  %44 = trunc i32 %9 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !13
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !13
-  %48 = lshr i32 %43, 16
-  %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %39, align 8, !tbaa !63
-  %52 = add nsw i32 %51, 3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !63
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = add nuw nsw i32 %9, 8372224
+  %41 = trunc i32 %9 to i8
+  store i8 %41, ptr %39, align 1, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %43 = lshr i32 %40, 8
+  %44 = trunc nuw i32 %43 to i16
+  store i16 %44, ptr %42, align 1
+  %45 = load i32, ptr %36, align 8, !tbaa !63
+  %46 = add nsw i32 %45, 3
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-53:                                               ; preds = %35
-  %54 = icmp ult i32 %10, 1073741824
-  br i1 %54, label %55, label %74
+47:                                               ; preds = %32
+  %48 = icmp ult i32 %10, 1073741824
+  br i1 %48, label %49, label %58
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8, !tbaa !62
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8, !tbaa !63
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = add nuw nsw i32 %9, -1073758208
-  %62 = trunc i32 %9 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !13
-  %63 = lshr i32 %61, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !13
-  %66 = lshr i32 %61, 16
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i8 %67, ptr %68, align 1, !tbaa !13
-  %69 = lshr i32 %61, 24
-  %70 = trunc nuw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 3
-  store i8 %70, ptr %71, align 1, !tbaa !13
-  %72 = load i32, ptr %57, align 8, !tbaa !63
-  %73 = add nsw i32 %72, 4
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8, !tbaa !63
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = add nuw nsw i32 %9, -1073758208
+  store i32 %55, ptr %54, align 1
+  %56 = load i32, ptr %51, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 4
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load i32, ptr %59, align 8, !tbaa !63
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %37, %55, %74
-  %.0.i = phi i32 [ %20, %12 ], [ %34, %23 ], [ %52, %37 ], [ %73, %55 ], [ %76, %74 ]
-  %77 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, %58
+  %.0.i = phi i32 [ %20, %12 ], [ %31, %23 ], [ %46, %34 ], [ %57, %49 ], [ %60, %58 ]
+  %61 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %78 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %77, ptr noundef nonnull %3)
-          to label %79 unwind label %102
+  %62 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %61, ptr noundef nonnull %3)
+          to label %63 unwind label %86
 
-79:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
-  %83 = load ptr, ptr %3, align 8, !tbaa !60
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %80, i64 %77, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %83, i64 %87, i1 false)
-  %89 = load i64, ptr %5, align 8, !tbaa !113
-  %90 = add nsw i64 %87, %77
-  %91 = add i64 %90, %89
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %91)
-          to label %92 unwind label %104
+63:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %67 = load ptr, ptr %3, align 8, !tbaa !60
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = and i64 %70, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %64, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %71, i1 false)
+  %73 = load i64, ptr %5, align 8, !tbaa !113
+  %74 = add nsw i64 %71, %61
+  %75 = add i64 %74, %73
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %75)
+          to label %76 unwind label %88
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %94, null
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %92
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %92
-  store ptr null, ptr %93, align 8, !tbaa !71
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %96
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
+  store ptr null, ptr %77, align 8, !tbaa !71
+  %79 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %80
 
-96:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19
+80:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %79 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %96
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-102:                                              ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %103 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-104:                                              ; preds = %79
-  %105 = landingpad { ptr, i32 }
+88:                                               ; preds = %63
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-106:                                              ; preds = %104, %102
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -10440,7 +10398,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi2EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %35
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !62
@@ -10448,142 +10406,121 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi2EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !13
-  %33 = load i32, ptr %25, align 8, !tbaa !63
-  %34 = add nsw i32 %33, 2
+  %29 = trunc nuw nsw i32 %9 to i16
+  store i16 %29, ptr %28, align 1
+  %30 = load i32, ptr %25, align 8, !tbaa !63
+  %31 = add nsw i32 %30, 2
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-35:                                               ; preds = %21
-  %36 = icmp ult i32 %10, 4194304
-  br i1 %36, label %37, label %53
+32:                                               ; preds = %21
+  %33 = icmp ult i32 %10, 4194304
+  br i1 %33, label %34, label %47
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = add nuw nsw i32 %9, 8372224
-  %44 = trunc i32 %9 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !13
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !13
-  %48 = lshr i32 %43, 16
-  %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %39, align 8, !tbaa !63
-  %52 = add nsw i32 %51, 3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !63
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = add nuw nsw i32 %9, 8372224
+  %41 = trunc i32 %9 to i8
+  store i8 %41, ptr %39, align 1, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %43 = lshr i32 %40, 8
+  %44 = trunc nuw i32 %43 to i16
+  store i16 %44, ptr %42, align 1
+  %45 = load i32, ptr %36, align 8, !tbaa !63
+  %46 = add nsw i32 %45, 3
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-53:                                               ; preds = %35
-  %54 = icmp ult i32 %10, 1073741824
-  br i1 %54, label %55, label %74
+47:                                               ; preds = %32
+  %48 = icmp ult i32 %10, 1073741824
+  br i1 %48, label %49, label %58
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8, !tbaa !62
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8, !tbaa !63
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = add nuw nsw i32 %9, -1073758208
-  %62 = trunc i32 %9 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !13
-  %63 = lshr i32 %61, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !13
-  %66 = lshr i32 %61, 16
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i8 %67, ptr %68, align 1, !tbaa !13
-  %69 = lshr i32 %61, 24
-  %70 = trunc nuw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 3
-  store i8 %70, ptr %71, align 1, !tbaa !13
-  %72 = load i32, ptr %57, align 8, !tbaa !63
-  %73 = add nsw i32 %72, 4
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8, !tbaa !63
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = add nuw nsw i32 %9, -1073758208
+  store i32 %55, ptr %54, align 1
+  %56 = load i32, ptr %51, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 4
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load i32, ptr %59, align 8, !tbaa !63
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %37, %55, %74
-  %.0.i = phi i32 [ %20, %12 ], [ %34, %23 ], [ %52, %37 ], [ %73, %55 ], [ %76, %74 ]
-  %77 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, %58
+  %.0.i = phi i32 [ %20, %12 ], [ %31, %23 ], [ %46, %34 ], [ %57, %49 ], [ %60, %58 ]
+  %61 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %78 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %77, ptr noundef nonnull %3)
-          to label %79 unwind label %102
+  %62 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %61, ptr noundef nonnull %3)
+          to label %63 unwind label %86
 
-79:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
-  %83 = load ptr, ptr %3, align 8, !tbaa !60
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %80, i64 %77, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %83, i64 %87, i1 false)
-  %89 = load i64, ptr %5, align 8, !tbaa !118
-  %90 = add nsw i64 %87, %77
-  %91 = add i64 %90, %89
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %91)
-          to label %92 unwind label %104
+63:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %67 = load ptr, ptr %3, align 8, !tbaa !60
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = and i64 %70, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %64, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %71, i1 false)
+  %73 = load i64, ptr %5, align 8, !tbaa !118
+  %74 = add nsw i64 %71, %61
+  %75 = add i64 %74, %73
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %75)
+          to label %76 unwind label %88
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %94, null
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %92
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %92
-  store ptr null, ptr %93, align 8, !tbaa !71
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %96
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
+  store ptr null, ptr %77, align 8, !tbaa !71
+  %79 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %80
 
-96:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19
+80:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %79 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %96
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-102:                                              ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %103 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-104:                                              ; preds = %79
-  %105 = landingpad { ptr, i32 }
+88:                                               ; preds = %63
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-106:                                              ; preds = %104, %102
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -12435,7 +12372,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi3EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %35
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !62
@@ -12443,142 +12380,121 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi3EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !13
-  %33 = load i32, ptr %25, align 8, !tbaa !63
-  %34 = add nsw i32 %33, 2
+  %29 = trunc nuw nsw i32 %9 to i16
+  store i16 %29, ptr %28, align 1
+  %30 = load i32, ptr %25, align 8, !tbaa !63
+  %31 = add nsw i32 %30, 2
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-35:                                               ; preds = %21
-  %36 = icmp ult i32 %10, 4194304
-  br i1 %36, label %37, label %53
+32:                                               ; preds = %21
+  %33 = icmp ult i32 %10, 4194304
+  br i1 %33, label %34, label %47
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = add nuw nsw i32 %9, 8372224
-  %44 = trunc i32 %9 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !13
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !13
-  %48 = lshr i32 %43, 16
-  %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %39, align 8, !tbaa !63
-  %52 = add nsw i32 %51, 3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !63
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = add nuw nsw i32 %9, 8372224
+  %41 = trunc i32 %9 to i8
+  store i8 %41, ptr %39, align 1, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %43 = lshr i32 %40, 8
+  %44 = trunc nuw i32 %43 to i16
+  store i16 %44, ptr %42, align 1
+  %45 = load i32, ptr %36, align 8, !tbaa !63
+  %46 = add nsw i32 %45, 3
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-53:                                               ; preds = %35
-  %54 = icmp ult i32 %10, 1073741824
-  br i1 %54, label %55, label %74
+47:                                               ; preds = %32
+  %48 = icmp ult i32 %10, 1073741824
+  br i1 %48, label %49, label %58
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8, !tbaa !62
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8, !tbaa !63
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = add nuw nsw i32 %9, -1073758208
-  %62 = trunc i32 %9 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !13
-  %63 = lshr i32 %61, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !13
-  %66 = lshr i32 %61, 16
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i8 %67, ptr %68, align 1, !tbaa !13
-  %69 = lshr i32 %61, 24
-  %70 = trunc nuw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 3
-  store i8 %70, ptr %71, align 1, !tbaa !13
-  %72 = load i32, ptr %57, align 8, !tbaa !63
-  %73 = add nsw i32 %72, 4
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8, !tbaa !63
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = add nuw nsw i32 %9, -1073758208
+  store i32 %55, ptr %54, align 1
+  %56 = load i32, ptr %51, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 4
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load i32, ptr %59, align 8, !tbaa !63
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %37, %55, %74
-  %.0.i = phi i32 [ %20, %12 ], [ %34, %23 ], [ %52, %37 ], [ %73, %55 ], [ %76, %74 ]
-  %77 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, %58
+  %.0.i = phi i32 [ %20, %12 ], [ %31, %23 ], [ %46, %34 ], [ %57, %49 ], [ %60, %58 ]
+  %61 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %78 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %77, ptr noundef nonnull %3)
-          to label %79 unwind label %102
+  %62 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %61, ptr noundef nonnull %3)
+          to label %63 unwind label %86
 
-79:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
-  %83 = load ptr, ptr %3, align 8, !tbaa !60
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %80, i64 %77, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %83, i64 %87, i1 false)
-  %89 = load i64, ptr %5, align 8, !tbaa !123
-  %90 = add nsw i64 %87, %77
-  %91 = add i64 %90, %89
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %91)
-          to label %92 unwind label %104
+63:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %67 = load ptr, ptr %3, align 8, !tbaa !60
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = and i64 %70, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %64, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %71, i1 false)
+  %73 = load i64, ptr %5, align 8, !tbaa !123
+  %74 = add nsw i64 %71, %61
+  %75 = add i64 %74, %73
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %75)
+          to label %76 unwind label %88
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %94, null
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %92
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %92
-  store ptr null, ptr %93, align 8, !tbaa !71
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %96
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
+  store ptr null, ptr %77, align 8, !tbaa !71
+  %79 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %80
 
-96:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19
+80:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %79 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %96
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-102:                                              ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %103 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-104:                                              ; preds = %79
-  %105 = landingpad { ptr, i32 }
+88:                                               ; preds = %63
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-106:                                              ; preds = %104, %102
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -14430,7 +14346,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi4EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %35
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !62
@@ -14438,142 +14354,121 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi4EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !13
-  %33 = load i32, ptr %25, align 8, !tbaa !63
-  %34 = add nsw i32 %33, 2
+  %29 = trunc nuw nsw i32 %9 to i16
+  store i16 %29, ptr %28, align 1
+  %30 = load i32, ptr %25, align 8, !tbaa !63
+  %31 = add nsw i32 %30, 2
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-35:                                               ; preds = %21
-  %36 = icmp ult i32 %10, 4194304
-  br i1 %36, label %37, label %53
+32:                                               ; preds = %21
+  %33 = icmp ult i32 %10, 4194304
+  br i1 %33, label %34, label %47
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = add nuw nsw i32 %9, 8372224
-  %44 = trunc i32 %9 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !13
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !13
-  %48 = lshr i32 %43, 16
-  %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %39, align 8, !tbaa !63
-  %52 = add nsw i32 %51, 3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !63
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = add nuw nsw i32 %9, 8372224
+  %41 = trunc i32 %9 to i8
+  store i8 %41, ptr %39, align 1, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %43 = lshr i32 %40, 8
+  %44 = trunc nuw i32 %43 to i16
+  store i16 %44, ptr %42, align 1
+  %45 = load i32, ptr %36, align 8, !tbaa !63
+  %46 = add nsw i32 %45, 3
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-53:                                               ; preds = %35
-  %54 = icmp ult i32 %10, 1073741824
-  br i1 %54, label %55, label %74
+47:                                               ; preds = %32
+  %48 = icmp ult i32 %10, 1073741824
+  br i1 %48, label %49, label %58
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8, !tbaa !62
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8, !tbaa !63
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = add nuw nsw i32 %9, -1073758208
-  %62 = trunc i32 %9 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !13
-  %63 = lshr i32 %61, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !13
-  %66 = lshr i32 %61, 16
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i8 %67, ptr %68, align 1, !tbaa !13
-  %69 = lshr i32 %61, 24
-  %70 = trunc nuw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 3
-  store i8 %70, ptr %71, align 1, !tbaa !13
-  %72 = load i32, ptr %57, align 8, !tbaa !63
-  %73 = add nsw i32 %72, 4
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8, !tbaa !63
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = add nuw nsw i32 %9, -1073758208
+  store i32 %55, ptr %54, align 1
+  %56 = load i32, ptr %51, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 4
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load i32, ptr %59, align 8, !tbaa !63
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %37, %55, %74
-  %.0.i = phi i32 [ %20, %12 ], [ %34, %23 ], [ %52, %37 ], [ %73, %55 ], [ %76, %74 ]
-  %77 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, %58
+  %.0.i = phi i32 [ %20, %12 ], [ %31, %23 ], [ %46, %34 ], [ %57, %49 ], [ %60, %58 ]
+  %61 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %78 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %77, ptr noundef nonnull %3)
-          to label %79 unwind label %102
+  %62 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %61, ptr noundef nonnull %3)
+          to label %63 unwind label %86
 
-79:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
-  %83 = load ptr, ptr %3, align 8, !tbaa !60
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %80, i64 %77, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %83, i64 %87, i1 false)
-  %89 = load i64, ptr %5, align 8, !tbaa !128
-  %90 = add nsw i64 %87, %77
-  %91 = add i64 %90, %89
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %91)
-          to label %92 unwind label %104
+63:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %67 = load ptr, ptr %3, align 8, !tbaa !60
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = and i64 %70, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %64, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %71, i1 false)
+  %73 = load i64, ptr %5, align 8, !tbaa !128
+  %74 = add nsw i64 %71, %61
+  %75 = add i64 %74, %73
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %75)
+          to label %76 unwind label %88
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %94, null
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %92
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %92
-  store ptr null, ptr %93, align 8, !tbaa !71
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %96
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
+  store ptr null, ptr %77, align 8, !tbaa !71
+  %79 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %80
 
-96:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19
+80:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %79 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %96
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-102:                                              ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %103 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-104:                                              ; preds = %79
-  %105 = landingpad { ptr, i32 }
+88:                                               ; preds = %63
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-106:                                              ; preds = %104, %102
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -16425,7 +16320,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi6EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %35
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !62
@@ -16433,142 +16328,121 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi6EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !13
-  %33 = load i32, ptr %25, align 8, !tbaa !63
-  %34 = add nsw i32 %33, 2
+  %29 = trunc nuw nsw i32 %9 to i16
+  store i16 %29, ptr %28, align 1
+  %30 = load i32, ptr %25, align 8, !tbaa !63
+  %31 = add nsw i32 %30, 2
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-35:                                               ; preds = %21
-  %36 = icmp ult i32 %10, 4194304
-  br i1 %36, label %37, label %53
+32:                                               ; preds = %21
+  %33 = icmp ult i32 %10, 4194304
+  br i1 %33, label %34, label %47
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = add nuw nsw i32 %9, 8372224
-  %44 = trunc i32 %9 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !13
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !13
-  %48 = lshr i32 %43, 16
-  %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %39, align 8, !tbaa !63
-  %52 = add nsw i32 %51, 3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !63
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = add nuw nsw i32 %9, 8372224
+  %41 = trunc i32 %9 to i8
+  store i8 %41, ptr %39, align 1, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %43 = lshr i32 %40, 8
+  %44 = trunc nuw i32 %43 to i16
+  store i16 %44, ptr %42, align 1
+  %45 = load i32, ptr %36, align 8, !tbaa !63
+  %46 = add nsw i32 %45, 3
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-53:                                               ; preds = %35
-  %54 = icmp ult i32 %10, 1073741824
-  br i1 %54, label %55, label %74
+47:                                               ; preds = %32
+  %48 = icmp ult i32 %10, 1073741824
+  br i1 %48, label %49, label %58
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8, !tbaa !62
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8, !tbaa !63
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = add nuw nsw i32 %9, -1073758208
-  %62 = trunc i32 %9 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !13
-  %63 = lshr i32 %61, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !13
-  %66 = lshr i32 %61, 16
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i8 %67, ptr %68, align 1, !tbaa !13
-  %69 = lshr i32 %61, 24
-  %70 = trunc nuw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 3
-  store i8 %70, ptr %71, align 1, !tbaa !13
-  %72 = load i32, ptr %57, align 8, !tbaa !63
-  %73 = add nsw i32 %72, 4
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8, !tbaa !63
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = add nuw nsw i32 %9, -1073758208
+  store i32 %55, ptr %54, align 1
+  %56 = load i32, ptr %51, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 4
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load i32, ptr %59, align 8, !tbaa !63
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %37, %55, %74
-  %.0.i = phi i32 [ %20, %12 ], [ %34, %23 ], [ %52, %37 ], [ %73, %55 ], [ %76, %74 ]
-  %77 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, %58
+  %.0.i = phi i32 [ %20, %12 ], [ %31, %23 ], [ %46, %34 ], [ %57, %49 ], [ %60, %58 ]
+  %61 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %78 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %77, ptr noundef nonnull %3)
-          to label %79 unwind label %102
+  %62 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %61, ptr noundef nonnull %3)
+          to label %63 unwind label %86
 
-79:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
-  %83 = load ptr, ptr %3, align 8, !tbaa !60
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %80, i64 %77, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %83, i64 %87, i1 false)
-  %89 = load i64, ptr %5, align 8, !tbaa !134
-  %90 = add nsw i64 %87, %77
-  %91 = add i64 %90, %89
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %91)
-          to label %92 unwind label %104
+63:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %67 = load ptr, ptr %3, align 8, !tbaa !60
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = and i64 %70, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %64, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %71, i1 false)
+  %73 = load i64, ptr %5, align 8, !tbaa !134
+  %74 = add nsw i64 %71, %61
+  %75 = add i64 %74, %73
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %75)
+          to label %76 unwind label %88
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %94, null
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %92
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %92
-  store ptr null, ptr %93, align 8, !tbaa !71
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %96
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
+  store ptr null, ptr %77, align 8, !tbaa !71
+  %79 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %80
 
-96:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19
+80:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %79 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %96
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-102:                                              ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %103 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-104:                                              ; preds = %79
-  %105 = landingpad { ptr, i32 }
+88:                                               ; preds = %63
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-106:                                              ; preds = %104, %102
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -18420,7 +18294,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi7EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %35
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !62
@@ -18428,142 +18302,121 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi7EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !13
-  %33 = load i32, ptr %25, align 8, !tbaa !63
-  %34 = add nsw i32 %33, 2
+  %29 = trunc nuw nsw i32 %9 to i16
+  store i16 %29, ptr %28, align 1
+  %30 = load i32, ptr %25, align 8, !tbaa !63
+  %31 = add nsw i32 %30, 2
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-35:                                               ; preds = %21
-  %36 = icmp ult i32 %10, 4194304
-  br i1 %36, label %37, label %53
+32:                                               ; preds = %21
+  %33 = icmp ult i32 %10, 4194304
+  br i1 %33, label %34, label %47
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = add nuw nsw i32 %9, 8372224
-  %44 = trunc i32 %9 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !13
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !13
-  %48 = lshr i32 %43, 16
-  %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %39, align 8, !tbaa !63
-  %52 = add nsw i32 %51, 3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !63
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = add nuw nsw i32 %9, 8372224
+  %41 = trunc i32 %9 to i8
+  store i8 %41, ptr %39, align 1, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %43 = lshr i32 %40, 8
+  %44 = trunc nuw i32 %43 to i16
+  store i16 %44, ptr %42, align 1
+  %45 = load i32, ptr %36, align 8, !tbaa !63
+  %46 = add nsw i32 %45, 3
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-53:                                               ; preds = %35
-  %54 = icmp ult i32 %10, 1073741824
-  br i1 %54, label %55, label %74
+47:                                               ; preds = %32
+  %48 = icmp ult i32 %10, 1073741824
+  br i1 %48, label %49, label %58
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8, !tbaa !62
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8, !tbaa !63
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = add nuw nsw i32 %9, -1073758208
-  %62 = trunc i32 %9 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !13
-  %63 = lshr i32 %61, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !13
-  %66 = lshr i32 %61, 16
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i8 %67, ptr %68, align 1, !tbaa !13
-  %69 = lshr i32 %61, 24
-  %70 = trunc nuw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 3
-  store i8 %70, ptr %71, align 1, !tbaa !13
-  %72 = load i32, ptr %57, align 8, !tbaa !63
-  %73 = add nsw i32 %72, 4
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8, !tbaa !63
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = add nuw nsw i32 %9, -1073758208
+  store i32 %55, ptr %54, align 1
+  %56 = load i32, ptr %51, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 4
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load i32, ptr %59, align 8, !tbaa !63
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %37, %55, %74
-  %.0.i = phi i32 [ %20, %12 ], [ %34, %23 ], [ %52, %37 ], [ %73, %55 ], [ %76, %74 ]
-  %77 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, %58
+  %.0.i = phi i32 [ %20, %12 ], [ %31, %23 ], [ %46, %34 ], [ %57, %49 ], [ %60, %58 ]
+  %61 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %78 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %77, ptr noundef nonnull %3)
-          to label %79 unwind label %102
+  %62 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %61, ptr noundef nonnull %3)
+          to label %63 unwind label %86
 
-79:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
-  %83 = load ptr, ptr %3, align 8, !tbaa !60
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %80, i64 %77, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %83, i64 %87, i1 false)
-  %89 = load i64, ptr %5, align 8, !tbaa !139
-  %90 = add nsw i64 %87, %77
-  %91 = add i64 %90, %89
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %91)
-          to label %92 unwind label %104
+63:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %67 = load ptr, ptr %3, align 8, !tbaa !60
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = and i64 %70, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %64, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %71, i1 false)
+  %73 = load i64, ptr %5, align 8, !tbaa !139
+  %74 = add nsw i64 %71, %61
+  %75 = add i64 %74, %73
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %75)
+          to label %76 unwind label %88
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %94, null
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %92
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %92
-  store ptr null, ptr %93, align 8, !tbaa !71
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %96
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
+  store ptr null, ptr %77, align 8, !tbaa !71
+  %79 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %80
 
-96:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19
+80:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %79 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %96
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-102:                                              ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %103 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-104:                                              ; preds = %79
-  %105 = landingpad { ptr, i32 }
+88:                                               ; preds = %63
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-106:                                              ; preds = %104, %102
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -20415,7 +20268,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi8EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %35
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !62
@@ -20423,142 +20276,121 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi8EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !13
-  %33 = load i32, ptr %25, align 8, !tbaa !63
-  %34 = add nsw i32 %33, 2
+  %29 = trunc nuw nsw i32 %9 to i16
+  store i16 %29, ptr %28, align 1
+  %30 = load i32, ptr %25, align 8, !tbaa !63
+  %31 = add nsw i32 %30, 2
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-35:                                               ; preds = %21
-  %36 = icmp ult i32 %10, 4194304
-  br i1 %36, label %37, label %53
+32:                                               ; preds = %21
+  %33 = icmp ult i32 %10, 4194304
+  br i1 %33, label %34, label %47
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !63
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = add nuw nsw i32 %9, 8372224
-  %44 = trunc i32 %9 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !13
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !13
-  %48 = lshr i32 %43, 16
-  %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %39, align 8, !tbaa !63
-  %52 = add nsw i32 %51, 3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !63
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = add nuw nsw i32 %9, 8372224
+  %41 = trunc i32 %9 to i8
+  store i8 %41, ptr %39, align 1, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %43 = lshr i32 %40, 8
+  %44 = trunc nuw i32 %43 to i16
+  store i16 %44, ptr %42, align 1
+  %45 = load i32, ptr %36, align 8, !tbaa !63
+  %46 = add nsw i32 %45, 3
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-53:                                               ; preds = %35
-  %54 = icmp ult i32 %10, 1073741824
-  br i1 %54, label %55, label %74
+47:                                               ; preds = %32
+  %48 = icmp ult i32 %10, 1073741824
+  br i1 %48, label %49, label %58
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8, !tbaa !62
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8, !tbaa !63
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = add nuw nsw i32 %9, -1073758208
-  %62 = trunc i32 %9 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !13
-  %63 = lshr i32 %61, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !13
-  %66 = lshr i32 %61, 16
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i8 %67, ptr %68, align 1, !tbaa !13
-  %69 = lshr i32 %61, 24
-  %70 = trunc nuw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 3
-  store i8 %70, ptr %71, align 1, !tbaa !13
-  %72 = load i32, ptr %57, align 8, !tbaa !63
-  %73 = add nsw i32 %72, 4
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8, !tbaa !63
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = add nuw nsw i32 %9, -1073758208
+  store i32 %55, ptr %54, align 1
+  %56 = load i32, ptr %51, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 4
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load i32, ptr %59, align 8, !tbaa !63
   br label %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %37, %55, %74
-  %.0.i = phi i32 [ %20, %12 ], [ %34, %23 ], [ %52, %37 ], [ %73, %55 ], [ %76, %74 ]
-  %77 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, %58
+  %.0.i = phi i32 [ %20, %12 ], [ %31, %23 ], [ %46, %34 ], [ %57, %49 ], [ %60, %58 ]
+  %61 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %78 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %77, ptr noundef nonnull %3)
-          to label %79 unwind label %102
+  %62 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %61, ptr noundef nonnull %3)
+          to label %63 unwind label %86
 
-79:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
-  %83 = load ptr, ptr %3, align 8, !tbaa !60
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %80, i64 %77, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %83, i64 %87, i1 false)
-  %89 = load i64, ptr %5, align 8, !tbaa !144
-  %90 = add nsw i64 %87, %77
-  %91 = add i64 %90, %89
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %91)
-          to label %92 unwind label %104
+63:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
+  %67 = load ptr, ptr %3, align 8, !tbaa !60
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = and i64 %70, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %64, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %71, i1 false)
+  %73 = load i64, ptr %5, align 8, !tbaa !144
+  %74 = add nsw i64 %71, %61
+  %75 = add i64 %74, %73
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %75)
+          to label %76 unwind label %88
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %94, null
+76:                                               ; preds = %63
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %92
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %92
-  store ptr null, ptr %93, align 8, !tbaa !71
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %96
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
+  store ptr null, ptr %77, align 8, !tbaa !71
+  %79 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %80
 
-96:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19
+80:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %79 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %96
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-102:                                              ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
-  %103 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN5draco11RAnsEncoderILi12EE9write_endEv.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-104:                                              ; preds = %79
-  %105 = landingpad { ptr, i32 }
+88:                                               ; preds = %63
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %90
 
-106:                                              ; preds = %104, %102
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+90:                                               ; preds = %88, %86
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -22410,7 +22242,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi9EE11EndEncodingEPNS_13
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !151
@@ -22418,143 +22250,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi9EE11EndEncodingEPNS_13
   %26 = load i32, ptr %25, align 8, !tbaa !152
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = add nuw nsw i32 %9, 49152
-  %30 = trunc i32 %9 to i8
-  store i8 %30, ptr %28, align 1, !tbaa !13
-  %31 = lshr i32 %29, 8
-  %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !152
-  %35 = add nsw i32 %34, 2
+  %29 = trunc nuw i32 %9 to i16
+  %30 = add i16 %29, -16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !152
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !151
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !152
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 8355840
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %44, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !152
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !151
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !152
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 8355840
+  %42 = trunc i32 %9 to i8
+  store i8 %42, ptr %40, align 1, !tbaa !13
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  %44 = lshr i32 %41, 8
+  %45 = trunc nuw i32 %44 to i16
+  store i16 %45, ptr %43, align 1
+  %46 = load i32, ptr %37, align 8, !tbaa !152
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !151
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !152
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1073774592
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %62, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !152
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !151
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !152
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1073774592
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !152
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !152
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !152
   br label %_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !150
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !150
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi13EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -24406,7 +24217,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi10EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !160
@@ -24414,143 +24225,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi10EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !161
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !161
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !161
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !160
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !161
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 8257536
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !161
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !160
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !161
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 8257536
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !161
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !160
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !161
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1073872896
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !161
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !160
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !161
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1073872896
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !161
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !161
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !161
   br label %_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !159
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !159
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi15EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -26402,7 +26192,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi11EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !169
@@ -26410,143 +26200,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi11EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !170
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !170
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !170
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !169
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !170
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 8126464
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !170
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !169
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !170
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 8126464
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !170
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !169
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !170
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1074003968
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !170
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !169
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !170
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1074003968
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !170
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !170
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !170
   br label %_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !168
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !168
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi16EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -28398,7 +28167,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi12EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !178
@@ -28406,143 +28175,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi12EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !179
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !179
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !179
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !178
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !179
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 7340032
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !179
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !178
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !179
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 7340032
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !179
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !178
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !179
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1074790400
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !179
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !178
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !179
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1074790400
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !179
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !179
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !179
   br label %_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !177
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !177
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi18EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -30394,7 +30142,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi13EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !187
@@ -30402,143 +30150,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi13EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !188
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !188
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !188
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !187
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !188
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 6291456
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !188
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !187
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !188
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 6291456
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !188
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !187
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !188
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1075838976
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !188
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !187
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !188
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1075838976
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !188
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !188
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !188
   br label %_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !186
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !186
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi19EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -32390,7 +32117,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi14EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !196
@@ -32398,143 +32125,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi14EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !197
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !197
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !197
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !196
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !197
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 4194304
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !197
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !196
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !197
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 4194304
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !197
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !196
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !197
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1077936128
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !197
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !196
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !197
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1077936128
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !197
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !197
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !197
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !195
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !195
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -34386,7 +34092,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi15EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !196
@@ -34394,143 +34100,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi15EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !197
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !197
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !197
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !196
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !197
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 4194304
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !197
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !196
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !197
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 4194304
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !197
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !196
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !197
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1077936128
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !197
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !196
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !197
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1077936128
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !197
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !197
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !197
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !203
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !203
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -36382,7 +36067,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi16EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !196
@@ -36390,143 +36075,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi16EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !197
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !197
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !197
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !196
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !197
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 4194304
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !197
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !196
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !197
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 4194304
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !197
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !196
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !197
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1077936128
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !197
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !196
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !197
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1077936128
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !197
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !197
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !197
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !208
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !208
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -38378,7 +38042,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi17EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !196
@@ -38386,143 +38050,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi17EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !197
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !197
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !197
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !196
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !197
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 4194304
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !197
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !196
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !197
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 4194304
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !197
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !196
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !197
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1077936128
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !197
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !196
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !197
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1077936128
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !197
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !197
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !197
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !213
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !213
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn
@@ -40374,7 +40017,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi18EE11EndEncodingEPNS_1
 
 21:                                               ; preds = %2
   %22 = icmp ult i32 %10, 16384
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8, !tbaa !196
@@ -40382,143 +40025,122 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi18EE11EndEncodingEPNS_1
   %26 = load i32, ptr %25, align 8, !tbaa !197
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = trunc i32 %9 to i8
-  store i8 %29, ptr %28, align 1, !tbaa !13
-  %30 = lshr i32 %9, 8
-  %31 = trunc i32 %30 to i8
-  %32 = or disjoint i8 %31, 64
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !13
-  %34 = load i32, ptr %25, align 8, !tbaa !197
-  %35 = add nsw i32 %34, 2
+  %29 = trunc i32 %9 to i16
+  %30 = or disjoint i16 %29, 16384
+  store i16 %30, ptr %28, align 1
+  %31 = load i32, ptr %25, align 8, !tbaa !197
+  %32 = add nsw i32 %31, 2
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-36:                                               ; preds = %21
-  %37 = icmp ult i32 %10, 4194304
-  br i1 %37, label %38, label %54
+33:                                               ; preds = %21
+  %34 = icmp ult i32 %10, 4194304
+  br i1 %34, label %35, label %48
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !tbaa !196
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !197
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = add nuw nsw i32 %9, 4194304
-  %45 = trunc i32 %9 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !13
-  %46 = lshr i32 %9, 8
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !13
-  %49 = lshr i32 %44, 16
-  %50 = trunc nuw i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = load i32, ptr %40, align 8, !tbaa !197
-  %53 = add nsw i32 %52, 3
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %7, align 8, !tbaa !196
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8, !tbaa !197
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  %41 = add nuw nsw i32 %9, 4194304
+  %42 = trunc i32 %9 to i16
+  store i16 %42, ptr %40, align 1
+  %43 = lshr i32 %41, 16
+  %44 = trunc nuw i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %44, ptr %45, align 1, !tbaa !13
+  %46 = load i32, ptr %37, align 8, !tbaa !197
+  %47 = add nsw i32 %46, 3
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-54:                                               ; preds = %36
-  %55 = icmp ult i32 %10, 1073741824
-  br i1 %55, label %56, label %75
+48:                                               ; preds = %33
+  %49 = icmp ult i32 %10, 1073741824
+  br i1 %49, label %50, label %59
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %7, align 8, !tbaa !196
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8, !tbaa !197
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  %62 = add nuw nsw i32 %9, -1077936128
-  %63 = trunc i32 %9 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !13
-  %64 = lshr i32 %9, 8
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !13
-  %67 = lshr i32 %62, 16
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  store i8 %68, ptr %69, align 1, !tbaa !13
-  %70 = lshr i32 %62, 24
-  %71 = trunc nuw i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
-  store i8 %71, ptr %72, align 1, !tbaa !13
-  %73 = load i32, ptr %58, align 8, !tbaa !197
-  %74 = add nsw i32 %73, 4
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %7, align 8, !tbaa !196
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !197
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = add nuw nsw i32 %9, -1077936128
+  store i32 %56, ptr %55, align 1
+  %57 = load i32, ptr %52, align 8, !tbaa !197
+  %58 = add nsw i32 %57, 4
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !197
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !197
   br label %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
 
-_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %38, %56, %75
-  %.0.i = phi i32 [ %20, %12 ], [ %35, %23 ], [ %53, %38 ], [ %74, %56 ], [ %77, %75 ]
-  %78 = sext i32 %.0.i to i64
+_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, %59
+  %.0.i = phi i32 [ %20, %12 ], [ %32, %23 ], [ %47, %35 ], [ %58, %50 ], [ %61, %59 ]
+  %62 = sext i32 %.0.i to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   call void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3)
-  %79 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %78, ptr noundef nonnull %3)
-          to label %80 unwind label %103
+  %63 = invoke noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %62, ptr noundef nonnull %3)
+          to label %64 unwind label %87
 
-80:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load ptr, ptr %3, align 8, !tbaa !60
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %81, i64 %78, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %84, i64 %88, i1 false)
-  %90 = load i64, ptr %5, align 8, !tbaa !218
-  %91 = add nsw i64 %88, %78
-  %92 = add i64 %91, %90
-  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %92)
-          to label %93 unwind label %105
+64:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = load ptr, ptr %3, align 8, !tbaa !60
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = and i64 %71, 4294967295
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %72
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %65, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %72, i1 false)
+  %74 = load i64, ptr %5, align 8, !tbaa !218
+  %75 = add nsw i64 %72, %62
+  %76 = add i64 %75, %74
+  invoke void @_ZN5draco13EncoderBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %76)
+          to label %77 unwind label %89
 
-93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !71
-  %.not.i.i = icmp eq ptr %95, null
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !71
+  %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %93
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 16) #19
+_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %93
-  store ptr null, ptr %94, align 8, !tbaa !71
-  %96 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %97
+_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
+  store ptr null, ptr %78, align 8, !tbaa !71
+  %80 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco13EncoderBufferD2Ev.exit, label %81
 
-97:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !79
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %96 to i64
-  %102 = sub i64 %100, %101
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %102) #19
+81:                                               ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
-_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %97
+_ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   ret void
 
-103:                                              ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
-  %104 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN5draco11RAnsEncoderILi20EE9write_endEv.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-105:                                              ; preds = %80
-  %106 = landingpad { ptr, i32 }
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %91
 
-107:                                              ; preds = %105, %103
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+91:                                               ; preds = %89, %87
+  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn

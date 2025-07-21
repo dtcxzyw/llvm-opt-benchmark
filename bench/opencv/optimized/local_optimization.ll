@@ -2274,9 +2274,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %.lr.ph
-  %.sroa.0.0.extract.trunc = trunc i64 %66 to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %4, align 4
-  store i32 %.sroa.5.0.extract.trunc, ptr %.sroa_idx40, align 4
+  store i64 %66, ptr %4, align 4
   %71 = load ptr, ptr %22, align 8, !tbaa !164
   %72 = getelementptr inbounds nuw %"class.cv::Mat", ptr %71, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25
@@ -6030,9 +6028,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   br i1 %90, label %91, label %94
 
 91:                                               ; preds = %.lr.ph
-  %.sroa.089.0.extract.trunc = trunc i64 %87 to i32
-  store i32 %.sroa.089.0.extract.trunc, ptr %4, align 4
-  store i32 %.sroa.590.0.extract.trunc, ptr %38, align 4
+  store i64 %87, ptr %4, align 4
   %92 = load ptr, ptr %35, align 8, !tbaa !164
   %93 = getelementptr inbounds nuw %"class.cv::Mat", ptr %92, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25
@@ -7715,8 +7711,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac27SimpleLocalOptimizat
   store ptr %3, ptr %52, align 8, !tbaa !174
   call void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %110, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #25
-  store i32 %.sroa.0.0.extract.trunc, ptr %4, align 4
-  store i32 %.sroa.7.0.extract.trunc, ptr %50, align 4
+  store i64 %97, ptr %4, align 4
   %111 = load ptr, ptr %54, align 8, !tbaa !80
   %.not118 = icmp eq ptr %111, null
   br i1 %.not118, label %119, label %112
@@ -9424,7 +9419,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac22NonMinimalPolisherIm
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 72
   %121 = load ptr, ptr %120, align 8
   %122 = call i64 %121(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull align 8 dereferenceable(24) %117)
-  %.sroa.063.0.extract.trunc = trunc i64 %122 to i32
   %.sroa.5.0.extract.shift = lshr i64 %122, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %123 = bitcast i32 %.sroa.5.0.extract.trunc to float
@@ -9544,8 +9538,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 
 _ZNSt6vectorIfSaIfEEaSERKS1_.exit:                ; preds = %126, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit.i
   %167 = load float, ptr %78, align 4
-  store i32 %.sroa.063.0.extract.trunc, ptr %4, align 4
-  store i32 %.sroa.5.0.extract.trunc, ptr %78, align 4
+  store i64 %122, ptr %4, align 4
   br label %168
 
 168:                                              ; preds = %_ZNSt6vectorIfSaIfEEaSERKS1_.exit, %.lr.ph107

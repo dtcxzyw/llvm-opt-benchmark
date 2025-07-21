@@ -3546,38 +3546,13 @@ define linkonce_odr void @_ZN6duckdb11MiniZStream8CompressEPKcmPcPm(ptr noundef 
   %26 = load i64, ptr %25, align 8, !tbaa !186
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 %26
   %28 = tail call noundef i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i64 noundef 0, ptr noundef %1, i64 noundef %2)
-  %29 = trunc i64 %28 to i8
-  store i8 %29, ptr %27, align 1, !tbaa !3
-  %30 = lshr i64 %28, 8
-  %31 = trunc i64 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !3
-  %33 = lshr i64 %28, 16
-  %34 = trunc i64 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  store i8 %34, ptr %35, align 1, !tbaa !3
-  %36 = lshr i64 %28, 24
-  %37 = trunc i64 %36 to i8
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 3
-  store i8 %37, ptr %38, align 1, !tbaa !3
-  %39 = trunc i64 %2 to i8
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i8 %39, ptr %40, align 1, !tbaa !3
-  %41 = lshr i64 %2, 8
-  %42 = trunc i64 %41 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %27, i64 5
-  store i8 %42, ptr %43, align 1, !tbaa !3
-  %44 = lshr i64 %2, 16
-  %45 = trunc i64 %44 to i8
-  %46 = getelementptr inbounds nuw i8, ptr %27, i64 6
-  store i8 %45, ptr %46, align 1, !tbaa !3
-  %47 = lshr i64 %2, 24
-  %48 = trunc i64 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %27, i64 7
-  store i8 %48, ptr %49, align 1, !tbaa !3
-  %50 = load i64, ptr %25, align 8, !tbaa !186
-  %51 = add i64 %50, 18
-  store i64 %51, ptr %4, align 8, !tbaa !24
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %27, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store i32 %15, ptr %30, align 1
+  %31 = load i64, ptr %25, align 8, !tbaa !186
+  %32 = add i64 %31, 18
+  store i64 %32, ptr %4, align 8, !tbaa !24
   ret void
 }
 

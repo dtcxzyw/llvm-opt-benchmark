@@ -27,35 +27,9 @@ define void @DES_ecb3_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
 14:                                               ; preds = %13, %12
   %15 = load i32, ptr %7, align 4, !tbaa !3
   %16 = load i32, ptr %11, align 4, !tbaa !3
-  %17 = trunc i32 %15 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %17, ptr %1, align 1, !tbaa !7
-  %19 = lshr i32 %15, 8
-  %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %20, ptr %18, align 1, !tbaa !7
-  %22 = lshr i32 %15, 16
-  %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %23, ptr %21, align 1, !tbaa !7
-  %25 = lshr i32 %15, 24
-  %26 = trunc nuw i32 %25 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %26, ptr %24, align 1, !tbaa !7
-  %28 = trunc i32 %16 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %28, ptr %27, align 1, !tbaa !7
-  %30 = lshr i32 %16, 8
-  %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %31, ptr %29, align 1, !tbaa !7
-  %33 = lshr i32 %16, 16
-  %34 = trunc i32 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %34, ptr %32, align 1, !tbaa !7
-  %36 = lshr i32 %16, 24
-  %37 = trunc nuw i32 %36 to i8
-  store i8 %37, ptr %35, align 1, !tbaa !7
+  store i32 %15, ptr %1, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %16, ptr %17, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   ret void
 }
@@ -84,4 +58,3 @@ attributes #3 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!5, !5, i64 0}

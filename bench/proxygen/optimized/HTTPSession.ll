@@ -24763,11 +24763,7 @@ if.then.i.i.i:                                    ; preds = %if.then6
   br i1 %cmp.not.i.i.i.i, label %if.end7, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %limits.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %call.i.i.i, 32
-  %limits.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %limits.sroa.2.0.extract.shift.i.i.i.i to i32
-  %limits.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %call.i.i.i to i32
-  store i32 %limits.sroa.0.0.extract.trunc.i.i.i.i, ptr %huffMin_.i.i.i.i, align 4
-  store i32 %limits.sroa.2.0.extract.trunc.i.i.i.i, ptr %huffMax_.i.i.i.i, align 8
+  store i64 %call.i.i.i, ptr %huffMin_.i.i.i.i, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %if.then.i.i.i.i, %if.then.i.i.i, %if.then6, %dynamic_cast.end, %entry

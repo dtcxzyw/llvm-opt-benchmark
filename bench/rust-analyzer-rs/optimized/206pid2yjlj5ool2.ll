@@ -2762,7 +2762,7 @@ _ZN7ide_ssr8matching7Matcher24get_placeholder_for_node17h87813144b04db35eE.exit:
 ._crit_edge:                                      ; preds = %214, %91
   %143 = load ptr, ptr %2, align 8, !noundef !4
   %.not90 = icmp eq ptr %143, null
-  br i1 %.not90, label %159, label %146
+  br i1 %.not90, label %156, label %146
 
 .lr.ph:                                           ; preds = %91, %214
   %.sroa.0.0448691 = phi ptr [ %215, %214 ], [ %.val94, %91 ]
@@ -2793,16 +2793,16 @@ _ZN7ide_ssr8matching7Matcher24get_placeholder_for_node17h87813144b04db35eE.exit:
   %154 = load i32, ptr %70, align 4, !range !124, !noundef !4
   %trunc = trunc nuw i32 %154 to i1
   %155 = ptrtoint ptr %152 to i64
-  %156 = trunc i64 %155 to i32
-  %157 = lshr i64 %155, 32
-  %158 = trunc nuw i64 %157 to i32
-  br i1 %trunc, label %162, label %160
+  br i1 %trunc, label %162, label %157
 
-159:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$ide_ssr..matching..PlaceholderMatch$GT$$GT$17hfa6efe244f3af9fdE.exit", %._crit_edge
+156:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$ide_ssr..matching..PlaceholderMatch$GT$$GT$17hfa6efe244f3af9fdE.exit", %._crit_edge
   store i64 -9223372036854775807, ptr %0, align 8
   br label %218
 
-160:                                              ; preds = %146
+157:                                              ; preds = %146
+  %158 = lshr i64 %155, 32
+  %159 = trunc nuw i64 %158 to i32
+  %160 = trunc i64 %155 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70)
   %161 = icmp eq i64 %151, -9223372036854775807
@@ -2842,10 +2842,10 @@ _ZN7ide_ssr8matching7Matcher24get_placeholder_for_node17h87813144b04db35eE.exit:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70)
   br label %172
 
-172:                                              ; preds = %.thread471, %160
-  %.sroa.6.sroa.0.0458481.ph = phi i32 [ %156, %160 ], [ %.sroa.0396.0.copyload, %.thread471 ]
-  %.sroa.6.sroa.6.0461479.ph = phi i32 [ %158, %160 ], [ %.sroa.4397.0.copyload, %.thread471 ]
-  %.sroa.6.sroa.7.0464477.ph = phi i32 [ 19, %160 ], [ %.sroa.5398.0.copyload, %.thread471 ]
+172:                                              ; preds = %.thread471, %157
+  %.sroa.6.sroa.0.0458481.ph = phi i32 [ %160, %157 ], [ %.sroa.0396.0.copyload, %.thread471 ]
+  %.sroa.6.sroa.6.0461479.ph = phi i32 [ %159, %157 ], [ %.sroa.4397.0.copyload, %.thread471 ]
+  %.sroa.6.sroa.7.0464477.ph = phi i32 [ 19, %157 ], [ %.sroa.5398.0.copyload, %.thread471 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
   %173 = load i32, ptr %1, align 8, !range !124, !alias.scope !349, !noalias !352, !noundef !4
   %.not.i = icmp eq i32 %173, 0
@@ -2882,12 +2882,10 @@ _ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit: ; preds =
   %189 = icmp eq i64 %186, -9223372036854775807
   br i1 %189, label %_ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit.thread, label %_ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit.thread501
 
-190:                                              ; preds = %160
+190:                                              ; preds = %157
   store i64 %151, ptr %0, align 8
   %.sroa.271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %156, ptr %.sroa.271.0..sroa_idx, align 8
-  %.sroa.271.sroa.2.0..sroa.271.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %158, ptr %.sroa.271.sroa.2.0..sroa.271.0..sroa_idx.sroa_idx, align 4
+  store i64 %155, ptr %.sroa.271.0..sroa_idx, align 8
   %.sroa.271.sroa.3.0..sroa.271.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 19, ptr %.sroa.271.sroa.3.0..sroa.271.0..sroa_idx.sroa_idx, align 8
   %.sroa.372.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2977,7 +2975,7 @@ _ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit.thread: ; 
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$ide_ssr..matching..PlaceholderMatch$GT$$GT$17hfa6efe244f3af9fdE.exit": ; preds = %_ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit.thread, %"_ZN4core3ptr56drop_in_place$LT$ide_ssr..matching..PlaceholderMatch$GT$17h6291b40bc7a145a7E.exit.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %68)
-  br label %159
+  br label %156
 
 212:                                              ; preds = %1295, %1271, %1251, %639, %541, %"_ZN4core3ptr51drop_in_place$LT$rowan..syntax_text..SyntaxText$GT$17heee179f554e0b483E.exit191"
   %213 = landingpad { ptr, i32 }
@@ -3000,7 +2998,7 @@ _ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit.thread: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.250.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.250, i64 16, i1 false)
   br label %218
 
-218:                                              ; preds = %190, %_ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit.thread501, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$20children_with_tokens17h1efb3bdd95072e00E.exit", %672, %"_ZN4core3ptr209drop_in_place$LT$std..collections..hash..map..HashMap$LT$smol_str..SmolStr$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h5b9ffcc0e5bb95a8E.exit", %_ZN7ide_ssr8matching7Matcher18attempt_match_path17ha0a26b3182f84503E.exit, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..MethodCallExpr$GT$17hd8128ab093049cafE.exit127", %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit143", %159, %217, %1245
+218:                                              ; preds = %190, %_ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit.thread501, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$20children_with_tokens17h1efb3bdd95072e00E.exit", %672, %"_ZN4core3ptr209drop_in_place$LT$std..collections..hash..map..HashMap$LT$smol_str..SmolStr$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h5b9ffcc0e5bb95a8E.exit", %_ZN7ide_ssr8matching7Matcher18attempt_match_path17ha0a26b3182f84503E.exit, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..MethodCallExpr$GT$17hd8128ab093049cafE.exit127", %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit143", %156, %217, %1245
   ret void
 
 219:                                              ; preds = %122

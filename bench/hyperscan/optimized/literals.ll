@@ -14124,12 +14124,7 @@ _ZNK7testing8internal26CartesianProductGenerator5IjjjSt4pairIjjEbE8Iterator5AtEn
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %79, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %.sroa.41.4.extract.trunc = trunc i64 %78 to i32
-  store i32 %.sroa.41.4.extract.trunc, ptr %86, align 4
-  %.sroa.41.8.extract.shift = lshr i64 %78, 32
-  %.sroa.41.8.extract.trunc = trunc nuw i64 %.sroa.41.8.extract.shift to i32
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %.sroa.41.8.extract.trunc, ptr %87, align 8
+  store i64 %78, ptr %86, align 4
   store i8 %77, ptr %82, align 8
   br label %_ZNK7testing8internal26CartesianProductGenerator5IjjjSt4pairIjjEbE8Iterator5AtEndEv.exit.thread
 

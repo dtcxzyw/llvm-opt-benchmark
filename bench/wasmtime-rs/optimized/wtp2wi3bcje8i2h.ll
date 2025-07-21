@@ -187,31 +187,28 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$3zip17h3773f34f313af084E"(i16 %0, i
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i48 @"_ZN4core6option15Option$LT$T$GT$6filter17h63526039e81cfa11E"(i48 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = alloca { i16, i16 }, align 2
+  %2 = alloca { i16, i16 }, align 4
   %3 = and i48 %0, 65535
   %4 = icmp eq i48 %3, 1
-  br i1 %4, label %5, label %11
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %.sroa.36.0.extract.shift = lshr i48 %0, 32
-  %.sroa.36.0.extract.trunc = trunc nuw i48 %.sroa.36.0.extract.shift to i16
-  %.sroa.25.0.extract.shift = lshr i48 %0, 16
-  %.sroa.25.0.extract.trunc = trunc i48 %.sroa.25.0.extract.shift to i16
-  store i16 %.sroa.25.0.extract.trunc, ptr %2, align 2
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %.sroa.36.0.extract.trunc, ptr %6, align 2
-  %7 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set28_$u7b$$u7b$closure$u7d$$u7d$17h5574a22993f65a00E"(ptr nonnull align 2 %2)
-  br i1 %7, label %8, label %11
+  %6 = lshr i48 %0, 16
+  %7 = trunc nuw i48 %6 to i32
+  store i32 %7, ptr %2, align 4
+  %8 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set28_$u7b$$u7b$closure$u7d$$u7d$17h5574a22993f65a00E"(ptr nonnull align 2 %2)
+  br i1 %8, label %9, label %13
 
-8:                                                ; preds = %5
-  %9 = load i16, ptr %2, align 2, !noundef !3
-  %10 = load i16, ptr %6, align 2, !noundef !3
-  br label %11
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %11 = load i16, ptr %2, align 4, !noundef !3
+  %12 = load i16, ptr %10, align 2, !noundef !3
+  br label %13
 
-11:                                               ; preds = %1, %5, %8
-  %.sroa.07.0 = phi i16 [ 1, %8 ], [ 0, %5 ], [ 0, %1 ]
-  %.sroa.38.0 = phi i16 [ %9, %8 ], [ undef, %5 ], [ undef, %1 ]
-  %.sroa.4.0 = phi i16 [ %10, %8 ], [ undef, %5 ], [ undef, %1 ]
+13:                                               ; preds = %1, %5, %9
+  %.sroa.07.0 = phi i16 [ 1, %9 ], [ 0, %5 ], [ 0, %1 ]
+  %.sroa.38.0 = phi i16 [ %11, %9 ], [ undef, %5 ], [ undef, %1 ]
+  %.sroa.4.0 = phi i16 [ %12, %9 ], [ undef, %5 ], [ undef, %1 ]
   %.sroa.4.0.insert.ext = zext i16 %.sroa.4.0 to i48
   %.sroa.4.0.insert.shift = shl nuw i48 %.sroa.4.0.insert.ext, 32
   %.sroa.38.0.insert.ext = zext i16 %.sroa.38.0 to i48

@@ -4783,7 +4783,7 @@ declare dso_local i32 @drm_dp_pcon_hdmi_link_mode(ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_dp_pcon_dsc_configure(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = alloca [6 x i8], align 1
+  %3 = alloca [6 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %5 = load ptr, ptr %4, align 8
@@ -4889,47 +4889,39 @@ define dso_local void @intel_dp_pcon_dsc_configure(ptr noundef %0, ptr noundef %
   br i1 %85, label %.thread, label %86
 
 86:                                               ; preds = %66
-  %87 = trunc i32 %53 to i8
-  store i8 %87, ptr %3, align 1
-  %88 = lshr i32 %53, 8
-  %89 = trunc i32 %88 to i8
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %89, ptr %90, align 1
-  %91 = trunc i32 %72 to i8
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %91, ptr %92, align 1
-  %93 = lshr i32 %72, 8
-  %94 = trunc i32 %93 to i8
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %87 = trunc i32 %53 to i16
+  store i16 %87, ptr %3, align 2
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %89 = trunc i32 %72 to i16
+  store i16 %89, ptr %88, align 2
+  %90 = trunc i32 %84 to i8
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 %90, ptr %91, align 2
+  %92 = lshr i32 %84, 8
+  %93 = trunc i32 %92 to i8
+  %94 = and i8 %93, 3
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %94, ptr %95, align 1
-  %96 = trunc i32 %84 to i8
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %96, ptr %97, align 1
-  %98 = lshr i32 %84, 8
-  %99 = trunc i32 %98 to i8
-  %100 = and i8 %99, 3
-  %101 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %100, ptr %101, align 1
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %103 = call i32 @drm_dp_pcon_pps_override_param(ptr noundef nonnull %102, ptr noundef nonnull %3) #14
-  %104 = icmp slt i32 %103, 0
-  br i1 %104, label %105, label %.thread
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %97 = call i32 @drm_dp_pcon_pps_override_param(ptr noundef nonnull %96, ptr noundef nonnull %3) #14
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %99, label %.thread
 
-105:                                              ; preds = %86
-  %106 = icmp eq ptr %7, null
-  br i1 %106, label %110, label %107
+99:                                               ; preds = %86
+  %100 = icmp eq ptr %7, null
+  br i1 %100, label %104, label %101
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %109 = load ptr, ptr %108, align 8
-  br label %110
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %103 = load ptr, ptr %102, align 8
+  br label %104
 
-110:                                              ; preds = %107, %105
-  %111 = phi ptr [ %109, %107 ], [ null, %105 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %111, i32 noundef 2, ptr noundef nonnull @.str.37) #14
+104:                                              ; preds = %101, %99
+  %105 = phi ptr [ %103, %101 ], [ null, %99 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %105, i32 noundef 2, ptr noundef nonnull @.str.37) #14
   br label %.thread
 
-.thread:                                          ; preds = %40, %12, %2, %110, %86, %66, %55, %49, %44
+.thread:                                          ; preds = %40, %12, %2, %104, %86, %66, %55, %49, %44
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #14
   ret void
 }

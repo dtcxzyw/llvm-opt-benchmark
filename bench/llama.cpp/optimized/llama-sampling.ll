@@ -4756,12 +4756,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
 
 45:                                               ; preds = %44, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi i64 [ %29, %44 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.04.0.copyload.i.i.i, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %46 = icmp samesign ugt i64 %.1.i.i.i.i, %.017.i.i.i
   br i1 %46, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %45
+  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.04.0.copyload.i.i.i, 32
+  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %47 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i to float
   br label %48
 
@@ -4783,19 +4783,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
 
 "_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i": ; preds = %52, %48, %45
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %45 ], [ %.0135.i.i.i.i.i, %48 ], [ %.06.i.i.i.i.i, %52 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.04.0.copyload.i.i.i to i32
   %55 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %55, align 4
-  %.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %.sroa_idx.i.i.i.i.i, align 4
+  store i64 %.sroa.04.0.copyload.i.i.i, ptr %55, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store float %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i64 %.017.i.i.i, 0
   %56 = add nsw i64 %.017.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i, label %32, !llvm.loop !232
 
-.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i22.i"
-  %.01.i.i = phi ptr [ %57, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i22.i" ], [ %.025, %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i" ]
+.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i.i"
+  %.01.i.i = phi ptr [ %57, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i.i" ], [ %.025, %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i" ]
   %57 = getelementptr inbounds i8, ptr %.01.i.i, i64 -12
   %.sroa.04.0.copyload.i.i7.i = load i64, ptr %57, align 4
   %.sroa.4.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -4
@@ -4807,27 +4804,27 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
   %61 = add nsw i64 %60, -1
   %62 = sdiv i64 %61, 2
   %63 = icmp sgt i64 %59, 24
-  br i1 %63, label %.lr.ph.i.i.i32.i, label %._crit_edge.i.i.i10.i
+  br i1 %63, label %.lr.ph.i.i.i21.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i32.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i32.i
-  %.035.i.i.i33.i = phi i64 [ %spec.select.i.i.i37.i, %.lr.ph.i.i.i32.i ], [ 0, %.lr.ph.i5.i ]
-  %64 = shl i64 %.035.i.i.i33.i, 1
+.lr.ph.i.i.i21.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i21.i
+  %.035.i.i.i22.i = phi i64 [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i21.i ], [ 0, %.lr.ph.i5.i ]
+  %64 = shl i64 %.035.i.i.i22.i, 1
   %65 = add i64 %64, 2
   %66 = getelementptr %struct.llama_token_data, ptr %0, i64 %65, i32 1
-  %.val.i.i.i34.i = load float, ptr %66, align 4, !tbaa !209
-  %gep.i.i.i35.i = getelementptr %struct.llama_token_data, ptr %16, i64 %64
-  %.val34.i.i.i36.i = load float, ptr %gep.i.i.i35.i, align 4, !tbaa !209
-  %67 = fcmp ogt float %.val.i.i.i34.i, %.val34.i.i.i36.i
+  %.val.i.i.i23.i = load float, ptr %66, align 4, !tbaa !209
+  %gep.i.i.i24.i = getelementptr %struct.llama_token_data, ptr %16, i64 %64
+  %.val34.i.i.i25.i = load float, ptr %gep.i.i.i24.i, align 4, !tbaa !209
+  %67 = fcmp ogt float %.val.i.i.i23.i, %.val34.i.i.i25.i
   %68 = or disjoint i64 %64, 1
-  %spec.select.i.i.i37.i = select i1 %67, i64 %68, i64 %65
-  %69 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %spec.select.i.i.i37.i
-  %70 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.035.i.i.i33.i
+  %spec.select.i.i.i26.i = select i1 %67, i64 %68, i64 %65
+  %69 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %spec.select.i.i.i26.i
+  %70 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.035.i.i.i22.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %69, i64 12, i1 false), !tbaa.struct !212
-  %71 = icmp slt i64 %spec.select.i.i.i37.i, %62
-  br i1 %71, label %.lr.ph.i.i.i32.i, label %._crit_edge.i.i.i10.i, !llvm.loop !230
+  %71 = icmp slt i64 %spec.select.i.i.i26.i, %62
+  br i1 %71, label %.lr.ph.i.i.i21.i, label %._crit_edge.i.i.i10.i, !llvm.loop !230
 
-._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i32.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i37.i, %.lr.ph.i.i.i32.i ]
+._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i21.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i21.i ]
   %72 = and i64 %60, 1
   %73 = icmp eq i64 %72, 0
   br i1 %73, label %74, label %82
@@ -4836,56 +4833,49 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
   %75 = add nsw i64 %60, -2
   %76 = ashr exact i64 %75, 1
   %77 = icmp eq i64 %.0.lcssa.i.i.i11.i, %76
-  br i1 %77, label %.thread.i.i29.i, label %82
+  br i1 %77, label %.thread.i.i.i, label %82
 
-.thread.i.i29.i:                                  ; preds = %74
+.thread.i.i.i:                                    ; preds = %74
   %78 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
   %79 = or disjoint i64 %78, 1
   %80 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %79
   %81 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0.lcssa.i.i.i11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %80, i64 12, i1 false), !tbaa.struct !212
-  %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i30.i = lshr i64 %.sroa.04.0.copyload.i.i7.i, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i31.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i30.i to i32
-  br label %.lr.ph.i.i.i.i15.i
+  br label %.lr.ph.i.i.i.i13.i
 
 82:                                               ; preds = %74, %._crit_edge.i.i.i10.i
-  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i12.i = lshr i64 %.sroa.04.0.copyload.i.i7.i, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i12.i to i32
-  %.not.i.i14.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
-  br i1 %.not.i.i14.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i15.i
+  %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
+  br i1 %.not.i.i12.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i.i", label %.lr.ph.i.i.i.i13.i
 
-.lr.ph.i.i.i.i15.i:                               ; preds = %82, %.thread.i.i29.i
-  %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16.i = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i31.i, %.thread.i.i29.i ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13.i, %82 ]
-  %.1.i4.i.i17.i = phi i64 [ %79, %.thread.i.i29.i ], [ %.0.lcssa.i.i.i11.i, %82 ]
-  %83 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16.i to float
+.lr.ph.i.i.i.i13.i:                               ; preds = %82, %.thread.i.i.i
+  %.1.i2.i.i.i = phi i64 [ %79, %.thread.i.i.i ], [ %.0.lcssa.i.i.i11.i, %82 ]
+  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i14.i = lshr i64 %.sroa.04.0.copyload.i.i7.i, 32
+  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i15.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i14.i to i32
+  %83 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i15.i to float
   br label %84
 
-84:                                               ; preds = %88, %.lr.ph.i.i.i.i15.i
-  %.0135.i.i.i.i18.i = phi i64 [ %.1.i4.i.i17.i, %.lr.ph.i.i.i.i15.i ], [ %.06.i.i78.i.i20.i, %88 ]
-  %.06.in.i.i.i.i19.i = add nsw i64 %.0135.i.i.i.i18.i, -1
-  %.06.i.i78.i.i20.i = lshr i64 %.06.in.i.i.i.i19.i, 1
-  %85 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i78.i.i20.i
+84:                                               ; preds = %88, %.lr.ph.i.i.i.i13.i
+  %.0135.i.i.i.i16.i = phi i64 [ %.1.i2.i.i.i, %.lr.ph.i.i.i.i13.i ], [ %.06.i.i34.i.i.i, %88 ]
+  %.06.in.i.i.i.i17.i = add nsw i64 %.0135.i.i.i.i16.i, -1
+  %.06.i.i34.i.i.i = lshr i64 %.06.in.i.i.i.i17.i, 1
+  %85 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i34.i.i.i
   %86 = getelementptr i8, ptr %85, i64 4
-  %.val.i.i.i.i21.i = load float, ptr %86, align 4, !tbaa !209
-  %87 = fcmp ogt float %.val.i.i.i.i21.i, %83
-  br i1 %87, label %88, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i22.i"
+  %.val.i.i.i.i18.i = load float, ptr %86, align 4, !tbaa !209
+  %87 = fcmp ogt float %.val.i.i.i.i18.i, %83
+  br i1 %87, label %88, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i.i"
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i.i18.i
+  %89 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i.i16.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %89, ptr noundef nonnull align 4 dereferenceable(12) %85, i64 12, i1 false), !tbaa.struct !212
-  %.not9.i.i28.i = icmp ult i64 %.06.in.i.i.i.i19.i, 2
-  br i1 %.not9.i.i28.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i22.i", label %84, !llvm.loop !231
+  %.not5.i.i.i = icmp ult i64 %.06.in.i.i.i.i17.i, 2
+  br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i.i", label %84, !llvm.loop !231
 
-"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i22.i": ; preds = %88, %84, %82
-  %.sroa.0.sroa.2.0.extract.trunc.i.i5.i.i23.i = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13.i, %82 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16.i, %84 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16.i, %88 ]
-  %.013.lcssa.i.i.i.i24.i = phi i64 [ 0, %82 ], [ 0, %88 ], [ %.0135.i.i.i.i18.i, %84 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i25.i = trunc i64 %.sroa.04.0.copyload.i.i7.i to i32
-  %90 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i24.i
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i25.i, ptr %90, align 4
-  %.sroa_idx.i.i.i.i26.i = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i5.i.i23.i, ptr %.sroa_idx.i.i.i.i26.i, align 4
-  %.sroa.3.0..sroa_idx.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store float %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i27.i, align 4, !tbaa !25
+"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i.i": ; preds = %88, %84, %82
+  %.013.lcssa.i.i.i.i19.i = phi i64 [ 0, %82 ], [ %.0135.i.i.i.i16.i, %84 ], [ 0, %88 ]
+  %90 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i19.i
+  store i64 %.sroa.04.0.copyload.i.i7.i, ptr %90, align 4
+  %.sroa.3.0..sroa_idx.i.i.i.i20.i = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store float %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i20.i, align 4, !tbaa !25
   %91 = icmp sgt i64 %59, 12
   br i1 %91, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !233
 
@@ -5010,7 +5000,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
   %125 = icmp sgt i64 %124, 192
   br i1 %125, label %18, label %"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !237
 
-"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEET_S9_S9_T0_.exit", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i22.i", %3
+"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEET_S9_S9_T0_.exit", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL26llama_sampler_softmax_implP22llama_token_data_arrayE3$_0EEEvT_S9_S9_RT0_.exit.i.i", %3
   ret void
 }
 
@@ -6177,12 +6167,12 @@ define internal fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cx
 
 32:                                               ; preds = %31, %._crit_edge.i.i.i
   %.1.i.i.i = phi i64 [ %16, %31 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.sroa.04.0.copyload.i.i, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i to i32
   %33 = icmp samesign ugt i64 %.1.i.i.i, %.017.i.i
   br i1 %33, label %.lr.ph.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i"
 
 .lr.ph.i.i.i.i:                                   ; preds = %32
+  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.sroa.04.0.copyload.i.i, 32
+  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i to i32
   %34 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i to float
   br label %35
 
@@ -6204,11 +6194,8 @@ define internal fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cx
 
 "_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i": ; preds = %39, %35, %32
   %.013.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %32 ], [ %.06.i.i.i.i, %39 ], [ %.0135.i.i.i.i, %35 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.sroa.04.0.copyload.i.i to i32
   %42 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i, ptr %42, align 4
-  %.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i, ptr %.sroa_idx.i.i.i.i, align 4
+  store i64 %.sroa.04.0.copyload.i.i, ptr %42, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 4, !tbaa !25
   %.not.i.i = icmp eq i64 %.017.i.i, 0
@@ -6221,7 +6208,7 @@ define internal fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cx
 
 .lr.ph.i:                                         ; preds = %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit.i"
   %45 = getelementptr i8, ptr %0, i64 4
-  %46 = sdiv exact i64 %6, 12
+  %46 = sdiv i64 %6, 12
   %47 = add nsw i64 %46, -1
   %48 = sdiv i64 %47, 2
   %invariant.gep.i.i14.i = getelementptr i8, ptr %0, i64 16
@@ -6230,293 +6217,293 @@ define internal fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cx
   %51 = icmp eq i64 %50, 0
   %52 = add nsw i64 %46, -2
   %53 = ashr exact i64 %52, 1
+  br i1 %49, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i
+
+.lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i
   %54 = or disjoint i64 %52, 1
   %55 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %54
   %56 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %53
-  br i1 %49, label %.lr.ph.i.split.us, label %.lr.ph.i.split
+  br label %.lr.ph.split.us.i
 
-.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %77
-  %.035.i.us = phi ptr [ %78, %77 ], [ %1, %.lr.ph.i ]
-  %57 = getelementptr i8, ptr %.035.i.us, i64 4
-  %.0.val.i.us = load float, ptr %57, align 4, !tbaa !209
-  %.val.i.us = load float, ptr %45, align 4, !tbaa !209
-  %58 = fcmp ogt float %.0.val.i.us, %.val.i.us
-  br i1 %58, label %.lr.ph.i.i29.i.preheader.us, label %77
+.lr.ph.split.us.i:                                ; preds = %76, %.lr.ph.split.us.preheader.i
+  %.033.us.i = phi ptr [ %77, %76 ], [ %1, %.lr.ph.split.us.preheader.i ]
+  %57 = getelementptr i8, ptr %.033.us.i, i64 4
+  %.0.val.us.i = load float, ptr %57, align 4, !tbaa !209
+  %.val.us.i = load float, ptr %45, align 4, !tbaa !209
+  %58 = fcmp ogt float %.0.val.us.i, %.val.us.i
+  br i1 %58, label %.lr.ph.i.i27.preheader.us.i, label %76
 
-.lr.ph.i.i29.i.preheader.us:                      ; preds = %.lr.ph.i.split.us
-  %.sroa.04.0.copyload.i11.i.us = load i64, ptr %.035.i.us, align 4
-  %.sroa.4.0..sroa_idx.i12.i.us = getelementptr inbounds nuw i8, ptr %.035.i.us, i64 8
-  %.sroa.4.0.copyload.i13.i.us = load float, ptr %.sroa.4.0..sroa_idx.i12.i.us, align 4, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.i.us, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
-  br label %.lr.ph.i.i29.i.us
+.lr.ph.i.i27.preheader.us.i:                      ; preds = %.lr.ph.split.us.i
+  %.sroa.04.0.copyload.i11.us.i = load i64, ptr %.033.us.i, align 4
+  %.sroa.4.0..sroa_idx.i12.us.i = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 8
+  %.sroa.4.0.copyload.i13.us.i = load float, ptr %.sroa.4.0..sroa_idx.i12.us.i, align 4, !tbaa !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.033.us.i, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
+  br label %.lr.ph.i.i27.us.i
 
-.lr.ph.i.i29.i.us:                                ; preds = %.lr.ph.i.i29.i.preheader.us, %.lr.ph.i.i29.i.us
-  %.035.i.i30.i.us = phi i64 [ %spec.select.i.i34.i.us, %.lr.ph.i.i29.i.us ], [ 0, %.lr.ph.i.i29.i.preheader.us ]
-  %59 = shl i64 %.035.i.i30.i.us, 1
+.lr.ph.i.i27.us.i:                                ; preds = %.lr.ph.i.i27.us.i, %.lr.ph.i.i27.preheader.us.i
+  %.035.i.i28.us.i = phi i64 [ %spec.select.i.i32.us.i, %.lr.ph.i.i27.us.i ], [ 0, %.lr.ph.i.i27.preheader.us.i ]
+  %59 = shl i64 %.035.i.i28.us.i, 1
   %60 = add i64 %59, 2
   %61 = getelementptr %struct.llama_token_data, ptr %0, i64 %60, i32 1
-  %.val.i.i31.i.us = load float, ptr %61, align 4, !tbaa !209
-  %gep.i.i32.i.us = getelementptr %struct.llama_token_data, ptr %invariant.gep.i.i14.i, i64 %59
-  %.val34.i.i33.i.us = load float, ptr %gep.i.i32.i.us, align 4, !tbaa !209
-  %62 = fcmp ogt float %.val.i.i31.i.us, %.val34.i.i33.i.us
+  %.val.i.i29.us.i = load float, ptr %61, align 4, !tbaa !209
+  %gep.i.i30.us.i = getelementptr %struct.llama_token_data, ptr %invariant.gep.i.i14.i, i64 %59
+  %.val34.i.i31.us.i = load float, ptr %gep.i.i30.us.i, align 4, !tbaa !209
+  %62 = fcmp ogt float %.val.i.i29.us.i, %.val34.i.i31.us.i
   %63 = or disjoint i64 %59, 1
-  %spec.select.i.i34.i.us = select i1 %62, i64 %63, i64 %60
-  %64 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %spec.select.i.i34.i.us
-  %65 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.035.i.i30.i.us
+  %spec.select.i.i32.us.i = select i1 %62, i64 %63, i64 %60
+  %64 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %spec.select.i.i32.us.i
+  %65 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.035.i.i28.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull align 4 dereferenceable(12) %64, i64 12, i1 false), !tbaa.struct !212
-  %66 = icmp slt i64 %spec.select.i.i34.i.us, %48
-  br i1 %66, label %.lr.ph.i.i29.i.us, label %._crit_edge.i.i15.i.us, !llvm.loop !253
+  %66 = icmp slt i64 %spec.select.i.i32.us.i, %48
+  br i1 %66, label %.lr.ph.i.i27.us.i, label %._crit_edge.i.i15.loopexit.us.i, !llvm.loop !253
 
-._crit_edge.i.i15.i.us:                           ; preds = %.lr.ph.i.i29.i.us
-  %67 = icmp eq i64 %spec.select.i.i34.i.us, %53
-  %or.cond.i.us = select i1 %51, i1 %67, i1 false
-  br i1 %or.cond.i.us, label %.thread.i.i.us, label %68
+67:                                               ; preds = %._crit_edge.i.i15.loopexit.us.i
+  %.not.i17.us.i = icmp eq i64 %spec.select.i.i32.us.i, 0
+  br i1 %.not.i17.us.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.us.i", label %.lr.ph.i.i.i18.us.i
 
-68:                                               ; preds = %._crit_edge.i.i15.i.us
-  %.sroa.0.sroa.2.0.extract.shift.i.i.i17.i.us = lshr i64 %.sroa.04.0.copyload.i11.i.us, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i.i18.i.us = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i17.i.us to i32
-  %.not.i19.i.us = icmp eq i64 %spec.select.i.i34.i.us, 0
-  br i1 %.not.i19.i.us, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.us", label %.lr.ph.i.i.i20.i.us
-
-.thread.i.i.us:                                   ; preds = %._crit_edge.i.i15.i.us
+.thread.i.us.i:                                   ; preds = %._crit_edge.i.i15.loopexit.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %55, i64 12, i1 false), !tbaa.struct !212
-  %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i.us = lshr i64 %.sroa.04.0.copyload.i11.i.us, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i.us = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i.us to i32
-  br label %.lr.ph.i.i.i20.i.us
+  br label %.lr.ph.i.i.i18.us.i
 
-.lr.ph.i.i.i20.i.us:                              ; preds = %.thread.i.i.us, %68
-  %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i.us = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i.us, %.thread.i.i.us ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i.i18.i.us, %68 ]
-  %.1.i4.i.i.us = phi i64 [ %54, %.thread.i.i.us ], [ %spec.select.i.i34.i.us, %68 ]
-  %69 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i.us to float
-  br label %70
+.lr.ph.i.i.i18.us.i:                              ; preds = %.thread.i.us.i, %67
+  %.1.i2.i.us.i = phi i64 [ %54, %.thread.i.us.i ], [ %spec.select.i.i32.us.i, %67 ]
+  %.sroa.0.sroa.2.0.extract.shift.i.i.i19.us.i = lshr i64 %.sroa.04.0.copyload.i11.us.i, 32
+  %.sroa.0.sroa.2.0.extract.trunc.i.i.i20.us.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i19.us.i to i32
+  %68 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i20.us.i to float
+  br label %69
 
-70:                                               ; preds = %74, %.lr.ph.i.i.i20.i.us
-  %.0135.i.i.i21.i.us = phi i64 [ %.1.i4.i.i.us, %.lr.ph.i.i.i20.i.us ], [ %.06.i.i78.i.i.us, %74 ]
-  %.06.in.i.i.i22.i.us = add nsw i64 %.0135.i.i.i21.i.us, -1
-  %.06.i.i78.i.i.us = lshr i64 %.06.in.i.i.i22.i.us, 1
-  %71 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i78.i.i.us
-  %72 = getelementptr i8, ptr %71, i64 4
-  %.val.i.i.i23.i.us = load float, ptr %72, align 4, !tbaa !209
-  %73 = fcmp ogt float %.val.i.i.i23.i.us, %69
-  br i1 %73, label %74, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.us"
+69:                                               ; preds = %73, %.lr.ph.i.i.i18.us.i
+  %.0135.i.i.i21.us.i = phi i64 [ %.1.i2.i.us.i, %.lr.ph.i.i.i18.us.i ], [ %.06.i.i34.i.us.i, %73 ]
+  %.06.in.i.i.i22.us.i = add nsw i64 %.0135.i.i.i21.us.i, -1
+  %.06.i.i34.i.us.i = lshr i64 %.06.in.i.i.i22.us.i, 1
+  %70 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i34.i.us.i
+  %71 = getelementptr i8, ptr %70, i64 4
+  %.val.i.i.i23.us.i = load float, ptr %71, align 4, !tbaa !209
+  %72 = fcmp ogt float %.val.i.i.i23.us.i, %68
+  br i1 %72, label %73, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.us.i"
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i21.i.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %75, ptr noundef nonnull align 4 dereferenceable(12) %71, i64 12, i1 false), !tbaa.struct !212
-  %.not9.i.i.us = icmp ult i64 %.06.in.i.i.i22.i.us, 2
-  br i1 %.not9.i.i.us, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.us", label %70, !llvm.loop !254
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i21.us.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %74, ptr noundef nonnull align 4 dereferenceable(12) %70, i64 12, i1 false), !tbaa.struct !212
+  %.not5.i.us.i = icmp ult i64 %.06.in.i.i.i22.us.i, 2
+  br i1 %.not5.i.us.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.us.i", label %69, !llvm.loop !254
 
-"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.us": ; preds = %70, %74, %68
-  %.sroa.0.sroa.2.0.extract.trunc.i.i5.i.i.us = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc.i.i.i18.i.us, %68 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i.us, %74 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i.us, %70 ]
-  %.013.lcssa.i.i.i25.i.us = phi i64 [ 0, %68 ], [ %.0135.i.i.i21.i.us, %70 ], [ 0, %74 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i26.i.us = trunc i64 %.sroa.04.0.copyload.i11.i.us to i32
-  %76 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i25.i.us
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i26.i.us, ptr %76, align 4
-  %.sroa_idx.i.i.i27.i.us = getelementptr inbounds nuw i8, ptr %76, i64 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i5.i.i.us, ptr %.sroa_idx.i.i.i27.i.us, align 4
-  %.sroa.3.0..sroa_idx.i.i.i28.i.us = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store float %.sroa.4.0.copyload.i13.i.us, ptr %.sroa.3.0..sroa_idx.i.i.i28.i.us, align 4, !tbaa !25
-  br label %77
+"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.us.i": ; preds = %73, %69, %67
+  %.013.lcssa.i.i.i25.us.i = phi i64 [ 0, %67 ], [ 0, %73 ], [ %.0135.i.i.i21.us.i, %69 ]
+  %75 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i25.us.i
+  store i64 %.sroa.04.0.copyload.i11.us.i, ptr %75, align 4
+  %.sroa.3.0..sroa_idx.i.i.i26.us.i = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store float %.sroa.4.0.copyload.i13.us.i, ptr %.sroa.3.0..sroa_idx.i.i.i26.us.i, align 4, !tbaa !25
+  br label %76
 
-77:                                               ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.us", %.lr.ph.i.split.us
-  %78 = getelementptr inbounds nuw i8, ptr %.035.i.us, i64 12
-  %79 = icmp ult ptr %78, %2
-  br i1 %79, label %.lr.ph.i.split.us, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !256
+76:                                               ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.us.i", %.lr.ph.split.us.i
+  %77 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 12
+  %78 = icmp ult ptr %77, %2
+  br i1 %78, label %.lr.ph.split.us.i, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !256
 
-.lr.ph.i.split:                                   ; preds = %.lr.ph.i
-  %80 = icmp eq i64 %52, 0
-  %or.cond37.i = select i1 %51, i1 %80, i1 false
-  %or.cond37.i.fr = freeze i1 %or.cond37.i
-  br i1 %or.cond37.i.fr, label %.lr.ph.i.split.split.us, label %.lr.ph.i.split.split
+._crit_edge.i.i15.loopexit.us.i:                  ; preds = %.lr.ph.i.i27.us.i
+  %79 = icmp eq i64 %spec.select.i.i32.us.i, %53
+  %or.cond.i = select i1 %51, i1 %79, i1 false
+  br i1 %or.cond.i, label %.thread.i.us.i, label %67
 
-.lr.ph.i.split.split.us:                          ; preds = %.lr.ph.i.split, %90
-  %.035.i.us38 = phi ptr [ %91, %90 ], [ %1, %.lr.ph.i.split ]
-  %81 = getelementptr i8, ptr %.035.i.us38, i64 4
-  %.0.val.i.us39 = load float, ptr %81, align 4, !tbaa !209
-  %.val.i.us40 = load float, ptr %45, align 4, !tbaa !209
-  %82 = fcmp ogt float %.0.val.i.us39, %.val.i.us40
-  br i1 %82, label %._crit_edge.i.i15.thread.i.us, label %90
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br i1 %51, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
-._crit_edge.i.i15.thread.i.us:                    ; preds = %.lr.ph.i.split.split.us
-  %.sroa.04.0.copyload.i11.i.us41 = load i64, ptr %.035.i.us38, align 4
-  %.sroa.4.0..sroa_idx.i12.i.us42 = getelementptr inbounds nuw i8, ptr %.035.i.us38, i64 8
-  %.sroa.4.0.copyload.i13.i.us43 = load float, ptr %.sroa.4.0..sroa_idx.i12.i.us42, align 4, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.i.us38, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %55, i64 12, i1 false), !tbaa.struct !212
-  %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i.us45 = lshr i64 %.sroa.04.0.copyload.i11.i.us41, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i.us46 = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i.us45 to i32
-  %83 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i.us46 to float
-  br label %84
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i
+  %81 = icmp eq i64 %52, 0
+  br i1 %81, label %.lr.ph.split.split.us.split.us.i, label %.lr.ph.split.split.us.split.i
 
-84:                                               ; preds = %88, %._crit_edge.i.i15.thread.i.us
-  %.0135.i.i.i21.i.us47 = phi i64 [ %54, %._crit_edge.i.i15.thread.i.us ], [ %.06.i.i78.i.i.us49, %88 ]
-  %.06.in.i.i.i22.i.us48 = add nsw i64 %.0135.i.i.i21.i.us47, -1
-  %.06.i.i78.i.i.us49 = lshr i64 %.06.in.i.i.i22.i.us48, 1
-  %85 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i78.i.i.us49
-  %86 = getelementptr i8, ptr %85, i64 4
-  %.val.i.i.i23.i.us50 = load float, ptr %86, align 4, !tbaa !209
-  %87 = fcmp ogt float %.val.i.i.i23.i.us50, %83
-  br i1 %87, label %88, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.loopexit.us58"
+.lr.ph.split.split.us.split.us.i:                 ; preds = %.lr.ph.split.split.us.i, %87
+  %.033.us34.us.i = phi ptr [ %88, %87 ], [ %1, %.lr.ph.split.split.us.i ]
+  %82 = getelementptr i8, ptr %.033.us34.us.i, i64 4
+  %.0.val.us35.us.i = load float, ptr %82, align 4, !tbaa !209
+  %.val.us36.us.i = load float, ptr %45, align 4, !tbaa !209
+  %83 = fcmp ogt float %.0.val.us35.us.i, %.val.us36.us.i
+  br i1 %83, label %._crit_edge.i.i15.us37.us.i, label %87
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i21.i.us47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %89, ptr noundef nonnull align 4 dereferenceable(12) %85, i64 12, i1 false), !tbaa.struct !212
-  %.not9.i.i.us51 = icmp ult i64 %.06.in.i.i.i22.i.us48, 2
-  br i1 %.not9.i.i.us51, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.loopexit.us58", label %84, !llvm.loop !254
+._crit_edge.i.i15.us37.us.i:                      ; preds = %.lr.ph.split.split.us.split.us.i
+  %.sroa.04.0.copyload.i11.us38.us.i = load i64, ptr %.033.us34.us.i, align 4
+  %.sroa.4.0..sroa_idx.i12.us39.us.i = getelementptr inbounds nuw i8, ptr %.033.us34.us.i, i64 8
+  %.sroa.4.0.copyload.i13.us40.us.i = load float, ptr %.sroa.4.0..sroa_idx.i12.us39.us.i, align 4, !tbaa !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.033.us34.us.i, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %80, i64 12, i1 false), !tbaa.struct !212
+  %.sroa.0.sroa.2.0.extract.shift.i.i.i19.us42.us.i = lshr i64 %.sroa.04.0.copyload.i11.us38.us.i, 32
+  %.sroa.0.sroa.2.0.extract.trunc.i.i.i20.us43.us.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i19.us42.us.i to i32
+  %84 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i20.us43.us.i to float
+  %.val.i.i.i23.us47.us.i = load float, ptr %45, align 4, !tbaa !209
+  %85 = fcmp ule float %.val.i.i.i23.us47.us.i, %84
+  %.013.lcssa.i.i.i25.ph.us53.us.i = zext i1 %85 to i64
+  %86 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i25.ph.us53.us.i
+  store i64 %.sroa.04.0.copyload.i11.us38.us.i, ptr %86, align 4
+  %.sroa.3.0..sroa_idx.i.i.i26.us51.us.i = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store float %.sroa.4.0.copyload.i13.us40.us.i, ptr %.sroa.3.0..sroa_idx.i.i.i26.us51.us.i, align 4, !tbaa !25
+  br label %87
 
-90:                                               ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.loopexit.us58", %.lr.ph.i.split.split.us
-  %91 = getelementptr inbounds nuw i8, ptr %.035.i.us38, i64 12
-  %92 = icmp ult ptr %91, %2
-  br i1 %92, label %.lr.ph.i.split.split.us, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !256
+87:                                               ; preds = %._crit_edge.i.i15.us37.us.i, %.lr.ph.split.split.us.split.us.i
+  %88 = getelementptr inbounds nuw i8, ptr %.033.us34.us.i, i64 12
+  %89 = icmp ult ptr %88, %2
+  br i1 %89, label %.lr.ph.split.split.us.split.us.i, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !256
 
-"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i.loopexit.us58": ; preds = %88, %84
-  %.013.lcssa.i.i.i25.i.ph.us59 = phi i64 [ %.0135.i.i.i21.i.us47, %84 ], [ 0, %88 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i26.i.us55 = trunc i64 %.sroa.04.0.copyload.i11.i.us41 to i32
-  %93 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i25.i.ph.us59
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i26.i.us55, ptr %93, align 4
-  %.sroa_idx.i.i.i27.i.us56 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i.us46, ptr %.sroa_idx.i.i.i27.i.us56, align 4
-  %.sroa.3.0..sroa_idx.i.i.i28.i.us57 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store float %.sroa.4.0.copyload.i13.i.us43, ptr %.sroa.3.0..sroa_idx.i.i.i28.i.us57, align 4, !tbaa !25
+.lr.ph.split.split.us.split.i:                    ; preds = %.lr.ph.split.split.us.i
+  %.sroa.3.0..sroa_idx.i.i.i26.us51.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.us36.pre.i = load float, ptr %45, align 4, !tbaa !209
   br label %90
 
-.lr.ph.i.split.split:                             ; preds = %.lr.ph.i.split
-  %.sroa.3.0..sroa_idx.i.i.i28.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val.i.pre = load float, ptr %45, align 4, !tbaa !209
-  br label %94
+90:                                               ; preds = %96, %.lr.ph.split.split.us.split.i
+  %.val.us36.i = phi float [ %.val.us36.pre.i, %.lr.ph.split.split.us.split.i ], [ %.val.us3661.i, %96 ]
+  %.033.us34.i = phi ptr [ %1, %.lr.ph.split.split.us.split.i ], [ %97, %96 ]
+  %91 = getelementptr i8, ptr %.033.us34.i, i64 4
+  %.0.val.us35.i = load float, ptr %91, align 4, !tbaa !209
+  %92 = fcmp ogt float %.0.val.us35.i, %.val.us36.i
+  br i1 %92, label %._crit_edge.i.i15.us37.i, label %96
 
-94:                                               ; preds = %98, %.lr.ph.i.split.split
-  %.val.i = phi float [ %.val.i.pre, %.lr.ph.i.split.split ], [ %.val.i62, %98 ]
-  %.035.i = phi ptr [ %1, %.lr.ph.i.split.split ], [ %99, %98 ]
-  %95 = getelementptr i8, ptr %.035.i, i64 4
-  %.0.val.i = load float, ptr %95, align 4, !tbaa !209
-  %96 = fcmp ogt float %.0.val.i, %.val.i
-  br i1 %96, label %._crit_edge.i.i15.thread.i, label %98
+._crit_edge.i.i15.us37.i:                         ; preds = %90
+  %.sroa.04.0.copyload.i11.us38.i = load i64, ptr %.033.us34.i, align 4
+  %.sroa.4.0..sroa_idx.i12.us39.i = getelementptr inbounds nuw i8, ptr %.033.us34.i, i64 8
+  %.sroa.4.0.copyload.i13.us40.i = load float, ptr %.sroa.4.0..sroa_idx.i12.us39.i, align 4, !tbaa !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.033.us34.i, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
+  store i64 %.sroa.04.0.copyload.i11.us38.i, ptr %0, align 4
+  store float %.sroa.4.0.copyload.i13.us40.i, ptr %.sroa.3.0..sroa_idx.i.i.i26.us51.i, align 4, !tbaa !25
+  %93 = lshr i64 %.sroa.04.0.copyload.i11.us38.i, 32
+  %94 = trunc nuw i64 %93 to i32
+  %95 = bitcast i32 %94 to float
+  br label %96
 
-._crit_edge.i.i15.thread.i:                       ; preds = %94
-  %.sroa.04.0.copyload.i11.i = load i64, ptr %.035.i, align 4
-  %.sroa.4.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
+96:                                               ; preds = %._crit_edge.i.i15.us37.i, %90
+  %.val.us3661.i = phi float [ %95, %._crit_edge.i.i15.us37.i ], [ %.val.us36.i, %90 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.033.us34.i, i64 12
+  %98 = icmp ult ptr %97, %2
+  br i1 %98, label %90, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !256
+
+.lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i
+  %.sroa.3.0..sroa_idx.i.i.i26.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.pre.i = load float, ptr %45, align 4, !tbaa !209
+  br label %99
+
+99:                                               ; preds = %105, %.lr.ph.split.split.i
+  %.val.i = phi float [ %.val.pre.i, %.lr.ph.split.split.i ], [ %.val59.i, %105 ]
+  %.033.i = phi ptr [ %1, %.lr.ph.split.split.i ], [ %106, %105 ]
+  %100 = getelementptr i8, ptr %.033.i, i64 4
+  %.0.val.i = load float, ptr %100, align 4, !tbaa !209
+  %101 = fcmp ogt float %.0.val.i, %.val.i
+  br i1 %101, label %._crit_edge.i.i15.i, label %105
+
+._crit_edge.i.i15.i:                              ; preds = %99
+  %.sroa.04.0.copyload.i11.i = load i64, ptr %.033.i, align 4
+  %.sroa.4.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 8
   %.sroa.4.0.copyload.i13.i = load float, ptr %.sroa.4.0..sroa_idx.i12.i, align 4, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.i, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
-  %.sroa.0.sroa.2.0.extract.shift.i.i.i1740.i = lshr i64 %.sroa.04.0.copyload.i11.i, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i.i1841.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i1740.i to i32
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i26.i = trunc i64 %.sroa.04.0.copyload.i11.i to i32
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i26.i, ptr %0, align 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i1841.i, ptr %45, align 4
-  store float %.sroa.4.0.copyload.i13.i, ptr %.sroa.3.0..sroa_idx.i.i.i28.i, align 4, !tbaa !25
-  %97 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i1841.i to float
-  br label %98
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.033.i, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
+  store i64 %.sroa.04.0.copyload.i11.i, ptr %0, align 4
+  store float %.sroa.4.0.copyload.i13.i, ptr %.sroa.3.0..sroa_idx.i.i.i26.i, align 4, !tbaa !25
+  %102 = lshr i64 %.sroa.04.0.copyload.i11.i, 32
+  %103 = trunc nuw i64 %102 to i32
+  %104 = bitcast i32 %103 to float
+  br label %105
 
-98:                                               ; preds = %._crit_edge.i.i15.thread.i, %94
-  %.val.i62 = phi float [ %97, %._crit_edge.i.i15.thread.i ], [ %.val.i, %94 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.035.i, i64 12
-  %100 = icmp ult ptr %99, %2
-  br i1 %100, label %94, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !256
+105:                                              ; preds = %._crit_edge.i.i15.i, %99
+  %.val59.i = phi float [ %.val.i, %99 ], [ %104, %._crit_edge.i.i15.i ]
+  %106 = getelementptr inbounds nuw i8, ptr %.033.i, i64 12
+  %107 = icmp ult ptr %106, %2
+  br i1 %107, label %99, label %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit", !llvm.loop !256
 
-"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit": ; preds = %98, %90, %77, %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit.i"
-  %101 = icmp sgt i64 %6, 12
-  br i1 %101, label %.lr.ph.i5, label %"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit"
+"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit": ; preds = %105, %96, %87, %76, %"_ZSt11__make_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit.i"
+  %108 = icmp sgt i64 %6, 12
+  br i1 %108, label %.lr.ph.i5, label %"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit"
 
 .lr.ph.i5:                                        ; preds = %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit"
   %invariant.gep.i.i.i6 = getelementptr i8, ptr %0, i64 16
-  br label %102
+  br label %109
 
-102:                                              ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i22", %.lr.ph.i5
-  %.01.i = phi ptr [ %1, %.lr.ph.i5 ], [ %103, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i22" ]
-  %103 = getelementptr inbounds i8, ptr %.01.i, i64 -12
-  %.sroa.04.0.copyload.i.i7 = load i64, ptr %103, align 4
+109:                                              ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i", %.lr.ph.i5
+  %.01.i = phi ptr [ %1, %.lr.ph.i5 ], [ %110, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i" ]
+  %110 = getelementptr inbounds i8, ptr %.01.i, i64 -12
+  %.sroa.04.0.copyload.i.i7 = load i64, ptr %110, align 4
   %.sroa.4.0..sroa_idx.i.i8 = getelementptr inbounds i8, ptr %.01.i, i64 -4
   %.sroa.4.0.copyload.i.i9 = load float, ptr %.sroa.4.0..sroa_idx.i.i8, align 4, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %103, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
-  %104 = ptrtoint ptr %103 to i64
-  %105 = sub i64 %104, %5
-  %106 = sdiv exact i64 %105, 12
-  %107 = add nsw i64 %106, -1
-  %108 = sdiv i64 %107, 2
-  %109 = icmp sgt i64 %105, 24
-  br i1 %109, label %.lr.ph.i.i.i32, label %._crit_edge.i.i.i10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %110, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !212
+  %111 = ptrtoint ptr %110 to i64
+  %112 = sub i64 %111, %5
+  %113 = sdiv exact i64 %112, 12
+  %114 = add nsw i64 %113, -1
+  %115 = sdiv i64 %114, 2
+  %116 = icmp sgt i64 %112, 24
+  br i1 %116, label %.lr.ph.i.i.i21, label %._crit_edge.i.i.i10
 
-.lr.ph.i.i.i32:                                   ; preds = %102, %.lr.ph.i.i.i32
-  %.035.i.i.i33 = phi i64 [ %spec.select.i.i.i37, %.lr.ph.i.i.i32 ], [ 0, %102 ]
-  %110 = shl i64 %.035.i.i.i33, 1
-  %111 = add i64 %110, 2
-  %112 = getelementptr %struct.llama_token_data, ptr %0, i64 %111, i32 1
-  %.val.i.i.i34 = load float, ptr %112, align 4, !tbaa !209
-  %gep.i.i.i35 = getelementptr %struct.llama_token_data, ptr %invariant.gep.i.i.i6, i64 %110
-  %.val34.i.i.i36 = load float, ptr %gep.i.i.i35, align 4, !tbaa !209
-  %113 = fcmp ogt float %.val.i.i.i34, %.val34.i.i.i36
-  %114 = or disjoint i64 %110, 1
-  %spec.select.i.i.i37 = select i1 %113, i64 %114, i64 %111
-  %115 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %spec.select.i.i.i37
-  %116 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.035.i.i.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %116, ptr noundef nonnull align 4 dereferenceable(12) %115, i64 12, i1 false), !tbaa.struct !212
-  %117 = icmp slt i64 %spec.select.i.i.i37, %108
-  br i1 %117, label %.lr.ph.i.i.i32, label %._crit_edge.i.i.i10, !llvm.loop !253
+.lr.ph.i.i.i21:                                   ; preds = %109, %.lr.ph.i.i.i21
+  %.035.i.i.i22 = phi i64 [ %spec.select.i.i.i26, %.lr.ph.i.i.i21 ], [ 0, %109 ]
+  %117 = shl i64 %.035.i.i.i22, 1
+  %118 = add i64 %117, 2
+  %119 = getelementptr %struct.llama_token_data, ptr %0, i64 %118, i32 1
+  %.val.i.i.i23 = load float, ptr %119, align 4, !tbaa !209
+  %gep.i.i.i24 = getelementptr %struct.llama_token_data, ptr %invariant.gep.i.i.i6, i64 %117
+  %.val34.i.i.i25 = load float, ptr %gep.i.i.i24, align 4, !tbaa !209
+  %120 = fcmp ogt float %.val.i.i.i23, %.val34.i.i.i25
+  %121 = or disjoint i64 %117, 1
+  %spec.select.i.i.i26 = select i1 %120, i64 %121, i64 %118
+  %122 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %spec.select.i.i.i26
+  %123 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.035.i.i.i22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %123, ptr noundef nonnull align 4 dereferenceable(12) %122, i64 12, i1 false), !tbaa.struct !212
+  %124 = icmp slt i64 %spec.select.i.i.i26, %115
+  br i1 %124, label %.lr.ph.i.i.i21, label %._crit_edge.i.i.i10, !llvm.loop !253
 
-._crit_edge.i.i.i10:                              ; preds = %.lr.ph.i.i.i32, %102
-  %.0.lcssa.i.i.i11 = phi i64 [ 0, %102 ], [ %spec.select.i.i.i37, %.lr.ph.i.i.i32 ]
-  %118 = and i64 %106, 1
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %128
+._crit_edge.i.i.i10:                              ; preds = %.lr.ph.i.i.i21, %109
+  %.0.lcssa.i.i.i11 = phi i64 [ 0, %109 ], [ %spec.select.i.i.i26, %.lr.ph.i.i.i21 ]
+  %125 = and i64 %113, 1
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %127, label %135
 
-120:                                              ; preds = %._crit_edge.i.i.i10
-  %121 = add nsw i64 %106, -2
-  %122 = ashr exact i64 %121, 1
-  %123 = icmp eq i64 %.0.lcssa.i.i.i11, %122
-  br i1 %123, label %.thread.i.i29, label %128
+127:                                              ; preds = %._crit_edge.i.i.i10
+  %128 = add nsw i64 %113, -2
+  %129 = ashr exact i64 %128, 1
+  %130 = icmp eq i64 %.0.lcssa.i.i.i11, %129
+  br i1 %130, label %.thread.i.i, label %135
 
-.thread.i.i29:                                    ; preds = %120
-  %124 = shl nuw nsw i64 %.0.lcssa.i.i.i11, 1
-  %125 = or disjoint i64 %124, 1
-  %126 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %125
-  %127 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0.lcssa.i.i.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %127, ptr noundef nonnull align 4 dereferenceable(12) %126, i64 12, i1 false), !tbaa.struct !212
-  %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i30 = lshr i64 %.sroa.04.0.copyload.i.i7, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i31 = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i30 to i32
-  br label %.lr.ph.i.i.i.i15
+.thread.i.i:                                      ; preds = %127
+  %131 = shl nuw nsw i64 %.0.lcssa.i.i.i11, 1
+  %132 = or disjoint i64 %131, 1
+  %133 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %132
+  %134 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0.lcssa.i.i.i11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %134, ptr noundef nonnull align 4 dereferenceable(12) %133, i64 12, i1 false), !tbaa.struct !212
+  br label %.lr.ph.i.i.i.i13
 
-128:                                              ; preds = %120, %._crit_edge.i.i.i10
-  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i12 = lshr i64 %.sroa.04.0.copyload.i.i7, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13 = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i12 to i32
-  %.not.i.i14 = icmp eq i64 %.0.lcssa.i.i.i11, 0
-  br i1 %.not.i.i14, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i22", label %.lr.ph.i.i.i.i15
+135:                                              ; preds = %127, %._crit_edge.i.i.i10
+  %.not.i.i12 = icmp eq i64 %.0.lcssa.i.i.i11, 0
+  br i1 %.not.i.i12, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i", label %.lr.ph.i.i.i.i13
 
-.lr.ph.i.i.i.i15:                                 ; preds = %128, %.thread.i.i29
-  %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16 = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i31, %.thread.i.i29 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13, %128 ]
-  %.1.i4.i.i17 = phi i64 [ %125, %.thread.i.i29 ], [ %.0.lcssa.i.i.i11, %128 ]
-  %129 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16 to float
-  br label %130
+.lr.ph.i.i.i.i13:                                 ; preds = %135, %.thread.i.i
+  %.1.i2.i.i = phi i64 [ %132, %.thread.i.i ], [ %.0.lcssa.i.i.i11, %135 ]
+  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i14 = lshr i64 %.sroa.04.0.copyload.i.i7, 32
+  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i15 = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i14 to i32
+  %136 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i15 to float
+  br label %137
 
-130:                                              ; preds = %134, %.lr.ph.i.i.i.i15
-  %.0135.i.i.i.i18 = phi i64 [ %.1.i4.i.i17, %.lr.ph.i.i.i.i15 ], [ %.06.i.i78.i.i20, %134 ]
-  %.06.in.i.i.i.i19 = add nsw i64 %.0135.i.i.i.i18, -1
-  %.06.i.i78.i.i20 = lshr i64 %.06.in.i.i.i.i19, 1
-  %131 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i78.i.i20
-  %132 = getelementptr i8, ptr %131, i64 4
-  %.val.i.i.i.i21 = load float, ptr %132, align 4, !tbaa !209
-  %133 = fcmp ogt float %.val.i.i.i.i21, %129
-  br i1 %133, label %134, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i22"
+137:                                              ; preds = %141, %.lr.ph.i.i.i.i13
+  %.0135.i.i.i.i16 = phi i64 [ %.1.i2.i.i, %.lr.ph.i.i.i.i13 ], [ %.06.i.i34.i.i, %141 ]
+  %.06.in.i.i.i.i17 = add nsw i64 %.0135.i.i.i.i16, -1
+  %.06.i.i34.i.i = lshr i64 %.06.in.i.i.i.i17, 1
+  %138 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i34.i.i
+  %139 = getelementptr i8, ptr %138, i64 4
+  %.val.i.i.i.i18 = load float, ptr %139, align 4, !tbaa !209
+  %140 = fcmp ogt float %.val.i.i.i.i18, %136
+  br i1 %140, label %141, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i"
 
-134:                                              ; preds = %130
-  %135 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i.i18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %135, ptr noundef nonnull align 4 dereferenceable(12) %131, i64 12, i1 false), !tbaa.struct !212
-  %.not9.i.i28 = icmp ult i64 %.06.in.i.i.i.i19, 2
-  br i1 %.not9.i.i28, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i22", label %130, !llvm.loop !254
+141:                                              ; preds = %137
+  %142 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i.i16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %142, ptr noundef nonnull align 4 dereferenceable(12) %138, i64 12, i1 false), !tbaa.struct !212
+  %.not5.i.i = icmp ult i64 %.06.in.i.i.i.i17, 2
+  br i1 %.not5.i.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i", label %137, !llvm.loop !254
 
-"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i22": ; preds = %134, %130, %128
-  %.sroa.0.sroa.2.0.extract.trunc.i.i5.i.i23 = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13, %128 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16, %130 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16, %134 ]
-  %.013.lcssa.i.i.i.i24 = phi i64 [ 0, %128 ], [ 0, %134 ], [ %.0135.i.i.i.i18, %130 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i25 = trunc i64 %.sroa.04.0.copyload.i.i7 to i32
-  %136 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i24
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i25, ptr %136, align 4
-  %.sroa_idx.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i5.i.i23, ptr %.sroa_idx.i.i.i.i26, align 4
-  %.sroa.3.0..sroa_idx.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store float %.sroa.4.0.copyload.i.i9, ptr %.sroa.3.0..sroa_idx.i.i.i.i27, align 4, !tbaa !25
-  %137 = icmp sgt i64 %105, 12
-  br i1 %137, label %102, label %"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit", !llvm.loop !257
+"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i": ; preds = %141, %137, %135
+  %.013.lcssa.i.i.i.i19 = phi i64 [ 0, %135 ], [ 0, %141 ], [ %.0135.i.i.i.i16, %137 ]
+  %143 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i19
+  store i64 %.sroa.04.0.copyload.i.i7, ptr %143, align 4
+  %.sroa.3.0..sroa_idx.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  store float %.sroa.4.0.copyload.i.i9, ptr %.sroa.3.0..sroa_idx.i.i.i.i20, align 4, !tbaa !25
+  %144 = icmp sgt i64 %112, 12
+  br i1 %144, label %109, label %"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit", !llvm.loop !257
 
-"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit": ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i22", %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit"
+"_ZSt11__sort_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_RT0_.exit": ; preds = %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_RT0_.exit.i", %"_ZSt13__heap_selectIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_.exit"
   ret void
 }
 
@@ -7284,12 +7271,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
 
 45:                                               ; preds = %44, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi i64 [ %29, %44 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.04.0.copyload.i.i.i, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %46 = icmp samesign ugt i64 %.1.i.i.i.i, %.017.i.i.i
   br i1 %46, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %45
+  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.04.0.copyload.i.i.i, 32
+  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %47 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i to float
   br label %48
 
@@ -7311,19 +7298,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
 
 "_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %52, %48, %45
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %45 ], [ %.0135.i.i.i.i.i, %48 ], [ %.06.i.i.i.i.i, %52 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.04.0.copyload.i.i.i to i32
   %55 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %55, align 4
-  %.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %.sroa_idx.i.i.i.i.i, align 4
+  store i64 %.sroa.04.0.copyload.i.i.i, ptr %55, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store float %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i64 %.017.i.i.i, 0
   %56 = add nsw i64 %.017.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i, label %32, !llvm.loop !271
 
-.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i22.i"
-  %.01.i.i = phi ptr [ %57, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i22.i" ], [ %.025, %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i" ]
+.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i.i"
+  %.01.i.i = phi ptr [ %57, %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i.i" ], [ %.025, %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i" ]
   %57 = getelementptr inbounds i8, ptr %.01.i.i, i64 -12
   %.sroa.04.0.copyload.i.i7.i = load i64, ptr %57, align 4
   %.sroa.4.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -4
@@ -7335,27 +7319,27 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
   %61 = add nsw i64 %60, -1
   %62 = sdiv i64 %61, 2
   %63 = icmp sgt i64 %59, 24
-  br i1 %63, label %.lr.ph.i.i.i32.i, label %._crit_edge.i.i.i10.i
+  br i1 %63, label %.lr.ph.i.i.i21.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i32.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i32.i
-  %.035.i.i.i33.i = phi i64 [ %spec.select.i.i.i37.i, %.lr.ph.i.i.i32.i ], [ 0, %.lr.ph.i5.i ]
-  %64 = shl i64 %.035.i.i.i33.i, 1
+.lr.ph.i.i.i21.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i21.i
+  %.035.i.i.i22.i = phi i64 [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i21.i ], [ 0, %.lr.ph.i5.i ]
+  %64 = shl i64 %.035.i.i.i22.i, 1
   %65 = add i64 %64, 2
   %66 = getelementptr %struct.llama_token_data, ptr %0, i64 %65, i32 1
-  %.val.i.i.i34.i = load float, ptr %66, align 4, !tbaa !209
-  %gep.i.i.i35.i = getelementptr %struct.llama_token_data, ptr %16, i64 %64
-  %.val34.i.i.i36.i = load float, ptr %gep.i.i.i35.i, align 4, !tbaa !209
-  %67 = fcmp ogt float %.val.i.i.i34.i, %.val34.i.i.i36.i
+  %.val.i.i.i23.i = load float, ptr %66, align 4, !tbaa !209
+  %gep.i.i.i24.i = getelementptr %struct.llama_token_data, ptr %16, i64 %64
+  %.val34.i.i.i25.i = load float, ptr %gep.i.i.i24.i, align 4, !tbaa !209
+  %67 = fcmp ogt float %.val.i.i.i23.i, %.val34.i.i.i25.i
   %68 = or disjoint i64 %64, 1
-  %spec.select.i.i.i37.i = select i1 %67, i64 %68, i64 %65
-  %69 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %spec.select.i.i.i37.i
-  %70 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.035.i.i.i33.i
+  %spec.select.i.i.i26.i = select i1 %67, i64 %68, i64 %65
+  %69 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %spec.select.i.i.i26.i
+  %70 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.035.i.i.i22.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %69, i64 12, i1 false), !tbaa.struct !212
-  %71 = icmp slt i64 %spec.select.i.i.i37.i, %62
-  br i1 %71, label %.lr.ph.i.i.i32.i, label %._crit_edge.i.i.i10.i, !llvm.loop !269
+  %71 = icmp slt i64 %spec.select.i.i.i26.i, %62
+  br i1 %71, label %.lr.ph.i.i.i21.i, label %._crit_edge.i.i.i10.i, !llvm.loop !269
 
-._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i32.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i37.i, %.lr.ph.i.i.i32.i ]
+._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i21.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i21.i ]
   %72 = and i64 %60, 1
   %73 = icmp eq i64 %72, 0
   br i1 %73, label %74, label %82
@@ -7364,56 +7348,49 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
   %75 = add nsw i64 %60, -2
   %76 = ashr exact i64 %75, 1
   %77 = icmp eq i64 %.0.lcssa.i.i.i11.i, %76
-  br i1 %77, label %.thread.i.i29.i, label %82
+  br i1 %77, label %.thread.i.i.i, label %82
 
-.thread.i.i29.i:                                  ; preds = %74
+.thread.i.i.i:                                    ; preds = %74
   %78 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
   %79 = or disjoint i64 %78, 1
   %80 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %79
   %81 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0.lcssa.i.i.i11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %80, i64 12, i1 false), !tbaa.struct !212
-  %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i30.i = lshr i64 %.sroa.04.0.copyload.i.i7.i, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i31.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i2.i.i30.i to i32
-  br label %.lr.ph.i.i.i.i15.i
+  br label %.lr.ph.i.i.i.i13.i
 
 82:                                               ; preds = %74, %._crit_edge.i.i.i10.i
-  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i12.i = lshr i64 %.sroa.04.0.copyload.i.i7.i, 32
-  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i12.i to i32
-  %.not.i.i14.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
-  br i1 %.not.i.i14.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i15.i
+  %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
+  br i1 %.not.i.i12.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i.i", label %.lr.ph.i.i.i.i13.i
 
-.lr.ph.i.i.i.i15.i:                               ; preds = %82, %.thread.i.i29.i
-  %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16.i = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i31.i, %.thread.i.i29.i ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13.i, %82 ]
-  %.1.i4.i.i17.i = phi i64 [ %79, %.thread.i.i29.i ], [ %.0.lcssa.i.i.i11.i, %82 ]
-  %83 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16.i to float
+.lr.ph.i.i.i.i13.i:                               ; preds = %82, %.thread.i.i.i
+  %.1.i2.i.i.i = phi i64 [ %79, %.thread.i.i.i ], [ %.0.lcssa.i.i.i11.i, %82 ]
+  %.sroa.0.sroa.2.0.extract.shift.i.i.i.i14.i = lshr i64 %.sroa.04.0.copyload.i.i7.i, 32
+  %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i15.i = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift.i.i.i.i14.i to i32
+  %83 = bitcast i32 %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i15.i to float
   br label %84
 
-84:                                               ; preds = %88, %.lr.ph.i.i.i.i15.i
-  %.0135.i.i.i.i18.i = phi i64 [ %.1.i4.i.i17.i, %.lr.ph.i.i.i.i15.i ], [ %.06.i.i78.i.i20.i, %88 ]
-  %.06.in.i.i.i.i19.i = add nsw i64 %.0135.i.i.i.i18.i, -1
-  %.06.i.i78.i.i20.i = lshr i64 %.06.in.i.i.i.i19.i, 1
-  %85 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i78.i.i20.i
+84:                                               ; preds = %88, %.lr.ph.i.i.i.i13.i
+  %.0135.i.i.i.i16.i = phi i64 [ %.1.i2.i.i.i, %.lr.ph.i.i.i.i13.i ], [ %.06.i.i34.i.i.i, %88 ]
+  %.06.in.i.i.i.i17.i = add nsw i64 %.0135.i.i.i.i16.i, -1
+  %.06.i.i34.i.i.i = lshr i64 %.06.in.i.i.i.i17.i, 1
+  %85 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.06.i.i34.i.i.i
   %86 = getelementptr i8, ptr %85, i64 4
-  %.val.i.i.i.i21.i = load float, ptr %86, align 4, !tbaa !209
-  %87 = fcmp ogt float %.val.i.i.i.i21.i, %83
-  br i1 %87, label %88, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i22.i"
+  %.val.i.i.i.i18.i = load float, ptr %86, align 4, !tbaa !209
+  %87 = fcmp ogt float %.val.i.i.i.i18.i, %83
+  br i1 %87, label %88, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i.i"
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i.i18.i
+  %89 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.0135.i.i.i.i16.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %89, ptr noundef nonnull align 4 dereferenceable(12) %85, i64 12, i1 false), !tbaa.struct !212
-  %.not9.i.i28.i = icmp ult i64 %.06.in.i.i.i.i19.i, 2
-  br i1 %.not9.i.i28.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i22.i", label %84, !llvm.loop !270
+  %.not5.i.i.i = icmp ult i64 %.06.in.i.i.i.i17.i, 2
+  br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i.i", label %84, !llvm.loop !270
 
-"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i22.i": ; preds = %88, %84, %82
-  %.sroa.0.sroa.2.0.extract.trunc.i.i5.i.i23.i = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc.i.i.i.i13.i, %82 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16.i, %84 ], [ %.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i16.i, %88 ]
-  %.013.lcssa.i.i.i.i24.i = phi i64 [ 0, %82 ], [ 0, %88 ], [ %.0135.i.i.i.i18.i, %84 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i25.i = trunc i64 %.sroa.04.0.copyload.i.i7.i to i32
-  %90 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i24.i
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i25.i, ptr %90, align 4
-  %.sroa_idx.i.i.i.i26.i = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store i32 %.sroa.0.sroa.2.0.extract.trunc.i.i5.i.i23.i, ptr %.sroa_idx.i.i.i.i26.i, align 4
-  %.sroa.3.0..sroa_idx.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store float %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i27.i, align 4, !tbaa !25
+"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i.i": ; preds = %88, %84, %82
+  %.013.lcssa.i.i.i.i19.i = phi i64 [ 0, %82 ], [ %.0135.i.i.i.i16.i, %84 ], [ 0, %88 ]
+  %90 = getelementptr inbounds nuw %struct.llama_token_data, ptr %0, i64 %.013.lcssa.i.i.i.i19.i
+  store i64 %.sroa.04.0.copyload.i.i7.i, ptr %90, align 4
+  %.sroa.3.0..sroa_idx.i.i.i.i20.i = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store float %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i20.i, align 4, !tbaa !25
   %91 = icmp sgt i64 %59, 12
   br i1 %91, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !272
 
@@ -7538,7 +7515,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16llama_token_datalN9__gnu
   %125 = icmp sgt i64 %124, 192
   br i1 %125, label %18, label %"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !276
 
-"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i22.i", %3
+"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL25llama_sampler_min_p_applyP13llama_samplerP22llama_token_data_arrayE3$_0EEEvT_SB_SB_RT0_.exit.i.i", %3
   ret void
 }
 

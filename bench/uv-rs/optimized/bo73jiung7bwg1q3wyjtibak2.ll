@@ -1654,19 +1654,10 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   tail call void @llvm.assume(i1 %152)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !290
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %151, ptr nonnull readonly align 1 %.sroa.0.0, i64 %.sroa.8.0, i1 false), !noalias !294
-  %.sroa.0213.sroa.0.0.extract.trunc = trunc i64 %145 to i16
-  %.sroa.0213.sroa.4.0.extract.shift = lshr i64 %145, 16
-  %.sroa.0213.sroa.4.0.extract.trunc = trunc i64 %.sroa.0213.sroa.4.0.extract.shift to i16
-  %.sroa.0213.sroa.5.0.extract.shift = lshr i64 %145, 32
-  %.sroa.0213.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.0213.sroa.5.0.extract.shift to i32
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %153, align 8
   %.sroa.2105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.0213.sroa.0.0.extract.trunc, ptr %.sroa.2105.0..sroa_idx, align 8
-  %.sroa.3106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.0213.sroa.4.0.extract.trunc, ptr %.sroa.3106.0..sroa_idx, align 2
-  %.sroa.4107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.0213.sroa.5.0.extract.trunc, ptr %.sroa.4107.0..sroa_idx, align 4
+  store i64 %145, ptr %.sroa.2105.0..sroa_idx, align 8
   %.sroa.4107.sroa.2.0..sroa.4107.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %151, ptr %.sroa.4107.sroa.2.0..sroa.4107.0..sroa_idx.sroa_idx, align 8
   %.sroa.4107.sroa.3.0..sroa.4107.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -18379,15 +18379,10 @@ _ZN3std4path4Path4join17hc41e15cec5f6c333E.exit:  ; preds = %147
   %210 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %211 = load ptr, ptr %210, align 8, !nonnull !10, !noundef !10
   %212 = ptrtoint ptr %211 to i64
-  %.sroa.4634.0.extract.trunc = trunc i64 %212 to i32
-  %.sroa.4634.4.extract.shift = lshr i64 %212, 32
-  %.sroa.4634.4.extract.trunc = trunc nuw i64 %.sroa.4634.4.extract.shift to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
   store i64 -9223372036854775800, ptr %0, align 8
   %.sroa.2287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.4634.0.extract.trunc, ptr %.sroa.2287.0..sroa_idx, align 8
-  %.sroa.3288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.4634.4.extract.trunc, ptr %.sroa.3288.0..sroa_idx, align 4
+  store i64 %212, ptr %.sroa.2287.0..sroa_idx, align 8
   br label %281
 
 213:                                              ; preds = %205
@@ -18993,15 +18988,10 @@ _ZN3std4path4Path4join17hc41e15cec5f6c333E.exit463: ; preds = %160
   %360 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %361 = load ptr, ptr %360, align 8, !nonnull !10, !noundef !10
   %362 = ptrtoint ptr %361 to i64
-  %.sroa.4658.0.extract.trunc = trunc i64 %362 to i32
-  %.sroa.4658.4.extract.shift = lshr i64 %362, 32
-  %.sroa.4658.4.extract.trunc = trunc nuw i64 %.sroa.4658.4.extract.shift to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   store i64 -9223372036854775800, ptr %0, align 8
   %.sroa.2368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.4658.0.extract.trunc, ptr %.sroa.2368.0..sroa_idx, align 8
-  %.sroa.3369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.4658.4.extract.trunc, ptr %.sroa.3369.0..sroa_idx, align 4
+  store i64 %362, ptr %.sroa.2368.0..sroa_idx, align 8
   br label %430
 
 363:                                              ; preds = %355

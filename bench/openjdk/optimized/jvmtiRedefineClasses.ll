@@ -3727,124 +3727,119 @@ define hidden void @_ZN18VM_RedefineClasses14append_operandERK18constantPoolHand
   %59 = getelementptr i16, ptr %55, i64 %58
   %60 = getelementptr i8, ptr %59, i64 2
   %61 = load i16, ptr %60, align 2
-  %62 = trunc i32 %51 to i16
-  %63 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %64 = getelementptr i16, ptr %63, i64 %.pre-phi
-  store i16 %62, ptr %64, align 2
-  %65 = lshr i32 %51, 16
-  %66 = trunc nuw i32 %65 to i16
-  %67 = getelementptr i8, ptr %64, i64 2
-  store i16 %66, ptr %67, align 2
-  %68 = sext i32 %51 to i64
-  %69 = getelementptr i16, ptr %63, i64 %68
-  store i16 %18, ptr %69, align 2
-  %70 = getelementptr i8, ptr %69, i64 2
-  store i16 %61, ptr %70, align 2
-  %71 = zext i16 %61 to i32
+  %62 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %63 = getelementptr i16, ptr %62, i64 %.pre-phi
+  store i32 %51, ptr %63, align 2
+  %64 = sext i32 %51 to i64
+  %65 = getelementptr i16, ptr %62, i64 %64
+  store i16 %18, ptr %65, align 2
+  %66 = getelementptr i8, ptr %65, i64 2
+  store i16 %61, ptr %66, align 2
+  %67 = zext i16 %61 to i32
   %.not54 = icmp eq i16 %61, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %50
-  %72 = add i32 %51, 2
-  %73 = sext i32 %72 to i64
+  %68 = add i32 %51, 2
+  %69 = sext i32 %68 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %93
-  %indvars.iv = phi i64 [ %73, %.lr.ph.preheader ], [ %indvars.iv.next, %93 ]
-  %.03752 = phi i32 [ 0, %.lr.ph.preheader ], [ %94, %93 ]
-  %74 = load ptr, ptr %1, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %78 = getelementptr i16, ptr %77, i64 %11
-  %79 = load i32, ptr %78, align 2
-  %80 = add nuw nsw i32 %.03752, 2
-  %81 = add i32 %80, %79
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i16, ptr %77, i64 %82
-  %84 = load i16, ptr %83, align 2
-  %85 = zext i16 %84 to i32
-  %86 = tail call noundef zeroext i16 @_ZN18VM_RedefineClasses29find_or_append_indirect_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %85, ptr noundef nonnull %3, ptr noundef %4)
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %89
+  %indvars.iv = phi i64 [ %69, %.lr.ph.preheader ], [ %indvars.iv.next, %89 ]
+  %.03752 = phi i32 [ 0, %.lr.ph.preheader ], [ %90, %89 ]
+  %70 = load ptr, ptr %1, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %74 = getelementptr i16, ptr %73, i64 %11
+  %75 = load i32, ptr %74, align 2
+  %76 = add nuw nsw i32 %.03752, 2
+  %77 = add i32 %76, %75
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i16, ptr %73, i64 %78
+  %80 = load i16, ptr %79, align 2
+  %81 = zext i16 %80 to i32
+  %82 = tail call noundef zeroext i16 @_ZN18VM_RedefineClasses29find_or_append_indirect_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %81, ptr noundef nonnull %3, ptr noundef %4)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %87 = getelementptr inbounds i16, ptr %63, i64 %indvars.iv
-  store i16 %86, ptr %87, align 2
-  %.not43 = icmp eq i16 %86, %84
-  br i1 %.not43, label %93, label %88
+  %83 = getelementptr inbounds i16, ptr %62, i64 %indvars.iv
+  store i16 %82, ptr %83, align 2
+  %.not43 = icmp eq i16 %82, %80
+  br i1 %.not43, label %89, label %84
 
-88:                                               ; preds = %.lr.ph
-  %89 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not51 = icmp eq ptr %89, null
-  br i1 %.not51, label %93, label %90
+84:                                               ; preds = %.lr.ph
+  %85 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not51 = icmp eq ptr %85, null
+  br i1 %.not51, label %89, label %86
 
-90:                                               ; preds = %88
-  %91 = load i32, ptr %29, align 8
-  %92 = zext i16 %86 to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.25, i32 noundef %91, i32 noundef %85, i32 noundef %92)
-  br label %93
+86:                                               ; preds = %84
+  %87 = load i32, ptr %29, align 8
+  %88 = zext i16 %82 to i32
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.25, i32 noundef %87, i32 noundef %81, i32 noundef %88)
+  br label %89
 
-93:                                               ; preds = %.lr.ph, %88, %90
-  %94 = add nuw nsw i32 %.03752, 1
-  %exitcond.not = icmp eq i32 %94, %71
+89:                                               ; preds = %.lr.ph, %84, %86
+  %90 = add nuw nsw i32 %.03752, 1
+  %exitcond.not = icmp eq i32 %90, %67
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %93, %50
-  %95 = load i32, ptr %29, align 8
-  %.not42 = icmp eq i32 %2, %95
-  br i1 %.not42, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %96
+._crit_edge:                                      ; preds = %89, %50
+  %91 = load i32, ptr %29, align 8
+  %.not42 = icmp eq i32 %2, %91
+  br i1 %.not42, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %92
 
-96:                                               ; preds = %._crit_edge
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %98 = load i32, ptr %97, align 4
-  %99 = icmp eq i32 %98, 0
-  %100 = icmp eq i32 %2, -1
-  %or.cond.i.i = or i1 %100, %99
-  br i1 %or.cond.i.i, label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i, label %101
+92:                                               ; preds = %._crit_edge
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp eq i32 %94, 0
+  %96 = icmp eq i32 %2, -1
+  %or.cond.i.i = or i1 %96, %95
+  br i1 %or.cond.i.i, label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i, label %97
 
-101:                                              ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %99 = load ptr, ptr %98, align 8
+  %100 = load i32, ptr %99, align 4
+  %.not.i.i = icmp slt i32 %2, %100
+  br i1 %.not.i.i, label %101, label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
+
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %103, align 4
-  %.not.i.i = icmp slt i32 %2, %104
-  br i1 %.not.i.i, label %105, label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
-
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = sext i32 %2 to i64
-  %109 = getelementptr inbounds i32, ptr %107, i64 %108
-  %110 = load i32, ptr %109, align 4
-  %111 = icmp ne i32 %110, -1
+  %104 = sext i32 %2 to i64
+  %105 = getelementptr inbounds i32, ptr %103, i64 %104
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp ne i32 %106, -1
   br label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
 
-_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i: ; preds = %105, %101, %96
-  %.0.i.i = phi i1 [ false, %96 ], [ false, %101 ], [ %111, %105 ]
-  %112 = icmp eq i32 %2, %30
-  %or.cond.i = or i1 %112, %.0.i.i
-  br i1 %or.cond.i, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %113
+_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i: ; preds = %101, %97, %92
+  %.0.i.i = phi i1 [ false, %92 ], [ false, %97 ], [ %107, %101 ]
+  %108 = icmp eq i32 %2, %30
+  %or.cond.i = or i1 %108, %.0.i.i
+  br i1 %or.cond.i, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %109
 
-113:                                              ; preds = %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load ptr, ptr %116, align 8
-  %118 = sext i32 %2 to i64
-  %119 = getelementptr inbounds i32, ptr %117, i64 %118
-  store i32 %30, ptr %119, align 4
-  %120 = load i32, ptr %97, align 4
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %97, align 4
-  %122 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i = icmp eq ptr %122, null
-  br i1 %.not.i, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %123
+109:                                              ; preds = %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = sext i32 %2 to i64
+  %115 = getelementptr inbounds i32, ptr %113, i64 %114
+  store i32 %30, ptr %115, align 4
+  %116 = load i32, ptr %93, align 4
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr %93, align 4
+  %118 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i = icmp eq ptr %118, null
+  br i1 %.not.i, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %119
 
-123:                                              ; preds = %113
+119:                                              ; preds = %109
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.60, i32 noundef %2, i32 noundef %30)
   br label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit
 
-_ZN18VM_RedefineClasses17map_operand_indexEii.exit: ; preds = %123, %113, %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i, %._crit_edge
-  %124 = load i32, ptr %29, align 8
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %29, align 8
+_ZN18VM_RedefineClasses17map_operand_indexEii.exit: ; preds = %119, %109, %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i, %._crit_edge
+  %120 = load i32, ptr %29, align 8
+  %121 = add nsw i32 %120, 1
+  store i32 %121, ptr %29, align 8
   ret void
 }
 

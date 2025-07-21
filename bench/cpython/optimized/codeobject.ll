@@ -4641,17 +4641,12 @@ init_co_cached.exit.thread:                       ; preds = %1
   %22 = phi i64 [ %31, %._crit_edge.i ], [ 0, %19 ]
   %.01520.i = phi i32 [ %30, %._crit_edge.i ], [ 0, %19 ]
   %23 = tail call i16 @_Py_GetBaseCodeUnit(ptr noundef %0, i32 noundef %.01520.i) #14
-  %.sroa.0.0.extract.trunc.i = trunc i16 %23 to i8
-  %.sroa.5.0.extract.shift.i = lshr i16 %23, 8
-  %.sroa.5.0.extract.trunc.i = trunc nuw i16 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.mask.i = and i16 %23, 255
   %24 = zext nneg i16 %.sroa.0.0.extract.trunc.mask.i to i64
   %25 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !97
   %27 = getelementptr %union._Py_CODEUNIT, ptr %20, i64 %22
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %27, align 2
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %.sroa.5.0..sroa_idx.i, align 1, !tbaa !97
+  store i16 %23, ptr %27, align 2
   %.not18.i = icmp eq i8 %26, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 

@@ -18980,23 +18980,18 @@ define dso_local void @_ZN5clang13ASTStmtReader30VisitObjCAvailabilityCheckExprE
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %5, ptr noundef nonnull align 8 dereferenceable(3464) %7, ptr noundef nonnull align 8 dereferenceable(528) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc = trunc i64 %10 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %10, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.sroa.0.0.extract.trunc, ptr %11, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.sroa.4.0.extract.trunc, ptr %12, align 4, !tbaa !30
-  %13 = load ptr, ptr %0, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %16 = tail call { i64, i64 } @_ZN5clang9ASTReader16ReadVersionTupleERKN4llvm11SmallVectorImLj64EEERj(ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef nonnull align 4 dereferenceable(4) %15) #22
-  %17 = extractvalue { i64, i64 } %16, 0
-  %18 = extractvalue { i64, i64 } %16, 1
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %17, ptr %19, align 8, !tbaa !50
+  store i64 %10, ptr %11, align 8
+  %12 = load ptr, ptr %0, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %15 = tail call { i64, i64 } @_ZN5clang9ASTReader16ReadVersionTupleERKN4llvm11SmallVectorImLj64EEERj(ptr noundef nonnull align 8 dereferenceable(528) %13, ptr noundef nonnull align 4 dereferenceable(4) %14) #22
+  %16 = extractvalue { i64, i64 } %15, 0
+  %17 = extractvalue { i64, i64 } %15, 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %16, ptr %18, align 8, !tbaa !50
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %18, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !50
+  store i64 %17, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !50
   ret void
 }
 
@@ -20202,38 +20197,33 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXX
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10, ptr noundef nonnull align 8 dereferenceable(528) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc = trunc i64 %13 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %13, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.sroa.0.0.extract.trunc, ptr %14, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.sroa.4.0.extract.trunc, ptr %15, align 4, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !81
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !84
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4, !tbaa !84
-  %21 = shl nuw i32 1, %19
-  %22 = and i32 %21, %17
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %33, label %23
+  store i64 %13, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !81
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !84
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 4, !tbaa !84
+  %20 = shl nuw i32 1, %18
+  %21 = and i32 %20, %16
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %32, label %22
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %26, ptr noundef nonnull align 8 dereferenceable(3464) %28, ptr noundef nonnull align 8 dereferenceable(528) %29, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef null) #22
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %31, ptr %32, align 8
-  br label %33
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %25, ptr noundef nonnull align 8 dereferenceable(3464) %27, ptr noundef nonnull align 8 dereferenceable(528) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef null) #22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %30, ptr %31, align 8
+  br label %32
 
-33:                                               ; preds = %23, %2
+32:                                               ; preds = %22, %2
   ret void
 }
 
@@ -20252,38 +20242,33 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitCXXStaticCastExprEPNS_17CX
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10, ptr noundef nonnull align 8 dereferenceable(528) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %13, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %14, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %15, align 4, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !81
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !84
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4, !tbaa !84
-  %21 = shl nuw i32 1, %19
-  %22 = and i32 %21, %17
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %23
+  store i64 %13, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !81
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !84
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 4, !tbaa !84
+  %20 = shl nuw i32 1, %18
+  %21 = and i32 %20, %16
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %22
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %26, ptr noundef nonnull align 8 dereferenceable(3464) %28, ptr noundef nonnull align 8 dereferenceable(528) %29, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef null) #22
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %31, ptr %32, align 8
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %25, ptr noundef nonnull align 8 dereferenceable(3464) %27, ptr noundef nonnull align 8 dereferenceable(528) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef null) #22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %30, ptr %31, align 8
   br label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit
 
-_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %23
+_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %22
   ret void
 }
 
@@ -20302,38 +20287,33 @@ define dso_local void @_ZN5clang13ASTStmtReader23VisitCXXDynamicCastExprEPNS_18C
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10, ptr noundef nonnull align 8 dereferenceable(528) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %13, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %14, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %15, align 4, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !81
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !84
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4, !tbaa !84
-  %21 = shl nuw i32 1, %19
-  %22 = and i32 %21, %17
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %23
+  store i64 %13, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !81
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !84
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 4, !tbaa !84
+  %20 = shl nuw i32 1, %18
+  %21 = and i32 %20, %16
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %22
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %26, ptr noundef nonnull align 8 dereferenceable(3464) %28, ptr noundef nonnull align 8 dereferenceable(528) %29, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef null) #22
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %31, ptr %32, align 8
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %25, ptr noundef nonnull align 8 dereferenceable(3464) %27, ptr noundef nonnull align 8 dereferenceable(528) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef null) #22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %30, ptr %31, align 8
   br label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit
 
-_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %23
+_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %22
   ret void
 }
 
@@ -20352,38 +20332,33 @@ define dso_local void @_ZN5clang13ASTStmtReader27VisitCXXReinterpretCastExprEPNS
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10, ptr noundef nonnull align 8 dereferenceable(528) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %13, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %14, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %15, align 4, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !81
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !84
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4, !tbaa !84
-  %21 = shl nuw i32 1, %19
-  %22 = and i32 %21, %17
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %23
+  store i64 %13, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !81
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !84
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 4, !tbaa !84
+  %20 = shl nuw i32 1, %18
+  %21 = and i32 %20, %16
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %22
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %26, ptr noundef nonnull align 8 dereferenceable(3464) %28, ptr noundef nonnull align 8 dereferenceable(528) %29, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef null) #22
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %31, ptr %32, align 8
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %25, ptr noundef nonnull align 8 dereferenceable(3464) %27, ptr noundef nonnull align 8 dereferenceable(528) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef null) #22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %30, ptr %31, align 8
   br label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit
 
-_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %23
+_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %22
   ret void
 }
 
@@ -20402,38 +20377,33 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitCXXAddrspaceCastExprEPNS_2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10, ptr noundef nonnull align 8 dereferenceable(528) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %13, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %14, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %15, align 4, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !81
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !84
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4, !tbaa !84
-  %21 = shl nuw i32 1, %19
-  %22 = and i32 %21, %17
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %23
+  store i64 %13, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !81
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !84
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 4, !tbaa !84
+  %20 = shl nuw i32 1, %18
+  %21 = and i32 %20, %16
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %22
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %26, ptr noundef nonnull align 8 dereferenceable(3464) %28, ptr noundef nonnull align 8 dereferenceable(528) %29, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef null) #22
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %31, ptr %32, align 8
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %25, ptr noundef nonnull align 8 dereferenceable(3464) %27, ptr noundef nonnull align 8 dereferenceable(528) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef null) #22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %30, ptr %31, align 8
   br label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit
 
-_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %23
+_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %22
   ret void
 }
 
@@ -20452,38 +20422,33 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitCXXConstCastExprEPNS_16CXX
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10, ptr noundef nonnull align 8 dereferenceable(528) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %13, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %14, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %15, align 4, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !81
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !84
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4, !tbaa !84
-  %21 = shl nuw i32 1, %19
-  %22 = and i32 %21, %17
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %23
+  store i64 %13, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !81
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !84
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 4, !tbaa !84
+  %20 = shl nuw i32 1, %18
+  %21 = and i32 %20, %16
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit, label %22
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %26, ptr noundef nonnull align 8 dereferenceable(3464) %28, ptr noundef nonnull align 8 dereferenceable(528) %29, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef null) #22
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %31, ptr %32, align 8
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %25, ptr noundef nonnull align 8 dereferenceable(3464) %27, ptr noundef nonnull align 8 dereferenceable(528) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef null) #22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %30, ptr %31, align 8
   br label %_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit
 
-_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %23
+_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE.exit: ; preds = %2, %22
   ret void
 }
 
@@ -23040,20 +23005,15 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitTypeTraitExprEPNS_13TypeTr
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %51 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %46, ptr noundef nonnull align 8 dereferenceable(3464) %48, ptr noundef nonnull align 8 dereferenceable(528) %49, ptr noundef nonnull align 4 dereferenceable(4) %50, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc = trunc i64 %51 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %51, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %.sroa.0.0.extract.trunc, ptr %52, align 8, !tbaa !30
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %.sroa.4.0.extract.trunc, ptr %53, align 4, !tbaa !30
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %55 = load i32, ptr %13, align 4, !tbaa !50
-  %.not15 = icmp eq i32 %55, 0
+  store i64 %51, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %54 = load i32, ptr %13, align 4, !tbaa !50
+  %.not15 = icmp eq i32 %54, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %56 = zext i32 %55 to i64
+  %55 = zext i32 %54 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -23061,12 +23021,12 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitTypeTraitExprEPNS_13TypeTr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %57 = load ptr, ptr %0, align 8, !tbaa !3
-  %58 = tail call noundef ptr @_ZN5clang15ASTRecordReader18readTypeSourceInfoEv(ptr noundef nonnull align 8 dereferenceable(560) %57) #22
-  %59 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
-  store ptr %58, ptr %59, align 8, !tbaa !700
+  %56 = load ptr, ptr %0, align 8, !tbaa !3
+  %57 = tail call noundef ptr @_ZN5clang15ASTRecordReader18readTypeSourceInfoEv(ptr noundef nonnull align 8 dereferenceable(560) %56) #22
+  %58 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  store ptr %57, ptr %58, align 8, !tbaa !700
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, %56
+  %.not = icmp eq i64 %indvars.iv.next, %55
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !975
 }
 
@@ -23108,32 +23068,27 @@ define dso_local void @_ZN5clang13ASTStmtReader23VisitArrayTypeTraitExprEPNS_18A
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %30, ptr noundef nonnull align 8 dereferenceable(3464) %32, ptr noundef nonnull align 8 dereferenceable(528) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc = trunc i64 %33 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %33, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %.sroa.0.0.extract.trunc, ptr %34, align 8, !tbaa !30
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store i32 %.sroa.4.0.extract.trunc, ptr %35, align 4, !tbaa !30
-  %36 = load ptr, ptr %0, align 8, !tbaa !3
-  %37 = tail call noundef ptr @_ZN5clang15ASTRecordReader18readTypeSourceInfoEv(ptr noundef nonnull align 8 dereferenceable(560) %36) #22
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %37, ptr %38, align 8, !tbaa !978
-  %39 = load ptr, ptr %0, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !15
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 13064
-  %43 = load ptr, ptr %42, align 8, !tbaa !31
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 13072
-  %45 = load i32, ptr %44, align 8, !tbaa !38
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 -8
-  %49 = load ptr, ptr %48, align 8, !tbaa !47
-  %50 = add i32 %45, -1
-  store i32 %50, ptr %44, align 8, !tbaa !38
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %49, ptr %51, align 8, !tbaa !979
+  store i64 %33, ptr %34, align 8
+  %35 = load ptr, ptr %0, align 8, !tbaa !3
+  %36 = tail call noundef ptr @_ZN5clang15ASTRecordReader18readTypeSourceInfoEv(ptr noundef nonnull align 8 dereferenceable(560) %35) #22
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %36, ptr %37, align 8, !tbaa !978
+  %38 = load ptr, ptr %0, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !15
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 13064
+  %42 = load ptr, ptr %41, align 8, !tbaa !31
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 13072
+  %44 = load i32, ptr %43, align 8, !tbaa !38
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %47 = getelementptr inbounds i8, ptr %46, i64 -8
+  %48 = load ptr, ptr %47, align 8, !tbaa !47
+  %49 = add i32 %44, -1
+  store i32 %49, ptr %43, align 8, !tbaa !38
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %48, ptr %50, align 8, !tbaa !979
   ret void
 }
 
@@ -23181,9 +23136,6 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitExpressionTraitExprEPNS_19
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %38 = tail call i64 @_ZN5clang9ASTReader15ReadSourceRangeERNS_13serialization10ModuleFileERKN4llvm11SmallVectorImLj64EEERjPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(16272) %33, ptr noundef nonnull align 8 dereferenceable(3464) %35, ptr noundef nonnull align 8 dereferenceable(528) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef null) #22
-  %.sroa.0.0.extract.trunc = trunc i64 %38 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %38, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %39 = load ptr, ptr %0, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !15
@@ -23200,9 +23152,7 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitExpressionTraitExprEPNS_19
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %49, ptr %51, align 8, !tbaa !980
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %.sroa.0.0.extract.trunc, ptr %52, align 4, !tbaa !30
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %.sroa.4.0.extract.trunc, ptr %53, align 8, !tbaa !30
+  store i64 %38, ptr %52, align 4
   ret void
 }
 

@@ -1125,65 +1125,13 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr noundef readonly captures(
   %353 = getelementptr inbounds nuw i8, ptr %344, i64 12
   %354 = load i32, ptr %353, align 4, !tbaa !3
   %355 = xor i32 %354, %299
-  %356 = trunc i32 %346 to i8
-  store i8 %356, ptr %2, align 1, !tbaa !9
-  %357 = lshr i32 %346, 8
-  %358 = trunc i32 %357 to i8
-  %359 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %358, ptr %359, align 1, !tbaa !9
-  %360 = lshr i32 %346, 16
-  %361 = trunc i32 %360 to i8
-  %362 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %361, ptr %362, align 1, !tbaa !9
-  %363 = lshr i32 %346, 24
-  %364 = trunc nuw i32 %363 to i8
-  %365 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %364, ptr %365, align 1, !tbaa !9
-  %366 = trunc i32 %349 to i8
-  %367 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i8 %366, ptr %367, align 1, !tbaa !9
-  %368 = lshr i32 %349, 8
-  %369 = trunc i32 %368 to i8
-  %370 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store i8 %369, ptr %370, align 1, !tbaa !9
-  %371 = lshr i32 %349, 16
-  %372 = trunc i32 %371 to i8
-  %373 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %372, ptr %373, align 1, !tbaa !9
-  %374 = lshr i32 %349, 24
-  %375 = trunc nuw i32 %374 to i8
-  %376 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  store i8 %375, ptr %376, align 1, !tbaa !9
-  %377 = trunc i32 %352 to i8
-  %378 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %377, ptr %378, align 1, !tbaa !9
-  %379 = lshr i32 %352, 8
-  %380 = trunc i32 %379 to i8
-  %381 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  store i8 %380, ptr %381, align 1, !tbaa !9
-  %382 = lshr i32 %352, 16
-  %383 = trunc i32 %382 to i8
-  %384 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %383, ptr %384, align 1, !tbaa !9
-  %385 = lshr i32 %352, 24
-  %386 = trunc nuw i32 %385 to i8
-  %387 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  store i8 %386, ptr %387, align 1, !tbaa !9
-  %388 = trunc i32 %355 to i8
-  %389 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 %388, ptr %389, align 1, !tbaa !9
-  %390 = lshr i32 %355, 8
-  %391 = trunc i32 %390 to i8
-  %392 = getelementptr inbounds nuw i8, ptr %2, i64 13
-  store i8 %391, ptr %392, align 1, !tbaa !9
-  %393 = lshr i32 %355, 16
-  %394 = trunc i32 %393 to i8
-  %395 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  store i8 %394, ptr %395, align 1, !tbaa !9
-  %396 = lshr i32 %355, 24
-  %397 = trunc nuw i32 %396 to i8
-  %398 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  store i8 %397, ptr %398, align 1, !tbaa !9
+  store i32 %346, ptr %2, align 1
+  %356 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %349, ptr %356, align 1
+  %357 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %352, ptr %357, align 1
+  %358 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %355, ptr %358, align 1
   ret i32 0
 }
 

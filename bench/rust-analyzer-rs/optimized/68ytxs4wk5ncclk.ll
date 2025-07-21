@@ -95544,9 +95544,6 @@ common.resume:                                    ; preds = %209, %178, %191, %1
   %.sroa.13.0 = phi i64 [ %.sroa.555.0.copyload.i, %.thread93.i ], [ %.sroa.540.0.copyload.i, %111 ]
   %.sroa.6.0 = phi i64 [ %.sroa.6.9.insert.insert305, %.thread93.i ], [ %.sroa.6.9.insert.insert, %111 ]
   %.sroa.18.sroa.7.sroa.0.0.in.in = ptrtoint ptr %.sroa.18.sroa.7.sroa.0.0.in.in.in to i64
-  %.sroa.18.sroa.0.0 = trunc i64 %.sroa.18.sroa.7.sroa.0.0.in.in to i8
-  %.sroa.18.sroa.7.sroa.0.0.in = lshr i64 %.sroa.18.sroa.7.sroa.0.0.in.in, 8
-  %.sroa.18.sroa.7.sroa.0.0 = trunc nuw i64 %.sroa.18.sroa.7.sroa.0.0.in to i56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !24974
   %227 = inttoptr i64 %.sroa.6.0 to ptr
   %228 = inttoptr i64 %.sroa.13.0 to ptr
@@ -95555,9 +95552,7 @@ common.resume:                                    ; preds = %209, %178, %191, %1
   %.sroa.2229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %228, ptr %.sroa.2229.0..sroa_idx, align 8
   %.sroa.3230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.18.sroa.0.0, ptr %.sroa.3230.0..sroa_idx, align 8
-  %.sroa.4231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i56 %.sroa.18.sroa.7.sroa.0.0, ptr %.sroa.4231.0..sroa_idx, align 1
+  store i64 %.sroa.18.sroa.7.sroa.0.0.in.in, ptr %.sroa.3230.0..sroa_idx, align 8
   %.sroa.4231.sroa.2.0..sroa.4231.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.25.0, ptr %.sroa.4231.sroa.2.0..sroa.4231.0..sroa_idx.sroa_idx, align 8
   store i32 20, ptr %0, align 8
@@ -98002,9 +97997,6 @@ common.resume.i:                                  ; preds = %117, %107, %94
   %.sroa.22.0 = phi i64 [ %.sroa.450.i.sroa.4.0.copyload, %47 ], [ %.sroa.538.i.sroa.4.0.copyload, %42 ]
   %.sroa.9.0402 = phi ptr [ %.sroa.545.0.copyload.i, %47 ], [ %.sroa.530.0.copyload.i.i, %42 ]
   %.sroa.0337.0 = phi i8 [ %36, %47 ], [ %30, %42 ]
-  %.sroa.14.0.extract.trunc = trunc i64 %.sroa.14.0 to i32
-  %.sroa.14.4.extract.shift = lshr i64 %.sroa.14.0, 32
-  %.sroa.14.4.extract.trunc = trunc nuw i64 %.sroa.14.4.extract.shift to i32
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.0337.0, ptr %158, align 8
   %.sroa.2188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -98012,9 +98004,7 @@ common.resume.i:                                  ; preds = %117, %107, %94
   %.sroa.3189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.9.0402, ptr %.sroa.3189.0..sroa_idx, align 8
   %.sroa.4190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.14.0.extract.trunc, ptr %.sroa.4190.0..sroa_idx, align 8
-  %.sroa.5191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sroa.14.4.extract.trunc, ptr %.sroa.5191.0..sroa_idx, align 4
+  store i64 %.sroa.14.0, ptr %.sroa.4190.0..sroa_idx, align 8
   %.sroa.6192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.22.0, ptr %.sroa.6192.0..sroa_idx, align 8
   store i32 12, ptr %0, align 8
@@ -98033,9 +98023,6 @@ common.resume.i:                                  ; preds = %117, %107, %94
   %.sroa.22353.0 = phi i64 [ %.sroa.450.i313.sroa.4.0.copyload, %70 ], [ %.sroa.538.i315.sroa.4.0.copyload, %65 ]
   %.sroa.9349.0 = phi ptr [ %.sroa.545.0.copyload.i332, %70 ], [ %.sroa.530.0.copyload.i.i318, %65 ]
   %.sroa.0347.0 = phi i8 [ %59, %70 ], [ %53, %65 ]
-  %.sroa.14350.0.extract.trunc = trunc i64 %.sroa.14350.0 to i32
-  %.sroa.14350.4.extract.shift = lshr i64 %.sroa.14350.0, 32
-  %.sroa.14350.4.extract.trunc = trunc nuw i64 %.sroa.14350.4.extract.shift to i32
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.0347.0, ptr %161, align 8
   %.sroa.2209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -98043,9 +98030,7 @@ common.resume.i:                                  ; preds = %117, %107, %94
   %.sroa.3210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.9349.0, ptr %.sroa.3210.0..sroa_idx, align 8
   %.sroa.4211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.14350.0.extract.trunc, ptr %.sroa.4211.0..sroa_idx, align 8
-  %.sroa.5212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sroa.14350.4.extract.trunc, ptr %.sroa.5212.0..sroa_idx, align 4
+  store i64 %.sroa.14350.0, ptr %.sroa.4211.0..sroa_idx, align 8
   %.sroa.6213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.22353.0, ptr %.sroa.6213.0..sroa_idx, align 8
   store i32 12, ptr %0, align 8
@@ -98070,16 +98055,11 @@ common.resume.i:                                  ; preds = %117, %107, %94
   %.sroa.6364.0.in = phi i64 [ %.sroa.6364.1.insert.insert386, %.thread110.i ], [ %.sroa.6364.1.insert.insert, %112 ], [ %.sroa.6364.1.insert.insert, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i.i" ]
   %.sroa.6364.0 = inttoptr i64 %.sroa.6364.0.in to ptr
   %.sroa.13.sroa.7.0.in.in = ptrtoint ptr %.sroa.13.sroa.7.0.in.in.in to i64
-  %.sroa.13.sroa.0.0 = trunc i64 %.sroa.13.sroa.7.0.in.in to i32
-  %.sroa.13.sroa.7.0.in = lshr i64 %.sroa.13.sroa.7.0.in.in, 32
-  %.sroa.13.sroa.7.0 = trunc nuw i64 %.sroa.13.sroa.7.0.in to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !25442
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6364.0, ptr %166, align 8
   %.sroa.2227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.13.sroa.0.0, ptr %.sroa.2227.0..sroa_idx, align 8
-  %.sroa.3228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.13.sroa.7.0, ptr %.sroa.3228.0..sroa_idx, align 4
+  store i64 %.sroa.13.sroa.7.0.in.in, ptr %.sroa.2227.0..sroa_idx, align 8
   %.sroa.4229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.19.0, ptr %.sroa.4229.0..sroa_idx, align 8
   %.sroa.4229.sroa.2.0..sroa.4229.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

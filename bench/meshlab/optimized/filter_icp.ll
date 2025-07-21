@@ -15068,27 +15068,24 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN
   %34 = getelementptr inbounds nuw %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %33
   %35 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0.lcssa.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false)
-  %.sroa.2.sroa.2.0.extract.shift.i.i9.i.i = lshr i64 %.sroa.23.0.copyload.i.i, 32
-  %.sroa.2.sroa.2.0.extract.trunc.i.i10.i.i = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i9.i.i to i32
   br label %.lr.ph.i.i.i.i
 
 36:                                               ; preds = %28, %._crit_edge.i.i.i
-  %.sroa.2.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.sroa.23.0.copyload.i.i, 32
-  %.sroa.2.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i.i.i to i32
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %36, %.thread.i.i
-  %.sroa.2.sroa.2.0.extract.trunc.i.i13.i.i = phi i32 [ %.sroa.2.sroa.2.0.extract.trunc.i.i10.i.i, %.thread.i.i ], [ %.sroa.2.sroa.2.0.extract.trunc.i.i.i.i, %36 ]
-  %.1.i11.i.i = phi i64 [ %33, %.thread.i.i ], [ %.0.lcssa.i.i.i, %36 ]
-  %37 = bitcast i32 %.sroa.2.sroa.2.0.extract.trunc.i.i13.i.i to float
+  %.1.i9.i.i = phi i64 [ %33, %.thread.i.i ], [ %.0.lcssa.i.i.i, %36 ]
+  %.sroa.2.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.sroa.23.0.copyload.i.i, 32
+  %.sroa.2.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i.i.i to i32
+  %37 = bitcast i32 %.sroa.2.sroa.2.0.extract.trunc.i.i.i.i to float
   br label %38
 
 38:                                               ; preds = %43, %.lr.ph.i.i.i.i
-  %.021.i.i.i.i = phi i64 [ %.1.i11.i.i, %.lr.ph.i.i.i.i ], [ %.0922.i.i1415.i.i, %43 ]
+  %.021.i.i.i.i = phi i64 [ %.1.i9.i.i, %.lr.ph.i.i.i.i ], [ %.0922.i.i1011.i.i, %43 ]
   %.0922.in.i.i.i.i = add nsw i64 %.021.i.i.i.i, -1
-  %.0922.i.i1415.i.i = lshr i64 %.0922.in.i.i.i.i, 1
-  %39 = getelementptr inbounds nuw %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0922.i.i1415.i.i
+  %.0922.i.i1011.i.i = lshr i64 %.0922.in.i.i.i.i, 1
+  %39 = getelementptr inbounds nuw %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0922.i.i1011.i.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load float, ptr %40, align 4
   %42 = fcmp olt float %41, %37
@@ -15097,19 +15094,15 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN
 43:                                               ; preds = %38
   %44 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.021.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %44, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false)
-  %.not16.i.i = icmp ult i64 %.0922.in.i.i.i.i, 2
-  br i1 %.not16.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.i, label %38, !llvm.loop !175
+  %.not12.i.i = icmp ult i64 %.0922.in.i.i.i.i, 2
+  br i1 %.not12.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.i, label %38, !llvm.loop !175
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.i: ; preds = %43, %38, %36
-  %.sroa.2.sroa.2.0.extract.trunc.i.i12.i.i = phi i32 [ %.sroa.2.sroa.2.0.extract.trunc.i.i.i.i, %36 ], [ %.sroa.2.sroa.2.0.extract.trunc.i.i13.i.i, %38 ], [ %.sroa.2.sroa.2.0.extract.trunc.i.i13.i.i, %43 ]
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %36 ], [ 0, %43 ], [ %.021.i.i.i.i, %38 ]
-  %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.sroa.23.0.copyload.i.i to i32
   %45 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0.lcssa.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i, ptr %45, align 4
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %.sroa.2.sroa.0.0.extract.trunc.i.i.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 4
-  %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 12
-  store i32 %.sroa.2.sroa.2.0.extract.trunc.i.i12.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i.i, align 4
+  store i64 %.sroa.23.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 4
   %46 = icmp sgt i64 %10, 16
   br i1 %46, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_RT0_.exit, !llvm.loop !176
 
@@ -15122,7 +15115,8 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 4
+  %.fr = freeze i64 %6
+  %7 = ashr i64 %.fr, 4
   %8 = icmp slt i64 %7, 2
   br i1 %8, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_RT0_.exit, label %.split.i
 
@@ -15131,7 +15125,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3
   %10 = lshr i64 %9, 1
   %11 = add nsw i64 %7, -1
   %12 = lshr i64 %11, 1
-  %13 = and i64 %6, 16
+  %13 = and i64 %.fr, 16
   %14 = icmp eq i64 %13, 0
   %15 = or disjoint i64 %9, 1
   %16 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %15
@@ -15176,12 +15170,12 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3
 
 33:                                               ; preds = %32, %._crit_edge.i.i
   %.1.i.i = phi i64 [ %15, %32 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %.sroa.2.sroa.2.0.extract.shift.i.i.i = lshr i64 %.sroa.23.0.copyload.i, 32
-  %.sroa.2.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i.i to i32
   %34 = icmp sgt i64 %.1.i.i, %.0.i
   br i1 %34, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %33
+  %.sroa.2.sroa.2.0.extract.shift.i.i.i = lshr i64 %.sroa.23.0.copyload.i, 32
+  %.sroa.2.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i.i to i32
   %35 = bitcast i32 %.sroa.2.sroa.2.0.extract.trunc.i.i.i to float
   br label %36
 
@@ -15203,13 +15197,10 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_.exit.i: ; preds = %41, %36, %33
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %33 ], [ %.021.i.i.i, %36 ], [ %.0922.i.i.i, %41 ]
-  %.sroa.2.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.23.0.copyload.i to i32
   %44 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0.lcssa.i.i.i
   store i64 %.sroa.02.0.copyload.i, ptr %44, align 4
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %.sroa.2.sroa.0.0.extract.trunc.i.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i, align 4
-  %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store i32 %.sroa.2.sroa.2.0.extract.trunc.i.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i, align 4
+  store i64 %.sroa.23.0.copyload.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i, align 4
   %45 = icmp eq i64 %.0.i, 0
   %46 = add nsw i64 %.0.i, -1
   br i1 %45, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_RT0_.exit, label %18, !llvm.loop !177
@@ -15223,114 +15214,201 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE
   %49 = add nsw i64 %7, -1
   %50 = sdiv i64 %49, 2
   %51 = icmp sgt i64 %7, 2
-  %52 = and i64 %6, 16
+  %52 = and i64 %.fr, 16
   %53 = icmp eq i64 %52, 0
   %54 = add nsw i64 %7, -2
   %55 = ashr exact i64 %54, 1
-  %56 = icmp eq i64 %54, 0
-  %or.cond31 = select i1 %53, i1 %56, i1 false
-  %57 = or disjoint i64 %54, 1
-  %58 = getelementptr inbounds nuw %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %57
-  %59 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %55
-  br label %60
+  br i1 %51, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
-60:                                               ; preds = %.lr.ph, %88
-  %.sroa.0.029 = phi ptr [ %1, %.lr.ph ], [ %89, %88 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.029, i64 12
-  %62 = load float, ptr %61, align 4
-  %63 = load float, ptr %48, align 4
-  %64 = fcmp olt float %62, %63
-  br i1 %64, label %65, label %88
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  %56 = or disjoint i64 %54, 1
+  %57 = getelementptr inbounds nuw %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %56
+  %58 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %55
+  br label %.lr.ph.split.us
 
-65:                                               ; preds = %60
-  %.sroa.02.0.copyload.i9 = load i64, ptr %.sroa.0.029, align 4
-  %.sroa.23.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %.sroa.0.029, i64 8
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %84
+  %.sroa.0.027.us = phi ptr [ %85, %84 ], [ %1, %.lr.ph.split.us.preheader ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 12
+  %60 = load float, ptr %59, align 4
+  %61 = load float, ptr %48, align 4
+  %62 = fcmp olt float %60, %61
+  br i1 %62, label %.lr.ph.i.i22.preheader.us, label %84
+
+.lr.ph.i.i22.preheader.us:                        ; preds = %.lr.ph.split.us
+  %.sroa.02.0.copyload.i9.us = load i64, ptr %.sroa.0.027.us, align 4
+  %.sroa.23.0..sroa_idx.i10.us = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 8
+  %.sroa.23.0.copyload.i11.us = load i64, ptr %.sroa.23.0..sroa_idx.i10.us, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.027.us, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  br label %.lr.ph.i.i22.us
+
+.lr.ph.i.i22.us:                                  ; preds = %.lr.ph.i.i22.preheader.us, %.lr.ph.i.i22.us
+  %.036.i.i23.us = phi i64 [ %spec.select.i.i24.us, %.lr.ph.i.i22.us ], [ 0, %.lr.ph.i.i22.preheader.us ]
+  %63 = shl i64 %.036.i.i23.us, 1
+  %64 = add i64 %63, 2
+  %65 = or disjoint i64 %63, 1
+  %66 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %64, i32 3
+  %67 = load float, ptr %66, align 4
+  %68 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %65, i32 3
+  %69 = load float, ptr %68, align 4
+  %70 = fcmp olt float %67, %69
+  %spec.select.i.i24.us = select i1 %70, i64 %65, i64 %64
+  %71 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %spec.select.i.i24.us
+  %72 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.036.i.i23.us
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(16) %71, i64 16, i1 false)
+  %73 = icmp slt i64 %spec.select.i.i24.us, %50
+  br i1 %73, label %.lr.ph.i.i22.us, label %._crit_edge.i.i12.loopexit.us, !llvm.loop !174
+
+74:                                               ; preds = %._crit_edge.i.i12.loopexit.us
+  %.not.i.us = icmp eq i64 %spec.select.i.i24.us, 0
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.us, label %.lr.ph.i.i.i14.us
+
+.thread.i.us:                                     ; preds = %._crit_edge.i.i12.loopexit.us
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, ptr noundef nonnull align 4 dereferenceable(16) %57, i64 16, i1 false)
+  br label %.lr.ph.i.i.i14.us
+
+.lr.ph.i.i.i14.us:                                ; preds = %.thread.i.us, %74
+  %.1.i9.i.us = phi i64 [ %56, %.thread.i.us ], [ %spec.select.i.i24.us, %74 ]
+  %.sroa.2.sroa.2.0.extract.shift.i.i.i15.us = lshr i64 %.sroa.23.0.copyload.i11.us, 32
+  %.sroa.2.sroa.2.0.extract.trunc.i.i.i16.us = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i.i15.us to i32
+  %75 = bitcast i32 %.sroa.2.sroa.2.0.extract.trunc.i.i.i16.us to float
+  br label %76
+
+76:                                               ; preds = %81, %.lr.ph.i.i.i14.us
+  %.021.i.i.i17.us = phi i64 [ %.1.i9.i.us, %.lr.ph.i.i.i14.us ], [ %.0922.i.i1011.i.us, %81 ]
+  %.0922.in.i.i.i18.us = add nsw i64 %.021.i.i.i17.us, -1
+  %.0922.i.i1011.i.us = lshr i64 %.0922.in.i.i.i18.us, 1
+  %77 = getelementptr inbounds nuw %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0922.i.i1011.i.us
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  %79 = load float, ptr %78, align 4
+  %80 = fcmp olt float %79, %75
+  br i1 %80, label %81, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.us
+
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.021.i.i.i17.us
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %82, ptr noundef nonnull align 4 dereferenceable(16) %77, i64 16, i1 false)
+  %.not12.i.us = icmp ult i64 %.0922.in.i.i.i18.us, 2
+  br i1 %.not12.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.us, label %76, !llvm.loop !175
+
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.us: ; preds = %76, %81, %74
+  %.0.lcssa.i.i.i20.us = phi i64 [ 0, %74 ], [ %.021.i.i.i17.us, %76 ], [ 0, %81 ]
+  %83 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0.lcssa.i.i.i20.us
+  store i64 %.sroa.02.0.copyload.i9.us, ptr %83, align 4
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i21.us = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store i64 %.sroa.23.0.copyload.i11.us, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i21.us, align 4
+  br label %84
+
+84:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.us, %.lr.ph.split.us
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 16
+  %86 = icmp ult ptr %85, %2
+  br i1 %86, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !178
+
+._crit_edge.i.i12.loopexit.us:                    ; preds = %.lr.ph.i.i22.us
+  %87 = icmp eq i64 %spec.select.i.i24.us, %55
+  %or.cond = select i1 %53, i1 %87, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %74
+
+.lr.ph.split:                                     ; preds = %.lr.ph
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %53, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
+  %89 = icmp eq i64 %54, 0
+  br i1 %89, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %98
+  %.sroa.0.027.us28.us = phi ptr [ %99, %98 ], [ %1, %.lr.ph.split.split.us ]
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 12
+  %91 = load float, ptr %90, align 4
+  %92 = load float, ptr %48, align 4
+  %93 = fcmp olt float %91, %92
+  br i1 %93, label %._crit_edge.i.i12.us29.us, label %98
+
+._crit_edge.i.i12.us29.us:                        ; preds = %.lr.ph.split.split.us.split.us
+  %.sroa.02.0.copyload.i9.us30.us = load i64, ptr %.sroa.0.027.us28.us, align 4
+  %.sroa.23.0..sroa_idx.i10.us31.us = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 8
+  %.sroa.23.0.copyload.i11.us32.us = load i64, ptr %.sroa.23.0..sroa_idx.i10.us31.us, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.027.us28.us, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %88, i64 16, i1 false)
+  %.sroa.2.sroa.2.0.extract.shift.i.i.i15.us34.us = lshr i64 %.sroa.23.0.copyload.i11.us32.us, 32
+  %.sroa.2.sroa.2.0.extract.trunc.i.i.i16.us35.us = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i.i15.us34.us to i32
+  %94 = bitcast i32 %.sroa.2.sroa.2.0.extract.trunc.i.i.i16.us35.us to float
+  %95 = load float, ptr %48, align 4
+  %96 = fcmp uge float %95, %94
+  %.0.lcssa.i.i.i20.ph.us44.us = zext i1 %96 to i64
+  %97 = getelementptr inbounds nuw %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0.lcssa.i.i.i20.ph.us44.us
+  store i64 %.sroa.02.0.copyload.i9.us30.us, ptr %97, align 4
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i21.us42.us = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i64 %.sroa.23.0.copyload.i11.us32.us, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i21.us42.us, align 4
+  br label %98
+
+98:                                               ; preds = %._crit_edge.i.i12.us29.us, %.lr.ph.split.split.us.split.us
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 16
+  %100 = icmp ult ptr %99, %2
+  br i1 %100, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !178
+
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i21.us42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre52 = load float, ptr %48, align 4
+  br label %101
+
+101:                                              ; preds = %109, %.lr.ph.split.split.us.split
+  %102 = phi float [ %.pre52, %.lr.ph.split.split.us.split ], [ %110, %109 ]
+  %.sroa.0.027.us28 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %111, %109 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 12
+  %104 = load float, ptr %103, align 4
+  %105 = fcmp olt float %104, %102
+  br i1 %105, label %._crit_edge.i.i12.us29, label %109
+
+._crit_edge.i.i12.us29:                           ; preds = %101
+  %.sroa.02.0.copyload.i9.us30 = load i64, ptr %.sroa.0.027.us28, align 4
+  %.sroa.23.0..sroa_idx.i10.us31 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 8
+  %.sroa.23.0.copyload.i11.us32 = load i64, ptr %.sroa.23.0..sroa_idx.i10.us31, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.027.us28, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  store i64 %.sroa.02.0.copyload.i9.us30, ptr %0, align 4
+  store i64 %.sroa.23.0.copyload.i11.us32, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i21.us42, align 4
+  %106 = lshr i64 %.sroa.23.0.copyload.i11.us32, 32
+  %107 = trunc nuw i64 %106 to i32
+  %108 = bitcast i32 %107 to float
+  br label %109
+
+109:                                              ; preds = %._crit_edge.i.i12.us29, %101
+  %110 = phi float [ %108, %._crit_edge.i.i12.us29 ], [ %102, %101 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 16
+  %112 = icmp ult ptr %111, %2
+  br i1 %112, label %101, label %._crit_edge, !llvm.loop !178
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre = load float, ptr %48, align 4
+  br label %113
+
+113:                                              ; preds = %.lr.ph.split.split, %121
+  %114 = phi float [ %.pre, %.lr.ph.split.split ], [ %122, %121 ]
+  %.sroa.0.027 = phi ptr [ %1, %.lr.ph.split.split ], [ %123, %121 ]
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 12
+  %116 = load float, ptr %115, align 4
+  %117 = fcmp olt float %116, %114
+  br i1 %117, label %._crit_edge.i.i12, label %121
+
+._crit_edge.i.i12:                                ; preds = %113
+  %.sroa.02.0.copyload.i9 = load i64, ptr %.sroa.0.027, align 4
+  %.sroa.23.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
   %.sroa.23.0.copyload.i11 = load i64, ptr %.sroa.23.0..sroa_idx.i10, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.029, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
-  br i1 %51, label %.lr.ph.i.i24, label %._crit_edge.i.i12.thread
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.027, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  store i64 %.sroa.02.0.copyload.i9, ptr %0, align 4
+  store i64 %.sroa.23.0.copyload.i11, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i21, align 4
+  %118 = lshr i64 %.sroa.23.0.copyload.i11, 32
+  %119 = trunc nuw i64 %118 to i32
+  %120 = bitcast i32 %119 to float
+  br label %121
 
-.lr.ph.i.i24:                                     ; preds = %65, %.lr.ph.i.i24
-  %.036.i.i25 = phi i64 [ %spec.select.i.i26, %.lr.ph.i.i24 ], [ 0, %65 ]
-  %66 = shl i64 %.036.i.i25, 1
-  %67 = add i64 %66, 2
-  %68 = or disjoint i64 %66, 1
-  %69 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %67, i32 3
-  %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %68, i32 3
-  %72 = load float, ptr %71, align 4
-  %73 = fcmp olt float %70, %72
-  %spec.select.i.i26 = select i1 %73, i64 %68, i64 %67
-  %74 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %spec.select.i.i26
-  %75 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.036.i.i25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %75, ptr noundef nonnull align 4 dereferenceable(16) %74, i64 16, i1 false)
-  %76 = icmp slt i64 %spec.select.i.i26, %50
-  br i1 %76, label %.lr.ph.i.i24, label %._crit_edge.i.i12, !llvm.loop !174
+121:                                              ; preds = %113, %._crit_edge.i.i12
+  %122 = phi float [ %114, %113 ], [ %120, %._crit_edge.i.i12 ]
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 16
+  %124 = icmp ult ptr %123, %2
+  br i1 %124, label %113, label %._crit_edge, !llvm.loop !178
 
-._crit_edge.i.i12:                                ; preds = %.lr.ph.i.i24
-  %77 = icmp eq i64 %spec.select.i.i26, %55
-  %or.cond = select i1 %53, i1 %77, i1 false
-  br i1 %or.cond, label %.thread.i, label %78
-
-._crit_edge.i.i12.thread:                         ; preds = %65
-  br i1 %or.cond31, label %.thread.i, label %.thread
-
-.thread:                                          ; preds = %._crit_edge.i.i12.thread
-  %.sroa.2.sroa.2.0.extract.shift.i.i.i1434 = lshr i64 %.sroa.23.0.copyload.i11, 32
-  %.sroa.2.sroa.2.0.extract.trunc.i.i.i1535 = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i.i1434 to i32
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit
-
-.thread.i:                                        ; preds = %._crit_edge.i.i12.thread, %._crit_edge.i.i12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %59, ptr noundef nonnull align 4 dereferenceable(16) %58, i64 16, i1 false)
-  %.sroa.2.sroa.2.0.extract.shift.i.i9.i = lshr i64 %.sroa.23.0.copyload.i11, 32
-  %.sroa.2.sroa.2.0.extract.trunc.i.i10.i = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i9.i to i32
-  br label %.lr.ph.i.i.i16
-
-78:                                               ; preds = %._crit_edge.i.i12
-  %.sroa.2.sroa.2.0.extract.shift.i.i.i14 = lshr i64 %.sroa.23.0.copyload.i11, 32
-  %.sroa.2.sroa.2.0.extract.trunc.i.i.i15 = trunc nuw i64 %.sroa.2.sroa.2.0.extract.shift.i.i.i14 to i32
-  %.not.i = icmp eq i64 %spec.select.i.i26, 0
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit, label %.lr.ph.i.i.i16
-
-.lr.ph.i.i.i16:                                   ; preds = %78, %.thread.i
-  %.sroa.2.sroa.2.0.extract.trunc.i.i13.i = phi i32 [ %.sroa.2.sroa.2.0.extract.trunc.i.i10.i, %.thread.i ], [ %.sroa.2.sroa.2.0.extract.trunc.i.i.i15, %78 ]
-  %.1.i11.i = phi i64 [ %57, %.thread.i ], [ %spec.select.i.i26, %78 ]
-  %79 = bitcast i32 %.sroa.2.sroa.2.0.extract.trunc.i.i13.i to float
-  br label %80
-
-80:                                               ; preds = %85, %.lr.ph.i.i.i16
-  %.021.i.i.i17 = phi i64 [ %.1.i11.i, %.lr.ph.i.i.i16 ], [ %.0922.i.i1415.i, %85 ]
-  %.0922.in.i.i.i18 = add nsw i64 %.021.i.i.i17, -1
-  %.0922.i.i1415.i = lshr i64 %.0922.in.i.i.i18, 1
-  %81 = getelementptr inbounds nuw %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0922.i.i1415.i
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  %83 = load float, ptr %82, align 4
-  %84 = fcmp olt float %83, %79
-  br i1 %84, label %85, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit
-
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.021.i.i.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %86, ptr noundef nonnull align 4 dereferenceable(16) %81, i64 16, i1 false)
-  %.not16.i = icmp ult i64 %.0922.in.i.i.i18, 2
-  br i1 %.not16.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit, label %80, !llvm.loop !175
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit: ; preds = %80, %85, %.thread, %78
-  %.sroa.2.sroa.2.0.extract.trunc.i.i12.i = phi i32 [ %.sroa.2.sroa.2.0.extract.trunc.i.i.i15, %78 ], [ %.sroa.2.sroa.2.0.extract.trunc.i.i.i1535, %.thread ], [ %.sroa.2.sroa.2.0.extract.trunc.i.i13.i, %85 ], [ %.sroa.2.sroa.2.0.extract.trunc.i.i13.i, %80 ]
-  %.0.lcssa.i.i.i20 = phi i64 [ 0, %78 ], [ 0, %.thread ], [ %.021.i.i.i17, %80 ], [ 0, %85 ]
-  %.sroa.2.sroa.0.0.extract.trunc.i.i.i21 = trunc i64 %.sroa.23.0.copyload.i11 to i32
-  %87 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::OGArcInfo", ptr %0, i64 %.0.lcssa.i.i.i20
-  store i64 %.sroa.02.0.copyload.i9, ptr %87, align 4
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i22 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store i32 %.sroa.2.sroa.0.0.extract.trunc.i.i.i21, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i22, align 4
-  %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i23 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  store i32 %.sroa.2.sroa.2.0.extract.trunc.i.i12.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.sroa_idx.i.i.i23, align 4
-  br label %88
-
-88:                                               ; preds = %60, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.029, i64 16
-  %90 = icmp ult ptr %89, %2
-  br i1 %90, label %60, label %._crit_edge, !llvm.loop !178
-
-._crit_edge:                                      ; preds = %88, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_RT0_.exit
+._crit_edge:                                      ; preds = %121, %109, %98, %84, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_RT0_.exit
   ret void
 }
 

@@ -19217,16 +19217,13 @@ _ZN5clang4StmtC2ENS0_9StmtClassE.exit:            ; preds = %12, %18
   br label %45
 
 45:                                               ; preds = %43, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
-  br i1 %.not24, label %87, label %46
+  br i1 %.not24, label %86, label %46
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr %5, align 8, !tbaa !1163
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 %49(ptr noundef nonnull align 8 dereferenceable(100) %5) #33
-  %.sroa.08.0.extract.trunc.i = trunc i64 %50 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %50, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %53 = load i64, ptr %52, align 8, !tbaa !3
@@ -19277,63 +19274,58 @@ _ZN5clang6IfStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit: ; p
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   store ptr %5, ptr %80, align 8, !tbaa !1675
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  store i32 %.sroa.08.0.extract.trunc.i, ptr %81, align 8, !tbaa !1055
-  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 20
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %82, align 4, !tbaa !1055
-  %83 = load i16, ptr %0, align 8
-  %84 = lshr i16 %83, 14
-  %.lobit.i7.i = and i16 %84, 1
-  %85 = zext nneg i16 %.lobit.i7.i to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %37, i64 %85
-  store ptr %.0.i.i.i.i.i.i, ptr %86, align 8, !tbaa !55
-  br label %87
+  store i64 %50, ptr %81, align 8
+  %82 = load i16, ptr %0, align 8
+  %83 = lshr i16 %82, 14
+  %.lobit.i7.i = and i16 %83, 1
+  %84 = zext nneg i16 %.lobit.i7.i to i64
+  %85 = getelementptr inbounds nuw ptr, ptr %37, i64 %84
+  store ptr %.0.i.i.i.i.i.i, ptr %85, align 8, !tbaa !55
+  br label %86
 
-87:                                               ; preds = %_ZN5clang6IfStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit, %45
-  %88 = phi i16 [ %83, %_ZN5clang6IfStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit ], [ %36, %45 ]
-  br i1 %.not25, label %90, label %89
+86:                                               ; preds = %_ZN5clang6IfStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit, %45
+  %87 = phi i16 [ %82, %_ZN5clang6IfStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit ], [ %36, %45 ]
+  br i1 %.not25, label %89, label %88
 
-89:                                               ; preds = %87
+88:                                               ; preds = %86
   store ptr %4, ptr %37, align 8, !tbaa !55
-  br label %90
+  br label %89
 
-90:                                               ; preds = %89, %87
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %91, align 4, !tbaa !1055
-  br i1 %.not, label %102, label %92
+89:                                               ; preds = %88, %86
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %2, ptr %90, align 4, !tbaa !1055
+  br i1 %.not, label %101, label %91
 
-92:                                               ; preds = %90
-  %93 = and i16 %88, 4096
-  %.not.i.i.i.i.i = icmp eq i16 %93, 0
-  %94 = select i1 %.not.i.i.i.i.i, i64 2, i64 3
-  %95 = lshr i16 %88, 13
-  %.lobit.i.i.i.i.i = and i16 %95, 1
-  %96 = zext nneg i16 %.lobit.i.i.i.i.i to i64
-  %97 = lshr i16 %88, 14
-  %.lobit1.i.i.i.i.i = and i16 %97, 1
-  %98 = zext nneg i16 %.lobit1.i.i.i.i.i to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %37, i64 %94
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %96
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %98
-  store i32 %10, ptr %101, align 8, !tbaa !1055
-  br label %102
+91:                                               ; preds = %89
+  %92 = and i16 %87, 4096
+  %.not.i.i.i.i.i = icmp eq i16 %92, 0
+  %93 = select i1 %.not.i.i.i.i.i, i64 2, i64 3
+  %94 = lshr i16 %87, 13
+  %.lobit.i.i.i.i.i = and i16 %94, 1
+  %95 = zext nneg i16 %.lobit.i.i.i.i.i to i64
+  %96 = lshr i16 %87, 14
+  %.lobit1.i.i.i.i.i = and i16 %96, 1
+  %97 = zext nneg i16 %.lobit1.i.i.i.i.i to i64
+  %98 = getelementptr inbounds nuw ptr, ptr %37, i64 %93
+  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %95
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %97
+  store i32 %10, ptr %100, align 8, !tbaa !1055
+  br label %101
 
-102:                                              ; preds = %92, %90
+101:                                              ; preds = %91, %89
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6IfStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %41, label %4
+  br i1 %.not, label %40, label %4
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %2, align 8, !tbaa !1163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(100) %2) #33
-  %.sroa.08.0.extract.trunc = trunc i64 %8 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %8, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %11 = load i64, ptr %10, align 8, !tbaa !3
@@ -19384,20 +19376,18 @@ _ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit: ; preds = %
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %2, ptr %38, align 8, !tbaa !1675
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  store i32 %.sroa.08.0.extract.trunc, ptr %39, align 8, !tbaa !1055
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 20
-  store i32 %.sroa.4.0.extract.trunc, ptr %40, align 4, !tbaa !1055
-  br label %41
+  store i64 %8, ptr %39, align 8
+  br label %40
 
-41:                                               ; preds = %3, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit
+40:                                               ; preds = %3, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit
   %.0.i.i.i.i.i.sink = phi ptr [ %.0.i.i.i.i.i, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit ], [ null, %3 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load i16, ptr %0, align 8
-  %44 = lshr i16 %43, 14
-  %.lobit.i7 = and i16 %44, 1
-  %45 = zext nneg i16 %.lobit.i7 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
-  store ptr %.0.i.i.i.i.i.sink, ptr %46, align 8, !tbaa !55
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load i16, ptr %0, align 8
+  %43 = lshr i16 %42, 14
+  %.lobit.i7 = and i16 %43, 1
+  %44 = zext nneg i16 %.lobit.i7 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %44
+  store ptr %.0.i.i.i.i.i.sink, ptr %45, align 8, !tbaa !55
   ret void
 }
 
@@ -19728,9 +19718,6 @@ _ZN5clang4StmtC2ENS0_9StmtClassE.exit:            ; preds = %10, %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 %27(ptr noundef nonnull align 8 dereferenceable(100) %4) #33
-  %.sroa.07.0.extract.trunc.i = trunc i64 %28 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %28, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %31 = load i64, ptr %30, align 8, !tbaa !3
@@ -19781,39 +19768,34 @@ _ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit.i: ; preds =
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   store ptr %4, ptr %58, align 8, !tbaa !1675
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  store i32 %.sroa.07.0.extract.trunc.i, ptr %59, align 8, !tbaa !1055
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 20
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %60, align 4, !tbaa !1055
+  store i64 %28, ptr %59, align 8
   br label %_ZN5clang7ForStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit
 
 _ZN5clang7ForStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit: ; preds = %_ZN5clang4StmtC2ENS0_9StmtClassE.exit, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit.i
   %.0.i.i.i.i.i.sink.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit.i ], [ null, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit ]
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i.i.i.i.i.sink.i, ptr %61, align 8, !tbaa !55
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %62, align 8, !tbaa !55
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %5, ptr %63, align 8, !tbaa !55
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %6, ptr %64, align 8, !tbaa !55
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %7, ptr %65, align 4, !tbaa !1055
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.i.i.i.i.i.sink.i, ptr %60, align 8, !tbaa !55
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %3, ptr %61, align 8, !tbaa !55
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %5, ptr %62, align 8, !tbaa !55
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %6, ptr %63, align 8, !tbaa !55
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %7, ptr %64, align 4, !tbaa !1055
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang7ForStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %41, label %4
+  br i1 %.not, label %40, label %4
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %2, align 8, !tbaa !1163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(100) %2) #33
-  %.sroa.07.0.extract.trunc = trunc i64 %8 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %8, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %11 = load i64, ptr %10, align 8, !tbaa !3
@@ -19864,15 +19846,13 @@ _ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit: ; preds = %
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %2, ptr %38, align 8, !tbaa !1675
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  store i32 %.sroa.07.0.extract.trunc, ptr %39, align 8, !tbaa !1055
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 20
-  store i32 %.sroa.4.0.extract.trunc, ptr %40, align 4, !tbaa !1055
-  br label %41
+  store i64 %8, ptr %39, align 8
+  br label %40
 
-41:                                               ; preds = %3, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit
+40:                                               ; preds = %3, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit
   %.0.i.i.i.i.i.sink = phi ptr [ %.0.i.i.i.i.i, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit ], [ null, %3 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i.i.i.i.i.sink, ptr %42, align 8, !tbaa !55
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.i.i.i.i.i.sink, ptr %41, align 8, !tbaa !55
   ret void
 }
 
@@ -19944,16 +19924,13 @@ _ZN5clang4StmtC2ENS0_9StmtClassE.exit:            ; preds = %7, %13
   br label %34
 
 34:                                               ; preds = %33, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
-  br i1 %.not12, label %76, label %35
+  br i1 %.not12, label %75, label %35
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %3, align 8, !tbaa !1163
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i64 %38(ptr noundef nonnull align 8 dereferenceable(100) %3) #33
-  %.sroa.08.0.extract.trunc.i = trunc i64 %39 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %39, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %42 = load i64, ptr %41, align 8, !tbaa !3
@@ -20004,36 +19981,31 @@ _ZN5clang10SwitchStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   store ptr %3, ptr %69, align 8, !tbaa !1675
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  store i32 %.sroa.08.0.extract.trunc.i, ptr %70, align 8, !tbaa !1055
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 20
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %71, align 4, !tbaa !1055
-  %72 = load i16, ptr %0, align 8
-  %73 = lshr i16 %72, 9
-  %.lobit.i7.i = and i16 %73, 1
-  %74 = zext nneg i16 %.lobit.i7.i to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %27, i64 %74
-  store ptr %.0.i.i.i.i.i.i, ptr %75, align 8, !tbaa !55
-  br label %76
+  store i64 %39, ptr %70, align 8
+  %71 = load i16, ptr %0, align 8
+  %72 = lshr i16 %71, 9
+  %.lobit.i7.i = and i16 %72, 1
+  %73 = zext nneg i16 %.lobit.i7.i to i64
+  %74 = getelementptr inbounds nuw ptr, ptr %27, i64 %73
+  store ptr %.0.i.i.i.i.i.i, ptr %74, align 8, !tbaa !55
+  br label %75
 
-76:                                               ; preds = %_ZN5clang10SwitchStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit, %34
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %77, align 4, !tbaa !1055
+75:                                               ; preds = %_ZN5clang10SwitchStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit, %34
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %76, align 4, !tbaa !1055
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang10SwitchStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %41, label %4
+  br i1 %.not, label %40, label %4
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %2, align 8, !tbaa !1163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(100) %2) #33
-  %.sroa.08.0.extract.trunc = trunc i64 %8 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %8, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %11 = load i64, ptr %10, align 8, !tbaa !3
@@ -20084,20 +20056,18 @@ _ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit: ; preds = %
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %2, ptr %38, align 8, !tbaa !1675
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  store i32 %.sroa.08.0.extract.trunc, ptr %39, align 8, !tbaa !1055
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 20
-  store i32 %.sroa.4.0.extract.trunc, ptr %40, align 4, !tbaa !1055
-  br label %41
+  store i64 %8, ptr %39, align 8
+  br label %40
 
-41:                                               ; preds = %3, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit
+40:                                               ; preds = %3, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit
   %.0.i.i.i.i.i.sink = phi ptr [ %.0.i.i.i.i.i, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit ], [ null, %3 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = load i16, ptr %0, align 8
-  %44 = lshr i16 %43, 9
-  %.lobit.i7 = and i16 %44, 1
-  %45 = zext nneg i16 %.lobit.i7 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
-  store ptr %.0.i.i.i.i.i.sink, ptr %46, align 8, !tbaa !55
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %42 = load i16, ptr %0, align 8
+  %43 = lshr i16 %42, 9
+  %.lobit.i7 = and i16 %43, 1
+  %44 = zext nneg i16 %.lobit.i7 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %44
+  store ptr %.0.i.i.i.i.i.sink, ptr %45, align 8, !tbaa !55
   ret void
 }
 
@@ -20294,16 +20264,13 @@ _ZN5clang4StmtC2ENS0_9StmtClassE.exit:            ; preds = %8, %14
   store ptr %3, ptr %28, align 8, !tbaa !55
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %4, ptr %29, align 8, !tbaa !55
-  br i1 %.not, label %67, label %30
+  br i1 %.not, label %66, label %30
 
 30:                                               ; preds = %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
   %31 = load ptr, ptr %2, align 8, !tbaa !1163
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 %33(ptr noundef nonnull align 8 dereferenceable(100) %2) #33
-  %.sroa.07.0.extract.trunc.i = trunc i64 %34 to i32
-  %.sroa.4.0.extract.shift.i = lshr i64 %34, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %37 = load i64, ptr %36, align 8, !tbaa !3
@@ -20354,15 +20321,13 @@ _ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit: 
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   store ptr %2, ptr %64, align 8, !tbaa !1675
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  store i32 %.sroa.07.0.extract.trunc.i, ptr %65, align 8, !tbaa !1055
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 20
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %66, align 4, !tbaa !1055
+  store i64 %34, ptr %65, align 8
   store ptr %.0.i.i.i.i.i.i, ptr %25, align 8, !tbaa !55
-  br label %67
+  br label %66
 
-67:                                               ; preds = %_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %5, ptr %68, align 4, !tbaa !1055
+66:                                               ; preds = %_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %5, ptr %67, align 4, !tbaa !1055
   store i32 %6, ptr %20, align 8, !tbaa !1055
   store i32 %7, ptr %21, align 4, !tbaa !1055
   ret void
@@ -20371,16 +20336,13 @@ _ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %41, label %4
+  br i1 %.not, label %40, label %4
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %2, align 8, !tbaa !1163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(100) %2) #33
-  %.sroa.07.0.extract.trunc = trunc i64 %8 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %8, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %11 = load i64, ptr %10, align 8, !tbaa !3
@@ -20431,15 +20393,13 @@ _ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit: ; preds = %
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %2, ptr %38, align 8, !tbaa !1675
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  store i32 %.sroa.07.0.extract.trunc, ptr %39, align 8, !tbaa !1055
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 20
-  store i32 %.sroa.4.0.extract.trunc, ptr %40, align 4, !tbaa !1055
-  br label %41
+  store i64 %8, ptr %39, align 8
+  br label %40
 
-41:                                               ; preds = %3, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit
+40:                                               ; preds = %3, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit
   %.0.i.i.i.i.i.sink = phi ptr [ %.0.i.i.i.i.i, %_ZN5clang8DeclStmtC2ENS_12DeclGroupRefENS_14SourceLocationES2_.exit ], [ null, %3 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i.i.i.i.i.sink, ptr %42, align 8, !tbaa !55
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.i.i.i.i.i.sink, ptr %41, align 8, !tbaa !55
   ret void
 }
 

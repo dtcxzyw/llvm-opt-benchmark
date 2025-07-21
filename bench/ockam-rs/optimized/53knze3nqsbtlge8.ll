@@ -6871,17 +6871,12 @@ common.ret:                                       ; preds = %"_ZN19ockam_transpo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7409, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8406, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8406)
   %319 = ptrtoint ptr %.sroa.010.sroa.2.0.copyload.pre.i to i64
-  %.sroa.3.0.extract.trunc = trunc i64 %319 to i8
-  %.sroa.3.1.extract.shift = lshr i64 %319, 8
-  %.sroa.3.1.extract.trunc = trunc nuw i64 %.sroa.3.1.extract.shift to i56
   %.sroa.086.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.086.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7409, i64 16, i1 false)
   %320 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i64 %294, ptr %123, align 8
   %.sroa.086.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store i8 %.sroa.3.0.extract.trunc, ptr %.sroa.086.sroa.4.0..sroa_idx, align 8
-  %.sroa.086.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 9
-  store i56 %.sroa.3.1.extract.trunc, ptr %.sroa.086.sroa.5.0..sroa_idx, align 1
+  store i64 %319, ptr %.sroa.086.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %121)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %120)
   store i8 0, ptr %320, align 4

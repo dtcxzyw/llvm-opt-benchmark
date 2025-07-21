@@ -9331,17 +9331,13 @@ define internal noundef i32 @snd_hda_spdif_in_status_get(ptr noundef readonly ca
 
 32:                                               ; preds = %22, %17
   %33 = phi i32 [ %31, %22 ], [ %21, %17 ]
-  %34 = trunc i32 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i8 %34, ptr %35, align 8
-  %36 = lshr i32 %33, 8
-  %37 = trunc nuw i32 %36 to i8
-  %38 = getelementptr i8, ptr %1, i64 73
-  store i8 %37, ptr %38, align 1
-  %39 = getelementptr i8, ptr %1, i64 74
-  store i8 0, ptr %39, align 2
-  %40 = getelementptr i8, ptr %1, i64 75
-  store i8 0, ptr %40, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %35 = trunc nuw i32 %33 to i16
+  store i16 %35, ptr %34, align 8
+  %36 = getelementptr i8, ptr %1, i64 74
+  store i8 0, ptr %36, align 2
+  %37 = getelementptr i8, ptr %1, i64 75
+  store i8 0, ptr %37, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
   ret i32 0
 }

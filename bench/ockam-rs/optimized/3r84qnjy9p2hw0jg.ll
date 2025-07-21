@@ -27048,14 +27048,9 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
 
 .thread869:                                       ; preds = %959
   %968 = ptrtoint ptr %.sroa.8609.0.ph to i64
-  %.sroa.3612.0.extract.trunc = trunc i64 %968 to i8
-  %.sroa.3612.1.extract.shift = lshr i64 %968, 8
-  %.sroa.3612.1.extract.trunc = trunc nuw i64 %.sroa.3612.1.extract.shift to i56
   store ptr %.sroa.6608.0.ph, ptr %954, align 8
   %.sroa.4615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 472
-  store i8 %.sroa.3612.0.extract.trunc, ptr %.sroa.4615.0..sroa_idx, align 8
-  %.sroa.5616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 473
-  store i56 %.sroa.3612.1.extract.trunc, ptr %.sroa.5616.0..sroa_idx, align 1
+  store i64 %968, ptr %.sroa.4615.0..sroa_idx, align 8
   %.sroa.6617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 480
   store i64 %.sroa.9610.0.ph, ptr %.sroa.6617.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %144)

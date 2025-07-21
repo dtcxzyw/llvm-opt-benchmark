@@ -468,67 +468,42 @@ define hidden ptr @ChunkListEmit(ptr noundef readonly captures(address_is_null) 
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %ChunkEmit.exit
-  %.08 = phi ptr [ %37, %ChunkEmit.exit ], [ %1, %2 ]
-  %.057 = phi ptr [ %39, %ChunkEmit.exit ], [ %0, %2 ]
+  %.08 = phi ptr [ %18, %ChunkEmit.exit ], [ %1, %2 ]
+  %.057 = phi ptr [ %20, %ChunkEmit.exit ], [ %0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %.057, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !35
   %6 = load i32, ptr %.057, align 8, !tbaa !22
-  %7 = trunc i32 %6 to i8
-  store i8 %7, ptr %.08, align 1, !tbaa !21
-  %8 = lshr i32 %6, 8
-  %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds nuw i8, ptr %.08, i64 1
-  store i8 %9, ptr %10, align 1, !tbaa !21
-  %11 = getelementptr inbounds nuw i8, ptr %.08, i64 2
-  %12 = lshr i32 %6, 16
-  %13 = trunc i32 %12 to i8
-  store i8 %13, ptr %11, align 1, !tbaa !21
-  %14 = lshr i32 %6, 24
-  %15 = trunc nuw i32 %14 to i8
-  %16 = getelementptr inbounds nuw i8, ptr %.08, i64 3
-  store i8 %15, ptr %16, align 1, !tbaa !21
-  %17 = getelementptr inbounds nuw i8, ptr %.08, i64 4
-  %18 = trunc i64 %5 to i8
-  store i8 %18, ptr %17, align 1, !tbaa !21
-  %19 = lshr i64 %5, 8
-  %20 = trunc i64 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %.08, i64 5
-  store i8 %20, ptr %21, align 1, !tbaa !21
-  %22 = getelementptr inbounds nuw i8, ptr %.08, i64 6
-  %23 = lshr i64 %5, 16
-  %24 = trunc i64 %23 to i8
-  store i8 %24, ptr %22, align 1, !tbaa !21
-  %25 = lshr i64 %5, 24
-  %26 = trunc i64 %25 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %.08, i64 7
-  store i8 %26, ptr %27, align 1, !tbaa !21
-  %28 = getelementptr inbounds nuw i8, ptr %.08, i64 8
-  %29 = load ptr, ptr %3, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %29, i64 %5, i1 false)
-  %30 = and i64 %5, 1
-  %.not.i = icmp eq i64 %30, 0
-  br i1 %.not.i, label %ChunkEmit.exit, label %31
+  store i32 %6, ptr %.08, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %.08, i64 4
+  %8 = trunc i64 %5 to i32
+  store i32 %8, ptr %7, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %.08, i64 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %10, i64 %5, i1 false)
+  %11 = and i64 %5, 1
+  %.not.i = icmp eq i64 %11, 0
+  br i1 %.not.i, label %ChunkEmit.exit, label %12
 
-31:                                               ; preds = %.lr.ph
-  %32 = getelementptr i8, ptr %.08, i64 %5
-  %33 = getelementptr i8, ptr %32, i64 8
-  store i8 0, ptr %33, align 1, !tbaa !21
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr i8, ptr %.08, i64 %5
+  %14 = getelementptr i8, ptr %13, i64 8
+  store i8 0, ptr %14, align 1, !tbaa !21
   br label %ChunkEmit.exit
 
-ChunkEmit.exit:                                   ; preds = %.lr.ph, %31
+ChunkEmit.exit:                                   ; preds = %.lr.ph, %12
   %.val.i = load i64, ptr %4, align 8, !tbaa !35
-  %34 = add i64 %.val.i, 1
-  %35 = and i64 %34, 4294967294
-  %36 = getelementptr inbounds nuw i8, ptr %.08, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %.057, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !14
-  %.not = icmp eq ptr %39, null
+  %15 = add i64 %.val.i, 1
+  %16 = and i64 %15, 4294967294
+  %17 = getelementptr inbounds nuw i8, ptr %.08, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.057, i64 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !14
+  %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %ChunkEmit.exit, %2
-  %.0.lcssa = phi ptr [ %1, %2 ], [ %37, %ChunkEmit.exit ]
+  %.0.lcssa = phi ptr [ %1, %2 ], [ %18, %ChunkEmit.exit ]
   ret ptr %.0.lcssa
 }
 
@@ -1003,7 +978,7 @@ ChunkListDiskSize.exit:                           ; preds = %.lr.ph.i
 define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8, !tbaa !45
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %72, label %4
+  br i1 %.not, label %52, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %3, i64 16
@@ -1070,251 +1045,150 @@ MuxImageDiskSize.exit:                            ; preds = %26, %ChunkListDiskS
   %.3.i = phi i64 [ %36, %ChunkListDiskSize.exit.i ], [ %.2.i, %26 ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i32, ptr %3, align 8, !tbaa !22
-  %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %1, align 1, !tbaa !21
-  %40 = lshr i32 %38, 8
-  %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %41, ptr %42, align 1, !tbaa !21
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %44 = lshr i32 %38, 16
-  %45 = trunc i32 %44 to i8
-  store i8 %45, ptr %43, align 1, !tbaa !21
-  %46 = lshr i32 %38, 24
-  %47 = trunc nuw i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %47, ptr %48, align 1, !tbaa !21
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %50 = trunc i64 %.3.i to i32
-  %51 = add i32 %50, -8
-  %52 = trunc i32 %51 to i8
-  store i8 %52, ptr %49, align 1, !tbaa !21
-  %53 = lshr i32 %51, 8
-  %54 = trunc i32 %53 to i8
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %54, ptr %55, align 1, !tbaa !21
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %57 = lshr i32 %51, 16
-  %58 = trunc i32 %57 to i8
-  store i8 %58, ptr %56, align 1, !tbaa !21
-  %59 = lshr i32 %51, 24
-  %60 = trunc nuw i32 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %60, ptr %61, align 1, !tbaa !21
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load ptr, ptr %37, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %63, i64 %.val20.i, i1 false)
-  %64 = and i64 %.val20.i, 1
-  %.not.i21 = icmp eq i64 %64, 0
-  br i1 %.not.i21, label %ChunkEmitSpecial.exit, label %65
+  store i32 %38, ptr %1, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %40 = trunc i64 %.3.i to i32
+  %41 = add i32 %40, -8
+  store i32 %41, ptr %39, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %43 = load ptr, ptr %37, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %43, i64 %.val20.i, i1 false)
+  %44 = and i64 %.val20.i, 1
+  %.not.i21 = icmp eq i64 %44, 0
+  br i1 %.not.i21, label %ChunkEmitSpecial.exit, label %45
 
-65:                                               ; preds = %MuxImageDiskSize.exit
-  %66 = getelementptr i8, ptr %1, i64 %.val20.i
-  %67 = getelementptr i8, ptr %66, i64 8
-  store i8 0, ptr %67, align 1, !tbaa !21
+45:                                               ; preds = %MuxImageDiskSize.exit
+  %46 = getelementptr i8, ptr %1, i64 %.val20.i
+  %47 = getelementptr i8, ptr %46, i64 8
+  store i8 0, ptr %47, align 1, !tbaa !21
   br label %ChunkEmitSpecial.exit
 
-ChunkEmitSpecial.exit:                            ; preds = %MuxImageDiskSize.exit, %65
+ChunkEmitSpecial.exit:                            ; preds = %MuxImageDiskSize.exit, %45
   %.val.i22 = load i64, ptr %5, align 8, !tbaa !35
-  %68 = add i64 %.val.i22, 1
+  %48 = add i64 %.val.i22, 1
+  %49 = and i64 %48, 4294967294
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  br label %52
+
+52:                                               ; preds = %ChunkEmitSpecial.exit, %2
+  %.0 = phi ptr [ %51, %ChunkEmitSpecial.exit ], [ %1, %2 ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !46
+  %.not18 = icmp eq ptr %54, null
+  br i1 %.not18, label %72, label %55
+
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %58 = load i64, ptr %57, align 8, !tbaa !35
+  %59 = load i32, ptr %54, align 8, !tbaa !22
+  store i32 %59, ptr %.0, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  %61 = trunc i64 %58 to i32
+  store i32 %61, ptr %60, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %63 = load ptr, ptr %56, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %63, i64 %58, i1 false)
+  %64 = and i64 %58, 1
+  %.not.i23 = icmp eq i64 %64, 0
+  br i1 %.not.i23, label %ChunkEmit.exit, label %65
+
+65:                                               ; preds = %55
+  %66 = getelementptr i8, ptr %.0, i64 %58
+  %67 = getelementptr i8, ptr %66, i64 8
+  store i8 0, ptr %67, align 1, !tbaa !21
+  br label %ChunkEmit.exit
+
+ChunkEmit.exit:                                   ; preds = %55, %65
+  %.val.i24 = load i64, ptr %57, align 8, !tbaa !35
+  %68 = add i64 %.val.i24, 1
   %69 = and i64 %68, 4294967294
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %.0, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br label %72
 
-72:                                               ; preds = %ChunkEmitSpecial.exit, %2
-  %.0 = phi ptr [ %71, %ChunkEmitSpecial.exit ], [ %1, %2 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !46
-  %.not18 = icmp eq ptr %74, null
-  br i1 %.not18, label %111, label %75
+72:                                               ; preds = %ChunkEmit.exit, %52
+  %.1 = phi ptr [ %71, %ChunkEmit.exit ], [ %.0, %52 ]
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %74 = load ptr, ptr %73, align 8, !tbaa !47
+  %.not19 = icmp eq ptr %74, null
+  br i1 %.not19, label %92, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %78 = load i64, ptr %77, align 8, !tbaa !35
   %79 = load i32, ptr %74, align 8, !tbaa !22
-  %80 = trunc i32 %79 to i8
-  store i8 %80, ptr %.0, align 1, !tbaa !21
-  %81 = lshr i32 %79, 8
-  %82 = trunc i32 %81 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  store i8 %82, ptr %83, align 1, !tbaa !21
-  %84 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  %85 = lshr i32 %79, 16
-  %86 = trunc i32 %85 to i8
-  store i8 %86, ptr %84, align 1, !tbaa !21
-  %87 = lshr i32 %79, 24
-  %88 = trunc nuw i32 %87 to i8
-  %89 = getelementptr inbounds nuw i8, ptr %.0, i64 3
-  store i8 %88, ptr %89, align 1, !tbaa !21
-  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  %91 = trunc i64 %78 to i8
-  store i8 %91, ptr %90, align 1, !tbaa !21
-  %92 = lshr i64 %78, 8
-  %93 = trunc i64 %92 to i8
-  %94 = getelementptr inbounds nuw i8, ptr %.0, i64 5
-  store i8 %93, ptr %94, align 1, !tbaa !21
-  %95 = getelementptr inbounds nuw i8, ptr %.0, i64 6
-  %96 = lshr i64 %78, 16
-  %97 = trunc i64 %96 to i8
-  store i8 %97, ptr %95, align 1, !tbaa !21
-  %98 = lshr i64 %78, 24
-  %99 = trunc i64 %98 to i8
-  %100 = getelementptr inbounds nuw i8, ptr %.0, i64 7
-  store i8 %99, ptr %100, align 1, !tbaa !21
-  %101 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %102 = load ptr, ptr %76, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %102, i64 %78, i1 false)
-  %103 = and i64 %78, 1
-  %.not.i23 = icmp eq i64 %103, 0
-  br i1 %.not.i23, label %ChunkEmit.exit, label %104
+  store i32 %79, ptr %.1, align 1
+  %80 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %81 = trunc i64 %78 to i32
+  store i32 %81, ptr %80, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %83 = load ptr, ptr %76, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr align 1 %83, i64 %78, i1 false)
+  %84 = and i64 %78, 1
+  %.not.i25 = icmp eq i64 %84, 0
+  br i1 %.not.i25, label %ChunkEmit.exit27, label %85
 
-104:                                              ; preds = %75
-  %105 = getelementptr i8, ptr %.0, i64 %78
-  %106 = getelementptr i8, ptr %105, i64 8
-  store i8 0, ptr %106, align 1, !tbaa !21
-  br label %ChunkEmit.exit
-
-ChunkEmit.exit:                                   ; preds = %75, %104
-  %.val.i24 = load i64, ptr %77, align 8, !tbaa !35
-  %107 = add i64 %.val.i24, 1
-  %108 = and i64 %107, 4294967294
-  %109 = getelementptr inbounds nuw i8, ptr %.0, i64 %108
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  br label %111
-
-111:                                              ; preds = %ChunkEmit.exit, %72
-  %.1 = phi ptr [ %110, %ChunkEmit.exit ], [ %.0, %72 ]
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !47
-  %.not19 = icmp eq ptr %113, null
-  br i1 %.not19, label %150, label %114
-
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %117 = load i64, ptr %116, align 8, !tbaa !35
-  %118 = load i32, ptr %113, align 8, !tbaa !22
-  %119 = trunc i32 %118 to i8
-  store i8 %119, ptr %.1, align 1, !tbaa !21
-  %120 = lshr i32 %118, 8
-  %121 = trunc i32 %120 to i8
-  %122 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  store i8 %121, ptr %122, align 1, !tbaa !21
-  %123 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  %124 = lshr i32 %118, 16
-  %125 = trunc i32 %124 to i8
-  store i8 %125, ptr %123, align 1, !tbaa !21
-  %126 = lshr i32 %118, 24
-  %127 = trunc nuw i32 %126 to i8
-  %128 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  store i8 %127, ptr %128, align 1, !tbaa !21
-  %129 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %130 = trunc i64 %117 to i8
-  store i8 %130, ptr %129, align 1, !tbaa !21
-  %131 = lshr i64 %117, 8
-  %132 = trunc i64 %131 to i8
-  %133 = getelementptr inbounds nuw i8, ptr %.1, i64 5
-  store i8 %132, ptr %133, align 1, !tbaa !21
-  %134 = getelementptr inbounds nuw i8, ptr %.1, i64 6
-  %135 = lshr i64 %117, 16
-  %136 = trunc i64 %135 to i8
-  store i8 %136, ptr %134, align 1, !tbaa !21
-  %137 = lshr i64 %117, 24
-  %138 = trunc i64 %137 to i8
-  %139 = getelementptr inbounds nuw i8, ptr %.1, i64 7
-  store i8 %138, ptr %139, align 1, !tbaa !21
-  %140 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %141 = load ptr, ptr %115, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %140, ptr align 1 %141, i64 %117, i1 false)
-  %142 = and i64 %117, 1
-  %.not.i25 = icmp eq i64 %142, 0
-  br i1 %.not.i25, label %ChunkEmit.exit27, label %143
-
-143:                                              ; preds = %114
-  %144 = getelementptr i8, ptr %.1, i64 %117
-  %145 = getelementptr i8, ptr %144, i64 8
-  store i8 0, ptr %145, align 1, !tbaa !21
+85:                                               ; preds = %75
+  %86 = getelementptr i8, ptr %.1, i64 %78
+  %87 = getelementptr i8, ptr %86, i64 8
+  store i8 0, ptr %87, align 1, !tbaa !21
   br label %ChunkEmit.exit27
 
-ChunkEmit.exit27:                                 ; preds = %114, %143
-  %.val.i26 = load i64, ptr %116, align 8, !tbaa !35
-  %146 = add i64 %.val.i26, 1
-  %147 = and i64 %146, 4294967294
-  %148 = getelementptr inbounds nuw i8, ptr %.1, i64 %147
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  br label %150
+ChunkEmit.exit27:                                 ; preds = %75, %85
+  %.val.i26 = load i64, ptr %77, align 8, !tbaa !35
+  %88 = add i64 %.val.i26, 1
+  %89 = and i64 %88, 4294967294
+  %90 = getelementptr inbounds nuw i8, ptr %.1, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  br label %92
 
-150:                                              ; preds = %ChunkEmit.exit27, %111
-  %.2 = phi ptr [ %149, %ChunkEmit.exit27 ], [ %.1, %111 ]
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %152 = load ptr, ptr %151, align 8, !tbaa !48
-  %.not20 = icmp eq ptr %152, null
+92:                                               ; preds = %ChunkEmit.exit27, %72
+  %.2 = phi ptr [ %91, %ChunkEmit.exit27 ], [ %.1, %72 ]
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %94 = load ptr, ptr %93, align 8, !tbaa !48
+  %.not20 = icmp eq ptr %94, null
   br i1 %.not20, label %ChunkListEmit.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %150, %ChunkEmit.exit.i
-  %.08.i = phi ptr [ %187, %ChunkEmit.exit.i ], [ %.2, %150 ]
-  %.057.i = phi ptr [ %189, %ChunkEmit.exit.i ], [ %152, %150 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
-  %154 = getelementptr inbounds nuw i8, ptr %.057.i, i64 16
-  %155 = load i64, ptr %154, align 8, !tbaa !35
-  %156 = load i32, ptr %.057.i, align 8, !tbaa !22
-  %157 = trunc i32 %156 to i8
-  store i8 %157, ptr %.08.i, align 1, !tbaa !21
-  %158 = lshr i32 %156, 8
-  %159 = trunc i32 %158 to i8
-  %160 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
-  store i8 %159, ptr %160, align 1, !tbaa !21
-  %161 = getelementptr inbounds nuw i8, ptr %.08.i, i64 2
-  %162 = lshr i32 %156, 16
-  %163 = trunc i32 %162 to i8
-  store i8 %163, ptr %161, align 1, !tbaa !21
-  %164 = lshr i32 %156, 24
-  %165 = trunc nuw i32 %164 to i8
-  %166 = getelementptr inbounds nuw i8, ptr %.08.i, i64 3
-  store i8 %165, ptr %166, align 1, !tbaa !21
-  %167 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
-  %168 = trunc i64 %155 to i8
-  store i8 %168, ptr %167, align 1, !tbaa !21
-  %169 = lshr i64 %155, 8
-  %170 = trunc i64 %169 to i8
-  %171 = getelementptr inbounds nuw i8, ptr %.08.i, i64 5
-  store i8 %170, ptr %171, align 1, !tbaa !21
-  %172 = getelementptr inbounds nuw i8, ptr %.08.i, i64 6
-  %173 = lshr i64 %155, 16
-  %174 = trunc i64 %173 to i8
-  store i8 %174, ptr %172, align 1, !tbaa !21
-  %175 = lshr i64 %155, 24
-  %176 = trunc i64 %175 to i8
-  %177 = getelementptr inbounds nuw i8, ptr %.08.i, i64 7
-  store i8 %176, ptr %177, align 1, !tbaa !21
-  %178 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %179 = load ptr, ptr %153, align 8, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %178, ptr align 1 %179, i64 %155, i1 false)
-  %180 = and i64 %155, 1
-  %.not.i.i28 = icmp eq i64 %180, 0
-  br i1 %.not.i.i28, label %ChunkEmit.exit.i, label %181
+.lr.ph.i:                                         ; preds = %92, %ChunkEmit.exit.i
+  %.08.i = phi ptr [ %110, %ChunkEmit.exit.i ], [ %.2, %92 ]
+  %.057.i = phi ptr [ %112, %ChunkEmit.exit.i ], [ %94, %92 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.057.i, i64 16
+  %97 = load i64, ptr %96, align 8, !tbaa !35
+  %98 = load i32, ptr %.057.i, align 8, !tbaa !22
+  store i32 %98, ptr %.08.i, align 1
+  %99 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
+  %100 = trunc i64 %97 to i32
+  store i32 %100, ptr %99, align 1
+  %101 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
+  %102 = load ptr, ptr %95, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %102, i64 %97, i1 false)
+  %103 = and i64 %97, 1
+  %.not.i.i28 = icmp eq i64 %103, 0
+  br i1 %.not.i.i28, label %ChunkEmit.exit.i, label %104
 
-181:                                              ; preds = %.lr.ph.i
-  %182 = getelementptr i8, ptr %.08.i, i64 %155
-  %183 = getelementptr i8, ptr %182, i64 8
-  store i8 0, ptr %183, align 1, !tbaa !21
+104:                                              ; preds = %.lr.ph.i
+  %105 = getelementptr i8, ptr %.08.i, i64 %97
+  %106 = getelementptr i8, ptr %105, i64 8
+  store i8 0, ptr %106, align 1, !tbaa !21
   br label %ChunkEmit.exit.i
 
-ChunkEmit.exit.i:                                 ; preds = %181, %.lr.ph.i
-  %.val.i.i = load i64, ptr %154, align 8, !tbaa !35
-  %184 = add i64 %.val.i.i, 1
-  %185 = and i64 %184, 4294967294
-  %186 = getelementptr inbounds nuw i8, ptr %.08.i, i64 %185
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %188 = getelementptr inbounds nuw i8, ptr %.057.i, i64 24
-  %189 = load ptr, ptr %188, align 8, !tbaa !14
-  %.not.i29 = icmp eq ptr %189, null
+ChunkEmit.exit.i:                                 ; preds = %104, %.lr.ph.i
+  %.val.i.i = load i64, ptr %96, align 8, !tbaa !35
+  %107 = add i64 %.val.i.i, 1
+  %108 = and i64 %107, 4294967294
+  %109 = getelementptr inbounds nuw i8, ptr %.08.i, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.057.i, i64 24
+  %112 = load ptr, ptr %111, align 8, !tbaa !14
+  %.not.i29 = icmp eq ptr %112, null
   br i1 %.not.i29, label %ChunkListEmit.exit, label %.lr.ph.i, !llvm.loop !37
 
-ChunkListEmit.exit:                               ; preds = %ChunkEmit.exit.i, %150
-  %.3 = phi ptr [ %.2, %150 ], [ %187, %ChunkEmit.exit.i ]
+ChunkListEmit.exit:                               ; preds = %ChunkEmit.exit.i, %92
+  %.3 = phi ptr [ %.2, %92 ], [ %110, %ChunkEmit.exit.i ]
   ret ptr %.3
 }
 
@@ -1343,40 +1217,15 @@ define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly captures(add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden nonnull ptr @MuxEmitRiffHeader(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 12)) %0, i64 noundef %1) local_unnamed_addr #1 {
-  store i8 82, ptr %0, align 1, !tbaa !21
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 73, ptr %3, align 1, !tbaa !21
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 70, ptr %4, align 1, !tbaa !21
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 70, ptr %5, align 1, !tbaa !21
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = trunc i64 %1 to i32
-  %8 = add i32 %7, -8
-  %9 = trunc i32 %8 to i8
-  store i8 %9, ptr %6, align 1, !tbaa !21
-  %10 = lshr i32 %8, 8
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %11, ptr %12, align 1, !tbaa !21
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %14 = lshr i32 %8, 16
-  %15 = trunc i32 %14 to i8
-  store i8 %15, ptr %13, align 1, !tbaa !21
-  %16 = lshr i32 %8, 24
-  %17 = trunc nuw i32 %16 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %17, ptr %18, align 1, !tbaa !21
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 87, ptr %19, align 1, !tbaa !21
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 69, ptr %20, align 1, !tbaa !21
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 66, ptr %21, align 1, !tbaa !21
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 80, ptr %22, align 1, !tbaa !21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  ret ptr %23
+  store i32 1179011410, ptr %0, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = trunc i64 %1 to i32
+  %5 = add i32 %4, -8
+  store i32 %5, ptr %3, align 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 1346520407, ptr %6, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -2893,38 +2893,36 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i32 2, 5) i32 @zueci_u_utf16le(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1) #2 {
   %3 = icmp ult i32 %0, 65536
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = lshr i32 %0, 8
-  %6 = trunc nuw i32 %5 to i8
-  br label %20
+  %5 = trunc nuw i32 %0 to i16
+  store i16 %5, ptr %1, align 1
+  br label %21
 
-7:                                                ; preds = %2
-  %8 = add i32 %0, -65536
-  %9 = lshr i32 %8, 10
-  %10 = lshr i32 %8, 18
+6:                                                ; preds = %2
+  %7 = add i32 %0, -65536
+  %8 = lshr i32 %7, 10
+  %9 = trunc i32 %8 to i8
+  store i8 %9, ptr %1, align 1, !tbaa !3
+  %10 = lshr i32 %7, 18
   %11 = trunc i32 %10 to i8
   %12 = add i8 %11, -40
-  %13 = trunc i32 %0 to i8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %13, ptr %14, align 1, !tbaa !3
-  %15 = lshr i32 %0, 8
-  %16 = trunc i32 %15 to i8
-  %17 = and i8 %16, 3
-  %18 = or disjoint i8 %17, -36
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %18, ptr %19, align 1, !tbaa !3
-  br label %20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %12, ptr %13, align 1, !tbaa !3
+  %14 = trunc i32 %0 to i8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %14, ptr %15, align 1, !tbaa !3
+  %16 = lshr i32 %0, 8
+  %17 = trunc i32 %16 to i8
+  %18 = and i8 %17, 3
+  %19 = or disjoint i8 %18, -36
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %19, ptr %20, align 1, !tbaa !3
+  br label %21
 
-20:                                               ; preds = %7, %4
-  %.sink17.in = phi i32 [ %0, %4 ], [ %9, %7 ]
-  %.sink = phi i8 [ %6, %4 ], [ %12, %7 ]
-  %.0 = phi i32 [ 2, %4 ], [ 4, %7 ]
-  %.sink17 = trunc i32 %.sink17.in to i8
-  store i8 %.sink17, ptr %1, align 1, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %.sink, ptr %21, align 1, !tbaa !3
+21:                                               ; preds = %6, %4
+  %.0 = phi i32 [ 2, %4 ], [ 4, %6 ]
   ret i32 %.0
 }
 

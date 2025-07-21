@@ -40935,16 +40935,11 @@ common.resume:                                    ; preds = %61, %52, %33
   %.sroa.754.sroa.9.sroa.5.0.copyload = load i64, ptr %.sroa.754.sroa.9.sroa.5.0..sroa.754.sroa.9.0..sroa.754.0..sroa_idx.sroa_idx.sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %7)
   %44 = inttoptr i64 %.sroa.552.0.copyload to ptr
-  %.sroa.8.sroa.0126.0.extract.trunc = trunc i64 %.sroa.754.sroa.0.sroa.5.0.copyload to i8
-  %.sroa.8.sroa.6127.0.extract.shift = lshr i64 %.sroa.754.sroa.0.sroa.5.0.copyload, 8
-  %.sroa.8.sroa.6127.0.extract.trunc = trunc nuw i64 %.sroa.8.sroa.6127.0.extract.shift to i56
   store i64 %.sroa.051.0.copyload, ptr %0, align 8
   %.sroa.5129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %44, ptr %.sroa.5129.0..sroa_idx, align 8
   %.sroa.6130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.8.sroa.0126.0.extract.trunc, ptr %.sroa.6130.0..sroa_idx, align 8
-  %.sroa.7131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i56 %.sroa.8.sroa.6127.0.extract.trunc, ptr %.sroa.7131.0..sroa_idx, align 1
+  store i64 %.sroa.754.sroa.0.sroa.5.0.copyload, ptr %.sroa.6130.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.754.sroa.5.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

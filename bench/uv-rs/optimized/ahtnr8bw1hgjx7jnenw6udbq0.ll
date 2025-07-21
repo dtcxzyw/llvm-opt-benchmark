@@ -1014,14 +1014,9 @@ define internal fastcc void @"_ZN90_$LT$uv_platform_tags..language_tag..Language
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !147
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %5, i64 %6, i1 false), !noalias !151
   %57 = ptrtoint ptr %3 to i64
-  %.sroa.484.0.extract.trunc = trunc i64 %57 to i32
-  %.sroa.484.4.extract.shift = lshr i64 %57, 32
-  %.sroa.484.4.extract.trunc = trunc nuw i64 %.sroa.484.4.extract.shift to i32
   store i64 1, ptr %0, align 8
   %.sroa.298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.484.0.extract.trunc, ptr %.sroa.298.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.484.4.extract.trunc, ptr %.sroa.3.0..sroa_idx99, align 4
+  store i64 %57, ptr %.sroa.298.0..sroa_idx, align 8
   %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.4100.0..sroa_idx, align 8
   %.sroa.5101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1075,14 +1070,9 @@ define internal fastcc void @"_ZN90_$LT$uv_platform_tags..language_tag..Language
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !152
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull readonly align 1 %5, i64 %6, i1 false), !noalias !159
   %80 = ptrtoint ptr %3 to i64
-  %.sroa.4103.0.extract.trunc = trunc i64 %80 to i32
-  %.sroa.4103.4.extract.shift = lshr i64 %80, 32
-  %.sroa.4103.4.extract.trunc = trunc nuw i64 %.sroa.4103.4.extract.shift to i32
   store i64 2, ptr %0, align 8
   %.sroa.2117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.4103.0.extract.trunc, ptr %.sroa.2117.0..sroa_idx, align 8
-  %.sroa.3118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.4103.4.extract.trunc, ptr %.sroa.3118.0..sroa_idx, align 4
+  store i64 %80, ptr %.sroa.2117.0..sroa_idx, align 8
   %.sroa.4119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.4119.0..sroa_idx, align 8
   %.sroa.5120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1241,14 +1231,9 @@ define internal fastcc void @"_ZN90_$LT$uv_platform_tags..language_tag..Language
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !168
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %136, ptr nonnull readonly align 1 %5, i64 %6, i1 false), !noalias !172
   %138 = ptrtoint ptr %3 to i64
-  %.sroa.4137.0.extract.trunc = trunc i64 %138 to i8
-  %.sroa.4137.1.extract.shift = lshr i64 %138, 8
-  %.sroa.4137.1.extract.trunc = trunc nuw i64 %.sroa.4137.1.extract.shift to i56
   store i64 4, ptr %0, align 8
   %.sroa.2151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4137.0.extract.trunc, ptr %.sroa.2151.0..sroa_idx, align 8
-  %.sroa.3152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4137.1.extract.trunc, ptr %.sroa.3152.0..sroa_idx, align 1
+  store i64 %138, ptr %.sroa.2151.0..sroa_idx, align 8
   %.sroa.4153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.4153.0..sroa_idx, align 8
   %.sroa.5154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

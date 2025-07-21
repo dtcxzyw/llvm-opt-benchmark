@@ -40705,17 +40705,12 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_127ExpandPack
   store i32 %.sroa.0.0.copyload.i13, ptr %22, align 8, !tbaa !837
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %23, align 4
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %24, align 4, !tbaa !837
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %.sroa.2.0.extract.trunc.i, ptr %25, align 8, !tbaa !837
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !1940
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %27, ptr %28, align 8, !tbaa !1940
+  store i64 %.sroa.0.0.copyload.i.i, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !1940
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %26, ptr %27, align 8, !tbaa !1940
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %16, %20
@@ -49237,7 +49232,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_127ExpandPack
   %6 = load ptr, ptr %5, align 8, !tbaa !2098
   %7 = tail call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_127ExpandPackedTypeConstraintsEE13TransformTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %6)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %85, label %8
+  br i1 %.not, label %84, label %8
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #27
@@ -49254,170 +49249,165 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_127ExpandPack
 
 .lr.ph:                                           ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = ptrtoint ptr %4 to i64
-  %19 = zext i32 %13 to i64
-  br label %20
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = ptrtoint ptr %4 to i64
+  %18 = zext i32 %13 to i64
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %65
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %.03269 = phi i8 [ 0, %.lr.ph ], [ %.4.ph, %65 ]
-  %21 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %14, i64 %indvars.iv
+19:                                               ; preds = %.lr.ph, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
+  %.03269 = phi i8 [ 0, %.lr.ph ], [ %.4.ph, %64 ]
+  %20 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %14, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #27
-  store i8 1, ptr %16, align 8, !tbaa !2101
-  %.sroa.0.0.copyload.i = load i64, ptr %21, align 8
-  %.sroa.049.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  store i32 %.sroa.049.0.extract.trunc, ptr %4, align 8, !tbaa !837
-  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  store i32 %.sroa.3.0.extract.trunc, ptr %15, align 4, !tbaa !837
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !2103
-  %24 = trunc i64 %23 to i32
-  %25 = and i32 %24, 3
-  switch i32 %25, label %default.unreachable70 [
-    i32 0, label %26
-    i32 1, label %42
-    i32 2, label %42
-    i32 3, label %65
+  store i8 1, ptr %15, align 8, !tbaa !2101
+  %.sroa.0.0.copyload.i = load i64, ptr %20, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !2103
+  %23 = trunc i64 %22 to i32
+  %24 = and i32 %23, 3
+  switch i32 %24, label %default.unreachable70 [
+    i32 0, label %25
+    i32 1, label %41
+    i32 2, label %41
+    i32 3, label %64
   ]
 
-26:                                               ; preds = %20
-  %27 = lshr i64 %23, 2
-  %28 = load i32, ptr %12, align 8, !tbaa !2100
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %14, i64 %29
-  %31 = and i64 %27, 4294967295
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !983
-  %34 = call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_127ExpandPackedTypeConstraintsEE13TransformExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %33)
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %66, label %36
+25:                                               ; preds = %19
+  %26 = lshr i64 %22, 2
+  %27 = load i32, ptr %12, align 8, !tbaa !2100
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %14, i64 %28
+  %30 = and i64 %26, 4294967295
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !983
+  %33 = call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_127ExpandPackedTypeConstraintsEE13TransformExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %32)
+  %34 = icmp eq i64 %33, 1
+  br i1 %34, label %65, label %35
 
-36:                                               ; preds = %26
-  %37 = trunc nuw i8 %.03269 to i1
-  %38 = and i64 %34, -2
-  %39 = inttoptr i64 %38 to ptr
-  %40 = icmp ne ptr %33, %39
-  %narrow = or i1 %40, %37
-  %41 = zext i1 %narrow to i8
-  store i8 1, ptr %16, align 8, !tbaa !2101
-  store ptr %39, ptr %17, align 8, !tbaa !779
-  br label %44
+35:                                               ; preds = %25
+  %36 = trunc nuw i8 %.03269 to i1
+  %37 = and i64 %33, -2
+  %38 = inttoptr i64 %37 to ptr
+  %39 = icmp ne ptr %32, %38
+  %narrow = or i1 %39, %36
+  %40 = zext i1 %narrow to i8
+  store i8 1, ptr %15, align 8, !tbaa !2101
+  store ptr %38, ptr %16, align 8, !tbaa !779
+  br label %43
 
-42:                                               ; preds = %20, %20
-  store i8 0, ptr %16, align 8, !tbaa !2101
-  %43 = call noundef ptr @_ZNK5clang12OffsetOfNode12getFieldNameEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #27
-  store ptr %43, ptr %17, align 8, !tbaa !779
-  %.not38 = icmp eq ptr %43, null
-  br i1 %.not38, label %65, label %44
+41:                                               ; preds = %19, %19
+  store i8 0, ptr %15, align 8, !tbaa !2101
+  %42 = call noundef ptr @_ZNK5clang12OffsetOfNode12getFieldNameEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
+  store ptr %42, ptr %16, align 8, !tbaa !779
+  %.not38 = icmp eq ptr %42, null
+  br i1 %.not38, label %64, label %43
 
-default.unreachable70:                            ; preds = %20
+default.unreachable70:                            ; preds = %19
   unreachable
 
-44:                                               ; preds = %36, %42
-  %.234 = phi i8 [ %41, %36 ], [ %.03269, %42 ]
-  %45 = load i32, ptr %10, align 8, !tbaa !9
-  %46 = zext i32 %45 to i64
-  %47 = add nuw nsw i64 %46, 1
-  %48 = load i32, ptr %11, align 4, !tbaa !10
-  %.not.i.i.not.i = icmp ult i32 %45, %48
+43:                                               ; preds = %35, %41
+  %.234 = phi i8 [ %40, %35 ], [ %.03269, %41 ]
+  %44 = load i32, ptr %10, align 8, !tbaa !9
+  %45 = zext i32 %44 to i64
+  %46 = add nuw nsw i64 %45, 1
+  %47 = load i32, ptr %11, align 4, !tbaa !10
+  %.not.i.i.not.i = icmp ult i32 %44, %47
   %.pre3.i = load ptr, ptr %3, align 8, !tbaa !3
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit, label %49, !prof !31
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit, label %48, !prof !31
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw %"struct.clang::Sema::OffsetOfComponent", ptr %.pre3.i, i64 %46
-  %51 = icmp uge ptr %4, %.pre3.i
-  %52 = icmp ult ptr %4, %50
-  %spec.select.i.i.i.i.i = and i1 %51, %52
-  br i1 %spec.select.i.i.i.i.i, label %54, label %53, !prof !32
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw %"struct.clang::Sema::OffsetOfComponent", ptr %.pre3.i, i64 %45
+  %50 = icmp uge ptr %4, %.pre3.i
+  %51 = icmp ult ptr %4, %49
+  %spec.select.i.i.i.i.i = and i1 %50, %51
+  br i1 %spec.select.i.i.i.i.i, label %53, label %52, !prof !32
 
-53:                                               ; preds = %49
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef %47, i64 noundef 24) #27
+52:                                               ; preds = %48
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef %46, i64 noundef 24) #27
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit
 
-54:                                               ; preds = %49
-  %55 = ptrtoint ptr %.pre3.i to i64
-  %56 = sub i64 %18, %55
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef %47, i64 noundef 24) #27
-  %57 = load ptr, ptr %3, align 8, !tbaa !3
-  %58 = getelementptr inbounds i8, ptr %57, i64 %56
+53:                                               ; preds = %48
+  %54 = ptrtoint ptr %.pre3.i to i64
+  %55 = sub i64 %17, %54
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef %46, i64 noundef 24) #27
+  %56 = load ptr, ptr %3, align 8, !tbaa !3
+  %57 = getelementptr inbounds i8, ptr %56, i64 %55
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit: ; preds = %44, %53, %54
-  %59 = phi ptr [ %.pre3.i, %44 ], [ %57, %54 ], [ %.pre.i, %53 ]
-  %.016.i.i.i = phi ptr [ %4, %44 ], [ %58, %54 ], [ %4, %53 ]
-  %60 = load i32, ptr %10, align 8, !tbaa !9
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"struct.clang::Sema::OffsetOfComponent", ptr %59, i64 %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %63 = load i32, ptr %10, align 8, !tbaa !9
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %10, align 8, !tbaa !9
-  br label %65
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit: ; preds = %43, %52, %53
+  %58 = phi ptr [ %.pre3.i, %43 ], [ %56, %53 ], [ %.pre.i, %52 ]
+  %.016.i.i.i = phi ptr [ %4, %43 ], [ %57, %53 ], [ %4, %52 ]
+  %59 = load i32, ptr %10, align 8, !tbaa !9
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds nuw %"struct.clang::Sema::OffsetOfComponent", ptr %58, i64 %60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %62 = load i32, ptr %10, align 8, !tbaa !9
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %10, align 8, !tbaa !9
+  br label %64
 
-65:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit, %42, %20
-  %.4.ph = phi i8 [ %.03269, %20 ], [ %.03269, %42 ], [ %.234, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit ]
+64:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit, %41, %19
+  %.4.ph = phi i8 [ %.03269, %19 ], [ %.03269, %41 ], [ %.234, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not37 = icmp eq i64 %indvars.iv.next, %19
-  br i1 %.not37, label %._crit_edge.loopexit, label %20, !llvm.loop !2105
+  %.not37 = icmp eq i64 %indvars.iv.next, %18
+  br i1 %.not37, label %._crit_edge.loopexit, label %19, !llvm.loop !2105
 
-66:                                               ; preds = %26
+65:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
-  br label %81
+  br label %80
 
-._crit_edge.loopexit:                             ; preds = %65
-  %67 = trunc nuw i8 %.4.ph to i1
+._crit_edge.loopexit:                             ; preds = %64
+  %66 = trunc nuw i8 %.4.ph to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %.032.lcssa = phi i1 [ false, %8 ], [ %67, %._crit_edge.loopexit ]
+  %.032.lcssa = phi i1 [ false, %8 ], [ %66, %._crit_edge.loopexit ]
   %.val = load ptr, ptr %0, align 8, !tbaa !1827
-  %68 = getelementptr i8, ptr %.val, i64 12696
-  %.val.val = load i32, ptr %68, align 8, !tbaa !1083
+  %67 = getelementptr i8, ptr %.val, i64 12696
+  %.val.val = load i32, ptr %67, align 8, !tbaa !1083
   %.not64 = icmp eq i32 %.val.val, -1
-  br i1 %.not64, label %69, label %74
+  br i1 %.not64, label %68, label %73
 
-69:                                               ; preds = %._crit_edge
-  %70 = load ptr, ptr %5, align 8, !tbaa !2098
-  %71 = icmp ne ptr %7, %70
-  %or.cond = select i1 %71, i1 true, i1 %.032.lcssa
-  br i1 %or.cond, label %74, label %72
+68:                                               ; preds = %._crit_edge
+  %69 = load ptr, ptr %5, align 8, !tbaa !2098
+  %70 = icmp ne ptr %7, %69
+  %or.cond = select i1 %70, i1 true, i1 %.032.lcssa
+  br i1 %or.cond, label %73, label %71
 
-72:                                               ; preds = %69
-  %73 = ptrtoint ptr %1 to i64
-  br label %81
+71:                                               ; preds = %68
+  %72 = ptrtoint ptr %1 to i64
+  br label %80
 
-74:                                               ; preds = %69, %._crit_edge
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i43 = load i32, ptr %75, align 8, !tbaa !837
-  %76 = load ptr, ptr %3, align 8, !tbaa !3
-  %77 = load i32, ptr %10, align 8, !tbaa !9
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.0.0.copyload.i44 = load i32, ptr %79, align 4, !tbaa !837
-  %80 = call i64 @_ZN5clang4Sema20BuildBuiltinOffsetOfENS_14SourceLocationEPNS_14TypeSourceInfoEN4llvm8ArrayRefINS0_17OffsetOfComponentEEES1_(ptr noundef nonnull align 8 dereferenceable(17504) %.val, i32 %.sroa.0.0.copyload.i43, ptr noundef nonnull %7, ptr %76, i64 %78, i32 %.sroa.0.0.copyload.i44) #27
-  br label %81
+73:                                               ; preds = %68, %._crit_edge
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0.0.copyload.i43 = load i32, ptr %74, align 8, !tbaa !837
+  %75 = load ptr, ptr %3, align 8, !tbaa !3
+  %76 = load i32, ptr %10, align 8, !tbaa !9
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.0.0.copyload.i44 = load i32, ptr %78, align 4, !tbaa !837
+  %79 = call i64 @_ZN5clang4Sema20BuildBuiltinOffsetOfENS_14SourceLocationEPNS_14TypeSourceInfoEN4llvm8ArrayRefINS0_17OffsetOfComponentEEES1_(ptr noundef nonnull align 8 dereferenceable(17504) %.val, i32 %.sroa.0.0.copyload.i43, ptr noundef nonnull %7, ptr %75, i64 %77, i32 %.sroa.0.0.copyload.i44) #27
+  br label %80
 
-81:                                               ; preds = %66, %74, %72
-  %.sroa.050.6 = phi i64 [ %80, %74 ], [ %73, %72 ], [ 1, %66 ]
-  %82 = load ptr, ptr %3, align 8, !tbaa !3
-  %83 = icmp eq ptr %82, %9
-  br i1 %83, label %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit, label %84
+80:                                               ; preds = %65, %73, %71
+  %.sroa.050.6 = phi i64 [ %79, %73 ], [ %72, %71 ], [ 1, %65 ]
+  %81 = load ptr, ptr %3, align 8, !tbaa !3
+  %82 = icmp eq ptr %81, %9
+  br i1 %82, label %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit, label %83
 
-84:                                               ; preds = %81
-  call void @free(ptr noundef %82) #27
+83:                                               ; preds = %80
+  call void @free(ptr noundef %81) #27
   br label %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit: ; preds = %81, %84
+_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit: ; preds = %80, %83
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #27
-  br label %85
+  br label %84
 
-85:                                               ; preds = %2, %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit
+84:                                               ; preds = %2, %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit
   %.sroa.050.0 = phi i64 [ %.sroa.050.6, %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit ], [ 1, %2 ]
   ret i64 %.sroa.050.0
 }
@@ -97213,7 +97203,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateIn
   %6 = load ptr, ptr %5, align 8, !tbaa !2098
   %7 = tail call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE13TransformTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %6)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %85, label %8
+  br i1 %.not, label %84, label %8
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #27
@@ -97230,170 +97220,165 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateIn
 
 .lr.ph:                                           ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = ptrtoint ptr %4 to i64
-  %19 = zext i32 %13 to i64
-  br label %20
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = ptrtoint ptr %4 to i64
+  %18 = zext i32 %13 to i64
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %65
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %.03269 = phi i8 [ 0, %.lr.ph ], [ %.4.ph, %65 ]
-  %21 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %14, i64 %indvars.iv
+19:                                               ; preds = %.lr.ph, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
+  %.03269 = phi i8 [ 0, %.lr.ph ], [ %.4.ph, %64 ]
+  %20 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %14, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #27
-  store i8 1, ptr %16, align 8, !tbaa !2101
-  %.sroa.0.0.copyload.i = load i64, ptr %21, align 8
-  %.sroa.049.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  store i32 %.sroa.049.0.extract.trunc, ptr %4, align 8, !tbaa !837
-  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  store i32 %.sroa.3.0.extract.trunc, ptr %15, align 4, !tbaa !837
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !2103
-  %24 = trunc i64 %23 to i32
-  %25 = and i32 %24, 3
-  switch i32 %25, label %default.unreachable70 [
-    i32 0, label %26
-    i32 1, label %42
-    i32 2, label %42
-    i32 3, label %65
+  store i8 1, ptr %15, align 8, !tbaa !2101
+  %.sroa.0.0.copyload.i = load i64, ptr %20, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !2103
+  %23 = trunc i64 %22 to i32
+  %24 = and i32 %23, 3
+  switch i32 %24, label %default.unreachable70 [
+    i32 0, label %25
+    i32 1, label %41
+    i32 2, label %41
+    i32 3, label %64
   ]
 
-26:                                               ; preds = %20
-  %27 = lshr i64 %23, 2
-  %28 = load i32, ptr %12, align 8, !tbaa !2100
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %14, i64 %29
-  %31 = and i64 %27, 4294967295
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !983
-  %34 = call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE13TransformExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %33)
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %66, label %36
+25:                                               ; preds = %19
+  %26 = lshr i64 %22, 2
+  %27 = load i32, ptr %12, align 8, !tbaa !2100
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %14, i64 %28
+  %30 = and i64 %26, 4294967295
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !983
+  %33 = call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE13TransformExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %32)
+  %34 = icmp eq i64 %33, 1
+  br i1 %34, label %65, label %35
 
-36:                                               ; preds = %26
-  %37 = trunc nuw i8 %.03269 to i1
-  %38 = and i64 %34, -2
-  %39 = inttoptr i64 %38 to ptr
-  %40 = icmp ne ptr %33, %39
-  %narrow = or i1 %40, %37
-  %41 = zext i1 %narrow to i8
-  store i8 1, ptr %16, align 8, !tbaa !2101
-  store ptr %39, ptr %17, align 8, !tbaa !779
-  br label %44
+35:                                               ; preds = %25
+  %36 = trunc nuw i8 %.03269 to i1
+  %37 = and i64 %33, -2
+  %38 = inttoptr i64 %37 to ptr
+  %39 = icmp ne ptr %32, %38
+  %narrow = or i1 %39, %36
+  %40 = zext i1 %narrow to i8
+  store i8 1, ptr %15, align 8, !tbaa !2101
+  store ptr %38, ptr %16, align 8, !tbaa !779
+  br label %43
 
-42:                                               ; preds = %20, %20
-  store i8 0, ptr %16, align 8, !tbaa !2101
-  %43 = call noundef ptr @_ZNK5clang12OffsetOfNode12getFieldNameEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #27
-  store ptr %43, ptr %17, align 8, !tbaa !779
-  %.not38 = icmp eq ptr %43, null
-  br i1 %.not38, label %65, label %44
+41:                                               ; preds = %19, %19
+  store i8 0, ptr %15, align 8, !tbaa !2101
+  %42 = call noundef ptr @_ZNK5clang12OffsetOfNode12getFieldNameEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
+  store ptr %42, ptr %16, align 8, !tbaa !779
+  %.not38 = icmp eq ptr %42, null
+  br i1 %.not38, label %64, label %43
 
-default.unreachable70:                            ; preds = %20
+default.unreachable70:                            ; preds = %19
   unreachable
 
-44:                                               ; preds = %36, %42
-  %.234 = phi i8 [ %41, %36 ], [ %.03269, %42 ]
-  %45 = load i32, ptr %10, align 8, !tbaa !9
-  %46 = zext i32 %45 to i64
-  %47 = add nuw nsw i64 %46, 1
-  %48 = load i32, ptr %11, align 4, !tbaa !10
-  %.not.i.i.not.i = icmp ult i32 %45, %48
+43:                                               ; preds = %35, %41
+  %.234 = phi i8 [ %40, %35 ], [ %.03269, %41 ]
+  %44 = load i32, ptr %10, align 8, !tbaa !9
+  %45 = zext i32 %44 to i64
+  %46 = add nuw nsw i64 %45, 1
+  %47 = load i32, ptr %11, align 4, !tbaa !10
+  %.not.i.i.not.i = icmp ult i32 %44, %47
   %.pre3.i = load ptr, ptr %3, align 8, !tbaa !3
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit, label %49, !prof !31
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit, label %48, !prof !31
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw %"struct.clang::Sema::OffsetOfComponent", ptr %.pre3.i, i64 %46
-  %51 = icmp uge ptr %4, %.pre3.i
-  %52 = icmp ult ptr %4, %50
-  %spec.select.i.i.i.i.i = and i1 %51, %52
-  br i1 %spec.select.i.i.i.i.i, label %54, label %53, !prof !32
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw %"struct.clang::Sema::OffsetOfComponent", ptr %.pre3.i, i64 %45
+  %50 = icmp uge ptr %4, %.pre3.i
+  %51 = icmp ult ptr %4, %49
+  %spec.select.i.i.i.i.i = and i1 %50, %51
+  br i1 %spec.select.i.i.i.i.i, label %53, label %52, !prof !32
 
-53:                                               ; preds = %49
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef %47, i64 noundef 24) #27
+52:                                               ; preds = %48
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef %46, i64 noundef 24) #27
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit
 
-54:                                               ; preds = %49
-  %55 = ptrtoint ptr %.pre3.i to i64
-  %56 = sub i64 %18, %55
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef %47, i64 noundef 24) #27
-  %57 = load ptr, ptr %3, align 8, !tbaa !3
-  %58 = getelementptr inbounds i8, ptr %57, i64 %56
+53:                                               ; preds = %48
+  %54 = ptrtoint ptr %.pre3.i to i64
+  %55 = sub i64 %17, %54
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef %46, i64 noundef 24) #27
+  %56 = load ptr, ptr %3, align 8, !tbaa !3
+  %57 = getelementptr inbounds i8, ptr %56, i64 %55
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit: ; preds = %44, %53, %54
-  %59 = phi ptr [ %.pre3.i, %44 ], [ %57, %54 ], [ %.pre.i, %53 ]
-  %.016.i.i.i = phi ptr [ %4, %44 ], [ %58, %54 ], [ %4, %53 ]
-  %60 = load i32, ptr %10, align 8, !tbaa !9
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"struct.clang::Sema::OffsetOfComponent", ptr %59, i64 %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %63 = load i32, ptr %10, align 8, !tbaa !9
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %10, align 8, !tbaa !9
-  br label %65
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit: ; preds = %43, %52, %53
+  %58 = phi ptr [ %.pre3.i, %43 ], [ %56, %53 ], [ %.pre.i, %52 ]
+  %.016.i.i.i = phi ptr [ %4, %43 ], [ %57, %53 ], [ %4, %52 ]
+  %59 = load i32, ptr %10, align 8, !tbaa !9
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds nuw %"struct.clang::Sema::OffsetOfComponent", ptr %58, i64 %60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %62 = load i32, ptr %10, align 8, !tbaa !9
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %10, align 8, !tbaa !9
+  br label %64
 
-65:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit, %42, %20
-  %.4.ph = phi i8 [ %.03269, %20 ], [ %.03269, %42 ], [ %.234, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit ]
+64:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit, %41, %19
+  %.4.ph = phi i8 [ %.03269, %19 ], [ %.03269, %41 ], [ %.234, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema17OffsetOfComponentELb1EE9push_backERKS3_.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not37 = icmp eq i64 %indvars.iv.next, %19
-  br i1 %.not37, label %._crit_edge.loopexit, label %20, !llvm.loop !3025
+  %.not37 = icmp eq i64 %indvars.iv.next, %18
+  br i1 %.not37, label %._crit_edge.loopexit, label %19, !llvm.loop !3025
 
-66:                                               ; preds = %26
+65:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
-  br label %81
+  br label %80
 
-._crit_edge.loopexit:                             ; preds = %65
-  %67 = trunc nuw i8 %.4.ph to i1
+._crit_edge.loopexit:                             ; preds = %64
+  %66 = trunc nuw i8 %.4.ph to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %.032.lcssa = phi i1 [ false, %8 ], [ %67, %._crit_edge.loopexit ]
+  %.032.lcssa = phi i1 [ false, %8 ], [ %66, %._crit_edge.loopexit ]
   %.val = load ptr, ptr %0, align 8, !tbaa !1017
-  %68 = getelementptr i8, ptr %.val, i64 12696
-  %.val.val = load i32, ptr %68, align 8, !tbaa !1083
+  %67 = getelementptr i8, ptr %.val, i64 12696
+  %.val.val = load i32, ptr %67, align 8, !tbaa !1083
   %.not64 = icmp eq i32 %.val.val, -1
-  br i1 %.not64, label %69, label %74
+  br i1 %.not64, label %68, label %73
 
-69:                                               ; preds = %._crit_edge
-  %70 = load ptr, ptr %5, align 8, !tbaa !2098
-  %71 = icmp ne ptr %7, %70
-  %or.cond = select i1 %71, i1 true, i1 %.032.lcssa
-  br i1 %or.cond, label %74, label %72
+68:                                               ; preds = %._crit_edge
+  %69 = load ptr, ptr %5, align 8, !tbaa !2098
+  %70 = icmp ne ptr %7, %69
+  %or.cond = select i1 %70, i1 true, i1 %.032.lcssa
+  br i1 %or.cond, label %73, label %71
 
-72:                                               ; preds = %69
-  %73 = ptrtoint ptr %1 to i64
-  br label %81
+71:                                               ; preds = %68
+  %72 = ptrtoint ptr %1 to i64
+  br label %80
 
-74:                                               ; preds = %69, %._crit_edge
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i43 = load i32, ptr %75, align 8, !tbaa !837
-  %76 = load ptr, ptr %3, align 8, !tbaa !3
-  %77 = load i32, ptr %10, align 8, !tbaa !9
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.0.0.copyload.i44 = load i32, ptr %79, align 4, !tbaa !837
-  %80 = call i64 @_ZN5clang4Sema20BuildBuiltinOffsetOfENS_14SourceLocationEPNS_14TypeSourceInfoEN4llvm8ArrayRefINS0_17OffsetOfComponentEEES1_(ptr noundef nonnull align 8 dereferenceable(17504) %.val, i32 %.sroa.0.0.copyload.i43, ptr noundef nonnull %7, ptr %76, i64 %78, i32 %.sroa.0.0.copyload.i44) #27
-  br label %81
+73:                                               ; preds = %68, %._crit_edge
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0.0.copyload.i43 = load i32, ptr %74, align 8, !tbaa !837
+  %75 = load ptr, ptr %3, align 8, !tbaa !3
+  %76 = load i32, ptr %10, align 8, !tbaa !9
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.0.0.copyload.i44 = load i32, ptr %78, align 4, !tbaa !837
+  %79 = call i64 @_ZN5clang4Sema20BuildBuiltinOffsetOfENS_14SourceLocationEPNS_14TypeSourceInfoEN4llvm8ArrayRefINS0_17OffsetOfComponentEEES1_(ptr noundef nonnull align 8 dereferenceable(17504) %.val, i32 %.sroa.0.0.copyload.i43, ptr noundef nonnull %7, ptr %75, i64 %77, i32 %.sroa.0.0.copyload.i44) #27
+  br label %80
 
-81:                                               ; preds = %66, %74, %72
-  %.sroa.050.6 = phi i64 [ %80, %74 ], [ %73, %72 ], [ 1, %66 ]
-  %82 = load ptr, ptr %3, align 8, !tbaa !3
-  %83 = icmp eq ptr %82, %9
-  br i1 %83, label %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit, label %84
+80:                                               ; preds = %65, %73, %71
+  %.sroa.050.6 = phi i64 [ %79, %73 ], [ %72, %71 ], [ 1, %65 ]
+  %81 = load ptr, ptr %3, align 8, !tbaa !3
+  %82 = icmp eq ptr %81, %9
+  br i1 %82, label %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit, label %83
 
-84:                                               ; preds = %81
-  call void @free(ptr noundef %82) #27
+83:                                               ; preds = %80
+  call void @free(ptr noundef %81) #27
   br label %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit: ; preds = %81, %84
+_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit: ; preds = %80, %83
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #27
-  br label %85
+  br label %84
 
-85:                                               ; preds = %2, %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit
+84:                                               ; preds = %2, %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit
   %.sroa.050.0 = phi i64 [ %.sroa.050.6, %_ZN4llvm11SmallVectorIN5clang4Sema17OffsetOfComponentELj4EED2Ev.exit ], [ 1, %2 ]
   ret i64 %.sroa.050.0
 }
@@ -129769,17 +129754,12 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateIn
   store i32 %.sroa.0.0.copyload.i13, ptr %22, align 8, !tbaa !837
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %23, align 4
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %24, align 4, !tbaa !837
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %.sroa.2.0.extract.trunc.i, ptr %25, align 8, !tbaa !837
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !1940
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %27, ptr %28, align 8, !tbaa !1940
+  store i64 %.sroa.0.0.copyload.i.i, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !1940
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %26, ptr %27, align 8, !tbaa !1940
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %16, %20

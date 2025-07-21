@@ -4557,14 +4557,9 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i.i.i: ; pred
 
 _ZN8bitflags6parser10ParseError18invalid_named_flag17h556156f4b0cbd0afE.exit: ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %111, ptr noundef nonnull readonly align 1 dereferenceable(1) %66, i64 range(i64 1, 0) %67, i1 false), !noalias !435
-  %.sroa.478.sroa.0.0.extract.trunc = trunc i64 %67 to i8
-  %.sroa.478.sroa.4.0.extract.shift = lshr i64 %67, 8
-  %.sroa.478.sroa.4.0.extract.trunc = trunc nuw nsw i64 %.sroa.478.sroa.4.0.extract.shift to i56
   store i64 1, ptr %0, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.478.sroa.0.0.extract.trunc, ptr %.sroa.261.0..sroa_idx, align 8
-  %.sroa.362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.478.sroa.4.0.extract.trunc, ptr %.sroa.362.0..sroa_idx, align 1
+  store i64 %67, ptr %.sroa.261.0..sroa_idx, align 8
   %.sroa.362.sroa.2.0..sroa.362.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %111, ptr %.sroa.362.sroa.2.0..sroa.362.0..sroa_idx.sroa_idx, align 8
   %.sroa.362.sroa.3.0..sroa.362.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

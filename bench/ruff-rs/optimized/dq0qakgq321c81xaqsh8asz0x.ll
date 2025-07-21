@@ -3226,10 +3226,10 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit41: ; preds = %.noexc39, %"
 228:                                              ; preds = %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !238
   %229 = icmp eq i64 %.sroa.052.0, -9223372036854775807
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0 to i8
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %228
+  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0 to i8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12)
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.6.0.extract.trunc, ptr %231, align 8
@@ -3237,16 +3237,12 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit41: ; preds = %.noexc39, %"
   br label %82
 
 232:                                              ; preds = %228
-  %.sroa.6.1.extract.shift = lshr i64 %.sroa.6.0, 8
-  %.sroa.6.1.extract.trunc = trunc nuw i64 %.sroa.6.1.extract.shift to i56
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12)
   store i64 %.sroa.052.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.6.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.6.1.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 1
+  store i64 %.sroa.6.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %196, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48

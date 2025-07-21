@@ -5995,7 +5995,7 @@ define dso_local noundef zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext 
   %8 = alloca %struct.LOCKTAG, align 4
   %9 = alloca i8, align 1
   %10 = alloca %struct.LOCKTAG, align 4
-  %11 = alloca %struct.LOCKTAG, align 4
+  %11 = alloca %struct.LOCKTAG, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.9.0.extract.shift = lshr i64 %0, 32
   %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
@@ -6065,309 +6065,307 @@ define dso_local noundef zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext 
 XactLockForVirtualXact.exit:                      ; preds = %29, %13, %.thread18.i
   %.0.i = phi i1 [ true, %13 ], [ %.2.ph.i, %.thread18.i ], [ true, %29 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #17
-  br label %154
+  br label %153
 
 33:                                               ; preds = %2
-  store i32 %.sroa.0.0.extract.trunc, ptr %11, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %.sroa.9.0.extract.trunc, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i16 0, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %11, i64 14
-  store i8 6, ptr %37, align 2
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 15
-  store i8 1, ptr %38, align 1
-  %39 = tail call ptr @ProcNumberGetProc(i32 noundef %.sroa.0.0.extract.trunc) #17
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %61
+  store i64 %0, ptr %11, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i16 0, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 14
+  store i8 6, ptr %36, align 2
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 15
+  store i8 1, ptr %37, align 1
+  %38 = tail call ptr @ProcNumberGetProc(i32 noundef %.sroa.0.0.extract.trunc) #17
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %60
 
-41:                                               ; preds = %33
+40:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #17
   store i8 0, ptr %7, align 1
-  %42 = load i32, ptr @max_prepared_xacts, align 4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %XactLockForVirtualXact.exit74, label %.preheader.i64
+  %41 = load i32, ptr @max_prepared_xacts, align 4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %XactLockForVirtualXact.exit74, label %.preheader.i64
 
-.preheader.i64:                                   ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 14
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 15
-  %49 = xor i1 %1, true
-  br label %50
+.preheader.i64:                                   ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 15
+  %48 = xor i1 %1, true
+  br label %49
 
-50:                                               ; preds = %57, %.preheader.i64
-  %51 = phi i1 [ true, %57 ], [ false, %.preheader.i64 ]
-  %.07.i65 = phi i32 [ %.2916.i68, %57 ], [ 0, %.preheader.i64 ]
+49:                                               ; preds = %56, %.preheader.i64
+  %50 = phi i1 [ true, %56 ], [ false, %.preheader.i64 ]
+  %.07.i65 = phi i32 [ %.2916.i68, %56 ], [ 0, %.preheader.i64 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
-  br i1 %51, label %.thread.i73, label %52
+  br i1 %50, label %.thread.i73, label %51
 
-.thread.i73:                                      ; preds = %50
+.thread.i73:                                      ; preds = %49
   store i8 0, ptr %7, align 1
-  br label %53
+  br label %52
 
-52:                                               ; preds = %50
+51:                                               ; preds = %49
   %.not.i66 = icmp eq i32 %.07.i65, 0
-  br i1 %.not.i66, label %53, label %.thread13.i67
+  br i1 %.not.i66, label %52, label %.thread13.i67
 
-53:                                               ; preds = %52, %.thread.i73
-  %54 = call i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef nonnull %7) #17
-  %.not10.i72 = icmp eq i32 %54, 0
+52:                                               ; preds = %51, %.thread.i73
+  %53 = call i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef nonnull %7) #17
+  %.not10.i72 = icmp eq i32 %53, 0
   br i1 %.not10.i72, label %.thread18.i70, label %.thread13.i67
 
-.thread13.i67:                                    ; preds = %53, %52
-  %.2916.i68 = phi i32 [ %54, %53 ], [ %.07.i65, %52 ]
+.thread13.i67:                                    ; preds = %52, %51
+  %.2916.i68 = phi i32 [ %53, %52 ], [ %.07.i65, %51 ]
   store i32 %.2916.i68, ptr %8, align 4
+  store i32 0, ptr %43, align 4
   store i32 0, ptr %44, align 4
-  store i32 0, ptr %45, align 4
-  store i16 0, ptr %46, align 4
-  store i8 5, ptr %47, align 2
-  store i8 1, ptr %48, align 1
-  %55 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %8, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %49, i1 noundef zeroext true, ptr noundef null)
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread18.i70, label %57
+  store i16 0, ptr %45, align 4
+  store i8 5, ptr %46, align 2
+  store i8 1, ptr %47, align 1
+  %54 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %8, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %48, i1 noundef zeroext true, ptr noundef null)
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %.thread18.i70, label %56
 
-.thread18.i70:                                    ; preds = %.thread13.i67, %53
-  %.2.ph.i71 = phi i1 [ false, %.thread13.i67 ], [ true, %53 ]
+.thread18.i70:                                    ; preds = %.thread13.i67, %52
+  %.2.ph.i71 = phi i1 [ false, %.thread13.i67 ], [ true, %52 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
   br label %XactLockForVirtualXact.exit74
 
-57:                                               ; preds = %.thread13.i67
-  %58 = call zeroext i1 @LockRelease(ptr noundef nonnull %8, i32 noundef 5, i1 noundef zeroext false)
+56:                                               ; preds = %.thread13.i67
+  %57 = call zeroext i1 @LockRelease(ptr noundef nonnull %8, i32 noundef 5, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  %59 = load i8, ptr %7, align 1, !range !4, !noundef !5
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %50, label %XactLockForVirtualXact.exit74, !llvm.loop !65
+  %58 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %49, label %XactLockForVirtualXact.exit74, !llvm.loop !65
 
-XactLockForVirtualXact.exit74:                    ; preds = %57, %41, %.thread18.i70
-  %.0.i69 = phi i1 [ true, %41 ], [ %.2.ph.i71, %.thread18.i70 ], [ true, %57 ]
+XactLockForVirtualXact.exit74:                    ; preds = %56, %40, %.thread18.i70
+  %.0.i69 = phi i1 [ true, %40 ], [ %.2.ph.i71, %.thread18.i70 ], [ true, %56 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #17
-  br label %154
+  br label %153
 
-61:                                               ; preds = %33
-  %62 = getelementptr inbounds nuw i8, ptr %39, i64 752
-  %63 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %62, i32 noundef 0) #17
-  %64 = getelementptr inbounds nuw i8, ptr %39, i64 68
-  %65 = load i32, ptr %64, align 4
-  %.not = icmp eq i32 %65, %.sroa.0.0.extract.trunc
-  br i1 %.not, label %66, label %69
+60:                                               ; preds = %33
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 752
+  %62 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %61, i32 noundef 0) #17
+  %63 = getelementptr inbounds nuw i8, ptr %38, i64 68
+  %64 = load i32, ptr %63, align 4
+  %.not = icmp eq i32 %64, %.sroa.0.0.extract.trunc
+  br i1 %.not, label %65, label %68
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %39, i64 788
-  %68 = load i32, ptr %67, align 4
-  %.not62 = icmp eq i32 %68, %.sroa.9.0.extract.trunc
-  br i1 %.not62, label %89, label %69
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds nuw i8, ptr %38, i64 788
+  %67 = load i32, ptr %66, align 4
+  %.not62 = icmp eq i32 %67, %.sroa.9.0.extract.trunc
+  br i1 %.not62, label %88, label %68
 
-69:                                               ; preds = %66, %61
-  tail call void @LWLockRelease(ptr noundef nonnull %62) #17
+68:                                               ; preds = %65, %60
+  tail call void @LWLockRelease(ptr noundef nonnull %61) #17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
   store i8 0, ptr %5, align 1
-  %70 = load i32, ptr @max_prepared_xacts, align 4
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %XactLockForVirtualXact.exit85, label %.preheader.i75
+  %69 = load i32, ptr @max_prepared_xacts, align 4
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %XactLockForVirtualXact.exit85, label %.preheader.i75
 
-.preheader.i75:                                   ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 14
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 15
-  %77 = xor i1 %1, true
-  br label %78
+.preheader.i75:                                   ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 14
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 15
+  %76 = xor i1 %1, true
+  br label %77
 
-78:                                               ; preds = %85, %.preheader.i75
-  %79 = phi i1 [ true, %85 ], [ false, %.preheader.i75 ]
-  %.07.i76 = phi i32 [ %.2916.i79, %85 ], [ 0, %.preheader.i75 ]
+77:                                               ; preds = %84, %.preheader.i75
+  %78 = phi i1 [ true, %84 ], [ false, %.preheader.i75 ]
+  %.07.i76 = phi i32 [ %.2916.i79, %84 ], [ 0, %.preheader.i75 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
-  br i1 %79, label %.thread.i84, label %80
+  br i1 %78, label %.thread.i84, label %79
 
-.thread.i84:                                      ; preds = %78
+.thread.i84:                                      ; preds = %77
   store i8 0, ptr %5, align 1
-  br label %81
+  br label %80
 
-80:                                               ; preds = %78
+79:                                               ; preds = %77
   %.not.i77 = icmp eq i32 %.07.i76, 0
-  br i1 %.not.i77, label %81, label %.thread13.i78
+  br i1 %.not.i77, label %80, label %.thread13.i78
 
-81:                                               ; preds = %80, %.thread.i84
-  %82 = call i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef nonnull %5) #17
-  %.not10.i83 = icmp eq i32 %82, 0
+80:                                               ; preds = %79, %.thread.i84
+  %81 = call i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef nonnull %5) #17
+  %.not10.i83 = icmp eq i32 %81, 0
   br i1 %.not10.i83, label %.thread18.i81, label %.thread13.i78
 
-.thread13.i78:                                    ; preds = %81, %80
-  %.2916.i79 = phi i32 [ %82, %81 ], [ %.07.i76, %80 ]
+.thread13.i78:                                    ; preds = %80, %79
+  %.2916.i79 = phi i32 [ %81, %80 ], [ %.07.i76, %79 ]
   store i32 %.2916.i79, ptr %6, align 4
+  store i32 0, ptr %71, align 4
   store i32 0, ptr %72, align 4
-  store i32 0, ptr %73, align 4
-  store i16 0, ptr %74, align 4
-  store i8 5, ptr %75, align 2
-  store i8 1, ptr %76, align 1
-  %83 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %6, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %77, i1 noundef zeroext true, ptr noundef null)
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.thread18.i81, label %85
+  store i16 0, ptr %73, align 4
+  store i8 5, ptr %74, align 2
+  store i8 1, ptr %75, align 1
+  %82 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %6, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %76, i1 noundef zeroext true, ptr noundef null)
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %.thread18.i81, label %84
 
-.thread18.i81:                                    ; preds = %.thread13.i78, %81
-  %.2.ph.i82 = phi i1 [ false, %.thread13.i78 ], [ true, %81 ]
+.thread18.i81:                                    ; preds = %.thread13.i78, %80
+  %.2.ph.i82 = phi i1 [ false, %.thread13.i78 ], [ true, %80 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
   br label %XactLockForVirtualXact.exit85
 
-85:                                               ; preds = %.thread13.i78
-  %86 = call zeroext i1 @LockRelease(ptr noundef nonnull %6, i32 noundef 5, i1 noundef zeroext false)
+84:                                               ; preds = %.thread13.i78
+  %85 = call zeroext i1 @LockRelease(ptr noundef nonnull %6, i32 noundef 5, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  %87 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %78, label %XactLockForVirtualXact.exit85, !llvm.loop !65
+  %86 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %77, label %XactLockForVirtualXact.exit85, !llvm.loop !65
 
-XactLockForVirtualXact.exit85:                    ; preds = %85, %69, %.thread18.i81
-  %.0.i80 = phi i1 [ true, %69 ], [ %.2.ph.i82, %.thread18.i81 ], [ true, %85 ]
+XactLockForVirtualXact.exit85:                    ; preds = %84, %68, %.thread18.i81
+  %.0.i80 = phi i1 [ true, %68 ], [ %.2.ph.i82, %.thread18.i81 ], [ true, %84 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
-  br label %154
+  br label %153
 
-89:                                               ; preds = %66
-  br i1 %1, label %91, label %90
+88:                                               ; preds = %65
+  br i1 %1, label %90, label %89
 
-90:                                               ; preds = %89
-  tail call void @LWLockRelease(ptr noundef nonnull %62) #17
-  br label %154
+89:                                               ; preds = %88
+  tail call void @LWLockRelease(ptr noundef nonnull %61) #17
+  br label %153
 
-91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %39, i64 784
-  %93 = load i8, ptr %92, align 8, !range !4, !noundef !5
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %131
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds nuw i8, ptr %38, i64 784
+  %92 = load i8, ptr %91, align 8, !range !4, !noundef !5
+  %93 = trunc nuw i8 %92 to i1
+  br i1 %93, label %94, label %130
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr @LockMethodLockHash, align 8
-  %97 = call i32 @get_hash_value(ptr noundef %96, ptr noundef nonnull %11) #17
-  %98 = load ptr, ptr @MainLWLockArray, align 8
-  %99 = and i32 %97, 15
-  %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw %union.LWLockPadded, ptr %98, i64 %100
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 23168
-  %103 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %102, i32 noundef 0) #17
-  %104 = call fastcc ptr @SetupLockInTable(ptr noundef nonnull @default_lockmethod, ptr noundef nonnull %39, ptr noundef nonnull %11, i32 noundef %97, i32 noundef 7)
-  %.not63 = icmp eq ptr %104, null
-  br i1 %.not63, label %105, label %110
+94:                                               ; preds = %90
+  %95 = load ptr, ptr @LockMethodLockHash, align 8
+  %96 = call i32 @get_hash_value(ptr noundef %95, ptr noundef nonnull %11) #17
+  %97 = load ptr, ptr @MainLWLockArray, align 8
+  %98 = and i32 %96, 15
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds nuw %union.LWLockPadded, ptr %97, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 23168
+  %102 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %101, i32 noundef 0) #17
+  %103 = call fastcc ptr @SetupLockInTable(ptr noundef nonnull @default_lockmethod, ptr noundef nonnull %38, ptr noundef nonnull %11, i32 noundef %96, i32 noundef 7)
+  %.not63 = icmp eq ptr %103, null
+  br i1 %.not63, label %104, label %109
 
-105:                                              ; preds = %95
-  call void @LWLockRelease(ptr noundef nonnull %102) #17
-  call void @LWLockRelease(ptr noundef nonnull %62) #17
-  %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %106)
-  %107 = call i32 @errcode(i32 noundef 8389) #17
-  %108 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #17
-  %109 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #17
+104:                                              ; preds = %94
+  call void @LWLockRelease(ptr noundef nonnull %101) #17
+  call void @LWLockRelease(ptr noundef nonnull %61) #17
+  %105 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  call void @llvm.assume(i1 %105)
+  %106 = call i32 @errcode(i32 noundef 8389) #17
+  %107 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #17
+  %108 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #17
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 4726, ptr noundef nonnull @__func__.VirtualXactLock) #17
   unreachable
 
-110:                                              ; preds = %95
-  %111 = load ptr, ptr %104, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 148
-  %113 = load i32, ptr %112, align 4
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %112, align 4
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 136
-  %116 = load i32, ptr %115, align 4
-  %117 = add i32 %116, 1
-  store i32 %117, ptr %115, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %119 = load i32, ptr %118, align 8
-  %120 = or i32 %119, 128
-  store i32 %120, ptr %118, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %111, i64 92
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp eq i32 %117, %122
-  br i1 %123, label %124, label %GrantLock.exit
+109:                                              ; preds = %94
+  %110 = load ptr, ptr %103, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 148
+  %112 = load i32, ptr %111, align 4
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %111, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 136
+  %115 = load i32, ptr %114, align 4
+  %116 = add i32 %115, 1
+  store i32 %116, ptr %114, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %118 = load i32, ptr %117, align 8
+  %119 = or i32 %118, 128
+  store i32 %119, ptr %117, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 92
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp eq i32 %116, %121
+  br i1 %122, label %123, label %GrantLock.exit
 
-124:                                              ; preds = %110
-  %125 = getelementptr inbounds nuw i8, ptr %111, i64 20
-  %126 = load i32, ptr %125, align 4
-  %127 = and i32 %126, -129
-  store i32 %127, ptr %125, align 4
+123:                                              ; preds = %109
+  %124 = getelementptr inbounds nuw i8, ptr %110, i64 20
+  %125 = load i32, ptr %124, align 4
+  %126 = and i32 %125, -129
+  store i32 %126, ptr %124, align 4
   br label %GrantLock.exit
 
-GrantLock.exit:                                   ; preds = %110, %124
-  %128 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %129 = load i32, ptr %128, align 8
-  %130 = or i32 %129, 128
-  store i32 %130, ptr %128, align 8
-  call void @LWLockRelease(ptr noundef nonnull %102) #17
-  store i8 0, ptr %92, align 8
-  br label %131
+GrantLock.exit:                                   ; preds = %109, %123
+  %127 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %128 = load i32, ptr %127, align 8
+  %129 = or i32 %128, 128
+  store i32 %129, ptr %127, align 8
+  call void @LWLockRelease(ptr noundef nonnull %101) #17
+  store i8 0, ptr %91, align 8
+  br label %130
 
-131:                                              ; preds = %GrantLock.exit, %91
-  %132 = getelementptr inbounds nuw i8, ptr %39, i64 52
-  %133 = load i32, ptr %132, align 4
-  call void @LWLockRelease(ptr noundef nonnull %62) #17
-  %134 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %11, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
-  %135 = call zeroext i1 @LockRelease(ptr noundef nonnull %11, i32 noundef 5, i1 noundef zeroext false)
+130:                                              ; preds = %GrantLock.exit, %90
+  %131 = getelementptr inbounds nuw i8, ptr %38, i64 52
+  %132 = load i32, ptr %131, align 4
+  call void @LWLockRelease(ptr noundef nonnull %61) #17
+  %133 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %11, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
+  %134 = call zeroext i1 @LockRelease(ptr noundef nonnull %11, i32 noundef 5, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
   store i8 0, ptr %3, align 1
-  %136 = load i32, ptr @max_prepared_xacts, align 4
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %XactLockForVirtualXact.exit96, label %.preheader.i86
+  %135 = load i32, ptr @max_prepared_xacts, align 4
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %XactLockForVirtualXact.exit96, label %.preheader.i86
 
-.preheader.i86:                                   ; preds = %131
-  %138 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %139 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %141 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %142 = getelementptr inbounds nuw i8, ptr %4, i64 15
-  br label %143
+.preheader.i86:                                   ; preds = %130
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 15
+  br label %142
 
-143:                                              ; preds = %150, %.preheader.i86
-  %144 = phi i1 [ true, %150 ], [ false, %.preheader.i86 ]
-  %.07.i87 = phi i32 [ %.2916.i90, %150 ], [ %133, %.preheader.i86 ]
+142:                                              ; preds = %149, %.preheader.i86
+  %143 = phi i1 [ true, %149 ], [ false, %.preheader.i86 ]
+  %.07.i87 = phi i32 [ %.2916.i90, %149 ], [ %132, %.preheader.i86 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  br i1 %144, label %.thread.i95, label %145
+  br i1 %143, label %.thread.i95, label %144
 
-.thread.i95:                                      ; preds = %143
+.thread.i95:                                      ; preds = %142
   store i8 0, ptr %3, align 1
-  br label %146
+  br label %145
 
-145:                                              ; preds = %143
+144:                                              ; preds = %142
   %.not.i88 = icmp eq i32 %.07.i87, 0
-  br i1 %.not.i88, label %146, label %.thread13.i89
+  br i1 %.not.i88, label %145, label %.thread13.i89
 
-146:                                              ; preds = %145, %.thread.i95
-  %147 = call i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef nonnull %3) #17
-  %.not10.i94 = icmp eq i32 %147, 0
+145:                                              ; preds = %144, %.thread.i95
+  %146 = call i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef nonnull %3) #17
+  %.not10.i94 = icmp eq i32 %146, 0
   br i1 %.not10.i94, label %.thread18.i92, label %.thread13.i89
 
-.thread13.i89:                                    ; preds = %146, %145
-  %.2916.i90 = phi i32 [ %147, %146 ], [ %.07.i87, %145 ]
+.thread13.i89:                                    ; preds = %145, %144
+  %.2916.i90 = phi i32 [ %146, %145 ], [ %.07.i87, %144 ]
   store i32 %.2916.i90, ptr %4, align 4
+  store i32 0, ptr %137, align 4
   store i32 0, ptr %138, align 4
-  store i32 0, ptr %139, align 4
-  store i16 0, ptr %140, align 4
-  store i8 5, ptr %141, align 2
-  store i8 1, ptr %142, align 1
-  %148 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %4, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %.thread18.i92, label %150
+  store i16 0, ptr %139, align 4
+  store i8 5, ptr %140, align 2
+  store i8 1, ptr %141, align 1
+  %147 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %4, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %.thread18.i92, label %149
 
-.thread18.i92:                                    ; preds = %.thread13.i89, %146
-  %.2.ph.i93 = phi i1 [ false, %.thread13.i89 ], [ true, %146 ]
+.thread18.i92:                                    ; preds = %.thread13.i89, %145
+  %.2.ph.i93 = phi i1 [ false, %.thread13.i89 ], [ true, %145 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   br label %XactLockForVirtualXact.exit96
 
-150:                                              ; preds = %.thread13.i89
-  %151 = call zeroext i1 @LockRelease(ptr noundef nonnull %4, i32 noundef 5, i1 noundef zeroext false)
+149:                                              ; preds = %.thread13.i89
+  %150 = call zeroext i1 @LockRelease(ptr noundef nonnull %4, i32 noundef 5, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  %152 = load i8, ptr %3, align 1, !range !4, !noundef !5
-  %153 = trunc nuw i8 %152 to i1
-  br i1 %153, label %143, label %XactLockForVirtualXact.exit96, !llvm.loop !65
+  %151 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %152 = trunc nuw i8 %151 to i1
+  br i1 %152, label %142, label %XactLockForVirtualXact.exit96, !llvm.loop !65
 
-XactLockForVirtualXact.exit96:                    ; preds = %150, %131, %.thread18.i92
-  %.0.i91 = phi i1 [ true, %131 ], [ %.2.ph.i93, %.thread18.i92 ], [ true, %150 ]
+XactLockForVirtualXact.exit96:                    ; preds = %149, %130, %.thread18.i92
+  %.0.i91 = phi i1 [ true, %130 ], [ %.2.ph.i93, %.thread18.i92 ], [ true, %149 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
-  br label %154
+  br label %153
 
-154:                                              ; preds = %XactLockForVirtualXact.exit96, %90, %XactLockForVirtualXact.exit85, %XactLockForVirtualXact.exit74, %XactLockForVirtualXact.exit
-  %.0 = phi i1 [ %.0.i, %XactLockForVirtualXact.exit ], [ %.0.i69, %XactLockForVirtualXact.exit74 ], [ %.0.i80, %XactLockForVirtualXact.exit85 ], [ %.0.i91, %XactLockForVirtualXact.exit96 ], [ false, %90 ]
+153:                                              ; preds = %XactLockForVirtualXact.exit96, %89, %XactLockForVirtualXact.exit85, %XactLockForVirtualXact.exit74, %XactLockForVirtualXact.exit
+  %.0 = phi i1 [ %.0.i, %XactLockForVirtualXact.exit ], [ %.0.i69, %XactLockForVirtualXact.exit74 ], [ %.0.i80, %XactLockForVirtualXact.exit85 ], [ %.0.i91, %XactLockForVirtualXact.exit96 ], [ false, %89 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
   ret i1 %.0
 }

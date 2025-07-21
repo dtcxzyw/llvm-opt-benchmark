@@ -37750,18 +37750,13 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h7620c1792129161bE.exit.i48.i.i: ; 
 677:                                              ; preds = %289, %287, %286
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %57), !noalias !2720
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50), !noalias !2695
-  %.sroa.11.sroa.0.0.extract.trunc = trunc i64 %.sroa.6.i.sroa.0.0.copyload58.i to i8
-  %.sroa.11.sroa.12.0.extract.shift = lshr i64 %.sroa.6.i.sroa.0.0.copyload58.i, 8
-  %.sroa.11.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.11.sroa.12.0.extract.shift to i56
   %.sroa.398.sroa.2.0..sroa.398.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.398.sroa.2.0..sroa.398.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.11.i, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72), !noalias !2695
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.11.i)
   store i64 %281, ptr %0, align 8
   %.sroa.297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.11.sroa.0.0.extract.trunc, ptr %.sroa.297.0..sroa_idx, align 8
-  %.sroa.398.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.11.sroa.12.0.extract.trunc, ptr %.sroa.398.0..sroa_idx, align 1
+  store i64 %.sroa.6.i.sroa.0.0.copyload58.i, ptr %.sroa.297.0..sroa_idx, align 8
   br label %852
 
 .thread298:                                       ; preds = %.noexc217, %.noexc216

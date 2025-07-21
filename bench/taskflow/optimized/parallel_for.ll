@@ -21585,9 +21585,7 @@ _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit.i.i
   %182 = getelementptr inbounds nuw i8, ptr %151, i64 176
   %183 = getelementptr inbounds nuw i8, ptr %151, i64 168
   %184 = getelementptr inbounds nuw i8, ptr %168, i64 52
-  store i32 %.sroa.0.sroa.0.0.extract.trunc.i.i.i, ptr %184, align 4
-  %.sroa.21.52..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %168, i64 56
-  store i32 %.sroa.0.sroa.8.0.extract.trunc.i.i.i, ptr %.sroa.21.52..sroa_idx.i.i.i, align 4
+  store i64 %.sroa.0.0.copyload.i.i.i, ptr %184, align 4
   %.sroa.2149.52..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %168, i64 60
   store i32 %.sroa.11.0.copyload.i.i.i, ptr %.sroa.2149.52..sroa_idx.i.i.i, align 4
   store ptr %168, ptr %181, align 8, !tbaa !78

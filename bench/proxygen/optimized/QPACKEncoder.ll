@@ -252,11 +252,7 @@ invoke.cont4.i:                                   ; preds = %invoke.cont.i
   br i1 %cmp.not.i.i, label %_ZN8proxygen16HPACKEncoderBaseC2Eb.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4.i
-  %limits.sroa.2.0.extract.shift.i.i = lshr i64 %call5.i, 32
-  %limits.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %limits.sroa.2.0.extract.shift.i.i to i32
-  %limits.sroa.0.0.extract.trunc.i.i = trunc i64 %call5.i to i32
-  store i32 %limits.sroa.0.0.extract.trunc.i.i, ptr %huffMin_.i.i, align 4
-  store i32 %limits.sroa.2.0.extract.trunc.i.i, ptr %huffMax_.i.i, align 8
+  store i64 %call5.i, ptr %huffMin_.i.i, align 4
   br label %_ZN8proxygen16HPACKEncoderBaseC2Eb.exit
 
 common.resume:                                    ; preds = %ehcleanup8, %lpad.i

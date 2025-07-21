@@ -2909,10 +2909,7 @@ declare void @_ZNK2cv12_OutputArray14createSameSizeERKNS_11_InputArrayEi(ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv5kinfu14makeTSDFVolumeEfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr") align 8 captures(none) %0, float noundef %1, ptr noundef readonly byval(%"class.cv::Matx.0") align 8 captures(none) %2, float noundef %3, float noundef %4, i32 noundef %5, i64 %6, i32 %7) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
-  %9 = alloca %"class.cv::Vec.6", align 4
-  %.sroa.05.0.extract.trunc = trunc i64 %6 to i32
-  %.sroa.2.0.extract.shift = lshr i64 %6, 32
-  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
+  %9 = alloca %"class.cv::Vec.6", align 8
   %10 = tail call noalias noundef nonnull dereferenceable(416) ptr @_Znwm(i64 noundef 416) #32, !noalias !170
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %11, align 8, !tbaa !175, !noalias !170
@@ -2921,25 +2918,23 @@ define hidden void @_ZN2cv5kinfu14makeTSDFVolumeEfNS_4MatxIfLi4ELi4EEEffiNS_7Poi
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5kinfu13TSDFVolumeCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !tbaa !12, !noalias !170
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !170
-  store i32 %.sroa.05.0.extract.trunc, ptr %9, align 4, !tbaa !14, !alias.scope !178, !noalias !170
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.sroa.2.0.extract.trunc, ptr %14, align 4, !tbaa !14, !alias.scope !178, !noalias !170
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %7, ptr %15, align 4, !tbaa !14, !alias.scope !178, !noalias !170
+  store i64 %6, ptr %9, align 8, !alias.scope !178, !noalias !170
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %7, ptr %14, align 8, !tbaa !14, !alias.scope !178, !noalias !170
   invoke void @_ZN2cv5kinfu13TSDFVolumeCPUC2EfNS_4MatxIfLi4ELi4EEEffiNS_3VecIiLi3EEEb(ptr noundef nonnull align 8 dereferenceable(400) %13, float noundef %1, ptr noundef nonnull byval(%"class.cv::Matx.0") align 8 %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef nonnull %9, i1 noundef zeroext true)
           to label %_ZNSt12__shared_ptrIN2cv5kinfu13TSDFVolumeCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu13TSDFVolumeCPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !170
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu13TSDFVolumeCPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i: ; preds = %8
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %10) #30, !noalias !170
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %15
 
 _ZNSt12__shared_ptrIN2cv5kinfu13TSDFVolumeCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !170
   store ptr %13, ptr %0, align 8, !tbaa !181
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %17, align 8, !tbaa !186
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %10, ptr %16, align 8, !tbaa !186
   ret void
 }
 

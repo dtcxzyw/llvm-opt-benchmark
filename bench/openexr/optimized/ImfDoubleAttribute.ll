@@ -199,44 +199,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7Imf_3_414TypedAttributeIdE12writeValueToERNS_7OStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = alloca [8 x i8], align 1
+  %4 = alloca [8 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !9
+  %6 = load double, ptr %5, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  %7 = trunc i64 %6 to i8
-  store i8 %7, ptr %4, align 1, !tbaa !12
-  %8 = lshr i64 %6, 8
-  %9 = trunc i64 %8 to i8
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %9, ptr %10, align 1, !tbaa !12
-  %11 = lshr i64 %6, 16
-  %12 = trunc i64 %11 to i8
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %12, ptr %13, align 1, !tbaa !12
-  %14 = lshr i64 %6, 24
-  %15 = trunc i64 %14 to i8
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %15, ptr %16, align 1, !tbaa !12
-  %17 = lshr i64 %6, 32
-  %18 = trunc i64 %17 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %18, ptr %19, align 1, !tbaa !12
-  %20 = lshr i64 %6, 40
-  %21 = trunc i64 %20 to i8
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 %21, ptr %22, align 1, !tbaa !12
-  %23 = lshr i64 %6, 48
-  %24 = trunc i64 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i8 %24, ptr %25, align 1, !tbaa !12
-  %26 = lshr i64 %6, 56
-  %27 = trunc nuw i64 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 7
-  store i8 %27, ptr %28, align 1, !tbaa !12
-  %29 = load ptr, ptr %1, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 8)
+  store double %6, ptr %4, align 8
+  %7 = load ptr, ptr %1, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   ret void
 }
@@ -465,4 +436,3 @@ attributes #18 = { noreturn }
 !9 = !{!10, !7, i64 8}
 !10 = !{!"_ZTSN7Imf_3_414TypedAttributeIdEE", !11, i64 0, !7, i64 8}
 !11 = !{!"_ZTSN7Imf_3_49AttributeE"}
-!12 = !{!8, !8, i64 0}

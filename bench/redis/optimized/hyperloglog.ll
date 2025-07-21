@@ -2934,7 +2934,7 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
 
 .thread:                                          ; preds = %18, %23, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16400, ptr nonnull %2) #20
-  br label %107
+  br label %86
 
 29:                                               ; preds = %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2950,12 +2950,12 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
 38:                                               ; preds = %29
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !85
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %39) #20
-  br label %107
+  br label %86
 
 40:                                               ; preds = %29
   %41 = tail call i32 @isHLLObjectOrReply(ptr noundef nonnull %0, ptr noundef nonnull %36)
   %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %42, label %107
+  br i1 %.not, label %42, label %86
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %30, align 8, !tbaa !66
@@ -2992,7 +2992,7 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
   %72 = or disjoint i64 %71, %60
   %73 = or disjoint i64 %72, %64
   %74 = or disjoint i64 %73, %68
-  br label %106
+  br label %85
 
 75:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
@@ -3000,60 +3000,32 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
   %76 = call i64 @hllCount(ptr noundef nonnull %49, ptr noundef nonnull %3)
   %77 = load i32, ptr %3, align 4, !tbaa !12
   %.not70 = icmp eq i32 %77, 0
-  br i1 %.not70, label %.thread73, label %105
+  br i1 %.not70, label %.thread73, label %84
 
 .thread73:                                        ; preds = %75
-  %78 = trunc i64 %76 to i8
-  store i8 %78, ptr %50, align 1, !tbaa !11
-  %79 = lshr i64 %76, 8
-  %80 = trunc i64 %79 to i8
-  %81 = getelementptr inbounds nuw i8, ptr %49, i64 9
-  store i8 %80, ptr %81, align 1, !tbaa !11
-  %82 = lshr i64 %76, 16
-  %83 = trunc i64 %82 to i8
-  %84 = getelementptr inbounds nuw i8, ptr %49, i64 10
-  store i8 %83, ptr %84, align 1, !tbaa !11
-  %85 = lshr i64 %76, 24
-  %86 = trunc i64 %85 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %49, i64 11
-  store i8 %86, ptr %87, align 1, !tbaa !11
-  %88 = lshr i64 %76, 32
-  %89 = trunc i64 %88 to i8
-  %90 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  store i8 %89, ptr %90, align 1, !tbaa !11
-  %91 = lshr i64 %76, 40
-  %92 = trunc i64 %91 to i8
-  %93 = getelementptr inbounds nuw i8, ptr %49, i64 13
-  store i8 %92, ptr %93, align 1, !tbaa !11
-  %94 = lshr i64 %76, 48
-  %95 = trunc i64 %94 to i8
-  %96 = getelementptr inbounds nuw i8, ptr %49, i64 14
-  store i8 %95, ptr %96, align 1, !tbaa !11
-  %97 = lshr i64 %76, 56
-  %98 = trunc nuw i64 %97 to i8
-  store i8 %98, ptr %51, align 1, !tbaa !11
-  %99 = load ptr, ptr %30, align 8, !tbaa !66
-  %100 = load ptr, ptr %32, align 8, !tbaa !77
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !78
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %99, ptr noundef %102) #20
-  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
-  %104 = add nsw i64 %103, 1
-  store i64 %104, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
+  store i64 %76, ptr %50, align 1
+  %78 = load ptr, ptr %30, align 8, !tbaa !66
+  %79 = load ptr, ptr %32, align 8, !tbaa !77
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !78
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %81) #20
+  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
+  %83 = add nsw i64 %82, 1
+  store i64 %83, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  br label %106
+  br label %85
 
-105:                                              ; preds = %75
+84:                                               ; preds = %75
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  br label %107
+  br label %86
 
-106:                                              ; preds = %.thread73, %54
+85:                                               ; preds = %.thread73, %54
   %.067 = phi i64 [ %74, %54 ], [ %76, %.thread73 ]
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.067) #20
-  br label %107
+  br label %86
 
-107:                                              ; preds = %105, %38, %106, %40, %.thread
+86:                                               ; preds = %84, %38, %85, %40, %.thread
   ret void
 }
 

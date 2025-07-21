@@ -211,9 +211,7 @@ entry:
   %result.i = alloca %"class.absl::lts_20230802::Time", align 8
   %ref.tmp = alloca %"class.google::protobuf::Timestamp", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %result.i)
-  %hi_.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.i, i64 4
-  store i32 0, ptr %hi_.i.i.i.i, align 4
-  store i32 0, ptr %result.i, align 8
+  store i64 0, ptr %result.i, align 8
   %rep_lo_.i.i.i = getelementptr inbounds nuw i8, ptr %result.i, i64 8
   store i32 0, ptr %rep_lo_.i.i.i, align 8
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN4absl12lts_2023080212RFC3339_fullE) #15

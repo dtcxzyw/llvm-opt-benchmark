@@ -547,7 +547,7 @@ declare void @_ZN7Imf_3_49Attribute23unRegisterAttributeTypeEPKc(ptr noundef) lo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE12writeValueToERNS_7OStreamEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2) unnamed_addr #3 align 2 {
-  %4 = alloca [4 x i8], align 1
+  %4 = alloca [4 x i8], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !6
@@ -558,43 +558,30 @@ define void @_ZNK7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE12writeValueToERNS_7
   %12 = lshr exact i64 %11, 2
   %13 = trunc i64 %12 to i32
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
+.lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = and i64 %12, 2147483647
-  br label %18
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %18, %3
+._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
 
-18:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr %5, align 8, !tbaa !11
-  %20 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 4, !tbaa !15
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %15 = load ptr, ptr %5, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %17 = load float, ptr %16, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #22
-  %22 = trunc i32 %21 to i8
-  store i8 %22, ptr %4, align 1, !tbaa !17
-  %23 = lshr i32 %21, 8
-  %24 = trunc i32 %23 to i8
-  store i8 %24, ptr %15, align 1, !tbaa !17
-  %25 = lshr i32 %21, 16
-  %26 = trunc i32 %25 to i8
-  store i8 %26, ptr %16, align 1, !tbaa !17
-  %27 = lshr i32 %21, 24
-  %28 = trunc nuw i32 %27 to i8
-  store i8 %28, ptr %17, align 1, !tbaa !17
-  %29 = load ptr, ptr %1, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
+  store float %17, ptr %4, align 4
+  %18 = load ptr, ptr %1, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -656,7 +643,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -832,7 +819,6 @@ attributes #23 = { builtin nounwind }
 !14 = !{!8, !8, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"float", !10, i64 0}
-!17 = !{!10, !10, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18}

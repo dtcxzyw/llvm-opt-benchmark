@@ -408,71 +408,71 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef 
   %12 = zext i32 %10 to i64
   %13 = tail call ptr %11(i64 noundef 1, i64 noundef %12) #8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %56, label %14
+  br i1 %.not, label %53, label %14
 
 14:                                               ; preds = %5
   %15 = mul i64 %7, 10000000
   %16 = add i64 %15, 116444736000000000
-  %17 = lshr i64 %16, 32
-  %18 = trunc nuw i64 %17 to i32
-  %19 = trunc i64 %16 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %21 = load i32, ptr %8, align 4, !tbaa !12
-  %22 = add i32 %21, 32
-  %23 = zext i32 %22 to i64
-  %24 = and i32 %19, 128
-  %25 = lshr i32 %19, 8
-  %26 = and i32 %25, 255
-  %27 = lshr i32 %19, 16
-  %28 = and i32 %27, 255
-  %29 = lshr i32 %19, 24
-  %30 = and i32 %18, 255
-  %31 = lshr i32 %18, 8
-  %32 = and i32 %31, 255
-  %33 = lshr i32 %18, 16
-  %34 = and i32 %33, 255
-  %35 = lshr i32 %18, 24
-  %36 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %20, i64 noundef %23, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef %35) #8
-  %37 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %38 = load i64, ptr %1, align 1
-  store i64 %38, ptr %37, align 1
-  %39 = load i32, ptr %8, align 4, !tbaa !12
-  %.not28 = icmp eq i32 %39, 0
-  br i1 %.not28, label %45, label %40
+  %.sroa.4.0.extract.shift = lshr i64 %16, 32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
+  %.sroa.0.0.extract.trunc = trunc i64 %16 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load i32, ptr %8, align 4, !tbaa !12
+  %19 = add i32 %18, 32
+  %20 = zext i32 %19 to i64
+  %21 = and i32 %.sroa.0.0.extract.trunc, 128
+  %22 = lshr i32 %.sroa.0.0.extract.trunc, 8
+  %23 = and i32 %22, 255
+  %24 = lshr i32 %.sroa.0.0.extract.trunc, 16
+  %25 = and i32 %24, 255
+  %26 = lshr i32 %.sroa.0.0.extract.trunc, 24
+  %27 = and i32 %.sroa.4.0.extract.trunc, 255
+  %28 = lshr i32 %.sroa.4.0.extract.trunc, 8
+  %29 = and i32 %28, 255
+  %30 = lshr i32 %.sroa.4.0.extract.trunc, 16
+  %31 = and i32 %30, 255
+  %32 = lshr i32 %.sroa.4.0.extract.trunc, 24
+  %33 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %17, i64 noundef %20, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %32) #8
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %35 = load i64, ptr %1, align 1
+  store i64 %35, ptr %34, align 1
+  %36 = load i32, ptr %8, align 4, !tbaa !12
+  %.not28 = icmp eq i32 %36, 0
+  br i1 %.not28, label %42, label %37
 
-40:                                               ; preds = %14
-  %41 = getelementptr inbounds nuw i8, ptr %13, i64 44
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !15
-  %44 = zext i32 %39 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %43, i64 %44, i1 false)
-  br label %45
+37:                                               ; preds = %14
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !15
+  %41 = zext i32 %36 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %40, i64 %41, i1 false)
+  br label %42
 
-45:                                               ; preds = %40, %14
-  %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %48 = load i64, ptr %47, align 4
-  store i64 %48, ptr %46, align 1
-  %49 = load i32, ptr %8, align 4, !tbaa !12
-  %50 = add i32 %49, 40
-  %51 = zext i32 %50 to i64
-  %52 = call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef %0, i64 noundef 16, ptr noundef nonnull %46, i64 noundef %51, ptr noundef nonnull %6) #8
-  %.not29 = icmp eq i32 %52, 0
-  br i1 %.not29, label %55, label %53
+42:                                               ; preds = %37, %14
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %45 = load i64, ptr %44, align 4
+  store i64 %45, ptr %43, align 1
+  %46 = load i32, ptr %8, align 4, !tbaa !12
+  %47 = add i32 %46, 40
+  %48 = zext i32 %47 to i64
+  %49 = call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef %0, i64 noundef 16, ptr noundef nonnull %43, i64 noundef %48, ptr noundef nonnull %6) #8
+  %.not29 = icmp eq i32 %49, 0
+  br i1 %.not29, label %52, label %50
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr @Curl_cfree, align 8, !tbaa !7
-  call void %54(ptr noundef nonnull %13) #8
-  br label %56
+50:                                               ; preds = %42
+  %51 = load ptr, ptr @Curl_cfree, align 8, !tbaa !7
+  call void %51(ptr noundef nonnull %13) #8
+  br label %53
 
-55:                                               ; preds = %45
+52:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   store ptr %13, ptr %3, align 8, !tbaa !16
   store i32 %10, ptr %4, align 4, !tbaa !18
-  br label %56
+  br label %53
 
-56:                                               ; preds = %5, %55, %53
-  %.0 = phi i32 [ %52, %53 ], [ 0, %55 ], [ 27, %5 ]
+53:                                               ; preds = %5, %52, %50
+  %.0 = phi i32 [ %49, %50 ], [ 0, %52 ], [ 27, %5 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
   ret i32 %.0
 }

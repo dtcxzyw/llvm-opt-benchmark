@@ -37,86 +37,83 @@ define void @softfloat_mul128MTo256M(ptr noundef readonly captures(none) %0, ptr
   %30 = mul nuw i64 %29, %8
   %31 = lshr i64 %24, 32
   %32 = add nuw i64 %30, %31
-  %33 = trunc i64 %32 to i32
-  store i32 %33, ptr %4, align 4, !tbaa !3
-  %34 = lshr i64 %32, 32
-  %35 = trunc nuw i64 %34 to i32
-  %36 = getelementptr i8, ptr %2, i64 16
-  store i32 %35, ptr %36, align 4, !tbaa !3
-  br label %37
+  store i64 %32, ptr %4, align 4
+  %scevgep = getelementptr i8, ptr %2, i64 16
+  %load_initial = load i32, ptr %scevgep, align 4
+  br label %33
 
-37:                                               ; preds = %37, %3
-  %store_forwarded = phi i32 [ %35, %3 ], [ %86, %37 ]
-  %.077.idx = phi i64 [ 0, %3 ], [ %.077.add, %37 ]
-  %.076 = phi ptr [ %1, %3 ], [ %38, %37 ]
+33:                                               ; preds = %33, %3
+  %store_forwarded = phi i32 [ %load_initial, %3 ], [ %82, %33 ]
+  %.077.idx = phi i64 [ 0, %3 ], [ %.077.add, %33 ]
+  %.076 = phi ptr [ %1, %3 ], [ %34, %33 ]
   %.077.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.077.idx
-  %38 = getelementptr inbounds nuw i8, ptr %.076, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.076, i64 4
   %.077.add = add nuw nsw i64 %.077.idx, 4
   %.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.077.add
-  %39 = load i32, ptr %38, align 4, !tbaa !3
-  %40 = load i32, ptr %0, align 4, !tbaa !3
-  %41 = zext i32 %40 to i64
-  %42 = zext i32 %39 to i64
-  %43 = mul nuw i64 %41, %42
-  %44 = load i32, ptr %.ptr, align 4, !tbaa !3
-  %45 = trunc i64 %43 to i32
-  %46 = add i32 %44, %45
-  store i32 %46, ptr %.ptr, align 4, !tbaa !3
-  %47 = icmp ult i32 %46, %45
-  %48 = load i32, ptr %11, align 4, !tbaa !3
-  %49 = zext i32 %48 to i64
-  %50 = mul nuw i64 %49, %42
-  %51 = lshr i64 %43, 32
-  %52 = add nuw i64 %50, %51
-  %53 = getelementptr inbounds nuw i8, ptr %.077.ptr, i64 8
-  %54 = load i32, ptr %53, align 4, !tbaa !3
-  %55 = trunc i64 %52 to i32
-  %56 = zext i1 %47 to i32
-  %57 = add i32 %54, %56
-  %58 = add i32 %57, %55
-  store i32 %58, ptr %53, align 4, !tbaa !3
-  %.not = icmp eq i32 %57, 0
-  %59 = icmp ult i32 %58, %55
-  %spec.select = select i1 %.not, i1 %47, i1 %59
-  %60 = load i32, ptr %19, align 4, !tbaa !3
-  %61 = zext i32 %60 to i64
-  %62 = mul nuw i64 %61, %42
-  %63 = lshr i64 %52, 32
-  %64 = add nuw i64 %62, %63
-  %65 = getelementptr inbounds nuw i8, ptr %.077.ptr, i64 12
-  %66 = load i32, ptr %65, align 4, !tbaa !3
-  %67 = trunc i64 %64 to i32
-  %68 = add i32 %66, %67
-  %69 = zext i1 %spec.select to i32
-  %70 = add i32 %68, %69
-  store i32 %70, ptr %65, align 4, !tbaa !3
-  %.not85 = icmp eq i32 %70, %67
-  %71 = icmp ult i32 %70, %67
-  %.1.in = select i1 %.not85, i1 %spec.select, i1 %71
-  %72 = load i32, ptr %27, align 4, !tbaa !3
-  %73 = zext i32 %72 to i64
-  %74 = mul nuw i64 %73, %42
-  %75 = lshr i64 %64, 32
-  %76 = add nuw i64 %74, %75
-  %77 = getelementptr inbounds nuw i8, ptr %.077.ptr, i64 16
-  %78 = trunc i64 %76 to i32
-  %79 = add i32 %store_forwarded, %78
-  %80 = zext i1 %.1.in to i32
-  %81 = add i32 %79, %80
-  store i32 %81, ptr %77, align 4, !tbaa !3
-  %.not86 = icmp eq i32 %81, %78
-  %82 = icmp ult i32 %81, %78
-  %.2.in = select i1 %.not86, i1 %.1.in, i1 %82
-  %83 = lshr i64 %76, 32
-  %84 = zext i1 %.2.in to i64
-  %85 = add nuw nsw i64 %83, %84
-  %86 = trunc nuw i64 %85 to i32
-  %87 = getelementptr inbounds nuw i8, ptr %.077.ptr, i64 20
-  store i32 %86, ptr %87, align 4, !tbaa !3
+  %35 = load i32, ptr %34, align 4, !tbaa !3
+  %36 = load i32, ptr %0, align 4, !tbaa !3
+  %37 = zext i32 %36 to i64
+  %38 = zext i32 %35 to i64
+  %39 = mul nuw i64 %37, %38
+  %40 = load i32, ptr %.ptr, align 4, !tbaa !3
+  %41 = trunc i64 %39 to i32
+  %42 = add i32 %40, %41
+  store i32 %42, ptr %.ptr, align 4, !tbaa !3
+  %43 = icmp ult i32 %42, %41
+  %44 = load i32, ptr %11, align 4, !tbaa !3
+  %45 = zext i32 %44 to i64
+  %46 = mul nuw i64 %45, %38
+  %47 = lshr i64 %39, 32
+  %48 = add nuw i64 %46, %47
+  %49 = getelementptr inbounds nuw i8, ptr %.077.ptr, i64 8
+  %50 = load i32, ptr %49, align 4, !tbaa !3
+  %51 = trunc i64 %48 to i32
+  %52 = zext i1 %43 to i32
+  %53 = add i32 %50, %52
+  %54 = add i32 %53, %51
+  store i32 %54, ptr %49, align 4, !tbaa !3
+  %.not = icmp eq i32 %53, 0
+  %55 = icmp ult i32 %54, %51
+  %spec.select = select i1 %.not, i1 %43, i1 %55
+  %56 = load i32, ptr %19, align 4, !tbaa !3
+  %57 = zext i32 %56 to i64
+  %58 = mul nuw i64 %57, %38
+  %59 = lshr i64 %48, 32
+  %60 = add nuw i64 %58, %59
+  %61 = getelementptr inbounds nuw i8, ptr %.077.ptr, i64 12
+  %62 = load i32, ptr %61, align 4, !tbaa !3
+  %63 = trunc i64 %60 to i32
+  %64 = add i32 %62, %63
+  %65 = zext i1 %spec.select to i32
+  %66 = add i32 %64, %65
+  store i32 %66, ptr %61, align 4, !tbaa !3
+  %.not85 = icmp eq i32 %66, %63
+  %67 = icmp ult i32 %66, %63
+  %.1.in = select i1 %.not85, i1 %spec.select, i1 %67
+  %68 = load i32, ptr %27, align 4, !tbaa !3
+  %69 = zext i32 %68 to i64
+  %70 = mul nuw i64 %69, %38
+  %71 = lshr i64 %60, 32
+  %72 = add nuw i64 %70, %71
+  %73 = getelementptr inbounds nuw i8, ptr %.077.ptr, i64 16
+  %74 = trunc i64 %72 to i32
+  %75 = add i32 %store_forwarded, %74
+  %76 = zext i1 %.1.in to i32
+  %77 = add i32 %75, %76
+  store i32 %77, ptr %73, align 4, !tbaa !3
+  %.not86 = icmp eq i32 %77, %74
+  %78 = icmp ult i32 %77, %74
+  %.2.in = select i1 %.not86, i1 %.1.in, i1 %78
+  %79 = lshr i64 %72, 32
+  %80 = zext i1 %.2.in to i64
+  %81 = add nuw nsw i64 %79, %80
+  %82 = trunc nuw i64 %81 to i32
+  %83 = getelementptr inbounds nuw i8, ptr %.077.ptr, i64 20
+  store i32 %82, ptr %83, align 4, !tbaa !3
   %.not87 = icmp eq i64 %.077.add, 12
-  br i1 %.not87, label %88, label %37, !llvm.loop !7
+  br i1 %.not87, label %84, label %33, !llvm.loop !7
 
-88:                                               ; preds = %37
+84:                                               ; preds = %33
   ret void
 }
 

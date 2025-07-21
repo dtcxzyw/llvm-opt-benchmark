@@ -13941,14 +13941,9 @@ define hidden void @"_ZN182_$LT$ockam_node..storage..database..migrations..node_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !1988
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   %80 = ptrtoint ptr %.sroa.748.159 to i64
-  %.sroa.748.0.extract.trunc = trunc i64 %80 to i8
-  %.sroa.748.1.extract.shift = lshr i64 %80, 8
-  %.sroa.748.1.extract.trunc = trunc nuw i64 %.sroa.748.1.extract.shift to i56
   store i64 %.sroa.0.162, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.748.0.extract.trunc, ptr %.sroa.235.0..sroa_idx, align 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.748.1.extract.trunc, ptr %.sroa.336.0..sroa_idx, align 1
+  store i64 %80, ptr %.sroa.235.0..sroa_idx, align 8
   %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false)
   %.sroa.336.sroa.3.0..sroa.336.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

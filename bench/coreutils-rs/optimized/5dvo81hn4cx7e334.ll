@@ -2134,7 +2134,6 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.235.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %.sroa.336.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 9
   %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %59 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -2376,12 +2375,8 @@ _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i: ; preds = %.noexc4
   %.pre-phi.i = phi i64 [ %.pre.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ %118, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i ]
   %.sroa.0.2139.i = phi i64 [ %.sroa.0.0.copyload.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ %.sroa.0.1.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i ]
   %.sroa.26.1138.i = phi i64 [ %.sroa.26.0.copyload.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ undef, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i ]
-  %.sroa.14.0.extract.trunc.i = trunc i64 %.pre-phi.i to i8
-  %.sroa.14.1.extract.shift.i = lshr i64 %.pre-phi.i, 8
-  %.sroa.14.1.extract.trunc.i = trunc nuw i64 %.sroa.14.1.extract.shift.i to i56
   store i64 %.sroa.0.2139.i, ptr %38, align 8, !alias.scope !646, !noalias !697
-  store i8 %.sroa.14.0.extract.trunc.i, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !646, !noalias !697
-  store i56 %.sroa.14.1.extract.trunc.i, ptr %.sroa.336.0..sroa_idx.i, align 1, !alias.scope !646, !noalias !697
+  store i64 %.pre-phi.i, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !646, !noalias !697
   store i64 %.sroa.26.1138.i, ptr %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !646, !noalias !697
   br label %_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit.thread
 
@@ -2804,7 +2799,7 @@ _ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit:     ; preds = %.noexc52, %.noexc50
   invoke fastcc void @"_ZN4core3ptr37drop_in_place$LT$uu_cat..CatError$GT$17had3360dec964c3cfE"(ptr noalias noundef align 8 dereferenceable(24) %37) #14
           to label %.body unwind label %245
 
-_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit.thread: ; preds = %189, %131, %_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit, %169, %136
+_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit.thread: ; preds = %189, %_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit, %169, %136, %131
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)

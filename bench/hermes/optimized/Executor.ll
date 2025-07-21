@@ -3379,17 +3379,13 @@ sw.bb8:                                           ; preds = %while.body
   %fields.sroa.3.0.copyload = load ptr, ptr %fields.sroa.3.0..sroa_idx, align 8
   %sub.i42 = add i32 %1, -1
   store i32 %sub.i42, ptr %Size.i, align 8
-  %loopData.sroa.0.0.extract.trunc.i = trunc i64 %fields.sroa.2.0.copyload to i32
   %loopData.sroa.2.0.extract.shift.i = lshr i64 %fields.sroa.2.0.copyload, 32
-  %loopData.sroa.2.0.extract.trunc.i = trunc nuw i64 %loopData.sroa.2.0.extract.shift.i to i32
   %loopId.i = getelementptr inbounds nuw i8, ptr %fields.sroa.3.0.copyload, i64 1
   %15 = load i32, ptr %loopId.i, align 1
   %conv.i.i43 = zext i32 %15 to i64
   %16 = load ptr, ptr %loopDatas_.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %16, i64 %conv.i.i43
-  store i32 %loopData.sroa.0.0.extract.trunc.i, ptr %arrayidx.i.i.i, align 4
-  %loopData.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
-  store i32 %loopData.sroa.2.0.extract.trunc.i, ptr %loopData.sroa.2.0.call.sroa_idx.i, align 4
+  store i64 %fields.sroa.2.0.copyload, ptr %arrayidx.i.i.i, align 4
   %ip_.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %fields.sroa.1.0.copyload, ptr %ip_.i, align 8
   %first_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6278,17 +6274,13 @@ sw.bb8:                                           ; preds = %while.body
   %fields.sroa.3.0.copyload = load ptr, ptr %fields.sroa.3.0..sroa_idx, align 8
   %sub.i42 = add i32 %1, -1
   store i32 %sub.i42, ptr %Size.i, align 8
-  %loopData.sroa.0.0.extract.trunc.i = trunc i64 %fields.sroa.2.0.copyload to i32
   %loopData.sroa.2.0.extract.shift.i = lshr i64 %fields.sroa.2.0.copyload, 32
-  %loopData.sroa.2.0.extract.trunc.i = trunc nuw i64 %loopData.sroa.2.0.extract.shift.i to i32
   %loopId.i = getelementptr inbounds nuw i8, ptr %fields.sroa.3.0.copyload, i64 1
   %15 = load i32, ptr %loopId.i, align 1
   %conv.i.i43 = zext i32 %15 to i64
   %16 = load ptr, ptr %loopDatas_.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.hermes::regex::LoopData", ptr %16, i64 %conv.i.i43
-  store i32 %loopData.sroa.0.0.extract.trunc.i, ptr %arrayidx.i.i.i, align 4
-  %loopData.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
-  store i32 %loopData.sroa.2.0.extract.trunc.i, ptr %loopData.sroa.2.0.call.sroa_idx.i, align 4
+  store i64 %fields.sroa.2.0.copyload, ptr %arrayidx.i.i.i, align 4
   %ip_.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %fields.sroa.1.0.copyload, ptr %ip_.i, align 8
   %first_.i = getelementptr inbounds nuw i8, ptr %this, i64 24

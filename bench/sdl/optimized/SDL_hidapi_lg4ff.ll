@@ -436,7 +436,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_UpdateDevice(ptr noundef 
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %43
 
-43:                                               ; preds = %345, %23
+43:                                               ; preds = %342, %23
   %44 = load ptr, ptr %24, align 8
   %45 = call i32 @SDL_hid_read_REAL(ptr noundef %44, ptr noundef nonnull %4, i64 noundef %.021) #8
   %46 = icmp slt i32 %45, 0
@@ -451,7 +451,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_UpdateDevice(ptr noundef 
 50:                                               ; preds = %43
   %51 = zext nneg i32 %45 to i64
   %52 = icmp eq i64 %.021, %51
-  br i1 %52, label %53, label %345
+  br i1 %52, label %53, label %342
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr %5, align 8
@@ -934,12 +934,12 @@ HIDAPI_DriverLg4ff_HandleState.exit.thread:       ; preds = %144, %184, %216, %2
 HIDAPI_DriverLg4ff_HandleState.exit:              ; preds = %._crit_edge.i, %144, %184, %216, %262, %290
   %.9.i = phi i1 [ %.3.lcssa.i, %._crit_edge.i ], [ %.22.i, %290 ], [ %.7.i, %144 ], [ %.12.i, %184 ], [ %.15.i, %216 ], [ %.18.i, %262 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %54, ptr nonnull readonly align 16 %4, i64 range(i64 0, 28) %.021, i1 false)
-  br i1 %.9.i, label %299, label %345
+  br i1 %.9.i, label %299, label %342
 
 299:                                              ; preds = %HIDAPI_DriverLg4ff_HandleState.exit.thread, %HIDAPI_DriverLg4ff_HandleState.exit
   %300 = load i8, ptr %34, align 2, !range !6, !noundef !7
   %301 = trunc nuw i8 %300 to i1
-  br i1 %301, label %345, label %302
+  br i1 %301, label %342, label %302
 
 302:                                              ; preds = %299
   store i8 1, ptr %34, align 2
@@ -967,95 +967,91 @@ SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit:            ; preds = %302, %305
     i16 -15717, label %311
     i16 -15719, label %311
     i16 -15718, label %311
-    i16 -15720, label %315
+    i16 -15720, label %312
   ]
 
 311:                                              ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit
   store i8 -8, ptr %3, align 1
   store i8 -127, ptr %35, align 1
-  %312 = trunc i32 %.011.i to i8
-  store i8 %312, ptr %36, align 1
-  %313 = lshr i32 %.011.i, 8
-  %314 = trunc nuw nsw i32 %313 to i8
-  store i8 %314, ptr %37, align 1
+  store i16 %308, ptr %36, align 1
   br label %HIDAPI_DriverLg4ff_SetRange.exit.sink.split
 
-315:                                              ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit
+312:                                              ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit
   store i8 -8, ptr %3, align 1
-  %316 = icmp samesign ugt i32 %.011.i, 200
-  %..i = select i1 %316, i8 3, i8 2
-  %.30.i = select i1 %316, i32 900, i32 200
+  %313 = icmp samesign ugt i32 %.011.i, 200
+  %..i = select i1 %313, i8 3, i8 2
+  %.30.i = select i1 %313, i32 900, i32 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %36, i8 0, i64 5, i1 false)
   store i8 %..i, ptr %35, align 1
-  %317 = load ptr, ptr %24, align 8
-  %318 = call i32 @SDL_hid_write_REAL(ptr noundef %317, ptr noundef nonnull %3, i64 noundef 7) #8
-  %319 = icmp eq i32 %318, -1
-  br i1 %319, label %HIDAPI_DriverLg4ff_SetRange.exit, label %320
+  %314 = load ptr, ptr %24, align 8
+  %315 = call i32 @SDL_hid_write_REAL(ptr noundef %314, ptr noundef nonnull %3, i64 noundef 7) #8
+  %316 = icmp eq i32 %315, -1
+  br i1 %316, label %HIDAPI_DriverLg4ff_SetRange.exit, label %317
 
-320:                                              ; preds = %315
+317:                                              ; preds = %312
   store i8 -127, ptr %3, align 1
   store i8 11, ptr %35, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %36, i8 0, i64 5, i1 false)
-  switch i32 %.011.i, label %321 [
+  switch i32 %.011.i, label %318 [
     i32 900, label %HIDAPI_DriverLg4ff_SetRange.exit.sink.split
     i32 200, label %HIDAPI_DriverLg4ff_SetRange.exit.sink.split
   ]
 
-321:                                              ; preds = %320
-  %322 = sub nsw i32 %.30.i, %.011.i
-  %323 = mul nsw i32 %322, 2047
-  %324 = add nsw i32 %323, 2047
-  %325 = sdiv i32 %324, %.30.i
-  %326 = sub nsw i32 4095, %325
-  %327 = lshr i32 %325, 4
-  %328 = trunc i32 %327 to i8
-  store i8 %328, ptr %36, align 1
-  %329 = lshr i32 %326, 4
-  %330 = trunc i32 %329 to i8
-  store i8 %330, ptr %37, align 1
+318:                                              ; preds = %317
+  %319 = sub nsw i32 %.30.i, %.011.i
+  %320 = mul nsw i32 %319, 2047
+  %321 = add nsw i32 %320, 2047
+  %322 = sdiv i32 %321, %.30.i
+  %323 = sub nsw i32 4095, %322
+  %324 = lshr i32 %322, 4
+  %325 = trunc i32 %324 to i8
+  store i8 %325, ptr %36, align 1
+  %326 = lshr i32 %323, 4
+  %327 = trunc i32 %326 to i8
+  store i8 %327, ptr %37, align 1
   store i8 -1, ptr %38, align 1
-  %331 = shl nsw i32 %326, 4
-  %332 = and i32 %331, 224
-  %333 = and i32 %325, 14
-  %334 = or disjoint i32 %332, %333
-  %335 = trunc nuw i32 %334 to i8
-  store i8 %335, ptr %39, align 1
+  %328 = shl nsw i32 %323, 4
+  %329 = and i32 %328, 224
+  %330 = and i32 %322, 14
+  %331 = or disjoint i32 %329, %330
+  %332 = trunc nuw i32 %331 to i8
+  store i8 %332, ptr %39, align 1
   store i8 -1, ptr %40, align 1
   br label %HIDAPI_DriverLg4ff_SetRange.exit.sink.split
 
-HIDAPI_DriverLg4ff_SetRange.exit.sink.split:      ; preds = %320, %320, %321, %311
-  %336 = load ptr, ptr %24, align 8
-  %337 = call i32 @SDL_hid_write_REAL(ptr noundef %336, ptr noundef nonnull %3, i64 noundef 7) #8
+HIDAPI_DriverLg4ff_SetRange.exit.sink.split:      ; preds = %317, %317, %318, %311
+  %333 = load ptr, ptr %24, align 8
+  %334 = call i32 @SDL_hid_write_REAL(ptr noundef %333, ptr noundef nonnull %3, i64 noundef 7) #8
   br label %HIDAPI_DriverLg4ff_SetRange.exit
 
-HIDAPI_DriverLg4ff_SetRange.exit:                 ; preds = %HIDAPI_DriverLg4ff_SetRange.exit.sink.split, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit, %315
+HIDAPI_DriverLg4ff_SetRange.exit:                 ; preds = %HIDAPI_DriverLg4ff_SetRange.exit.sink.split, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit, %312
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #8
-  %338 = load ptr, ptr %5, align 8
+  %335 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %42, i8 0, i64 6, i1 false)
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 33
-  %340 = load i8, ptr %339, align 1, !range !6, !noundef !7
-  %341 = trunc nuw i8 %340 to i1
-  br i1 %341, label %342, label %HIDAPI_DriverLg4ff_SetAutoCenter.exit
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 33
+  %337 = load i8, ptr %336, align 1, !range !6, !noundef !7
+  %338 = trunc nuw i8 %337 to i1
+  br i1 %338, label %339, label %HIDAPI_DriverLg4ff_SetAutoCenter.exit
 
-342:                                              ; preds = %HIDAPI_DriverLg4ff_SetRange.exit
+339:                                              ; preds = %HIDAPI_DriverLg4ff_SetRange.exit
   store i8 3, ptr %41, align 1
   br label %HIDAPI_DriverLg4ff_SetAutoCenter.exit
 
-HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %HIDAPI_DriverLg4ff_SetRange.exit, %342
-  %.sink = phi i8 [ -2, %342 ], [ -11, %HIDAPI_DriverLg4ff_SetRange.exit ]
+HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %HIDAPI_DriverLg4ff_SetRange.exit, %339
+  %.sink = phi i8 [ -2, %339 ], [ -11, %HIDAPI_DriverLg4ff_SetRange.exit ]
   store i8 %.sink, ptr %2, align 1
-  %343 = load ptr, ptr %24, align 8
-  %344 = call i32 @SDL_hid_write_REAL(ptr noundef %343, ptr noundef nonnull %2, i64 noundef 7) #8
+  %340 = load ptr, ptr %24, align 8
+  %341 = call i32 @SDL_hid_write_REAL(ptr noundef %340, ptr noundef nonnull %2, i64 noundef 7) #8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2) #8
-  br label %345
+  br label %342
 
-345:                                              ; preds = %HIDAPI_DriverLg4ff_HandleState.exit, %299, %HIDAPI_DriverLg4ff_SetAutoCenter.exit, %50
+342:                                              ; preds = %HIDAPI_DriverLg4ff_HandleState.exit, %299, %HIDAPI_DriverLg4ff_SetAutoCenter.exit, %50
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %.loopexit, label %43, !llvm.loop !9
 
-.loopexit:                                        ; preds = %345, %1, %10, %47
-  %.0 = phi i1 [ false, %47 ], [ false, %10 ], [ false, %1 ], [ true, %345 ]
+.loopexit:                                        ; preds = %342, %1, %10, %47
+  %.0 = phi i1 [ false, %47 ], [ false, %10 ], [ false, %1 ], [ true, %342 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
   ret i1 %.0
 }

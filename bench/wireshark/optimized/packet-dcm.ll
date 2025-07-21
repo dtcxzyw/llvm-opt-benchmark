@@ -8556,7 +8556,7 @@ dcm_state_pctx_get.exit.i:                        ; preds = %209, %208
   %.0.i = phi ptr [ %242, %236 ], [ %256, %249 ]
   %263 = load i8, ptr @global_dcm_export_header, align 1, !range !13, !noundef !14
   %264 = trunc nuw i8 %263 to i1
-  br i1 %264, label %265, label %414
+  br i1 %264, label %265, label %384
 
 265:                                              ; preds = %262
   br i1 %.not.i.i, label %270, label %266
@@ -8583,333 +8583,279 @@ dcm_state_pctx_get.exit.i:                        ; preds = %209, %208
   %273 = getelementptr i8, ptr %272, i64 128
   store i32 1296255300, ptr %273, align 1
   %274 = getelementptr i8, ptr %272, i64 144
-  store i8 2, ptr %274, align 1
-  %275 = getelementptr i8, ptr %272, i64 145
-  store i8 0, ptr %275, align 1
-  %276 = getelementptr i8, ptr %272, i64 146
-  store i8 1, ptr %276, align 1
-  %277 = getelementptr i8, ptr %272, i64 147
-  store i8 0, ptr %277, align 1
-  %278 = getelementptr i8, ptr %272, i64 148
-  store i16 16975, ptr %278, align 1
-  %279 = getelementptr i8, ptr %272, i64 150
-  store i8 0, ptr %279, align 1
-  %280 = getelementptr i8, ptr %272, i64 151
-  store i8 0, ptr %280, align 1
-  %281 = getelementptr i8, ptr %272, i64 152
-  store i8 2, ptr %281, align 1
-  %282 = getelementptr i8, ptr %272, i64 153
-  store i8 0, ptr %282, align 1
-  %283 = getelementptr i8, ptr %272, i64 154
-  store i8 0, ptr %283, align 1
-  %284 = getelementptr i8, ptr %272, i64 155
-  store i8 0, ptr %284, align 1
-  %285 = getelementptr i8, ptr %272, i64 156
-  store i16 256, ptr %285, align 1
+  store i16 2, ptr %274, align 1
+  %275 = getelementptr i8, ptr %272, i64 146
+  store i16 1, ptr %275, align 1
+  %276 = getelementptr i8, ptr %272, i64 148
+  store i16 16975, ptr %276, align 1
+  %277 = getelementptr i8, ptr %272, i64 150
+  store i16 0, ptr %277, align 1
+  %278 = getelementptr i8, ptr %272, i64 152
+  store i32 2, ptr %278, align 1
+  %279 = getelementptr i8, ptr %272, i64 156
+  store i16 256, ptr %279, align 1
   %.not.i.i108 = icmp eq ptr %.084.i, null
-  br i1 %.not.i.i108, label %dcm_export_create_tag_str.exit.i, label %286
+  br i1 %.not.i.i108, label %dcm_export_create_tag_str.exit.i, label %280
 
-286:                                              ; preds = %.sink.split.i
-  %287 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.084.i) #14
-  %288 = trunc i64 %287 to i32
-  %289 = and i32 %288, 1
-  %spec.select.i.i = add i32 %289, %288
-  %290 = getelementptr i8, ptr %272, i64 158
-  store i8 2, ptr %290, align 1
-  %291 = getelementptr i8, ptr %272, i64 159
-  store i8 0, ptr %291, align 1
-  %292 = getelementptr i8, ptr %272, i64 160
-  store i8 2, ptr %292, align 1
-  %293 = getelementptr i8, ptr %272, i64 161
-  store i8 0, ptr %293, align 1
-  %294 = getelementptr i8, ptr %272, i64 162
-  store i16 18773, ptr %294, align 1
-  %295 = getelementptr i8, ptr %272, i64 164
-  %296 = trunc i32 %spec.select.i.i to i8
-  store i8 %296, ptr %295, align 1
-  %297 = lshr i32 %spec.select.i.i, 8
-  %298 = trunc i32 %297 to i8
-  %299 = getelementptr i8, ptr %272, i64 165
-  store i8 %298, ptr %299, align 1
-  %300 = add i32 %spec.select.i.i, 166
-  %301 = icmp ugt i32 %300, 512
-  br i1 %301, label %dcm_export_create_tag_str.exit.i, label %302
+280:                                              ; preds = %.sink.split.i
+  %281 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.084.i) #14
+  %282 = trunc i64 %281 to i32
+  %283 = and i32 %282, 1
+  %spec.select.i.i = add i32 %283, %282
+  %284 = getelementptr i8, ptr %272, i64 158
+  store i16 2, ptr %284, align 1
+  %285 = getelementptr i8, ptr %272, i64 160
+  store i16 2, ptr %285, align 1
+  %286 = getelementptr i8, ptr %272, i64 162
+  store i16 18773, ptr %286, align 1
+  %287 = getelementptr i8, ptr %272, i64 164
+  %288 = trunc i32 %spec.select.i.i to i16
+  store i16 %288, ptr %287, align 1
+  %289 = add i32 %spec.select.i.i, 166
+  %290 = icmp ugt i32 %289, 512
+  br i1 %290, label %dcm_export_create_tag_str.exit.i, label %291
 
-302:                                              ; preds = %286
-  %303 = getelementptr i8, ptr %272, i64 166
-  %304 = zext i32 %spec.select.i.i to i64
-  %305 = tail call ptr @__memmove_chk(ptr noundef %303, ptr noundef nonnull %.084.i, i64 noundef range(i64 0, 4294967296) %304, i64 noundef 346) #12
+291:                                              ; preds = %280
+  %292 = getelementptr i8, ptr %272, i64 166
+  %293 = zext i32 %spec.select.i.i to i64
+  %294 = tail call ptr @__memmove_chk(ptr noundef %292, ptr noundef nonnull %.084.i, i64 noundef range(i64 0, 4294967296) %293, i64 noundef 346) #12
   br label %dcm_export_create_tag_str.exit.i
 
-dcm_export_create_tag_str.exit.i:                 ; preds = %302, %286, %.sink.split.i
-  %.013.i.i = phi i32 [ 158, %.sink.split.i ], [ %300, %302 ], [ 512, %286 ]
+dcm_export_create_tag_str.exit.i:                 ; preds = %291, %280, %.sink.split.i
+  %.013.i.i = phi i32 [ 158, %.sink.split.i ], [ %289, %291 ], [ 512, %280 ]
   %.not.i27.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i27.i, label %dcm_export_create_tag_str.exit30.i, label %306
+  br i1 %.not.i27.i, label %dcm_export_create_tag_str.exit30.i, label %295
 
-306:                                              ; preds = %dcm_export_create_tag_str.exit.i
-  %307 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
-  %308 = trunc i64 %307 to i32
-  %309 = and i32 %308, 1
-  %spec.select.i28.i = add i32 %309, %308
-  %310 = icmp samesign ugt i32 %.013.i.i, 506
-  br i1 %310, label %dcm_export_create_tag_str.exit30.i, label %311
+295:                                              ; preds = %dcm_export_create_tag_str.exit.i
+  %296 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
+  %297 = trunc i64 %296 to i32
+  %298 = and i32 %297, 1
+  %spec.select.i28.i = add i32 %298, %297
+  %299 = icmp samesign ugt i32 %.013.i.i, 506
+  br i1 %299, label %dcm_export_create_tag_str.exit30.i, label %300
 
-311:                                              ; preds = %306
-  %312 = zext nneg i32 %.013.i.i to i64
-  %313 = getelementptr i8, ptr %272, i64 %312
-  store i8 2, ptr %313, align 1
-  %314 = getelementptr i8, ptr %313, i64 1
-  store i8 0, ptr %314, align 1
-  %315 = getelementptr i8, ptr %313, i64 2
-  store i8 3, ptr %315, align 1
-  %316 = getelementptr i8, ptr %313, i64 3
-  store i8 0, ptr %316, align 1
-  %317 = getelementptr i8, ptr %313, i64 4
-  %318 = sub nuw nsw i64 508, %312
-  %319 = tail call ptr @__memmove_chk(ptr noundef %317, ptr noundef nonnull @.str.303, i64 noundef 2, i64 noundef %318) #12
-  %320 = icmp samesign ugt i32 %.013.i.i, 504
-  br i1 %320, label %dcm_export_create_tag_str.exit30.i, label %321
+300:                                              ; preds = %295
+  %301 = zext nneg i32 %.013.i.i to i64
+  %302 = getelementptr i8, ptr %272, i64 %301
+  store i16 2, ptr %302, align 1
+  %303 = getelementptr i8, ptr %302, i64 2
+  store i16 3, ptr %303, align 1
+  %304 = getelementptr i8, ptr %302, i64 4
+  %305 = sub nuw nsw i64 508, %301
+  %306 = tail call ptr @__memmove_chk(ptr noundef %304, ptr noundef nonnull @.str.303, i64 noundef 2, i64 noundef %305) #12
+  %307 = icmp samesign ugt i32 %.013.i.i, 504
+  br i1 %307, label %dcm_export_create_tag_str.exit30.i, label %308
 
-321:                                              ; preds = %311
-  %322 = add nuw nsw i32 %.013.i.i, 8
-  %323 = getelementptr i8, ptr %313, i64 6
-  %324 = trunc i32 %spec.select.i28.i to i8
-  store i8 %324, ptr %323, align 1
-  %325 = lshr i32 %spec.select.i28.i, 8
-  %326 = trunc i32 %325 to i8
-  %327 = getelementptr i8, ptr %313, i64 7
-  store i8 %326, ptr %327, align 1
-  %328 = add i32 %spec.select.i28.i, %322
-  %329 = icmp ugt i32 %328, 512
-  br i1 %329, label %dcm_export_create_tag_str.exit30.i, label %330
+308:                                              ; preds = %300
+  %309 = add nuw nsw i32 %.013.i.i, 8
+  %310 = getelementptr i8, ptr %302, i64 6
+  %311 = trunc i32 %spec.select.i28.i to i16
+  store i16 %311, ptr %310, align 1
+  %312 = add i32 %spec.select.i28.i, %309
+  %313 = icmp ugt i32 %312, 512
+  br i1 %313, label %dcm_export_create_tag_str.exit30.i, label %314
 
-330:                                              ; preds = %321
-  %331 = zext nneg i32 %322 to i64
-  %332 = getelementptr i8, ptr %272, i64 %331
-  %333 = zext i32 %spec.select.i28.i to i64
-  %334 = sub nuw nsw i64 512, %331
-  %335 = tail call ptr @__memmove_chk(ptr noundef %332, ptr noundef nonnull %.0.i, i64 noundef range(i64 0, 4294967296) %333, i64 noundef %334) #12
+314:                                              ; preds = %308
+  %315 = zext nneg i32 %309 to i64
+  %316 = getelementptr i8, ptr %272, i64 %315
+  %317 = zext i32 %spec.select.i28.i to i64
+  %318 = sub nuw nsw i64 512, %315
+  %319 = tail call ptr @__memmove_chk(ptr noundef %316, ptr noundef nonnull %.0.i, i64 noundef range(i64 0, 4294967296) %317, i64 noundef %318) #12
   br label %dcm_export_create_tag_str.exit30.i
 
-dcm_export_create_tag_str.exit30.i:               ; preds = %330, %321, %311, %306, %dcm_export_create_tag_str.exit.i
-  %.013.i29.i = phi i32 [ %.013.i.i, %dcm_export_create_tag_str.exit.i ], [ %328, %330 ], [ 512, %306 ], [ 512, %311 ], [ 512, %321 ]
+dcm_export_create_tag_str.exit30.i:               ; preds = %314, %308, %300, %295, %dcm_export_create_tag_str.exit.i
+  %.013.i29.i = phi i32 [ %.013.i.i, %dcm_export_create_tag_str.exit.i ], [ %312, %314 ], [ 512, %295 ], [ 512, %300 ], [ 512, %308 ]
   %.not.i31.i = icmp eq ptr %.sink.i, null
-  br i1 %.not.i31.i, label %dcm_export_create_tag_str.exit34.i, label %336
+  br i1 %.not.i31.i, label %dcm_export_create_tag_str.exit34.i, label %320
 
-336:                                              ; preds = %dcm_export_create_tag_str.exit30.i
-  %337 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink.i) #14
-  %338 = trunc i64 %337 to i32
-  %339 = and i32 %338, 1
-  %spec.select.i32.i = add i32 %339, %338
-  %340 = icmp samesign ugt i32 %.013.i29.i, 506
-  br i1 %340, label %dcm_export_create_header.exit, label %341
+320:                                              ; preds = %dcm_export_create_tag_str.exit30.i
+  %321 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink.i) #14
+  %322 = trunc i64 %321 to i32
+  %323 = and i32 %322, 1
+  %spec.select.i32.i = add i32 %323, %322
+  %324 = icmp samesign ugt i32 %.013.i29.i, 506
+  br i1 %324, label %dcm_export_create_header.exit, label %325
 
-341:                                              ; preds = %336
-  %342 = zext nneg i32 %.013.i29.i to i64
-  %343 = getelementptr i8, ptr %272, i64 %342
-  store i8 2, ptr %343, align 1
-  %344 = getelementptr i8, ptr %343, i64 1
-  store i8 0, ptr %344, align 1
-  %345 = getelementptr i8, ptr %343, i64 2
-  store i8 16, ptr %345, align 1
-  %346 = getelementptr i8, ptr %343, i64 3
-  store i8 0, ptr %346, align 1
-  %347 = getelementptr i8, ptr %343, i64 4
-  %348 = sub nuw nsw i64 508, %342
-  %349 = tail call ptr @__memmove_chk(ptr noundef %347, ptr noundef nonnull @.str.303, i64 noundef 2, i64 noundef %348) #12
-  %350 = icmp samesign ugt i32 %.013.i29.i, 504
-  br i1 %350, label %dcm_export_create_header.exit, label %351
+325:                                              ; preds = %320
+  %326 = zext nneg i32 %.013.i29.i to i64
+  %327 = getelementptr i8, ptr %272, i64 %326
+  store i16 2, ptr %327, align 1
+  %328 = getelementptr i8, ptr %327, i64 2
+  store i16 16, ptr %328, align 1
+  %329 = getelementptr i8, ptr %327, i64 4
+  %330 = sub nuw nsw i64 508, %326
+  %331 = tail call ptr @__memmove_chk(ptr noundef %329, ptr noundef nonnull @.str.303, i64 noundef 2, i64 noundef %330) #12
+  %332 = icmp samesign ugt i32 %.013.i29.i, 504
+  br i1 %332, label %dcm_export_create_header.exit, label %333
 
-351:                                              ; preds = %341
-  %352 = add nuw nsw i32 %.013.i29.i, 8
-  %353 = getelementptr i8, ptr %343, i64 6
-  %354 = trunc i32 %spec.select.i32.i to i8
-  store i8 %354, ptr %353, align 1
-  %355 = lshr i32 %spec.select.i32.i, 8
-  %356 = trunc i32 %355 to i8
-  %357 = getelementptr i8, ptr %343, i64 7
-  store i8 %356, ptr %357, align 1
-  %358 = add i32 %spec.select.i32.i, %352
-  %359 = icmp ugt i32 %358, 512
-  br i1 %359, label %dcm_export_create_header.exit, label %360
+333:                                              ; preds = %325
+  %334 = add nuw nsw i32 %.013.i29.i, 8
+  %335 = getelementptr i8, ptr %327, i64 6
+  %336 = trunc i32 %spec.select.i32.i to i16
+  store i16 %336, ptr %335, align 1
+  %337 = add i32 %spec.select.i32.i, %334
+  %338 = icmp ugt i32 %337, 512
+  br i1 %338, label %dcm_export_create_header.exit, label %339
 
-360:                                              ; preds = %351
-  %361 = zext nneg i32 %352 to i64
-  %362 = getelementptr i8, ptr %272, i64 %361
-  %363 = zext i32 %spec.select.i32.i to i64
-  %364 = sub nuw nsw i64 512, %361
-  %365 = tail call ptr @__memmove_chk(ptr noundef %362, ptr noundef nonnull %.sink.i, i64 noundef range(i64 0, 4294967296) %363, i64 noundef %364) #12
+339:                                              ; preds = %333
+  %340 = zext nneg i32 %334 to i64
+  %341 = getelementptr i8, ptr %272, i64 %340
+  %342 = zext i32 %spec.select.i32.i to i64
+  %343 = sub nuw nsw i64 512, %340
+  %344 = tail call ptr @__memmove_chk(ptr noundef %341, ptr noundef nonnull %.sink.i, i64 noundef range(i64 0, 4294967296) %342, i64 noundef %343) #12
   br label %dcm_export_create_tag_str.exit34.i
 
-dcm_export_create_tag_str.exit34.i:               ; preds = %360, %dcm_export_create_tag_str.exit30.i
-  %.013.i33.i = phi i32 [ %.013.i29.i, %dcm_export_create_tag_str.exit30.i ], [ %358, %360 ]
-  %366 = icmp samesign ugt i32 %.013.i33.i, 506
-  br i1 %366, label %dcm_export_create_header.exit, label %367
+dcm_export_create_tag_str.exit34.i:               ; preds = %339, %dcm_export_create_tag_str.exit30.i
+  %.013.i33.i = phi i32 [ %.013.i29.i, %dcm_export_create_tag_str.exit30.i ], [ %337, %339 ]
+  %345 = icmp samesign ugt i32 %.013.i33.i, 506
+  br i1 %345, label %dcm_export_create_header.exit, label %346
 
-367:                                              ; preds = %dcm_export_create_tag_str.exit34.i
-  %368 = zext nneg i32 %.013.i33.i to i64
-  %369 = getelementptr i8, ptr %272, i64 %368
-  store i8 2, ptr %369, align 1
-  %370 = getelementptr i8, ptr %369, i64 1
-  store i8 0, ptr %370, align 1
-  %371 = getelementptr i8, ptr %369, i64 2
-  store i8 18, ptr %371, align 1
-  %372 = getelementptr i8, ptr %369, i64 3
-  store i8 0, ptr %372, align 1
-  %373 = getelementptr i8, ptr %369, i64 4
-  %374 = sub nuw nsw i64 508, %368
-  %375 = tail call ptr @__memmove_chk(ptr noundef %373, ptr noundef nonnull @.str.303, i64 noundef 2, i64 noundef %374) #12
-  %376 = icmp samesign ugt i32 %.013.i33.i, 504
-  br i1 %376, label %dcm_export_create_header.exit, label %377
+346:                                              ; preds = %dcm_export_create_tag_str.exit34.i
+  %347 = zext nneg i32 %.013.i33.i to i64
+  %348 = getelementptr i8, ptr %272, i64 %347
+  store i16 2, ptr %348, align 1
+  %349 = getelementptr i8, ptr %348, i64 2
+  store i16 18, ptr %349, align 1
+  %350 = getelementptr i8, ptr %348, i64 4
+  %351 = sub nuw nsw i64 508, %347
+  %352 = tail call ptr @__memmove_chk(ptr noundef %350, ptr noundef nonnull @.str.303, i64 noundef 2, i64 noundef %351) #12
+  %353 = icmp samesign ugt i32 %.013.i33.i, 504
+  br i1 %353, label %dcm_export_create_header.exit, label %354
 
-377:                                              ; preds = %367
-  %378 = getelementptr i8, ptr %369, i64 6
-  store i8 28, ptr %378, align 1
-  %379 = getelementptr i8, ptr %369, i64 7
-  store i8 0, ptr %379, align 1
-  %380 = icmp samesign ugt i32 %.013.i33.i, 476
-  br i1 %380, label %dcm_export_create_header.exit, label %dcm_export_create_tag_str.exit37.i
+354:                                              ; preds = %346
+  %355 = getelementptr i8, ptr %348, i64 6
+  store i16 28, ptr %355, align 1
+  %356 = icmp samesign ugt i32 %.013.i33.i, 476
+  br i1 %356, label %dcm_export_create_header.exit, label %dcm_export_create_tag_str.exit37.i
 
-dcm_export_create_tag_str.exit37.i:               ; preds = %377
-  %381 = getelementptr i8, ptr %369, i64 8
-  %382 = sub nsw i64 504, %368
-  %383 = tail call ptr @__memmove_chk(ptr noundef %381, ptr noundef nonnull @.str.357, i64 noundef range(i64 0, 4294967296) 28, i64 noundef %382) #12
-  %384 = icmp samesign ugt i32 %.013.i33.i, 470
-  br i1 %384, label %dcm_export_create_header.exit, label %385
+dcm_export_create_tag_str.exit37.i:               ; preds = %354
+  %357 = getelementptr i8, ptr %348, i64 8
+  %358 = sub nsw i64 504, %347
+  %359 = tail call ptr @__memmove_chk(ptr noundef %357, ptr noundef nonnull @.str.357, i64 noundef range(i64 0, 4294967296) 28, i64 noundef %358) #12
+  %360 = icmp samesign ugt i32 %.013.i33.i, 470
+  br i1 %360, label %dcm_export_create_header.exit, label %361
 
-385:                                              ; preds = %dcm_export_create_tag_str.exit37.i
-  %386 = add nuw nsw i32 %.013.i33.i, 36
-  %387 = zext nneg i32 %386 to i64
-  %388 = getelementptr i8, ptr %272, i64 %387
-  store i8 2, ptr %388, align 1
-  %389 = getelementptr i8, ptr %388, i64 1
-  store i8 0, ptr %389, align 1
-  %390 = getelementptr i8, ptr %388, i64 2
-  store i8 19, ptr %390, align 1
-  %391 = getelementptr i8, ptr %388, i64 3
-  store i8 0, ptr %391, align 1
-  %392 = getelementptr i8, ptr %388, i64 4
-  %393 = sub nuw nsw i64 508, %387
-  %394 = tail call ptr @__memmove_chk(ptr noundef %392, ptr noundef nonnull @.str.300, i64 noundef 2, i64 noundef %393) #12
-  %395 = icmp samesign ugt i32 %.013.i33.i, 468
-  br i1 %395, label %dcm_export_create_header.exit, label %396
+361:                                              ; preds = %dcm_export_create_tag_str.exit37.i
+  %362 = add nuw nsw i32 %.013.i33.i, 36
+  %363 = zext nneg i32 %362 to i64
+  %364 = getelementptr i8, ptr %272, i64 %363
+  store i16 2, ptr %364, align 1
+  %365 = getelementptr i8, ptr %364, i64 2
+  store i16 19, ptr %365, align 1
+  %366 = getelementptr i8, ptr %364, i64 4
+  %367 = sub nuw nsw i64 508, %363
+  %368 = tail call ptr @__memmove_chk(ptr noundef %366, ptr noundef nonnull @.str.300, i64 noundef 2, i64 noundef %367) #12
+  %369 = icmp samesign ugt i32 %.013.i33.i, 468
+  br i1 %369, label %dcm_export_create_header.exit, label %370
 
-396:                                              ; preds = %385
-  %397 = getelementptr i8, ptr %388, i64 6
-  store i8 10, ptr %397, align 1
-  %398 = getelementptr i8, ptr %388, i64 7
-  store i8 0, ptr %398, align 1
-  %399 = icmp samesign ugt i32 %.013.i33.i, 458
-  br i1 %399, label %dcm_export_create_header.exit, label %400
+370:                                              ; preds = %361
+  %371 = getelementptr i8, ptr %364, i64 6
+  store i16 10, ptr %371, align 1
+  %372 = icmp samesign ugt i32 %.013.i33.i, 458
+  br i1 %372, label %dcm_export_create_header.exit, label %373
 
-400:                                              ; preds = %396
-  %401 = add nuw nsw i32 %.013.i33.i, 54
-  %402 = getelementptr i8, ptr %388, i64 8
-  %403 = sub nsw i64 504, %387
-  %404 = tail call ptr @__memmove_chk(ptr noundef %402, ptr noundef nonnull @.str.358, i64 noundef range(i64 0, 4294967296) 10, i64 noundef %403) #12
+373:                                              ; preds = %370
+  %374 = add nuw nsw i32 %.013.i33.i, 54
+  %375 = getelementptr i8, ptr %364, i64 8
+  %376 = sub nsw i64 504, %363
+  %377 = tail call ptr @__memmove_chk(ptr noundef %375, ptr noundef nonnull @.str.358, i64 noundef range(i64 0, 4294967296) 10, i64 noundef %376) #12
   br label %dcm_export_create_header.exit
 
-dcm_export_create_header.exit:                    ; preds = %336, %341, %351, %dcm_export_create_tag_str.exit34.i, %367, %377, %dcm_export_create_tag_str.exit37.i, %385, %396, %400
-  %.013.i39.i = phi i32 [ %401, %400 ], [ 512, %dcm_export_create_tag_str.exit37.i ], [ 512, %385 ], [ 512, %396 ], [ 512, %dcm_export_create_tag_str.exit34.i ], [ 512, %367 ], [ 512, %377 ], [ 512, %336 ], [ 512, %341 ], [ 512, %351 ]
-  %405 = add nsw i32 %.013.i39.i, -144
-  %406 = getelementptr i8, ptr %272, i64 132
-  store i8 2, ptr %406, align 1
-  %407 = getelementptr i8, ptr %272, i64 133
-  store i8 0, ptr %407, align 1
-  %408 = getelementptr i8, ptr %272, i64 134
-  store i8 0, ptr %408, align 1
-  %409 = getelementptr i8, ptr %272, i64 135
-  store i8 0, ptr %409, align 1
-  %410 = getelementptr i8, ptr %272, i64 136
-  store i16 19541, ptr %410, align 1
-  %411 = getelementptr i8, ptr %272, i64 138
-  store i8 4, ptr %411, align 1
-  %412 = getelementptr i8, ptr %272, i64 139
-  store i8 0, ptr %412, align 1
-  %413 = getelementptr i8, ptr %272, i64 140
-  store i32 %405, ptr %413, align 1
-  br label %414
+dcm_export_create_header.exit:                    ; preds = %320, %325, %333, %dcm_export_create_tag_str.exit34.i, %346, %354, %dcm_export_create_tag_str.exit37.i, %361, %370, %373
+  %.013.i39.i = phi i32 [ %374, %373 ], [ 512, %dcm_export_create_tag_str.exit37.i ], [ 512, %361 ], [ 512, %370 ], [ 512, %dcm_export_create_tag_str.exit34.i ], [ 512, %346 ], [ 512, %354 ], [ 512, %320 ], [ 512, %325 ], [ 512, %333 ]
+  %378 = add nsw i32 %.013.i39.i, -144
+  %379 = getelementptr i8, ptr %272, i64 132
+  store i16 2, ptr %379, align 1
+  %380 = getelementptr i8, ptr %272, i64 134
+  store i16 0, ptr %380, align 1
+  %381 = getelementptr i8, ptr %272, i64 136
+  store i16 19541, ptr %381, align 1
+  %382 = getelementptr i8, ptr %272, i64 138
+  store i16 4, ptr %382, align 1
+  %383 = getelementptr i8, ptr %272, i64 140
+  store i32 %378, ptr %383, align 1
+  br label %384
 
-414:                                              ; preds = %dcm_export_create_header.exit, %262
+384:                                              ; preds = %dcm_export_create_header.exit, %262
   %.0111 = phi i32 [ %.013.i39.i, %dcm_export_create_header.exit ], [ 0, %262 ]
   %.089.i = phi ptr [ %272, %dcm_export_create_header.exit ], [ null, %262 ]
-  %415 = add i32 %.0111, %.088.lcssa148.i
-  %416 = load i32, ptr @global_dcm_export_minsize, align 4
-  %.not120.i = icmp ult i32 %415, %416
-  br i1 %.not120.i, label %dcm_export_create_object.exit, label %417
+  %385 = add i32 %.0111, %.088.lcssa148.i
+  %386 = load i32, ptr @global_dcm_export_minsize, align 4
+  %.not120.i = icmp ult i32 %385, %386
+  br i1 %.not120.i, label %dcm_export_create_object.exit, label %387
 
-417:                                              ; preds = %414
-  %418 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %419 = load ptr, ptr %418, align 8
-  %420 = zext i32 %415 to i64
-  %421 = tail call noalias ptr @wmem_alloc0(ptr noundef %419, i64 noundef %420) #11
+387:                                              ; preds = %384
+  %388 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %389 = load ptr, ptr %388, align 8
+  %390 = zext i32 %385 to i64
+  %391 = tail call noalias ptr @wmem_alloc0(ptr noundef %389, i64 noundef %390) #11
   %.not121.i = icmp eq i32 %.0111, 0
-  br i1 %.not121.i, label %426, label %422
+  br i1 %.not121.i, label %396, label %392
 
-422:                                              ; preds = %417
-  %423 = zext nneg i32 %.0111 to i64
-  %424 = tail call ptr @__memmove_chk(ptr noundef %421, ptr noundef %.089.i, i64 noundef range(i64 0, 4294967296) %423, i64 noundef %420) #12
-  %425 = getelementptr i8, ptr %421, i64 %423
-  br label %426
+392:                                              ; preds = %387
+  %393 = zext nneg i32 %.0111 to i64
+  %394 = tail call ptr @__memmove_chk(ptr noundef %391, ptr noundef %.089.i, i64 noundef range(i64 0, 4294967296) %393, i64 noundef %390) #12
+  %395 = getelementptr i8, ptr %391, i64 %393
+  br label %396
 
-426:                                              ; preds = %422, %417
-  %427 = phi i64 [ %423, %422 ], [ 0, %417 ]
-  %.090.i = phi ptr [ %425, %422 ], [ %421, %417 ]
-  %428 = getelementptr inbounds nuw i8, ptr %.092.lcssa146.i, i64 75
-  %429 = load i8, ptr %428, align 1, !range !13, !noundef !14
-  %430 = trunc nuw i8 %429 to i1
-  br i1 %430, label %._crit_edge.i, label %.lr.ph139.i
+396:                                              ; preds = %392, %387
+  %397 = phi i64 [ %393, %392 ], [ 0, %387 ]
+  %.090.i = phi ptr [ %395, %392 ], [ %391, %387 ]
+  %398 = getelementptr inbounds nuw i8, ptr %.092.lcssa146.i, i64 75
+  %399 = load i8, ptr %398, align 1, !range !13, !noundef !14
+  %400 = trunc nuw i8 %399 to i1
+  br i1 %400, label %._crit_edge.i, label %.lr.ph139.i
 
-.lr.ph139.i:                                      ; preds = %426, %.lr.ph139.i
-  %.1138.i = phi ptr [ %444, %.lr.ph139.i ], [ %.090.i, %426 ]
-  %431 = phi i64 [ %443, %.lr.ph139.i ], [ %427, %426 ]
-  %432 = phi i64 [ %442, %.lr.ph139.i ], [ %427, %426 ]
-  %.193137.i = phi ptr [ %445, %.lr.ph139.i ], [ %.092.lcssa146.i, %426 ]
-  %433 = getelementptr inbounds nuw i8, ptr %.193137.i, i64 40
-  %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds nuw i8, ptr %.193137.i, i64 48
-  %436 = load i32, ptr %435, align 8
-  %437 = zext i32 %436 to i64
-  %438 = tail call i64 @llvm.usub.sat.i64(i64 %420, i64 %432)
-  %439 = tail call ptr @__memmove_chk(ptr noundef %.1138.i, ptr noundef %434, i64 noundef range(i64 0, 4294967296) %437, i64 noundef %438) #12
-  %440 = load i32, ptr %435, align 8
-  %441 = zext i32 %440 to i64
-  %442 = add i64 %432, %441
-  %443 = add i64 %431, %441
-  %444 = getelementptr i8, ptr %.1138.i, i64 %441
-  %445 = load ptr, ptr %.193137.i, align 8
-  %446 = getelementptr inbounds nuw i8, ptr %445, i64 75
-  %447 = load i8, ptr %446, align 1, !range !13, !noundef !14
-  %448 = trunc nuw i8 %447 to i1
-  br i1 %448, label %._crit_edge.i, label %.lr.ph139.i, !llvm.loop !20
+.lr.ph139.i:                                      ; preds = %396, %.lr.ph139.i
+  %.1138.i = phi ptr [ %414, %.lr.ph139.i ], [ %.090.i, %396 ]
+  %401 = phi i64 [ %413, %.lr.ph139.i ], [ %397, %396 ]
+  %402 = phi i64 [ %412, %.lr.ph139.i ], [ %397, %396 ]
+  %.193137.i = phi ptr [ %415, %.lr.ph139.i ], [ %.092.lcssa146.i, %396 ]
+  %403 = getelementptr inbounds nuw i8, ptr %.193137.i, i64 40
+  %404 = load ptr, ptr %403, align 8
+  %405 = getelementptr inbounds nuw i8, ptr %.193137.i, i64 48
+  %406 = load i32, ptr %405, align 8
+  %407 = zext i32 %406 to i64
+  %408 = tail call i64 @llvm.usub.sat.i64(i64 %390, i64 %402)
+  %409 = tail call ptr @__memmove_chk(ptr noundef %.1138.i, ptr noundef %404, i64 noundef range(i64 0, 4294967296) %407, i64 noundef %408) #12
+  %410 = load i32, ptr %405, align 8
+  %411 = zext i32 %410 to i64
+  %412 = add i64 %402, %411
+  %413 = add i64 %401, %411
+  %414 = getelementptr i8, ptr %.1138.i, i64 %411
+  %415 = load ptr, ptr %.193137.i, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 75
+  %417 = load i8, ptr %416, align 1, !range !13, !noundef !14
+  %418 = trunc nuw i8 %417 to i1
+  br i1 %418, label %._crit_edge.i, label %.lr.ph139.i, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %.lr.ph139.i, %426
-  %.lcssa.i = phi i64 [ %427, %426 ], [ %443, %.lr.ph139.i ]
-  %.1.lcssa.i = phi ptr [ %.090.i, %426 ], [ %444, %.lr.ph139.i ]
-  %449 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %450 = load ptr, ptr %449, align 8
-  %451 = load i32, ptr %166, align 8
-  %452 = zext i32 %451 to i64
-  %453 = tail call i64 @llvm.usub.sat.i64(i64 %420, i64 %.lcssa.i)
-  %454 = tail call ptr @__memmove_chk(ptr noundef %.1.lcssa.i, ptr noundef %450, i64 noundef range(i64 0, 4294967296) %452, i64 noundef %453) #12
-  %455 = load ptr, ptr %418, align 8
-  %456 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %455, i64 noundef 48) #11
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
-  store ptr %.085.i, ptr %457, align 8
-  %458 = getelementptr inbounds nuw i8, ptr %456, i64 16
-  store ptr %.086.i, ptr %458, align 8
-  %459 = load ptr, ptr %83, align 8
-  %460 = getelementptr inbounds nuw i8, ptr %456, i64 24
-  store ptr %459, ptr %460, align 8
-  %461 = getelementptr inbounds nuw i8, ptr %456, i64 32
-  store i32 %415, ptr %461, align 8
-  %462 = getelementptr inbounds nuw i8, ptr %456, i64 40
-  store ptr %421, ptr %462, align 8
-  %463 = load i32, ptr @dicom_eo_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %463, ptr noundef %1, ptr noundef %456)
+._crit_edge.i:                                    ; preds = %.lr.ph139.i, %396
+  %.lcssa.i = phi i64 [ %397, %396 ], [ %413, %.lr.ph139.i ]
+  %.1.lcssa.i = phi ptr [ %.090.i, %396 ], [ %414, %.lr.ph139.i ]
+  %419 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %420 = load ptr, ptr %419, align 8
+  %421 = load i32, ptr %166, align 8
+  %422 = zext i32 %421 to i64
+  %423 = tail call i64 @llvm.usub.sat.i64(i64 %390, i64 %.lcssa.i)
+  %424 = tail call ptr @__memmove_chk(ptr noundef %.1.lcssa.i, ptr noundef %420, i64 noundef range(i64 0, 4294967296) %422, i64 noundef %423) #12
+  %425 = load ptr, ptr %388, align 8
+  %426 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %425, i64 noundef 48) #11
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 8
+  store ptr %.085.i, ptr %427, align 8
+  %428 = getelementptr inbounds nuw i8, ptr %426, i64 16
+  store ptr %.086.i, ptr %428, align 8
+  %429 = load ptr, ptr %83, align 8
+  %430 = getelementptr inbounds nuw i8, ptr %426, i64 24
+  store ptr %429, ptr %430, align 8
+  %431 = getelementptr inbounds nuw i8, ptr %426, i64 32
+  store i32 %385, ptr %431, align 8
+  %432 = getelementptr inbounds nuw i8, ptr %426, i64 40
+  store ptr %391, ptr %432, align 8
+  %433 = load i32, ptr @dicom_eo_tap, align 4
+  tail call void @tap_queue_packet(i32 noundef %433, ptr noundef %1, ptr noundef %426)
   br label %dcm_export_create_object.exit
 
-dcm_export_create_object.exit:                    ; preds = %._crit_edge.i, %414, %175, %176, %162
+dcm_export_create_object.exit:                    ; preds = %._crit_edge.i, %384, %175, %176, %162
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   ret i32 %11

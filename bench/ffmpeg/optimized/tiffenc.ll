@@ -57,7 +57,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
-  %16 = alloca [2 x i32], align 4
+  %16 = alloca [2 x i32], align 8
   %17 = alloca [4 x i16], align 2
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
@@ -71,7 +71,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #11
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 520
   %27 = load i32, ptr %26, align 8, !tbaa !33
-  store i32 %27, ptr %16, align 4, !tbaa !34
+  store i32 %27, ptr %16, align 8, !tbaa !34
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 1, ptr %28, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #11
@@ -759,11 +759,7 @@ check_size.exit:                                  ; preds = %127
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 4294967296
   %401 = load i64, ptr %392, align 8
   %402 = call i64 @av_mul_q(i64 %.sroa.0.0.insert.insert.i, i64 %401) #12
-  %.sroa.03.0.extract.trunc = trunc i64 %402 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %402, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  store i32 %.sroa.03.0.extract.trunc, ptr %16, align 4, !tbaa !34
-  store i32 %.sroa.4.0.extract.trunc, ptr %28, align 4, !tbaa !34
+  store i64 %402, ptr %16, align 8
   br label %403
 
 403:                                              ; preds = %391, %395, %399

@@ -3011,64 +3011,62 @@ define hidden noundef zeroext i1 @_ZN2cv12WLByteStream7putWordEi(ptr noundef non
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp ult ptr %5, %7
-  %9 = trunc i32 %1 to i8
-  br i1 %8, label %10, label %21
+  br i1 %8, label %9, label %19
 
-10:                                               ; preds = %2
-  store i8 %9, ptr %4, align 1, !tbaa !42
-  %11 = lshr i32 %1, 8
-  %12 = trunc i32 %11 to i8
-  store i8 %12, ptr %5, align 1, !tbaa !42
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %13, ptr %3, align 8, !tbaa !55
-  %14 = load ptr, ptr %6, align 8, !tbaa !54
-  %15 = icmp eq ptr %13, %14
-  br i1 %15, label %16, label %_ZN2cv12WLByteStream7putByteEi.exit12
+9:                                                ; preds = %2
+  %10 = trunc i32 %1 to i16
+  store i16 %10, ptr %4, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store ptr %11, ptr %3, align 8, !tbaa !55
+  %12 = load ptr, ptr %6, align 8, !tbaa !54
+  %13 = icmp eq ptr %11, %12
+  br i1 %13, label %14, label %_ZN2cv12WLByteStream7putByteEi.exit12
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %0, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(64) %0)
+14:                                               ; preds = %9
+  %15 = load ptr, ptr %0, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br label %_ZN2cv12WLByteStream7putByteEi.exit12
 
-21:                                               ; preds = %2
+19:                                               ; preds = %2
+  %20 = trunc i32 %1 to i8
   store ptr %5, ptr %3, align 8, !tbaa !55
-  store i8 %9, ptr %4, align 1, !tbaa !42
-  %22 = load ptr, ptr %3, align 8, !tbaa !55
-  %23 = load ptr, ptr %6, align 8, !tbaa !54
-  %.not.i = icmp ult ptr %22, %23
-  br i1 %.not.i, label %_ZN2cv12WLByteStream7putByteEi.exit, label %24
+  store i8 %20, ptr %4, align 1, !tbaa !42
+  %21 = load ptr, ptr %3, align 8, !tbaa !55
+  %22 = load ptr, ptr %6, align 8, !tbaa !54
+  %.not.i = icmp ult ptr %21, %22
+  br i1 %.not.i, label %_ZN2cv12WLByteStream7putByteEi.exit, label %23
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %0, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(64) %0)
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %0, align 8, !tbaa !19
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %.pre = load ptr, ptr %3, align 8, !tbaa !55
   br label %_ZN2cv12WLByteStream7putByteEi.exit
 
-_ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %21, %24
-  %29 = phi ptr [ %22, %21 ], [ %.pre, %24 ]
-  %30 = lshr i32 %1, 8
-  %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %32, ptr %3, align 8, !tbaa !55
-  store i8 %31, ptr %29, align 1, !tbaa !42
-  %33 = load ptr, ptr %3, align 8, !tbaa !55
-  %34 = load ptr, ptr %6, align 8, !tbaa !54
-  %.not.i10 = icmp ult ptr %33, %34
-  br i1 %.not.i10, label %_ZN2cv12WLByteStream7putByteEi.exit12, label %35
+_ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %19, %23
+  %28 = phi ptr [ %21, %19 ], [ %.pre, %23 ]
+  %29 = lshr i32 %1, 8
+  %30 = trunc i32 %29 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store ptr %31, ptr %3, align 8, !tbaa !55
+  store i8 %30, ptr %28, align 1, !tbaa !42
+  %32 = load ptr, ptr %3, align 8, !tbaa !55
+  %33 = load ptr, ptr %6, align 8, !tbaa !54
+  %.not.i10 = icmp ult ptr %32, %33
+  br i1 %.not.i10, label %_ZN2cv12WLByteStream7putByteEi.exit12, label %34
 
-35:                                               ; preds = %_ZN2cv12WLByteStream7putByteEi.exit
-  %36 = load ptr, ptr %0, align 8, !tbaa !19
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(64) %0)
+34:                                               ; preds = %_ZN2cv12WLByteStream7putByteEi.exit
+  %35 = load ptr, ptr %0, align 8, !tbaa !19
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br label %_ZN2cv12WLByteStream7putByteEi.exit12
 
-_ZN2cv12WLByteStream7putByteEi.exit12:            ; preds = %35, %_ZN2cv12WLByteStream7putByteEi.exit, %10, %16
-  %.0 = phi i1 [ %20, %16 ], [ true, %10 ], [ true, %_ZN2cv12WLByteStream7putByteEi.exit ], [ true, %35 ]
+_ZN2cv12WLByteStream7putByteEi.exit12:            ; preds = %34, %_ZN2cv12WLByteStream7putByteEi.exit, %9, %14
+  %.0 = phi i1 [ %18, %14 ], [ true, %9 ], [ true, %_ZN2cv12WLByteStream7putByteEi.exit ], [ true, %34 ]
   ret i1 %.0
 }
 
@@ -3080,113 +3078,102 @@ define hidden noundef zeroext i1 @_ZN2cv12WLByteStream8putDWordEi(ptr noundef no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp ult ptr %5, %7
-  %9 = trunc i32 %1 to i8
-  br i1 %8, label %10, label %27
+  br i1 %8, label %9, label %18
 
-10:                                               ; preds = %2
-  store i8 %9, ptr %4, align 1, !tbaa !42
-  %11 = lshr i32 %1, 8
-  %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %12, ptr %13, align 1, !tbaa !42
-  %14 = lshr i32 %1, 16
-  %15 = trunc i32 %14 to i8
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %15, ptr %16, align 1, !tbaa !42
-  %17 = lshr i32 %1, 24
-  %18 = trunc nuw i32 %17 to i8
-  store i8 %18, ptr %5, align 1, !tbaa !42
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %19, ptr %3, align 8, !tbaa !55
-  %20 = load ptr, ptr %6, align 8, !tbaa !54
-  %21 = icmp eq ptr %19, %20
-  br i1 %21, label %22, label %_ZN2cv12WLByteStream7putByteEi.exit24
+9:                                                ; preds = %2
+  store i32 %1, ptr %4, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store ptr %10, ptr %3, align 8, !tbaa !55
+  %11 = load ptr, ptr %6, align 8, !tbaa !54
+  %12 = icmp eq ptr %10, %11
+  br i1 %12, label %13, label %_ZN2cv12WLByteStream7putByteEi.exit24
 
-22:                                               ; preds = %10
-  %23 = load ptr, ptr %0, align 8, !tbaa !19
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(64) %0)
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %0, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br label %_ZN2cv12WLByteStream7putByteEi.exit24
 
-27:                                               ; preds = %2
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %28, ptr %3, align 8, !tbaa !55
-  store i8 %9, ptr %4, align 1, !tbaa !42
-  %29 = load ptr, ptr %3, align 8, !tbaa !55
-  %30 = load ptr, ptr %6, align 8, !tbaa !54
-  %.not.i = icmp ult ptr %29, %30
-  br i1 %.not.i, label %_ZN2cv12WLByteStream7putByteEi.exit, label %31
+18:                                               ; preds = %2
+  %19 = trunc i32 %1 to i8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store ptr %20, ptr %3, align 8, !tbaa !55
+  store i8 %19, ptr %4, align 1, !tbaa !42
+  %21 = load ptr, ptr %3, align 8, !tbaa !55
+  %22 = load ptr, ptr %6, align 8, !tbaa !54
+  %.not.i = icmp ult ptr %21, %22
+  br i1 %.not.i, label %_ZN2cv12WLByteStream7putByteEi.exit, label %23
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %0, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(64) %0)
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %0, align 8, !tbaa !19
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %.pre = load ptr, ptr %3, align 8, !tbaa !55
   br label %_ZN2cv12WLByteStream7putByteEi.exit
 
-_ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %27, %31
-  %36 = phi ptr [ %29, %27 ], [ %.pre, %31 ]
-  %37 = lshr i32 %1, 8
-  %38 = trunc i32 %37 to i8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store ptr %39, ptr %3, align 8, !tbaa !55
-  store i8 %38, ptr %36, align 1, !tbaa !42
-  %40 = load ptr, ptr %3, align 8, !tbaa !55
-  %41 = load ptr, ptr %6, align 8, !tbaa !54
-  %.not.i16 = icmp ult ptr %40, %41
-  br i1 %.not.i16, label %_ZN2cv12WLByteStream7putByteEi.exit18, label %42
+_ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %18, %23
+  %28 = phi ptr [ %21, %18 ], [ %.pre, %23 ]
+  %29 = lshr i32 %1, 8
+  %30 = trunc i32 %29 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store ptr %31, ptr %3, align 8, !tbaa !55
+  store i8 %30, ptr %28, align 1, !tbaa !42
+  %32 = load ptr, ptr %3, align 8, !tbaa !55
+  %33 = load ptr, ptr %6, align 8, !tbaa !54
+  %.not.i16 = icmp ult ptr %32, %33
+  br i1 %.not.i16, label %_ZN2cv12WLByteStream7putByteEi.exit18, label %34
 
-42:                                               ; preds = %_ZN2cv12WLByteStream7putByteEi.exit
-  %43 = load ptr, ptr %0, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(64) %0)
+34:                                               ; preds = %_ZN2cv12WLByteStream7putByteEi.exit
+  %35 = load ptr, ptr %0, align 8, !tbaa !19
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %.pre25 = load ptr, ptr %3, align 8, !tbaa !55
   br label %_ZN2cv12WLByteStream7putByteEi.exit18
 
-_ZN2cv12WLByteStream7putByteEi.exit18:            ; preds = %_ZN2cv12WLByteStream7putByteEi.exit, %42
-  %47 = phi ptr [ %40, %_ZN2cv12WLByteStream7putByteEi.exit ], [ %.pre25, %42 ]
-  %48 = lshr i32 %1, 16
-  %49 = trunc i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  store ptr %50, ptr %3, align 8, !tbaa !55
-  store i8 %49, ptr %47, align 1, !tbaa !42
-  %51 = load ptr, ptr %3, align 8, !tbaa !55
-  %52 = load ptr, ptr %6, align 8, !tbaa !54
-  %.not.i19 = icmp ult ptr %51, %52
-  br i1 %.not.i19, label %_ZN2cv12WLByteStream7putByteEi.exit21, label %53
+_ZN2cv12WLByteStream7putByteEi.exit18:            ; preds = %_ZN2cv12WLByteStream7putByteEi.exit, %34
+  %39 = phi ptr [ %32, %_ZN2cv12WLByteStream7putByteEi.exit ], [ %.pre25, %34 ]
+  %40 = lshr i32 %1, 16
+  %41 = trunc i32 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store ptr %42, ptr %3, align 8, !tbaa !55
+  store i8 %41, ptr %39, align 1, !tbaa !42
+  %43 = load ptr, ptr %3, align 8, !tbaa !55
+  %44 = load ptr, ptr %6, align 8, !tbaa !54
+  %.not.i19 = icmp ult ptr %43, %44
+  br i1 %.not.i19, label %_ZN2cv12WLByteStream7putByteEi.exit21, label %45
 
-53:                                               ; preds = %_ZN2cv12WLByteStream7putByteEi.exit18
-  %54 = load ptr, ptr %0, align 8, !tbaa !19
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(64) %0)
+45:                                               ; preds = %_ZN2cv12WLByteStream7putByteEi.exit18
+  %46 = load ptr, ptr %0, align 8, !tbaa !19
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %.pre26 = load ptr, ptr %3, align 8, !tbaa !55
   br label %_ZN2cv12WLByteStream7putByteEi.exit21
 
-_ZN2cv12WLByteStream7putByteEi.exit21:            ; preds = %_ZN2cv12WLByteStream7putByteEi.exit18, %53
-  %58 = phi ptr [ %51, %_ZN2cv12WLByteStream7putByteEi.exit18 ], [ %.pre26, %53 ]
-  %59 = lshr i32 %1, 24
-  %60 = trunc nuw i32 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  store ptr %61, ptr %3, align 8, !tbaa !55
-  store i8 %60, ptr %58, align 1, !tbaa !42
-  %62 = load ptr, ptr %3, align 8, !tbaa !55
-  %63 = load ptr, ptr %6, align 8, !tbaa !54
-  %.not.i22 = icmp ult ptr %62, %63
-  br i1 %.not.i22, label %_ZN2cv12WLByteStream7putByteEi.exit24, label %64
+_ZN2cv12WLByteStream7putByteEi.exit21:            ; preds = %_ZN2cv12WLByteStream7putByteEi.exit18, %45
+  %50 = phi ptr [ %43, %_ZN2cv12WLByteStream7putByteEi.exit18 ], [ %.pre26, %45 ]
+  %51 = lshr i32 %1, 24
+  %52 = trunc nuw i32 %51 to i8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  store ptr %53, ptr %3, align 8, !tbaa !55
+  store i8 %52, ptr %50, align 1, !tbaa !42
+  %54 = load ptr, ptr %3, align 8, !tbaa !55
+  %55 = load ptr, ptr %6, align 8, !tbaa !54
+  %.not.i22 = icmp ult ptr %54, %55
+  br i1 %.not.i22, label %_ZN2cv12WLByteStream7putByteEi.exit24, label %56
 
-64:                                               ; preds = %_ZN2cv12WLByteStream7putByteEi.exit21
-  %65 = load ptr, ptr %0, align 8, !tbaa !19
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(64) %0)
+56:                                               ; preds = %_ZN2cv12WLByteStream7putByteEi.exit21
+  %57 = load ptr, ptr %0, align 8, !tbaa !19
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br label %_ZN2cv12WLByteStream7putByteEi.exit24
 
-_ZN2cv12WLByteStream7putByteEi.exit24:            ; preds = %64, %_ZN2cv12WLByteStream7putByteEi.exit21, %10, %22
-  %.0 = phi i1 [ %26, %22 ], [ true, %10 ], [ true, %_ZN2cv12WLByteStream7putByteEi.exit21 ], [ true, %64 ]
+_ZN2cv12WLByteStream7putByteEi.exit24:            ; preds = %56, %_ZN2cv12WLByteStream7putByteEi.exit21, %9, %13
+  %.0 = phi i1 [ %17, %13 ], [ true, %9 ], [ true, %_ZN2cv12WLByteStream7putByteEi.exit21 ], [ true, %56 ]
   ret i1 %.0
 }
 

@@ -80,66 +80,66 @@ define internal noundef i32 @stream_avx2_xor_ic(ptr noundef %0, ptr noundef %1, 
   %7 = alloca %struct.salsa_ctx, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %45, label %8
+  br i1 %.not, label %42, label %8
 
 8:                                                ; preds = %6
-  %9 = lshr i64 %4, 32
-  %10 = trunc nuw i64 %9 to i32
-  %11 = trunc i64 %4 to i32
-  %12 = load i32, ptr %5, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
+  %.sroa.4.0.extract.shift = lshr i64 %4, 32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
+  %9 = load i32, ptr %5, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 %9, ptr %10, align 4
+  %11 = getelementptr i8, ptr %5, i64 4
+  %12 = load i32, ptr %11, align 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr i8, ptr %5, i64 4
+  %14 = getelementptr i8, ptr %5, i64 8
   %15 = load i32, ptr %14, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr i8, ptr %5, i64 8
+  %17 = getelementptr i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr i8, ptr %5, i64 12
+  %20 = getelementptr i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 1
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr i8, ptr %5, i64 16
+  %23 = getelementptr i8, ptr %5, i64 20
   %24 = load i32, ptr %23, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr i8, ptr %5, i64 20
+  %26 = getelementptr i8, ptr %5, i64 24
   %27 = load i32, ptr %26, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr i8, ptr %5, i64 24
+  %29 = getelementptr i8, ptr %5, i64 28
   %30 = load i32, ptr %29, align 1
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr i8, ptr %5, i64 28
-  %33 = load i32, ptr %32, align 1
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 %33, ptr %34, align 4
   store i32 1634760805, ptr %7, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 857760878, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 2036477234, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 1797285236, ptr %37, align 4
-  %38 = load i32, ptr %3, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 857760878, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 2036477234, ptr %33, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 1797285236, ptr %34, align 4
+  %35 = load i32, ptr %3, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 %35, ptr %36, align 4
+  %37 = getelementptr i8, ptr %3, i64 4
+  %38 = load i32, ptr %37, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr i8, ptr %3, i64 4
-  %41 = load i32, ptr %40, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 %11, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store i32 %10, ptr %44, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i32 %.sroa.0.0.extract.trunc, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 52
+  store i32 %.sroa.4.0.extract.trunc, ptr %41, align 4
   call fastcc void @salsa20_encrypt_bytes(ptr noundef %7, ptr noundef %1, ptr noundef %0, i64 noundef %2)
   call void @sodium_memzero(ptr noundef nonnull %7, i64 noundef 64) #6
-  br label %45
+  br label %42
 
-45:                                               ; preds = %6, %8
+42:                                               ; preds = %6, %8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
   ret i32 0
 }

@@ -707,7 +707,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_encode(ptr noundef %0, i1
   %33 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %34 = load i64, ptr @H5E_BADMESG_g, align 8, !tbaa !10
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__attr_encode, i32 noundef 342, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.22) #12
-  br label %172
+  br label %169
 
 36:                                               ; preds = %25
   %37 = load ptr, ptr %26, align 8, !tbaa !14
@@ -721,7 +721,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_encode(ptr noundef %0, i1
   %43 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %44 = load i64, ptr @H5E_BADMESG_g, align 8, !tbaa !10
   %45 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__attr_encode, i32 noundef 345, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.23) #12
-  br label %172
+  br label %169
 
 46:                                               ; preds = %36
   %47 = load ptr, ptr %26, align 8, !tbaa !14
@@ -750,176 +750,172 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_encode(ptr noundef %0, i1
   %60 = load ptr, ptr %59, align 8, !tbaa !32
   %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #13
   %62 = add i64 %61, 1
-  %63 = trunc i64 %62 to i8
-  store i8 %63, ptr %.080.i, align 1, !tbaa !23
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %65 = lshr i64 %62, 8
-  %66 = trunc i64 %65 to i8
-  store i8 %66, ptr %64, align 1, !tbaa !23
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %68 = load ptr, ptr %26, align 8, !tbaa !14
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %70 = load i64, ptr %69, align 8, !tbaa !29
-  %71 = trunc i64 %70 to i8
-  store i8 %71, ptr %67, align 1, !tbaa !23
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %73 = load ptr, ptr %26, align 8, !tbaa !14
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %75 = load i64, ptr %74, align 8, !tbaa !29
-  %76 = lshr i64 %75, 8
-  %77 = trunc i64 %76 to i8
-  store i8 %77, ptr %72, align 1, !tbaa !23
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %79 = load ptr, ptr %26, align 8, !tbaa !14
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %81 = load i64, ptr %80, align 8, !tbaa !30
-  %82 = trunc i64 %81 to i8
-  store i8 %82, ptr %78, align 1, !tbaa !23
-  %83 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  %84 = load ptr, ptr %26, align 8, !tbaa !14
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %86 = load i64, ptr %85, align 8, !tbaa !30
-  %87 = lshr i64 %86, 8
-  %88 = trunc i64 %87 to i8
-  store i8 %88, ptr %83, align 1, !tbaa !23
-  %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %90 = load ptr, ptr %26, align 8, !tbaa !14
-  %91 = load i8, ptr %90, align 8, !tbaa !24
-  %92 = icmp ugt i8 %91, 2
-  br i1 %92, label %93, label %98
+  %63 = trunc i64 %62 to i16
+  store i16 %63, ptr %.080.i, align 1
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %65 = load ptr, ptr %26, align 8, !tbaa !14
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %67 = load i64, ptr %66, align 8, !tbaa !29
+  %68 = trunc i64 %67 to i8
+  store i8 %68, ptr %64, align 1, !tbaa !23
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %70 = load ptr, ptr %26, align 8, !tbaa !14
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  %72 = load i64, ptr %71, align 8, !tbaa !29
+  %73 = lshr i64 %72, 8
+  %74 = trunc i64 %73 to i8
+  store i8 %74, ptr %69, align 1, !tbaa !23
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %76 = load ptr, ptr %26, align 8, !tbaa !14
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
+  %78 = load i64, ptr %77, align 8, !tbaa !30
+  %79 = trunc i64 %78 to i8
+  store i8 %79, ptr %75, align 1, !tbaa !23
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  %81 = load ptr, ptr %26, align 8, !tbaa !14
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
+  %83 = load i64, ptr %82, align 8, !tbaa !30
+  %84 = lshr i64 %83, 8
+  %85 = trunc i64 %84 to i8
+  store i8 %85, ptr %80, align 1, !tbaa !23
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %87 = load ptr, ptr %26, align 8, !tbaa !14
+  %88 = load i8, ptr %87, align 8, !tbaa !24
+  %89 = icmp ugt i8 %88, 2
+  br i1 %89, label %90, label %95
 
-93:                                               ; preds = %57
-  %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %95 = load i32, ptr %94, align 8, !tbaa !31
-  %96 = trunc i32 %95 to i8
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  store i8 %96, ptr %89, align 1, !tbaa !23
+90:                                               ; preds = %57
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %92 = load i32, ptr %91, align 8, !tbaa !31
+  %93 = trunc i32 %92 to i8
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 %93, ptr %86, align 1, !tbaa !23
   %.pre.i = load ptr, ptr %26, align 8, !tbaa !14
-  br label %98
+  br label %95
 
-98:                                               ; preds = %93, %57
-  %99 = phi ptr [ %.pre.i, %93 ], [ %90, %57 ]
-  %.1.i = phi ptr [ %97, %93 ], [ %89, %57 ]
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.1.i, ptr align 1 %101, i64 %62, i1 false)
-  %102 = load ptr, ptr %26, align 8, !tbaa !14
-  %103 = load i8, ptr %102, align 8, !tbaa !24
-  %104 = icmp ult i8 %103, 2
-  br i1 %104, label %105, label %110
+95:                                               ; preds = %90, %57
+  %96 = phi ptr [ %.pre.i, %90 ], [ %87, %57 ]
+  %.1.i = phi ptr [ %94, %90 ], [ %86, %57 ]
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.1.i, ptr align 1 %98, i64 %62, i1 false)
+  %99 = load ptr, ptr %26, align 8, !tbaa !14
+  %100 = load i8, ptr %99, align 8, !tbaa !24
+  %101 = icmp ult i8 %100, 2
+  br i1 %101, label %102, label %107
 
-105:                                              ; preds = %98
-  %106 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %62
-  %107 = and i64 %61, -8
-  %108 = add i64 %107, 8
-  %109 = sub i64 %108, %62
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %106, i8 0, i64 %109, i1 false)
+102:                                              ; preds = %95
+  %103 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %62
+  %104 = and i64 %61, -8
+  %105 = add i64 %104, 8
+  %106 = sub i64 %105, %62
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %103, i8 0, i64 %106, i1 false)
   %.pre88.i = load ptr, ptr %26, align 8, !tbaa !14
-  br label %110
+  br label %107
 
-110:                                              ; preds = %105, %98
-  %111 = phi ptr [ %.pre88.i, %105 ], [ %102, %98 ]
-  %.pn.i = phi i64 [ %108, %105 ], [ %62, %98 ]
+107:                                              ; preds = %102, %95
+  %108 = phi ptr [ %.pre88.i, %102 ], [ %99, %95 ]
+  %.pn.i = phi i64 [ %105, %102 ], [ %62, %95 ]
   %.2.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 %.pn.i
-  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 40), align 8, !tbaa !41
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !35
-  %115 = tail call i32 %112(ptr noundef %0, i1 noundef zeroext false, i64 noundef -1, ptr noundef nonnull %.2.i, ptr noundef %114) #12
-  %116 = icmp slt i32 %115, 0
-  br i1 %116, label %117, label %121
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_DTYPE, i64 40), align 8, !tbaa !41
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %111 = load ptr, ptr %110, align 8, !tbaa !35
+  %112 = tail call i32 %109(ptr noundef %0, i1 noundef zeroext false, i64 noundef -1, ptr noundef nonnull %.2.i, ptr noundef %111) #12
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %114, label %118
 
-117:                                              ; preds = %110
-  %118 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !10
-  %119 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !10
-  %120 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__attr_encode, i32 noundef 385, i64 noundef %118, i64 noundef %119, ptr noundef nonnull @.str.24) #12
-  br label %172
+114:                                              ; preds = %107
+  %115 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !10
+  %116 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !10
+  %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__attr_encode, i32 noundef 385, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.24) #12
+  br label %169
 
-121:                                              ; preds = %110
-  %122 = load ptr, ptr %26, align 8, !tbaa !14
-  %123 = load i8, ptr %122, align 8, !tbaa !24
-  %124 = icmp ult i8 %123, 2
-  %125 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %126 = load i64, ptr %125, align 8, !tbaa !29
-  br i1 %124, label %127, label %137
+118:                                              ; preds = %107
+  %119 = load ptr, ptr %26, align 8, !tbaa !14
+  %120 = load i8, ptr %119, align 8, !tbaa !24
+  %121 = icmp ult i8 %120, 2
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 32
+  %123 = load i64, ptr %122, align 8, !tbaa !29
+  br i1 %121, label %124, label %134
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %126
-  %129 = add i64 %126, 7
-  %130 = and i64 %129, -8
-  %131 = sub i64 %130, %126
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %128, i8 0, i64 %131, i1 false)
-  %132 = load ptr, ptr %26, align 8, !tbaa !14
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
-  %134 = load i64, ptr %133, align 8, !tbaa !29
-  %135 = add i64 %134, 7
-  %136 = and i64 %135, -8
-  br label %137
+124:                                              ; preds = %118
+  %125 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %123
+  %126 = add i64 %123, 7
+  %127 = and i64 %126, -8
+  %128 = sub i64 %127, %123
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %125, i8 0, i64 %128, i1 false)
+  %129 = load ptr, ptr %26, align 8, !tbaa !14
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
+  %131 = load i64, ptr %130, align 8, !tbaa !29
+  %132 = add i64 %131, 7
+  %133 = and i64 %132, -8
+  br label %134
 
-137:                                              ; preds = %127, %121
-  %138 = phi ptr [ %132, %127 ], [ %122, %121 ]
-  %.pn85.i = phi i64 [ %136, %127 ], [ %126, %121 ]
+134:                                              ; preds = %124, %118
+  %135 = phi ptr [ %129, %124 ], [ %119, %118 ]
+  %.pn85.i = phi i64 [ %133, %124 ], [ %123, %118 ]
   %.3.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 %.pn85.i
-  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_SDSPACE, i64 40), align 8, !tbaa !41
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 40
-  %141 = load ptr, ptr %140, align 8, !tbaa !36
-  %142 = tail call i32 %139(ptr noundef %0, i1 noundef zeroext false, i64 noundef -1, ptr noundef nonnull %.3.i, ptr noundef %141) #12
-  %143 = icmp slt i32 %142, 0
-  br i1 %143, label %144, label %148
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_MSG_SDSPACE, i64 40), align 8, !tbaa !41
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 40
+  %138 = load ptr, ptr %137, align 8, !tbaa !36
+  %139 = tail call i32 %136(ptr noundef %0, i1 noundef zeroext false, i64 noundef -1, ptr noundef nonnull %.3.i, ptr noundef %138) #12
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %141, label %145
 
-144:                                              ; preds = %137
-  %145 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !10
-  %146 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !10
-  %147 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__attr_encode, i32 noundef 396, i64 noundef %145, i64 noundef %146, ptr noundef nonnull @.str.25) #12
-  br label %172
+141:                                              ; preds = %134
+  %142 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !10
+  %143 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !10
+  %144 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__attr_encode, i32 noundef 396, i64 noundef %142, i64 noundef %143, ptr noundef nonnull @.str.25) #12
+  br label %169
 
-148:                                              ; preds = %137
-  %149 = load ptr, ptr %26, align 8, !tbaa !14
-  %150 = load i8, ptr %149, align 8, !tbaa !24
-  %151 = icmp ult i8 %150, 2
-  %152 = getelementptr inbounds nuw i8, ptr %149, i64 48
-  %153 = load i64, ptr %152, align 8, !tbaa !30
-  br i1 %151, label %154, label %164
+145:                                              ; preds = %134
+  %146 = load ptr, ptr %26, align 8, !tbaa !14
+  %147 = load i8, ptr %146, align 8, !tbaa !24
+  %148 = icmp ult i8 %147, 2
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 48
+  %150 = load i64, ptr %149, align 8, !tbaa !30
+  br i1 %148, label %151, label %161
 
-154:                                              ; preds = %148
-  %155 = getelementptr inbounds nuw i8, ptr %.3.i, i64 %153
-  %156 = add i64 %153, 7
-  %157 = and i64 %156, -8
-  %158 = sub i64 %157, %153
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %155, i8 0, i64 %158, i1 false)
-  %159 = load ptr, ptr %26, align 8, !tbaa !14
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 48
-  %161 = load i64, ptr %160, align 8, !tbaa !30
-  %162 = add i64 %161, 7
-  %163 = and i64 %162, -8
-  br label %164
+151:                                              ; preds = %145
+  %152 = getelementptr inbounds nuw i8, ptr %.3.i, i64 %150
+  %153 = add i64 %150, 7
+  %154 = and i64 %153, -8
+  %155 = sub i64 %154, %150
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %152, i8 0, i64 %155, i1 false)
+  %156 = load ptr, ptr %26, align 8, !tbaa !14
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
+  %158 = load i64, ptr %157, align 8, !tbaa !30
+  %159 = add i64 %158, 7
+  %160 = and i64 %159, -8
+  br label %161
 
-164:                                              ; preds = %154, %148
-  %165 = phi ptr [ %159, %154 ], [ %149, %148 ]
-  %.pn86.i = phi i64 [ %163, %154 ], [ %153, %148 ]
+161:                                              ; preds = %151, %145
+  %162 = phi ptr [ %156, %151 ], [ %146, %145 ]
+  %.pn86.i = phi i64 [ %160, %151 ], [ %150, %145 ]
   %.4.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 %.pn86.i
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 56
-  %167 = load ptr, ptr %166, align 8, !tbaa !38
-  %.not87.i = icmp eq ptr %167, null
-  %168 = getelementptr inbounds nuw i8, ptr %165, i64 64
-  %169 = load i64, ptr %168, align 8, !tbaa !37
-  br i1 %.not87.i, label %171, label %170
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 56
+  %164 = load ptr, ptr %163, align 8, !tbaa !38
+  %.not87.i = icmp eq ptr %164, null
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 64
+  %166 = load i64, ptr %165, align 8, !tbaa !37
+  br i1 %.not87.i, label %168, label %167
 
-170:                                              ; preds = %164
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.4.i, ptr nonnull align 1 %167, i64 %169, i1 false)
+167:                                              ; preds = %161
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.4.i, ptr nonnull align 1 %164, i64 %166, i1 false)
   br label %H5O__attr_encode.exit
 
-171:                                              ; preds = %164
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.4.i, i8 0, i64 %169, i1 false)
+168:                                              ; preds = %161
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.4.i, i8 0, i64 %166, i1 false)
   br label %H5O__attr_encode.exit
 
-172:                                              ; preds = %32, %42, %117, %144
-  %173 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
-  %174 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !10
-  %175 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__attr_shared_encode, i32 noundef 126, i64 noundef %173, i64 noundef %174, ptr noundef nonnull @.str.21) #12
+169:                                              ; preds = %32, %42, %114, %141
+  %170 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
+  %171 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !10
+  %172 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__attr_shared_encode, i32 noundef 126, i64 noundef %170, i64 noundef %171, ptr noundef nonnull @.str.21) #12
   br label %H5O__attr_encode.exit
 
-H5O__attr_encode.exit:                            ; preds = %171, %170, %21, %172, %18, %5
-  %.0 = phi i32 [ -1, %172 ], [ -1, %21 ], [ 0, %18 ], [ 0, %5 ], [ 0, %170 ], [ 0, %171 ]
+H5O__attr_encode.exit:                            ; preds = %168, %167, %21, %169, %18, %5
+  %.0 = phi i32 [ -1, %169 ], [ -1, %21 ], [ 0, %18 ], [ 0, %5 ], [ 0, %167 ], [ 0, %168 ]
   ret i32 %.0
 }
 

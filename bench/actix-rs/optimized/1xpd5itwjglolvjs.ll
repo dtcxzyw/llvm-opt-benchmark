@@ -1929,16 +1929,11 @@ _ZN15actix_multipart6server13PayloadBuffer15readline_or_eof17h0922ba60964d3afcE.
   %.sroa.15.0.ph.i = phi i64 [ %.sroa.638.0.copyload.i.i, %._crit_edge.i.i ], [ undef, %.noexc229.i ], [ undef, %147 ]
   %.sroa.015.0.ph.i = phi i64 [ %.lcssa95.i.i, %._crit_edge.i.i ], [ 3, %.noexc229.i ], [ 5, %147 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.9.sroa.9.i.i)
-  %.sroa.8.0.extract.trunc.i = trunc i64 %.sroa.8.0.ph.i to i8
-  %.sroa.8.1.extract.shift.i = lshr i64 %.sroa.8.0.ph.i, 8
-  %.sroa.8.1.extract.trunc.i = trunc nuw i64 %.sroa.8.1.extract.shift.i to i56
   store i64 3, ptr %0, align 8, !alias.scope !250, !noalias !253
   %.sroa.4108.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.015.0.ph.i, ptr %.sroa.4108.0..sroa_idx.i, align 8, !alias.scope !250, !noalias !253
   %.sroa.5109.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.8.0.extract.trunc.i, ptr %.sroa.5109.0..sroa_idx.i, align 8, !alias.scope !250, !noalias !253
-  %.sroa.6110.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i56 %.sroa.8.1.extract.trunc.i, ptr %.sroa.6110.0..sroa_idx.i, align 1, !alias.scope !250, !noalias !253
+  store i64 %.sroa.8.0.ph.i, ptr %.sroa.5109.0..sroa_idx.i, align 8, !alias.scope !250, !noalias !253
   %.sroa.6110.sroa.4.0..sroa.6110.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6110.sroa.4.0..sroa.6110.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.i, i64 24, i1 false), !noalias !253
   %.sroa.6110.sroa.5.0..sroa.6110.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1979,16 +1974,11 @@ _ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.e
   %.sroa.18.0169.i = phi i64 [ undef, %_ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.exit.i ], [ %.sroa.18.0.copyload.i.i, %_ZN15actix_multipart6server13PayloadBuffer15readline_or_eof17h0922ba60964d3afcE.exit.i.i ]
   %.sroa.722.1168.i = phi ptr [ %.sroa.722.0.i, %_ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.exit.i ], [ %.sroa.6.0.copyload.i.i, %_ZN15actix_multipart6server13PayloadBuffer15readline_or_eof17h0922ba60964d3afcE.exit.i.i ]
   %339 = ptrtoint ptr %.sroa.722.1168.i to i64
-  %.sroa.722.0.extract.trunc.i = trunc i64 %339 to i8
-  %.sroa.722.1.extract.shift.i = lshr i64 %339, 8
-  %.sroa.722.1.extract.trunc.i = trunc nuw i64 %.sroa.722.1.extract.shift.i to i56
   store i64 3, ptr %0, align 8, !alias.scope !250, !noalias !253
   %.sroa.4131.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.097173.i, ptr %.sroa.4131.0..sroa_idx.i, align 8, !alias.scope !250, !noalias !253
   %.sroa.5132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.722.0.extract.trunc.i, ptr %.sroa.5132.0..sroa_idx.i, align 8, !alias.scope !250, !noalias !253
-  %.sroa.6133.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i56 %.sroa.722.1.extract.trunc.i, ptr %.sroa.6133.0..sroa_idx.i, align 1, !alias.scope !250, !noalias !253
+  store i64 %339, ptr %.sroa.5132.0..sroa_idx.i, align 8, !alias.scope !250, !noalias !253
   %.sroa.6133.sroa.4.0..sroa.6133.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.1523.0172.i, ptr %.sroa.6133.sroa.4.0..sroa.6133.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !250, !noalias !253
   %.sroa.6133.sroa.5.0..sroa.6133.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -24209,7 +24209,7 @@ define linkonce_odr void @_ZN3nix15MountedSSHStore16getBuildLogExactB5cxx11ERKNS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix15MountedSSHStore11addPermRootERKNS_9StorePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca [8 x i8], align 1
+  %5 = alloca [8 x i8], align 8
   %6 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr i8, ptr %7, i64 -112
@@ -24224,63 +24224,61 @@ define linkonce_odr void @_ZN3nix15MountedSSHStore11addPermRootERKNS_9StorePathE
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store i8 47, ptr %5, align 1
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %18, i8 0, i64 7, i1 false)
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 8, ptr nonnull %5)
-          to label %22 unwind label %47
+  store i64 47, ptr %5, align 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 8, ptr nonnull %5)
+          to label %21 unwind label %46
 
-22:                                               ; preds = %4
+21:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr i8, ptr %23, i64 -40
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 %25
-  %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr i8, ptr %29, i64 -48
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 %31
-  invoke void @_ZN3nix11CommonProto9SerialiseINS_9StorePathEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS2_(ptr noundef nonnull align 8 dereferenceable(344) %26, ptr nonnull %32, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %_ZN3nix11WorkerProto5writeINS_9StorePathEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit unwind label %47
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr i8, ptr %22, i64 -40
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 %24
+  %26 = load ptr, ptr %11, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr i8, ptr %28, i64 -48
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %27, i64 %30
+  invoke void @_ZN3nix11CommonProto9SerialiseINS_9StorePathEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS2_(ptr noundef nonnull align 8 dereferenceable(344) %25, ptr nonnull %31, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %_ZN3nix11WorkerProto5writeINS_9StorePathEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit unwind label %46
 
-_ZN3nix11WorkerProto5writeINS_9StorePathEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit: ; preds = %22
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr i8, ptr %33, i64 -40
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 %35
-  %37 = load ptr, ptr %11, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr i8, ptr %39, i64 -48
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  invoke void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %36, ptr nonnull %42, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %_ZN3nix11WorkerProto5writeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit unwind label %47
+_ZN3nix11WorkerProto5writeINS_9StorePathEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit: ; preds = %21
+  %32 = load ptr, ptr %1, align 8
+  %33 = getelementptr i8, ptr %32, i64 -40
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 %34
+  %36 = load ptr, ptr %11, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr i8, ptr %38, i64 -48
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %37, i64 %40
+  invoke void @_ZN3nix11CommonProto9SerialiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS7_(ptr noundef nonnull align 8 dereferenceable(344) %35, ptr nonnull %41, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %_ZN3nix11WorkerProto5writeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit unwind label %46
 
 _ZN3nix11WorkerProto5writeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit: ; preds = %_ZN3nix11WorkerProto5writeINS_9StorePathEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit
   invoke void @_ZN3nix11RemoteStore16ConnectionHandle13processStderrEPNS_4SinkEPNS_6SourceEb(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-          to label %43 unwind label %47
+          to label %42 unwind label %46
 
-43:                                               ; preds = %_ZN3nix11WorkerProto5writeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  invoke void @_ZN3nix10readStringB5cxx11ERNS_6SourceEm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef -1)
-          to label %46 unwind label %47
+42:                                               ; preds = %_ZN3nix11WorkerProto5writeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit
+  %43 = load ptr, ptr %11, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  invoke void @_ZN3nix10readStringB5cxx11ERNS_6SourceEm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef -1)
+          to label %45 unwind label %46
 
-46:                                               ; preds = %43
+45:                                               ; preds = %42
   call void @_ZN3nix11RemoteStore16ConnectionHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #24
   ret void
 
-47:                                               ; preds = %_ZN3nix11WorkerProto5writeINS_9StorePathEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit, %22, %4, %43, %_ZN3nix11WorkerProto5writeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZN3nix11WorkerProto5writeINS_9StorePathEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit, %21, %4, %42, %_ZN3nix11WorkerProto5writeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS_14StoreDirConfigENS0_9WriteConnERKT_.exit
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix11RemoteStore16ConnectionHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #24
-  resume { ptr, i32 } %48
+  resume { ptr, i32 } %47
 }
 
 ; Function Attrs: nounwind uwtable

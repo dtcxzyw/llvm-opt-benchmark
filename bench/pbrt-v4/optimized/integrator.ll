@@ -5558,7 +5558,9 @@ define dso_local void @_ZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEv(p
   %9 = sub i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, %.sroa.0.0.copyload.i.i12.pn.i.i.i
   %.sroa.7.12.extract.shift73 = sub i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, %.sroa.2.0.extract.shift.i.i
   %.sroa.2.0.insert.ext.i.i = and i64 %.sroa.7.12.extract.shift73, -4294967296
+  %.sroa.0.0.insert.ext.i.i = and i64 %9, 4294967295
   call void @_ZNK4pbrt4Film11GetFilenameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %.sroa.0.0.insert.insert.i.i32 = or disjoint i64 %.sroa.2.0.insert.ext.i.i, %.sroa.0.0.insert.ext.i.i
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #31
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %10, ptr %3, align 8, !tbaa !135
@@ -5630,9 +5632,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %38, ptr %4, align 8, !tbaa !450
   store ptr @"_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEZNS0_23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0E9_M_invokeERKSt9_Any_dataOS2_OS6_", ptr %40, align 8, !tbaa !496
   store ptr @"_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEZNS0_23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %37, align 8, !tbaa !60
-  %.sroa.061.0.insert.ext = and i64 %9, 4294967295
-  %.sroa.061.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext.i.i, %.sroa.061.0.insert.ext
-  invoke void @_ZN4pbrt14DisplayDynamicENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point2IiEESt6vectorIS5_SaIS5_EESt8functionIFvNS_7Bounds2IiEEN4pstd4spanINSF_IfEEEEEE(ptr noundef nonnull %1, i64 %.sroa.061.0.insert.insert, ptr noundef nonnull %2, ptr noundef nonnull %4)
+  invoke void @_ZN4pbrt14DisplayDynamicENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point2IiEESt6vectorIS5_SaIS5_EESt8functionIFvNS_7Bounds2IiEEN4pstd4spanINSF_IfEEEEEE(ptr noundef nonnull %1, i64 %.sroa.0.0.insert.insert.i.i32, ptr noundef nonnull %2, ptr noundef nonnull %4)
           to label %41 unwind label %87
 
 41:                                               ; preds = %39

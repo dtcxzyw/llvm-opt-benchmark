@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
-  %6 = alloca [4 x i8], align 1
+  %6 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
   br label %7
@@ -88,58 +88,45 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   %.158.lcssa = phi i8 [ 0, %.preheader ], [ %.narrow67, %._crit_edge.loopexit ]
   %.2.lcssa = phi i32 [ 0, %.preheader ], [ %19, %._crit_edge.loopexit ]
   %.054.lcssa = phi ptr [ %2, %.preheader ], [ %35, %._crit_edge.loopexit ]
-  %40 = trunc i32 %.060.lcssa to i8
-  store i8 %40, ptr %6, align 1
-  %41 = lshr i32 %.060.lcssa, 8
-  %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %42, ptr %43, align 1
-  %44 = lshr i32 %.060.lcssa, 16
-  %45 = trunc i32 %44 to i8
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %45, ptr %46, align 1
-  %47 = lshr i32 %.060.lcssa, 24
-  %48 = trunc nuw i32 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %48, ptr %49, align 1
-  br label %50
+  store i32 %.060.lcssa, ptr %6, align 4
+  br label %40
 
-50:                                               ; preds = %._crit_edge, %67
-  %indvars.iv91 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next92, %67 ]
-  %.183 = phi ptr [ %.054.lcssa, %._crit_edge ], [ %68, %67 ]
-  %.382 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %52, %67 ]
-  %.25981 = phi i8 [ %.158.lcssa, %._crit_edge ], [ %.narrow66, %67 ]
-  %51 = add nuw nsw i32 %.382, 1
-  %52 = and i32 %51, 255
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr [256 x i8], ptr %5, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1
-  %.narrow66 = add i8 %55, %.25981
-  %56 = zext i8 %.narrow66 to i64
-  %57 = getelementptr [256 x i8], ptr %5, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1
-  store i8 %58, ptr %54, align 1
-  store i8 %55, ptr %57, align 1
-  %59 = getelementptr [4 x i8], ptr %6, i64 0, i64 %indvars.iv91
-  %60 = load i8, ptr %59, align 1
-  %61 = load i8, ptr %54, align 1
-  %.narrow = add i8 %61, %55
-  %62 = zext i8 %.narrow to i64
-  %63 = getelementptr [256 x i8], ptr %5, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1
-  %65 = xor i8 %64, %60
-  %66 = load i8, ptr %.183, align 1
-  %.not = icmp eq i8 %65, %66
-  br i1 %.not, label %67, label %69
+40:                                               ; preds = %._crit_edge, %57
+  %indvars.iv91 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next92, %57 ]
+  %.183 = phi ptr [ %.054.lcssa, %._crit_edge ], [ %58, %57 ]
+  %.382 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %42, %57 ]
+  %.25981 = phi i8 [ %.158.lcssa, %._crit_edge ], [ %.narrow66, %57 ]
+  %41 = add nuw nsw i32 %.382, 1
+  %42 = and i32 %41, 255
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr [256 x i8], ptr %5, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1
+  %.narrow66 = add i8 %45, %.25981
+  %46 = zext i8 %.narrow66 to i64
+  %47 = getelementptr [256 x i8], ptr %5, i64 0, i64 %46
+  %48 = load i8, ptr %47, align 1
+  store i8 %48, ptr %44, align 1
+  store i8 %45, ptr %47, align 1
+  %49 = getelementptr [4 x i8], ptr %6, i64 0, i64 %indvars.iv91
+  %50 = load i8, ptr %49, align 1
+  %51 = load i8, ptr %44, align 1
+  %.narrow = add i8 %51, %45
+  %52 = zext i8 %.narrow to i64
+  %53 = getelementptr [256 x i8], ptr %5, i64 0, i64 %52
+  %54 = load i8, ptr %53, align 1
+  %55 = xor i8 %54, %50
+  %56 = load i8, ptr %.183, align 1
+  %.not = icmp eq i8 %55, %56
+  br i1 %.not, label %57, label %59
 
-67:                                               ; preds = %50
-  %68 = getelementptr i8, ptr %.183, i64 1
+57:                                               ; preds = %40
+  %58 = getelementptr i8, ptr %.183, i64 1
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next92, 4
-  br i1 %exitcond93.not, label %69, label %50, !llvm.loop !10
+  br i1 %exitcond93.not, label %59, label %40, !llvm.loop !10
 
-69:                                               ; preds = %67, %50
-  %.0 = phi i32 [ 1, %50 ], [ 0, %67 ]
+59:                                               ; preds = %57, %40
+  %.0 = phi i32 [ 1, %40 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #3
   ret i32 %.0

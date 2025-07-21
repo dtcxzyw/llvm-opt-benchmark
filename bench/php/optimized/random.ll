@@ -858,11 +858,11 @@ define dso_local double @php_combined_lcg() local_unnamed_addr #0 {
 
 9:                                                ; preds = %._crit_edge, %7
   %10 = phi i64 [ %.pre, %._crit_edge ], [ %8, %7 ]
+  store i8 1, ptr @random_globals, align 4, !tbaa !84
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
   %11 = trunc i64 %10 to i32
   %12 = lshr i64 %10, 32
   %13 = trunc nuw i64 %12 to i32
-  store i8 1, ptr @random_globals, align 4, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
   br label %14
 
 14:                                               ; preds = %._crit_edge28, %9
@@ -1043,11 +1043,11 @@ define hidden void @zif_lcg_value(ptr noundef readonly captures(none) %0, ptr no
 
 15:                                               ; preds = %13, %._crit_edge.i
   %16 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %14, %13 ]
+  store i8 1, ptr @random_globals, align 4, !tbaa !84
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %17 = trunc i64 %16 to i32
   %18 = lshr i64 %16, 32
   %19 = trunc nuw i64 %18 to i32
-  store i8 1, ptr @random_globals, align 4, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   br label %php_combined_lcg.exit
 
 php_combined_lcg.exit:                            ; preds = %._crit_edge28.i, %15

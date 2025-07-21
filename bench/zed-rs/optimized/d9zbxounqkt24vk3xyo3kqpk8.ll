@@ -24010,17 +24010,12 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501f
   %.sroa.4.0.i56.i.i.i = phi i64 [ %4003, %.thread50.i.i.i ], [ %.sroa.4.1.in.i.i.i.i, %4021 ]
   %.sroa.843.0.i55.i.i.i = phi i64 [ %.sroa.929.i.sroa.8.0.i.i.i.i, %.thread50.i.i.i ], [ %.sroa.843.1.i.i.i.i, %4021 ]
   %.sroa.042.0.i54.i.i.i = phi i64 [ %.sroa.032.040.i.i.i.i.i, %.thread50.i.i.i ], [ %.sroa.042.1.i.i.i.i, %4021 ]
-  %.sroa.3.0.extract.trunc41.i.i.i = trunc i64 %.sroa.4.0.i56.i.i.i to i32
-  %.sroa.3.4.extract.shift.i.i.i = lshr i64 %.sroa.4.0.i56.i.i.i, 32
-  %.sroa.3.4.extract.trunc.i.i.i = trunc nuw i64 %.sroa.3.4.extract.shift.i.i.i to i32
   %.sroa.545.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10), !noalias !6865
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.545.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.839.i.i.i, i64 48, i1 false), !noalias !6865
   store i64 %.sroa.042.0.i54.i.i.i, ptr %10, align 8, !noalias !7153
   %.sroa.2.0..sroa_idx.i.i.i276 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sroa.3.0.extract.trunc41.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i276, align 8, !noalias !7153
-  %.sroa.343.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sroa.3.4.extract.trunc.i.i.i, ptr %.sroa.343.0..sroa_idx.i.i.i, align 4, !noalias !7153
+  store i64 %.sroa.4.0.i56.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i276, align 8, !noalias !7153
   %.sroa.4.0..sroa_idx44.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.sroa.843.0.i55.i.i.i, ptr %.sroa.4.0..sroa_idx44.i.i.i, align 8, !noalias !7153
   invoke void @"_ZN82_$LT$zbus..fdo..Error$u20$as$u20$core..convert..From$LT$zbus..error..Error$GT$$GT$4from17he2afd06c5f578480E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %34, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %10)

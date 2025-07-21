@@ -1752,7 +1752,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_leaf_serialize(ptr readnone ca
   %8 = trunc nuw i8 %7 to i1
   %9 = xor i1 %8, true
   %10 = select i1 %6, i1 true, i1 %9
-  br i1 %10, label %11, label %69, !prof !9
+  br i1 %10, label %11, label %59, !prof !9
 
 11:                                               ; preds = %4
   store i32 1179407426, ptr %1, align 1
@@ -1798,7 +1798,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_leaf_serialize(ptr readnone ca
   %34 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !15
   %35 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !15
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B2__cache_leaf_serialize, i32 noundef 1150, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.25) #6
-  br label %69
+  br label %59
 
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %14, align 8, !tbaa !103
@@ -1823,28 +1823,15 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_leaf_serialize(ptr readnone ca
   %53 = ptrtoint ptr %1 to i64
   %54 = sub i64 %52, %53
   %55 = tail call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %54, i32 noundef 0) #6
-  %56 = trunc i32 %55 to i8
-  store i8 %56, ptr %.040.lcssa, align 1, !tbaa !20
-  %57 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 1
-  %58 = lshr i32 %55, 8
-  %59 = trunc i32 %58 to i8
-  store i8 %59, ptr %57, align 1, !tbaa !20
-  %60 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 2
-  %61 = lshr i32 %55, 16
-  %62 = trunc i32 %61 to i8
-  store i8 %62, ptr %60, align 1, !tbaa !20
-  %63 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 3
-  %64 = lshr i32 %55, 24
-  %65 = trunc nuw i32 %64 to i8
-  store i8 %65, ptr %63, align 1, !tbaa !20
-  %66 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 4
-  %67 = ptrtoint ptr %66 to i64
+  store i32 %55, ptr %.040.lcssa, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 4
+  %57 = ptrtoint ptr %56 to i64
   %.neg = add i64 %2, %53
-  %68 = sub i64 %.neg, %67
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %66, i8 0, i64 %68, i1 false)
-  br label %69
+  %58 = sub i64 %.neg, %57
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %56, i8 0, i64 %58, i1 false)
+  br label %59
 
-69:                                               ; preds = %33, %._crit_edge, %4
+59:                                               ; preds = %33, %._crit_edge, %4
   %.0 = phi i32 [ -1, %33 ], [ 0, %._crit_edge ], [ 0, %4 ]
   ret i32 %.0
 }

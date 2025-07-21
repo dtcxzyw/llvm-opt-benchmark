@@ -25137,45 +25137,39 @@ define hidden void @_ZN18ty_python_semantic5types8instance20ProtocolInstanceType
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %6 = call noundef zeroext i1 @"_ZN18ty_python_semantic5types8instance49_$LT$impl$u20$ty_python_semantic..types..Type$GT$18satisfies_protocol17hf2d820f33559e321E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i64 %1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %6, label %19, label %7
+  br i1 %6, label %17, label %7
 
 7:                                                ; preds = %4
   %8 = icmp eq i32 %.sroa.010.0.extract.trunc, 2
-  br i1 %8, label %9, label %11
+  br i1 %8, label %.sink.split, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 2, ptr %10, align 4
-  %.sroa.5.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.5.0..sroa_idx6, align 8
-  br label %.sink.split
+  %10 = tail call { i32, i32 } @_ZN18ty_python_semantic5types5class9ClassType13class_literal17h29591e18154063c7E(i32 noundef %.sroa.010.0.extract.trunc, i32 noundef %.sroa.4.0.extract.trunc, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
+  %11 = extractvalue { i32, i32 } %10, 0
+  %12 = tail call noundef i32 @"_ZN18ty_python_semantic5types14protocol_class64_$LT$impl$u20$ty_python_semantic..types..class..ClassLiteral$GT$19into_protocol_class17haea049c0074a8ddbE"(i32 noundef %11, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
+  %.not.i = icmp eq i32 %12, 0
+  br i1 %.not.i, label %13, label %_ZN18ty_python_semantic5types8instance8Protocol9interface17hffc2e76b54160240E.exit, !prof !4
 
-11:                                               ; preds = %7
-  %12 = tail call { i32, i32 } @_ZN18ty_python_semantic5types5class9ClassType13class_literal17h29591e18154063c7E(i32 noundef %.sroa.010.0.extract.trunc, i32 noundef %.sroa.4.0.extract.trunc, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-  %13 = extractvalue { i32, i32 } %12, 0
-  %14 = tail call noundef i32 @"_ZN18ty_python_semantic5types14protocol_class64_$LT$impl$u20$ty_python_semantic..types..class..ClassLiteral$GT$19into_protocol_class17haea049c0074a8ddbE"(i32 noundef %13, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %15, label %_ZN18ty_python_semantic5types8instance8Protocol9interface17hffc2e76b54160240E.exit, !prof !4
-
-15:                                               ; preds = %11
+13:                                               ; preds = %9
   tail call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.4370228678aea563ecef3852b2bac777.193, i64 noundef 49, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4370228678aea563ecef3852b2bac777.195) #39
   unreachable
 
-_ZN18ty_python_semantic5types8instance8Protocol9interface17hffc2e76b54160240E.exit: ; preds = %11
-  %16 = tail call noundef i32 @_ZN18ty_python_semantic5types14protocol_class20ProtocolClassLiteral9interface17h3358d60a819fbbe5E(i32 noundef %14, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-  %17 = tail call noundef i32 @_ZN18ty_python_semantic5types8instance20synthesized_protocol23SynthesizedProtocolType3new17h7d92ce3e9528940eE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %16)
-  %.sroa.4.0.insert.ext.i = zext i32 %17 to i64
+_ZN18ty_python_semantic5types8instance8Protocol9interface17hffc2e76b54160240E.exit: ; preds = %9
+  %14 = tail call noundef i32 @_ZN18ty_python_semantic5types14protocol_class20ProtocolClassLiteral9interface17h3358d60a819fbbe5E(i32 noundef %12, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
+  %15 = tail call noundef i32 @_ZN18ty_python_semantic5types8instance20synthesized_protocol23SynthesizedProtocolType3new17h7d92ce3e9528940eE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %14)
+  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
   %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
   %.sroa.01.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, 2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.01.0.insert.insert.i, ptr %18, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %9, %_ZN18ty_python_semantic5types8instance8Protocol9interface17hffc2e76b54160240E.exit
+.sink.split:                                      ; preds = %7, %_ZN18ty_python_semantic5types8instance8Protocol9interface17hffc2e76b54160240E.exit
+  %.sroa.01.0.insert.insert.i.sink = phi i64 [ %.sroa.01.0.insert.insert.i, %_ZN18ty_python_semantic5types8instance8Protocol9interface17hffc2e76b54160240E.exit ], [ %1, %7 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.01.0.insert.insert.i.sink, ptr %16, align 4
   store i8 14, ptr %0, align 8
-  br label %19
+  br label %17
 
-19:                                               ; preds = %.sink.split, %4
+17:                                               ; preds = %.sink.split, %4
   ret void
 }
 
@@ -41960,9 +41954,7 @@ define noundef zeroext i1 @"_ZN99_$LT$ty_python_semantic..types..instance..Proto
   br i1 %5, label %8, label %9
 
 8:                                                ; preds = %7
-  store i32 2, ptr %0, align 4
-  %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %.sroa.6.0..sroa_idx5.i, align 4
+  store i64 %1, ptr %0, align 4
   br label %"_ZN87_$LT$ty_python_semantic..types..instance..Protocol$u20$as$u20$salsa..update..Update$GT$12maybe_update17he5f5804d534f8d82E.exit"
 
 9:                                                ; preds = %7
@@ -41975,9 +41967,7 @@ define noundef zeroext i1 @"_ZN99_$LT$ty_python_semantic..types..instance..Proto
   br label %"_ZN87_$LT$ty_python_semantic..types..instance..Protocol$u20$as$u20$salsa..update..Update$GT$12maybe_update17he5f5804d534f8d82E.exit"
 
 14:                                               ; preds = %6
-  store i32 %.sroa.010.0.extract.trunc.i, ptr %0, align 4
-  %.sroa.6.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %.sroa.6.0..sroa_idx7.i, align 4
+  store i64 %1, ptr %0, align 4
   br label %"_ZN87_$LT$ty_python_semantic..types..instance..Protocol$u20$as$u20$salsa..update..Update$GT$12maybe_update17he5f5804d534f8d82E.exit"
 
 "_ZN87_$LT$ty_python_semantic..types..instance..Protocol$u20$as$u20$salsa..update..Update$GT$12maybe_update17he5f5804d534f8d82E.exit": ; preds = %8, %9, %11, %14
@@ -42002,9 +41992,7 @@ define noundef zeroext i1 @"_ZN87_$LT$ty_python_semantic..types..instance..Proto
   br i1 %5, label %8, label %9
 
 8:                                                ; preds = %7
-  store i32 2, ptr %0, align 4
-  %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.6.0..sroa_idx5, align 4
+  store i64 %1, ptr %0, align 4
   br label %11
 
 9:                                                ; preds = %7
@@ -42021,9 +42009,7 @@ define noundef zeroext i1 @"_ZN87_$LT$ty_python_semantic..types..instance..Proto
   br label %11
 
 15:                                               ; preds = %6
-  store i32 %.sroa.010.0.extract.trunc, ptr %0, align 4
-  %.sroa.6.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.6.0..sroa_idx7, align 4
+  store i64 %1, ptr %0, align 4
   br label %11
 }
 

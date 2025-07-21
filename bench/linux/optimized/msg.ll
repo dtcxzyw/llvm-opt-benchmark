@@ -470,18 +470,18 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_msgct
   %14 = load ptr, ptr %13, align 8
   %15 = or i32 %1, %0
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %17, label %198
+  br i1 %16, label %17, label %186
 
 17:                                               ; preds = %4
   %18 = and i32 %1, -257
-  switch i32 %18, label %198 [
+  switch i32 %18, label %186 [
     i32 3, label %19
     i32 12, label %19
     i32 2, label %71
     i32 11, label %71
     i32 13, label %71
-    i32 1, label %158
-    i32 0, label %195
+    i32 1, label %146
+    i32 0, label %183
   ]
 
 19:                                               ; preds = %17, %17
@@ -581,7 +581,7 @@ msgctl_info.exit:                                 ; preds = %19
   %69 = phi i32 [ %67, %63 ], [ %20, %msgctl_info.exit ]
   %70 = sext i32 %69 to i64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
-  br label %198
+  br label %186
 
 71:                                               ; preds = %17, %17, %17
   %72 = call fastcc i32 @msgctl_stat(ptr noundef %14, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7)
@@ -590,187 +590,172 @@ msgctl_info.exit:                                 ; preds = %19
 
 74:                                               ; preds = %71
   %75 = sext i32 %72 to i64
-  br label %198
+  br label %186
 
 76:                                               ; preds = %71
   %77 = icmp eq i32 %3, 256
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  br i1 %77, label %79, label %119
+  br i1 %77, label %79, label %107
 
 79:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %5, i8 0, i64 88, i1 false)
   call void @to_compat_ipc64_perm(ptr noundef nonnull %5, ptr noundef nonnull %7) #10
   %80 = load i64, ptr %78, align 8
-  %81 = trunc i64 %80 to i32
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %81, ptr %82, align 4
-  %83 = lshr i64 %80, 32
-  %84 = trunc nuw i64 %83 to i32
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %87 = load i64, ptr %86, align 8
-  %88 = trunc i64 %87 to i32
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i32 %88, ptr %89, align 4
-  %90 = lshr i64 %87, 32
-  %91 = trunc nuw i64 %90 to i32
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %91, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %94 = load i64, ptr %93, align 8
-  %95 = trunc i64 %94 to i32
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 %95, ptr %96, align 4
-  %97 = lshr i64 %94, 32
-  %98 = trunc nuw i64 %97 to i32
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i64 %80, ptr %81, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  store i64 %83, ptr %84, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %86 = load i64, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store i64 %86, ptr %87, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %89 = load i64, ptr %88, align 8
+  %90 = trunc i64 %89 to i32
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 %90, ptr %91, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %93 = load i64, ptr %92, align 8
+  %94 = trunc i64 %93 to i32
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i32 %94, ptr %95, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %97 = load i64, ptr %96, align 8
+  %98 = trunc i64 %97 to i32
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 %98, ptr %99, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %101 = load i64, ptr %100, align 8
-  %102 = trunc i64 %101 to i32
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store i32 %102, ptr %103, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %105 = load i64, ptr %104, align 8
-  %106 = trunc i64 %105 to i32
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i32 %106, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %109 = load i64, ptr %108, align 8
-  %110 = trunc i64 %109 to i32
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  store i32 %110, ptr %111, align 4
-  %112 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %113 = load i32, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 %113, ptr %114, align 4
-  %115 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  store i32 %116, ptr %117, align 4
-  %118 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 88) #10
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %101 = load i32, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store i32 %101, ptr %102, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 100
+  %104 = load i32, ptr %103, align 4
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  store i32 %104, ptr %105, align 4
+  %106 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 88) #10
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #10
-  br label %152
+  br label %140
 
-119:                                              ; preds = %76
+107:                                              ; preds = %76
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   call void @to_compat_ipc_perm(ptr noundef nonnull %6, ptr noundef nonnull %7) #10
-  %120 = load i64, ptr %78, align 8
-  %121 = trunc i64 %120 to i32
-  %122 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %121, ptr %122, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %108 = load i64, ptr %78, align 8
+  %109 = trunc i64 %108 to i32
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %109, ptr %110, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %112 = load i64, ptr %111, align 8
+  %113 = trunc i64 %112 to i32
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i32 %113, ptr %114, align 4
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %116 = load i64, ptr %115, align 8
+  %117 = trunc i64 %116 to i32
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i32 %117, ptr %118, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %120 = load i64, ptr %119, align 8
+  %121 = trunc i64 %120 to i16
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  store i16 %121, ptr %122, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %124 = load i64, ptr %123, align 8
-  %125 = trunc i64 %124 to i32
-  %126 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 %125, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %125 = trunc i64 %124 to i16
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 46
+  store i16 %125, ptr %126, align 2
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %128 = load i64, ptr %127, align 8
-  %129 = trunc i64 %128 to i32
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %129, ptr %130, align 4
-  %131 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %132 = load i64, ptr %131, align 8
-  %133 = trunc i64 %132 to i16
-  %134 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i16 %133, ptr %134, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %136 = load i64, ptr %135, align 8
-  %137 = trunc i64 %136 to i16
-  %138 = getelementptr inbounds nuw i8, ptr %6, i64 46
-  store i16 %137, ptr %138, align 2
-  %139 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %140 = load i64, ptr %139, align 8
-  %141 = trunc i64 %140 to i16
-  %142 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i16 %141, ptr %142, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %144 = load i32, ptr %143, align 8
-  %145 = trunc i32 %144 to i16
-  %146 = getelementptr inbounds nuw i8, ptr %6, i64 50
-  store i16 %145, ptr %146, align 2
-  %147 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %148 = load i32, ptr %147, align 4
-  %149 = trunc i32 %148 to i16
-  %150 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  store i16 %149, ptr %150, align 4
-  %151 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %6, i64 noundef 56) #10
+  %129 = trunc i64 %128 to i16
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i16 %129, ptr %130, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %132 = load i32, ptr %131, align 8
+  %133 = trunc i32 %132 to i16
+  %134 = getelementptr inbounds nuw i8, ptr %6, i64 50
+  store i16 %133, ptr %134, align 2
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 100
+  %136 = load i32, ptr %135, align 4
+  %137 = trunc i32 %136 to i16
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  store i16 %137, ptr %138, align 4
+  %139 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %6, i64 noundef 56) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
-  br label %152
+  br label %140
 
-152:                                              ; preds = %119, %79
-  %153 = phi i64 [ %118, %79 ], [ %151, %119 ]
-  %154 = and i64 %153, 4294967295
-  %155 = icmp eq i64 %154, 0
-  %156 = zext nneg i32 %72 to i64
-  %157 = select i1 %155, i64 %156, i64 -14
-  br label %198
+140:                                              ; preds = %107, %79
+  %141 = phi i64 [ %106, %79 ], [ %139, %107 ]
+  %142 = and i64 %141, 4294967295
+  %143 = icmp eq i64 %142, 0
+  %144 = zext nneg i32 %72 to i64
+  %145 = select i1 %143, i64 %144, i64 -14
+  br label %186
 
-158:                                              ; preds = %17
-  %159 = icmp eq i32 %3, 256
-  br i1 %159, label %160, label %175
+146:                                              ; preds = %17
+  %147 = icmp eq i32 %3, 256
+  br i1 %147, label %148, label %163
 
-160:                                              ; preds = %158
-  %161 = call i32 @get_compat_ipc64_perm(ptr noundef nonnull %7, ptr noundef %2) #10
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %198
+148:                                              ; preds = %146
+  %149 = call i32 @get_compat_ipc64_perm(ptr noundef nonnull %7, ptr noundef %2) #10
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %186
 
-163:                                              ; preds = %160
-  %164 = call i64 @llvm.read_register.i64(metadata !0)
-  %165 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %166 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %165, i64 4, i64 %164) #10, !srcloc !10
-  %167 = extractvalue { ptr, i32, i64 } %166, 0
-  %168 = extractvalue { ptr, i32, i64 } %166, 1
-  %169 = extractvalue { ptr, i32, i64 } %166, 2
-  %170 = ptrtoint ptr %167 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %169)
-  %171 = zext i32 %168 to i64
-  %172 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store i64 %171, ptr %172, align 8
-  %173 = and i64 %170, 4294967295
-  %174 = icmp eq i64 %173, 0
-  br i1 %174, label %190, label %198
+151:                                              ; preds = %148
+  %152 = call i64 @llvm.read_register.i64(metadata !0)
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %154 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %153, i64 4, i64 %152) #10, !srcloc !10
+  %155 = extractvalue { ptr, i32, i64 } %154, 0
+  %156 = extractvalue { ptr, i32, i64 } %154, 1
+  %157 = extractvalue { ptr, i32, i64 } %154, 2
+  %158 = ptrtoint ptr %155 to i64
+  call void @llvm.write_register.i64(metadata !0, i64 %157)
+  %159 = zext i32 %156 to i64
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  store i64 %159, ptr %160, align 8
+  %161 = and i64 %158, 4294967295
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %178, label %186
 
-175:                                              ; preds = %158
-  %176 = call i32 @get_compat_ipc_perm(ptr noundef nonnull %7, ptr noundef %2) #10
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %198
+163:                                              ; preds = %146
+  %164 = call i32 @get_compat_ipc_perm(ptr noundef nonnull %7, ptr noundef %2) #10
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %166, label %186
 
-178:                                              ; preds = %175
-  %179 = call i64 @llvm.read_register.i64(metadata !0)
-  %180 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %181 = call { ptr, i16, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %180, i64 2, i64 %179) #10, !srcloc !11
-  %182 = extractvalue { ptr, i16, i64 } %181, 0
-  %183 = extractvalue { ptr, i16, i64 } %181, 1
-  %184 = extractvalue { ptr, i16, i64 } %181, 2
-  %185 = ptrtoint ptr %182 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %184)
-  %186 = zext i16 %183 to i64
-  %187 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store i64 %186, ptr %187, align 8
-  %188 = and i64 %185, 4294967295
-  %189 = icmp eq i64 %188, 0
-  br i1 %189, label %190, label %198
+166:                                              ; preds = %163
+  %167 = call i64 @llvm.read_register.i64(metadata !0)
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %169 = call { ptr, i16, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %168, i64 2, i64 %167) #10, !srcloc !11
+  %170 = extractvalue { ptr, i16, i64 } %169, 0
+  %171 = extractvalue { ptr, i16, i64 } %169, 1
+  %172 = extractvalue { ptr, i16, i64 } %169, 2
+  %173 = ptrtoint ptr %170 to i64
+  call void @llvm.write_register.i64(metadata !0, i64 %172)
+  %174 = zext i16 %171 to i64
+  %175 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  store i64 %174, ptr %175, align 8
+  %176 = and i64 %173, 4294967295
+  %177 = icmp eq i64 %176, 0
+  br i1 %177, label %178, label %186
 
-190:                                              ; preds = %178, %163
-  %191 = phi i64 [ %186, %178 ], [ %171, %163 ]
-  %192 = trunc nuw i64 %191 to i32
-  %193 = call fastcc i32 @msgctl_down(ptr noundef %14, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7, i32 noundef %192)
-  %194 = sext i32 %193 to i64
-  br label %198
+178:                                              ; preds = %166, %151
+  %179 = phi i64 [ %174, %166 ], [ %159, %151 ]
+  %180 = trunc nuw i64 %179 to i32
+  %181 = call fastcc i32 @msgctl_down(ptr noundef %14, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7, i32 noundef %180)
+  %182 = sext i32 %181 to i64
+  br label %186
 
-195:                                              ; preds = %17
-  %196 = tail call fastcc i32 @msgctl_down(ptr noundef %14, i32 noundef %0, i32 noundef %1, ptr noundef null, i32 noundef 0)
-  %197 = sext i32 %196 to i64
-  br label %198
+183:                                              ; preds = %17
+  %184 = tail call fastcc i32 @msgctl_down(ptr noundef %14, i32 noundef %0, i32 noundef %1, ptr noundef null, i32 noundef 0)
+  %185 = sext i32 %184 to i64
+  br label %186
 
-198:                                              ; preds = %195, %190, %178, %175, %163, %160, %152, %74, %68, %17, %4
-  %199 = phi i64 [ %197, %195 ], [ %194, %190 ], [ %75, %74 ], [ %157, %152 ], [ %70, %68 ], [ -22, %4 ], [ -22, %17 ], [ -14, %175 ], [ -14, %160 ], [ -14, %178 ], [ -14, %163 ]
+186:                                              ; preds = %183, %178, %166, %163, %151, %148, %140, %74, %68, %17, %4
+  %187 = phi i64 [ %185, %183 ], [ %182, %178 ], [ %75, %74 ], [ %145, %140 ], [ %70, %68 ], [ -22, %4 ], [ -22, %17 ], [ -14, %163 ], [ -14, %148 ], [ -14, %166 ], [ -14, %151 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  ret i64 %199
+  ret i64 %187
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

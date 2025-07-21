@@ -68764,11 +68764,11 @@ if.then20.i.i.i:                                  ; preds = %while.end.i.i.i
 
 if.end33.i.i.i:                                   ; preds = %if.then20.i.i.i, %while.end.i.i.i
   %__holeIndex.addr.1.i.i.i = phi i64 [ %sub24.i.i.i, %if.then20.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
-  %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload.i.i to i32
   %cmp33.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i, %__parent.0.i.i
   br i1 %cmp33.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_.exit.i.i
 
 land.rhs.lr.ph.i.i.i.i:                           ; preds = %if.end33.i.i.i
+  %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload.i.i to i32
   %2 = bitcast i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i to float
   br label %land.rhs.i.i.i.i
 
@@ -68789,17 +68789,13 @@ while.body.i.i.i.i32:                             ; preds = %land.rhs.i.i.i.i
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_.exit.i.i: ; preds = %while.body.i.i.i.i32, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i29 = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ %__holeIndex.addr.034.i.i.i.i, %land.rhs.i.i.i.i ], [ %__parent.035.i.i.i.i, %while.body.i.i.i.i32 ]
-  %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i, 32
-  %__value.sroa.0.sroa.3.0.extract.trunc.i.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i to i32
   %add.ptr.i25.i.i.i.i = getelementptr inbounds %struct.PrioritySortedBlockTransfer, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
-  store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i, ptr %add.ptr.i25.i.i.i.i, align 4, !tbaa !275
-  %ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i, i64 4
-  store i32 %__value.sroa.0.sroa.3.0.extract.trunc.i.i.i.i, ptr %ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i, align 4, !tbaa.struct !1496
+  store i64 %__value.sroa.0.0.copyload.i.i, ptr %add.ptr.i25.i.i.i.i, align 4
   %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i, i64 8
   store i32 %__value.sroa.4.0.copyload.i.i, ptr %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i, align 4, !tbaa.struct !1492
   %cmp9.not.i.i = icmp eq i64 %__parent.0.i.i, 0
   %dec.i.i = add nsw i64 %__parent.0.i.i, -1
-  br i1 %cmp9.not.i.i, label %while.body.i.i, label %while.cond.i.i, !llvm.loop !1497
+  br i1 %cmp9.not.i.i, label %while.body.i.i, label %while.cond.i.i, !llvm.loop !1496
 
 while.body.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.i.i
   %__last.sroa.0.012.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.i.i ], [ %storemerge42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_.exit.i.i ]
@@ -68855,11 +68851,11 @@ if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
 
 if.end33.i.i.i.i:                                 ; preds = %if.then20.i.i.i.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i.i
   %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub24.i.i.i.i, %if.then20.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
-  %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload.i.i.i to i32
   %cmp33.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, 0
   br i1 %cmp33.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.i.i
 
 land.rhs.lr.ph.i.i.i.i.i:                         ; preds = %if.end33.i.i.i.i
+  %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload.i.i.i to i32
   %6 = bitcast i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i to float
   br label %land.rhs.i.i.i.i.i
 
@@ -68880,16 +68876,12 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.034.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i.i, 32
-  %__value.sroa.0.sroa.3.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i.i to i32
   %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %struct.PrioritySortedBlockTransfer, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
-  store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 4, !tbaa !275
-  %ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i.i, i64 4
-  store i32 %__value.sroa.0.sroa.3.0.extract.trunc.i.i.i.i.i, ptr %ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i, align 4, !tbaa.struct !1496
+  store i64 %__value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 4
   %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i.i, i64 8
   store i32 %__value.sroa.4.0.copyload.i.i.i, ptr %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i, align 4, !tbaa.struct !1492
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 12
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !1498
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !1497
 
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.043, -1
@@ -68980,14 +68972,14 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %12 = load float, ptr %__first.sroa.0.1.i.i, align 4, !tbaa !1493
   %cmp.i.i.i32.i = fcmp nsz olt float %12, %11
   %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 12
-  br i1 %cmp.i.i.i32.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !1499
+  br i1 %cmp.i.i.i32.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !1498
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -12
   %13 = load float, ptr %__last.sroa.0.1.i.i, align 4, !tbaa !1493
   %cmp.i.i27.i.i = fcmp nsz olt float %11, %13
-  br i1 %cmp.i.i27.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !1500
+  br i1 %cmp.i.i27.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !1499
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
   %cmp.i.i.i = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
@@ -68999,14 +68991,14 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__first.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__last.sroa.0.1.i.i, i64 12, i1 false), !tbaa.struct !1491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__last.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i.i.i31.i, i64 12, i1 false), !tbaa.struct !1491
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__tmp.i.i.i31.i)
-  br label %while.body.i.i24, !llvm.loop !1501
+  br label %while.body.i.i24, !llvm.loop !1500
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEET_SA_SA_T0_.exit: ; preds = %while.end18.i.i
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEElNS0_5__ops15_Iter_less_iterEEvT_SA_T0_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge42, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 192
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !1502
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !1501
 
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEET_SA_SA_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.i.i, %entry
   ret void
@@ -69045,7 +69037,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransfe
 
 if.else.i:                                        ; preds = %for.body.i
   %__val.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.pn38.i, i64 16
-  %2 = load i64, ptr %__val.sroa.5.0..sroa_idx.i.i, align 4, !tbaa.struct !1496
+  %2 = load i64, ptr %__val.sroa.5.0..sroa_idx.i.i, align 4, !tbaa.struct !1502
   %3 = load float, ptr %__first.coerce.pn38.i, align 4, !tbaa !1493
   %cmp.i.i16.i.i = fcmp nsz olt float %0, %3
   br i1 %cmp.i.i16.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i
@@ -69063,7 +69055,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP27PrioritySorted
   %__last.sroa.0.0.lcssa.i.i = phi ptr [ %__i.sroa.0.039.i.ptr, %if.else.i ], [ %__next.sroa.0.018.i.i, %while.body.i.i ]
   store float %0, ptr %__last.sroa.0.0.lcssa.i.i, align 4, !tbaa !275
   %__val.sroa.5.0..sroa_idx12.i.i = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0.lcssa.i.i, i64 4
-  store i64 %2, ptr %__val.sroa.5.0..sroa_idx12.i.i, align 4, !tbaa.struct !1496
+  store i64 %2, ptr %__val.sroa.5.0..sroa_idx12.i.i, align 4, !tbaa.struct !1502
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i
@@ -69080,7 +69072,7 @@ for.body.i21:                                     ; preds = %_ZSt16__insertion_s
   %__i.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i24 ], [ %add.ptr.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_T0_.exit ]
   %__val.sroa.0.0.copyload.i.i = load float, ptr %__i.sroa.0.08.i, align 4, !tbaa !275
   %__val.sroa.5.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.08.i, i64 4
-  %5 = load i64, ptr %__val.sroa.5.0..sroa_idx.i.i22, align 4, !tbaa.struct !1496
+  %5 = load i64, ptr %__val.sroa.5.0..sroa_idx.i.i22, align 4, !tbaa.struct !1502
   %__next.sroa.0.015.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.08.i, i64 -12
   %6 = load float, ptr %__next.sroa.0.015.i.i, align 4, !tbaa !1493
   %cmp.i.i16.i.i23 = fcmp nsz olt float %__val.sroa.0.0.copyload.i.i, %6
@@ -69099,7 +69091,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP27PrioritySorted
   %__last.sroa.0.0.lcssa.i.i25 = phi ptr [ %__i.sroa.0.08.i, %for.body.i21 ], [ %__next.sroa.0.018.i.i28, %while.body.i.i27 ]
   store float %__val.sroa.0.0.copyload.i.i, ptr %__last.sroa.0.0.lcssa.i.i25, align 4, !tbaa !275
   %__val.sroa.5.0..sroa_idx12.i.i26 = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0.lcssa.i.i25, i64 4
-  store i64 %5, ptr %__val.sroa.5.0..sroa_idx12.i.i26, align 4, !tbaa.struct !1496
+  store i64 %5, ptr %__val.sroa.5.0..sroa_idx12.i.i26, align 4, !tbaa.struct !1502
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.08.i, i64 12
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__last.coerce
   br i1 %cmp.i.not.i, label %if.end, label %for.body.i21, !llvm.loop !1505
@@ -69134,7 +69126,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransfe
 
 if.else.i43:                                      ; preds = %for.body.i39
   %__val.sroa.5.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %__first.coerce.pn38.i41, i64 16
-  %10 = load i64, ptr %__val.sroa.5.0..sroa_idx.i.i44, align 4, !tbaa.struct !1496
+  %10 = load i64, ptr %__val.sroa.5.0..sroa_idx.i.i44, align 4, !tbaa.struct !1502
   %11 = load float, ptr %__first.coerce.pn38.i41, align 4, !tbaa !1493
   %cmp.i.i16.i.i45 = fcmp nsz olt float %8, %11
   br i1 %cmp.i.i16.i.i45, label %while.body.i.i52, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i46
@@ -69152,7 +69144,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP27PrioritySorted
   %__last.sroa.0.0.lcssa.i.i47 = phi ptr [ %__i.sroa.0.039.i40, %if.else.i43 ], [ %__next.sroa.0.018.i.i53, %while.body.i.i52 ]
   store float %8, ptr %__last.sroa.0.0.lcssa.i.i47, align 4, !tbaa !275
   %__val.sroa.5.0..sroa_idx12.i.i48 = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0.lcssa.i.i47, i64 4
-  store i64 %10, ptr %__val.sroa.5.0..sroa_idx12.i.i48, align 4, !tbaa.struct !1496
+  store i64 %10, ptr %__val.sroa.5.0..sroa_idx12.i.i48, align 4, !tbaa.struct !1502
   br label %for.inc.i49
 
 for.inc.i49:                                      ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i46, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i57
@@ -74178,13 +74170,13 @@ attributes #38 = { nounwind willreturn memory(read) }
 !1493 = !{!726, !71, i64 0}
 !1494 = distinct !{!1494, !32}
 !1495 = distinct !{!1495, !32}
-!1496 = !{i64 0, i64 2, !361, i64 2, i64 2, !361, i64 4, i64 2, !361, i64 6, i64 2, !361}
+!1496 = distinct !{!1496, !32}
 !1497 = distinct !{!1497, !32}
 !1498 = distinct !{!1498, !32}
 !1499 = distinct !{!1499, !32}
 !1500 = distinct !{!1500, !32}
 !1501 = distinct !{!1501, !32}
-!1502 = distinct !{!1502, !32}
+!1502 = !{i64 0, i64 2, !361, i64 2, i64 2, !361, i64 4, i64 2, !361, i64 6, i64 2, !361}
 !1503 = distinct !{!1503, !32}
 !1504 = distinct !{!1504, !32}
 !1505 = distinct !{!1505, !32}

@@ -271,7 +271,6 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
 
 82:                                               ; preds = %._crit_edge
   %.sroa.0.0.extract.trunc25 = trunc i32 %56 to i8
-  %.sroa.16.0.extract.shift39 = lshr i32 %56, 8
   store i8 %.sroa.0.0.extract.trunc25, ptr %.0121.lcssa, align 1, !tbaa !3
   br label %104
 
@@ -283,7 +282,6 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %88 = load i32, ptr %87, align 4, !tbaa !8
   %89 = or i32 %88, %56
   %.sroa.0.0.extract.trunc26 = trunc i32 %89 to i8
-  %.sroa.16.0.extract.shift41 = lshr i32 %89, 8
   store i8 %.sroa.0.0.extract.trunc26, ptr %.0121.lcssa, align 1, !tbaa !3
   br label %104
 
@@ -303,34 +301,25 @@ default.unreachable:                              ; preds = %._crit_edge
   %100 = load i32, ptr %99, align 4, !tbaa !8
   %101 = or i32 %95, %100
   %102 = or i32 %101, %56
-  %.sroa.0.0.extract.trunc27 = trunc i32 %102 to i8
-  %.sroa.16.0.extract.shift43 = lshr i32 %102, 8
-  %.sroa.16.0.extract.trunc44 = trunc i32 %.sroa.16.0.extract.shift43 to i8
-  %103 = getelementptr inbounds nuw i8, ptr %.0121.lcssa, i64 1
-  store i8 %.sroa.0.0.extract.trunc27, ptr %.0121.lcssa, align 1, !tbaa !3
-  store i8 %.sroa.16.0.extract.trunc44, ptr %103, align 1, !tbaa !3
+  %103 = trunc i32 %102 to i16
+  store i16 %103, ptr %.0121.lcssa, align 1
   br label %104
 
 104:                                              ; preds = %90, %83, %82
   %.sroa.21.0.in.in = phi i32 [ %102, %90 ], [ %56, %82 ], [ %89, %83 ]
-  %.sroa.16.0 = phi i32 [ %.sroa.16.0.extract.shift43, %90 ], [ %.sroa.16.0.extract.shift39, %82 ], [ %.sroa.16.0.extract.shift41, %83 ]
-  %.sroa.16.0.insert.ext46 = shl nuw i32 %.sroa.16.0, 8
-  %.sroa.16.0.insert.shift47 = and i32 %.sroa.16.0.insert.ext46, 65280
-  %105 = and i32 %.sroa.21.0.in.in, -65281
-  %.sroa.0.0.insert.insert31 = or disjoint i32 %.sroa.16.0.insert.shift47, %105
-  %106 = icmp ugt i32 %.sroa.0.0.insert.insert31, 33554430
-  br i1 %106, label %.loopexit, label %107
+  %105 = icmp ugt i32 %.sroa.21.0.in.in, 33554430
+  br i1 %105, label %.loopexit, label %106
 
-107:                                              ; preds = %104
-  %108 = mul nuw i64 %21, 3
-  %109 = mul nuw nsw i32 %19, 6
-  %110 = lshr i32 %109, 3
-  %111 = zext nneg i32 %110 to i64
-  %112 = add nuw i64 %108, %111
+106:                                              ; preds = %104
+  %107 = mul nuw i64 %21, 3
+  %108 = mul nuw nsw i32 %19, 6
+  %109 = lshr i32 %108, 3
+  %110 = zext nneg i32 %109 to i64
+  %111 = add nuw i64 %107, %110
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %77, %107, %57, %104, %5, %3
-  %.0122 = phi i64 [ 0, %3 ], [ -1, %5 ], [ %112, %107 ], [ %81, %77 ], [ -1, %57 ], [ -1, %104 ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %77, %106, %57, %104, %5, %3
+  %.0122 = phi i64 [ 0, %3 ], [ -1, %5 ], [ %111, %106 ], [ %81, %77 ], [ -1, %57 ], [ -1, %104 ], [ -1, %.lr.ph ]
   ret i64 %.0122
 }
 

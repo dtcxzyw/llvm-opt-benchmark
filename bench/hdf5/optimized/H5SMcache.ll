@@ -816,7 +816,7 @@ define internal range(i32 -1, 1) i32 @H5SM__cache_list_serialize(ptr noundef %0,
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %73, !prof !9
+  br i1 %11, label %12, label %63, !prof !9
 
 12:                                               ; preds = %4
   store i32 1229737299, ptr %1, align 1
@@ -860,7 +860,7 @@ define internal range(i32 -1, 1) i32 @H5SM__cache_list_serialize(ptr noundef %0,
   %33 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !14
   %34 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !14
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5SM__cache_list_serialize, i32 noundef 659, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.15) #6
-  br label %73
+  br label %63
 
 36:                                               ; preds = %29
   %37 = call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #6
@@ -896,31 +896,18 @@ define internal range(i32 -1, 1) i32 @H5SM__cache_list_serialize(ptr noundef %0,
   %54 = ptrtoint ptr %1 to i64
   %55 = sub i64 %53, %54
   %56 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %55, i32 noundef 0) #6
-  %57 = trunc i32 %56 to i8
-  store i8 %57, ptr %.041.lcssa, align 1, !tbaa !31
-  %58 = getelementptr inbounds nuw i8, ptr %.041.lcssa, i64 1
-  %59 = lshr i32 %56, 8
-  %60 = trunc i32 %59 to i8
-  store i8 %60, ptr %58, align 1, !tbaa !31
-  %61 = getelementptr inbounds nuw i8, ptr %.041.lcssa, i64 2
-  %62 = lshr i32 %56, 16
-  %63 = trunc i32 %62 to i8
-  store i8 %63, ptr %61, align 1, !tbaa !31
-  %64 = getelementptr inbounds nuw i8, ptr %.041.lcssa, i64 3
-  %65 = lshr i32 %56, 24
-  %66 = trunc nuw i32 %65 to i8
-  store i8 %66, ptr %64, align 1, !tbaa !31
-  %67 = getelementptr inbounds nuw i8, ptr %.041.lcssa, i64 4
-  %68 = load ptr, ptr %15, align 8, !tbaa !50
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
-  %70 = load i64, ptr %69, align 8, !tbaa !39
-  %71 = ptrtoint ptr %67 to i64
-  %.neg = sub i64 %54, %71
-  %72 = add i64 %.neg, %70
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %72, i1 false)
-  br label %73
+  store i32 %56, ptr %.041.lcssa, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %.041.lcssa, i64 4
+  %58 = load ptr, ptr %15, align 8, !tbaa !50
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
+  %60 = load i64, ptr %59, align 8, !tbaa !39
+  %61 = ptrtoint ptr %57 to i64
+  %.neg = sub i64 %54, %61
+  %62 = add i64 %.neg, %60
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %57, i8 0, i64 %62, i1 false)
+  br label %63
 
-73:                                               ; preds = %32, %.critedge, %4
+63:                                               ; preds = %32, %.critedge, %4
   %.0 = phi i32 [ -1, %32 ], [ 0, %.critedge ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
   ret i32 %.0

@@ -1138,80 +1138,54 @@ define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef rea
   %19 = add nuw nsw i64 %18, %17
   %20 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %19) #5
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %65, label %22
+  br i1 %21, label %50, label %22
 
 22:                                               ; preds = %10
   %23 = tail call ptr @MuxEmitRiffHeader(ptr noundef nonnull %20, i64 noundef %19) #5
-  br i1 %.not, label %61, label %24
+  br i1 %.not, label %46, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %28 = load i32, ptr %27, align 4, !tbaa !23
-  store i8 86, ptr %23, align 1, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store i8 80, ptr %29, align 1, !tbaa !29
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  store i8 56, ptr %30, align 1, !tbaa !29
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 3
-  store i8 88, ptr %31, align 1, !tbaa !29
-  %32 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i8 10, ptr %32, align 1, !tbaa !29
-  %33 = getelementptr inbounds nuw i8, ptr %23, i64 5
-  store i8 0, ptr %33, align 1, !tbaa !29
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 6
-  store i8 0, ptr %34, align 1, !tbaa !29
-  %35 = getelementptr inbounds nuw i8, ptr %23, i64 7
-  store i8 0, ptr %35, align 1, !tbaa !29
-  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i8 16, ptr %36, align 1, !tbaa !29
-  %37 = getelementptr inbounds nuw i8, ptr %23, i64 9
-  store i8 0, ptr %37, align 1, !tbaa !29
-  %38 = getelementptr inbounds nuw i8, ptr %23, i64 10
-  store i8 0, ptr %38, align 1, !tbaa !29
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 11
-  store i8 0, ptr %39, align 1, !tbaa !29
-  %40 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  %41 = add nsw i32 %26, -1
-  %42 = trunc i32 %41 to i8
-  store i8 %42, ptr %40, align 1, !tbaa !29
-  %43 = lshr i32 %41, 8
-  %44 = trunc i32 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %23, i64 13
-  store i8 %44, ptr %45, align 1, !tbaa !29
-  %46 = lshr i32 %41, 16
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %23, i64 14
-  store i8 %47, ptr %48, align 1, !tbaa !29
-  %49 = getelementptr inbounds nuw i8, ptr %23, i64 15
-  %50 = add nsw i32 %28, -1
-  %51 = trunc i32 %50 to i8
-  store i8 %51, ptr %49, align 1, !tbaa !29
-  %52 = lshr i32 %50, 8
-  %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i8 %53, ptr %54, align 1, !tbaa !29
-  %55 = lshr i32 %50, 16
-  %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %23, i64 17
-  store i8 %56, ptr %57, align 1, !tbaa !29
-  %58 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  %59 = load ptr, ptr %3, align 8, !tbaa !21
-  %60 = tail call ptr @ChunkListEmit(ptr noundef %59, ptr noundef nonnull %58) #5
-  br label %61
+  store i32 1480085590, ptr %23, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  store i32 10, ptr %29, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i32 16, ptr %30, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  %32 = add nsw i32 %26, -1
+  %33 = trunc i32 %32 to i16
+  store i16 %33, ptr %31, align 1
+  %34 = lshr i32 %32, 16
+  %35 = trunc i32 %34 to i8
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 14
+  store i8 %35, ptr %36, align 1, !tbaa !29
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 15
+  %38 = add nsw i32 %28, -1
+  %39 = trunc i32 %38 to i16
+  store i16 %39, ptr %37, align 1
+  %40 = lshr i32 %38, 16
+  %41 = trunc i32 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 17
+  store i8 %41, ptr %42, align 1, !tbaa !29
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 18
+  %44 = load ptr, ptr %3, align 8, !tbaa !21
+  %45 = tail call ptr @ChunkListEmit(ptr noundef %44, ptr noundef nonnull %43) #5
+  br label %46
 
-61:                                               ; preds = %24, %22
-  %.023 = phi ptr [ %60, %24 ], [ %23, %22 ]
-  %62 = load ptr, ptr %13, align 8, !tbaa !3
-  %63 = tail call ptr @ChunkListEmit(ptr noundef %62, ptr noundef %.023) #5
+46:                                               ; preds = %24, %22
+  %.023 = phi ptr [ %45, %24 ], [ %23, %22 ]
+  %47 = load ptr, ptr %13, align 8, !tbaa !3
+  %48 = tail call ptr @ChunkListEmit(ptr noundef %47, ptr noundef %.023) #5
   store ptr %20, ptr %1, align 8, !tbaa !19
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %19, ptr %64, align 8, !tbaa !20
-  br label %65
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %19, ptr %49, align 8, !tbaa !20
+  br label %50
 
-65:                                               ; preds = %10, %61
-  %.0 = phi i32 [ 1, %61 ], [ -3, %10 ]
+50:                                               ; preds = %10, %46
+  %.0 = phi i32 [ 1, %46 ], [ -3, %10 ]
   ret i32 %.0
 }
 

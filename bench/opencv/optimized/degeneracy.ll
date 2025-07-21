@@ -3453,9 +3453,7 @@ _ZN2cv3MatC2IdLi3ELi3EEERKNS_4MatxIT_XT0_EXT1_EEEb.exit: ; preds = %_ZN2cvmlIdLi
   br i1 %162, label %163, label %169
 
 163:                                              ; preds = %159
-  %.sroa.0.0.extract.trunc = trunc i64 %158 to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %5, align 4
-  store i32 %.sroa.5.0.extract.trunc, ptr %.sroa_idx54, align 4
+  store i64 %158, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #23
   store i64 0, ptr %43, align 8
   store i32 33619968, ptr %17, align 8, !tbaa !11
@@ -8036,7 +8034,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac25FundamentalDegenerac
   %14 = alloca %"class.cv::Matx", align 8
   %15 = alloca %"class.cv::Matx", align 8
   %16 = alloca %"class.cv::Matx", align 8
-  %17 = alloca %"class.cv::usac::Score", align 4
+  %17 = alloca %"class.cv::usac::Score", align 8
   %18 = alloca %"class.cv::Mat", align 8
   %19 = alloca %"class.cv::Matx", align 8
   %20 = alloca %"class.cv::Mat", align 8
@@ -8199,7 +8197,7 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %16) #23
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #23
-  store i32 0, ptr %17, align 4, !tbaa !282
+  store i32 0, ptr %17, align 8, !tbaa !282
   %82 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float 0x47EFFFFFE0000000, ptr %82, align 4, !tbaa !178
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18) #23
@@ -8353,9 +8351,7 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br i1 %155, label %156, label %170
 
 156:                                              ; preds = %152
-  %.sroa.0108.0.extract.trunc = trunc i64 %151 to i32
-  store i32 %.sroa.0108.0.extract.trunc, ptr %17, align 4
-  store i32 %.sroa.5.0.extract.trunc, ptr %82, align 4
+  store i64 %151, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %21) #23
   store i32 1124024326, ptr %21, align 8, !tbaa !25
   store i32 2, ptr %93, align 4, !tbaa !34
@@ -9050,7 +9046,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac25FundamentalDegenerac
   %8 = alloca %"class.cv::_OutputArray", align 8
   %9 = alloca %"class.cv::Mat", align 8
   %10 = alloca %"class.cv::_OutputArray", align 8
-  %11 = alloca %"class.cv::usac::Score", align 4
+  %11 = alloca %"class.cv::usac::Score", align 8
   %12 = alloca %"class.cv::Vec", align 8
   %13 = alloca %"class.cv::Matx", align 8
   %14 = alloca %"class.cv::Matx", align 8
@@ -9061,7 +9057,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac25FundamentalDegenerac
   %19 = alloca %"class.cv::Mat", align 8
   %20 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
-  store i32 0, ptr %11, align 4, !tbaa !282
+  store i32 0, ptr %11, align 8, !tbaa !282
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float 0x47EFFFFFE0000000, ptr %21, align 4, !tbaa !178
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #23
@@ -9333,9 +9329,7 @@ _ZN2cv3MatC2IdLi3ELi3EEERKNS_4MatxIT_XT0_EXT1_EEEb.exit59: ; preds = %127
   br i1 %137, label %138, label %147
 
 138:                                              ; preds = %135
-  %.sroa.064.0.extract.trunc = trunc i64 %134 to i32
-  store i32 %.sroa.064.0.extract.trunc, ptr %11, align 4
-  store i32 %.sroa.565.0.extract.trunc, ptr %21, align 4
+  store i64 %134, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19) #23
   store i32 1124024326, ptr %19, align 8, !tbaa !25
   store i32 2, ptr %63, align 4, !tbaa !34
@@ -9438,9 +9432,7 @@ _ZN2cv3MatC2IdLi3ELi3EEERKNS_4MatxIT_XT0_EXT1_EEEb.exit60: ; preds = %138
   br i1 %177, label %178, label %188
 
 178:                                              ; preds = %168
-  %.sroa.0.0.extract.trunc = trunc i64 %174 to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %11, align 4
-  store i32 %.sroa.5.0.extract.trunc, ptr %21, align 4
+  store i64 %174, ptr %11, align 8
   %179 = load ptr, ptr %155, align 8, !tbaa !172
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #23
   store i64 0, ptr %159, align 8
@@ -11745,7 +11737,6 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit253:       ; preds = %_ZSt8_DestroyIPN2cv
           to label %467 unwind label %480
 
 467:                                              ; preds = %462
-  %.sroa.0.0.extract.trunc = trunc i64 %466 to i32
   %.sroa.6.0.extract.shift = lshr i64 %466, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %468 = bitcast i32 %.sroa.6.0.extract.trunc to float
@@ -11754,8 +11745,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit253:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %470, label %471, label %484
 
 471:                                              ; preds = %467
-  store i32 %.sroa.0.0.extract.trunc, ptr %3, align 4
-  store i32 %.sroa.6.0.extract.trunc, ptr %.sroa_idx265, align 4
+  store i64 %466, ptr %3, align 4
   %472 = load ptr, ptr %13, align 8, !tbaa !172
   %473 = getelementptr inbounds nuw %"class.cv::Mat", ptr %472, i64 %indvars.iv391
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37) #23
@@ -11775,8 +11765,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit253:       ; preds = %_ZSt8_DestroyIPN2cv
   %478 = getelementptr inbounds nuw double, ptr %.sroa.0271.1, i64 %indvars.iv391
   %479 = load double, ptr %478, align 8, !tbaa !3
   store double %479, ptr %145, align 8, !tbaa !231
-  store i32 %.sroa.0.0.extract.trunc, ptr %144, align 8
-  store i32 %.sroa.6.0.extract.trunc, ptr %143, align 4
+  store i64 %466, ptr %144, align 8
   br label %484
 
 480:                                              ; preds = %462, %453
@@ -12633,9 +12622,7 @@ _ZNSt6vectorIN2cv4MatxIdLi3ELi3EEESaIS2_EE12emplace_backIJRKS2_EEEvDpOT_.exit: ;
   br i1 %350, label %351, label %365
 
 351:                                              ; preds = %347
-  %.sroa.0.0.extract.trunc = trunc i64 %346 to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %9, align 4
-  store i32 %.sroa.5.0.extract.trunc, ptr %.sroa_idx192, align 4
+  store i64 %346, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %30) #23
   store i32 1124024326, ptr %30, align 8, !tbaa !25
   store i32 2, ptr %318, align 4, !tbaa !34
@@ -13394,7 +13381,6 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac25FundamentalDegeneracyImpl9o
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8
   %61 = call i64 %60(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(96) %57)
-  %.sroa.0.0.extract.trunc = trunc i64 %61 to i32
   %.sroa.6.0.extract.shift = lshr i64 %61, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %62 = bitcast i32 %.sroa.6.0.extract.trunc to float
@@ -13403,6 +13389,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac25FundamentalDegeneracyImpl9o
   br i1 %64, label %65, label %86
 
 65:                                               ; preds = %55
+  %.sroa.0.0.extract.trunc = trunc i64 %61 to i32
   %66 = load ptr, ptr %33, align 8, !tbaa !172
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #23
   store i64 0, ptr %37, align 8
@@ -13438,8 +13425,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac25FundamentalDegeneracyImpl9o
 
 85:                                               ; preds = %65, %70
   %.4 = phi i32 [ %75, %70 ], [ %.128, %65 ]
-  store i32 %.sroa.0.0.extract.trunc, ptr %2, align 4
-  store i32 %.sroa.6.0.extract.trunc, ptr %35, align 4
+  store i64 %61, ptr %2, align 4
   br label %86
 
 86:                                               ; preds = %55, %85, %38
@@ -13508,7 +13494,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac25FundamentalDegenerac
           to label %38 unwind label %50
 
 38:                                               ; preds = %33
-  %.sroa.0.0.extract.trunc = trunc i64 %37 to i32
   %.sroa.6.0.extract.shift = lshr i64 %37, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %39 = bitcast i32 %.sroa.6.0.extract.trunc to float
@@ -13530,9 +13515,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac25FundamentalDegenerac
 
 47:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #23
-  store i32 %.sroa.0.0.extract.trunc, ptr %4, align 4
-  %.sroa_idx17 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.sroa.6.0.extract.trunc, ptr %.sroa_idx17, align 4
+  store i64 %37, ptr %4, align 4
   br label %.critedge
 
 48:                                               ; preds = %17, %5

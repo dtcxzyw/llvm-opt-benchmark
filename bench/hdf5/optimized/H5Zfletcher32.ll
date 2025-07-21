@@ -102,21 +102,8 @@ define internal noundef i64 @H5Z__filter_fletcher32(i32 noundef %0, i64 %1, ptr 
   %49 = load ptr, ptr %5, align 8, !tbaa !3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %49, i64 %3, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 %3
-  %51 = trunc i32 %40 to i8
-  store i8 %51, ptr %50, align 1, !tbaa !12
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %53 = lshr i32 %40, 8
-  %54 = trunc i32 %53 to i8
-  store i8 %54, ptr %52, align 1, !tbaa !12
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  %56 = lshr i32 %40, 16
-  %57 = trunc i32 %56 to i8
-  store i8 %57, ptr %55, align 1, !tbaa !12
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 3
-  %59 = lshr i32 %40, 24
-  %60 = trunc nuw i32 %59 to i8
-  store i8 %60, ptr %58, align 1, !tbaa !12
-  %61 = tail call ptr @H5MM_xfree(ptr noundef %49) #4
+  store i32 %40, ptr %50, align 1
+  %51 = tail call ptr @H5MM_xfree(ptr noundef %49) #4
   store i64 %41, ptr %4, align 8, !tbaa !13
   store ptr %42, ptr %5, align 8, !tbaa !3
   br label %.thread

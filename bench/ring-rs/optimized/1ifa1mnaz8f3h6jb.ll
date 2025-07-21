@@ -1630,24 +1630,11 @@ define void @_ZN4ring4aead25chacha20_poly1305_openssh10SealingKey13seal_in_place
 
 "_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit": ; preds = %5, %21
   %23 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %.sroa.0.0.extract.trunc.i = trunc i32 %23 to i8
-  %.sroa.4.0.extract.shift.i = lshr i32 %23, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %23, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
-  %.sroa.6.0.extract.shift.i = lshr i32 %23, 24
-  %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16), !noalias !258
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15), !noalias !258
   %.sroa.11.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %15, align 8, !noalias !267
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %.sroa.11.0..sroa_idx9.i, align 8, !noalias !268
-  %.sroa.12.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %15, i64 9
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %.sroa.12.0..sroa_idx10.i, align 1, !noalias !268
-  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 10
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %.sroa.13.0..sroa_idx.i, align 2, !noalias !268
-  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 11
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %.sroa.14.0..sroa_idx.i, align 1, !noalias !268
+  store i32 %23, ptr %.sroa.11.0..sroa_idx9.i, align 8, !noalias !268
   call void @"_ZN123_$LT$$u5b$I$u3b$$u20$12$u5d$$u20$as$u20$ring..polyfill..array_split_map..ArraySplitMap$LT$I$C$O$C$4_usize$C$3_usize$GT$$GT$15array_split_map17h54dde5e0b3fe5ed8E.llvm.6801758991666044160"(ptr noalias noundef nonnull sret([3 x i32]) align 4 captures(none) dereferenceable(12) %16, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(12) %15), !noalias !258
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15), !noalias !258
   %24 = load i32, ptr %16, align 4, !noalias !258, !noundef !4
@@ -1685,15 +1672,9 @@ define void @_ZN4ring4aead25chacha20_poly1305_openssh10SealingKey13seal_in_place
   call void @llvm.experimental.noalias.scope.decl(metadata !290)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12), !noalias !293
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11), !noalias !293
-  %.sroa.11.0..sroa_idx9.i9 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.11.0..sroa_idx9.i2 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %11, align 8, !noalias !284
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %.sroa.11.0..sroa_idx9.i9, align 8, !noalias !296
-  %.sroa.12.0..sroa_idx10.i10 = getelementptr inbounds nuw i8, ptr %11, i64 9
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %.sroa.12.0..sroa_idx10.i10, align 1, !noalias !296
-  %.sroa.13.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %.sroa.13.0..sroa_idx.i11, align 2, !noalias !296
-  %.sroa.14.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %11, i64 11
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %.sroa.14.0..sroa_idx.i12, align 1, !noalias !296
+  store i32 %23, ptr %.sroa.11.0..sroa_idx9.i2, align 8, !noalias !296
   call void @"_ZN123_$LT$$u5b$I$u3b$$u20$12$u5d$$u20$as$u20$ring..polyfill..array_split_map..ArraySplitMap$LT$I$C$O$C$4_usize$C$3_usize$GT$$GT$15array_split_map17h54dde5e0b3fe5ed8E.llvm.6801758991666044160"(ptr noalias noundef nonnull sret([3 x i32]) align 4 captures(none) dereferenceable(12) %12, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(12) %11), !noalias !293
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11), !noalias !293
   %34 = load i32, ptr %12, align 4, !noalias !293, !noundef !4
@@ -1702,10 +1683,10 @@ define void @_ZN4ring4aead25chacha20_poly1305_openssh10SealingKey13seal_in_place
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %38 = load i32, ptr %37, align 4, !noalias !293, !noundef !4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12), !noalias !293
-  %.sroa.0.4.vec.insert.i.i.i13 = insertelement <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>, i32 %34, i64 1
-  %.sroa.0.8.vec.insert.i.i.i14 = insertelement <4 x i32> %.sroa.0.4.vec.insert.i.i.i13, i32 %36, i64 2
-  %.sroa.0.12.vec.insert.i.i.i15 = insertelement <4 x i32> %.sroa.0.8.vec.insert.i.i.i14, i32 %38, i64 3
-  store <4 x i32> %.sroa.0.12.vec.insert.i.i.i15, ptr %18, align 16, !alias.scope !296, !noalias !297
+  %.sroa.0.4.vec.insert.i.i.i3 = insertelement <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>, i32 %34, i64 1
+  %.sroa.0.8.vec.insert.i.i.i4 = insertelement <4 x i32> %.sroa.0.4.vec.insert.i.i.i3, i32 %36, i64 2
+  %.sroa.0.12.vec.insert.i.i.i5 = insertelement <4 x i32> %.sroa.0.8.vec.insert.i.i.i4, i32 %38, i64 3
+  store <4 x i32> %.sroa.0.12.vec.insert.i.i.i5, ptr %18, align 16, !alias.scope !296, !noalias !297
   call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %2, ptr noundef nonnull align 1 %2, i64 noundef 4, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
@@ -1727,11 +1708,11 @@ define void @_ZN4ring4aead25chacha20_poly1305_openssh10SealingKey13seal_in_place
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !304
   store <16 x i8> zeroinitializer, ptr %6, align 16, !noalias !304
   call void @ring_core_0_17_8__CRYPTO_poly1305_finish(ptr noalias noundef nonnull align 64 dereferenceable(512) %9, ptr noalias noundef nonnull align 1 dereferenceable(16) %6), !noalias !308
-  %.sroa.021.0.copyload = load <16 x i8>, ptr %6, align 16, !noalias !309
+  %.sroa.011.0.copyload = load <16 x i8>, ptr %6, align 16, !noalias !309
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !304
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9), !noalias !298
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10), !noalias !298
-  store <16 x i8> %.sroa.021.0.copyload, ptr %4, align 1, !alias.scope !310, !noalias !314
+  store <16 x i8> %.sroa.011.0.copyload, ptr %4, align 1, !alias.scope !310, !noalias !314
   ret void
 }
 
@@ -1774,26 +1755,13 @@ define i32 @_ZN4ring4aead25chacha20_poly1305_openssh10OpeningKey21decrypt_packet
   store i32 %2, ptr %7, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !339)
   %8 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %.sroa.0.0.extract.trunc.i = trunc i32 %8 to i8
-  %.sroa.4.0.extract.shift.i = lshr i32 %8, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %8, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
-  %.sroa.6.0.extract.shift.i = lshr i32 %8, 24
-  %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !348
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !348
   %.sroa.11.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %4, align 8, !noalias !339
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %.sroa.11.0..sroa_idx9.i, align 8, !noalias !351
-  %.sroa.12.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %.sroa.12.0..sroa_idx10.i, align 1, !noalias !351
-  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %.sroa.13.0..sroa_idx.i, align 2, !noalias !351
-  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 11
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %.sroa.14.0..sroa_idx.i, align 1, !noalias !351
+  store i32 %8, ptr %.sroa.11.0..sroa_idx9.i, align 8, !noalias !351
   call void @"_ZN123_$LT$$u5b$I$u3b$$u20$12$u5d$$u20$as$u20$ring..polyfill..array_split_map..ArraySplitMap$LT$I$C$O$C$4_usize$C$3_usize$GT$$GT$15array_split_map17h54dde5e0b3fe5ed8E.llvm.6801758991666044160"(ptr noalias noundef nonnull sret([3 x i32]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(12) %4), !noalias !348
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !348
   %9 = load i32, ptr %5, align 4, !noalias !348, !noundef !4
@@ -1826,24 +1794,11 @@ define { ptr, i64 } @_ZN4ring4aead25chacha20_poly1305_openssh10OpeningKey13open_
   %15 = alloca [3 x i32], align 4
   %16 = alloca { [4 x i32] }, align 16
   %17 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %.sroa.0.0.extract.trunc.i = trunc i32 %17 to i8
-  %.sroa.4.0.extract.shift.i = lshr i32 %17, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %17, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
-  %.sroa.6.0.extract.shift.i = lshr i32 %17, 24
-  %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15), !noalias !353
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14), !noalias !353
   %.sroa.11.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %14, align 8, !noalias !362
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %.sroa.11.0..sroa_idx9.i, align 8, !noalias !363
-  %.sroa.12.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %14, i64 9
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %.sroa.12.0..sroa_idx10.i, align 1, !noalias !363
-  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 10
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %.sroa.13.0..sroa_idx.i, align 2, !noalias !363
-  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 11
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %.sroa.14.0..sroa_idx.i, align 1, !noalias !363
+  store i32 %17, ptr %.sroa.11.0..sroa_idx9.i, align 8, !noalias !363
   call void @"_ZN123_$LT$$u5b$I$u3b$$u20$12$u5d$$u20$as$u20$ring..polyfill..array_split_map..ArraySplitMap$LT$I$C$O$C$4_usize$C$3_usize$GT$$GT$15array_split_map17h54dde5e0b3fe5ed8E.llvm.6801758991666044160"(ptr noalias noundef nonnull sret([3 x i32]) align 4 captures(none) dereferenceable(12) %15, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(12) %14), !noalias !353
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14), !noalias !353
   %18 = load i32, ptr %15, align 4, !noalias !353, !noundef !4

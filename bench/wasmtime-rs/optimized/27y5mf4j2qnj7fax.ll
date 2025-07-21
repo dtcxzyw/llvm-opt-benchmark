@@ -297,16 +297,16 @@ _ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit: ; preds = %3
   %20 = icmp ult i64 %19, %.sink.i
   br i1 %20, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %46, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit
-  %.sroa.0.0.lcssa = phi ptr [ %1, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit ], [ %47, %46 ]
-  %storemerge.lcssa = phi i64 [ %19, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit ], [ %.sink.i, %46 ]
+._crit_edge:                                      ; preds = %47, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit
+  %.sroa.0.0.lcssa = phi ptr [ %1, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit ], [ %48, %47 ]
+  %storemerge.lcssa = phi i64 [ %19, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit ], [ %.sink.i, %47 ]
   store i64 %storemerge.lcssa, ptr %.sink2.i, align 8
   %21 = icmp eq ptr %.sroa.0.0.lcssa, %2
   br i1 %21, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit21.thread", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit21"
 
-.lr.ph:                                           ; preds = %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit, %46
-  %storemerge48 = phi i64 [ %49, %46 ], [ %19, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit ]
-  %.sroa.0.047 = phi ptr [ %47, %46 ], [ %1, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit ]
+.lr.ph:                                           ; preds = %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit, %47
+  %storemerge48 = phi i64 [ %50, %47 ], [ %19, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit ]
+  %.sroa.0.047 = phi ptr [ %48, %47 ], [ %1, %_ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit ]
   %22 = icmp eq ptr %.sroa.0.047, %2
   br i1 %22, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit.thread", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit"
 
@@ -369,20 +369,16 @@ _ZN8smallvec10infallible17h76c6c37e6c3993a3E.exit.i: ; preds = %33
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit": ; preds = %.lr.ph
   %45 = load i64, ptr %.sroa.0.047, align 4, !alias.scope !71, !noalias !76
-  %.sroa.012.0.extract.trunc = trunc i64 %45 to i16
-  %.not = icmp eq i16 %.sroa.012.0.extract.trunc, 14
-  br i1 %.not, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit.thread", label %46
+  %46 = and i64 %45, 65535
+  %.not = icmp eq i64 %46, 14
+  br i1 %.not, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit.thread", label %47
 
-46:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit"
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 8
-  %.sroa.413.0.extract.shift = lshr i64 %45, 16
-  %.sroa.413.0.extract.trunc = trunc nuw i64 %.sroa.413.0.extract.shift to i48
-  %48 = getelementptr inbounds { { i16, [1 x i16] }, i32 }, ptr %.sink3.i, i64 %storemerge48
-  store i16 %.sroa.012.0.extract.trunc, ptr %48, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 2
-  store i48 %.sroa.413.0.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 2
-  %49 = add i64 %storemerge48, 1
-  %exitcond.not = icmp eq i64 %49, %.sink.i
+47:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit"
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 8
+  %49 = getelementptr inbounds { { i16, [1 x i16] }, i32 }, ptr %.sink3.i, i64 %storemerge48
+  store i64 %45, ptr %49, align 4
+  %50 = add i64 %storemerge48, 1
+  %exitcond.not = icmp eq i64 %50, %.sink.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit.thread": ; preds = %.lr.ph, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb787604daf52cedE.exit"

@@ -18285,13 +18285,6 @@ default.unreachable:                              ; preds = %10, %6
   unreachable
 
 14:                                               ; preds = %10
-  %.sroa.410.0.extract.shift = lshr i64 %3, 8
-  %.sroa.410.0.extract.trunc = trunc i64 %.sroa.410.0.extract.shift to i8
-  %.sroa.6.0.extract.shift = lshr i64 %3, 32
-  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
-  %.sroa.09.0.extract.trunc = trunc i64 %3 to i8
-  %.sroa.5.0.extract.shift = lshr i64 %3, 16
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %1, ptr %15, align 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -18299,13 +18292,7 @@ default.unreachable:                              ; preds = %10, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %4, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %.sroa.09.0.extract.trunc, ptr %18, align 4
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %.sroa.410.0.extract.trunc, ptr %.sroa.417.0..sroa_idx, align 1
-  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %.sroa.5.0.extract.trunc, ptr %.sroa.518.0..sroa_idx, align 2
-  %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.6.0.extract.trunc, ptr %.sroa.619.0..sroa_idx, align 8
+  store i64 %3, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %19, align 8
   store i8 29, ptr %0, align 8
@@ -35896,14 +35883,9 @@ _ZN17cranelift_codegen8settings7Builder7set_bit17h0e1700706cdfbb09E.exit: ; pred
   %137 = icmp ne ptr %136, null
   tail call void @llvm.assume(i1 %137)
   store i32 1819242338, ptr %136, align 1, !noalias !3682
-  %.sroa.6.sroa.0.0.extract.trunc = trunc i64 %135 to i8
-  %.sroa.6.sroa.7.0.extract.shift = lshr i64 %135, 8
-  %.sroa.6.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.6.sroa.7.0.extract.shift to i56
   store i64 2, ptr %0, align 8
   %.sroa.272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.6.sroa.0.0.extract.trunc, ptr %.sroa.272.0..sroa_idx, align 8
-  %.sroa.373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.6.sroa.7.0.extract.trunc, ptr %.sroa.373.0..sroa_idx, align 1
+  store i64 %135, ptr %.sroa.272.0..sroa_idx, align 8
   %.sroa.373.sroa.2.0..sroa.373.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %136, ptr %.sroa.373.sroa.2.0..sroa.373.0..sroa_idx.sroa_idx, align 8
   %.sroa.373.sroa.3.0..sroa.373.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -35930,14 +35912,9 @@ _ZN17cranelift_codegen8settings7Builder7set_bit17h0e1700706cdfbb09E.exit: ; pred
   %148 = icmp ne ptr %147, null
   tail call void @llvm.assume(i1 %148)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %147, ptr noundef nonnull align 1 dereferenceable(6) @anon.7173b3c5b10b09ddf4bd2faf440a3554.714, i64 6, i1 false), !noalias !3683
-  %.sroa.4.sroa.0.0.extract.trunc = trunc i64 %146 to i8
-  %.sroa.4.sroa.6.0.extract.shift = lshr i64 %146, 8
-  %.sroa.4.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.4.sroa.6.0.extract.shift to i56
   store i64 2, ptr %0, align 8
   %.sroa.281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.sroa.0.0.extract.trunc, ptr %.sroa.281.0..sroa_idx, align 8
-  %.sroa.382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.sroa.6.0.extract.trunc, ptr %.sroa.382.0..sroa_idx, align 1
+  store i64 %146, ptr %.sroa.281.0..sroa_idx, align 8
   %.sroa.382.sroa.2.0..sroa.382.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %147, ptr %.sroa.382.sroa.2.0..sroa.382.0..sroa_idx.sroa_idx, align 8
   %.sroa.382.sroa.3.0..sroa.382.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

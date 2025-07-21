@@ -401,7 +401,7 @@ _ZN3der6reader6Reader6decode17hbc45a32b9b5c07c2E.exit.i: ; preds = %12
   %.sroa.0.i.sroa.9.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.sroa.0.i.sroa.9.0.copyload67 = load i64, ptr %.sroa.0.i.sroa.9.0..sroa_idx66, align 8, !noalias !22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !22
-  br label %36
+  br label %35
 
 24:                                               ; preds = %20
   %.sroa.526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -423,7 +423,7 @@ _ZN3der6reader6Reader6decode17hbc45a32b9b5c07c2E.exit.i: ; preds = %12
   %.sroa.627.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.627.0.copyload.i = load i64, ptr %.sroa.627.0..sroa_idx.i, align 8, !noalias !22
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !22
-  br label %36
+  br label %35
 
 25:                                               ; preds = %3
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -438,7 +438,7 @@ _ZN3der6reader6Reader6decode17hbc45a32b9b5c07c2E.exit.i: ; preds = %12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 24, ptr %26, align 8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.6)
-  br label %38
+  br label %37
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -464,26 +464,26 @@ _ZN3der6reader6Reader6decode17hbc45a32b9b5c07c2E.exit.i: ; preds = %12
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %29 = call noundef i32 @_ZN3der6length6Length14saturating_sub17h6c49ac055b0683ecE(i32 noundef %.sroa.338.0.copyload, i32 noundef %.sroa.439.0.copyload), !noalias !41
   %30 = icmp eq i32 %29, 0
-  %.sroa.034.sroa.2.sroa.3.0..sroa.034.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %27
   %32 = call noundef i32 @_ZN3der6length6Length14saturating_sub17h6c49ac055b0683ecE(i32 noundef %.sroa.338.0.copyload, i32 noundef %.sroa.439.0.copyload), !noalias !47
   store i32 1, ptr %0, align 8, !alias.scope !36, !noalias !50
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.439.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !36, !noalias !50
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 21, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !36, !noalias !50
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.439.0.copyload, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !36, !noalias !50
-  store i32 %32, ptr %.sroa.034.sroa.2.sroa.3.0..sroa.034.sroa.2.0..sroa_idx.sroa_idx, align 8, !alias.scope !36, !noalias !50
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %32, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !36, !noalias !50
   br label %_ZN3der6reader6Reader6finish17h346823a70b8832bdE.exit
 
 33:                                               ; preds = %27
-  %.sroa.612.i.sroa.5.sroa.7.0.extract.shift125 = lshr i64 %.sroa.612.i.sroa.5.4.copyload, 32
-  %.sroa.612.i.sroa.5.sroa.7.0.extract.trunc126 = trunc nuw i64 %.sroa.612.i.sroa.5.sroa.7.0.extract.shift125 to i32
-  %.sroa.612.i.sroa.5.sroa.0.0.extract.trunc124 = trunc i64 %.sroa.612.i.sroa.5.4.copyload to i32
-  store i32 %.sroa.612.i.sroa.5.sroa.0.0.extract.trunc124, ptr %0, align 8, !alias.scope !51, !noalias !52
+  store i64 %.sroa.612.i.sroa.5.4.copyload, ptr %0, align 8, !alias.scope !51, !noalias !52
   %.sroa.034.sroa.2.sroa.2.0..sroa.034.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.612.i.sroa.9.4.copyload, ptr %.sroa.034.sroa.2.sroa.2.0..sroa.034.sroa.2.0..sroa_idx.sroa_idx, align 8, !alias.scope !51, !noalias !52
+  %.sroa.034.sroa.2.sroa.3.0..sroa.034.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.612.i.sroa.11.sroa.0.0.copyload102, ptr %.sroa.034.sroa.2.sroa.3.0..sroa.034.sroa.2.0..sroa_idx.sroa_idx, align 8, !alias.scope !51, !noalias !52
   %.sroa.034.sroa.2.sroa.3.sroa.0.sroa.2.0..sroa.034.sroa.2.sroa.3.0..sroa.034.sroa.2.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.612.i.sroa.11.sroa.7.0.copyload104, ptr %.sroa.034.sroa.2.sroa.3.sroa.0.sroa.2.0..sroa.034.sroa.2.sroa.3.0..sroa.034.sroa.2.0..sroa_idx.sroa_idx.sroa_idx, align 8, !alias.scope !51, !noalias !52
@@ -518,15 +518,12 @@ _ZN3der6reader6Reader6decode17hbc45a32b9b5c07c2E.exit.i: ; preds = %12
   br label %_ZN3der6reader6Reader6finish17h346823a70b8832bdE.exit
 
 _ZN3der6reader6Reader6finish17h346823a70b8832bdE.exit: ; preds = %31, %33
-  %.sroa.439.0.copyload.sink = phi i32 [ %.sroa.612.i.sroa.5.sroa.7.0.extract.trunc126, %33 ], [ %.sroa.439.0.copyload, %31 ]
   %.sink = phi i8 [ %.pre.i, %33 ], [ 24, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.439.0.copyload.sink, ptr %34, align 4, !alias.scope !51, !noalias !52
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 %.sink, ptr %35, align 8, !alias.scope !51, !noalias !52
-  br label %38
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i8 %.sink, ptr %34, align 8, !alias.scope !51, !noalias !52
+  br label %37
 
-36:                                               ; preds = %23, %24
+35:                                               ; preds = %23, %24
   %.sroa.828.sroa.9.sroa.8.0.ph = phi i32 [ %.sroa.612.i.sroa.12.0.copyload, %24 ], [ %.sroa.0.i.sroa.8.sroa.6.0.copyload88, %23 ]
   %.sroa.828.sroa.9.sroa.9.0.ph = phi i32 [ %.sroa.612.i.sroa.13.0.copyload, %24 ], [ %.sroa.0.i.sroa.8.sroa.7.0.copyload90, %23 ]
   %.sroa.828.sroa.8.0.ph = phi i64 [ %.sroa.612.i.sroa.5.0.copyload, %24 ], [ %.sroa.0.i.sroa.7.0.copyload64, %23 ]
@@ -557,11 +554,11 @@ _ZN3der6reader6Reader6finish17h346823a70b8832bdE.exit: ; preds = %31, %33
   store i32 %.sroa.828.sroa.9.sroa.9.0.ph, ptr %.sroa.256.sroa.3.sroa.3.0..sroa.256.sroa.3.0..sroa.256.0..sroa_idx.sroa_idx.sroa_idx, align 4
   %.sroa.357.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.9.0.ph, ptr %.sroa.357.0..sroa_idx, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 24, ptr %37, align 8
-  br label %38
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i8 24, ptr %36, align 8
+  br label %37
 
-38:                                               ; preds = %_ZN3der6reader6Reader6finish17h346823a70b8832bdE.exit, %36, %25
+37:                                               ; preds = %_ZN3der6reader6Reader6finish17h346823a70b8832bdE.exit, %35, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   ret void
 }

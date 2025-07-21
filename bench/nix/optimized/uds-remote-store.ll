@@ -5022,7 +5022,7 @@ define void @_ZTv0_n344_N3nix14UDSRemoteStore14openConnectionEv(ptr dead_on_unwi
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix14UDSRemoteStore15addIndirectRootERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca [8 x i8], align 1
+  %3 = alloca [8 x i8], align 8
   %4 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %5, i64 -120
@@ -5037,42 +5037,40 @@ define void @_ZN3nix14UDSRemoteStore15addIndirectRootERKNSt7__cxx1112basic_strin
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i8 12, ptr %3, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %16, i8 0, i64 7, i1 false)
-  %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 8, ptr nonnull %3)
-          to label %20 unwind label %30
+  store i64 12, ptr %3, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 8, ptr nonnull %3)
+          to label %19 unwind label %29
 
-20:                                               ; preds = %2
+19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nixlsERNS_4SinkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 %23, ptr %21)
-          to label %25 unwind label %30
+  %20 = load ptr, ptr %1, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nixlsERNS_4SinkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 %22, ptr %20)
+          to label %24 unwind label %29
 
-25:                                               ; preds = %20
+24:                                               ; preds = %19
   invoke void @_ZN3nix11RemoteStore16ConnectionHandle13processStderrEPNS_4SinkEPNS_6SourceEb(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-          to label %26 unwind label %30
+          to label %25 unwind label %29
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %29 = invoke noundef i32 @_ZN3nix7readNumIjEET_RNS_6SourceE(ptr noundef nonnull align 8 dereferenceable(8) %28)
-          to label %_ZN3nix7readIntERNS_6SourceE.exit unwind label %30
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %28 = invoke noundef i32 @_ZN3nix7readNumIjEET_RNS_6SourceE(ptr noundef nonnull align 8 dereferenceable(8) %27)
+          to label %_ZN3nix7readIntERNS_6SourceE.exit unwind label %29
 
-_ZN3nix7readIntERNS_6SourceE.exit:                ; preds = %26
+_ZN3nix7readIntERNS_6SourceE.exit:                ; preds = %25
   call void @_ZN3nix11RemoteStore16ConnectionHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #25
   ret void
 
-30:                                               ; preds = %26, %2, %25, %20
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %25, %2, %24, %19
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix11RemoteStore16ConnectionHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #25
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %30
 }
 
 declare void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8, ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #2

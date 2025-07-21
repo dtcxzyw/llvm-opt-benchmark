@@ -2058,7 +2058,7 @@ _ZNK7Imf_3_411TileOffsets20anyOffsetsAreInvalidEv.exit: ; preds = %._crit_edge38
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK7Imf_3_411TileOffsets7writeToERNS_7OStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca [8 x i8], align 1
+  %3 = alloca [8 x i8], align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !51
@@ -2137,44 +2137,34 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   %35 = load ptr, ptr %32, align 8, !tbaa !18
   %.not = icmp eq ptr %34, %35
-  br i1 %.not, label %._crit_edge34, label %.preheader29.lr.ph
+  br i1 %.not, label %._crit_edge34, label %.preheader29
 
-.preheader29.lr.ph:                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  br label %.preheader29
-
-.preheader29:                                     ; preds = %.preheader29.lr.ph, %._crit_edge32
-  %43 = phi ptr [ %35, %.preheader29.lr.ph ], [ %57, %._crit_edge32 ]
-  %44 = phi ptr [ %34, %.preheader29.lr.ph ], [ %58, %._crit_edge32 ]
-  %45 = phi i64 [ 0, %.preheader29.lr.ph ], [ %60, %._crit_edge32 ]
-  %.01933 = phi i32 [ 0, %.preheader29.lr.ph ], [ %59, %._crit_edge32 ]
-  %46 = getelementptr inbounds nuw %"class.std::vector.0", ptr %43, i64 %45
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !20
-  %49 = load ptr, ptr %46, align 8, !tbaa !23
-  %.not35 = icmp eq ptr %48, %49
+.preheader29:                                     ; preds = %31, %._crit_edge32
+  %36 = phi ptr [ %50, %._crit_edge32 ], [ %35, %31 ]
+  %37 = phi ptr [ %51, %._crit_edge32 ], [ %34, %31 ]
+  %38 = phi i64 [ %53, %._crit_edge32 ], [ 0, %31 ]
+  %.01933 = phi i32 [ %52, %._crit_edge32 ], [ 0, %31 ]
+  %39 = getelementptr inbounds nuw %"class.std::vector.0", ptr %36, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !20
+  %42 = load ptr, ptr %39, align 8, !tbaa !23
+  %.not35 = icmp eq ptr %41, %42
   br i1 %.not35, label %._crit_edge32, label %.preheader
 
 ._crit_edge34:                                    ; preds = %._crit_edge32, %31
   ret i64 %9
 
 .preheader:                                       ; preds = %.preheader29, %._crit_edge
-  %.pre = phi ptr [ %.pre38, %._crit_edge ], [ %49, %.preheader29 ]
-  %50 = phi ptr [ %66, %._crit_edge ], [ %43, %.preheader29 ]
-  %51 = phi ptr [ %67, %._crit_edge ], [ %43, %.preheader29 ]
-  %52 = phi i64 [ %69, %._crit_edge ], [ 0, %.preheader29 ]
-  %.01831 = phi i32 [ %68, %._crit_edge ], [ 0, %.preheader29 ]
-  %53 = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !31
-  %56 = load ptr, ptr %53, align 8, !tbaa !24
-  %.not36 = icmp eq ptr %55, %56
+  %.pre = phi ptr [ %.pre38, %._crit_edge ], [ %42, %.preheader29 ]
+  %43 = phi ptr [ %59, %._crit_edge ], [ %36, %.preheader29 ]
+  %44 = phi ptr [ %60, %._crit_edge ], [ %36, %.preheader29 ]
+  %45 = phi i64 [ %62, %._crit_edge ], [ 0, %.preheader29 ]
+  %.01831 = phi i32 [ %61, %._crit_edge ], [ 0, %.preheader29 ]
+  %46 = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !31
+  %49 = load ptr, ptr %46, align 8, !tbaa !24
+  %.not36 = icmp eq ptr %48, %49
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 ._crit_edge32.loopexit:                           ; preds = %._crit_edge
@@ -2182,82 +2172,60 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   br label %._crit_edge32
 
 ._crit_edge32:                                    ; preds = %._crit_edge32.loopexit, %.preheader29
-  %57 = phi ptr [ %66, %._crit_edge32.loopexit ], [ %43, %.preheader29 ]
-  %58 = phi ptr [ %.pre37, %._crit_edge32.loopexit ], [ %44, %.preheader29 ]
-  %59 = add i32 %.01933, 1
-  %60 = zext i32 %59 to i64
-  %61 = ptrtoint ptr %58 to i64
-  %62 = ptrtoint ptr %57 to i64
-  %63 = sub i64 %61, %62
-  %64 = sdiv exact i64 %63, 24
-  %65 = icmp ugt i64 %64, %60
-  br i1 %65, label %.preheader29, label %._crit_edge34, !llvm.loop !74
+  %50 = phi ptr [ %59, %._crit_edge32.loopexit ], [ %36, %.preheader29 ]
+  %51 = phi ptr [ %.pre37, %._crit_edge32.loopexit ], [ %37, %.preheader29 ]
+  %52 = add i32 %.01933, 1
+  %53 = zext i32 %52 to i64
+  %54 = ptrtoint ptr %51 to i64
+  %55 = ptrtoint ptr %50 to i64
+  %56 = sub i64 %54, %55
+  %57 = sdiv exact i64 %56, 24
+  %58 = icmp ugt i64 %57, %53
+  br i1 %58, label %.preheader29, label %._crit_edge34, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.pre38 = phi ptr [ %.pre, %.preheader ], [ %103, %.lr.ph ]
-  %66 = phi ptr [ %50, %.preheader ], [ %101, %.lr.ph ]
-  %67 = phi ptr [ %51, %.preheader ], [ %101, %.lr.ph ]
-  %68 = add i32 %.01831, 1
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"class.std::vector.0", ptr %67, i64 %45, i32 0, i32 0, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8, !tbaa !20
-  %72 = ptrtoint ptr %71 to i64
-  %73 = ptrtoint ptr %.pre38 to i64
-  %74 = sub i64 %72, %73
-  %75 = sdiv exact i64 %74, 24
-  %76 = icmp ugt i64 %75, %69
-  br i1 %76, label %.preheader, label %._crit_edge32.loopexit, !llvm.loop !75
+  %.pre38 = phi ptr [ %.pre, %.preheader ], [ %81, %.lr.ph ]
+  %59 = phi ptr [ %43, %.preheader ], [ %79, %.lr.ph ]
+  %60 = phi ptr [ %44, %.preheader ], [ %79, %.lr.ph ]
+  %61 = add i32 %.01831, 1
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %"class.std::vector.0", ptr %60, i64 %38, i32 0, i32 0, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8, !tbaa !20
+  %65 = ptrtoint ptr %64 to i64
+  %66 = ptrtoint ptr %.pre38 to i64
+  %67 = sub i64 %65, %66
+  %68 = sdiv exact i64 %67, 24
+  %69 = icmp ugt i64 %68, %62
+  br i1 %69, label %.preheader, label %._crit_edge32.loopexit, !llvm.loop !75
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %77 = phi ptr [ %107, %.lr.ph ], [ %56, %.preheader ]
-  %78 = phi i64 [ %100, %.lr.ph ], [ 0, %.preheader ]
-  %.030 = phi i32 [ %99, %.lr.ph ], [ 0, %.preheader ]
-  %79 = getelementptr inbounds nuw i64, ptr %77, i64 %78
-  %80 = load i64, ptr %79, align 8, !tbaa !32
+  %70 = phi ptr [ %85, %.lr.ph ], [ %49, %.preheader ]
+  %71 = phi i64 [ %78, %.lr.ph ], [ 0, %.preheader ]
+  %.030 = phi i32 [ %77, %.lr.ph ], [ 0, %.preheader ]
+  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  %73 = load i64, ptr %72, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
-  %81 = trunc i64 %80 to i8
-  store i8 %81, ptr %3, align 1, !tbaa !72
-  %82 = lshr i64 %80, 8
-  %83 = trunc i64 %82 to i8
-  store i8 %83, ptr %36, align 1, !tbaa !72
-  %84 = lshr i64 %80, 16
-  %85 = trunc i64 %84 to i8
-  store i8 %85, ptr %37, align 1, !tbaa !72
-  %86 = lshr i64 %80, 24
-  %87 = trunc i64 %86 to i8
-  store i8 %87, ptr %38, align 1, !tbaa !72
-  %88 = lshr i64 %80, 32
-  %89 = trunc i64 %88 to i8
-  store i8 %89, ptr %39, align 1, !tbaa !72
-  %90 = lshr i64 %80, 40
-  %91 = trunc i64 %90 to i8
-  store i8 %91, ptr %40, align 1, !tbaa !72
-  %92 = lshr i64 %80, 48
-  %93 = trunc i64 %92 to i8
-  store i8 %93, ptr %41, align 1, !tbaa !72
-  %94 = lshr i64 %80, 56
-  %95 = trunc nuw i64 %94 to i8
-  store i8 %95, ptr %42, align 1, !tbaa !72
-  %96 = load ptr, ptr %1, align 8, !tbaa !51
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %3, i32 noundef 8)
+  store i64 %73, ptr %3, align 8
+  %74 = load ptr, ptr %1, align 8, !tbaa !51
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = load ptr, ptr %75, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %3, i32 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
-  %99 = add i32 %.030, 1
-  %100 = zext i32 %99 to i64
-  %101 = load ptr, ptr %32, align 8, !tbaa !18
-  %102 = getelementptr inbounds nuw %"class.std::vector.0", ptr %101, i64 %45
-  %103 = load ptr, ptr %102, align 8, !tbaa !23
-  %104 = getelementptr inbounds nuw %"class.std::vector.5", ptr %103, i64 %52
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load ptr, ptr %105, align 8, !tbaa !31
-  %107 = load ptr, ptr %104, align 8, !tbaa !24
-  %108 = ptrtoint ptr %106 to i64
-  %109 = ptrtoint ptr %107 to i64
-  %110 = sub i64 %108, %109
-  %111 = ashr exact i64 %110, 3
-  %112 = icmp ugt i64 %111, %100
-  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+  %77 = add i32 %.030, 1
+  %78 = zext i32 %77 to i64
+  %79 = load ptr, ptr %32, align 8, !tbaa !18
+  %80 = getelementptr inbounds nuw %"class.std::vector.0", ptr %79, i64 %38
+  %81 = load ptr, ptr %80, align 8, !tbaa !23
+  %82 = getelementptr inbounds nuw %"class.std::vector.5", ptr %81, i64 %45
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !31
+  %85 = load ptr, ptr %82, align 8, !tbaa !24
+  %86 = ptrtoint ptr %84 to i64
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %86, %87
+  %89 = ashr exact i64 %88, 3
+  %90 = icmp ugt i64 %89, %78
+  br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 }
 
 declare void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

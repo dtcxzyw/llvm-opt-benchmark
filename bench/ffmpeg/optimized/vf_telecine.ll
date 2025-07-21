@@ -591,9 +591,7 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) 
   %.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.10.0.extract.shift to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.4, i32 noundef %.sroa.07.0.copyload, i32 noundef %.sroa.10.0.copyload, i32 noundef %.sroa.07.0.extract.trunc, i32 noundef %.sroa.10.0.extract.trunc) #5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %.sroa.07.0.extract.trunc, ptr %16, align 8, !tbaa !54
-  %.sroa.10.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store i32 %.sroa.10.0.extract.trunc, ptr %.sroa.10.0..sroa_idx16, align 4, !tbaa !54
+  store i64 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %19 = load i64, ptr %18, align 8

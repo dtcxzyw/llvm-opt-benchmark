@@ -1179,7 +1179,7 @@ define internal void @_ZL44T_UConverter_toUnicode_UTF32_LE_OFFSET_LOGICP23UConve
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL33T_UConverter_fromUnicode_UTF32_LEP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = alloca [4 x i8], align 1
+  %3 = alloca [4 x i8], align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1188,7 +1188,7 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_LEP25UConverterFromUni
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   %.not = icmp ult ptr %5, %7
-  br i1 %.not, label %10, label %91
+  br i1 %.not, label %10, label %88
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1222,13 +1222,13 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_LEP25UConverterFromUni
   store i32 0, ptr %26, align 4, !tbaa !43
   br label %41
 
-.loopexit:                                        ; preds = %81, %21
-  %.166 = phi ptr [ %24, %21 ], [ %.5, %81 ]
-  %.1 = phi ptr [ %5, %21 ], [ %.3, %81 ]
+.loopexit:                                        ; preds = %78, %21
+  %.166 = phi ptr [ %24, %21 ], [ %.5, %78 ]
+  %.1 = phi ptr [ %5, %21 ], [ %.3, %78 ]
   %29 = icmp ult ptr %.1, %7
   %30 = icmp ult ptr %.166, %9
   %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %32, label %84
+  br i1 %31, label %32, label %81
 
 32:                                               ; preds = %.loopexit
   %33 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -1271,7 +1271,7 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_LEP25UConverterFromUni
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %57 = load i8, ptr %56, align 2, !tbaa !44
   %.not74 = icmp eq i8 %57, 0
-  br i1 %.not74, label %84, label %.sink.split
+  br i1 %.not74, label %81, label %.sink.split
 
 58:                                               ; preds = %48, %32
   %.368 = phi ptr [ %.065, %48 ], [ %.166, %32 ]
@@ -1281,92 +1281,88 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_LEP25UConverterFromUni
   %60 = trunc i32 %59 to i8
   %61 = and i8 %60, 31
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %61, ptr %62, align 1, !tbaa !23
-  %63 = lshr i32 %.164, 8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !23
-  %66 = trunc i32 %.164 to i8
-  store i8 %66, ptr %3, align 1, !tbaa !23
-  br label %67
+  store i8 %61, ptr %62, align 2, !tbaa !23
+  %63 = trunc i32 %.164 to i16
+  store i16 %63, ptr %3, align 2
+  br label %64
 
-67:                                               ; preds = %58, %81
-  %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %81 ]
-  %.477 = phi ptr [ %.368, %58 ], [ %.5, %81 ]
-  %68 = icmp ult ptr %.477, %9
-  %69 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
-  %70 = load i8, ptr %69, align 1, !tbaa !23
-  br i1 %68, label %71, label %73
+64:                                               ; preds = %58, %78
+  %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %78 ]
+  %.477 = phi ptr [ %.368, %58 ], [ %.5, %78 ]
+  %65 = icmp ult ptr %.477, %9
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %67 = load i8, ptr %66, align 1, !tbaa !23
+  br i1 %65, label %68, label %70
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %.477, i64 1
-  store i8 %70, ptr %.477, align 1, !tbaa !23
-  br label %81
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %.477, i64 1
+  store i8 %67, ptr %.477, align 1, !tbaa !23
+  br label %78
 
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %11, align 8, !tbaa !40
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 104
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 91
-  %77 = load i8, ptr %76, align 1, !tbaa !45
-  %78 = add i8 %77, 1
-  store i8 %78, ptr %76, align 1, !tbaa !45
-  %79 = sext i8 %77 to i64
-  %80 = getelementptr inbounds [32 x i8], ptr %75, i64 0, i64 %79
-  store i8 %70, ptr %80, align 1, !tbaa !23
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %11, align 8, !tbaa !40
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 91
+  %74 = load i8, ptr %73, align 1, !tbaa !45
+  %75 = add i8 %74, 1
+  store i8 %75, ptr %73, align 1, !tbaa !45
+  %76 = sext i8 %74 to i64
+  %77 = getelementptr inbounds [32 x i8], ptr %72, i64 0, i64 %76
+  store i8 %67, ptr %77, align 1, !tbaa !23
   store i32 15, ptr %1, align 4, !tbaa !30
-  br label %81
+  br label %78
 
-81:                                               ; preds = %71, %73
-  %.5 = phi ptr [ %72, %71 ], [ %.477, %73 ]
+78:                                               ; preds = %68, %70
+  %.5 = phi ptr [ %69, %68 ], [ %.477, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %67, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !54
 
 .sink.split.sink.split:                           ; preds = %38, %43
   %.063.sink = phi i32 [ %.063, %43 ], [ %35, %38 ]
   %.267.ph.ph = phi ptr [ %.065, %43 ], [ %.166, %38 ]
   %.2.ph.ph = phi ptr [ %.062, %43 ], [ %33, %38 ]
-  %82 = load ptr, ptr %11, align 8, !tbaa !40
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 84
-  store i32 %.063.sink, ptr %83, align 4, !tbaa !43
+  %79 = load ptr, ptr %11, align 8, !tbaa !40
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 84
+  store i32 %.063.sink, ptr %80, align 4, !tbaa !43
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %53
   %.267.ph = phi ptr [ %.065, %53 ], [ %.267.ph.ph, %.sink.split.sink.split ]
   %.2.ph = phi ptr [ %.062, %53 ], [ %.2.ph.ph, %.sink.split.sink.split ]
   store i32 12, ptr %1, align 4, !tbaa !30
-  br label %84
+  br label %81
 
-84:                                               ; preds = %.sink.split, %53, %.loopexit
+81:                                               ; preds = %.sink.split, %53, %.loopexit
   %.267 = phi ptr [ %.166, %.loopexit ], [ %.065, %53 ], [ %.267.ph, %.sink.split ]
   %.2 = phi ptr [ %.1, %.loopexit ], [ %.062, %53 ], [ %.2.ph, %.sink.split ]
-  %85 = icmp uge ptr %.2, %7
+  %82 = icmp uge ptr %.2, %7
   %.not75 = icmp ult ptr %.267, %9
-  %or.cond = select i1 %85, i1 true, i1 %.not75
-  br i1 %or.cond, label %90, label %86
+  %or.cond = select i1 %82, i1 true, i1 %.not75
+  br i1 %or.cond, label %87, label %83
 
-86:                                               ; preds = %84
-  %87 = load i32, ptr %1, align 4, !tbaa !30
-  %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %90, label %89
+83:                                               ; preds = %81
+  %84 = load i32, ptr %1, align 4, !tbaa !30
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %87, label %86
 
-89:                                               ; preds = %86
+86:                                               ; preds = %83
   store i32 15, ptr %1, align 4, !tbaa !30
-  br label %90
+  br label %87
 
-90:                                               ; preds = %89, %86, %84
+87:                                               ; preds = %86, %83, %81
   store ptr %.267, ptr %23, align 8, !tbaa !42
   store ptr %.2, ptr %4, align 8, !tbaa !36
-  br label %91
+  br label %88
 
-91:                                               ; preds = %2, %90
+88:                                               ; preds = %2, %87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = alloca [4 x i8], align 1
+  %3 = alloca [4 x i8], align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1375,7 +1371,7 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   %.not = icmp ult ptr %5, %7
-  br i1 %.not, label %10, label %101
+  br i1 %.not, label %10, label %98
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1411,15 +1407,15 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   store i32 0, ptr %28, align 4, !tbaa !43
   br label %44
 
-31:                                               ; preds = %21, %86
-  %.179 = phi ptr [ %.583, %86 ], [ %26, %21 ]
-  %.175 = phi ptr [ %.5, %86 ], [ %24, %21 ]
-  %.170 = phi ptr [ %.3, %86 ], [ %5, %21 ]
-  %.1 = phi i32 [ %91, %86 ], [ 0, %21 ]
+31:                                               ; preds = %21, %83
+  %.179 = phi ptr [ %.583, %83 ], [ %26, %21 ]
+  %.175 = phi ptr [ %.5, %83 ], [ %24, %21 ]
+  %.170 = phi ptr [ %.3, %83 ], [ %5, %21 ]
+  %.1 = phi i32 [ %88, %83 ], [ 0, %21 ]
   %32 = icmp ult ptr %.170, %7
   %33 = icmp ult ptr %.175, %9
   %34 = select i1 %32, i1 %33, i1 false
-  br i1 %34, label %35, label %94
+  br i1 %34, label %35, label %91
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %.170, i64 2
@@ -1464,7 +1460,7 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %60 = load i8, ptr %59, align 2, !tbaa !44
   %.not89 = icmp eq i8 %60, 0
-  br i1 %.not89, label %94, label %.sink.split
+  br i1 %.not89, label %91, label %.sink.split
 
 61:                                               ; preds = %51, %35
   %.381 = phi ptr [ %.078, %51 ], [ %.179, %35 ]
@@ -1476,57 +1472,53 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   %63 = trunc i32 %62 to i8
   %64 = and i8 %63, 31
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %64, ptr %65, align 1, !tbaa !23
-  %66 = lshr i32 %.173, 8
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %67, ptr %68, align 1, !tbaa !23
-  %69 = trunc i32 %.173 to i8
-  store i8 %69, ptr %3, align 1, !tbaa !23
-  br label %70
+  store i8 %64, ptr %65, align 2, !tbaa !23
+  %66 = trunc i32 %.173 to i16
+  store i16 %66, ptr %3, align 2
+  br label %67
 
-70:                                               ; preds = %61, %85
-  %indvars.iv = phi i64 [ 0, %61 ], [ %indvars.iv.next, %85 ]
-  %.493 = phi ptr [ %.377, %61 ], [ %.5, %85 ]
-  %.48292 = phi ptr [ %.381, %61 ], [ %.583, %85 ]
-  %71 = icmp ult ptr %.493, %9
-  %72 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
-  %73 = load i8, ptr %72, align 1, !tbaa !23
-  br i1 %71, label %74, label %77
+67:                                               ; preds = %61, %82
+  %indvars.iv = phi i64 [ 0, %61 ], [ %indvars.iv.next, %82 ]
+  %.493 = phi ptr [ %.377, %61 ], [ %.5, %82 ]
+  %.48292 = phi ptr [ %.381, %61 ], [ %.583, %82 ]
+  %68 = icmp ult ptr %.493, %9
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %70 = load i8, ptr %69, align 1, !tbaa !23
+  br i1 %68, label %71, label %74
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %.493, i64 1
-  store i8 %73, ptr %.493, align 1, !tbaa !23
-  %76 = getelementptr inbounds nuw i8, ptr %.48292, i64 4
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %.493, i64 1
+  store i8 %70, ptr %.493, align 1, !tbaa !23
+  %73 = getelementptr inbounds nuw i8, ptr %.48292, i64 4
   store i32 %.2, ptr %.48292, align 4, !tbaa !34
-  br label %85
+  br label %82
 
-77:                                               ; preds = %70
-  %78 = load ptr, ptr %11, align 8, !tbaa !40
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 104
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 91
-  %81 = load i8, ptr %80, align 1, !tbaa !45
-  %82 = add i8 %81, 1
-  store i8 %82, ptr %80, align 1, !tbaa !45
-  %83 = sext i8 %81 to i64
-  %84 = getelementptr inbounds [32 x i8], ptr %79, i64 0, i64 %83
-  store i8 %73, ptr %84, align 1, !tbaa !23
+74:                                               ; preds = %67
+  %75 = load ptr, ptr %11, align 8, !tbaa !40
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 91
+  %78 = load i8, ptr %77, align 1, !tbaa !45
+  %79 = add i8 %78, 1
+  store i8 %79, ptr %77, align 1, !tbaa !45
+  %80 = sext i8 %78 to i64
+  %81 = getelementptr inbounds [32 x i8], ptr %76, i64 0, i64 %80
+  store i8 %70, ptr %81, align 1, !tbaa !23
   store i32 15, ptr %1, align 4, !tbaa !30
-  br label %85
+  br label %82
 
-85:                                               ; preds = %74, %77
-  %.583 = phi ptr [ %76, %74 ], [ %.48292, %77 ]
-  %.5 = phi ptr [ %75, %74 ], [ %.493, %77 ]
+82:                                               ; preds = %71, %74
+  %.583 = phi ptr [ %73, %71 ], [ %.48292, %74 ]
+  %.5 = phi ptr [ %72, %71 ], [ %.493, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %86, label %70, !llvm.loop !55
+  br i1 %exitcond.not, label %83, label %67, !llvm.loop !55
 
-86:                                               ; preds = %85
-  %87 = add nsw i32 %.2, 1
-  %88 = and i32 %.173, 2031616
-  %89 = icmp ne i32 %88, 0
-  %90 = zext i1 %89 to i32
-  %91 = add nsw i32 %87, %90
+83:                                               ; preds = %82
+  %84 = add nsw i32 %.2, 1
+  %85 = and i32 %.173, 2031616
+  %86 = icmp ne i32 %85, 0
+  %87 = zext i1 %86 to i32
+  %88 = add nsw i32 %84, %87
   br label %31, !llvm.loop !56
 
 .sink.split.sink.split:                           ; preds = %41, %46
@@ -1534,9 +1526,9 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   %.280.ph.ph = phi ptr [ %.078, %46 ], [ %.179, %41 ]
   %.276.ph.ph = phi ptr [ %.074, %46 ], [ %.175, %41 ]
   %.271.ph.ph = phi ptr [ %.069, %46 ], [ %36, %41 ]
-  %92 = load ptr, ptr %11, align 8, !tbaa !40
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 84
-  store i32 %.072.sink, ptr %93, align 4, !tbaa !43
+  %89 = load ptr, ptr %11, align 8, !tbaa !40
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 84
+  store i32 %.072.sink, ptr %90, align 4, !tbaa !43
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %56
@@ -1544,33 +1536,33 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   %.276.ph = phi ptr [ %.074, %56 ], [ %.276.ph.ph, %.sink.split.sink.split ]
   %.271.ph = phi ptr [ %.069, %56 ], [ %.271.ph.ph, %.sink.split.sink.split ]
   store i32 12, ptr %1, align 4, !tbaa !30
-  br label %94
+  br label %91
 
-94:                                               ; preds = %.sink.split, %56, %31
+91:                                               ; preds = %.sink.split, %56, %31
   %.280 = phi ptr [ %.179, %31 ], [ %.078, %56 ], [ %.280.ph, %.sink.split ]
   %.276 = phi ptr [ %.175, %31 ], [ %.074, %56 ], [ %.276.ph, %.sink.split ]
   %.271 = phi ptr [ %.170, %31 ], [ %.069, %56 ], [ %.271.ph, %.sink.split ]
-  %95 = icmp uge ptr %.271, %7
+  %92 = icmp uge ptr %.271, %7
   %.not90 = icmp ult ptr %.276, %9
-  %or.cond = select i1 %95, i1 true, i1 %.not90
-  br i1 %or.cond, label %100, label %96
+  %or.cond = select i1 %92, i1 true, i1 %.not90
+  br i1 %or.cond, label %97, label %93
 
-96:                                               ; preds = %94
-  %97 = load i32, ptr %1, align 4, !tbaa !30
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %100, label %99
+93:                                               ; preds = %91
+  %94 = load i32, ptr %1, align 4, !tbaa !30
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %97, label %96
 
-99:                                               ; preds = %96
+96:                                               ; preds = %93
   store i32 15, ptr %1, align 4, !tbaa !30
-  br label %100
+  br label %97
 
-100:                                              ; preds = %99, %96, %94
+97:                                               ; preds = %96, %93, %91
   store ptr %.276, ptr %23, align 8, !tbaa !42
   store ptr %.271, ptr %4, align 8, !tbaa !36
   store ptr %.280, ptr %25, align 8, !tbaa !47
-  br label %101
+  br label %98
 
-101:                                              ; preds = %2, %100
+98:                                               ; preds = %2, %97
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   ret void
 }

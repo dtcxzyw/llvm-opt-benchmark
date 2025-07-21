@@ -9991,9 +9991,7 @@ define range(i32 -1, 1) i32 @tj3SetScalingFactor(ptr noundef captures(address_is
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  store i32 %.sroa.0.0.extract.trunc, ptr %32, align 8, !tbaa !88
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1836
-  store i32 %.sroa.3.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !88
+  store i64 %1, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %13, %26, %31, %3

@@ -9796,14 +9796,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvN7nanogui5ArrayIiLm2EEEEZN14WarpTestScreen13initializeGUIEvEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 4
-  %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %.sroa.22.0.extract.shift.i.i.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %.sroa.22.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.22.0.extract.shift.i.i.i to i32
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 548
-  store i32 %.sroa.01.0.extract.trunc.i.i.i, ptr %4, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 552
-  store i32 %.sroa.22.0.extract.trunc.i.i.i, ptr %5, align 4
+  store i64 %.sroa.0.0.copyload.i.i, ptr %4, align 4
   ret void
 }
 

@@ -82537,7 +82537,7 @@ default.unreachable:                              ; preds = %2
 91:                                               ; preds = %79
   %.sroa.8.10.insert.ext.i = zext i8 %75 to i32
   %.sroa.8.10.insert.shift.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i, 16
-  %92 = and i32 %.sroa.061.0.copyload.i, -16761025
+  %92 = and i32 %.sroa.061.0.copyload.i, -16711873
   %.sroa.8.11.insert.insert.i = or disjoint i32 %.sroa.8.10.insert.shift.i, %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !21326
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !21326
@@ -83360,7 +83360,7 @@ default.unreachable:                              ; preds = %2
 93:                                               ; preds = %80
   %.sroa.8.10.insert.ext.i = zext i8 %76 to i32
   %.sroa.8.10.insert.shift.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i, 16
-  %94 = and i32 %.sroa.061.0.copyload.i, -16761025
+  %94 = and i32 %.sroa.061.0.copyload.i, -16711873
   %.sroa.8.11.insert.insert.i = or disjoint i32 %.sroa.8.10.insert.shift.i, %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !21531
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !21531
@@ -84022,7 +84022,7 @@ default.unreachable:                              ; preds = %2
 111:                                              ; preds = %99
   %.sroa.8.10.insert.ext.i = zext i8 %95 to i32
   %.sroa.8.10.insert.shift.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i, 16
-  %112 = and i32 %.sroa.061.0.copyload.i, -16761025
+  %112 = and i32 %.sroa.061.0.copyload.i, -16711873
   %.sroa.8.11.insert.insert.i = or disjoint i32 %.sroa.8.10.insert.shift.i, %112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false), !noalias !21739
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !21739
@@ -85104,7 +85104,7 @@ default.unreachable:                              ; preds = %2
 91:                                               ; preds = %79
   %.sroa.8.10.insert.ext.i = zext i8 %75 to i32
   %.sroa.8.10.insert.shift.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i, 16
-  %92 = and i32 %.sroa.061.0.copyload.i, -16761025
+  %92 = and i32 %.sroa.061.0.copyload.i, -16711873
   %.sroa.8.11.insert.insert.i = or disjoint i32 %.sroa.8.10.insert.shift.i, %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !22116
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !22116
@@ -109816,9 +109816,6 @@ common.resume.i.i.i:                              ; preds = %"_ZN63_$LT$alloc..a
 
 64:                                               ; preds = %56
   %.sroa.13.0.copyload297.i.i.i.i = load i32, ptr %63, align 8, !noalias !28574
-  %.sroa.13.sroa.0.0.extract.trunc305.i.i.i.i = trunc i32 %.sroa.13.0.copyload297.i.i.i.i to i8
-  %.sroa.13.sroa.12.0.extract.shift308.i.i.i.i = lshr i32 %.sroa.13.0.copyload297.i.i.i.i, 8
-  %.sroa.13.sroa.12.0.extract.trunc309.i.i.i.i = trunc nuw i32 %.sroa.13.sroa.12.0.extract.shift308.i.i.i.i to i24
   %.sroa.21.0..sroa_idx298.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 12
   %.sroa.389.sroa.2.0..sroa.389.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.389.sroa.2.0..sroa.389.0..sroa_idx.sroa_idx.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.21.0..sroa_idx298.i.i.i.i, i64 20, i1 false), !noalias !28575
@@ -109832,9 +109829,7 @@ common.resume.i.i.i:                              ; preds = %"_ZN63_$LT$alloc..a
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25), !noalias !28566
   store i64 %61, ptr %0, align 8, !alias.scope !28576, !noalias !28575
   %.sroa.288.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.13.sroa.0.0.extract.trunc305.i.i.i.i, ptr %.sroa.288.0..sroa_idx.i.i.i.i, align 8, !alias.scope !28576, !noalias !28575
-  %.sroa.389.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i24 %.sroa.13.sroa.12.0.extract.trunc309.i.i.i.i, ptr %.sroa.389.0..sroa_idx.i.i.i.i, align 1, !alias.scope !28576, !noalias !28575
+  store i32 %.sroa.13.0.copyload297.i.i.i.i, ptr %.sroa.288.0..sroa_idx.i.i.i.i, align 8, !alias.scope !28576, !noalias !28575
   %.sroa.389.sroa.3.0..sroa.389.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.21299.0.copyload301.i.i.i.i, ptr %.sroa.389.sroa.3.0..sroa.389.0..sroa_idx.sroa_idx.i.i.i.i, align 8, !alias.scope !28576, !noalias !28575
   %.sroa.389.sroa.4.0..sroa.389.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -110014,7 +110009,7 @@ common.resume.i.i.i:                              ; preds = %"_ZN63_$LT$alloc..a
 132:                                              ; preds = %120
   %.sroa.8.10.insert.ext.i.i187.i.i.i.i = zext i8 %116 to i32
   %.sroa.8.10.insert.shift.i.i188.i.i.i.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i.i187.i.i.i.i, 16
-  %133 = and i32 %.sroa.061.0.copyload.i.i179.i.i.i.i, -16761025
+  %133 = and i32 %.sroa.061.0.copyload.i.i179.i.i.i.i, -16711873
   %.sroa.8.11.insert.insert.i.i189.i.i.i.i = or disjoint i32 %.sroa.8.10.insert.shift.i.i188.i.i.i.i, %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false), !noalias !28592
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22), !noalias !28592
@@ -110426,7 +110421,7 @@ common.resume.i.i.i:                              ; preds = %"_ZN63_$LT$alloc..a
 257:                                              ; preds = %245
   %.sroa.8.10.insert.ext.i.i230.i.i.i.i = zext i8 %241 to i32
   %.sroa.8.10.insert.shift.i.i231.i.i.i.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i.i230.i.i.i.i, 16
-  %258 = and i32 %.sroa.061.0.copyload.i.i222.i.i.i.i, -16761025
+  %258 = and i32 %.sroa.061.0.copyload.i.i222.i.i.i.i, -16711873
   %.sroa.8.11.insert.insert.i.i232.i.i.i.i = or disjoint i32 %.sroa.8.10.insert.shift.i.i231.i.i.i.i, %258
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false), !noalias !28735
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15), !noalias !28735
@@ -110905,7 +110900,7 @@ common.resume.i.i.i:                              ; preds = %"_ZN63_$LT$alloc..a
 405:                                              ; preds = %393
   %.sroa.8.10.insert.ext.i.i275.i.i.i.i = zext i8 %389 to i32
   %.sroa.8.10.insert.shift.i.i276.i.i.i.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i.i275.i.i.i.i, 16
-  %406 = and i32 %.sroa.061.0.copyload.i.i267.i.i.i.i, -16761025
+  %406 = and i32 %.sroa.061.0.copyload.i.i267.i.i.i.i, -16711873
   %.sroa.8.11.insert.insert.i.i277.i.i.i.i = or disjoint i32 %.sroa.8.10.insert.shift.i.i276.i.i.i.i, %406
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !noalias !28883
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !28883
@@ -112487,7 +112482,7 @@ common.resume.i.i.i:                              ; preds = %"_ZN63_$LT$alloc..a
 156:                                              ; preds = %144
   %.sroa.8.10.insert.ext.i.i29.i.i.i.i = zext i8 %140 to i32
   %.sroa.8.10.insert.shift.i.i30.i.i.i.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i.i29.i.i.i.i, 16
-  %157 = and i32 %.sroa.061.0.copyload.i.i21.i.i.i.i, -16761025
+  %157 = and i32 %.sroa.061.0.copyload.i.i21.i.i.i.i, -16711873
   %.sroa.8.11.insert.insert.i.i31.i.i.i.i = or disjoint i32 %.sroa.8.10.insert.shift.i.i30.i.i.i.i, %157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false), !noalias !29285
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20), !noalias !29285
@@ -118150,7 +118145,7 @@ default.unreachable181:                           ; preds = %2
 93:                                               ; preds = %81
   %.sroa.8.10.insert.ext = zext i8 %77 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %94 = and i32 %.sroa.061.0.copyload, -16761025
+  %94 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -118552,7 +118547,7 @@ default.unreachable181:                           ; preds = %2
 92:                                               ; preds = %80
   %.sroa.8.10.insert.ext = zext i8 %76 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %93 = and i32 %.sroa.061.0.copyload, -16761025
+  %93 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -118953,7 +118948,7 @@ default.unreachable182:                           ; preds = %2
 92:                                               ; preds = %80
   %.sroa.8.10.insert.ext = zext i8 %76 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %93 = and i32 %.sroa.061.0.copyload, -16761025
+  %93 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -119358,7 +119353,7 @@ default.unreachable187:                           ; preds = %2
 91:                                               ; preds = %72
   %.sroa.8.10.insert.ext = zext i8 %68 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %92 = and i32 %.sroa.061.0.copyload, -16761025
+  %92 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
@@ -119715,7 +119710,7 @@ default.unreachable206:                           ; preds = %3
 107:                                              ; preds = %93
   %.sroa.8.10.insert.ext = zext i8 %89 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %108 = and i32 %.sroa.061.0.copyload, -16761025
+  %108 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
@@ -120160,7 +120155,7 @@ default.unreachable182:                           ; preds = %2
 92:                                               ; preds = %80
   %.sroa.8.10.insert.ext = zext i8 %76 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %93 = and i32 %.sroa.061.0.copyload, -16761025
+  %93 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -120561,7 +120556,7 @@ default.unreachable182:                           ; preds = %2
 92:                                               ; preds = %80
   %.sroa.8.10.insert.ext = zext i8 %76 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %93 = and i32 %.sroa.061.0.copyload, -16761025
+  %93 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -121009,7 +121004,7 @@ default.unreachable209:                           ; preds = %2
 105:                                              ; preds = %93
   %.sroa.8.10.insert.ext = zext i8 %89 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %106 = and i32 %.sroa.061.0.copyload, -16761025
+  %106 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
@@ -121454,7 +121449,7 @@ default.unreachable182:                           ; preds = %2
 94:                                               ; preds = %81
   %.sroa.8.10.insert.ext = zext i8 %77 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %95 = and i32 %.sroa.061.0.copyload, -16761025
+  %95 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -121857,7 +121852,7 @@ default.unreachable182:                           ; preds = %2
 92:                                               ; preds = %80
   %.sroa.8.10.insert.ext = zext i8 %76 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %93 = and i32 %.sroa.061.0.copyload, -16761025
+  %93 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -122258,7 +122253,7 @@ default.unreachable181:                           ; preds = %2
 92:                                               ; preds = %80
   %.sroa.8.10.insert.ext = zext i8 %76 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %93 = and i32 %.sroa.061.0.copyload, -16761025
+  %93 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -122659,7 +122654,7 @@ default.unreachable181:                           ; preds = %2
 92:                                               ; preds = %80
   %.sroa.8.10.insert.ext = zext i8 %76 to i32
   %.sroa.8.10.insert.shift = shl nuw nsw i32 %.sroa.8.10.insert.ext, 16
-  %93 = and i32 %.sroa.061.0.copyload, -16761025
+  %93 = and i32 %.sroa.061.0.copyload, -16711873
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.shift, %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -123387,7 +123382,7 @@ define internal fastcc void @_ZN8zvariant10serialized4data4Data11deserialize17h6
 136:                                              ; preds = %126
   %.sroa.8164.10.insert.ext.i.i.i.i.i.i.i = zext i8 %122 to i32
   %.sroa.8164.10.insert.shift.i.i.i.i.i.i.i = shl nuw nsw i32 %.sroa.8164.10.insert.ext.i.i.i.i.i.i.i, 16
-  %137 = and i32 %.sroa.061.0.copyload.i.i83.i.i.i.i.i, -16761025
+  %137 = and i32 %.sroa.061.0.copyload.i.i83.i.i.i.i.i, -16711873
   %.sroa.8164.11.insert.insert.i.i.i.i.i.i.i = or disjoint i32 %.sroa.8164.10.insert.shift.i.i.i.i.i.i.i, %137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !noalias !31747
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !31747
@@ -130043,7 +130038,7 @@ default.unreachable:                              ; preds = %106
 182:                                              ; preds = %172
   %.sroa.8.10.insert.ext.i.i.i.i.i.i.i = zext i8 %168 to i32
   %.sroa.8.10.insert.shift.i.i.i.i.i.i.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i.i.i.i.i.i.i, 16
-  %183 = and i32 %.sroa.061.0.copyload.i.i.i.i.i.i.i, -16761025
+  %183 = and i32 %.sroa.061.0.copyload.i.i.i.i.i.i.i, -16711873
   %.sroa.8.11.insert.insert.i.i.i.i.i.i.i = or disjoint i32 %.sroa.8.10.insert.shift.i.i.i.i.i.i.i, %183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false), !noalias !33804
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !33804
@@ -141170,8 +141165,8 @@ define internal fastcc void @"_ZN8zvariant4dbus2de26ArrayDeserializer$LT$F$GT$3n
   %.sroa.8170.9.insert.ext = zext nneg i8 %15 to i32
   %.sroa.8170.9.insert.shift = shl nuw nsw i32 %.sroa.8170.9.insert.ext, 8
   %26 = and i32 %.sroa.013.0.copyload, -65473
-  %.sroa.8170.11.insert.insert = or disjoint i32 %.sroa.8170.9.insert.shift, %26
-  store i32 %.sroa.8170.11.insert.insert, ptr %14, align 8
+  %.sroa.8170.10.insert.insert = or disjoint i32 %.sroa.8170.9.insert.shift, %26
+  store i32 %.sroa.8170.10.insert.insert, ptr %14, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %28 = load i8, ptr %27, align 1, !range !249, !noundef !4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
@@ -161482,7 +161477,7 @@ default.unreachable:                              ; preds = %56
 121:                                              ; preds = %109
   %.sroa.8.10.insert.ext.i.i.i = zext i8 %105 to i32
   %.sroa.8.10.insert.shift.i.i.i = shl nuw nsw i32 %.sroa.8.10.insert.ext.i.i.i, 16
-  %122 = and i32 %.sroa.061.0.copyload.i.i.i, -16761025
+  %122 = and i32 %.sroa.061.0.copyload.i.i.i, -16711873
   %.sroa.8.11.insert.insert.i.i.i = or disjoint i32 %.sroa.8.10.insert.shift.i.i.i, %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false), !noalias !42574
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !42574

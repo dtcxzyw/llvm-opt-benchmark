@@ -8029,13 +8029,18 @@ default.unreachable:                              ; preds = %39
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit.i.i.i.i.i: ; preds = %42
   %51 = ptrtoint ptr %.sroa.613.0.copyload.i.i.i to i64
   %.sroa.7.0.extract.trunc11.i.i.i.i.i = trunc i64 %51 to i32
+  store i32 %spec.select.i.i.i.i, ptr %44, align 4, !noalias !2349
+  %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 4
+  store i32 %.sroa.7.0.extract.trunc11.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 4, !noalias !2349
+  %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i32 %.sroa.7.0.extract.trunc11.i.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 4, !noalias !2349
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.thread39.i"
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit12.i.i.i.i.i: ; preds = %46
   %52 = ptrtoint ptr %.sroa.613.0.copyload.i.i.i to i64
-  %.sroa.7.4.extract.shift.i.i.i.i.i = lshr i64 %52, 32
-  %.sroa.7.4.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.7.4.extract.shift.i.i.i.i.i to i32
-  %.sroa.7.0.extract.trunc.i.i.i.i.i = trunc i64 %52 to i32
+  store i32 %spec.select.i.i.i.i, ptr %48, align 4, !noalias !2349
+  %.sroa.45.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i64 %52, ptr %.sroa.45.0..sroa_idx.i.i.i.i.i, align 4, !noalias !2349
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.thread39.i"
 
 53:                                               ; preds = %39
@@ -8136,14 +8141,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.e
   br label %common.resume.i
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.thread39.i": ; preds = %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit12.i.i.i.i.i, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit.i.i.i.i.i
-  %.sink129.i = phi ptr [ %44, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit.i.i.i.i.i ], [ %48, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit12.i.i.i.i.i ]
-  %.sroa.7.0.extract.trunc11.i.i.i.i.sink127.i = phi i32 [ %.sroa.7.0.extract.trunc11.i.i.i.i.i, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit.i.i.i.i.i ], [ %.sroa.7.0.extract.trunc.i.i.i.i.i, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit12.i.i.i.i.i ]
-  %.sroa.7.0.extract.trunc11.i.i.i.i.sink.i = phi i32 [ %.sroa.7.0.extract.trunc11.i.i.i.i.i, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit.i.i.i.i.i ], [ %.sroa.7.4.extract.trunc.i.i.i.i.i, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit12.i.i.i.i.i ]
-  store i32 %spec.select.i.i.i.i, ptr %.sink129.i, align 4, !noalias !2349
-  %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink129.i, i64 4
-  store i32 %.sroa.7.0.extract.trunc11.i.i.i.i.sink127.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 4, !noalias !2349
-  %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink129.i, i64 8
-  store i32 %.sroa.7.0.extract.trunc11.i.i.i.i.sink.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 4, !noalias !2349
+  %.sroa.6.0.i.i.ph.i = phi ptr [ %48, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit12.i.i.i.i.i ], [ %44, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.14583280071648273458.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !2342
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !2337
   br label %97
@@ -8241,7 +8239,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h637226d0146e7812E.exit9.i: ;
 
 97:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.i", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.thread39.i"
   %.sroa.0.0.i.i45.i = phi i64 [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.thread39.i" ], [ %.sroa.0.0.copyload1.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.i" ]
-  %.sroa.6.0.i.i44.i = phi ptr [ %.sink129.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.thread39.i" ], [ %.sroa.6.0.copyload3.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.i" ]
+  %.sroa.6.0.i.i44.i = phi ptr [ %.sroa.6.0.i.i.ph.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.thread39.i" ], [ %.sroa.6.0.copyload3.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.i" ]
   %.sroa.8.0.i.i43.i = phi i64 [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.thread39.i" ], [ %.sroa.8.0.copyload5.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h356dcc36f5c2269aE.exit.i" ]
   %98 = icmp ne ptr %.sroa.6.0.i.i44.i, null
   call void @llvm.assume(i1 %98)

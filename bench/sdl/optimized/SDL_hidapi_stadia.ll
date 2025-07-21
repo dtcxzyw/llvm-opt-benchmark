@@ -342,44 +342,34 @@ define internal zeroext i1 @HIDAPI_DriverStadia_RumbleJoystick(ptr noundef %0, p
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %25
+  br i1 %9, label %10, label %17
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #9
   store i8 5, ptr %5, align 1
-  %11 = trunc i16 %2 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %11, ptr %12, align 1
-  %13 = lshr i16 %2, 8
-  %14 = trunc nuw i16 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %14, ptr %15, align 1
-  %16 = trunc i16 %3 to i8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %16, ptr %17, align 1
-  %18 = lshr i16 %3, 8
-  %19 = trunc nuw i16 %18 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i8 %19, ptr %20, align 1
-  %21 = call i32 @SDL_HIDAPI_SendRumble(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 5) #9
-  %.not = icmp eq i32 %21, 5
-  br i1 %.not, label %24, label %22
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i16 %2, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i16 %3, ptr %12, align 1
+  %13 = call i32 @SDL_HIDAPI_SendRumble(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 5) #9
+  %.not = icmp eq i32 %13, 5
+  br i1 %.not, label %16, label %14
 
-22:                                               ; preds = %10
-  %23 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #9
-  br label %24
+14:                                               ; preds = %10
+  %15 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #9
+  br label %16
 
-24:                                               ; preds = %10, %22
-  %.0 = phi i1 [ %23, %22 ], [ true, %10 ]
+16:                                               ; preds = %10, %14
+  %.0 = phi i1 [ %15, %14 ], [ true, %10 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #9
-  br label %27
+  br label %19
 
-25:                                               ; preds = %4
-  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
-  br label %27
+17:                                               ; preds = %4
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
+  br label %19
 
-27:                                               ; preds = %25, %24
-  %.1 = phi i1 [ %.0, %24 ], [ %26, %25 ]
+19:                                               ; preds = %17, %16
+  %.1 = phi i1 [ %.0, %16 ], [ %18, %17 ]
   ret i1 %.1
 }
 

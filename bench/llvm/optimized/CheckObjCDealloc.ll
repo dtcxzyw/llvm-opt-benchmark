@@ -6811,7 +6811,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm11ImutAVLTreeINS_17ImutContainer
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8, !tbaa !785
-  br label %48
+  br label %45
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6836,53 +6836,49 @@ _ZN4llvm15ImutProfileInfoIPKN5clang4ento7SymExprEE7ProfileERNS_16FoldingSetNodeI
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %20, align 4, !tbaa !521
   %21 = ptrtoint ptr %15 to i64
-  %22 = trunc i64 %21 to i32
-  store i32 %22, ptr %18, align 8
-  %23 = lshr i64 %21, 32
-  %24 = trunc nuw i64 %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %24, ptr %25, align 4
+  store i64 %21, ptr %18, align 8
+  %22 = lshr i64 %21, 32
   store i32 2, ptr %19, align 8, !tbaa !482
-  %26 = shl i64 %21, 3
-  %27 = and i64 %26, 34359738360
-  %28 = add nuw nsw i64 %27, 8
-  %29 = xor i64 %23, -49064778989728563
-  %30 = xor i64 %28, %29
-  %31 = mul i64 %30, -7070675565921424023
-  %32 = lshr i64 %31, 47
-  %33 = xor i64 %29, %32
-  %34 = xor i64 %33, %31
-  %35 = mul i64 %34, -7070675565921424023
-  %36 = lshr i64 %35, 47
-  %37 = xor i64 %36, %35
-  %38 = trunc i64 %37 to i32
-  %39 = mul i32 %38, -348639895
-  %40 = add i32 %.0.i, %39
+  %23 = shl i64 %21, 3
+  %24 = and i64 %23, 34359738360
+  %25 = add nuw nsw i64 %24, 8
+  %26 = xor i64 %22, -49064778989728563
+  %27 = xor i64 %25, %26
+  %28 = mul i64 %27, -7070675565921424023
+  %29 = lshr i64 %28, 47
+  %30 = xor i64 %26, %29
+  %31 = xor i64 %30, %28
+  %32 = mul i64 %31, -7070675565921424023
+  %33 = lshr i64 %32, 47
+  %34 = xor i64 %33, %32
+  %35 = trunc i64 %34 to i32
+  %36 = mul i32 %35, -348639895
+  %37 = add i32 %.0.i, %36
   %.not10.i = icmp eq ptr %13, null
   br i1 %.not10.i, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEPS8_S9_S6_.exit
 
 _ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEPS8_S9_S6_.exit: ; preds = %_ZN4llvm15ImutProfileInfoIPKN5clang4ento7SymExprEE7ProfileERNS_16FoldingSetNodeIDES5_.exit
-  %41 = call noundef i32 @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
-  %42 = add i32 %41, %40
+  %38 = call noundef i32 @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
+  %39 = add i32 %38, %37
   %.pre = load ptr, ptr %2, align 8, !tbaa !481
-  %43 = icmp eq ptr %.pre, %18
-  br i1 %43, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %44
+  %40 = icmp eq ptr %.pre, %18
+  br i1 %40, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %41
 
-44:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEPS8_S9_S6_.exit
+41:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEPS8_S9_S6_.exit
   call void @free(ptr noundef %.pre) #19
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm15ImutProfileInfoIPKN5clang4ento7SymExprEE7ProfileERNS_16FoldingSetNodeIDES5_.exit, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEPS8_S9_S6_.exit, %44
-  %.1.i7 = phi i32 [ %42, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEPS8_S9_S6_.exit ], [ %42, %44 ], [ %40, %_ZN4llvm15ImutProfileInfoIPKN5clang4ento7SymExprEE7ProfileERNS_16FoldingSetNodeIDES5_.exit ]
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm15ImutProfileInfoIPKN5clang4ento7SymExprEE7ProfileERNS_16FoldingSetNodeIDES5_.exit, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEPS8_S9_S6_.exit, %41
+  %.1.i7 = phi i32 [ %39, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE13computeDigestEPS8_S9_S6_.exit ], [ %39, %41 ], [ %37, %_ZN4llvm15ImutProfileInfoIPKN5clang4ento7SymExprEE7ProfileERNS_16FoldingSetNodeIDES5_.exit ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #19
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.1.i7, ptr %45, align 8, !tbaa !785
-  %46 = load i32, ptr %3, align 8
-  %47 = or i32 %46, 536870912
-  store i32 %47, ptr %3, align 8
-  br label %48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %.1.i7, ptr %42, align 8, !tbaa !785
+  %43 = load i32, ptr %3, align 8
+  %44 = or i32 %43, 536870912
+  store i32 %44, ptr %3, align 8
+  br label %45
 
-48:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %6
+45:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %6
   %.0 = phi i32 [ %8, %6 ], [ %.1.i7, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }

@@ -482,189 +482,85 @@ declare void @_ZN7Imf_3_49Attribute23unRegisterAttributeTypeEPKc(ptr noundef) lo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_414TypedAttributeINS_14ChromaticitiesEE12writeValueToERNS_7OStreamEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2) unnamed_addr #3 align 2 {
-  %4 = alloca [4 x i8], align 1
-  %5 = alloca [4 x i8], align 1
-  %6 = alloca [4 x i8], align 1
-  %7 = alloca [4 x i8], align 1
-  %8 = alloca [4 x i8], align 1
-  %9 = alloca [4 x i8], align 1
-  %10 = alloca [4 x i8], align 1
-  %11 = alloca [4 x i8], align 1
+  %4 = alloca [4 x i8], align 4
+  %5 = alloca [4 x i8], align 4
+  %6 = alloca [4 x i8], align 4
+  %7 = alloca [4 x i8], align 4
+  %8 = alloca [4 x i8], align 4
+  %9 = alloca [4 x i8], align 4
+  %10 = alloca [4 x i8], align 4
+  %11 = alloca [4 x i8], align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !11
+  %13 = load float, ptr %12, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
-  %14 = trunc i32 %13 to i8
-  store i8 %14, ptr %11, align 1, !tbaa !15
-  %15 = lshr i32 %13, 8
-  %16 = trunc i32 %15 to i8
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 %16, ptr %17, align 1, !tbaa !15
-  %18 = lshr i32 %13, 16
-  %19 = trunc i32 %18 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  store i8 %19, ptr %20, align 1, !tbaa !15
-  %21 = lshr i32 %13, 24
-  %22 = trunc nuw i32 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  store i8 %22, ptr %23, align 1, !tbaa !15
+  store float %13, ptr %11, align 4
+  %14 = load ptr, ptr %1, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %11, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %18 = load float, ptr %17, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
+  store float %18, ptr %10, align 4
+  %19 = load ptr, ptr %1, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load float, ptr %22, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  store float %23, ptr %9, align 4
   %24 = load ptr, ptr %1, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %11, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
-  %29 = trunc i32 %28 to i8
-  store i8 %29, ptr %10, align 1, !tbaa !15
-  %30 = lshr i32 %28, 8
-  %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !15
-  %33 = lshr i32 %28, 16
-  %34 = trunc i32 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 %34, ptr %35, align 1, !tbaa !15
-  %36 = lshr i32 %28, 24
-  %37 = trunc nuw i32 %36 to i8
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 %37, ptr %38, align 1, !tbaa !15
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %9, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %28 = load float, ptr %27, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  store float %28, ptr %8, align 4
+  %29 = load ptr, ptr %1, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %8, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = load float, ptr %32, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  store float %33, ptr %7, align 4
+  %34 = load ptr, ptr %1, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %7, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %38 = load float, ptr %37, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  store float %38, ptr %6, align 4
   %39 = load ptr, ptr %1, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load i32, ptr %42, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  %44 = trunc i32 %43 to i8
-  store i8 %44, ptr %9, align 1, !tbaa !15
-  %45 = lshr i32 %43, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !15
-  %48 = lshr i32 %43, 16
-  %49 = trunc i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i8 %49, ptr %50, align 1, !tbaa !15
-  %51 = lshr i32 %43, 24
-  %52 = trunc nuw i32 %51 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 3
-  store i8 %52, ptr %53, align 1, !tbaa !15
-  %54 = load ptr, ptr %1, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %9, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %58 = load i32, ptr %57, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
-  %59 = trunc i32 %58 to i8
-  store i8 %59, ptr %8, align 1, !tbaa !15
-  %60 = lshr i32 %58, 8
-  %61 = trunc i32 %60 to i8
-  %62 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %61, ptr %62, align 1, !tbaa !15
-  %63 = lshr i32 %58, 16
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %64, ptr %65, align 1, !tbaa !15
-  %66 = lshr i32 %58, 24
-  %67 = trunc nuw i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %67, ptr %68, align 1, !tbaa !15
-  %69 = load ptr, ptr %1, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %8, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = load i32, ptr %72, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
-  %74 = trunc i32 %73 to i8
-  store i8 %74, ptr %7, align 1, !tbaa !15
-  %75 = lshr i32 %73, 8
-  %76 = trunc i32 %75 to i8
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %76, ptr %77, align 1, !tbaa !15
-  %78 = lshr i32 %73, 16
-  %79 = trunc i32 %78 to i8
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %79, ptr %80, align 1, !tbaa !15
-  %81 = lshr i32 %73, 24
-  %82 = trunc nuw i32 %81 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 %82, ptr %83, align 1, !tbaa !15
-  %84 = load ptr, ptr %1, align 8, !tbaa !3
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %7, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %88 = load i32, ptr %87, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
-  %89 = trunc i32 %88 to i8
-  store i8 %89, ptr %6, align 1, !tbaa !15
-  %90 = lshr i32 %88, 8
-  %91 = trunc i32 %90 to i8
-  %92 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %91, ptr %92, align 1, !tbaa !15
-  %93 = lshr i32 %88, 16
-  %94 = trunc i32 %93 to i8
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %94, ptr %95, align 1, !tbaa !15
-  %96 = lshr i32 %88, 24
-  %97 = trunc nuw i32 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %97, ptr %98, align 1, !tbaa !15
-  %99 = load ptr, ptr %1, align 8, !tbaa !3
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %101 = load ptr, ptr %100, align 8
-  call void %101(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %6, i32 noundef 4)
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %6, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = load i32, ptr %102, align 8, !tbaa !21
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load float, ptr %42, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  %104 = trunc i32 %103 to i8
-  store i8 %104, ptr %5, align 1, !tbaa !15
-  %105 = lshr i32 %103, 8
-  %106 = trunc i32 %105 to i8
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %106, ptr %107, align 1, !tbaa !15
-  %108 = lshr i32 %103, 16
-  %109 = trunc i32 %108 to i8
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %109, ptr %110, align 1, !tbaa !15
-  %111 = lshr i32 %103, 24
-  %112 = trunc nuw i32 %111 to i8
-  %113 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %112, ptr %113, align 1, !tbaa !15
-  %114 = load ptr, ptr %1, align 8, !tbaa !3
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 4)
+  store float %43, ptr %5, align 4
+  %44 = load ptr, ptr %1, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %118 = load i32, ptr %117, align 4, !tbaa !22
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %48 = load float, ptr %47, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  %119 = trunc i32 %118 to i8
-  store i8 %119, ptr %4, align 1, !tbaa !15
-  %120 = lshr i32 %118, 8
-  %121 = trunc i32 %120 to i8
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %121, ptr %122, align 1, !tbaa !15
-  %123 = lshr i32 %118, 16
-  %124 = trunc i32 %123 to i8
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %124, ptr %125, align 1, !tbaa !15
-  %126 = lshr i32 %118, 24
-  %127 = trunc nuw i32 %126 to i8
-  %128 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %127, ptr %128, align 1, !tbaa !15
-  %129 = load ptr, ptr %1, align 8, !tbaa !3
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %131 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
+  store float %48, ptr %4, align 4
+  %49 = load ptr, ptr %1, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   ret void
 }
@@ -686,7 +582,7 @@ define void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE13readValueFromERN
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %12, i32 noundef 4)
   %18 = load i32, ptr %12, align 4
-  store i32 %18, ptr %13, align 8, !tbaa !23
+  store i32 %18, ptr %13, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
@@ -695,7 +591,7 @@ define void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE13readValueFromERN
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %11, i32 noundef 4)
   %24 = load i32, ptr %11, align 4
-  store i32 %24, ptr %19, align 4, !tbaa !23
+  store i32 %24, ptr %19, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
@@ -704,7 +600,7 @@ define void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE13readValueFromERN
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i32 noundef 4)
   %30 = load i32, ptr %10, align 4
-  store i32 %30, ptr %25, align 8, !tbaa !23
+  store i32 %30, ptr %25, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
@@ -713,7 +609,7 @@ define void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE13readValueFromERN
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %9, i32 noundef 4)
   %36 = load i32, ptr %9, align 4
-  store i32 %36, ptr %31, align 4, !tbaa !23
+  store i32 %36, ptr %31, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
@@ -722,7 +618,7 @@ define void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE13readValueFromERN
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %8, i32 noundef 4)
   %42 = load i32, ptr %8, align 4
-  store i32 %42, ptr %37, align 8, !tbaa !23
+  store i32 %42, ptr %37, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
@@ -731,7 +627,7 @@ define void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE13readValueFromERN
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %7, i32 noundef 4)
   %48 = load i32, ptr %7, align 4
-  store i32 %48, ptr %43, align 4, !tbaa !23
+  store i32 %48, ptr %43, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
@@ -740,7 +636,7 @@ define void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE13readValueFromERN
   %52 = load ptr, ptr %51, align 8
   %53 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %6, i32 noundef 4)
   %54 = load i32, ptr %6, align 4
-  store i32 %54, ptr %49, align 8, !tbaa !23
+  store i32 %54, ptr %49, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
@@ -749,7 +645,7 @@ define void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE13readValueFromERN
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 4)
   %60 = load i32, ptr %5, align 4
-  store i32 %60, ptr %55, align 4, !tbaa !23
+  store i32 %60, ptr %55, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   ret void
 }
@@ -800,12 +696,11 @@ attributes #18 = { noreturn }
 !12 = !{!"_ZTSN7Imf_3_414TypedAttributeINS_14ChromaticitiesEEE", !13, i64 0, !14, i64 8}
 !13 = !{!"_ZTSN7Imf_3_49AttributeE"}
 !14 = !{!"_ZTSN7Imf_3_414ChromaticitiesE", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24}
-!15 = !{!9, !9, i64 0}
-!16 = !{!12, !8, i64 12}
-!17 = !{!12, !8, i64 16}
-!18 = !{!12, !8, i64 20}
-!19 = !{!12, !8, i64 24}
-!20 = !{!12, !8, i64 28}
-!21 = !{!12, !8, i64 32}
-!22 = !{!12, !8, i64 36}
-!23 = !{!8, !8, i64 0}
+!15 = !{!12, !8, i64 12}
+!16 = !{!12, !8, i64 16}
+!17 = !{!12, !8, i64 20}
+!18 = !{!12, !8, i64 24}
+!19 = !{!12, !8, i64 28}
+!20 = !{!12, !8, i64 32}
+!21 = !{!12, !8, i64 36}
+!22 = !{!8, !8, i64 0}

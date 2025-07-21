@@ -559,7 +559,7 @@ define hidden zeroext i1 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN13logos_codegen5graph5impls79_$LT$impl$u20$core..hash..Hash$u20$for$u20$logos_codegen..graph..fork..Fork$GT$4hash17h5c2c8936070aef36E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
-  %3 = alloca [8 x i8], align 4
+  %3 = alloca [8 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = tail call { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2dcfE(ptr align 8 %0)
   %6 = extractvalue { ptr, i64 } %5, 0
@@ -586,11 +586,7 @@ define void @"_ZN13logos_codegen5graph5impls79_$LT$impl$u20$core..hash..Hash$u20
 
 16:                                               ; preds = %.lr.ph, %16
   %17 = phi i64 [ %9, %.lr.ph ], [ %20, %16 ]
-  %.sroa.25.0.extract.shift = lshr i64 %17, 32
-  %.sroa.25.0.extract.trunc = trunc nuw i64 %.sroa.25.0.extract.shift to i32
-  %.sroa.04.0.extract.trunc = trunc i64 %17 to i32
-  store i32 %.sroa.04.0.extract.trunc, ptr %3, align 4
-  store i32 %.sroa.25.0.extract.trunc, ptr %.sroa.2.0..sroa_idx2, align 4
+  store i64 %17, ptr %3, align 8
   %18 = trunc i64 %17 to i8
   call void @_ZN4core4hash6Hasher8write_u817hdb1bc6b9728db45bE(ptr align 8 %1, i8 %18)
   %19 = load i8, ptr %11, align 1

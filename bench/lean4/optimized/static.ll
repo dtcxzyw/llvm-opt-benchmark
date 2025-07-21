@@ -12877,7 +12877,7 @@ define hidden void @_Z13_mi_heap_initP9mi_heap_sP8mi_tld_sibh(ptr noundef %0, pt
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call fastcc void @_ZL17mi_random_init_exP15mi_random_cxt_sb(ptr noundef nonnull %17, i1 noundef zeroext false)
-  br label %27
+  br label %23
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -12885,178 +12885,173 @@ define hidden void @_Z13_mi_heap_initP9mi_heap_sP8mi_tld_sibh(ptr noundef %0, pt
   %21 = ptrtoint ptr %20 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %20, i8 0, i64 136, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 1 dereferenceable(64) %19, i64 48, i1 false)
-  %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %22, ptr %23, align 8, !tbaa !66
-  %24 = lshr i64 %21, 32
-  %25 = trunc nuw i64 %24 to i32
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %25, ptr %26, align 4, !tbaa !66
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %21, ptr %22, align 8
   tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %20)
+  br label %23
+
+23:                                               ; preds = %18, %16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %.pre.i.i = load i32, ptr %25, align 8, !tbaa !102
   br label %27
 
-27:                                               ; preds = %18, %16
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.pre.i.i = load i32, ptr %29, align 8, !tbaa !102
-  br label %31
+27:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i, %23
+  %28 = phi i32 [ %48, %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i ], [ %.pre.i.i, %23 ]
+  %29 = icmp slt i32 %28, 1
+  br i1 %29, label %30, label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i
 
-31:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i, %27
-  %32 = phi i32 [ %52, %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i ], [ %.pre.i.i, %27 ]
-  %33 = icmp slt i32 %32, 1
-  br i1 %33, label %34, label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i
-
-34:                                               ; preds = %31
-  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %28)
-  store i32 16, ptr %29, align 8, !tbaa !102
+30:                                               ; preds = %27
+  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %24)
+  store i32 16, ptr %25, align 8, !tbaa !102
   br label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i
 
-_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i:    ; preds = %34, %31
-  %35 = phi i32 [ 16, %34 ], [ %32, %31 ]
-  %36 = sub nsw i32 16, %35
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [16 x i32], ptr %30, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !66
-  store i32 0, ptr %38, align 4, !tbaa !66
-  %40 = load i32, ptr %29, align 8, !tbaa !102
-  %41 = add nsw i32 %40, -1
-  store i32 %41, ptr %29, align 8, !tbaa !102
-  %42 = zext i32 %39 to i64
-  %43 = shl nuw i64 %42, 32
-  %44 = icmp slt i32 %40, 2
-  br i1 %44, label %45, label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i
+_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i:    ; preds = %30, %27
+  %31 = phi i32 [ 16, %30 ], [ %28, %27 ]
+  %32 = sub nsw i32 16, %31
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !66
+  store i32 0, ptr %34, align 4, !tbaa !66
+  %36 = load i32, ptr %25, align 8, !tbaa !102
+  %37 = add nsw i32 %36, -1
+  store i32 %37, ptr %25, align 8, !tbaa !102
+  %38 = zext i32 %35 to i64
+  %39 = shl nuw i64 %38, 32
+  %40 = icmp slt i32 %36, 2
+  br i1 %40, label %41, label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i
 
-45:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i
-  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %28)
-  store i32 16, ptr %29, align 8, !tbaa !102
+41:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i
+  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %24)
+  store i32 16, ptr %25, align 8, !tbaa !102
   br label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i
 
-_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i:   ; preds = %45, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i
-  %46 = phi i32 [ 16, %45 ], [ %41, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i ]
-  %47 = sub nsw i32 16, %46
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [16 x i32], ptr %30, i64 0, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !66
-  store i32 0, ptr %49, align 4, !tbaa !66
-  %51 = load i32, ptr %29, align 8, !tbaa !102
-  %52 = add nsw i32 %51, -1
-  store i32 %52, ptr %29, align 8, !tbaa !102
-  %53 = zext i32 %50 to i64
-  %54 = or disjoint i64 %43, %53
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %31, label %_Z20_mi_heap_random_nextP9mi_heap_s.exit, !llvm.loop !103
+_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i:   ; preds = %41, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i
+  %42 = phi i32 [ 16, %41 ], [ %37, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i ]
+  %43 = sub nsw i32 16, %42
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !66
+  store i32 0, ptr %45, align 4, !tbaa !66
+  %47 = load i32, ptr %25, align 8, !tbaa !102
+  %48 = add nsw i32 %47, -1
+  store i32 %48, ptr %25, align 8, !tbaa !102
+  %49 = zext i32 %46 to i64
+  %50 = or disjoint i64 %39, %49
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %27, label %_Z20_mi_heap_random_nextP9mi_heap_s.exit, !llvm.loop !103
 
 _Z20_mi_heap_random_nextP9mi_heap_s.exit:         ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i
-  %56 = or i64 %54, 1
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %56, ptr %57, align 8, !tbaa !212
-  br label %58
+  %52 = or i64 %50, 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %52, ptr %53, align 8, !tbaa !212
+  br label %54
 
-58:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28, %_Z20_mi_heap_random_nextP9mi_heap_s.exit
-  %59 = phi i32 [ %79, %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28 ], [ %52, %_Z20_mi_heap_random_nextP9mi_heap_s.exit ]
-  %60 = icmp slt i32 %59, 1
-  br i1 %60, label %61, label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27
+54:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28, %_Z20_mi_heap_random_nextP9mi_heap_s.exit
+  %55 = phi i32 [ %75, %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28 ], [ %48, %_Z20_mi_heap_random_nextP9mi_heap_s.exit ]
+  %56 = icmp slt i32 %55, 1
+  br i1 %56, label %57, label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27
 
-61:                                               ; preds = %58
-  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %28)
-  store i32 16, ptr %29, align 8, !tbaa !102
+57:                                               ; preds = %54
+  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %24)
+  store i32 16, ptr %25, align 8, !tbaa !102
   br label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27
 
-_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27:  ; preds = %61, %58
-  %62 = phi i32 [ 16, %61 ], [ %59, %58 ]
-  %63 = sub nsw i32 16, %62
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [16 x i32], ptr %30, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !66
-  store i32 0, ptr %65, align 4, !tbaa !66
-  %67 = load i32, ptr %29, align 8, !tbaa !102
-  %68 = add nsw i32 %67, -1
-  store i32 %68, ptr %29, align 8, !tbaa !102
-  %69 = zext i32 %66 to i64
-  %70 = shl nuw i64 %69, 32
-  %71 = icmp slt i32 %67, 2
-  br i1 %71, label %72, label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28
+_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27:  ; preds = %57, %54
+  %58 = phi i32 [ 16, %57 ], [ %55, %54 ]
+  %59 = sub nsw i32 16, %58
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !66
+  store i32 0, ptr %61, align 4, !tbaa !66
+  %63 = load i32, ptr %25, align 8, !tbaa !102
+  %64 = add nsw i32 %63, -1
+  store i32 %64, ptr %25, align 8, !tbaa !102
+  %65 = zext i32 %62 to i64
+  %66 = shl nuw i64 %65, 32
+  %67 = icmp slt i32 %63, 2
+  br i1 %67, label %68, label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28
 
-72:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27
-  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %28)
-  store i32 16, ptr %29, align 8, !tbaa !102
+68:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27
+  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %24)
+  store i32 16, ptr %25, align 8, !tbaa !102
   br label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28
 
-_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28: ; preds = %72, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27
-  %73 = phi i32 [ 16, %72 ], [ %68, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27 ]
-  %74 = sub nsw i32 16, %73
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [16 x i32], ptr %30, i64 0, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !66
-  store i32 0, ptr %76, align 4, !tbaa !66
-  %78 = load i32, ptr %29, align 8, !tbaa !102
-  %79 = add nsw i32 %78, -1
-  store i32 %79, ptr %29, align 8, !tbaa !102
-  %80 = zext i32 %77 to i64
-  %81 = or disjoint i64 %70, %80
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %58, label %_Z20_mi_heap_random_nextP9mi_heap_s.exit29, !llvm.loop !103
+_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28: ; preds = %68, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27
+  %69 = phi i32 [ 16, %68 ], [ %64, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i27 ]
+  %70 = sub nsw i32 16, %69
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !66
+  store i32 0, ptr %72, align 4, !tbaa !66
+  %74 = load i32, ptr %25, align 8, !tbaa !102
+  %75 = add nsw i32 %74, -1
+  store i32 %75, ptr %25, align 8, !tbaa !102
+  %76 = zext i32 %73 to i64
+  %77 = or disjoint i64 %66, %76
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %54, label %_Z20_mi_heap_random_nextP9mi_heap_s.exit29, !llvm.loop !103
 
 _Z20_mi_heap_random_nextP9mi_heap_s.exit29:       ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i28
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %81, ptr %83, align 8, !tbaa !69
-  br label %84
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %77, ptr %79, align 8, !tbaa !69
+  br label %80
 
-84:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32, %_Z20_mi_heap_random_nextP9mi_heap_s.exit29
-  %85 = phi i32 [ %105, %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32 ], [ %79, %_Z20_mi_heap_random_nextP9mi_heap_s.exit29 ]
-  %86 = icmp slt i32 %85, 1
-  br i1 %86, label %87, label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31
+80:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32, %_Z20_mi_heap_random_nextP9mi_heap_s.exit29
+  %81 = phi i32 [ %101, %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32 ], [ %75, %_Z20_mi_heap_random_nextP9mi_heap_s.exit29 ]
+  %82 = icmp slt i32 %81, 1
+  br i1 %82, label %83, label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31
 
-87:                                               ; preds = %84
-  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %28)
-  store i32 16, ptr %29, align 8, !tbaa !102
+83:                                               ; preds = %80
+  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %24)
+  store i32 16, ptr %25, align 8, !tbaa !102
   br label %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31
 
-_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31:  ; preds = %87, %84
-  %88 = phi i32 [ 16, %87 ], [ %85, %84 ]
-  %89 = sub nsw i32 16, %88
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [16 x i32], ptr %30, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !66
-  store i32 0, ptr %91, align 4, !tbaa !66
-  %93 = load i32, ptr %29, align 8, !tbaa !102
-  %94 = add nsw i32 %93, -1
-  store i32 %94, ptr %29, align 8, !tbaa !102
-  %95 = zext i32 %92 to i64
-  %96 = shl nuw i64 %95, 32
-  %97 = icmp slt i32 %93, 2
-  br i1 %97, label %98, label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32
+_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31:  ; preds = %83, %80
+  %84 = phi i32 [ 16, %83 ], [ %81, %80 ]
+  %85 = sub nsw i32 16, %84
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %86
+  %88 = load i32, ptr %87, align 4, !tbaa !66
+  store i32 0, ptr %87, align 4, !tbaa !66
+  %89 = load i32, ptr %25, align 8, !tbaa !102
+  %90 = add nsw i32 %89, -1
+  store i32 %90, ptr %25, align 8, !tbaa !102
+  %91 = zext i32 %88 to i64
+  %92 = shl nuw i64 %91, 32
+  %93 = icmp slt i32 %89, 2
+  br i1 %93, label %94, label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32
 
-98:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31
-  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %28)
-  store i32 16, ptr %29, align 8, !tbaa !102
+94:                                               ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31
+  tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %24)
+  store i32 16, ptr %25, align 8, !tbaa !102
   br label %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32
 
-_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32: ; preds = %98, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31
-  %99 = phi i32 [ 16, %98 ], [ %94, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31 ]
-  %100 = sub nsw i32 16, %99
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [16 x i32], ptr %30, i64 0, i64 %101
-  %103 = load i32, ptr %102, align 4, !tbaa !66
-  store i32 0, ptr %102, align 4, !tbaa !66
-  %104 = load i32, ptr %29, align 8, !tbaa !102
-  %105 = add nsw i32 %104, -1
-  store i32 %105, ptr %29, align 8, !tbaa !102
-  %106 = zext i32 %103 to i64
-  %107 = or disjoint i64 %96, %106
-  %108 = icmp eq i64 %107, 0
-  br i1 %108, label %84, label %_Z20_mi_heap_random_nextP9mi_heap_s.exit33, !llvm.loop !103
+_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32: ; preds = %94, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31
+  %95 = phi i32 [ 16, %94 ], [ %90, %_ZL13chacha_next32P15mi_random_cxt_s.exit.i.i31 ]
+  %96 = sub nsw i32 16, %95
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !66
+  store i32 0, ptr %98, align 4, !tbaa !66
+  %100 = load i32, ptr %25, align 8, !tbaa !102
+  %101 = add nsw i32 %100, -1
+  store i32 %101, ptr %25, align 8, !tbaa !102
+  %102 = zext i32 %99 to i64
+  %103 = or disjoint i64 %92, %102
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %80, label %_Z20_mi_heap_random_nextP9mi_heap_s.exit33, !llvm.loop !103
 
 _Z20_mi_heap_random_nextP9mi_heap_s.exit33:       ; preds = %_ZL13chacha_next32P15mi_random_cxt_s.exit3.i.i32
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %107, ptr %109, align 8, !tbaa !69
-  %110 = load ptr, ptr %0, align 8, !tbaa !186
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %112 = load ptr, ptr %111, align 8, !tbaa !213
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr %112, ptr %113, align 8, !tbaa !214
-  store ptr %0, ptr %111, align 8, !tbaa !213
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %103, ptr %105, align 8, !tbaa !69
+  %106 = load ptr, ptr %0, align 8, !tbaa !186
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %108 = load ptr, ptr %107, align 8, !tbaa !213
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store ptr %108, ptr %109, align 8, !tbaa !214
+  store ptr %0, ptr %107, align 8, !tbaa !213
   ret void
 }
 
@@ -13073,13 +13068,8 @@ define hidden void @_Z16_mi_random_splitP15mi_random_cxt_sS0_(ptr noundef readon
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %1, ptr noundef nonnull readonly align 1 dereferenceable(64) %0, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 0, ptr %4, align 4, !tbaa !66
-  %5 = trunc i64 %3 to i32
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %5, ptr %6, align 4, !tbaa !66
-  %7 = lshr i64 %3, 32
-  %8 = trunc nuw i64 %7 to i32
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %8, ptr %9, align 4, !tbaa !66
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %3, ptr %5, align 4
   tail call fastcc void @_ZL12chacha_blockP15mi_random_cxt_s(ptr noundef nonnull %1)
   ret void
 }
@@ -22525,13 +22515,8 @@ _Z18_mi_os_random_weakm.exit:                     ; preds = %20, %_Z18_mi_os_ran
   store i32 0, ptr %55, align 4, !tbaa !66
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %56, align 4, !tbaa !66
-  %57 = trunc i64 %54 to i32
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %57, ptr %58, align 4, !tbaa !66
-  %59 = lshr i64 %54, 32
-  %60 = trunc nuw i64 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %60, ptr %61, align 4, !tbaa !66
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %54, ptr %57, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #55
   ret void
 }

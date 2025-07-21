@@ -382,35 +382,30 @@ define dso_local i32 @mei_hbm_cl_dma_map_req(ptr noundef %0, ptr noundef readonl
   store i8 %7, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %10 = load i64, ptr %9, align 8
-  %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %11, ptr %12, align 1
-  %13 = lshr i64 %10, 32
-  %14 = trunc nuw i64 %13 to i32
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i64 %10, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %13 = load i64, ptr %12, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %14, ptr %15, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %17 = load i64, ptr %16, align 8
-  %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %18, ptr %19, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 3712
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
-  %23 = load ptr, ptr %22, align 8
-  %24 = call i32 %23(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 4, ptr noundef nonnull %4, i64 noundef 16) #10
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %28, label %26
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 3712
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 136
+  %19 = load ptr, ptr %18, align 8
+  %20 = call i32 %19(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 4, ptr noundef nonnull %4, i64 noundef 16) #10
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %24, label %22
 
-26:                                               ; preds = %2
-  %27 = load ptr, ptr %0, align 8
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %27, ptr noundef nonnull @.str.11, i32 noundef %24) #11
-  br label %28
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.11, i32 noundef %20) #11
+  br label %24
 
-28:                                               ; preds = %26, %2
+24:                                               ; preds = %22, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  ret i32 %24
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

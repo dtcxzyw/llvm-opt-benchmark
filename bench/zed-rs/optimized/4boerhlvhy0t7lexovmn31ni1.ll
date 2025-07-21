@@ -58910,8 +58910,8 @@ common.resume:                                    ; preds = %56, %48, %51, %29
   %.sroa.7135.9.insert.ext = zext nneg i8 %73 to i32
   %.sroa.7135.9.insert.shift = shl nuw nsw i32 %.sroa.7135.9.insert.ext, 8
   %84 = and i32 %.sroa.047.0.copyload, -65473
-  %.sroa.7135.11.insert.insert = or disjoint i32 %.sroa.7135.9.insert.shift, %84
-  store i32 %.sroa.7135.11.insert.insert, ptr %72, align 8
+  %.sroa.7135.10.insert.insert = or disjoint i32 %.sroa.7135.9.insert.shift, %84
+  store i32 %.sroa.7135.10.insert.insert, ptr %72, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %85, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -59216,8 +59216,8 @@ common.resume:                                    ; preds = %56, %48, %51, %29
   %.sroa.7135.9.insert.ext = zext nneg i8 %73 to i32
   %.sroa.7135.9.insert.shift = shl nuw nsw i32 %.sroa.7135.9.insert.ext, 8
   %84 = and i32 %.sroa.047.0.copyload, -65473
-  %.sroa.7135.11.insert.insert = or disjoint i32 %.sroa.7135.9.insert.shift, %84
-  store i32 %.sroa.7135.11.insert.insert, ptr %72, align 8
+  %.sroa.7135.10.insert.insert = or disjoint i32 %.sroa.7135.9.insert.shift, %84
+  store i32 %.sroa.7135.10.insert.insert, ptr %72, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %85, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -62383,7 +62383,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
 144:                                              ; preds = %134
   %.sroa.844.10.insert.ext.i = zext i8 %130 to i32
   %.sroa.844.10.insert.shift.i = shl nuw nsw i32 %.sroa.844.10.insert.ext.i, 16
-  %145 = and i32 %.sroa.06.0.copyload.i, -16761025
+  %145 = and i32 %.sroa.06.0.copyload.i, -16711873
   %.sroa.844.11.insert.insert.i = or disjoint i32 %.sroa.844.10.insert.shift.i, %145
   store i32 %.sroa.844.11.insert.insert.i, ptr %129, align 8, !alias.scope !19804, !noalias !19809
   %146 = ptrtoint ptr %1 to i64
@@ -62984,7 +62984,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
 144:                                              ; preds = %134
   %.sroa.844.10.insert.ext.i = zext i8 %130 to i32
   %.sroa.844.10.insert.shift.i = shl nuw nsw i32 %.sroa.844.10.insert.ext.i, 16
-  %145 = and i32 %.sroa.06.0.copyload.i, -16761025
+  %145 = and i32 %.sroa.06.0.copyload.i, -16711873
   %.sroa.844.11.insert.insert.i = or disjoint i32 %.sroa.844.10.insert.shift.i, %145
   store i32 %.sroa.844.11.insert.insert.i, ptr %129, align 8, !alias.scope !19878, !noalias !19883
   %146 = ptrtoint ptr %1 to i64

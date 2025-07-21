@@ -264,9 +264,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output_props(ptr noundef c
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %.sroa.04.0.extract.trunc, ptr %39, align 8, !tbaa !41
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %.sroa.6.0.extract.trunc, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !41
+  store i64 %34, ptr %39, align 8
   %40 = load ptr, ptr %0, align 8, !tbaa !43
   %41 = load i32, ptr %10, align 8, !tbaa !52
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 100

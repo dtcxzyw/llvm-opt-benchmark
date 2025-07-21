@@ -40852,9 +40852,9 @@ define noundef zeroext i1 @"_ZN90_$LT$ty_python_semantic..types..class_base..Cla
   %narrow = select i1 %5, i32 %4, i32 1
   switch i32 %narrow, label %6 [
     i32 0, label %7
-    i32 1, label %10
-    i32 2, label %15
-    i32 3, label %17
+    i32 1, label %9
+    i32 2, label %14
+    i32 3, label %16
   ]
 
 6:                                                ; preds = %2
@@ -40862,68 +40862,61 @@ define noundef zeroext i1 @"_ZN90_$LT$ty_python_semantic..types..class_base..Cla
 
 7:                                                ; preds = %2
   %8 = icmp eq i32 %.sroa.020.0.extract.trunc, 2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br i1 %8, label %19, label %21
+  br i1 %8, label %18, label %21
 
-10:                                               ; preds = %2
-  %11 = add i32 %.sroa.020.0.extract.trunc, -2
-  %12 = icmp ugt i32 %11, 3
-  %13 = icmp eq i32 %11, 1
-  %14 = or i1 %12, %13
-  br i1 %14, label %23, label %25
+9:                                                ; preds = %2
+  %10 = add i32 %.sroa.020.0.extract.trunc, -2
+  %11 = icmp ugt i32 %10, 3
+  %12 = icmp eq i32 %10, 1
+  %13 = or i1 %11, %12
+  br i1 %13, label %23, label %25
 
-15:                                               ; preds = %2
-  %16 = icmp eq i32 %.sroa.020.0.extract.trunc, 4
-  br i1 %16, label %26, label %29
+14:                                               ; preds = %2
+  %15 = icmp eq i32 %.sroa.020.0.extract.trunc, 4
+  br i1 %15, label %26, label %29
 
-17:                                               ; preds = %2
-  %18 = icmp eq i32 %.sroa.020.0.extract.trunc, 5
-  br i1 %18, label %30, label %33
+16:                                               ; preds = %2
+  %17 = icmp eq i32 %.sroa.020.0.extract.trunc, 5
+  br i1 %17, label %30, label %33
 
-19:                                               ; preds = %7
+18:                                               ; preds = %7
   %.sroa.10.4.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %20 = tail call noundef zeroext i1 @_ZN5salsa6update15update_fallback17h3a7506fdcc9c446fE(ptr noundef nonnull %9, i8 noundef %.sroa.10.4.extract.trunc)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %20 = tail call noundef zeroext i1 @_ZN5salsa6update15update_fallback17h3a7506fdcc9c446fE(ptr noundef nonnull %19, i8 noundef %.sroa.10.4.extract.trunc)
   br label %22
 
 21:                                               ; preds = %7
-  store i32 %.sroa.020.0.extract.trunc, ptr %0, align 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %9, align 4
+  store i64 %1, ptr %0, align 4
   br label %22
 
-22:                                               ; preds = %33, %30, %29, %26, %25, %23, %21, %19
-  %.sroa.021.0.shrunk = phi i1 [ %20, %19 ], [ true, %21 ], [ %24, %23 ], [ true, %25 ], [ %28, %26 ], [ true, %29 ], [ %32, %30 ], [ true, %33 ]
+22:                                               ; preds = %33, %30, %29, %26, %25, %23, %21, %18
+  %.sroa.021.0.shrunk = phi i1 [ %20, %18 ], [ true, %21 ], [ %24, %23 ], [ true, %25 ], [ %28, %26 ], [ true, %29 ], [ %32, %30 ], [ true, %33 ]
   ret i1 %.sroa.021.0.shrunk
 
-23:                                               ; preds = %10
+23:                                               ; preds = %9
   %24 = tail call noundef zeroext i1 @"_ZN85_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$salsa..update..Update$GT$12maybe_update17h24f59bf759312ce3E"(ptr noundef nonnull %0, i32 noundef %.sroa.020.0.extract.trunc, i32 noundef %.sroa.4.0.extract.trunc)
   br label %22
 
-25:                                               ; preds = %10
-  store i32 %.sroa.020.0.extract.trunc, ptr %0, align 4
-  %.sroa.10.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.10.0..sroa_idx11, align 4
+25:                                               ; preds = %9
+  store i64 %1, ptr %0, align 4
   br label %22
 
-26:                                               ; preds = %15
+26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = tail call noundef zeroext i1 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17hfd47ab2cabddf3b9E"(ptr noundef nonnull %27, i32 noundef %.sroa.4.0.extract.trunc)
   br label %22
 
-29:                                               ; preds = %15
-  store i32 %.sroa.020.0.extract.trunc, ptr %0, align 4
-  %.sroa.10.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.10.0..sroa_idx13, align 4
+29:                                               ; preds = %14
+  store i64 %1, ptr %0, align 4
   br label %22
 
-30:                                               ; preds = %17
+30:                                               ; preds = %16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = tail call noundef zeroext i1 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$salsa..update..Update$GT$12maybe_update17hfd47ab2cabddf3b9E"(ptr noundef nonnull %31, i32 noundef %.sroa.4.0.extract.trunc)
   br label %22
 
-33:                                               ; preds = %17
-  store i32 %.sroa.020.0.extract.trunc, ptr %0, align 4
-  %.sroa.10.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.10.0..sroa_idx15, align 4
+33:                                               ; preds = %16
+  store i64 %1, ptr %0, align 4
   br label %22
 }
 

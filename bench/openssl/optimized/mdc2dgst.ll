@@ -99,128 +99,78 @@ define internal fastcc void @mdc2_body(ptr noundef %0, ptr noundef readonly capt
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 27
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i8, ptr %9, align 4, !tbaa !9
   %.pre67 = load i8, ptr %10, align 4, !tbaa !9
-  br label %25
+  br label %13
 
-25:                                               ; preds = %3, %25
-  %26 = phi i8 [ %.pre67, %3 ], [ %80, %25 ]
-  %27 = phi i8 [ %.pre, %3 ], [ %66, %25 ]
-  %.066 = phi i64 [ 0, %3 ], [ %94, %25 ]
-  %.06465 = phi ptr [ %1, %3 ], [ %49, %25 ]
-  %28 = load i16, ptr %.06465, align 1
-  %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds nuw i8, ptr %.06465, i64 2
-  %31 = getelementptr inbounds nuw i8, ptr %.06465, i64 3
-  %32 = load i8, ptr %30, align 1, !tbaa !9
-  %33 = zext i8 %32 to i32
-  %34 = shl nuw nsw i32 %33, 16
-  %35 = or disjoint i32 %34, %29
-  %36 = getelementptr inbounds nuw i8, ptr %.06465, i64 4
-  %37 = load i8, ptr %31, align 1, !tbaa !9
-  %38 = zext i8 %37 to i32
-  %39 = shl nuw i32 %38, 24
-  %40 = or disjoint i32 %35, %39
-  store i32 %40, ptr %5, align 4, !tbaa !10
-  store i32 %40, ptr %4, align 4, !tbaa !10
-  %41 = load i16, ptr %36, align 1
-  %42 = zext i16 %41 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %.06465, i64 6
-  %44 = getelementptr inbounds nuw i8, ptr %.06465, i64 7
-  %45 = load i8, ptr %43, align 1, !tbaa !9
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw nsw i32 %46, 16
-  %48 = or disjoint i32 %47, %42
-  %49 = getelementptr inbounds nuw i8, ptr %.06465, i64 8
-  %50 = load i8, ptr %44, align 1, !tbaa !9
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw i32 %51, 24
-  %53 = or disjoint i32 %48, %52
-  store i32 %53, ptr %7, align 4, !tbaa !10
-  store i32 %53, ptr %8, align 4, !tbaa !10
-  %54 = and i8 %27, -97
-  %55 = or disjoint i8 %54, 64
-  store i8 %55, ptr %9, align 4, !tbaa !9
-  %56 = and i8 %26, -97
-  %57 = or disjoint i8 %56, 32
-  store i8 %57, ptr %10, align 4, !tbaa !9
+13:                                               ; preds = %3, %13
+  %14 = phi i8 [ %.pre67, %3 ], [ %57, %13 ]
+  %15 = phi i8 [ %.pre, %3 ], [ %56, %13 ]
+  %.066 = phi i64 [ 0, %3 ], [ %54, %13 ]
+  %.06465 = phi ptr [ %1, %3 ], [ %37, %13 ]
+  %16 = load i16, ptr %.06465, align 1
+  %17 = zext i16 %16 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %.06465, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.06465, i64 3
+  %20 = load i8, ptr %18, align 1, !tbaa !9
+  %21 = zext i8 %20 to i32
+  %22 = shl nuw nsw i32 %21, 16
+  %23 = or disjoint i32 %22, %17
+  %24 = getelementptr inbounds nuw i8, ptr %.06465, i64 4
+  %25 = load i8, ptr %19, align 1, !tbaa !9
+  %26 = zext i8 %25 to i32
+  %27 = shl nuw i32 %26, 24
+  %28 = or disjoint i32 %23, %27
+  store i32 %28, ptr %5, align 4, !tbaa !10
+  store i32 %28, ptr %4, align 4, !tbaa !10
+  %29 = load i16, ptr %24, align 1
+  %30 = zext i16 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %.06465, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %.06465, i64 7
+  %33 = load i8, ptr %31, align 1, !tbaa !9
+  %34 = zext i8 %33 to i32
+  %35 = shl nuw nsw i32 %34, 16
+  %36 = or disjoint i32 %35, %30
+  %37 = getelementptr inbounds nuw i8, ptr %.06465, i64 8
+  %38 = load i8, ptr %32, align 1, !tbaa !9
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw i32 %39, 24
+  %41 = or disjoint i32 %36, %40
+  store i32 %41, ptr %7, align 4, !tbaa !10
+  store i32 %41, ptr %8, align 4, !tbaa !10
+  %42 = and i8 %15, -97
+  %43 = or disjoint i8 %42, 64
+  store i8 %43, ptr %9, align 4, !tbaa !9
+  %44 = and i8 %14, -97
+  %45 = or disjoint i8 %44, 32
+  store i8 %45, ptr %10, align 4, !tbaa !9
   call void @DES_set_odd_parity(ptr noundef nonnull %9) #6
   call void @DES_set_key_unchecked(ptr noundef nonnull %9, ptr noundef nonnull %6) #6
   call void @DES_encrypt1(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1) #6
   call void @DES_set_odd_parity(ptr noundef nonnull %10) #6
   call void @DES_set_key_unchecked(ptr noundef nonnull %10, ptr noundef nonnull %6) #6
   call void @DES_encrypt1(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #6
-  %58 = load i32, ptr %5, align 4, !tbaa !10
-  %59 = xor i32 %58, %40
-  %60 = load i32, ptr %7, align 4, !tbaa !10
-  %61 = xor i32 %60, %53
-  %62 = load i32, ptr %4, align 4, !tbaa !10
-  %63 = xor i32 %62, %40
-  %64 = load i32, ptr %8, align 4, !tbaa !10
-  %65 = xor i32 %64, %53
-  %66 = trunc i32 %63 to i8
-  store i8 %66, ptr %9, align 1, !tbaa !9
-  %67 = lshr i32 %63, 8
-  %68 = trunc i32 %67 to i8
-  store i8 %68, ptr %11, align 1, !tbaa !9
-  %69 = lshr i32 %63, 16
-  %70 = trunc i32 %69 to i8
-  store i8 %70, ptr %12, align 1, !tbaa !9
-  %71 = lshr i32 %63, 24
-  %72 = trunc nuw i32 %71 to i8
-  store i8 %72, ptr %13, align 1, !tbaa !9
-  %73 = trunc i32 %61 to i8
-  store i8 %73, ptr %14, align 1, !tbaa !9
-  %74 = lshr i32 %61, 8
-  %75 = trunc i32 %74 to i8
-  store i8 %75, ptr %15, align 1, !tbaa !9
-  %76 = lshr i32 %61, 16
-  %77 = trunc i32 %76 to i8
-  store i8 %77, ptr %16, align 1, !tbaa !9
-  %78 = lshr i32 %61, 24
-  %79 = trunc nuw i32 %78 to i8
-  store i8 %79, ptr %17, align 1, !tbaa !9
-  %80 = trunc i32 %59 to i8
-  store i8 %80, ptr %10, align 1, !tbaa !9
-  %81 = lshr i32 %59, 8
-  %82 = trunc i32 %81 to i8
-  store i8 %82, ptr %18, align 1, !tbaa !9
-  %83 = lshr i32 %59, 16
-  %84 = trunc i32 %83 to i8
-  store i8 %84, ptr %19, align 1, !tbaa !9
-  %85 = lshr i32 %59, 24
-  %86 = trunc nuw i32 %85 to i8
-  store i8 %86, ptr %20, align 1, !tbaa !9
-  %87 = trunc i32 %65 to i8
-  store i8 %87, ptr %21, align 1, !tbaa !9
-  %88 = lshr i32 %65, 8
-  %89 = trunc i32 %88 to i8
-  store i8 %89, ptr %22, align 1, !tbaa !9
-  %90 = lshr i32 %65, 16
-  %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %23, align 1, !tbaa !9
-  %92 = lshr i32 %65, 24
-  %93 = trunc nuw i32 %92 to i8
-  store i8 %93, ptr %24, align 1, !tbaa !9
-  %94 = add nuw i64 %.066, 8
-  %95 = icmp ult i64 %94, %2
-  br i1 %95, label %25, label %96, !llvm.loop !11
+  %46 = load i32, ptr %5, align 4, !tbaa !10
+  %47 = xor i32 %46, %28
+  %48 = load i32, ptr %7, align 4, !tbaa !10
+  %49 = xor i32 %48, %41
+  %50 = load i32, ptr %4, align 4, !tbaa !10
+  %51 = xor i32 %50, %28
+  %52 = load i32, ptr %8, align 4, !tbaa !10
+  %53 = xor i32 %52, %41
+  store i32 %51, ptr %9, align 1
+  store i32 %49, ptr %11, align 1
+  store i32 %47, ptr %10, align 1
+  store i32 %53, ptr %12, align 1
+  %54 = add nuw i64 %.066, 8
+  %55 = icmp ult i64 %54, %2
+  %56 = trunc i32 %51 to i8
+  %57 = trunc i32 %47 to i8
+  br i1 %55, label %13, label %58, !llvm.loop !11
 
-96:                                               ; preds = %25
+58:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6

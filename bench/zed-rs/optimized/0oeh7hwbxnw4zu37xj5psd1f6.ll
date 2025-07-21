@@ -1895,15 +1895,10 @@ define hidden void @"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17h27f
   %.sroa.357.sroa.4.0..sroa.357.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.357.sroa.4.0..sroa.357.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.820.0..sroa_idx.i.i, i64 32, i1 false), !noalias !439
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !442
-  %.sroa.5.sroa.0.0.extract.trunc.i = trunc i32 %.sroa.517.0.copyload.i.i to i8
-  %.sroa.5.sroa.7.0.extract.shift.i = lshr i32 %.sroa.517.0.copyload.i.i, 8
-  %.sroa.5.sroa.7.0.extract.trunc.i = trunc nuw i32 %.sroa.5.sroa.7.0.extract.shift.i to i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !442
   store i32 %24, ptr %0, align 8, !alias.scope !436, !noalias !439
   %.sroa.256.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.5.sroa.0.0.extract.trunc.i, ptr %.sroa.256.0..sroa_idx.i, align 4, !alias.scope !436, !noalias !439
-  %.sroa.357.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i24 %.sroa.5.sroa.7.0.extract.trunc.i, ptr %.sroa.357.0..sroa_idx.i, align 1, !alias.scope !436, !noalias !439
+  store i32 %.sroa.517.0.copyload.i.i, ptr %.sroa.256.0..sroa_idx.i, align 4, !alias.scope !436, !noalias !439
   %.sroa.357.sroa.2.0..sroa.357.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.618.0.copyload.i.i, ptr %.sroa.357.sroa.2.0..sroa.357.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !436, !noalias !439
   %.sroa.357.sroa.3.0..sroa.357.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16

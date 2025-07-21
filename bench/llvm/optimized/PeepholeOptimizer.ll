@@ -6374,11 +6374,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo13RegSubRegPairELb1EE9push
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 4, ptr %25, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
-  store i32 %.sroa.024.0.extract.trunc, ptr %11, align 8, !tbaa !66
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %.sroa.3.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !66
-  %.sroa.017.0.copyload = load i64, ptr %11, align 8
-  store i64 %.sroa.017.0.copyload, ptr %23, align 8
+  store i64 %1, ptr %23, align 8
   store i32 1, ptr %24, align 8, !tbaa !26
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16

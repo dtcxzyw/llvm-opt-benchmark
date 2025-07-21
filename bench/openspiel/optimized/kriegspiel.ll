@@ -2616,11 +2616,7 @@ _ZNK10open_spiel5chess10ChessBoard11IsMoveLegalERKNS0_4MoveE.exit: ; preds = %_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 168, i1 false)
   call void @_ZN10open_spiel5chess10ChessBoard9ApplyMoveERKNS0_4MoveE(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 4 dereferenceable(12) %2)
   %51 = call i64 @_ZN10open_spiel10kriegspiel12GetCheckTypeERKNS_5chess10ChessBoardE(ptr noundef nonnull align 8 dereferenceable(168) %6)
-  %.sroa.013.0.extract.trunc = trunc i64 %51 to i32
-  %.sroa.2.0.extract.shift = lshr i64 %51, 32
-  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  store i32 %.sroa.013.0.extract.trunc, ptr %11, align 4
-  store i32 %.sroa.2.0.extract.trunc, ptr %12, align 4
+  store i64 %51, ptr %11, align 4
   store i32 0, ptr %7, align 4
   %52 = ptrtoint ptr %7 to i64
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16

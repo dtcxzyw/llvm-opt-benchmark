@@ -12286,21 +12286,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h54a6c4d538ed7a91E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2406, !noalias !2405
-  %14 = or i32 %13, 81920
-  %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
-  %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
-  %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
-  %.sroa.5.0.extract.trunc.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i to i8
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %13 to i8
   store i8 %.sroa.0.0.extract.trunc.i.i, ptr %12, align 1, !alias.scope !2411, !noalias !2414
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %15, align 1, !alias.scope !2411, !noalias !2414
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i.i, ptr %16, align 1, !alias.scope !2411, !noalias !2414
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %15 = lshr i32 %13, 8
+  %16 = trunc i32 %15 to i16
+  %17 = or i16 %16, 320
+  store i16 %17, ptr %14, align 1, !alias.scope !2411, !noalias !2414
   %.sroa.6.0.extract.shift.i.i = lshr i32 %13, 24
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i to i8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %17, align 1, !alias.scope !2411, !noalias !2414
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %18, align 1, !alias.scope !2411, !noalias !2414
   ret void
 }
 
@@ -12462,21 +12458,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h40c83212c129c9f5E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2506, !noalias !2505
-  %14 = or i32 %13, 81920
-  %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
-  %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
-  %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
-  %.sroa.5.0.extract.trunc.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i to i8
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %13 to i8
   store i8 %.sroa.0.0.extract.trunc.i.i, ptr %12, align 1, !alias.scope !2511, !noalias !2514
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %15, align 1, !alias.scope !2511, !noalias !2514
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i.i, ptr %16, align 1, !alias.scope !2511, !noalias !2514
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %15 = lshr i32 %13, 8
+  %16 = trunc i32 %15 to i16
+  %17 = or i16 %16, 320
+  store i16 %17, ptr %14, align 1, !alias.scope !2511, !noalias !2514
   %.sroa.6.0.extract.shift.i.i = lshr i32 %13, 24
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i to i8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %17, align 1, !alias.scope !2511, !noalias !2514
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %18, align 1, !alias.scope !2511, !noalias !2514
   ret void
 }
 
@@ -12638,21 +12630,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17hc156184d8897636dE.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2606, !noalias !2605
-  %14 = or i32 %13, 81920
-  %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
-  %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
-  %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
-  %.sroa.5.0.extract.trunc.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i to i8
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %13 to i8
   store i8 %.sroa.0.0.extract.trunc.i.i, ptr %12, align 1, !alias.scope !2611, !noalias !2614
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %15, align 1, !alias.scope !2611, !noalias !2614
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i.i, ptr %16, align 1, !alias.scope !2611, !noalias !2614
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %15 = lshr i32 %13, 8
+  %16 = trunc i32 %15 to i16
+  %17 = or i16 %16, 320
+  store i16 %17, ptr %14, align 1, !alias.scope !2611, !noalias !2614
   %.sroa.6.0.extract.shift.i.i = lshr i32 %13, 24
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i to i8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %17, align 1, !alias.scope !2611, !noalias !2614
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %18, align 1, !alias.scope !2611, !noalias !2614
   ret void
 }
 
@@ -12682,21 +12670,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h74a962d2da2e5d02E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2631, !noalias !2630
-  %14 = or i32 %13, 81920
-  %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
-  %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
-  %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
-  %.sroa.5.0.extract.trunc.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i to i8
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %13 to i8
   store i8 %.sroa.0.0.extract.trunc.i.i, ptr %12, align 1, !alias.scope !2636, !noalias !2639
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %15, align 1, !alias.scope !2636, !noalias !2639
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i.i, ptr %16, align 1, !alias.scope !2636, !noalias !2639
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %15 = lshr i32 %13, 8
+  %16 = trunc i32 %15 to i16
+  %17 = or i16 %16, 320
+  store i16 %17, ptr %14, align 1, !alias.scope !2636, !noalias !2639
   %.sroa.6.0.extract.shift.i.i = lshr i32 %13, 24
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i to i8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %17, align 1, !alias.scope !2636, !noalias !2639
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %18, align 1, !alias.scope !2636, !noalias !2639
   ret void
 }
 
@@ -12726,21 +12710,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h442d0a293e5d9291E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2656, !noalias !2655
-  %14 = or i32 %13, 81920
-  %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
-  %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
-  %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
-  %.sroa.5.0.extract.trunc.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i to i8
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %13 to i8
   store i8 %.sroa.0.0.extract.trunc.i.i, ptr %12, align 1, !alias.scope !2661, !noalias !2664
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %15, align 1, !alias.scope !2661, !noalias !2664
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i.i, ptr %16, align 1, !alias.scope !2661, !noalias !2664
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %15 = lshr i32 %13, 8
+  %16 = trunc i32 %15 to i16
+  %17 = or i16 %16, 320
+  store i16 %17, ptr %14, align 1, !alias.scope !2661, !noalias !2664
   %.sroa.6.0.extract.shift.i.i = lshr i32 %13, 24
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i to i8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %17, align 1, !alias.scope !2661, !noalias !2664
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %18, align 1, !alias.scope !2661, !noalias !2664
   ret void
 }
 
@@ -12858,21 +12838,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state19StateBuilderMat
 _ZN14regex_automata4util11determinize5state7ReprVec13set_look_have17h7e0fbc8c5f99cf98E.llvm.7032729871794229628.exit: ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %13 = load i32, ptr %12, align 1, !alias.scope !2731, !noalias !2730
-  %14 = or i32 %13, 81920
-  %.sroa.4.0.extract.shift.i.i = lshr i32 %14, 8
-  %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
-  %.sroa.5.0.extract.shift.i.i = lshr i32 %14, 16
-  %.sroa.5.0.extract.trunc.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i to i8
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %13 to i8
   store i8 %.sroa.0.0.extract.trunc.i.i, ptr %12, align 1, !alias.scope !2736, !noalias !2739
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %15, align 1, !alias.scope !2736, !noalias !2739
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i.i, ptr %16, align 1, !alias.scope !2736, !noalias !2739
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %15 = lshr i32 %13, 8
+  %16 = trunc i32 %15 to i16
+  %17 = or i16 %16, 320
+  store i16 %17, ptr %14, align 1, !alias.scope !2736, !noalias !2739
   %.sroa.6.0.extract.shift.i.i = lshr i32 %13, 24
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i to i8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %17, align 1, !alias.scope !2736, !noalias !2739
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i.i, ptr %18, align 1, !alias.scope !2736, !noalias !2739
   ret void
 }
 
@@ -14394,21 +14370,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3165, !noalias !3164
-  %15 = or i32 %14, 81920
-  %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.i = trunc i32 %14 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %13, align 1, !alias.scope !3170
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %16, align 1, !alias.scope !3170
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %17, align 1, !alias.scope !3170
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %16 = lshr i32 %14, 8
+  %17 = trunc i32 %16 to i16
+  %18 = or i16 %17, 320
+  store i16 %18, ptr %15, align 1, !alias.scope !3170
   %.sroa.6.0.extract.shift.i = lshr i32 %14, 24
   %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %18, align 1, !alias.scope !3170
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i, ptr %19, align 1, !alias.scope !3170
   ret void
 }
 
@@ -14441,21 +14413,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3189, !noalias !3188
-  %15 = or i32 %14, 81920
-  %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.i = trunc i32 %14 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %13, align 1, !alias.scope !3194
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %16, align 1, !alias.scope !3194
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %17, align 1, !alias.scope !3194
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %16 = lshr i32 %14, 8
+  %17 = trunc i32 %16 to i16
+  %18 = or i16 %17, 320
+  store i16 %18, ptr %15, align 1, !alias.scope !3194
   %.sroa.6.0.extract.shift.i = lshr i32 %14, 24
   %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %18, align 1, !alias.scope !3194
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i, ptr %19, align 1, !alias.scope !3194
   ret void
 }
 
@@ -14582,21 +14550,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3261, !noalias !3260
-  %15 = or i32 %14, 81920
-  %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.i = trunc i32 %14 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %13, align 1, !alias.scope !3266
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %16, align 1, !alias.scope !3266
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %17, align 1, !alias.scope !3266
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %16 = lshr i32 %14, 8
+  %17 = trunc i32 %16 to i16
+  %18 = or i16 %17, 320
+  store i16 %18, ptr %15, align 1, !alias.scope !3266
   %.sroa.6.0.extract.shift.i = lshr i32 %14, 24
   %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %18, align 1, !alias.scope !3266
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i, ptr %19, align 1, !alias.scope !3266
   ret void
 }
 
@@ -14676,21 +14640,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3309, !noalias !3308
-  %15 = or i32 %14, 81920
-  %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.i = trunc i32 %14 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %13, align 1, !alias.scope !3314
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %16, align 1, !alias.scope !3314
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %17, align 1, !alias.scope !3314
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %16 = lshr i32 %14, 8
+  %17 = trunc i32 %16 to i16
+  %18 = or i16 %17, 320
+  store i16 %18, ptr %15, align 1, !alias.scope !3314
   %.sroa.6.0.extract.shift.i = lshr i32 %14, 24
   %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %18, align 1, !alias.scope !3314
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i, ptr %19, align 1, !alias.scope !3314
   ret void
 }
 
@@ -14723,21 +14683,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3333, !noalias !3332
-  %15 = or i32 %14, 81920
-  %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.i = trunc i32 %14 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %13, align 1, !alias.scope !3338
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %16, align 1, !alias.scope !3338
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %17, align 1, !alias.scope !3338
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %16 = lshr i32 %14, 8
+  %17 = trunc i32 %16 to i16
+  %18 = or i16 %17, 320
+  store i16 %18, ptr %15, align 1, !alias.scope !3338
   %.sroa.6.0.extract.shift.i = lshr i32 %14, 24
   %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %18, align 1, !alias.scope !3338
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i, ptr %19, align 1, !alias.scope !3338
   ret void
 }
 
@@ -14864,21 +14820,17 @@ define hidden void @_ZN14regex_automata4util11determinize5state7ReprVec13set_loo
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf1a6c9878d0cc42dE.llvm.7032729871794229628.exit": ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i32, ptr %13, align 1, !alias.scope !3405, !noalias !3404
-  %15 = or i32 %14, 81920
-  %.sroa.4.0.extract.shift.i = lshr i32 %15, 8
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
-  %.sroa.5.0.extract.shift.i = lshr i32 %15, 16
-  %.sroa.5.0.extract.trunc.i = trunc i32 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.i = trunc i32 %14 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %13, align 1, !alias.scope !3410
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %.sroa.4.0.extract.trunc.i, ptr %16, align 1, !alias.scope !3410
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %17, align 1, !alias.scope !3410
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %16 = lshr i32 %14, 8
+  %17 = trunc i32 %16 to i16
+  %18 = or i16 %17, 320
+  store i16 %18, ptr %15, align 1, !alias.scope !3410
   %.sroa.6.0.extract.shift.i = lshr i32 %14, 24
   %.sroa.6.0.extract.trunc.i = trunc nuw i32 %.sroa.6.0.extract.shift.i to i8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %18, align 1, !alias.scope !3410
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i8 %.sroa.6.0.extract.trunc.i, ptr %19, align 1, !alias.scope !3410
   ret void
 }
 

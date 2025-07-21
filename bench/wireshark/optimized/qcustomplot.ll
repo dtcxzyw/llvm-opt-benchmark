@@ -113152,7 +113152,7 @@ define void @_ZN22QCPPlottableLegendItem4drawEP10QCPPainter(ptr noundef align 8 
   %8 = alloca %class.QColor, align 8
   %9 = alloca %class.QFontMetrics, align 8
   %10 = alloca %class.QString, align 8
-  %11 = alloca %class.QRect, align 4
+  %11 = alloca %class.QRect, align 8
   %12 = alloca %class.QString, align 8
   %13 = alloca %class.QRectF, align 8
   %14 = alloca %class.QPen, align 8
@@ -113280,13 +113280,12 @@ _ZN7QStringD2Ev.exit:                             ; preds = %51, %_ZN17QArrayDat
   %.sroa.0.0.extract.trunc = trunc i64 %59 to i32
   %.sroa.5.0.extract.shift = lshr i64 %59, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %11, align 4
+  store i64 %59, ptr %11, align 8
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %.sroa.5.0.extract.trunc, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %62 = add i32 %.sroa.059.0.extract.trunc, -1
   %63 = add i32 %62, %.sroa.0.0.extract.trunc
-  store i32 %63, ptr %61, align 4
+  store i32 %63, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %65 = add i32 %49, %.sroa.5.0.extract.trunc
   store i32 %65, ptr %64, align 4
@@ -113372,7 +113371,7 @@ _ZN7QStringD2Ev.exit37:                           ; preds = %91, %_ZN17QArrayDat
   call void @_ZN8QPainter11setClipRectERK5QRectN2Qt13ClipOperationE(ptr noundef align 8 dereferenceable_or_null(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 2)
   %101 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #52
-  %102 = load i32, ptr %11, align 4
+  %102 = load i32, ptr %11, align 8
   %103 = sitofp i32 %102 to double
   store double %103, ptr %13, align 8
   %104 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -113380,7 +113379,7 @@ _ZN7QStringD2Ev.exit37:                           ; preds = %91, %_ZN17QArrayDat
   %106 = sitofp i32 %105 to double
   store double %106, ptr %104, align 8
   %107 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %108 = load i32, ptr %61, align 4
+  %108 = load i32, ptr %61, align 8
   %reass.sub = sub i32 %108, %102
   %109 = add i32 %reass.sub, 1
   %110 = sitofp i32 %109 to double

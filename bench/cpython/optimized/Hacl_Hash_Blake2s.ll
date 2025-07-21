@@ -1427,6 +1427,10 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_malloc_with_
   %.sroa.02.0.copyload = load i8, ptr %0, align 8, !tbaa !9
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.43.0.copyload = load i8, ptr %.sroa.43.0..sroa_idx, align 1, !tbaa !9
+  %.sroa.4.0.insert.ext = zext i8 %.sroa.02.0.copyload to i16
+  %.sroa.4.0.insert.shift = shl nuw i16 %.sroa.4.0.insert.ext, 8
+  %.sroa.01.0.insert.ext = zext i8 %.sroa.43.0.copyload to i16
+  %.sroa.01.0.insert.insert = or disjoint i16 %.sroa.4.0.insert.shift, %.sroa.01.0.insert.ext
   %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #21
   %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #21
   %6 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #21
@@ -1434,9 +1438,7 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_malloc_with_
   %.not.i = icmp eq i8 %.sroa.43.0.copyload, 0
   %..i = select i1 %.not.i, i64 0, i64 64
   %8 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #22
-  store i8 %.sroa.43.0.copyload, ptr %8, align 8, !tbaa !9
-  %.sroa.0104.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %.sroa.02.0.copyload, ptr %.sroa.0104.sroa.4.0..sroa_idx.i, align 1, !tbaa !9
+  store i16 %.sroa.01.0.insert.insert, ptr %8, align 8
   %.sroa.0104.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 %7, ptr %.sroa.0104.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
   %.sroa.0104.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 3

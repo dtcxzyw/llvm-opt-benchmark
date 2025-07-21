@@ -642,7 +642,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   br label %.backedge
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %24 = phi ptr [ %160, %.backedge ], [ %22, %2 ]
+  %24 = phi ptr [ %158, %.backedge ], [ %22, %2 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %6, align 8
@@ -751,9 +751,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %97 = trunc i64 %96 to i8
   %98 = getelementptr inbounds nuw i8, ptr %27, i64 551
   %99 = load i8, ptr %98, align 1
-  store i8 %87, ptr %83, align 1
-  %100 = getelementptr i8, ptr %83, i64 1
-  store i8 %89, ptr %100, align 1
+  %100 = trunc i64 %86 to i16
+  store i16 %100, ptr %83, align 1
   %101 = getelementptr i8, ptr %83, i64 2
   store i8 0, ptr %101, align 1
   %102 = shl i8 %99, 6
@@ -761,107 +760,102 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %104 = getelementptr i8, ptr %83, i64 3
   store i8 %103, ptr %104, align 1
   %105 = getelementptr i8, ptr %83, i64 4
-  store i8 %91, ptr %105, align 1
-  %106 = getelementptr i8, ptr %83, i64 5
-  store i8 %93, ptr %106, align 1
-  %107 = getelementptr i8, ptr %83, i64 6
-  store i8 %95, ptr %107, align 1
-  %108 = getelementptr i8, ptr %83, i64 7
-  store i8 %97, ptr %108, align 1
-  %109 = load ptr, ptr %28, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %.critedge
+  %106 = trunc i64 %90 to i32
+  store i32 %106, ptr %105, align 1
+  %107 = load ptr, ptr %28, align 8
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %109, label %.critedge
 
-111:                                              ; preds = %82
-  %112 = getelementptr i8, ptr %83, i64 8
-  %113 = load ptr, ptr %25, align 8
-  %114 = load i16, ptr %113, align 2
-  %115 = and i16 %114, 12
-  %116 = icmp eq i16 %115, 0
-  %117 = select i1 %116, i16 -30721, i16 -30833
-  %118 = and i16 %117, %114
-  %119 = or disjoint i16 %118, 16384
-  %120 = and i16 %114, 768
-  %121 = icmp eq i16 %120, 768
-  %122 = select i1 %121, i16 28, i16 22
-  %123 = and i16 %114, 140
-  %124 = icmp eq i16 %123, 136
-  br i1 %124, label %125, label %132
+109:                                              ; preds = %82
+  %110 = getelementptr i8, ptr %83, i64 8
+  %111 = load ptr, ptr %25, align 8
+  %112 = load i16, ptr %111, align 2
+  %113 = and i16 %112, 12
+  %114 = icmp eq i16 %113, 0
+  %115 = select i1 %114, i16 -30721, i16 -30833
+  %116 = and i16 %115, %112
+  %117 = or disjoint i16 %116, 16384
+  %118 = and i16 %112, 768
+  %119 = icmp eq i16 %118, 768
+  %120 = select i1 %119, i16 28, i16 22
+  %121 = and i16 %112, 140
+  %122 = icmp eq i16 %121, 136
+  br i1 %122, label %123, label %130
 
-125:                                              ; preds = %111
-  %126 = select i1 %121, i64 30, i64 24
-  %127 = getelementptr inbounds nuw i8, ptr %113, i64 %126
-  %128 = load i8, ptr %127, align 1
-  %129 = and i8 %128, 15
-  %130 = and i16 %119, 18427
-  %131 = add nuw nsw i16 %122, 2
-  br label %132
+123:                                              ; preds = %109
+  %124 = select i1 %119, i64 30, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %111, i64 %124
+  %126 = load i8, ptr %125, align 1
+  %127 = and i8 %126, 15
+  %128 = and i16 %117, 18427
+  %129 = add nuw nsw i16 %120, 2
+  br label %130
 
-132:                                              ; preds = %125, %111
-  %133 = phi i16 [ %130, %125 ], [ %119, %111 ]
-  %134 = phi i8 [ %129, %125 ], [ 0, %111 ]
-  %135 = phi i16 [ %131, %125 ], [ %122, %111 ]
-  %136 = call i16 @llvm.bswap.i16(i16 %135)
-  store i16 %136, ptr %3, align 16
-  store i16 %133, ptr %7, align 2
-  %137 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %8, ptr noundef nonnull align 2 dereferenceable(18) %137, i64 18, i1 false)
-  %138 = getelementptr inbounds nuw i8, ptr %113, i64 22
-  %139 = load i8, ptr %138, align 2
-  %140 = and i8 %139, 15
-  store i8 %140, ptr %9, align 2
+130:                                              ; preds = %123, %109
+  %131 = phi i16 [ %128, %123 ], [ %117, %109 ]
+  %132 = phi i8 [ %127, %123 ], [ 0, %109 ]
+  %133 = phi i16 [ %129, %123 ], [ %120, %109 ]
+  %134 = call i16 @llvm.bswap.i16(i16 %133)
+  store i16 %134, ptr %3, align 16
+  store i16 %131, ptr %7, align 2
+  %135 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %8, ptr noundef nonnull align 2 dereferenceable(18) %135, i64 18, i1 false)
+  %136 = getelementptr inbounds nuw i8, ptr %111, i64 22
+  %137 = load i8, ptr %136, align 2
+  %138 = and i8 %137, 15
+  store i8 %138, ptr %9, align 2
   store i8 0, ptr %10, align 1
-  br i1 %121, label %141, label %143
+  br i1 %119, label %139, label %141
 
-141:                                              ; preds = %132
-  %142 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %11, ptr noundef nonnull align 2 dereferenceable(6) %142, i64 6, i1 false)
-  store i8 %134, ptr %12, align 2
+139:                                              ; preds = %130
+  %140 = getelementptr inbounds nuw i8, ptr %111, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %11, ptr noundef nonnull align 2 dereferenceable(6) %140, i64 6, i1 false)
+  store i8 %132, ptr %12, align 2
   store i8 0, ptr %13, align 1
-  br label %144
+  br label %142
 
-143:                                              ; preds = %132
+141:                                              ; preds = %130
   store i64 0, ptr %11, align 8
-  store i8 %134, ptr %11, align 8
-  br label %144
+  store i8 %132, ptr %11, align 8
+  br label %142
 
-144:                                              ; preds = %143, %141
+142:                                              ; preds = %141, %139
   store i8 1, ptr %4, align 16
-  %145 = load i16, ptr %113, align 2
-  %146 = and i16 %145, 12
-  %147 = icmp eq i16 %146, 0
-  %148 = select i1 %147, i8 16, i8 0
-  %149 = or disjoint i8 %148, %134
-  store i8 %149, ptr %14, align 1
-  %150 = getelementptr inbounds nuw i8, ptr %113, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %150, i64 6, i1 false)
+  %143 = load i16, ptr %111, align 2
+  %144 = and i16 %143, 12
+  %145 = icmp eq i16 %144, 0
+  %146 = select i1 %145, i8 16, i8 0
+  %147 = or disjoint i8 %146, %132
+  store i8 %147, ptr %14, align 1
+  %148 = getelementptr inbounds nuw i8, ptr %111, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %148, i64 6, i1 false)
   store i8 %97, ptr %16, align 8
   store i8 %95, ptr %17, align 1
   store i8 %93, ptr %18, align 2
   store i8 %91, ptr %19, align 1
   store i8 %89, ptr %20, align 4
   store i8 %87, ptr %21, align 1
-  %151 = getelementptr inbounds nuw i8, ptr %27, i64 152
-  %152 = load ptr, ptr %151, align 8
-  %153 = sext i32 %50 to i64
-  %154 = call ptr @skb_put(ptr noundef %24, i32 noundef %1) #10
-  %155 = load i16, ptr %3, align 16
-  %156 = call i16 @llvm.bswap.i16(i16 %155)
-  %157 = zext i16 %156 to i64
-  %158 = call i32 @aead_encrypt(ptr noundef %152, ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %157, ptr noundef %112, i64 noundef %153, ptr noundef %154) #10
-  %159 = icmp slt i32 %158, 0
+  %149 = getelementptr inbounds nuw i8, ptr %27, i64 152
+  %150 = load ptr, ptr %149, align 8
+  %151 = sext i32 %50 to i64
+  %152 = call ptr @skb_put(ptr noundef %24, i32 noundef %1) #10
+  %153 = load i16, ptr %3, align 16
+  %154 = call i16 @llvm.bswap.i16(i16 %153)
+  %155 = zext i16 %154 to i64
+  %156 = call i32 @aead_encrypt(ptr noundef %150, ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %155, ptr noundef %110, i64 noundef %151, ptr noundef %152) #10
+  %157 = icmp slt i32 %156, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
-  br i1 %159, label %.loopexit, label %.backedge
+  br i1 %157, label %.loopexit, label %.backedge
 
-.backedge:                                        ; preds = %144, %.critedge
-  %160 = load ptr, ptr %24, align 8
-  %161 = icmp eq ptr %160, %5
-  br i1 %161, label %.loopexit, label %.lr.ph, !llvm.loop !23
+.backedge:                                        ; preds = %142, %.critedge
+  %158 = load ptr, ptr %24, align 8
+  %159 = icmp eq ptr %158, %5
+  br i1 %159, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.backedge, %144, %2, %.critedge4
-  %162 = phi i32 [ 1, %.critedge4 ], [ 0, %2 ], [ 0, %.backedge ], [ 1, %144 ]
-  ret i32 %162
+.loopexit:                                        ; preds = %.backedge, %142, %2, %.critedge4
+  %160 = phi i32 [ 1, %.critedge4 ], [ 0, %2 ], [ 0, %.backedge ], [ 1, %142 ]
+  ret i32 %160
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1234,7 +1228,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   br label %.backedge
 
 .lr.ph:                                           ; preds = %1, %.backedge
-  %24 = phi ptr [ %170, %.backedge ], [ %22, %1 ]
+  %24 = phi ptr [ %168, %.backedge ], [ %22, %1 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %5, align 8
@@ -1346,126 +1340,120 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   %99 = getelementptr inbounds nuw i8, ptr %27, i64 536
   %100 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %99, i64 1, ptr nonnull elementtype(i64) %99) #10, !srcloc !16
   %101 = add i64 %100, 1
-  %102 = trunc i64 %101 to i8
-  %103 = lshr i64 %101, 8
-  %104 = trunc i64 %103 to i8
-  %105 = lshr i64 %101, 16
-  %106 = trunc i64 %105 to i8
-  %107 = lshr i64 %101, 24
-  %108 = trunc i64 %107 to i8
-  %109 = lshr i64 %101, 32
-  %110 = trunc i64 %109 to i8
-  %111 = lshr i64 %101, 40
-  %112 = trunc i64 %111 to i8
-  %113 = getelementptr inbounds nuw i8, ptr %27, i64 551
-  %114 = load i8, ptr %113, align 1
-  store i8 %102, ptr %98, align 1
-  %115 = getelementptr i8, ptr %98, i64 1
-  store i8 %104, ptr %115, align 1
-  %116 = getelementptr i8, ptr %98, i64 2
-  store i8 0, ptr %116, align 1
-  %117 = shl i8 %114, 6
-  %118 = or disjoint i8 %117, 32
-  %119 = getelementptr i8, ptr %98, i64 3
-  store i8 %118, ptr %119, align 1
-  %120 = getelementptr i8, ptr %98, i64 4
-  store i8 %106, ptr %120, align 1
-  %121 = getelementptr i8, ptr %98, i64 5
-  store i8 %108, ptr %121, align 1
-  %122 = getelementptr i8, ptr %98, i64 6
-  store i8 %110, ptr %122, align 1
-  %123 = getelementptr i8, ptr %98, i64 7
-  store i8 %112, ptr %123, align 1
-  %124 = load ptr, ptr %28, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %126, label %.critedge
+  %102 = getelementptr inbounds nuw i8, ptr %27, i64 551
+  %103 = load i8, ptr %102, align 1
+  %104 = trunc i64 %101 to i16
+  store i16 %104, ptr %98, align 1
+  %105 = getelementptr i8, ptr %98, i64 2
+  store i8 0, ptr %105, align 1
+  %106 = shl i8 %103, 6
+  %107 = or disjoint i8 %106, 32
+  %108 = getelementptr i8, ptr %98, i64 3
+  store i8 %107, ptr %108, align 1
+  %109 = getelementptr i8, ptr %98, i64 4
+  %110 = lshr i64 %101, 16
+  %111 = trunc i64 %110 to i32
+  store i32 %111, ptr %109, align 1
+  %112 = load ptr, ptr %28, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %.critedge
 
-126:                                              ; preds = %97
-  %127 = getelementptr i8, ptr %98, i64 8
-  %128 = load ptr, ptr %25, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %129, i64 6, i1 false)
-  store i8 %112, ptr %6, align 2
-  store i8 %110, ptr %7, align 1
-  store i8 %108, ptr %8, align 8
-  store i8 %106, ptr %9, align 1
-  store i8 %104, ptr %10, align 2
-  store i8 %102, ptr %11, align 1
+114:                                              ; preds = %97
+  %115 = lshr i64 %101, 40
+  %116 = trunc i64 %115 to i8
+  %117 = lshr i64 %101, 32
+  %118 = trunc i64 %117 to i8
+  %119 = lshr i64 %101, 24
+  %120 = trunc i64 %119 to i8
+  %121 = trunc i64 %110 to i8
+  %122 = lshr i64 %101, 8
+  %123 = trunc i64 %122 to i8
+  %124 = trunc i64 %101 to i8
+  %125 = getelementptr i8, ptr %98, i64 8
+  %126 = load ptr, ptr %25, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %127, i64 6, i1 false)
+  store i8 %116, ptr %6, align 2
+  store i8 %118, ptr %7, align 1
+  store i8 %120, ptr %8, align 8
+  store i8 %121, ptr %9, align 1
+  store i8 %123, ptr %10, align 2
+  store i8 %124, ptr %11, align 1
   store i8 0, ptr %12, align 1
   store i8 0, ptr %13, align 2
   store i8 1, ptr %14, align 1
-  %130 = load i16, ptr %128, align 2
-  %131 = and i16 %130, 12
-  %132 = icmp eq i16 %131, 0
-  %133 = select i1 %132, i16 -30721, i16 -30833
-  %134 = and i16 %133, %130
-  %135 = or disjoint i16 %134, 16384
-  %136 = and i16 %130, 768
-  %137 = icmp eq i16 %136, 768
-  %138 = select i1 %137, i16 28, i16 22
-  %139 = and i16 %130, 140
-  %140 = icmp eq i16 %139, 136
-  br i1 %140, label %141, label %148
+  %128 = load i16, ptr %126, align 2
+  %129 = and i16 %128, 12
+  %130 = icmp eq i16 %129, 0
+  %131 = select i1 %130, i16 -30721, i16 -30833
+  %132 = and i16 %131, %128
+  %133 = or disjoint i16 %132, 16384
+  %134 = and i16 %128, 768
+  %135 = icmp eq i16 %134, 768
+  %136 = select i1 %135, i16 28, i16 22
+  %137 = and i16 %128, 140
+  %138 = icmp eq i16 %137, 136
+  br i1 %138, label %139, label %146
 
-141:                                              ; preds = %126
-  %142 = select i1 %137, i64 30, i64 24
-  %143 = getelementptr inbounds nuw i8, ptr %128, i64 %142
-  %144 = load i8, ptr %143, align 1
-  %145 = and i8 %144, 15
-  %146 = and i16 %135, 18427
-  %147 = add nuw nsw i16 %138, 2
-  br label %148
+139:                                              ; preds = %114
+  %140 = select i1 %135, i64 30, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %126, i64 %140
+  %142 = load i8, ptr %141, align 1
+  %143 = and i8 %142, 15
+  %144 = and i16 %133, 18427
+  %145 = add nuw nsw i16 %136, 2
+  br label %146
 
-148:                                              ; preds = %141, %126
-  %149 = phi i16 [ %146, %141 ], [ %135, %126 ]
-  %150 = phi i8 [ %145, %141 ], [ 0, %126 ]
-  %151 = phi i16 [ %147, %141 ], [ %138, %126 ]
-  %152 = call i16 @llvm.bswap.i16(i16 %151)
-  store i16 %152, ptr %2, align 16
-  store i16 %149, ptr %15, align 2
-  %153 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %16, ptr noundef nonnull align 2 dereferenceable(18) %153, i64 18, i1 false)
-  %154 = getelementptr inbounds nuw i8, ptr %128, i64 22
-  %155 = load i8, ptr %154, align 2
-  %156 = and i8 %155, 15
-  store i8 %156, ptr %17, align 2
+146:                                              ; preds = %139, %114
+  %147 = phi i16 [ %144, %139 ], [ %133, %114 ]
+  %148 = phi i8 [ %143, %139 ], [ 0, %114 ]
+  %149 = phi i16 [ %145, %139 ], [ %136, %114 ]
+  %150 = call i16 @llvm.bswap.i16(i16 %149)
+  store i16 %150, ptr %2, align 16
+  store i16 %147, ptr %15, align 2
+  %151 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %16, ptr noundef nonnull align 2 dereferenceable(18) %151, i64 18, i1 false)
+  %152 = getelementptr inbounds nuw i8, ptr %126, i64 22
+  %153 = load i8, ptr %152, align 2
+  %154 = and i8 %153, 15
+  store i8 %154, ptr %17, align 2
   store i8 0, ptr %18, align 1
-  br i1 %137, label %157, label %159
+  br i1 %135, label %155, label %157
 
-157:                                              ; preds = %148
-  %158 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %19, ptr noundef nonnull align 2 dereferenceable(6) %158, i64 6, i1 false)
-  store i8 %150, ptr %20, align 2
+155:                                              ; preds = %146
+  %156 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %19, ptr noundef nonnull align 2 dereferenceable(6) %156, i64 6, i1 false)
+  store i8 %148, ptr %20, align 2
   store i8 0, ptr %21, align 1
-  br label %160
+  br label %158
 
-159:                                              ; preds = %148
+157:                                              ; preds = %146
   store i64 0, ptr %19, align 8
-  store i8 %150, ptr %19, align 8
-  br label %160
+  store i8 %148, ptr %19, align 8
+  br label %158
 
-160:                                              ; preds = %159, %157
-  %161 = getelementptr inbounds nuw i8, ptr %27, i64 152
-  %162 = load ptr, ptr %161, align 8
-  %163 = sext i32 %50 to i64
-  %164 = call ptr @skb_put(ptr noundef %24, i32 noundef 16) #10
-  %165 = load i16, ptr %2, align 16
-  %166 = call i16 @llvm.bswap.i16(i16 %165)
-  %167 = zext i16 %166 to i64
-  %168 = call i32 @aead_encrypt(ptr noundef %162, ptr noundef nonnull %3, ptr noundef nonnull %15, i64 noundef %167, ptr noundef %127, i64 noundef %163, ptr noundef %164) #10
-  %169 = icmp slt i32 %168, 0
+158:                                              ; preds = %157, %155
+  %159 = getelementptr inbounds nuw i8, ptr %27, i64 152
+  %160 = load ptr, ptr %159, align 8
+  %161 = sext i32 %50 to i64
+  %162 = call ptr @skb_put(ptr noundef %24, i32 noundef 16) #10
+  %163 = load i16, ptr %2, align 16
+  %164 = call i16 @llvm.bswap.i16(i16 %163)
+  %165 = zext i16 %164 to i64
+  %166 = call i32 @aead_encrypt(ptr noundef %160, ptr noundef nonnull %3, ptr noundef nonnull %15, i64 noundef %165, ptr noundef %125, i64 noundef %161, ptr noundef %162) #10
+  %167 = icmp slt i32 %166, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
-  br i1 %169, label %.loopexit, label %.backedge
+  br i1 %167, label %.loopexit, label %.backedge
 
-.backedge:                                        ; preds = %160, %.critedge
-  %170 = load ptr, ptr %24, align 8
-  %171 = icmp eq ptr %170, %4
-  br i1 %171, label %.loopexit, label %.lr.ph, !llvm.loop !27
+.backedge:                                        ; preds = %158, %.critedge
+  %168 = load ptr, ptr %24, align 8
+  %169 = icmp eq ptr %168, %4
+  br i1 %169, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.backedge, %160, %1, %.critedge4
-  %172 = phi i32 [ 1, %.critedge4 ], [ 0, %1 ], [ 0, %.backedge ], [ 1, %160 ]
-  ret i32 %172
+.loopexit:                                        ; preds = %.backedge, %158, %1, %.critedge4
+  %170 = phi i32 [ 1, %.critedge4 ], [ 0, %1 ], [ 0, %.backedge ], [ 1, %158 ]
+  ret i32 %170
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

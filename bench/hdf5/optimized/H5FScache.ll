@@ -2340,7 +2340,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_sinfo_serialize(ptr noundef %0
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %119, !prof !9
+  br i1 %12, label %13, label %109, !prof !9
 
 13:                                               ; preds = %4
   store i32 1163088710, ptr %1, align 1
@@ -2485,7 +2485,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %28, %34, %40, %46, 
   %91 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %92 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !17
   %93 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_serialize, i32 noundef 1234, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.28) #7
-  br label %119
+  br label %109
 
 94:                                               ; preds = %._crit_edge40, %82
   %95 = phi i32 [ %.pre, %._crit_edge40 ], [ %83, %82 ]
@@ -2511,23 +2511,10 @@ H5VM_limit_enc_size.exit:                         ; preds = %28, %34, %40, %46, 
 106:                                              ; preds = %105, %._crit_edge
   %107 = add nsw i64 %2, -4
   %108 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %107, i32 noundef 0) #7
-  %109 = trunc i32 %108 to i8
-  store i8 %109, ptr %99, align 1, !tbaa !35
-  %110 = getelementptr inbounds i8, ptr %98, i64 -3
-  %111 = lshr i32 %108, 8
-  %112 = trunc i32 %111 to i8
-  store i8 %112, ptr %110, align 1, !tbaa !35
-  %113 = getelementptr inbounds i8, ptr %98, i64 -2
-  %114 = lshr i32 %108, 16
-  %115 = trunc i32 %114 to i8
-  store i8 %115, ptr %113, align 1, !tbaa !35
-  %116 = getelementptr inbounds i8, ptr %98, i64 -1
-  %117 = lshr i32 %108, 24
-  %118 = trunc nuw i32 %117 to i8
-  store i8 %118, ptr %116, align 1, !tbaa !35
-  br label %119
+  store i32 %108, ptr %99, align 1
+  br label %109
 
-119:                                              ; preds = %90, %106, %4
+109:                                              ; preds = %90, %106, %4
   %.0 = phi i32 [ -1, %90 ], [ 0, %106 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7

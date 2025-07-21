@@ -19408,14 +19408,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1418, !noalias !1421, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1423, !noalias !1427
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1423, !noalias !1427
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1423, !noalias !1427
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1423, !noalias !1427
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1423, !noalias !1427
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1411
@@ -19482,14 +19477,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1438, !noalias !1441, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1443, !noalias !1447
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1443, !noalias !1447
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1443, !noalias !1447
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1443, !noalias !1447
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1443, !noalias !1447
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1431
@@ -19556,14 +19546,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1458, !noalias !1461, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1463, !noalias !1467
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1463, !noalias !1467
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1463, !noalias !1467
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1463, !noalias !1467
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1463, !noalias !1467
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1451
@@ -19630,14 +19615,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1478, !noalias !1481, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1483, !noalias !1487
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1483, !noalias !1487
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1483, !noalias !1487
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1483, !noalias !1487
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1483, !noalias !1487
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1471
@@ -19704,14 +19684,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1498, !noalias !1501, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1503, !noalias !1507
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1503, !noalias !1507
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1503, !noalias !1507
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1503, !noalias !1507
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1503, !noalias !1507
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1491
@@ -19778,14 +19753,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1518, !noalias !1521, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1523, !noalias !1527
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1523, !noalias !1527
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1523, !noalias !1527
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1523, !noalias !1527
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1523, !noalias !1527
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1511
@@ -19852,14 +19822,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1538, !noalias !1541, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1543, !noalias !1547
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1543, !noalias !1547
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1543, !noalias !1547
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1543, !noalias !1547
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1543, !noalias !1547
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1531
@@ -20062,14 +20027,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1571, !noalias !1574, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1576, !noalias !1580
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1576, !noalias !1580
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1576, !noalias !1580
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1576, !noalias !1580
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1576, !noalias !1580
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1564
@@ -20136,14 +20096,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1591, !noalias !1594, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1596, !noalias !1600
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1596, !noalias !1600
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1596, !noalias !1600
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1596, !noalias !1600
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1596, !noalias !1600
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1584
@@ -20210,14 +20165,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1611, !noalias !1614, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1616, !noalias !1620
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1616, !noalias !1620
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1616, !noalias !1620
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1616, !noalias !1620
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1616, !noalias !1620
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1604
@@ -20284,14 +20234,9 @@ define hidden void @_ZN14polars_compute6filter9primitive26filter_values_and_vali
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1631, !noalias !1634, !nonnull !4, !noundef !4
   %13 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.4.0.extract.trunc.i.i = trunc i64 %13 to i8
-  %.sroa.4.1.extract.shift.i.i = lshr i64 %13, 8
-  %.sroa.4.1.extract.trunc.i.i = trunc nuw i64 %.sroa.4.1.extract.shift.i.i to i56
   store i64 %12, ptr %8, align 8, !alias.scope !1636, !noalias !1640
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1636, !noalias !1640
-  %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i56 %.sroa.4.1.extract.trunc.i.i, ptr %.sroa.8.0..sroa_idx4.i.i, align 1, !alias.scope !1636, !noalias !1640
+  store i64 %13, ptr %.sroa.6.0..sroa_idx2.i.i, align 8, !alias.scope !1636, !noalias !1640
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %10, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !1636, !noalias !1640
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1624

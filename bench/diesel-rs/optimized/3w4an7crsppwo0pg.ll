@@ -51,14 +51,9 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %21 = load ptr, ptr %16, align 8, !alias.scope !19, !noalias !22, !nonnull !10, !align !11, !noundef !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %22 = ptrtoint ptr %14 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %22 to i8
-  %.sroa.4.1.extract.shift = lshr i64 %22, 8
-  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.220.0..sroa_idx, align 8
-  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.321.0..sroa_idx, align 1
+  store i64 %22, ptr %.sroa.220.0..sroa_idx, align 8
   %.sroa.321.sroa.2.0..sroa.321.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %.sroa.321.sroa.2.0..sroa.321.0..sroa_idx.sroa_idx, align 8
   %23 = load i32, ptr %8, align 8, !range !26, !alias.scope !27, !noundef !10

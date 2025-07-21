@@ -23327,20 +23327,20 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN9subpaving5powerElN9__
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit
-  %13 = phi i64 [ %7, %.lr.ph ], [ %118, %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit ]
-  %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %67, %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit ]
-  %14 = icmp eq i64 %.01724, 0
-  br i1 %14, label %.lr.ph.i.i, label %66
+  %13 = phi i64 [ %7, %.lr.ph ], [ %117, %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit ]
+  %.024 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit ]
+  %.01723 = phi i64 [ %2, %.lr.ph ], [ %66, %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit ]
+  %14 = icmp eq i64 %.01723, 0
+  br i1 %14, label %.lr.ph.i.i, label %65
 
 .lr.ph.i.i:                                       ; preds = %12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZSt11__make_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_RT0_(ptr noundef %0, ptr noundef %.025, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZSt11__make_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_RT0_(ptr noundef %0, ptr noundef %.024, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %_ZSt10__pop_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_RT0_.exit.i.i, %.lr.ph.i.i
-  %.07.i.i = phi ptr [ %.025, %.lr.ph.i.i ], [ %16, %_ZSt10__pop_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_RT0_.exit.i.i ]
+  %.07.i.i = phi ptr [ %.024, %.lr.ph.i.i ], [ %16, %_ZSt10__pop_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_RT0_.exit.i.i ]
   %16 = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %16, align 4
   %17 = load i32, ptr %0, align 4, !tbaa !33
@@ -23401,17 +23401,15 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN9subpaving5powerElN9__
   %52 = load i32, ptr %51, align 4, !tbaa !33
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %52, ptr %53, align 4, !tbaa !103
-  %.sroa.0.0.extract.trunc.i.i13.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
   br label %.lr.ph.i.i.preheader.i.i.i
 
 54:                                               ; preds = %42, %._crit_edge.i.i.i.i
-  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %54, %.thread.i.i.i
-  %.sroa.0.0.extract.trunc.i.i16.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i13.i.i.i, %.thread.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %54 ]
   %.1.i15.i.i.i = phi i64 [ %47, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %54 ]
+  %.sroa.0.0.extract.trunc.i.i16.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %58, %.lr.ph.i.i.preheader.i.i.i
@@ -23434,159 +23432,132 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN9subpaving5powerElN9__
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !283
 
 _ZSt10__pop_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %58, %.lr.ph.i.i.i.i.i, %54
-  %.sroa.0.0.extract.trunc.i.i17.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %54 ], [ %.sroa.0.0.extract.trunc.i.i16.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i16.i.i.i, %58 ]
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %54 ], [ 0, %58 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.sroa.3.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.02.0.copyload.i.i.i, 32
-  %.sroa.3.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i.i.i to i32
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %54 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %58 ]
   %63 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i17.i.i.i, ptr %63, align 4, !tbaa !101
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i.i.i.i, ptr %64, align 4, !tbaa !103
-  %65 = icmp sgt i64 %21, 8
-  br i1 %65, label %15, label %_ZSt14__partial_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_T0_.exit, !llvm.loop !284
+  store i64 %.sroa.02.0.copyload.i.i.i, ptr %63, align 4
+  %64 = icmp sgt i64 %21, 8
+  br i1 %64, label %15, label %_ZSt14__partial_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_T0_.exit, !llvm.loop !284
 
-66:                                               ; preds = %12
-  %67 = add nsw i64 %.01724, -1
-  %68 = lshr i64 %13, 4
-  %69 = getelementptr inbounds nuw %"class.subpaving::power", ptr %0, i64 %68
-  %70 = getelementptr inbounds i8, ptr %.025, i64 -8
-  %71 = load i32, ptr %9, align 4, !tbaa !101
-  %72 = load i32, ptr %69, align 4, !tbaa !101
-  %73 = icmp ult i32 %71, %72
-  %74 = load i32, ptr %70, align 4, !tbaa !101
-  br i1 %73, label %75, label %89
+65:                                               ; preds = %12
+  %66 = add nsw i64 %.01723, -1
+  %67 = lshr i64 %13, 4
+  %68 = getelementptr inbounds nuw %"class.subpaving::power", ptr %0, i64 %67
+  %69 = getelementptr inbounds i8, ptr %.024, i64 -8
+  %70 = load i32, ptr %9, align 4, !tbaa !101
+  %71 = load i32, ptr %68, align 4, !tbaa !101
+  %72 = icmp ult i32 %70, %71
+  %73 = load i32, ptr %69, align 4, !tbaa !101
+  br i1 %72, label %74, label %88
 
-75:                                               ; preds = %66
-  %76 = icmp ult i32 %72, %74
-  br i1 %76, label %77, label %81
+74:                                               ; preds = %65
+  %75 = icmp ult i32 %71, %73
+  br i1 %75, label %76, label %80
 
-77:                                               ; preds = %75
-  %78 = load i64, ptr %0, align 4
-  %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %78 to i32
-  %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %78, 32
-  %.sroa.4.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i to i32
-  store i32 %72, ptr %0, align 4, !tbaa !101
-  %79 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !33
-  store i32 %80, ptr %10, align 4, !tbaa !103
-  store i32 %.sroa.0.0.extract.trunc.i.i.i.i, ptr %69, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i.i.i.i, ptr %79, align 4, !tbaa !103
-  br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
-
-81:                                               ; preds = %75
-  %82 = icmp ult i32 %71, %74
-  %83 = load i64, ptr %0, align 4
-  %.sroa.0.0.extract.trunc.i.i22.i.i = trunc i64 %83 to i32
-  %.sroa.4.0.extract.shift.i.i23.i.i = lshr i64 %83, 32
-  %.sroa.4.0.extract.trunc.i.i24.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i23.i.i to i32
-  br i1 %82, label %84, label %87
-
-84:                                               ; preds = %81
-  store i32 %74, ptr %0, align 4, !tbaa !101
-  %85 = getelementptr inbounds i8, ptr %.025, i64 -4
-  %86 = load i32, ptr %85, align 4, !tbaa !33
-  store i32 %86, ptr %10, align 4, !tbaa !103
-  store i32 %.sroa.0.0.extract.trunc.i.i22.i.i, ptr %70, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i.i24.i.i, ptr %85, align 4, !tbaa !103
-  br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
-
-87:                                               ; preds = %81
+76:                                               ; preds = %74
+  %77 = load i64, ptr %0, align 4
   store i32 %71, ptr %0, align 4, !tbaa !101
-  %88 = load i32, ptr %11, align 4, !tbaa !33
-  store i32 %88, ptr %10, align 4, !tbaa !103
-  store i32 %.sroa.0.0.extract.trunc.i.i22.i.i, ptr %9, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i.i24.i.i, ptr %11, align 4, !tbaa !103
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %79 = load i32, ptr %78, align 4, !tbaa !33
+  store i32 %79, ptr %10, align 4, !tbaa !103
+  store i64 %77, ptr %68, align 4
   br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-89:                                               ; preds = %66
-  %90 = icmp ult i32 %71, %74
-  br i1 %90, label %91, label %94
+80:                                               ; preds = %74
+  %81 = icmp ult i32 %70, %73
+  %82 = load i64, ptr %0, align 4
+  br i1 %81, label %83, label %86
 
-91:                                               ; preds = %89
-  %92 = load i64, ptr %0, align 4
-  %.sroa.0.0.extract.trunc.i.i28.i.i = trunc i64 %92 to i32
-  %.sroa.4.0.extract.shift.i.i29.i.i = lshr i64 %92, 32
-  %.sroa.4.0.extract.trunc.i.i30.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i29.i.i to i32
+83:                                               ; preds = %80
+  store i32 %73, ptr %0, align 4, !tbaa !101
+  %84 = getelementptr inbounds i8, ptr %.024, i64 -4
+  %85 = load i32, ptr %84, align 4, !tbaa !33
+  store i32 %85, ptr %10, align 4, !tbaa !103
+  store i64 %82, ptr %69, align 4
+  br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
+
+86:                                               ; preds = %80
+  store i32 %70, ptr %0, align 4, !tbaa !101
+  %87 = load i32, ptr %11, align 4, !tbaa !33
+  store i32 %87, ptr %10, align 4, !tbaa !103
+  store i64 %82, ptr %9, align 4
+  br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
+
+88:                                               ; preds = %65
+  %89 = icmp ult i32 %70, %73
+  br i1 %89, label %90, label %93
+
+90:                                               ; preds = %88
+  %91 = load i64, ptr %0, align 4
+  store i32 %70, ptr %0, align 4, !tbaa !101
+  %92 = load i32, ptr %11, align 4, !tbaa !33
+  store i32 %92, ptr %10, align 4, !tbaa !103
+  store i64 %91, ptr %9, align 4
+  br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
+
+93:                                               ; preds = %88
+  %94 = icmp ult i32 %71, %73
+  %95 = load i64, ptr %0, align 4
+  br i1 %94, label %96, label %99
+
+96:                                               ; preds = %93
+  store i32 %73, ptr %0, align 4, !tbaa !101
+  %97 = getelementptr inbounds i8, ptr %.024, i64 -4
+  %98 = load i32, ptr %97, align 4, !tbaa !33
+  store i32 %98, ptr %10, align 4, !tbaa !103
+  store i64 %95, ptr %69, align 4
+  br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
+
+99:                                               ; preds = %93
   store i32 %71, ptr %0, align 4, !tbaa !101
-  %93 = load i32, ptr %11, align 4, !tbaa !33
-  store i32 %93, ptr %10, align 4, !tbaa !103
-  store i32 %.sroa.0.0.extract.trunc.i.i28.i.i, ptr %9, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i.i30.i.i, ptr %11, align 4, !tbaa !103
+  %100 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %101 = load i32, ptr %100, align 4, !tbaa !33
+  store i32 %101, ptr %10, align 4, !tbaa !103
+  store i64 %95, ptr %68, align 4
   br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-94:                                               ; preds = %89
-  %95 = icmp ult i32 %72, %74
-  %96 = load i64, ptr %0, align 4
-  %.sroa.0.0.extract.trunc.i.i31.i.i = trunc i64 %96 to i32
-  %.sroa.4.0.extract.shift.i.i32.i.i = lshr i64 %96, 32
-  %.sroa.4.0.extract.trunc.i.i33.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i32.i.i to i32
-  br i1 %95, label %97, label %100
-
-97:                                               ; preds = %94
-  store i32 %74, ptr %0, align 4, !tbaa !101
-  %98 = getelementptr inbounds i8, ptr %.025, i64 -4
-  %99 = load i32, ptr %98, align 4, !tbaa !33
-  store i32 %99, ptr %10, align 4, !tbaa !103
-  store i32 %.sroa.0.0.extract.trunc.i.i31.i.i, ptr %70, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i.i33.i.i, ptr %98, align 4, !tbaa !103
-  br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
-
-100:                                              ; preds = %94
-  store i32 %72, ptr %0, align 4, !tbaa !101
-  %101 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %102 = load i32, ptr %101, align 4, !tbaa !33
-  store i32 %102, ptr %10, align 4, !tbaa !103
-  store i32 %.sroa.0.0.extract.trunc.i.i31.i.i, ptr %69, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i.i33.i.i, ptr %101, align 4, !tbaa !103
-  br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %100, %97, %91, %87, %84, %77
+_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %99, %96, %90, %86, %83, %76
   br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader, %112
-  %.013.i.i = phi ptr [ %.114.i.i, %112 ], [ %.025, %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %107, %112 ], [ %9, %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
-  %103 = load i32, ptr %0, align 4, !tbaa !101
-  br label %104
+_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader, %111
+  %.013.i.i = phi ptr [ %.114.i.i, %111 ], [ %.024, %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %106, %111 ], [ %9, %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+  %102 = load i32, ptr %0, align 4, !tbaa !101
+  br label %103
 
-104:                                              ; preds = %104, %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i ], [ %107, %104 ]
-  %105 = load i32, ptr %.1.i.i, align 4, !tbaa !101
-  %106 = icmp ult i32 %105, %103
-  %107 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %106, label %104, label %.preheader.i.i, !llvm.loop !285
+103:                                              ; preds = %103, %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i ], [ %106, %103 ]
+  %104 = load i32, ptr %.1.i.i, align 4, !tbaa !101
+  %105 = icmp ult i32 %104, %102
+  %106 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %105, label %103, label %.preheader.i.i, !llvm.loop !285
 
-.preheader.i.i:                                   ; preds = %104, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %104 ]
+.preheader.i.i:                                   ; preds = %103, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %103 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %108 = load i32, ptr %.114.i.i, align 4, !tbaa !101
-  %109 = icmp ult i32 %103, %108
-  br i1 %109, label %.preheader.i.i, label %110, !llvm.loop !286
+  %107 = load i32, ptr %.114.i.i, align 4, !tbaa !101
+  %108 = icmp ult i32 %102, %107
+  br i1 %108, label %.preheader.i.i, label %109, !llvm.loop !286
 
-110:                                              ; preds = %.preheader.i.i
-  %111 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %111, label %112, label %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit
+109:                                              ; preds = %.preheader.i.i
+  %110 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %110, label %111, label %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit
 
-112:                                              ; preds = %110
-  %113 = load i64, ptr %.1.i.i, align 4
-  %.sroa.0.0.extract.trunc.i.i.i13.i = trunc i64 %113 to i32
-  %.sroa.4.0.extract.shift.i.i.i14.i = lshr i64 %113, 32
-  %.sroa.4.0.extract.trunc.i.i.i15.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i14.i to i32
-  store i32 %108, ptr %.1.i.i, align 4, !tbaa !101
-  %114 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
-  %115 = load i32, ptr %114, align 4, !tbaa !33
-  %116 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
-  store i32 %115, ptr %116, align 4, !tbaa !103
-  store i32 %.sroa.0.0.extract.trunc.i.i.i13.i, ptr %.114.i.i, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i.i.i15.i, ptr %114, align 4, !tbaa !103
+111:                                              ; preds = %109
+  %112 = load i64, ptr %.1.i.i, align 4
+  store i32 %107, ptr %.1.i.i, align 4, !tbaa !101
+  %113 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
+  %114 = load i32, ptr %113, align 4, !tbaa !33
+  %115 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
+  store i32 %114, ptr %115, align 4, !tbaa !103
+  store i64 %112, ptr %.114.i.i, align 4
   br label %_ZSt22__move_median_to_firstIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_S8_T0_.exit.i, !llvm.loop !287
 
-_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit: ; preds = %110
-  tail call void @_ZSt16__introsort_loopIPN9subpaving5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %67)
-  %117 = ptrtoint ptr %.1.i.i to i64
-  %118 = sub i64 %117, %5
-  %119 = icmp sgt i64 %118, 128
-  br i1 %119, label %12, label %_ZSt14__partial_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_T0_.exit, !llvm.loop !288
+_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit: ; preds = %109
+  tail call void @_ZSt16__introsort_loopIPN9subpaving5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.024, i64 noundef %66)
+  %116 = ptrtoint ptr %.1.i.i to i64
+  %117 = sub i64 %116, %5
+  %118 = icmp sgt i64 %117, 128
+  br i1 %118, label %12, label %_ZSt14__partial_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_T0_.exit, !llvm.loop !288
 
 _ZSt14__partial_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEET_S8_S8_T0_.exit, %_ZSt10__pop_heapIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_S8_RT0_.exit.i.i, %3
   ret void
@@ -23598,214 +23569,172 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN9subpaving5power
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %7, label %47
+  br i1 %6, label %.preheader, label %41
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %9
-
-9:                                                ; preds = %34, %7
-  %.019.i.idx = phi i64 [ 8, %7 ], [ %.019.i.add, %34 ]
-  %.pn18.i = phi ptr [ %0, %7 ], [ %.019.i.ptr, %34 ]
+.preheader:                                       ; preds = %2, %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i
+  %.019.i.idx = phi i64 [ %.019.i.add, %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i ], [ 8, %2 ]
+  %.pn18.i = phi ptr [ %.019.i.ptr, %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i ], [ %0, %2 ]
   %.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.019.i.idx
-  %10 = load i32, ptr %.019.i.ptr, align 4, !tbaa !101
-  %11 = load i32, ptr %0, align 4, !tbaa !101
-  %12 = icmp ult i32 %10, %11
-  %13 = load i64, ptr %.019.i.ptr, align 4
-  %.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
-  br i1 %12, label %.lr.ph.i.i.i.i.i.preheader.i, label %24
+  %7 = load i32, ptr %.019.i.ptr, align 4, !tbaa !101
+  %8 = load i32, ptr %0, align 4, !tbaa !101
+  %9 = icmp ult i32 %7, %8
+  %10 = load i64, ptr %.019.i.ptr, align 4
+  br i1 %9, label %.lr.ph.i.i.i.i.i.preheader.i, label %21
 
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %9
-  %.sroa.4.0.extract.shift.i = lshr i64 %13, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %14 = lshr exact i64 %.019.i.idx, 3
-  %15 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
+.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %.preheader
+  %11 = lshr exact i64 %.019.i.idx, 3
+  %12 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
-  %.010.i.i.i.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i.i.i.i ], [ %14, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.069.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i ], [ %15, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.078.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i ], [ %.019.i.ptr, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %16 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %17 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
-  %18 = load i32, ptr %16, align 4, !tbaa !33
-  store i32 %18, ptr %17, align 4, !tbaa !101
-  %19 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -4
-  %20 = load i32, ptr %19, align 4, !tbaa !33
-  %21 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -4
-  store i32 %20, ptr %21, align 4, !tbaa !103
-  %22 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
-  br i1 %23, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i, !llvm.loop !289
+  %.010.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.069.i.i.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.078.i.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i.i ], [ %.019.i.ptr, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %13 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
+  %14 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
+  %15 = load i32, ptr %13, align 4, !tbaa !33
+  store i32 %15, ptr %14, align 4, !tbaa !101
+  %16 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -4
+  %17 = load i32, ptr %16, align 4, !tbaa !33
+  %18 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -4
+  store i32 %17, ptr %18, align 4, !tbaa !103
+  %19 = add nsw i64 %.010.i.i.i.i.i.i, -1
+  %20 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
+  br i1 %20, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i, !llvm.loop !289
 
-_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %0, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %8, align 4, !tbaa !103
-  br label %34
+21:                                               ; preds = %.preheader
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %10 to i32
+  %22 = load i32, ptr %.pn18.i, align 4, !tbaa !101
+  %23 = icmp ugt i32 %22, %.sroa.0.0.extract.trunc.i.i
+  br i1 %23, label %.lr.ph.i.i, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i
 
-24:                                               ; preds = %9
-  %25 = load i32, ptr %.pn18.i, align 4, !tbaa !101
-  %26 = icmp ugt i32 %25, %.sroa.0.0.extract.trunc.i
-  br i1 %26, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i
-
-.lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
-  %27 = phi i32 [ %31, %.lr.ph.i.i ], [ %25, %24 ]
-  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn18.i, %24 ]
-  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.019.i.ptr, %24 ]
-  store i32 %27, ptr %.0912.i.i, align 4, !tbaa !101
-  %28 = getelementptr inbounds i8, ptr %.0912.i.i, i64 -4
-  %29 = load i32, ptr %28, align 4, !tbaa !33
-  %30 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !103
+.lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
+  %24 = phi i32 [ %28, %.lr.ph.i.i ], [ %22, %21 ]
+  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn18.i, %21 ]
+  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.019.i.ptr, %21 ]
+  store i32 %24, ptr %.0912.i.i, align 4, !tbaa !101
+  %25 = getelementptr inbounds i8, ptr %.0912.i.i, i64 -4
+  %26 = load i32, ptr %25, align 4, !tbaa !33
+  %27 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 4
+  store i32 %26, ptr %27, align 4, !tbaa !103
   %.0.i.i = getelementptr inbounds i8, ptr %.013.i.i, i64 -8
-  %31 = load i32, ptr %.0.i.i, align 4, !tbaa !101
-  %32 = icmp ugt i32 %31, %.sroa.0.0.extract.trunc.i
-  br i1 %32, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i, !llvm.loop !290
+  %28 = load i32, ptr %.0.i.i, align 4, !tbaa !101
+  %29 = icmp ugt i32 %28, %.sroa.0.0.extract.trunc.i.i
+  br i1 %29, label %.lr.ph.i.i, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i, !llvm.loop !290
 
-_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %24
-  %.09.lcssa.i.i = phi ptr [ %.019.i.ptr, %24 ], [ %.013.i.i, %.lr.ph.i.i ]
-  %.sroa.5.0.extract.shift.i.i = lshr i64 %13, 32
-  %.sroa.5.0.extract.trunc.i.i = trunc nuw i64 %.sroa.5.0.extract.shift.i.i to i32
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %.09.lcssa.i.i, align 4, !tbaa !101
-  %33 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 4
-  store i32 %.sroa.5.0.extract.trunc.i.i, ptr %33, align 4, !tbaa !103
-  br label %34
-
-34:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i, %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i
+_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %21
+  %.sink.i = phi ptr [ %.019.i.ptr, %21 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
+  store i64 %10, ptr %.sink.i, align 4
   %.019.i.add = add nuw nsw i64 %.019.i.idx, 8
   %.not.i = icmp eq i64 %.019.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %9, !llvm.loop !291
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %.preheader, !llvm.loop !291
 
-_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit: ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not6.i = icmp eq ptr %35, %1
+_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit: ; preds = %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not6.i = icmp eq ptr %30, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i13
-  %.07.i = phi ptr [ %46, %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i13 ], [ %35, %_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit ]
-  %36 = load i64, ptr %.07.i, align 4
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %36 to i32
+.lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i
+  %.07.i = phi ptr [ %40, %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i ], [ %30, %_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit ]
+  %31 = load i64, ptr %.07.i, align 4
+  %.sroa.0.0.extract.trunc.i.i13 = trunc i64 %31 to i32
   %.011.i.i = getelementptr inbounds i8, ptr %.07.i, i64 -8
-  %37 = load i32, ptr %.011.i.i, align 4, !tbaa !101
-  %38 = icmp ugt i32 %37, %.sroa.0.0.extract.trunc.i.i
-  br i1 %38, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i13
+  %32 = load i32, ptr %.011.i.i, align 4, !tbaa !101
+  %33 = icmp ugt i32 %32, %.sroa.0.0.extract.trunc.i.i13
+  br i1 %33, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i
 
-.lr.ph.i.i18:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i18
-  %39 = phi i32 [ %43, %.lr.ph.i.i18 ], [ %37, %.lr.ph.i ]
-  %.013.i.i19 = phi ptr [ %.0.i.i21, %.lr.ph.i.i18 ], [ %.011.i.i, %.lr.ph.i ]
-  %.0912.i.i20 = phi ptr [ %.013.i.i19, %.lr.ph.i.i18 ], [ %.07.i, %.lr.ph.i ]
-  store i32 %39, ptr %.0912.i.i20, align 4, !tbaa !101
-  %40 = getelementptr inbounds i8, ptr %.0912.i.i20, i64 -4
-  %41 = load i32, ptr %40, align 4, !tbaa !33
-  %42 = getelementptr inbounds nuw i8, ptr %.0912.i.i20, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !103
-  %.0.i.i21 = getelementptr inbounds i8, ptr %.013.i.i19, i64 -8
-  %43 = load i32, ptr %.0.i.i21, align 4, !tbaa !101
-  %44 = icmp ugt i32 %43, %.sroa.0.0.extract.trunc.i.i
-  br i1 %44, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i13, !llvm.loop !290
+.lr.ph.i.i15:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i15
+  %34 = phi i32 [ %38, %.lr.ph.i.i15 ], [ %32, %.lr.ph.i ]
+  %.013.i.i16 = phi ptr [ %.0.i.i18, %.lr.ph.i.i15 ], [ %.011.i.i, %.lr.ph.i ]
+  %.0912.i.i17 = phi ptr [ %.013.i.i16, %.lr.ph.i.i15 ], [ %.07.i, %.lr.ph.i ]
+  store i32 %34, ptr %.0912.i.i17, align 4, !tbaa !101
+  %35 = getelementptr inbounds i8, ptr %.0912.i.i17, i64 -4
+  %36 = load i32, ptr %35, align 4, !tbaa !33
+  %37 = getelementptr inbounds nuw i8, ptr %.0912.i.i17, i64 4
+  store i32 %36, ptr %37, align 4, !tbaa !103
+  %.0.i.i18 = getelementptr inbounds i8, ptr %.013.i.i16, i64 -8
+  %38 = load i32, ptr %.0.i.i18, align 4, !tbaa !101
+  %39 = icmp ugt i32 %38, %.sroa.0.0.extract.trunc.i.i13
+  br i1 %39, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i, !llvm.loop !290
 
-_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i13: ; preds = %.lr.ph.i.i18, %.lr.ph.i
-  %.09.lcssa.i.i14 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.013.i.i19, %.lr.ph.i.i18 ]
-  %.sroa.5.0.extract.shift.i.i15 = lshr i64 %36, 32
-  %.sroa.5.0.extract.trunc.i.i16 = trunc nuw i64 %.sroa.5.0.extract.shift.i.i15 to i32
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %.09.lcssa.i.i14, align 4, !tbaa !101
-  %45 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i14, i64 4
-  store i32 %.sroa.5.0.extract.trunc.i.i16, ptr %45, align 4, !tbaa !103
-  %46 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %.not.i17 = icmp eq ptr %46, %1
-  br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %.lr.ph.i, !llvm.loop !292
+_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i15, %.lr.ph.i
+  %.09.lcssa.i.i = phi ptr [ %.07.i, %.lr.ph.i ], [ %.013.i.i16, %.lr.ph.i.i15 ]
+  store i64 %31, ptr %.09.lcssa.i.i, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %.not.i14 = icmp eq ptr %40, %1
+  br i1 %.not.i14, label %_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %.lr.ph.i, !llvm.loop !292
 
-47:                                               ; preds = %2
-  %48 = icmp eq ptr %0, %1
-  br i1 %48, label %_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %.preheader.i
+41:                                               ; preds = %2
+  %42 = icmp eq ptr %0, %1
+  %.016.i19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.not17.i = icmp eq ptr %.016.i19, %1
+  %or.cond = select i1 %42, i1 true, i1 %.not17.i
+  br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %.lr.ph.i20
 
-.preheader.i:                                     ; preds = %47
-  %.016.i22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not17.i = icmp eq ptr %.016.i22, %1
-  br i1 %.not17.i, label %_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %.lr.ph.i23
+.lr.ph.i20:                                       ; preds = %41, %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24
+  %.019.i21 = phi ptr [ %.0.i26, %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24 ], [ %.016.i19, %41 ]
+  %.pn18.i22 = phi ptr [ %.019.i21, %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24 ], [ %0, %41 ]
+  %43 = load i32, ptr %.019.i21, align 4, !tbaa !101
+  %44 = load i32, ptr %0, align 4, !tbaa !101
+  %45 = icmp ult i32 %43, %44
+  %46 = load i64, ptr %.019.i21, align 4
+  br i1 %45, label %47, label %61
 
-.lr.ph.i23:                                       ; preds = %.preheader.i
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %50
+47:                                               ; preds = %.lr.ph.i20
+  %48 = ptrtoint ptr %.019.i21 to i64
+  %49 = sub i64 %48, %4
+  %50 = ashr exact i64 %49, 3
+  %51 = icmp sgt i64 %50, 0
+  br i1 %51, label %.lr.ph.i.i.i.i.i.preheader.i32, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24
 
-50:                                               ; preds = %79, %.lr.ph.i23
-  %.019.i24 = phi ptr [ %.016.i22, %.lr.ph.i23 ], [ %.0.i31, %79 ]
-  %.pn18.i25 = phi ptr [ %0, %.lr.ph.i23 ], [ %.019.i24, %79 ]
-  %51 = load i32, ptr %.019.i24, align 4, !tbaa !101
-  %52 = load i32, ptr %0, align 4, !tbaa !101
-  %53 = icmp ult i32 %51, %52
-  %54 = load i64, ptr %.019.i24, align 4
-  %.sroa.0.0.extract.trunc.i26 = trunc i64 %54 to i32
-  br i1 %53, label %55, label %69
+.lr.ph.i.i.i.i.i.preheader.i32:                   ; preds = %47
+  %52 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 16
+  br label %.lr.ph.i.i.i.i.i.i33
 
-55:                                               ; preds = %50
-  %.sroa.4.0.extract.shift.i37 = lshr i64 %54, 32
-  %.sroa.4.0.extract.trunc.i38 = trunc nuw i64 %.sroa.4.0.extract.shift.i37 to i32
-  %56 = ptrtoint ptr %.019.i24 to i64
-  %57 = sub i64 %56, %4
-  %58 = ashr exact i64 %57, 3
-  %59 = icmp sgt i64 %58, 0
-  br i1 %59, label %.lr.ph.i.i.i.i.i.preheader.i40, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i39
+.lr.ph.i.i.i.i.i.i33:                             ; preds = %.lr.ph.i.i.i.i.i.i33, %.lr.ph.i.i.i.i.i.preheader.i32
+  %.010.i.i.i.i.i.i34 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i33 ], [ %50, %.lr.ph.i.i.i.i.i.preheader.i32 ]
+  %.069.i.i.i.i.i.i35 = phi ptr [ %54, %.lr.ph.i.i.i.i.i.i33 ], [ %52, %.lr.ph.i.i.i.i.i.preheader.i32 ]
+  %.078.i.i.i.i.i.i36 = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i33 ], [ %.019.i21, %.lr.ph.i.i.i.i.i.preheader.i32 ]
+  %53 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i36, i64 -8
+  %54 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i35, i64 -8
+  %55 = load i32, ptr %53, align 4, !tbaa !33
+  store i32 %55, ptr %54, align 4, !tbaa !101
+  %56 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i36, i64 -4
+  %57 = load i32, ptr %56, align 4, !tbaa !33
+  %58 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i35, i64 -4
+  store i32 %57, ptr %58, align 4, !tbaa !103
+  %59 = add nsw i64 %.010.i.i.i.i.i.i34, -1
+  %60 = icmp samesign ugt i64 %.010.i.i.i.i.i.i34, 1
+  br i1 %60, label %.lr.ph.i.i.i.i.i.i33, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24, !llvm.loop !289
 
-.lr.ph.i.i.i.i.i.preheader.i40:                   ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %.pn18.i25, i64 16
-  br label %.lr.ph.i.i.i.i.i.i41
+61:                                               ; preds = %.lr.ph.i20
+  %.sroa.0.0.extract.trunc.i.i23 = trunc i64 %46 to i32
+  %62 = load i32, ptr %.pn18.i22, align 4, !tbaa !101
+  %63 = icmp ugt i32 %62, %.sroa.0.0.extract.trunc.i.i23
+  br i1 %63, label %.lr.ph.i.i28, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24
 
-.lr.ph.i.i.i.i.i.i41:                             ; preds = %.lr.ph.i.i.i.i.i.i41, %.lr.ph.i.i.i.i.i.preheader.i40
-  %.010.i.i.i.i.i.i42 = phi i64 [ %67, %.lr.ph.i.i.i.i.i.i41 ], [ %58, %.lr.ph.i.i.i.i.i.preheader.i40 ]
-  %.069.i.i.i.i.i.i43 = phi ptr [ %62, %.lr.ph.i.i.i.i.i.i41 ], [ %60, %.lr.ph.i.i.i.i.i.preheader.i40 ]
-  %.078.i.i.i.i.i.i44 = phi ptr [ %61, %.lr.ph.i.i.i.i.i.i41 ], [ %.019.i24, %.lr.ph.i.i.i.i.i.preheader.i40 ]
-  %61 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i44, i64 -8
-  %62 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i43, i64 -8
-  %63 = load i32, ptr %61, align 4, !tbaa !33
-  store i32 %63, ptr %62, align 4, !tbaa !101
-  %64 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i44, i64 -4
-  %65 = load i32, ptr %64, align 4, !tbaa !33
-  %66 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i43, i64 -4
-  store i32 %65, ptr %66, align 4, !tbaa !103
-  %67 = add nsw i64 %.010.i.i.i.i.i.i42, -1
-  %68 = icmp samesign ugt i64 %.010.i.i.i.i.i.i42, 1
-  br i1 %68, label %.lr.ph.i.i.i.i.i.i41, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i39, !llvm.loop !289
+.lr.ph.i.i28:                                     ; preds = %61, %.lr.ph.i.i28
+  %64 = phi i32 [ %68, %.lr.ph.i.i28 ], [ %62, %61 ]
+  %.013.i.i29 = phi ptr [ %.0.i.i31, %.lr.ph.i.i28 ], [ %.pn18.i22, %61 ]
+  %.0912.i.i30 = phi ptr [ %.013.i.i29, %.lr.ph.i.i28 ], [ %.019.i21, %61 ]
+  store i32 %64, ptr %.0912.i.i30, align 4, !tbaa !101
+  %65 = getelementptr inbounds i8, ptr %.0912.i.i30, i64 -4
+  %66 = load i32, ptr %65, align 4, !tbaa !33
+  %67 = getelementptr inbounds nuw i8, ptr %.0912.i.i30, i64 4
+  store i32 %66, ptr %67, align 4, !tbaa !103
+  %.0.i.i31 = getelementptr inbounds i8, ptr %.013.i.i29, i64 -8
+  %68 = load i32, ptr %.0.i.i31, align 4, !tbaa !101
+  %69 = icmp ugt i32 %68, %.sroa.0.0.extract.trunc.i.i23
+  br i1 %69, label %.lr.ph.i.i28, label %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24, !llvm.loop !290
 
-_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i39: ; preds = %.lr.ph.i.i.i.i.i.i41, %55
-  store i32 %.sroa.0.0.extract.trunc.i26, ptr %0, align 4, !tbaa !101
-  store i32 %.sroa.4.0.extract.trunc.i38, ptr %49, align 4, !tbaa !103
-  br label %79
+_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24: ; preds = %.lr.ph.i.i28, %.lr.ph.i.i.i.i.i.i33, %61, %47
+  %.sink.i25 = phi ptr [ %0, %47 ], [ %.019.i21, %61 ], [ %0, %.lr.ph.i.i.i.i.i.i33 ], [ %.013.i.i29, %.lr.ph.i.i28 ]
+  store i64 %46, ptr %.sink.i25, align 4
+  %.0.i26 = getelementptr inbounds nuw i8, ptr %.019.i21, i64 8
+  %.not.i27 = icmp eq ptr %.0.i26, %1
+  br i1 %.not.i27, label %_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %.lr.ph.i20, !llvm.loop !291
 
-69:                                               ; preds = %50
-  %70 = load i32, ptr %.pn18.i25, align 4, !tbaa !101
-  %71 = icmp ugt i32 %70, %.sroa.0.0.extract.trunc.i26
-  br i1 %71, label %.lr.ph.i.i33, label %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i27
-
-.lr.ph.i.i33:                                     ; preds = %69, %.lr.ph.i.i33
-  %72 = phi i32 [ %76, %.lr.ph.i.i33 ], [ %70, %69 ]
-  %.013.i.i34 = phi ptr [ %.0.i.i36, %.lr.ph.i.i33 ], [ %.pn18.i25, %69 ]
-  %.0912.i.i35 = phi ptr [ %.013.i.i34, %.lr.ph.i.i33 ], [ %.019.i24, %69 ]
-  store i32 %72, ptr %.0912.i.i35, align 4, !tbaa !101
-  %73 = getelementptr inbounds i8, ptr %.0912.i.i35, i64 -4
-  %74 = load i32, ptr %73, align 4, !tbaa !33
-  %75 = getelementptr inbounds nuw i8, ptr %.0912.i.i35, i64 4
-  store i32 %74, ptr %75, align 4, !tbaa !103
-  %.0.i.i36 = getelementptr inbounds i8, ptr %.013.i.i34, i64 -8
-  %76 = load i32, ptr %.0.i.i36, align 4, !tbaa !101
-  %77 = icmp ugt i32 %76, %.sroa.0.0.extract.trunc.i26
-  br i1 %77, label %.lr.ph.i.i33, label %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i27, !llvm.loop !290
-
-_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i27: ; preds = %.lr.ph.i.i33, %69
-  %.09.lcssa.i.i28 = phi ptr [ %.019.i24, %69 ], [ %.013.i.i34, %.lr.ph.i.i33 ]
-  %.sroa.5.0.extract.shift.i.i29 = lshr i64 %54, 32
-  %.sroa.5.0.extract.trunc.i.i30 = trunc nuw i64 %.sroa.5.0.extract.shift.i.i29 to i32
-  store i32 %.sroa.0.0.extract.trunc.i26, ptr %.09.lcssa.i.i28, align 4, !tbaa !101
-  %78 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i28, i64 4
-  store i32 %.sroa.5.0.extract.trunc.i.i30, ptr %78, align 4, !tbaa !103
-  br label %79
-
-79:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i27, %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i39
-  %.0.i31 = getelementptr inbounds nuw i8, ptr %.019.i24, i64 8
-  %.not.i32 = icmp eq ptr %.0.i31, %1
-  br i1 %.not.i32, label %_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit, label %50, !llvm.loop !291
-
-_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit: ; preds = %79, %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i13, %.preheader.i, %47, %_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit
+_ZSt26__unguarded_insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit: ; preds = %_ZSt13move_backwardIPN9subpaving5powerES2_ET0_T_S4_S3_.exit.i24, %_ZSt25__unguarded_linear_insertIPN9subpaving5powerEN9__gnu_cxx5__ops14_Val_comp_iterINS1_7lt_procEEEEvT_T0_.exit.i, %41, %_ZSt16__insertion_sortIPN9subpaving5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_S8_T0_.exit
   ret void
 }
 
@@ -23838,15 +23767,11 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN9subpaving5powerEN9__gnu_cx
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us
-  %.015.us = phi i64 [ %50, %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us ], [ %11, %9 ]
+  %.015.us = phi i64 [ %49, %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us ], [ %11, %9 ]
   %22 = getelementptr inbounds nuw %"class.subpaving::power", ptr %0, i64 %.015.us
   %.sroa.02.0.copyload.us = load i64, ptr %22, align 4
   %23 = icmp slt i64 %.015.us, %13
-  br i1 %23, label %.lr.ph.i.us, label %._crit_edge.i.us.thread
-
-._crit_edge.i.us.thread:                          ; preds = %.split.us
-  %.sroa.0.0.extract.trunc.i.i.us20 = trunc i64 %.sroa.02.0.copyload.us to i32
-  br label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us
+  br i1 %23, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.us, %.lr.ph.i.us
   %.029.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.015.us, %.split.us ]
@@ -23894,95 +23819,86 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN9subpaving5powerEN9__gnu_cx
   %47 = icmp sgt i64 %.018.i.i.us, %.015.us
   br i1 %47, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us, !llvm.loop !283
 
-_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %42, %._crit_edge.i.us.thread, %._crit_edge.i.us
-  %.sroa.0.0.extract.trunc.i.i.us21 = phi i32 [ %.sroa.0.0.extract.trunc.i.i.us, %._crit_edge.i.us ], [ %.sroa.0.0.extract.trunc.i.i.us20, %._crit_edge.i.us.thread ], [ %.sroa.0.0.extract.trunc.i.i.us, %42 ], [ %.sroa.0.0.extract.trunc.i.i.us, %.lr.ph.i.i.us ]
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %._crit_edge.i.us.thread ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %42 ]
-  %.sroa.3.0.extract.shift.i.i.us = lshr i64 %.sroa.02.0.copyload.us, 32
-  %.sroa.3.0.extract.trunc.i.i.us = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.us to i32
+_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %42, %.split.us, %._crit_edge.i.us
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %.split.us ], [ %.018.i.i.us, %42 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
   %48 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.013.lcssa.i.i.us
-  store i32 %.sroa.0.0.extract.trunc.i.i.us21, ptr %48, align 4, !tbaa !101
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i.us, ptr %49, align 4, !tbaa !103
+  store i64 %.sroa.02.0.copyload.us, ptr %48, align 4
   %.not.us = icmp eq i64 %.015.us, 0
-  %50 = add nsw i64 %.015.us, -1
+  %49 = add nsw i64 %.015.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !293
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit
-  %.015 = phi i64 [ %84, %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %51 = getelementptr inbounds nuw %"class.subpaving::power", ptr %0, i64 %.015
-  %.sroa.02.0.copyload = load i64, ptr %51, align 4
-  %52 = icmp slt i64 %.015, %13
-  br i1 %52, label %.lr.ph.i, label %._crit_edge.i
+  %.015 = phi i64 [ %82, %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit ], [ %11, %.split.preheader ]
+  %50 = getelementptr inbounds nuw %"class.subpaving::power", ptr %0, i64 %.015
+  %.sroa.02.0.copyload = load i64, ptr %50, align 4
+  %51 = icmp slt i64 %.015, %13
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.029.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.015, %.split ]
-  %53 = shl i64 %.029.i, 1
-  %54 = add i64 %53, 2
-  %55 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %54
-  %gep.i = getelementptr %"class.subpaving::power", ptr %invariant.gep.i, i64 %53
-  %56 = load i32, ptr %55, align 4, !tbaa !101
-  %57 = load i32, ptr %gep.i, align 4, !tbaa !101
-  %58 = icmp ult i32 %56, %57
-  %59 = or disjoint i64 %53, 1
-  %spec.select.i = select i1 %58, i64 %59, i64 %54
-  %60 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %spec.select.i
-  %61 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.029.i
-  %62 = load i32, ptr %60, align 4, !tbaa !33
-  store i32 %62, ptr %61, align 4, !tbaa !101
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !33
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  store i32 %64, ptr %65, align 4, !tbaa !103
-  %66 = icmp slt i64 %spec.select.i, %13
-  br i1 %66, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !282
+  %52 = shl i64 %.029.i, 1
+  %53 = add i64 %52, 2
+  %54 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %53
+  %gep.i = getelementptr %"class.subpaving::power", ptr %invariant.gep.i, i64 %52
+  %55 = load i32, ptr %54, align 4, !tbaa !101
+  %56 = load i32, ptr %gep.i, align 4, !tbaa !101
+  %57 = icmp ult i32 %55, %56
+  %58 = or disjoint i64 %52, 1
+  %spec.select.i = select i1 %57, i64 %58, i64 %53
+  %59 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %spec.select.i
+  %60 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.029.i
+  %61 = load i32, ptr %59, align 4, !tbaa !33
+  store i32 %61, ptr %60, align 4, !tbaa !101
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %63 = load i32, ptr %62, align 4, !tbaa !33
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i32 %63, ptr %64, align 4, !tbaa !103
+  %65 = icmp slt i64 %spec.select.i, %13
+  br i1 %65, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !282
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.015, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %67 = icmp eq i64 %.0.lcssa.i, %16
-  br i1 %67, label %68, label %71
+  %66 = icmp eq i64 %.0.lcssa.i, %16
+  br i1 %66, label %67, label %70
 
-68:                                               ; preds = %._crit_edge.i
-  %69 = load i32, ptr %18, align 4, !tbaa !33
-  store i32 %69, ptr %19, align 4, !tbaa !101
-  %70 = load i32, ptr %20, align 4, !tbaa !33
-  store i32 %70, ptr %21, align 4, !tbaa !103
-  br label %71
+67:                                               ; preds = %._crit_edge.i
+  %68 = load i32, ptr %18, align 4, !tbaa !33
+  store i32 %68, ptr %19, align 4, !tbaa !101
+  %69 = load i32, ptr %20, align 4, !tbaa !33
+  store i32 %69, ptr %21, align 4, !tbaa !103
+  br label %70
 
-71:                                               ; preds = %68, %._crit_edge.i
-  %.1.i = phi i64 [ %17, %68 ], [ %.0.lcssa.i, %._crit_edge.i ]
+70:                                               ; preds = %67, %._crit_edge.i
+  %.1.i = phi i64 [ %17, %67 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload to i32
-  %72 = icmp sgt i64 %.1.i, %.015
-  br i1 %72, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit
+  %71 = icmp sgt i64 %.1.i, %.015
+  br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %71, %76
-  %.01317.i.i = phi i64 [ %.018.i.i, %76 ], [ %.1.i, %71 ]
+.lr.ph.i.i:                                       ; preds = %70, %75
+  %.01317.i.i = phi i64 [ %.018.i.i, %75 ], [ %.1.i, %70 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %73 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.018.i.i
-  %74 = load i32, ptr %73, align 4, !tbaa !101
-  %75 = icmp ult i32 %74, %.sroa.0.0.extract.trunc.i.i
-  br i1 %75, label %76, label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit
+  %72 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.018.i.i
+  %73 = load i32, ptr %72, align 4, !tbaa !101
+  %74 = icmp ult i32 %73, %.sroa.0.0.extract.trunc.i.i
+  br i1 %74, label %75, label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit
 
-76:                                               ; preds = %.lr.ph.i.i
-  %77 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.01317.i.i
-  store i32 %74, ptr %77, align 4, !tbaa !101
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !33
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  store i32 %79, ptr %80, align 4, !tbaa !103
-  %81 = icmp sgt i64 %.018.i.i, %.015
-  br i1 %81, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit, !llvm.loop !283
+75:                                               ; preds = %.lr.ph.i.i
+  %76 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.01317.i.i
+  store i32 %73, ptr %76, align 4, !tbaa !101
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !33
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  store i32 %78, ptr %79, align 4, !tbaa !103
+  %80 = icmp sgt i64 %.018.i.i, %.015
+  br i1 %80, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit, !llvm.loop !283
 
-_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit: ; preds = %.lr.ph.i.i, %76, %71
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %71 ], [ %.018.i.i, %76 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %.sroa.3.0.extract.shift.i.i = lshr i64 %.sroa.02.0.copyload, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
-  %82 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.013.lcssa.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %82, align 4, !tbaa !101
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i, ptr %83, align 4, !tbaa !103
+_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit: ; preds = %.lr.ph.i.i, %75, %70
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %70 ], [ %.018.i.i, %75 ], [ %.01317.i.i, %.lr.ph.i.i ]
+  %81 = getelementptr inbounds %"class.subpaving::power", ptr %0, i64 %.013.lcssa.i.i
+  store i64 %.sroa.02.0.copyload, ptr %81, align 4
   %.not = icmp eq i64 %.015, 0
-  %84 = add nsw i64 %.015, -1
+  %82 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !293
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit.us, %_ZSt13__adjust_heapIPN9subpaving5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_7lt_procEEEEvT_T0_S9_T1_T2_.exit, %3

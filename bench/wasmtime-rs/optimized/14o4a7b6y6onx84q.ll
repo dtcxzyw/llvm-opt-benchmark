@@ -5268,9 +5268,6 @@ define hidden void @"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$9locations17
   br label %17
 
 "_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit": ; preds = %7
-  %.sroa.4.0.extract.shift.i = lshr i32 %3, 16
-  %.sroa.4.0.extract.trunc.i = trunc nuw i32 %.sroa.4.0.extract.shift.i to i16
-  %.sroa.03.0.extract.trunc.i = trunc i32 %3 to i16
   %11 = sub nuw i64 %.pn42.i, %2
   %12 = getelementptr inbounds i8, ptr %.pn44.i, i64 %2
   %13 = zext i1 %8 to i8
@@ -5286,18 +5283,16 @@ define hidden void @"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$9locations17
   %.sroa.8.sroa.0.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %.sroa.8.sroa.0.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 %.sroa.03.0.extract.trunc.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
-  %.sroa.8.sroa.0.sroa.7.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i16 %.sroa.4.0.extract.trunc.i, ptr %.sroa.8.sroa.0.sroa.7.0..sroa.8.0..sroa_idx.sroa_idx, align 2
+  store i32 %3, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   br label %17
 
 17:                                               ; preds = %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit", %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit.thread"
-  %.sink52 = phi ptr [ inttoptr (i64 19 to ptr), %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit.thread" ], [ %14, %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit" ]
-  %.sink51 = phi i64 [ %10, %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit.thread" ], [ %16, %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit" ]
+  %.sink46 = phi ptr [ inttoptr (i64 19 to ptr), %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit.thread" ], [ %14, %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit" ]
+  %.sink45 = phi i64 [ %10, %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit.thread" ], [ %16, %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit" ]
   %.sink = phi i8 [ 2, %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit.thread" ], [ %13, %"_ZN5gimli4read8loclists22LocationLists$LT$R$GT$13raw_locations17h6d08e77eb5b3ea47E.exit" ]
-  store ptr %.sink52, ptr %0, align 8
+  store ptr %.sink46, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink51, ptr %18, align 8
+  store i64 %.sink45, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 %.sink, ptr %19, align 4
   ret void
@@ -5464,9 +5459,6 @@ define hidden void @"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %.sroa.4.0.extract.shift = lshr i32 %3, 16
-  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i16
-  %.sroa.03.0.extract.trunc = trunc i32 %3 to i16
   %8 = sub nuw i64 %.pn42, %2
   %9 = getelementptr inbounds i8, ptr %.pn44, i64 %2
   %10 = zext i1 %5 to i8
@@ -5474,9 +5466,7 @@ define hidden void @"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.03.0.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.6.0..sroa_idx, align 2
+  store i32 %3, ptr %.sroa.5.0..sroa_idx, align 8
   br label %13
 
 11:                                               ; preds = %4
@@ -5510,9 +5500,6 @@ define hidden void @"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$6ranges17hf1d03
   br label %17
 
 "_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit": ; preds = %7
-  %.sroa.4.0.extract.shift.i = lshr i32 %3, 16
-  %.sroa.4.0.extract.trunc.i = trunc nuw i32 %.sroa.4.0.extract.shift.i to i16
-  %.sroa.03.0.extract.trunc.i = trunc i32 %3 to i16
   %11 = sub nuw i64 %.pn42.i, %2
   %12 = getelementptr inbounds i8, ptr %.pn44.i, i64 %2
   %13 = zext i1 %8 to i8
@@ -5528,18 +5515,16 @@ define hidden void @"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$6ranges17hf1d03
   %.sroa.8.sroa.0.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %.sroa.8.sroa.0.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 %.sroa.03.0.extract.trunc.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
-  %.sroa.8.sroa.0.sroa.7.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i16 %.sroa.4.0.extract.trunc.i, ptr %.sroa.8.sroa.0.sroa.7.0..sroa.8.0..sroa_idx.sroa_idx, align 2
+  store i32 %3, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   br label %17
 
 17:                                               ; preds = %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit", %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit.thread"
-  %.sink52 = phi ptr [ inttoptr (i64 19 to ptr), %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit.thread" ], [ %14, %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit" ]
-  %.sink51 = phi i64 [ %10, %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit.thread" ], [ %16, %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit" ]
+  %.sink46 = phi ptr [ inttoptr (i64 19 to ptr), %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit.thread" ], [ %14, %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit" ]
+  %.sink45 = phi i64 [ %10, %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit.thread" ], [ %16, %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit" ]
   %.sink = phi i8 [ 2, %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit.thread" ], [ %13, %"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10raw_ranges17h945a4f529ac0b1b6E.exit" ]
-  store ptr %.sink52, ptr %0, align 8
+  store ptr %.sink46, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink51, ptr %18, align 8
+  store i64 %.sink45, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 %.sink, ptr %19, align 4
   ret void

@@ -976,7 +976,7 @@ define dso_local i32 @xehp_emit_bb_start_noarb(ptr noundef %0, i64 noundef %1, i
 10:                                               ; preds = %4
   %11 = ptrtoint ptr %8 to i64
   %12 = trunc i64 %11 to i32
-  br label %33
+  br label %29
 
 13:                                               ; preds = %4
   %14 = getelementptr i8, ptr %8, i64 4
@@ -995,26 +995,21 @@ define dso_local i32 @xehp_emit_bb_start_noarb(ptr noundef %0, i64 noundef %1, i
   %22 = xor i32 %21, 411042049
   %23 = getelementptr i8, ptr %8, i64 24
   store i32 %22, ptr %19, align 4
-  %24 = trunc i64 %1 to i32
-  %25 = getelementptr i8, ptr %8, i64 28
-  store i32 %24, ptr %23, align 4
-  %26 = lshr i64 %1, 32
-  %27 = trunc nuw i64 %26 to i32
-  %28 = getelementptr i8, ptr %8, i64 32
-  store i32 %27, ptr %25, align 4
-  %29 = getelementptr i8, ptr %8, i64 36
-  store i32 411041793, ptr %28, align 4
-  %30 = add i32 %7, 2048
-  %31 = getelementptr i8, ptr %8, i64 40
-  store i32 %30, ptr %29, align 4
-  %32 = getelementptr i8, ptr %8, i64 44
-  store i32 0, ptr %31, align 4
-  store i32 67108864, ptr %32, align 4
-  br label %33
+  store i64 %1, ptr %23, align 4
+  %24 = getelementptr i8, ptr %8, i64 32
+  %25 = getelementptr i8, ptr %8, i64 36
+  store i32 411041793, ptr %24, align 4
+  %26 = add i32 %7, 2048
+  %27 = getelementptr i8, ptr %8, i64 40
+  store i32 %26, ptr %25, align 4
+  %28 = getelementptr i8, ptr %8, i64 44
+  store i32 0, ptr %27, align 4
+  store i32 67108864, ptr %28, align 4
+  br label %29
 
-33:                                               ; preds = %13, %10
-  %34 = phi i32 [ %12, %10 ], [ 0, %13 ]
-  ret i32 %34
+29:                                               ; preds = %13, %10
+  %30 = phi i32 [ %12, %10 ], [ 0, %13 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1029,7 +1024,7 @@ define dso_local i32 @xehp_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 nou
 10:                                               ; preds = %4
   %11 = ptrtoint ptr %8 to i64
   %12 = trunc i64 %11 to i32
-  br label %33
+  br label %29
 
 13:                                               ; preds = %4
   %14 = getelementptr i8, ptr %8, i64 4
@@ -1048,26 +1043,21 @@ define dso_local i32 @xehp_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 nou
   %22 = xor i32 %21, 411042049
   %23 = getelementptr i8, ptr %8, i64 24
   store i32 %22, ptr %19, align 4
-  %24 = trunc i64 %1 to i32
-  %25 = getelementptr i8, ptr %8, i64 28
-  store i32 %24, ptr %23, align 4
-  %26 = lshr i64 %1, 32
-  %27 = trunc nuw i64 %26 to i32
-  %28 = getelementptr i8, ptr %8, i64 32
-  store i32 %27, ptr %25, align 4
-  %29 = getelementptr i8, ptr %8, i64 36
-  store i32 411041793, ptr %28, align 4
-  %30 = add i32 %7, 2048
-  %31 = getelementptr i8, ptr %8, i64 40
-  store i32 %30, ptr %29, align 4
-  %32 = getelementptr i8, ptr %8, i64 44
-  store i32 0, ptr %31, align 4
-  store i32 67108864, ptr %32, align 4
-  br label %33
+  store i64 %1, ptr %23, align 4
+  %24 = getelementptr i8, ptr %8, i64 32
+  %25 = getelementptr i8, ptr %8, i64 36
+  store i32 411041793, ptr %24, align 4
+  %26 = add i32 %7, 2048
+  %27 = getelementptr i8, ptr %8, i64 40
+  store i32 %26, ptr %25, align 4
+  %28 = getelementptr i8, ptr %8, i64 44
+  store i32 0, ptr %27, align 4
+  store i32 67108864, ptr %28, align 4
+  br label %29
 
-33:                                               ; preds = %13, %10
-  %34 = phi i32 [ %12, %10 ], [ 0, %13 ]
-  ret i32 %34
+29:                                               ; preds = %13, %10
+  %30 = phi i32 [ %12, %10 ], [ 0, %13 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1079,7 +1069,7 @@ define dso_local i32 @gen8_emit_bb_start_noarb(ptr noundef %0, i64 noundef %1, i
 7:                                                ; preds = %4
   %8 = ptrtoint ptr %5 to i64
   %9 = trunc i64 %8 to i32
-  br label %20
+  br label %16
 
 10:                                               ; preds = %4
   %11 = getelementptr i8, ptr %5, i64 4
@@ -1089,17 +1079,12 @@ define dso_local i32 @gen8_emit_bb_start_noarb(ptr noundef %0, i64 noundef %1, i
   %14 = xor i32 %13, 411042049
   %15 = getelementptr i8, ptr %5, i64 8
   store i32 %14, ptr %11, align 4
-  %16 = trunc i64 %1 to i32
-  %17 = getelementptr i8, ptr %5, i64 12
-  store i32 %16, ptr %15, align 4
-  %18 = lshr i64 %1, 32
-  %19 = trunc nuw i64 %18 to i32
-  store i32 %19, ptr %17, align 4
-  br label %20
+  store i64 %1, ptr %15, align 4
+  br label %16
 
-20:                                               ; preds = %10, %7
-  %21 = phi i32 [ %9, %7 ], [ 0, %10 ]
-  ret i32 %21
+16:                                               ; preds = %10, %7
+  %17 = phi i32 [ %9, %7 ], [ 0, %10 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1108,7 +1093,7 @@ define dso_local i32 @gen8_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 nou
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 256
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %25, label %9, !prof !14
+  br i1 %8, label %21, label %9, !prof !14
 
 9:                                                ; preds = %4
   %10 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #5
@@ -1118,7 +1103,7 @@ define dso_local i32 @gen8_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 nou
 12:                                               ; preds = %9
   %13 = ptrtoint ptr %10 to i64
   %14 = trunc i64 %13 to i32
-  br label %43
+  br label %35
 
 15:                                               ; preds = %9
   %16 = getelementptr i8, ptr %10, i64 4
@@ -1128,47 +1113,37 @@ define dso_local i32 @gen8_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 nou
   %19 = xor i32 %18, 411042049
   %20 = getelementptr i8, ptr %10, i64 8
   store i32 %19, ptr %16, align 4
-  %21 = trunc i64 %1 to i32
-  %22 = getelementptr i8, ptr %10, i64 12
-  store i32 %21, ptr %20, align 4
-  %23 = lshr i64 %1, 32
-  %24 = trunc nuw i64 %23 to i32
-  store i32 %24, ptr %22, align 4
-  br label %43
+  store i64 %1, ptr %20, align 4
+  br label %35
 
-25:                                               ; preds = %4
-  %26 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #5
-  %27 = icmp ugt ptr %26, inttoptr (i64 -4096 to ptr)
-  br i1 %27, label %28, label %31
+21:                                               ; preds = %4
+  %22 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #5
+  %23 = icmp ugt ptr %22, inttoptr (i64 -4096 to ptr)
+  br i1 %23, label %24, label %27
 
-28:                                               ; preds = %25
-  %29 = ptrtoint ptr %26 to i64
-  %30 = trunc i64 %29 to i32
-  br label %43
+24:                                               ; preds = %21
+  %25 = ptrtoint ptr %22 to i64
+  %26 = trunc i64 %25 to i32
+  br label %35
 
-31:                                               ; preds = %25
-  %32 = getelementptr i8, ptr %26, i64 4
-  store i32 67108865, ptr %26, align 4
-  %33 = shl i32 %3, 8
-  %34 = and i32 %33, 256
-  %35 = xor i32 %34, 411042049
-  %36 = getelementptr i8, ptr %26, i64 8
-  store i32 %35, ptr %32, align 4
-  %37 = trunc i64 %1 to i32
-  %38 = getelementptr i8, ptr %26, i64 12
-  store i32 %37, ptr %36, align 4
-  %39 = lshr i64 %1, 32
-  %40 = trunc nuw i64 %39 to i32
-  %41 = getelementptr i8, ptr %26, i64 16
-  store i32 %40, ptr %38, align 4
-  %42 = getelementptr i8, ptr %26, i64 20
-  store i32 67108864, ptr %41, align 4
-  store i32 0, ptr %42, align 4
-  br label %43
+27:                                               ; preds = %21
+  %28 = getelementptr i8, ptr %22, i64 4
+  store i32 67108865, ptr %22, align 4
+  %29 = shl i32 %3, 8
+  %30 = and i32 %29, 256
+  %31 = xor i32 %30, 411042049
+  %32 = getelementptr i8, ptr %22, i64 8
+  store i32 %31, ptr %28, align 4
+  store i64 %1, ptr %32, align 4
+  %33 = getelementptr i8, ptr %22, i64 16
+  %34 = getelementptr i8, ptr %22, i64 20
+  store i32 67108864, ptr %33, align 4
+  store i32 0, ptr %34, align 4
+  br label %35
 
-43:                                               ; preds = %31, %28, %15, %12
-  %44 = phi i32 [ %30, %28 ], [ 0, %31 ], [ %14, %12 ], [ 0, %15 ]
-  ret i32 %44
+35:                                               ; preds = %27, %24, %15, %12
+  %36 = phi i32 [ %26, %24 ], [ 0, %27 ], [ %14, %12 ], [ 0, %15 ]
+  ret i32 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn

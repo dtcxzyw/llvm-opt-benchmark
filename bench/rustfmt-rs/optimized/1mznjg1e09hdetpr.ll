@@ -29218,14 +29218,9 @@ common.resume:                                    ; preds = %.body, %.body.i.i, 
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.14.sroa.8.i, i64 232, i1 false)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %.sroa.14.sroa.8.i)
-  %.sroa.7.sroa.0.0.extract.trunc = trunc i64 %80 to i8
-  %.sroa.7.sroa.8.0.extract.shift = lshr i64 %80, 8
-  %.sroa.7.sroa.8.0.extract.trunc = trunc nuw i64 %.sroa.7.sroa.8.0.extract.shift to i56
   store i64 %.sroa.0.184.i, ptr %16, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i8 %.sroa.7.sroa.0.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 9
-  store i56 %.sroa.7.sroa.8.0.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 1
+  store i64 %80, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %.sroa.13.183.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24

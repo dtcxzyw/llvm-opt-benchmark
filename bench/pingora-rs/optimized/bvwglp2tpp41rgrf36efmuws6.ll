@@ -11204,7 +11204,7 @@ define noalias noundef align 8 ptr @_ZN12pingora_core10connectors2l46BindTo14set
   %7 = load i16, ptr %6, align 4, !range !1075
   %.not13 = icmp eq i16 %7, 0
   %or.cond16 = select i1 %.not, i1 %.not13, i1 false
-  br i1 %or.cond16, label %38, label %8
+  br i1 %or.cond16, label %39, label %8
 
 8:                                                ; preds = %2
   %9 = trunc i48 %1 to i1
@@ -11219,7 +11219,7 @@ define noalias noundef align 8 ptr @_ZN12pingora_core10connectors2l46BindTo14set
   store i16 0, ptr %.sroa.4.0..sroa_idx, align 2
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i16 0, ptr %.sroa.59.0..sroa_idx, align 4
-  br label %38
+  br label %39
 
 12:                                               ; preds = %8
   %.not14 = icmp ne i16 %.sroa.06.2.extract.trunc, 0
@@ -11303,17 +11303,16 @@ define noalias noundef align 8 ptr @_ZN12pingora_core10connectors2l46BindTo14set
 _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !1076
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !1076
-  br label %38
+  br label %39
 
 37:                                               ; preds = %12
   store i16 1, ptr %6, align 4
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i16 %.sroa.06.2.extract.trunc, ptr %.sroa.411.0..sroa_idx, align 2
-  %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i16 %.sroa.06.4.extract.trunc, ptr %.sroa.512.0..sroa_idx, align 4
-  br label %38
+  %38 = trunc nuw i48 %.sroa.06.2.extract.shift to i32
+  store i32 %38, ptr %.sroa.411.0..sroa_idx, align 2
+  br label %39
 
-38:                                               ; preds = %11, %37, %2, %_ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit
+39:                                               ; preds = %11, %37, %2, %_ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit
   %.sroa.07.0 = phi ptr [ %22, %_ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit ], [ null, %2 ], [ null, %37 ], [ null, %11 ]
   ret ptr %.sroa.07.0
 }

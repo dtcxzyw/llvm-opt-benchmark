@@ -8689,9 +8689,6 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_03pvt27parallel_convert_from_fl
   br i1 %8, label %34, label %9
 
 9:                                                ; preds = %4
-  %.sroa.0.0.extract.trunc = trunc i64 %3 to i8
-  %.sroa.3.0.extract.shift = lshr i64 %3, 8
-  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #33
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -8702,9 +8699,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_03pvt27parallel_convert_from_fl
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !199
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i8 %.sroa.0.0.extract.trunc, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !23
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 17
-  store i56 %.sroa.3.0.extract.trunc, ptr %.sroa.7.0..sroa_idx, align 1
+  store i64 %3, ptr %.sroa.6.0..sroa_idx, align 16
   store ptr %13, ptr %5, align 8, !tbaa !199
   store ptr @"_ZNSt17_Function_handlerIFvllEZN11OpenImageIO6v3_1_03pvt27parallel_convert_from_floatEPKfPvmNS2_8TypeDescEE3$_0E9_M_invokeERKSt9_Any_dataOlSD_", ptr %11, align 8, !tbaa !200
   store ptr @"_ZNSt17_Function_handlerIFvllEZN11OpenImageIO6v3_1_03pvt27parallel_convert_from_floatEPKfPvmNS2_8TypeDescEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %10, align 8, !tbaa !203

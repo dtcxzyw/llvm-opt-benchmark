@@ -4921,18 +4921,13 @@ common.resume.i.i.i.i.i.i:                        ; preds = %216, %"_ZN4core3ptr
 
 115:                                              ; preds = %111
   %116 = lshr exact i64 %101, 2
-  %.sroa.6.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %108 to i8
-  %.sroa.6.1.extract.shift.i.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %108, 8
-  %.sroa.6.1.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.6.1.extract.shift.i.i.i.i.i.i.i.i.i.i.i.i to i56
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5), !noalias !858
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !858
-  store i8 %.sroa.6.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i, ptr %4, align 8, !noalias !858
-  %.sroa.02.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i56 %.sroa.6.1.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i, ptr %.sroa.02.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !858
-  %.sroa.02.sroa.3.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %116, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !858
-  %.sroa.02.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %.sroa.02.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !858
+  store i64 %108, ptr %4, align 8, !noalias !858
+  %.sroa.02.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %116, ptr %.sroa.02.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !858
+  %.sroa.02.sroa.3.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !858
   invoke void @_ZN13icu_segmenter8provider4lstm11LstmMatrix210from_parts17h460e7688a3e18c6bE(ptr noalias noundef nonnull sret({ [72 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(80) %5, i32 %.sroa.520.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
           to label %.noexc223.i.i.i.i.i.i unwind label %121, !noalias !816
 
@@ -34430,24 +34425,19 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h7ac2d0619182
 
 44:                                               ; preds = %40
   %45 = lshr exact i64 %30, 2
-  %.sroa.6.0.extract.trunc.i.i.i.i.i = trunc i64 %37 to i8
-  %.sroa.6.1.extract.shift.i.i.i.i.i = lshr i64 %37, 8
-  %.sroa.6.1.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.6.1.extract.shift.i.i.i.i.i to i56
   %46 = trunc i64 %.sroa.4.0.i.i.i.i.i.i.i to i48
-  %.sroa.12.32.insert.ext.i.i.i = and i48 %46, 255
+  %.sroa.11.32.insert.ext.i.i.i = and i48 %46, 255
   %sh.diff.i.i.i = lshr i64 %.sroa.4.0.insert.insert.i.i.i.i.i.i.i, 16
   %tr.sh.diff.i.i.i = trunc nuw i64 %sh.diff.i.i.i to i48
-  %.sroa.12.33.insert.insert.i.i.i = or disjoint i48 %.sroa.12.32.insert.ext.i.i.i, %tr.sh.diff.i.i.i
+  %.sroa.11.33.insert.insert.i.i.i = or disjoint i48 %.sroa.11.32.insert.ext.i.i.i, %tr.sh.diff.i.i.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4), !noalias !5873
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !5873
-  store i8 %.sroa.6.0.extract.trunc.i.i.i.i.i, ptr %3, align 8, !noalias !5873
-  %.sroa.03.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i56 %.sroa.6.1.extract.trunc.i.i.i.i.i, ptr %.sroa.03.sroa.2.0..sroa_idx.i.i.i, align 1, !noalias !5873
-  %.sroa.03.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %45, ptr %.sroa.03.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !5873
-  %.sroa.03.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %.sroa.03.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !5873
-  call void @_ZN13icu_segmenter8provider4lstm11LstmMatrix310from_parts17hcfef77180b0878caE(ptr noalias noundef nonnull sret({ [72 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(80) %4, i48 %.sroa.12.33.insert.insert.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !5874
+  store i64 %37, ptr %3, align 8, !noalias !5873
+  %.sroa.03.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %45, ptr %.sroa.03.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !5873
+  %.sroa.03.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.03.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !5873
+  call void @_ZN13icu_segmenter8provider4lstm11LstmMatrix310from_parts17hcfef77180b0878caE(ptr noalias noundef nonnull sret({ [72 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(80) %4, i48 %.sroa.11.33.insert.insert.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !5874
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !5873
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5875)
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -34593,18 +34583,13 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17ha9819b02cc5a
 
 44:                                               ; preds = %40
   %45 = lshr exact i64 %30, 2
-  %.sroa.6.0.extract.trunc.i.i.i.i.i = trunc i64 %37 to i8
-  %.sroa.6.1.extract.shift.i.i.i.i.i = lshr i64 %37, 8
-  %.sroa.6.1.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.6.1.extract.shift.i.i.i.i.i to i56
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4), !noalias !5941
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !5941
-  store i8 %.sroa.6.0.extract.trunc.i.i.i.i.i, ptr %3, align 8, !noalias !5941
-  %.sroa.02.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i56 %.sroa.6.1.extract.trunc.i.i.i.i.i, ptr %.sroa.02.sroa.2.0..sroa_idx.i.i.i, align 1, !noalias !5941
-  %.sroa.02.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %45, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !5941
-  %.sroa.02.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %.sroa.02.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !5941
+  store i64 %37, ptr %3, align 8, !noalias !5941
+  %.sroa.02.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %45, ptr %.sroa.02.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !5941
+  %.sroa.02.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !5941
   call void @_ZN13icu_segmenter8provider4lstm11LstmMatrix110from_parts17h18c31a987342ee80E(ptr noalias noundef nonnull sret({ [72 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(80) %4, i16 %tr.sh.diff.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !5942
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !5941
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5943)
@@ -34736,18 +34721,13 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hd122dbc9175e
 
 41:                                               ; preds = %37
   %42 = lshr exact i64 %27, 2
-  %.sroa.6.0.extract.trunc.i.i.i.i.i = trunc i64 %34 to i8
-  %.sroa.6.1.extract.shift.i.i.i.i.i = lshr i64 %34, 8
-  %.sroa.6.1.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.6.1.extract.shift.i.i.i.i.i to i56
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4), !noalias !6009
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !6009
-  store i8 %.sroa.6.0.extract.trunc.i.i.i.i.i, ptr %3, align 8, !noalias !6009
-  %.sroa.02.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i56 %.sroa.6.1.extract.trunc.i.i.i.i.i, ptr %.sroa.02.sroa.2.0..sroa_idx.i.i.i, align 1, !noalias !6009
-  %.sroa.02.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %42, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !6009
-  %.sroa.02.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %.sroa.02.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !6009
+  store i64 %34, ptr %3, align 8, !noalias !6009
+  %.sroa.02.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %42, ptr %.sroa.02.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !6009
+  %.sroa.02.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !6009
   call void @_ZN13icu_segmenter8provider4lstm11LstmMatrix210from_parts17h460e7688a3e18c6bE(ptr noalias noundef nonnull sret({ [72 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(80) %4, i32 %.sroa.520.0.extract.trunc.i.i.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !6010
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !6009
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6011)

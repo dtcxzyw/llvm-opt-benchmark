@@ -3412,7 +3412,7 @@ define hidden void @_ZN2cv9BitStream8patchIntEjm(ptr noundef nonnull align 8 der
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
-  %10 = alloca [4 x i8], align 1
+  %10 = alloca [4 x i8], align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %12 = load i64, ptr %11, align 8, !tbaa !134
   %.not = icmp ult i64 %2, %12
@@ -3547,7 +3547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %66 = getelementptr i8, ptr %65, i64 %14
   %67 = getelementptr i8, ptr %66, i64 3
   store i8 %64, ptr %67, align 1, !tbaa !27
-  br label %98
+  br label %88
 
 68:                                               ; preds = %3
   %69 = tail call { i64, i64 } @_ZNSo5tellpEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -3602,26 +3602,13 @@ _ZN2cv13safe_int_castIlmEET_T0_PKc.exit29:        ; preds = %68
   %84 = extractvalue { i64, i64 } %69, 0
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %2, i64 0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
-  %86 = trunc i32 %1 to i8
-  store i8 %86, ptr %10, align 1, !tbaa !27
-  %87 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %88 = lshr i32 %1, 8
-  %89 = trunc i32 %88 to i8
-  store i8 %89, ptr %87, align 1, !tbaa !27
-  %90 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %91 = lshr i32 %1, 16
-  %92 = trunc i32 %91 to i8
-  store i8 %92, ptr %90, align 1, !tbaa !27
-  %93 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  %94 = lshr i32 %1, 24
-  %95 = trunc nuw i32 %94 to i8
-  store i8 %95, ptr %93, align 1, !tbaa !27
-  %96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %10, i64 noundef 4)
-  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %84, i64 0)
+  store i32 %1, ptr %10, align 4
+  %86 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %10, i64 noundef 4)
+  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %84, i64 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
-  br label %98
+  br label %88
 
-98:                                               ; preds = %_ZN2cv13safe_int_castIlmEET_T0_PKc.exit29, %50
+88:                                               ; preds = %_ZN2cv13safe_int_castIlmEET_T0_PKc.exit29, %50
   ret void
 }
 
@@ -4210,25 +4197,20 @@ declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN2cv17AVIWriteContainer13initContainerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((16, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, double noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #14 align 2 {
-  %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
-  %.sroa.2.0.extract.shift = lshr i64 %3, 32
-  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %6 = insertelement <2 x double> poison, double %2, i64 0
   %7 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %8, align 8, !tbaa !160
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.0.0.extract.trunc, ptr %9, align 4, !tbaa !166
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.2.0.extract.trunc, ptr %10, align 8, !tbaa !167
-  %11 = select i1 %4, i32 3, i32 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %11, ptr %12, align 4, !tbaa !168
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %13, align 8, !tbaa !169
-  %14 = load ptr, ptr %0, align 8, !tbaa !153
-  %15 = tail call noundef zeroext i1 @_ZN2cv9BitStream4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(569) %14, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  ret i1 %15
+  store i64 %3, ptr %9, align 4
+  %10 = select i1 %4, i32 3, i32 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %10, ptr %11, align 4, !tbaa !166
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %12, align 8, !tbaa !167
+  %13 = load ptr, ptr %0, align 8, !tbaa !153
+  %14 = tail call noundef zeroext i1 @_ZN2cv9BitStream4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(569) %13, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4689,12 +4671,12 @@ _ZNK2cv9BitStream6getPosEv.exit:                  ; preds = %_ZN2cv9BitStream6pu
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %276 = load ptr, ptr %275, align 8, !tbaa !159
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %278 = load ptr, ptr %277, align 8, !tbaa !170
+  %278 = load ptr, ptr %277, align 8, !tbaa !168
   %.not.i.i = icmp eq ptr %276, %278
   br i1 %.not.i.i, label %281, label %279
 
 279:                                              ; preds = %_ZNK2cv9BitStream6getPosEv.exit
-  store i64 %274, ptr %276, align 8, !tbaa !171
+  store i64 %274, ptr %276, align 8, !tbaa !169
   %280 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store ptr %280, ptr %275, align 8, !tbaa !159
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -4723,7 +4705,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %281
   %293 = shl nuw nsw i64 %292, 3
   %294 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %293) #32
   %295 = getelementptr inbounds i8, ptr %294, i64 %285
-  store i64 %274, ptr %295, align 8, !tbaa !171
+  store i64 %274, ptr %295, align 8, !tbaa !169
   %296 = icmp sgt i64 %285, 0
   br i1 %296, label %297, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
 
@@ -4746,7 +4728,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   store ptr %294, ptr %252, align 8, !tbaa !156
   store ptr %298, ptr %275, align 8, !tbaa !159
   %300 = getelementptr inbounds nuw i64, ptr %294, i64 %292
-  store ptr %300, ptr %277, align 8, !tbaa !170
+  store ptr %300, ptr %277, align 8, !tbaa !168
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 552
   %.pre70 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !133
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -4941,7 +4923,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i42:          ; preds = %406, %399
 _ZN2cv9BitStream6putIntEj.exit44:                 ; preds = %_ZN2cv9BitStream6putIntEj.exit40, %_ZN2cv9BitStream10writeBlockEv.exit.i42
   %412 = load ptr, ptr %0, align 8, !tbaa !153
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %414 = load i32, ptr %413, align 4, !tbaa !166
+  %414 = load i32, ptr %413, align 4, !tbaa !170
   %415 = trunc i32 %414 to i8
   %416 = getelementptr inbounds nuw i8, ptr %412, i64 552
   %417 = load ptr, ptr %416, align 8, !tbaa !133
@@ -4995,7 +4977,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i46:          ; preds = %441, %434
 _ZN2cv9BitStream6putIntEj.exit48:                 ; preds = %_ZN2cv9BitStream6putIntEj.exit44, %_ZN2cv9BitStream10writeBlockEv.exit.i46
   %447 = load ptr, ptr %0, align 8, !tbaa !153
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %449 = load i32, ptr %448, align 8, !tbaa !167
+  %449 = load i32, ptr %448, align 8, !tbaa !171
   %450 = trunc i32 %449 to i8
   %451 = getelementptr inbounds nuw i8, ptr %447, i64 552
   %452 = load ptr, ptr %451, align 8, !tbaa !133
@@ -5392,12 +5374,12 @@ _ZNK2cv9BitStream6getPosEv.exit:                  ; preds = %_ZN2cv9BitStream6pu
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %78 = load ptr, ptr %77, align 8, !tbaa !159
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %80 = load ptr, ptr %79, align 8, !tbaa !170
+  %80 = load ptr, ptr %79, align 8, !tbaa !168
   %.not.i.i = icmp eq ptr %78, %80
   br i1 %.not.i.i, label %83, label %81
 
 81:                                               ; preds = %_ZNK2cv9BitStream6getPosEv.exit
-  store i64 %76, ptr %78, align 8, !tbaa !171
+  store i64 %76, ptr %78, align 8, !tbaa !169
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %82, ptr %77, align 8, !tbaa !159
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -5426,7 +5408,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %83
   %95 = shl nuw nsw i64 %94, 3
   %96 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #32
   %97 = getelementptr inbounds i8, ptr %96, i64 %87
-  store i64 %76, ptr %97, align 8, !tbaa !171
+  store i64 %76, ptr %97, align 8, !tbaa !169
   %98 = icmp sgt i64 %87, 0
   br i1 %98, label %99, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
 
@@ -5452,7 +5434,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   store ptr %96, ptr %54, align 8, !tbaa !156
   store ptr %100, ptr %77, align 8, !tbaa !159
   %102 = getelementptr inbounds nuw i64, ptr %96, i64 %94
-  store ptr %102, ptr %79, align 8, !tbaa !170
+  store ptr %102, ptr %79, align 8, !tbaa !168
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %81, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
@@ -6113,12 +6095,12 @@ _ZNK2cv9BitStream6getPosEv.exit:                  ; preds = %_ZN2cv9BitStream6pu
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %364 = load ptr, ptr %363, align 8, !tbaa !159
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %366 = load ptr, ptr %365, align 8, !tbaa !170
+  %366 = load ptr, ptr %365, align 8, !tbaa !168
   %.not.i.i = icmp eq ptr %364, %366
   br i1 %.not.i.i, label %369, label %367
 
 367:                                              ; preds = %_ZNK2cv9BitStream6getPosEv.exit
-  store i64 %362, ptr %364, align 8, !tbaa !171
+  store i64 %362, ptr %364, align 8, !tbaa !169
   %368 = getelementptr inbounds nuw i8, ptr %364, i64 8
   store ptr %368, ptr %363, align 8, !tbaa !159
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -6147,7 +6129,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %369
   %381 = shl nuw nsw i64 %380, 3
   %382 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %381) #32
   %383 = getelementptr inbounds i8, ptr %382, i64 %373
-  store i64 %362, ptr %383, align 8, !tbaa !171
+  store i64 %362, ptr %383, align 8, !tbaa !169
   %384 = icmp sgt i64 %373, 0
   br i1 %384, label %385, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
 
@@ -6170,7 +6152,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   store ptr %382, ptr %340, align 8, !tbaa !156
   store ptr %386, ptr %363, align 8, !tbaa !159
   %388 = getelementptr inbounds nuw i64, ptr %382, i64 %380
-  store ptr %388, ptr %365, align 8, !tbaa !170
+  store ptr %388, ptr %365, align 8, !tbaa !168
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 552
   %.pre164 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !133
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -6436,7 +6418,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i65:          ; preds = %531, %524
 _ZN2cv9BitStream8putShortEi.exit67:               ; preds = %_ZN2cv9BitStream8putShortEi.exit, %_ZN2cv9BitStream10writeBlockEv.exit.i65
   %537 = load ptr, ptr %0, align 8, !tbaa !153
   %538 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %539 = load i32, ptr %538, align 4, !tbaa !166
+  %539 = load i32, ptr %538, align 4, !tbaa !170
   %540 = trunc i32 %539 to i8
   %541 = getelementptr inbounds nuw i8, ptr %537, i64 552
   %542 = load ptr, ptr %541, align 8, !tbaa !133
@@ -6480,7 +6462,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i69:          ; preds = %558, %551
 _ZN2cv9BitStream8putShortEi.exit71:               ; preds = %_ZN2cv9BitStream8putShortEi.exit67, %_ZN2cv9BitStream10writeBlockEv.exit.i69
   %564 = load ptr, ptr %0, align 8, !tbaa !153
   %565 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %566 = load i32, ptr %565, align 8, !tbaa !167
+  %566 = load i32, ptr %565, align 8, !tbaa !171
   %567 = trunc i32 %566 to i8
   %568 = getelementptr inbounds nuw i8, ptr %564, i64 552
   %569 = load ptr, ptr %568, align 8, !tbaa !133
@@ -6570,7 +6552,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i77:          ; preds = %612, %605
 
 _ZN2cv9BitStream6putIntEj.exit79:                 ; preds = %_ZN2cv9BitStream8putShortEi.exit75, %_ZN2cv9BitStream10writeBlockEv.exit.i77
   %618 = load ptr, ptr %0, align 8, !tbaa !153
-  %619 = load i32, ptr %538, align 4, !tbaa !166
+  %619 = load i32, ptr %538, align 4, !tbaa !170
   %620 = trunc i32 %619 to i8
   %621 = getelementptr inbounds nuw i8, ptr %618, i64 552
   %622 = load ptr, ptr %621, align 8, !tbaa !133
@@ -6623,7 +6605,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i81:          ; preds = %646, %639
 
 _ZN2cv9BitStream6putIntEj.exit83:                 ; preds = %_ZN2cv9BitStream6putIntEj.exit79, %_ZN2cv9BitStream10writeBlockEv.exit.i81
   %652 = load ptr, ptr %0, align 8, !tbaa !153
-  %653 = load i32, ptr %565, align 8, !tbaa !167
+  %653 = load i32, ptr %565, align 8, !tbaa !171
   %654 = trunc i32 %653 to i8
   %655 = getelementptr inbounds nuw i8, ptr %652, i64 552
   %656 = load ptr, ptr %655, align 8, !tbaa !133
@@ -6716,7 +6698,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i89:          ; preds = %702, %695
 _ZN2cv9BitStream8putShortEi.exit91:               ; preds = %_ZN2cv9BitStream6putIntEj.exit87, %_ZN2cv9BitStream10writeBlockEv.exit.i89
   %708 = load ptr, ptr %0, align 8, !tbaa !153
   %709 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %710 = load i32, ptr %709, align 4, !tbaa !168
+  %710 = load i32, ptr %709, align 4, !tbaa !166
   %711 = shl nsw i32 %710, 3
   %712 = trunc i32 %711 to i8
   %713 = getelementptr inbounds nuw i8, ptr %708, i64 552
@@ -6816,10 +6798,10 @@ _ZN2cv9BitStream10writeBlockEv.exit.i97:          ; preds = %765, %758
 
 _ZN2cv9BitStream6putIntEj.exit99:                 ; preds = %_ZN2cv9BitStream10writeBlockEv.exit.i97, %736, %_ZN2cv9BitStream8putShortEi.exit95
   %771 = load ptr, ptr %0, align 8, !tbaa !153
-  %772 = load i32, ptr %538, align 4, !tbaa !166
-  %773 = load i32, ptr %565, align 8, !tbaa !167
+  %772 = load i32, ptr %538, align 4, !tbaa !170
+  %773 = load i32, ptr %565, align 8, !tbaa !171
   %774 = mul nsw i32 %773, %772
-  %775 = load i32, ptr %709, align 4, !tbaa !168
+  %775 = load i32, ptr %709, align 4, !tbaa !166
   %776 = mul nsw i32 %774, %775
   %777 = trunc i32 %776 to i8
   %778 = getelementptr inbounds nuw i8, ptr %771, i64 552
@@ -7161,12 +7143,12 @@ _ZNK2cv9BitStream6getPosEv.exit127:               ; preds = %_ZN2cv9BitStream6pu
   %969 = load i64, ptr %968, align 8, !tbaa !134
   %970 = add i64 %969, %956
   %971 = load ptr, ptr %363, align 8, !tbaa !159
-  %972 = load ptr, ptr %365, align 8, !tbaa !170
+  %972 = load ptr, ptr %365, align 8, !tbaa !168
   %.not.i.i128 = icmp eq ptr %971, %972
   br i1 %.not.i.i128, label %975, label %973
 
 973:                                              ; preds = %_ZNK2cv9BitStream6getPosEv.exit127
-  store i64 %970, ptr %971, align 8, !tbaa !171
+  store i64 %970, ptr %971, align 8, !tbaa !169
   %974 = getelementptr inbounds nuw i8, ptr %971, i64 8
   store ptr %974, ptr %363, align 8, !tbaa !159
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit135
@@ -7195,7 +7177,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i129: ; preds = %975
   %987 = shl nuw nsw i64 %986, 3
   %988 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %987) #32
   %989 = getelementptr inbounds i8, ptr %988, i64 %979
-  store i64 %970, ptr %989, align 8, !tbaa !171
+  store i64 %970, ptr %989, align 8, !tbaa !169
   %990 = icmp sgt i64 %979, 0
   br i1 %990, label %991, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i132
 
@@ -7218,7 +7200,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   store ptr %988, ptr %340, align 8, !tbaa !156
   store ptr %992, ptr %363, align 8, !tbaa !159
   %994 = getelementptr inbounds nuw i64, ptr %988, i64 %986
-  store ptr %994, ptr %365, align 8, !tbaa !170
+  store ptr %994, ptr %365, align 8, !tbaa !168
   %.phi.trans.insert166 = getelementptr inbounds nuw i8, ptr %.pre165, i64 552
   %.pre167 = load ptr, ptr %.phi.trans.insert166, align 8, !tbaa !133
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit135
@@ -7476,7 +7458,7 @@ _ZNK2cv9BitStream6getPosEv.exit155:               ; preds = %._crit_edge
   %1120 = load i64, ptr %1119, align 8, !tbaa !134
   %1121 = add i64 %1120, %1107
   %1122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %1121, ptr %1122, align 8, !tbaa !169
+  store i64 %1121, ptr %1122, align 8, !tbaa !167
   %1123 = load i32, ptr @_ZN2cvL7MOVI_CCE, align 4, !tbaa !52
   %1124 = trunc i32 %1123 to i8
   store i8 %1124, ptr %1102, align 1, !tbaa !27
@@ -7648,7 +7630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 52:                                               ; preds = %_ZNK2cv9BitStream6getPosEv.exit
   %53 = add i64 %37, -4
   %54 = getelementptr inbounds i8, ptr %13, i64 -8
-  %55 = load i64, ptr %54, align 8, !tbaa !171
+  %55 = load i64, ptr %54, align 8, !tbaa !169
   store ptr %54, ptr %12, align 8, !tbaa !159
   %.not = icmp ult i64 %53, %55
   br i1 %.not, label %56, label %69
@@ -7921,7 +7903,7 @@ _ZN2cv9BitStream6putIntEj.exit10:                 ; preds = %_ZN2cv9BitStream6pu
   %81 = load ptr, ptr %0, align 8, !tbaa !153
   %82 = load ptr, ptr %5, align 8, !tbaa !156
   %83 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv
-  %84 = load i64, ptr %83, align 8, !tbaa !171
+  %84 = load i64, ptr %83, align 8, !tbaa !169
   %85 = trunc i64 %84 to i8
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 552
   %87 = load ptr, ptr %86, align 8, !tbaa !133
@@ -7976,7 +7958,7 @@ _ZN2cv9BitStream6putIntEj.exit14:                 ; preds = %_ZN2cv9BitStream6pu
   %117 = load ptr, ptr %0, align 8, !tbaa !153
   %118 = load ptr, ptr %21, align 8, !tbaa !156
   %119 = getelementptr inbounds nuw i64, ptr %118, i64 %indvars.iv
-  %120 = load i64, ptr %119, align 8, !tbaa !171
+  %120 = load i64, ptr %119, align 8, !tbaa !169
   %121 = trunc i64 %120 to i8
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 552
   %123 = load ptr, ptr %122, align 8, !tbaa !133
@@ -8094,7 +8076,7 @@ _ZN2cv13safe_int_castIjmEET_T0_PKc.exit:          ; preds = %1
 .lr.ph:                                           ; preds = %_ZN2cv13safe_int_castIjmEET_T0_PKc.exit, %.lr.ph
   %29 = phi ptr [ %34, %.lr.ph ], [ %27, %_ZN2cv13safe_int_castIjmEET_T0_PKc.exit ]
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load i64, ptr %30, align 8, !tbaa !171
+  %31 = load i64, ptr %30, align 8, !tbaa !169
   store ptr %30, ptr %25, align 8, !tbaa !159
   %32 = load ptr, ptr %0, align 8, !tbaa !153
   tail call void @_ZN2cv9BitStream8patchIntEjm(ptr noundef nonnull align 8 dereferenceable(569) %32, i32 noundef %23, i64 noundef %31)
@@ -9409,12 +9391,12 @@ attributes #34 = { cold nounwind }
 !163 = !{!"_ZTSSt6vectorImSaImEE", !164, i64 0}
 !164 = !{!"_ZTSSt12_Vector_baseImSaImEE", !165, i64 0}
 !165 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !157, i64 0}
-!166 = !{!161, !21, i64 20}
-!167 = !{!161, !21, i64 24}
-!168 = !{!161, !21, i64 28}
-!169 = !{!161, !7, i64 32}
-!170 = !{!157, !158, i64 16}
-!171 = !{!7, !7, i64 0}
+!166 = !{!161, !21, i64 28}
+!167 = !{!161, !7, i64 32}
+!168 = !{!157, !158, i64 16}
+!169 = !{!7, !7, i64 0}
+!170 = !{!161, !21, i64 20}
+!171 = !{!161, !21, i64 24}
 !172 = distinct !{!172, !64}
 !173 = !{!158, !158, i64 0}
 !174 = distinct !{!174, !64}

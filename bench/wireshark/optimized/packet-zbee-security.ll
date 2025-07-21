@@ -1099,7 +1099,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 define internal fastcc zeroext i1 @zbee_sec_decrypt_payload(ptr noundef readonly captures(none) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 17) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
-  %10 = alloca [13 x i8], align 1
+  %10 = alloca [13 x i8], align 8
   %11 = alloca [17 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %10) #13
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #13
@@ -1189,63 +1189,21 @@ zbee_sec_key_hash.exit21:                         ; preds = %.preheader.i17
   %.0 = phi ptr [ %11, %7 ], [ %6, %14 ], [ %11, %zbee_sec_key_hash.exit ], [ %11, %zbee_sec_key_hash.exit21 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8
-  %42 = trunc i64 %41 to i8
-  store i8 %42, ptr %10, align 1
-  %43 = lshr i64 %41, 8
-  %44 = trunc i64 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 %44, ptr %45, align 1
-  %46 = lshr i64 %41, 16
-  %47 = trunc i64 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 %47, ptr %48, align 1
-  %49 = lshr i64 %41, 24
-  %50 = trunc i64 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 %50, ptr %51, align 1
-  %52 = lshr i64 %41, 32
-  %53 = trunc i64 %52 to i8
-  %54 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i8 %53, ptr %54, align 1
-  %55 = lshr i64 %41, 40
-  %56 = trunc i64 %55 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %10, i64 5
-  store i8 %56, ptr %57, align 1
-  %58 = lshr i64 %41, 48
-  %59 = trunc i64 %58 to i8
-  %60 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  store i8 %59, ptr %60, align 1
-  %61 = lshr i64 %41, 56
-  %62 = trunc nuw i64 %61 to i8
-  %63 = getelementptr inbounds nuw i8, ptr %10, i64 7
-  store i8 %62, ptr %63, align 1
-  %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = trunc i32 %66 to i8
-  store i8 %67, ptr %64, align 1
-  %68 = lshr i32 %66, 8
-  %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %10, i64 9
-  store i8 %69, ptr %70, align 1
-  %71 = lshr i32 %66, 16
-  %72 = trunc i32 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  store i8 %72, ptr %73, align 1
-  %74 = lshr i32 %66, 24
-  %75 = trunc nuw i32 %74 to i8
-  %76 = getelementptr inbounds nuw i8, ptr %10, i64 11
-  store i8 %75, ptr %76, align 1
-  %77 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %78 = load i8, ptr %0, align 8
-  store i8 %78, ptr %77, align 1
-  %79 = sext i8 %2 to i32
-  %80 = sext i8 %2 to i64
-  %81 = getelementptr i8, ptr %1, i64 %80
-  %82 = call zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %.0, ptr noundef nonnull %10, ptr noundef %1, ptr noundef %81, ptr noundef %3, i32 noundef %79, i32 noundef %4, i32 noundef %5)
+  store i64 %41, ptr %10, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %44 = load i32, ptr %43, align 4
+  store i32 %44, ptr %42, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %46 = load i8, ptr %0, align 8
+  store i8 %46, ptr %45, align 4
+  %47 = sext i8 %2 to i32
+  %48 = sext i8 %2 to i64
+  %49 = getelementptr i8, ptr %1, i64 %48
+  %50 = call zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %.0, ptr noundef nonnull %10, ptr noundef %1, ptr noundef %49, ptr noundef %3, i32 noundef %47, i32 noundef %4, i32 noundef %5)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %10) #13
-  ret i1 %82
+  ret i1 %50
 }
 
 ; Function Attrs: null_pointer_is_valid

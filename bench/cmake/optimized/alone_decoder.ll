@@ -91,174 +91,169 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.pre = load i32, ptr %13, align 8, !tbaa !16
-  %26 = icmp eq i32 %.pre, 4
-  br i1 %26, label %.critedge4.thread, label %.lr.ph107
+  %25 = icmp eq i32 %.pre, 4
+  br i1 %25, label %.critedge4.thread, label %.lr.ph107
 
-.lr.ph107:                                        ; preds = %.lr.ph, %101
-  %27 = phi i32 [ %102, %101 ], [ %.pre, %.lr.ph ]
-  %28 = load i64, ptr %3, align 8, !tbaa !15
-  %29 = icmp ult i64 %28, %4
-  br i1 %29, label %.critedge4, label %.critedge
+.lr.ph107:                                        ; preds = %.lr.ph, %97
+  %26 = phi i32 [ %98, %97 ], [ %.pre, %.lr.ph ]
+  %27 = load i64, ptr %3, align 8, !tbaa !15
+  %28 = icmp ult i64 %27, %4
+  br i1 %28, label %.critedge4, label %.critedge
 
 .critedge4:                                       ; preds = %.lr.ph107
-  switch i32 %27, label %.critedge [
-    i32 0, label %30
-    i32 1, label %36
-    i32 2, label %68
+  switch i32 %26, label %.critedge [
+    i32 0, label %29
+    i32 1, label %35
+    i32 2, label %67
     i32 3, label %.critedge4._crit_edge
   ]
 
 .critedge4._crit_edge:                            ; preds = %.critedge4
-  %.pre106 = load i64, ptr %21, align 8, !tbaa !27
-  br label %90
+  %.pre106 = load i64, ptr %20, align 8, !tbaa !27
+  br label %86
 
-30:                                               ; preds = %.critedge4
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %32 = load i8, ptr %31, align 1, !tbaa !28
-  %33 = call zeroext i1 @lzma_lzma_lclppb_decode(ptr noundef nonnull %17, i8 noundef zeroext %32) #7
-  br i1 %33, label %.critedge, label %34
+29:                                               ; preds = %.critedge4
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %27
+  %31 = load i8, ptr %30, align 1, !tbaa !28
+  %32 = call zeroext i1 @lzma_lzma_lclppb_decode(ptr noundef nonnull %17, i8 noundef zeroext %31) #7
+  br i1 %32, label %.critedge, label %33
 
-34:                                               ; preds = %30
+33:                                               ; preds = %29
   store i32 1, ptr %13, align 8, !tbaa !16
-  %35 = add nuw i64 %28, 1
-  store i64 %35, ptr %3, align 8, !tbaa !15
-  br label %101
+  %34 = add nuw i64 %27, 1
+  store i64 %34, ptr %3, align 8, !tbaa !15
+  br label %97
 
-36:                                               ; preds = %.critedge4
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %38 = load i8, ptr %37, align 1, !tbaa !28
-  %39 = zext i8 %38 to i64
-  %40 = load i64, ptr %14, align 8, !tbaa !29
-  %41 = shl i64 %40, 3
-  %42 = shl i64 %39, %41
-  %43 = load i32, ptr %17, align 8, !tbaa !23
-  %44 = trunc i64 %42 to i32
-  %45 = or i32 %43, %44
-  store i32 %45, ptr %17, align 8, !tbaa !23
-  %46 = add i64 %40, 1
-  store i64 %46, ptr %14, align 8, !tbaa !29
-  %47 = icmp eq i64 %46, 4
-  br i1 %47, label %48, label %65
+35:                                               ; preds = %.critedge4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %27
+  %37 = load i8, ptr %36, align 1, !tbaa !28
+  %38 = zext i8 %37 to i64
+  %39 = load i64, ptr %14, align 8, !tbaa !29
+  %40 = shl i64 %39, 3
+  %41 = shl i64 %38, %40
+  %42 = load i32, ptr %17, align 8, !tbaa !23
+  %43 = trunc i64 %41 to i32
+  %44 = or i32 %42, %43
+  store i32 %44, ptr %17, align 8, !tbaa !23
+  %45 = add i64 %39, 1
+  store i64 %45, ptr %14, align 8, !tbaa !29
+  %46 = icmp eq i64 %45, 4
+  br i1 %46, label %47, label %64
 
-48:                                               ; preds = %36
-  %49 = load i8, ptr %16, align 4, !tbaa !22, !range !30, !noundef !31
-  %50 = trunc nuw i8 %49 to i1
-  %.not87 = icmp ne i32 %45, -1
-  %or.cond93.not = select i1 %50, i1 %.not87, i1 false
-  br i1 %or.cond93.not, label %51, label %64
+47:                                               ; preds = %35
+  %48 = load i8, ptr %16, align 4, !tbaa !22, !range !30, !noundef !31
+  %49 = trunc nuw i8 %48 to i1
+  %.not87 = icmp ne i32 %44, -1
+  %or.cond93.not = select i1 %49, i1 %.not87, i1 false
+  br i1 %or.cond93.not, label %50, label %63
 
-51:                                               ; preds = %48
-  %52 = add i32 %45, -1
-  %53 = lshr i32 %52, 2
-  %54 = or i32 %53, %52
-  %55 = lshr i32 %54, 3
-  %56 = or i32 %55, %54
-  %57 = lshr i32 %56, 4
-  %58 = or i32 %57, %56
-  %59 = lshr i32 %58, 8
-  %60 = or i32 %59, %58
-  %61 = lshr i32 %60, 16
-  %62 = or i32 %61, %60
-  %63 = add i32 %62, 1
-  %.not88 = icmp eq i32 %63, %45
-  br i1 %.not88, label %64, label %.critedge
+50:                                               ; preds = %47
+  %51 = add i32 %44, -1
+  %52 = lshr i32 %51, 2
+  %53 = or i32 %52, %51
+  %54 = lshr i32 %53, 3
+  %55 = or i32 %54, %53
+  %56 = lshr i32 %55, 4
+  %57 = or i32 %56, %55
+  %58 = lshr i32 %57, 8
+  %59 = or i32 %58, %57
+  %60 = lshr i32 %59, 16
+  %61 = or i32 %60, %59
+  %62 = add i32 %61, 1
+  %.not88 = icmp eq i32 %62, %44
+  br i1 %.not88, label %63, label %.critedge
 
-64:                                               ; preds = %51, %48
+63:                                               ; preds = %50, %47
   store i64 0, ptr %14, align 8, !tbaa !29
   store i32 2, ptr %13, align 8, !tbaa !16
-  br label %65
+  br label %64
 
-65:                                               ; preds = %64, %36
-  %66 = phi i32 [ 2, %64 ], [ 1, %36 ]
-  %67 = add nuw i64 %28, 1
-  store i64 %67, ptr %3, align 8, !tbaa !15
-  br label %101
+64:                                               ; preds = %63, %35
+  %65 = phi i32 [ 2, %63 ], [ 1, %35 ]
+  %66 = add nuw i64 %27, 1
+  store i64 %66, ptr %3, align 8, !tbaa !15
+  br label %97
 
-68:                                               ; preds = %.critedge4
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %70 = load i8, ptr %69, align 1, !tbaa !28
-  %71 = zext i8 %70 to i64
-  %72 = load i64, ptr %14, align 8, !tbaa !29
-  %73 = shl i64 %72, 3
-  %74 = shl i64 %71, %73
-  %75 = load i64, ptr %15, align 8, !tbaa !32
-  %76 = or i64 %74, %75
-  store i64 %76, ptr %15, align 8, !tbaa !32
-  %77 = add nuw i64 %28, 1
-  store i64 %77, ptr %3, align 8, !tbaa !15
-  %78 = add i64 %72, 1
-  store i64 %78, ptr %14, align 8, !tbaa !29
-  %79 = icmp ult i64 %78, 8
-  br i1 %79, label %101, label %80
+67:                                               ; preds = %.critedge4
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %27
+  %69 = load i8, ptr %68, align 1, !tbaa !28
+  %70 = zext i8 %69 to i64
+  %71 = load i64, ptr %14, align 8, !tbaa !29
+  %72 = shl i64 %71, 3
+  %73 = shl i64 %70, %72
+  %74 = load i64, ptr %15, align 8, !tbaa !32
+  %75 = or i64 %73, %74
+  store i64 %75, ptr %15, align 8, !tbaa !32
+  %76 = add nuw i64 %27, 1
+  store i64 %76, ptr %3, align 8, !tbaa !15
+  %77 = add i64 %71, 1
+  store i64 %77, ptr %14, align 8, !tbaa !29
+  %78 = icmp ult i64 %77, 8
+  br i1 %78, label %97, label %79
 
-80:                                               ; preds = %68
-  %81 = load i8, ptr %16, align 4, !tbaa !22, !range !30, !noundef !31
-  %82 = trunc nuw i8 %81 to i1
-  %83 = add i64 %76, -274877906944
-  %or.cond = icmp ult i64 %83, -274877906945
-  %or.cond94 = select i1 %82, i1 %or.cond, i1 false
-  br i1 %or.cond94, label %.critedge, label %84
+79:                                               ; preds = %67
+  %80 = load i8, ptr %16, align 4, !tbaa !22, !range !30, !noundef !31
+  %81 = trunc nuw i8 %80 to i1
+  %82 = add i64 %75, -274877906944
+  %or.cond = icmp ult i64 %82, -274877906945
+  %or.cond94 = select i1 %81, i1 %or.cond, i1 false
+  br i1 %or.cond94, label %.critedge, label %83
 
-84:                                               ; preds = %80
+83:                                               ; preds = %79
   store i32 1, ptr %18, align 8, !tbaa !33
-  %85 = trunc i64 %76 to i32
-  store i32 %85, ptr %19, align 4, !tbaa !34
-  %86 = lshr i64 %76, 32
-  %87 = trunc nuw i64 %86 to i32
-  store i32 %87, ptr %20, align 8, !tbaa !35
-  %88 = call i64 @lzma_lzma_decoder_memusage(ptr noundef nonnull %17) #7
-  %89 = add i64 %88, 32768
-  store i64 %89, ptr %21, align 8, !tbaa !27
+  store i64 %75, ptr %19, align 4
+  %84 = call i64 @lzma_lzma_decoder_memusage(ptr noundef nonnull %17) #7
+  %85 = add i64 %84, 32768
+  store i64 %85, ptr %20, align 8, !tbaa !27
   store i64 0, ptr %14, align 8, !tbaa !29
   store i32 3, ptr %13, align 8, !tbaa !16
-  br label %90
+  br label %86
 
-90:                                               ; preds = %.critedge4._crit_edge, %84
-  %91 = phi i64 [ %.pre106, %.critedge4._crit_edge ], [ %89, %84 ]
-  %92 = load i64, ptr %22, align 8, !tbaa !26
-  %93 = icmp ugt i64 %91, %92
-  br i1 %93, label %.critedge, label %94
+86:                                               ; preds = %.critedge4._crit_edge, %83
+  %87 = phi i64 [ %.pre106, %.critedge4._crit_edge ], [ %85, %83 ]
+  %88 = load i64, ptr %21, align 8, !tbaa !26
+  %89 = icmp ugt i64 %87, %88
+  br i1 %89, label %.critedge, label %90
 
-94:                                               ; preds = %90
+90:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #7
-  store i64 4611686018427387906, ptr %10, align 16, !tbaa !36
-  store ptr @lzma_lzma_decoder_init, ptr %23, align 8, !tbaa !38
-  store ptr %17, ptr %24, align 16, !tbaa !39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  %95 = call i32 @lzma_next_filter_init(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10) #7
-  %.not86 = icmp eq i32 %95, 0
-  br i1 %.not86, label %96, label %.critedge91
+  store i64 4611686018427387906, ptr %10, align 16, !tbaa !34
+  store ptr @lzma_lzma_decoder_init, ptr %22, align 8, !tbaa !36
+  store ptr %17, ptr %23, align 16, !tbaa !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  %91 = call i32 @lzma_next_filter_init(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10) #7
+  %.not86 = icmp eq i32 %91, 0
+  br i1 %.not86, label %92, label %.critedge91
 
-96:                                               ; preds = %94
+92:                                               ; preds = %90
   store i32 4, ptr %13, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #7
-  br label %101
+  br label %97
 
-.critedge4.thread:                                ; preds = %101, %.lr.ph
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !40
-  %99 = load ptr, ptr %0, align 8, !tbaa !41
-  %100 = call i32 %98(ptr noundef %99, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #7
+.critedge4.thread:                                ; preds = %97, %.lr.ph
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %94 = load ptr, ptr %93, align 8, !tbaa !38
+  %95 = load ptr, ptr %0, align 8, !tbaa !39
+  %96 = call i32 %94(ptr noundef %95, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #7
   br label %.critedge
 
-101:                                              ; preds = %96, %68, %65, %34
-  %102 = phi i32 [ 4, %96 ], [ 2, %68 ], [ %66, %65 ], [ 1, %34 ]
-  %103 = icmp eq i32 %102, 4
-  br i1 %103, label %.critedge4.thread, label %.lr.ph107
+97:                                               ; preds = %92, %67, %64, %33
+  %98 = phi i32 [ 4, %92 ], [ 2, %67 ], [ %65, %64 ], [ 1, %33 ]
+  %99 = icmp eq i32 %98, 4
+  br i1 %99, label %.critedge4.thread, label %.lr.ph107
 
-.critedge91:                                      ; preds = %94
+.critedge91:                                      ; preds = %90
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #7
   br label %.critedge
 
-.critedge:                                        ; preds = %51, %30, %90, %.critedge4, %.lr.ph107, %80, %9, %.critedge91, %.critedge4.thread
-  %.1 = phi i32 [ %100, %.critedge4.thread ], [ %95, %.critedge91 ], [ 0, %9 ], [ 7, %80 ], [ 0, %.lr.ph107 ], [ 11, %.critedge4 ], [ 6, %90 ], [ 7, %30 ], [ 7, %51 ]
+.critedge:                                        ; preds = %50, %29, %86, %.critedge4, %.lr.ph107, %79, %9, %.critedge91, %.critedge4.thread
+  %.1 = phi i32 [ %96, %.critedge4.thread ], [ %91, %.critedge91 ], [ 0, %9 ], [ 7, %79 ], [ 0, %.lr.ph107 ], [ 11, %.critedge4 ], [ 6, %86 ], [ 7, %29 ], [ 7, %50 ]
   ret i32 %.1
 }
 
@@ -308,9 +303,9 @@ define dso_local i32 @lzma_alone_decoder(ptr noundef %0, i64 noundef %1) local_u
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !42
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !45
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !4
   %.not.i = icmp eq i64 %10, ptrtoint (ptr @lzma_alone_decoder_init to i64)
@@ -369,11 +364,11 @@ define dso_local i32 @lzma_alone_decoder(ptr noundef %0, i64 noundef %1) local_u
   store i64 %30, ptr %31, align 8, !tbaa !26
   %32 = getelementptr inbounds nuw i8, ptr %.026.i, i64 112
   store i64 32768, ptr %32, align 8, !tbaa !27
-  %33 = load ptr, ptr %5, align 8, !tbaa !42
+  %33 = load ptr, ptr %5, align 8, !tbaa !40
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  store i8 1, ptr %34, align 8, !tbaa !46
+  store i8 1, ptr %34, align 8, !tbaa !44
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 99
-  store i8 1, ptr %35, align 1, !tbaa !46
+  store i8 1, ptr %35, align 1, !tbaa !44
   br label %36
 
 36:                                               ; preds = %22, %2, %23
@@ -444,16 +439,14 @@ attributes #7 = { nounwind }
 !31 = !{}
 !32 = !{!17, !9, i64 96}
 !33 = !{!17, !18, i64 168}
-!34 = !{!17, !18, i64 172}
-!35 = !{!17, !18, i64 176}
-!36 = !{!37, !9, i64 0}
-!37 = !{!"lzma_filter_info_s", !9, i64 0, !6, i64 8, !6, i64 16}
-!38 = !{!37, !6, i64 8}
-!39 = !{!37, !6, i64 16}
-!40 = !{!17, !6, i64 24}
-!41 = !{!17, !6, i64 0}
-!42 = !{!43, !44, i64 56}
-!43 = !{!"", !21, i64 0, !9, i64 8, !9, i64 16, !21, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !44, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !18, i64 128, !18, i64 132}
-!44 = !{!"p1 _ZTS15lzma_internal_s", !6, i64 0}
-!45 = !{!43, !6, i64 48}
-!46 = !{!19, !19, i64 0}
+!34 = !{!35, !9, i64 0}
+!35 = !{!"lzma_filter_info_s", !9, i64 0, !6, i64 8, !6, i64 16}
+!36 = !{!35, !6, i64 8}
+!37 = !{!35, !6, i64 16}
+!38 = !{!17, !6, i64 24}
+!39 = !{!17, !6, i64 0}
+!40 = !{!41, !42, i64 56}
+!41 = !{!"", !21, i64 0, !9, i64 8, !9, i64 16, !21, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !42, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !18, i64 128, !18, i64 132}
+!42 = !{!"p1 _ZTS15lzma_internal_s", !6, i64 0}
+!43 = !{!41, !6, i64 48}
+!44 = !{!19, !19, i64 0}

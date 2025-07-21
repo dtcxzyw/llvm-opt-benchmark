@@ -12316,7 +12316,7 @@ define hidden void @_mi_heap_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   tail call fastcc void @mi_random_init_ex(ptr noundef nonnull %14, i1 noundef zeroext false)
-  br label %24
+  br label %20
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 2888
@@ -12324,159 +12324,154 @@ define hidden void @_mi_heap_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
   %18 = ptrtoint ptr %17 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %17, i8 0, i64 136, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull readonly align 1 dereferenceable(64) %16, i64 48, i1 false)
-  %19 = trunc i64 %18 to i32
-  %20 = getelementptr i8, ptr %0, i64 2944
-  store i32 %19, ptr %20, align 8, !tbaa !96
-  %21 = lshr i64 %18, 32
-  %22 = trunc nuw i64 %21 to i32
-  %23 = getelementptr i8, ptr %0, i64 2948
-  store i32 %22, ptr %23, align 4, !tbaa !96
+  %19 = getelementptr i8, ptr %0, i64 2944
+  store i64 %18, ptr %19, align 8
   tail call fastcc void @chacha_block(ptr noundef nonnull %17)
-  br label %24
+  br label %20
 
-24:                                               ; preds = %15, %13
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2888
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3016
-  %27 = load i32, ptr %26, align 8, !tbaa !159
-  %28 = icmp slt i32 %27, 1
-  br i1 %28, label %29, label %chacha_next32.exit.i.i
+20:                                               ; preds = %15, %13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2888
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 3016
+  %23 = load i32, ptr %22, align 8, !tbaa !159
+  %24 = icmp slt i32 %23, 1
+  br i1 %24, label %25, label %chacha_next32.exit.i.i
 
-29:                                               ; preds = %24
-  tail call fastcc void @chacha_block(ptr noundef nonnull %25)
-  store i32 16, ptr %26, align 8, !tbaa !159
+25:                                               ; preds = %20
+  tail call fastcc void @chacha_block(ptr noundef nonnull %21)
+  store i32 16, ptr %22, align 8, !tbaa !159
   br label %chacha_next32.exit.i.i
 
-chacha_next32.exit.i.i:                           ; preds = %29, %24
-  %30 = phi i32 [ 16, %29 ], [ %27, %24 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2952
-  %32 = sub nsw i32 16, %30
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr [16 x i32], ptr %31, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !96
-  store i32 0, ptr %34, align 4, !tbaa !96
-  %36 = load i32, ptr %26, align 8, !tbaa !159
-  %37 = add i32 %36, -1
-  store i32 %37, ptr %26, align 8, !tbaa !159
-  %38 = icmp slt i32 %37, 1
-  br i1 %38, label %39, label %_mi_heap_random_next.exit
+chacha_next32.exit.i.i:                           ; preds = %25, %20
+  %26 = phi i32 [ 16, %25 ], [ %23, %20 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2952
+  %28 = sub nsw i32 16, %26
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr [16 x i32], ptr %27, i64 0, i64 %29
+  %31 = load i32, ptr %30, align 4, !tbaa !96
+  store i32 0, ptr %30, align 4, !tbaa !96
+  %32 = load i32, ptr %22, align 8, !tbaa !159
+  %33 = add i32 %32, -1
+  store i32 %33, ptr %22, align 8, !tbaa !159
+  %34 = icmp slt i32 %33, 1
+  br i1 %34, label %35, label %_mi_heap_random_next.exit
 
-39:                                               ; preds = %chacha_next32.exit.i.i
-  tail call fastcc void @chacha_block(ptr noundef nonnull %25)
-  store i32 16, ptr %26, align 8, !tbaa !159
+35:                                               ; preds = %chacha_next32.exit.i.i
+  tail call fastcc void @chacha_block(ptr noundef nonnull %21)
+  store i32 16, ptr %22, align 8, !tbaa !159
   br label %_mi_heap_random_next.exit
 
-_mi_heap_random_next.exit:                        ; preds = %chacha_next32.exit.i.i, %39
-  %40 = phi i32 [ 16, %39 ], [ %37, %chacha_next32.exit.i.i ]
-  %41 = zext i32 %35 to i64
-  %42 = shl nuw i64 %41, 32
-  %43 = sub nsw i32 16, %40
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr [16 x i32], ptr %31, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4, !tbaa !96
-  store i32 0, ptr %45, align 4, !tbaa !96
-  %47 = load i32, ptr %26, align 8, !tbaa !159
-  %48 = add i32 %47, -1
-  store i32 %48, ptr %26, align 8, !tbaa !159
-  %49 = zext i32 %46 to i64
-  %50 = or disjoint i64 %42, %49
-  %51 = or i64 %50, 1
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 2864
-  store i64 %51, ptr %52, align 8, !tbaa !88
-  %53 = icmp slt i32 %48, 1
-  br i1 %53, label %54, label %chacha_next32.exit.i.i25
+_mi_heap_random_next.exit:                        ; preds = %chacha_next32.exit.i.i, %35
+  %36 = phi i32 [ 16, %35 ], [ %33, %chacha_next32.exit.i.i ]
+  %37 = zext i32 %31 to i64
+  %38 = shl nuw i64 %37, 32
+  %39 = sub nsw i32 16, %36
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr [16 x i32], ptr %27, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !96
+  store i32 0, ptr %41, align 4, !tbaa !96
+  %43 = load i32, ptr %22, align 8, !tbaa !159
+  %44 = add i32 %43, -1
+  store i32 %44, ptr %22, align 8, !tbaa !159
+  %45 = zext i32 %42 to i64
+  %46 = or disjoint i64 %38, %45
+  %47 = or i64 %46, 1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2864
+  store i64 %47, ptr %48, align 8, !tbaa !88
+  %49 = icmp slt i32 %44, 1
+  br i1 %49, label %50, label %chacha_next32.exit.i.i25
 
-54:                                               ; preds = %_mi_heap_random_next.exit
-  tail call fastcc void @chacha_block(ptr noundef nonnull %25)
-  store i32 16, ptr %26, align 8, !tbaa !159
+50:                                               ; preds = %_mi_heap_random_next.exit
+  tail call fastcc void @chacha_block(ptr noundef nonnull %21)
+  store i32 16, ptr %22, align 8, !tbaa !159
   br label %chacha_next32.exit.i.i25
 
-chacha_next32.exit.i.i25:                         ; preds = %54, %_mi_heap_random_next.exit
-  %55 = phi i32 [ 16, %54 ], [ %48, %_mi_heap_random_next.exit ]
-  %56 = sub nsw i32 16, %55
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr [16 x i32], ptr %31, i64 0, i64 %57
-  %59 = load i32, ptr %58, align 4, !tbaa !96
-  store i32 0, ptr %58, align 4, !tbaa !96
-  %60 = load i32, ptr %26, align 8, !tbaa !159
-  %61 = add i32 %60, -1
-  store i32 %61, ptr %26, align 8, !tbaa !159
-  %62 = icmp slt i32 %61, 1
-  br i1 %62, label %63, label %_mi_heap_random_next.exit26
+chacha_next32.exit.i.i25:                         ; preds = %50, %_mi_heap_random_next.exit
+  %51 = phi i32 [ 16, %50 ], [ %44, %_mi_heap_random_next.exit ]
+  %52 = sub nsw i32 16, %51
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr [16 x i32], ptr %27, i64 0, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !96
+  store i32 0, ptr %54, align 4, !tbaa !96
+  %56 = load i32, ptr %22, align 8, !tbaa !159
+  %57 = add i32 %56, -1
+  store i32 %57, ptr %22, align 8, !tbaa !159
+  %58 = icmp slt i32 %57, 1
+  br i1 %58, label %59, label %_mi_heap_random_next.exit26
 
-63:                                               ; preds = %chacha_next32.exit.i.i25
-  tail call fastcc void @chacha_block(ptr noundef nonnull %25)
-  store i32 16, ptr %26, align 8, !tbaa !159
+59:                                               ; preds = %chacha_next32.exit.i.i25
+  tail call fastcc void @chacha_block(ptr noundef nonnull %21)
+  store i32 16, ptr %22, align 8, !tbaa !159
   br label %_mi_heap_random_next.exit26
 
-_mi_heap_random_next.exit26:                      ; preds = %chacha_next32.exit.i.i25, %63
-  %64 = phi i32 [ 16, %63 ], [ %61, %chacha_next32.exit.i.i25 ]
-  %65 = zext i32 %59 to i64
-  %66 = shl nuw i64 %65, 32
-  %67 = sub nsw i32 16, %64
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr [16 x i32], ptr %31, i64 0, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !96
-  store i32 0, ptr %69, align 4, !tbaa !96
-  %71 = load i32, ptr %26, align 8, !tbaa !159
-  %72 = add i32 %71, -1
-  store i32 %72, ptr %26, align 8, !tbaa !159
-  %73 = zext i32 %70 to i64
-  %74 = or disjoint i64 %66, %73
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 2872
-  store i64 %74, ptr %75, align 8, !tbaa !99
-  %76 = icmp slt i32 %72, 1
-  br i1 %76, label %77, label %chacha_next32.exit.i.i27
+_mi_heap_random_next.exit26:                      ; preds = %chacha_next32.exit.i.i25, %59
+  %60 = phi i32 [ 16, %59 ], [ %57, %chacha_next32.exit.i.i25 ]
+  %61 = zext i32 %55 to i64
+  %62 = shl nuw i64 %61, 32
+  %63 = sub nsw i32 16, %60
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr [16 x i32], ptr %27, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !96
+  store i32 0, ptr %65, align 4, !tbaa !96
+  %67 = load i32, ptr %22, align 8, !tbaa !159
+  %68 = add i32 %67, -1
+  store i32 %68, ptr %22, align 8, !tbaa !159
+  %69 = zext i32 %66 to i64
+  %70 = or disjoint i64 %62, %69
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 2872
+  store i64 %70, ptr %71, align 8, !tbaa !99
+  %72 = icmp slt i32 %68, 1
+  br i1 %72, label %73, label %chacha_next32.exit.i.i27
 
-77:                                               ; preds = %_mi_heap_random_next.exit26
-  tail call fastcc void @chacha_block(ptr noundef nonnull %25)
-  store i32 16, ptr %26, align 8, !tbaa !159
+73:                                               ; preds = %_mi_heap_random_next.exit26
+  tail call fastcc void @chacha_block(ptr noundef nonnull %21)
+  store i32 16, ptr %22, align 8, !tbaa !159
   br label %chacha_next32.exit.i.i27
 
-chacha_next32.exit.i.i27:                         ; preds = %77, %_mi_heap_random_next.exit26
-  %78 = phi i32 [ 16, %77 ], [ %72, %_mi_heap_random_next.exit26 ]
-  %79 = sub nsw i32 16, %78
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr [16 x i32], ptr %31, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !96
-  store i32 0, ptr %81, align 4, !tbaa !96
-  %83 = load i32, ptr %26, align 8, !tbaa !159
-  %84 = add i32 %83, -1
-  store i32 %84, ptr %26, align 8, !tbaa !159
-  %85 = icmp slt i32 %84, 1
-  br i1 %85, label %86, label %_mi_heap_random_next.exit28
+chacha_next32.exit.i.i27:                         ; preds = %73, %_mi_heap_random_next.exit26
+  %74 = phi i32 [ 16, %73 ], [ %68, %_mi_heap_random_next.exit26 ]
+  %75 = sub nsw i32 16, %74
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr [16 x i32], ptr %27, i64 0, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !96
+  store i32 0, ptr %77, align 4, !tbaa !96
+  %79 = load i32, ptr %22, align 8, !tbaa !159
+  %80 = add i32 %79, -1
+  store i32 %80, ptr %22, align 8, !tbaa !159
+  %81 = icmp slt i32 %80, 1
+  br i1 %81, label %82, label %_mi_heap_random_next.exit28
 
-86:                                               ; preds = %chacha_next32.exit.i.i27
-  tail call fastcc void @chacha_block(ptr noundef nonnull %25)
-  store i32 16, ptr %26, align 8, !tbaa !159
+82:                                               ; preds = %chacha_next32.exit.i.i27
+  tail call fastcc void @chacha_block(ptr noundef nonnull %21)
+  store i32 16, ptr %22, align 8, !tbaa !159
   br label %_mi_heap_random_next.exit28
 
-_mi_heap_random_next.exit28:                      ; preds = %chacha_next32.exit.i.i27, %86
-  %87 = phi i32 [ 16, %86 ], [ %84, %chacha_next32.exit.i.i27 ]
-  %88 = zext i1 %3 to i8
-  %89 = zext i32 %82 to i64
-  %90 = shl nuw i64 %89, 32
-  %91 = sub nsw i32 16, %87
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr [16 x i32], ptr %31, i64 0, i64 %92
-  %94 = load i32, ptr %93, align 4, !tbaa !96
-  store i32 0, ptr %93, align 4, !tbaa !96
-  %95 = load i32, ptr %26, align 8, !tbaa !159
-  %96 = add i32 %95, -1
-  store i32 %96, ptr %26, align 8, !tbaa !159
-  %97 = zext i32 %94 to i64
-  %98 = or disjoint i64 %90, %97
-  %99 = getelementptr i8, ptr %0, i64 2880
-  store i64 %98, ptr %99, align 8, !tbaa !99
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 3056
-  store i8 %88, ptr %100, align 8, !tbaa !175
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 3057
-  store i8 %4, ptr %101, align 1, !tbaa !185
-  %102 = load ptr, ptr %0, align 8, !tbaa !19
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %104 = load ptr, ptr %103, align 8, !tbaa !186
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 3048
-  store ptr %104, ptr %105, align 8, !tbaa !187
-  store ptr %0, ptr %103, align 8, !tbaa !186
+_mi_heap_random_next.exit28:                      ; preds = %chacha_next32.exit.i.i27, %82
+  %83 = phi i32 [ 16, %82 ], [ %80, %chacha_next32.exit.i.i27 ]
+  %84 = zext i1 %3 to i8
+  %85 = zext i32 %78 to i64
+  %86 = shl nuw i64 %85, 32
+  %87 = sub nsw i32 16, %83
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr [16 x i32], ptr %27, i64 0, i64 %88
+  %90 = load i32, ptr %89, align 4, !tbaa !96
+  store i32 0, ptr %89, align 4, !tbaa !96
+  %91 = load i32, ptr %22, align 8, !tbaa !159
+  %92 = add i32 %91, -1
+  store i32 %92, ptr %22, align 8, !tbaa !159
+  %93 = zext i32 %90 to i64
+  %94 = or disjoint i64 %86, %93
+  %95 = getelementptr i8, ptr %0, i64 2880
+  store i64 %94, ptr %95, align 8, !tbaa !99
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 3056
+  store i8 %84, ptr %96, align 8, !tbaa !175
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 3057
+  store i8 %4, ptr %97, align 1, !tbaa !185
+  %98 = load ptr, ptr %0, align 8, !tbaa !19
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  %100 = load ptr, ptr %99, align 8, !tbaa !186
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 3048
+  store ptr %100, ptr %101, align 8, !tbaa !187
+  store ptr %0, ptr %99, align 8, !tbaa !186
   ret void
 }
 
@@ -12500,13 +12495,8 @@ define hidden void @_mi_random_split(ptr noundef readonly captures(none) %0, ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %1, ptr noundef nonnull readonly align 1 dereferenceable(64) %0, i64 48, i1 false)
   %4 = getelementptr i8, ptr %1, i64 52
   store i32 0, ptr %4, align 4, !tbaa !96
-  %5 = trunc i64 %3 to i32
-  %6 = getelementptr i8, ptr %1, i64 56
-  store i32 %5, ptr %6, align 4, !tbaa !96
-  %7 = lshr i64 %3, 32
-  %8 = trunc nuw i64 %7 to i32
-  %9 = getelementptr i8, ptr %1, i64 60
-  store i32 %8, ptr %9, align 4, !tbaa !96
+  %5 = getelementptr i8, ptr %1, i64 56
+  store i64 %3, ptr %5, align 4
   tail call fastcc void @chacha_block(ptr noundef nonnull %1)
   ret void
 }
@@ -20060,13 +20050,8 @@ _mi_os_random_weak.exit:                          ; preds = %19, %_mi_os_random_
   store i32 0, ptr %49, align 4, !tbaa !96
   %50 = getelementptr i8, ptr %0, i64 52
   store i32 0, ptr %50, align 4, !tbaa !96
-  %51 = trunc i64 %48 to i32
-  %52 = getelementptr i8, ptr %0, i64 56
-  store i32 %51, ptr %52, align 4, !tbaa !96
-  %53 = lshr i64 %48, 32
-  %54 = trunc nuw i64 %53 to i32
-  %55 = getelementptr i8, ptr %0, i64 60
-  store i32 %54, ptr %55, align 4, !tbaa !96
+  %51 = getelementptr i8, ptr %0, i64 56
+  store i64 %48, ptr %51, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #55
   ret void
 }

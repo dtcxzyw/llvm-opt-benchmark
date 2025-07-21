@@ -2893,9 +2893,6 @@ if.end:                                           ; preds = %entry
   %line.i = getelementptr inbounds nuw i8, ptr %coords, i64 4
   %0 = load i32, ptr %coords, align 4
   %call3 = call i64 @_ZN6hermes3hbc7HBCISel24obtainFileAndSourceMapIdERNS_18SourceErrorManagerEj(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(464) %manager, i32 noundef %0)
-  %ids.sroa.0.0.extract.trunc = trunc i64 %call3 to i32
-  %ids.sroa.2.0.extract.shift = lshr i64 %call3, 32
-  %ids.sroa.2.0.extract.trunc = trunc nuw i64 %ids.sroa.2.0.extract.shift to i32
   %1 = load i32, ptr %line.i, align 4
   %line4 = getelementptr inbounds nuw i8, ptr %out, i64 12
   store i32 %1, ptr %line4, align 4
@@ -2903,9 +2900,7 @@ if.end:                                           ; preds = %entry
   %column = getelementptr inbounds nuw i8, ptr %out, i64 16
   store i32 %2, ptr %column, align 4
   %filenameId5 = getelementptr inbounds nuw i8, ptr %out, i64 4
-  store i32 %ids.sroa.0.0.extract.trunc, ptr %filenameId5, align 4
-  %sourceMappingUrlId6 = getelementptr inbounds nuw i8, ptr %out, i64 8
-  store i32 %ids.sroa.2.0.extract.trunc, ptr %sourceMappingUrlId6, align 4
+  store i64 %call3, ptr %filenameId5, align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -3229,8 +3224,8 @@ lor.rhs:                                          ; preds = %entry
   %call4 = tail call noundef nonnull align 8 dereferenceable(656) ptr @_ZNK6hermes8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(304) %2) #19
   %debugInfoSetting_.i9 = getelementptr inbounds nuw i8, ptr %call4, i64 232
   %3 = load i32, ptr %debugInfoSetting_.i9, align 8
-  %.fr30 = freeze i32 %3
-  %cmp6 = icmp eq i32 %.fr30, 1
+  %.fr26 = freeze i32 %3
+  %cmp6 = icmp eq i32 %.fr26, 1
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
@@ -3249,8 +3244,8 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   %conv.i = zext i32 %7 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %add.ptr.i.idx
-  %cmp13.not27 = icmp eq i32 %7, 0
-  br i1 %cmp13.not27, label %if.end48, label %for.body.lr.ph
+  %cmp13.not23 = icmp eq i32 %7, 0
+  br i1 %cmp13.not23, label %if.end48, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %lor.end
   %col.i.i = getelementptr inbounds nuw i8, ptr %coords.i, i64 8
@@ -3258,7 +3253,6 @@ for.body.lr.ph:                                   ; preds = %lor.end
   %line4.i = getelementptr inbounds nuw i8, ptr %info, i64 12
   %column.i = getelementptr inbounds nuw i8, ptr %info, i64 16
   %filenameId5.i = getelementptr inbounds nuw i8, ptr %info, i64 4
-  %sourceMappingUrlId6.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %SRA_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %statement = getelementptr inbounds nuw i8, ptr %info, i64 20
   %BCFGen_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3266,15 +3260,15 @@ for.body.lr.ph:                                   ; preds = %lor.end
   br i1 %.fr, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %hasDebugInfo.029.us = phi i1 [ %hasDebugInfo.1.us, %for.inc.us ], [ false, %for.body.lr.ph ]
-  %__begin1.028.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %6, %for.body.lr.ph ]
-  %type.us = getelementptr inbounds nuw i8, ptr %__begin1.028.us, i64 4
+  %hasDebugInfo.025.us = phi i1 [ %hasDebugInfo.1.us, %for.inc.us ], [ false, %for.body.lr.ph ]
+  %__begin1.024.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %6, %for.body.lr.ph ]
+  %type.us = getelementptr inbounds nuw i8, ptr %__begin1.024.us, i64 4
   %8 = load i32, ptr %type.us, align 4
   %cmp14.not.us = icmp eq i32 %8, 4
   br i1 %cmp14.not.us, label %if.end.us, label %for.inc.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %pointer.us = getelementptr inbounds nuw i8, ptr %__begin1.028.us, i64 8
+  %pointer.us = getelementptr inbounds nuw i8, ptr %__begin1.024.us, i64 8
   %9 = load ptr, ptr %pointer.us, align 8
   %location_.i.us = getelementptr inbounds nuw i8, ptr %9, i64 104
   %retval.sroa.0.0.copyload.i.us = load ptr, ptr %location_.i.us, align 8
@@ -3287,21 +3281,17 @@ if.end20.us:                                      ; preds = %if.end.us
   %sub.ptr.i.i.us = getelementptr inbounds i8, ptr %9, i64 -16
   %10 = load i32, ptr %coords.i, align 4
   %call3.i.us = call i64 @_ZN6hermes3hbc7HBCISel24obtainFileAndSourceMapIdERNS_18SourceErrorManagerEj(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef %10)
-  %ids.sroa.0.0.extract.trunc.i.us = trunc i64 %call3.i.us to i32
-  %ids.sroa.2.0.extract.shift.i.us = lshr i64 %call3.i.us, 32
-  %ids.sroa.2.0.extract.trunc.i.us = trunc nuw i64 %ids.sroa.2.0.extract.shift.i.us to i32
   %11 = load i32, ptr %line.i.i, align 4
   store i32 %11, ptr %line4.i, align 4
   %12 = load i32, ptr %col.i.i, align 4
   store i32 %12, ptr %column.i, align 4
-  store i32 %ids.sroa.0.0.extract.trunc.i.us, ptr %filenameId5.i, align 4
-  store i32 %ids.sroa.2.0.extract.trunc.i.us, ptr %sourceMappingUrlId6.i, align 4
+  store i64 %call3.i.us, ptr %filenameId5.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %coords.i)
   %13 = load ptr, ptr %SRA_, align 8
   %call21.us = call { i32, ptr } @_ZN6hermes21ScopeRegisterAnalysis30registerAndScopeForInstructionEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %sub.ptr.i.i.us) #19
   %14 = extractvalue { i32, ptr } %call21.us, 0
   %15 = extractvalue { i32, ptr } %call21.us, 1
-  %16 = load i32, ptr %__begin1.028.us, align 8
+  %16 = load i32, ptr %__begin1.024.us, align 8
   store i32 %16, ptr %info, align 4
   %statementIndex_.i.us = getelementptr inbounds nuw i8, ptr %9, i64 112
   %17 = load i32, ptr %statementIndex_.i.us, align 8
@@ -3315,21 +3305,21 @@ if.end20.us:                                      ; preds = %if.end.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end20.us, %for.body.us
-  %hasDebugInfo.1.us = phi i1 [ %hasDebugInfo.029.us, %for.body.us ], [ true, %if.end20.us ]
-  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %__begin1.028.us, i64 16
+  %hasDebugInfo.1.us = phi i1 [ %hasDebugInfo.025.us, %for.body.us ], [ true, %if.end20.us ]
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %__begin1.024.us, i64 16
   %cmp13.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i
   br i1 %cmp13.not.us, label %for.end, label %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %hasDebugInfo.029 = phi i1 [ %hasDebugInfo.1, %for.inc ], [ false, %for.body.lr.ph ]
-  %__begin1.028 = phi ptr [ %incdec.ptr, %for.inc ], [ %6, %for.body.lr.ph ]
-  %type = getelementptr inbounds nuw i8, ptr %__begin1.028, i64 4
+  %hasDebugInfo.025 = phi i1 [ %hasDebugInfo.1, %for.inc ], [ false, %for.body.lr.ph ]
+  %__begin1.024 = phi ptr [ %incdec.ptr, %for.inc ], [ %6, %for.body.lr.ph ]
+  %type = getelementptr inbounds nuw i8, ptr %__begin1.024, i64 4
   %20 = load i32, ptr %type, align 4
   %cmp14.not = icmp eq i32 %20, 4
   br i1 %cmp14.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %pointer = getelementptr inbounds nuw i8, ptr %__begin1.028, i64 8
+  %pointer = getelementptr inbounds nuw i8, ptr %__begin1.024, i64 8
   %21 = load ptr, ptr %pointer, align 8
   %location_.i = getelementptr inbounds nuw i8, ptr %21, i64 104
   %retval.sroa.0.0.copyload.i = load ptr, ptr %location_.i, align 8
@@ -3347,21 +3337,17 @@ if.end20:                                         ; preds = %if.end
   %sub.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 -16
   %22 = load i32, ptr %coords.i, align 4
   %call3.i = call i64 @_ZN6hermes3hbc7HBCISel24obtainFileAndSourceMapIdERNS_18SourceErrorManagerEj(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef %22)
-  %ids.sroa.0.0.extract.trunc.i = trunc i64 %call3.i to i32
-  %ids.sroa.2.0.extract.shift.i = lshr i64 %call3.i, 32
-  %ids.sroa.2.0.extract.trunc.i = trunc nuw i64 %ids.sroa.2.0.extract.shift.i to i32
   %23 = load i32, ptr %line.i.i, align 4
   store i32 %23, ptr %line4.i, align 4
   %24 = load i32, ptr %col.i.i, align 4
   store i32 %24, ptr %column.i, align 4
-  store i32 %ids.sroa.0.0.extract.trunc.i, ptr %filenameId5.i, align 4
-  store i32 %ids.sroa.2.0.extract.trunc.i, ptr %sourceMappingUrlId6.i, align 4
+  store i64 %call3.i, ptr %filenameId5.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %coords.i)
   %25 = load ptr, ptr %SRA_, align 8
   %call21 = call { i32, ptr } @_ZN6hermes21ScopeRegisterAnalysis30registerAndScopeForInstructionEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull %sub.ptr.i.i) #19
   %26 = extractvalue { i32, ptr } %call21, 0
   %27 = extractvalue { i32, ptr } %call21, 1
-  %28 = load i32, ptr %__begin1.028, align 8
+  %28 = load i32, ptr %__begin1.024, align 8
   store i32 %28, ptr %info, align 4
   store i32 0, ptr %statement, align 4
   %29 = load ptr, ptr %BCFGen_, align 8
@@ -3373,8 +3359,8 @@ if.end20:                                         ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end20
-  %hasDebugInfo.1 = phi i1 [ %hasDebugInfo.029, %for.body ], [ true, %if.end20 ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.028, i64 16
+  %hasDebugInfo.1 = phi i1 [ %hasDebugInfo.025, %for.body ], [ true, %if.end20 ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.024, i64 16
   %cmp13.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp13.not, label %for.end, label %for.body
 
@@ -3389,25 +3375,21 @@ if.then33:                                        ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %coords.i11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %coords.i11, i8 0, i64 12, i1 false)
   %call.i12 = call noundef zeroext i1 @_ZN6hermes18SourceErrorManager20findBufferLineAndLocEN4llvh5SMLocERNS0_12SourceCoordsEb(ptr noundef nonnull align 8 dereferenceable(464) %5, ptr %retval.sroa.0.0.copyload.i10, ptr noundef nonnull align 4 dereferenceable(12) %coords.i11, i1 noundef zeroext true) #19
-  br i1 %call.i12, label %if.end.i13, label %_ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5SMLocEPNS0_19DebugSourceLocationE.exit24
+  br i1 %call.i12, label %if.end.i13, label %_ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5SMLocEPNS0_19DebugSourceLocationE.exit20
 
 if.end.i13:                                       ; preds = %if.then33
   %col.i.i14 = getelementptr inbounds nuw i8, ptr %coords.i11, i64 8
   %line.i.i15 = getelementptr inbounds nuw i8, ptr %coords.i11, i64 4
   %32 = load i32, ptr %coords.i11, align 4
   %call3.i16 = call i64 @_ZN6hermes3hbc7HBCISel24obtainFileAndSourceMapIdERNS_18SourceErrorManagerEj(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef %32)
-  %ids.sroa.0.0.extract.trunc.i17 = trunc i64 %call3.i16 to i32
-  %ids.sroa.2.0.extract.shift.i18 = lshr i64 %call3.i16, 32
-  %ids.sroa.2.0.extract.trunc.i19 = trunc nuw i64 %ids.sroa.2.0.extract.shift.i18 to i32
   %33 = load i32, ptr %line.i.i15, align 4
   store i32 %33, ptr %line4.i, align 4
   %34 = load i32, ptr %col.i.i14, align 4
   store i32 %34, ptr %column.i, align 4
-  store i32 %ids.sroa.0.0.extract.trunc.i17, ptr %filenameId5.i, align 4
-  store i32 %ids.sroa.2.0.extract.trunc.i19, ptr %sourceMappingUrlId6.i, align 4
-  br label %_ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5SMLocEPNS0_19DebugSourceLocationE.exit24
+  store i64 %call3.i16, ptr %filenameId5.i, align 4
+  br label %_ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5SMLocEPNS0_19DebugSourceLocationE.exit20
 
-_ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5SMLocEPNS0_19DebugSourceLocationE.exit24: ; preds = %if.then33, %if.end.i13
+_ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5SMLocEPNS0_19DebugSourceLocationE.exit20: ; preds = %if.then33, %if.end.i13
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %coords.i11)
   store i32 0, ptr %info, align 4
   store i32 0, ptr %statement, align 4
@@ -3423,7 +3405,7 @@ _ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5S
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %sourceLocation_.i, ptr noundef nonnull align 4 dereferenceable(32) %info, i64 32, i1 false)
   br label %if.end48
 
-if.end48:                                         ; preds = %lor.end, %_ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5SMLocEPNS0_19DebugSourceLocationE.exit24, %for.end
+if.end48:                                         ; preds = %lor.end, %_ZN6hermes3hbc7HBCISel22getDebugSourceLocationERNS_18SourceErrorManagerEN4llvh5SMLocEPNS0_19DebugSourceLocationE.exit20, %for.end
   ret void
 }
 

@@ -688,13 +688,8 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %location.sroa.3.8.extract.trunc = trunc i64 %1 to i32
   %3 = extractvalue { i64, i64 } %call3, 0
-  %location.sroa.2.0.extract.shift = lshr i64 %3, 32
-  %location.sroa.2.0.extract.trunc = trunc nuw i64 %location.sroa.2.0.extract.shift to i32
-  %location.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %locationBuf_ = getelementptr inbounds nuw i8, ptr %map, i64 72
-  store i32 %location.sroa.0.0.extract.trunc, ptr %locationBuf_, align 8
-  %line11 = getelementptr inbounds nuw i8, ptr %map, i64 76
-  store i32 %location.sroa.2.0.extract.trunc, ptr %line11, align 4
+  store i64 %3, ptr %locationBuf_, align 8
   %column15 = getelementptr inbounds nuw i8, ptr %map, i64 80
   store i32 %location.sroa.3.8.extract.trunc, ptr %column15, align 8
   br label %return

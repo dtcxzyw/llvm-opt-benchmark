@@ -43148,8 +43148,6 @@ common.ret:                                       ; preds = %593, %590, %273
 486:                                              ; preds = %"_ZN4core3ptr391drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..filesystem..Descriptor$GT$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hb12c62915f331a87E.exit.i"
   %487 = ptrtoint ptr %.sroa.2135.0.copyload.i to i64
   %.sroa.4138.8.extract.trunc.i = trunc i64 %.sroa.4136.0.copyload.i to i32
-  %.sroa.4138.12.extract.shift.i = lshr i64 %.sroa.4136.0.copyload.i, 32
-  %.sroa.4138.12.extract.trunc.i = trunc nuw i64 %.sroa.4138.12.extract.shift.i to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19), !noalias !5459
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18), !noalias !5459
   %488 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -43229,9 +43227,7 @@ common.ret:                                       ; preds = %593, %590, %273
   %521 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 %487, ptr %521, align 8, !noalias !5459
   %.sroa.4157.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i32 %.sroa.4138.8.extract.trunc.i, ptr %.sroa.4157.0..sroa_idx.i, align 8, !noalias !5459
-  %.sroa.5158.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 36
-  store i32 %.sroa.4138.12.extract.trunc.i, ptr %.sroa.5158.0..sroa_idx.i, align 4, !noalias !5459
+  store i64 %.sroa.4136.0.copyload.i, ptr %.sroa.4157.0..sroa_idx.i, align 8, !noalias !5459
   br label %531
 
 522:                                              ; preds = %518
@@ -43249,9 +43245,7 @@ common.ret:                                       ; preds = %593, %590, %273
   %530 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %487, ptr %530, align 8, !noalias !5459
   %.sroa.04.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %.sroa.4138.8.extract.trunc.i, ptr %.sroa.04.sroa.6.0..sroa_idx.i, align 8, !noalias !5459
-  %.sroa.04.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 20
-  store i32 %.sroa.4138.12.extract.trunc.i, ptr %.sroa.04.sroa.7.0..sroa_idx.i, align 4, !noalias !5459
+  store i64 %.sroa.4136.0.copyload.i, ptr %.sroa.04.sroa.6.0..sroa_idx.i, align 8, !noalias !5459
   %.sroa.65.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %519, ptr %.sroa.65.0..sroa_idx.i, align 8, !noalias !5459
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 32

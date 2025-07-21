@@ -2864,8 +2864,8 @@ define dso_local void @_ZN5clang18DeclarationNameLocC2ENS_15DeclarationNameE(ptr
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %2, %5
   %.0.i = phi i32 [ %9, %5 ], [ %4, %2 ]
-  switch i32 %.0.i, label %14 [
-    i32 9, label %13
+  switch i32 %.0.i, label %13 [
+    i32 9, label %12
     i32 6, label %11
     i32 3, label %10
     i32 4, label %10
@@ -2874,19 +2874,17 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %2, %5
 
 10:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit
   store ptr null, ptr %0, align 8, !tbaa !17
-  br label %14
+  br label %13
 
 11:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
-  store i32 0, ptr %0, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %12, align 4, !tbaa !17
-  br label %14
+  store i64 0, ptr %0, align 8
+  br label %13
 
-13:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
+12:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
   store i32 0, ptr %0, align 8, !tbaa !17
-  br label %14
+  br label %13
 
-14:                                               ; preds = %13, %11, %10, %_ZNK5clang15DeclarationName11getNameKindEv.exit
+13:                                               ; preds = %12, %11, %10, %_ZNK5clang15DeclarationName11getNameKindEv.exit
   ret void
 }
 

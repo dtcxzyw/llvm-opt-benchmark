@@ -17412,192 +17412,188 @@ define hidden range(i64 548, 72057594037927936) i64 @_ZN8wasmi_ir4enum11Instruct
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN8wasmi_ir4enum11Instruction22filter_lane_and_memory17h1c7fcd56ccc45b9fE(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 5), (8, 12)) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.011.0.extract.trunc = trunc i64 %1 to i16
   %.sroa.412.0.extract.shift = lshr i64 %1, 16
   %.sroa.412.0.extract.trunc = trunc i64 %.sroa.412.0.extract.shift to i16
   %.sroa.513.0.extract.shift = lshr i64 %1, 32
   %.sroa.513.0.extract.trunc = trunc nuw i64 %.sroa.513.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.011.0.extract.trunc, 516
-  br i1 %3, label %4, label %9
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 516
+  br i1 %4, label %5, label %10
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.412.0.extract.trunc)
-  %6 = trunc i16 %5 to i8
-  %7 = tail call { i1, i8 } @"_ZN90_$LT$wasmi_core..simd..ImmLaneIdx$LT$_$GT$$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h9e90407a7e9b5cceE"(i8 noundef %6)
-  %8 = extractvalue { i1, i8 } %7, 0
-  br i1 %8, label %11, label %13
+5:                                                ; preds = %2
+  %6 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.412.0.extract.trunc)
+  %7 = trunc i16 %6 to i8
+  %8 = tail call { i1, i8 } @"_ZN90_$LT$wasmi_core..simd..ImmLaneIdx$LT$_$GT$$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h9e90407a7e9b5cceE"(i8 noundef %7)
+  %9 = extractvalue { i1, i8 } %8, 0
+  br i1 %9, label %12, label %14
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.011.0.extract.trunc, ptr %10, align 4
-  %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx3, align 2
-  br label %18
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %11, align 4
+  br label %20
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 516, ptr %12, align 4
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 516, ptr %13, align 4
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx5, align 2
-  br label %18
+  %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sroa.513.0.extract.trunc, ptr %.sroa.5.0..sroa_idx9, align 4
+  br label %20
 
-13:                                               ; preds = %4
-  %14 = extractvalue { i1, i8 } %7, 1
-  %15 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.513.0.extract.trunc)
-  %16 = tail call noundef i32 @"_ZN74_$LT$wasmi_ir..index..Memory$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h166734ce7ba8159eE"(i32 noundef %15)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %14, ptr %17, align 4
-  br label %18
-
-18:                                               ; preds = %13, %11, %9
-  %.sink20 = phi i32 [ %16, %13 ], [ %.sroa.513.0.extract.trunc, %11 ], [ %.sroa.513.0.extract.trunc, %9 ]
-  %.sink = phi i32 [ 0, %13 ], [ 1, %11 ], [ 1, %9 ]
+14:                                               ; preds = %5
+  %15 = extractvalue { i1, i8 } %8, 1
+  %16 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.513.0.extract.trunc)
+  %17 = tail call noundef i32 @"_ZN74_$LT$wasmi_ir..index..Memory$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h166734ce7ba8159eE"(i32 noundef %16)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %15, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink20, ptr %19, align 4
+  store i32 %17, ptr %19, align 4
+  br label %20
+
+20:                                               ; preds = %14, %12, %10
+  %.sink = phi i32 [ 0, %14 ], [ 1, %12 ], [ 1, %10 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN8wasmi_ir4enum11Instruction22filter_lane_and_memory17h8df749b11039d9a9E(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 5), (8, 12)) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.011.0.extract.trunc = trunc i64 %1 to i16
   %.sroa.412.0.extract.shift = lshr i64 %1, 16
   %.sroa.412.0.extract.trunc = trunc i64 %.sroa.412.0.extract.shift to i16
   %.sroa.513.0.extract.shift = lshr i64 %1, 32
   %.sroa.513.0.extract.trunc = trunc nuw i64 %.sroa.513.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.011.0.extract.trunc, 516
-  br i1 %3, label %4, label %9
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 516
+  br i1 %4, label %5, label %10
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.412.0.extract.trunc)
-  %6 = trunc i16 %5 to i8
-  %7 = tail call { i1, i8 } @"_ZN90_$LT$wasmi_core..simd..ImmLaneIdx$LT$_$GT$$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h2476872520609cd5E"(i8 noundef %6)
-  %8 = extractvalue { i1, i8 } %7, 0
-  br i1 %8, label %11, label %13
+5:                                                ; preds = %2
+  %6 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.412.0.extract.trunc)
+  %7 = trunc i16 %6 to i8
+  %8 = tail call { i1, i8 } @"_ZN90_$LT$wasmi_core..simd..ImmLaneIdx$LT$_$GT$$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h2476872520609cd5E"(i8 noundef %7)
+  %9 = extractvalue { i1, i8 } %8, 0
+  br i1 %9, label %12, label %14
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.011.0.extract.trunc, ptr %10, align 4
-  %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx3, align 2
-  br label %18
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %11, align 4
+  br label %20
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 516, ptr %12, align 4
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 516, ptr %13, align 4
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx5, align 2
-  br label %18
+  %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sroa.513.0.extract.trunc, ptr %.sroa.5.0..sroa_idx9, align 4
+  br label %20
 
-13:                                               ; preds = %4
-  %14 = extractvalue { i1, i8 } %7, 1
-  %15 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.513.0.extract.trunc)
-  %16 = tail call noundef i32 @"_ZN74_$LT$wasmi_ir..index..Memory$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h166734ce7ba8159eE"(i32 noundef %15)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %14, ptr %17, align 4
-  br label %18
-
-18:                                               ; preds = %13, %11, %9
-  %.sink20 = phi i32 [ %16, %13 ], [ %.sroa.513.0.extract.trunc, %11 ], [ %.sroa.513.0.extract.trunc, %9 ]
-  %.sink = phi i32 [ 0, %13 ], [ 1, %11 ], [ 1, %9 ]
+14:                                               ; preds = %5
+  %15 = extractvalue { i1, i8 } %8, 1
+  %16 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.513.0.extract.trunc)
+  %17 = tail call noundef i32 @"_ZN74_$LT$wasmi_ir..index..Memory$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h166734ce7ba8159eE"(i32 noundef %16)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %15, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink20, ptr %19, align 4
+  store i32 %17, ptr %19, align 4
+  br label %20
+
+20:                                               ; preds = %14, %12, %10
+  %.sink = phi i32 [ 0, %14 ], [ 1, %12 ], [ 1, %10 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN8wasmi_ir4enum11Instruction22filter_lane_and_memory17h9a27ddd844ac9d46E(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 5), (8, 12)) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.011.0.extract.trunc = trunc i64 %1 to i16
   %.sroa.412.0.extract.shift = lshr i64 %1, 16
   %.sroa.412.0.extract.trunc = trunc i64 %.sroa.412.0.extract.shift to i16
   %.sroa.513.0.extract.shift = lshr i64 %1, 32
   %.sroa.513.0.extract.trunc = trunc nuw i64 %.sroa.513.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.011.0.extract.trunc, 516
-  br i1 %3, label %4, label %9
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 516
+  br i1 %4, label %5, label %10
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.412.0.extract.trunc)
-  %6 = trunc i16 %5 to i8
-  %7 = tail call { i1, i8 } @"_ZN90_$LT$wasmi_core..simd..ImmLaneIdx$LT$_$GT$$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h242ee930a0bc6c71E"(i8 noundef %6)
-  %8 = extractvalue { i1, i8 } %7, 0
-  br i1 %8, label %11, label %13
+5:                                                ; preds = %2
+  %6 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.412.0.extract.trunc)
+  %7 = trunc i16 %6 to i8
+  %8 = tail call { i1, i8 } @"_ZN90_$LT$wasmi_core..simd..ImmLaneIdx$LT$_$GT$$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h242ee930a0bc6c71E"(i8 noundef %7)
+  %9 = extractvalue { i1, i8 } %8, 0
+  br i1 %9, label %12, label %14
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.011.0.extract.trunc, ptr %10, align 4
-  %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx3, align 2
-  br label %18
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %11, align 4
+  br label %20
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 516, ptr %12, align 4
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 516, ptr %13, align 4
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx5, align 2
-  br label %18
+  %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sroa.513.0.extract.trunc, ptr %.sroa.5.0..sroa_idx9, align 4
+  br label %20
 
-13:                                               ; preds = %4
-  %14 = extractvalue { i1, i8 } %7, 1
-  %15 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.513.0.extract.trunc)
-  %16 = tail call noundef i32 @"_ZN74_$LT$wasmi_ir..index..Memory$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h166734ce7ba8159eE"(i32 noundef %15)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %14, ptr %17, align 4
-  br label %18
-
-18:                                               ; preds = %13, %11, %9
-  %.sink20 = phi i32 [ %16, %13 ], [ %.sroa.513.0.extract.trunc, %11 ], [ %.sroa.513.0.extract.trunc, %9 ]
-  %.sink = phi i32 [ 0, %13 ], [ 1, %11 ], [ 1, %9 ]
+14:                                               ; preds = %5
+  %15 = extractvalue { i1, i8 } %8, 1
+  %16 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.513.0.extract.trunc)
+  %17 = tail call noundef i32 @"_ZN74_$LT$wasmi_ir..index..Memory$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h166734ce7ba8159eE"(i32 noundef %16)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %15, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink20, ptr %19, align 4
+  store i32 %17, ptr %19, align 4
+  br label %20
+
+20:                                               ; preds = %14, %12, %10
+  %.sink = phi i32 [ 0, %14 ], [ 1, %12 ], [ 1, %10 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN8wasmi_ir4enum11Instruction22filter_lane_and_memory17hdaec28c12300837eE(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 5), (8, 12)) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.011.0.extract.trunc = trunc i64 %1 to i16
   %.sroa.412.0.extract.shift = lshr i64 %1, 16
   %.sroa.412.0.extract.trunc = trunc i64 %.sroa.412.0.extract.shift to i16
   %.sroa.513.0.extract.shift = lshr i64 %1, 32
   %.sroa.513.0.extract.trunc = trunc nuw i64 %.sroa.513.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.011.0.extract.trunc, 516
-  br i1 %3, label %4, label %9
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 516
+  br i1 %4, label %5, label %10
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.412.0.extract.trunc)
-  %6 = trunc i16 %5 to i8
-  %7 = tail call { i1, i8 } @"_ZN90_$LT$wasmi_core..simd..ImmLaneIdx$LT$_$GT$$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h3e026181055a5478E"(i8 noundef %6)
-  %8 = extractvalue { i1, i8 } %7, 0
-  br i1 %8, label %11, label %13
+5:                                                ; preds = %2
+  %6 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.412.0.extract.trunc)
+  %7 = trunc i16 %6 to i8
+  %8 = tail call { i1, i8 } @"_ZN90_$LT$wasmi_core..simd..ImmLaneIdx$LT$_$GT$$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h3e026181055a5478E"(i8 noundef %7)
+  %9 = extractvalue { i1, i8 } %8, 0
+  br i1 %9, label %12, label %14
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.011.0.extract.trunc, ptr %10, align 4
-  %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx3, align 2
-  br label %18
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %11, align 4
+  br label %20
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 516, ptr %12, align 4
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 516, ptr %13, align 4
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %.sroa.412.0.extract.trunc, ptr %.sroa.4.0..sroa_idx5, align 2
-  br label %18
+  %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sroa.513.0.extract.trunc, ptr %.sroa.5.0..sroa_idx9, align 4
+  br label %20
 
-13:                                               ; preds = %4
-  %14 = extractvalue { i1, i8 } %7, 1
-  %15 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.513.0.extract.trunc)
-  %16 = tail call noundef i32 @"_ZN74_$LT$wasmi_ir..index..Memory$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h166734ce7ba8159eE"(i32 noundef %15)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %14, ptr %17, align 4
-  br label %18
-
-18:                                               ; preds = %13, %11, %9
-  %.sink20 = phi i32 [ %16, %13 ], [ %.sroa.513.0.extract.trunc, %11 ], [ %.sroa.513.0.extract.trunc, %9 ]
-  %.sink = phi i32 [ 0, %13 ], [ 1, %11 ], [ 1, %9 ]
+14:                                               ; preds = %5
+  %15 = extractvalue { i1, i8 } %8, 1
+  %16 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.513.0.extract.trunc)
+  %17 = tail call noundef i32 @"_ZN74_$LT$wasmi_ir..index..Memory$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h166734ce7ba8159eE"(i32 noundef %16)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %15, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink20, ptr %19, align 4
+  store i32 %17, ptr %19, align 4
+  br label %20
+
+20:                                               ; preds = %14, %12, %10
+  %.sink = phi i32 [ 0, %14 ], [ 1, %12 ], [ 1, %10 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 }
@@ -19041,132 +19037,120 @@ define hidden range(i64 524, 0) i64 @_ZN8wasmi_ir4enum11Instruction26call_indire
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN8wasmi_ir4enum11Instruction26filter_imm16_and_offset_hi17h2dc2b86e336b8f8cE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 4), (8, 12)) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.06.0.extract.trunc = trunc i64 %1 to i16
-  %.sroa.47.0.extract.shift = lshr i64 %1, 16
-  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 516
+  br i1 %4, label %5, label %10
+
+5:                                                ; preds = %2
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.06.0.extract.trunc, 516
-  br i1 %3, label %4, label %8
+  %.sroa.47.0.extract.shift = lshr i64 %1, 16
+  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %6 = tail call noundef i64 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i64$GT$4from17hd5499be2c7259a2dE"(i16 noundef %.sroa.47.0.extract.trunc)
+  %7 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %7, ptr %9, align 8
+  br label %12
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i64 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i64$GT$4from17hd5499be2c7259a2dE"(i16 noundef %.sroa.47.0.extract.trunc)
-  %6 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %5, ptr %7, align 8
-  br label %10
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %11, align 4
+  br label %12
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.06.0.extract.trunc, ptr %9, align 4
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.47.0.extract.trunc, ptr %.sroa.3.0..sroa_idx2, align 2
-  br label %10
-
-10:                                               ; preds = %4, %8
-  %.sink11 = phi i64 [ 16, %4 ], [ 8, %8 ]
-  %.sink = phi i32 [ %6, %4 ], [ %.sroa.5.0.extract.trunc, %8 ]
-  %storemerge = phi i32 [ 0, %4 ], [ 1, %8 ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink11
-  store i32 %.sink, ptr %11, align 8
+12:                                               ; preds = %5, %10
+  %storemerge = phi i32 [ 1, %10 ], [ 0, %5 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN8wasmi_ir4enum11Instruction26filter_imm16_and_offset_hi17h78ea7790626c9b37E(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 6), (8, 12)) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.06.0.extract.trunc = trunc i64 %1 to i16
-  %.sroa.47.0.extract.shift = lshr i64 %1, 16
-  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 516
+  br i1 %4, label %5, label %10
+
+5:                                                ; preds = %2
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.06.0.extract.trunc, 516
-  br i1 %3, label %4, label %7
+  %.sroa.47.0.extract.shift = lshr i64 %1, 16
+  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %6 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.47.0.extract.trunc)
+  %7 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %6, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %7, ptr %9, align 4
+  br label %12
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i16 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i16$GT$4from17h00aaf7ccf3088bd5E"(i16 noundef %.sroa.47.0.extract.trunc)
-  %6 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
-  br label %8
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %11, align 4
+  br label %12
 
-7:                                                ; preds = %2
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.47.0.extract.trunc, ptr %.sroa.3.0..sroa_idx2, align 2
-  br label %8
-
-8:                                                ; preds = %4, %7
-  %.sroa.06.0.extract.trunc.sink = phi i16 [ %5, %4 ], [ %.sroa.06.0.extract.trunc, %7 ]
-  %.sroa.5.0.extract.trunc.sink = phi i32 [ %6, %4 ], [ %.sroa.5.0.extract.trunc, %7 ]
-  %storemerge = phi i32 [ 0, %4 ], [ 1, %7 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.06.0.extract.trunc.sink, ptr %9, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.5.0.extract.trunc.sink, ptr %10, align 4
+12:                                               ; preds = %5, %10
+  %storemerge = phi i32 [ 1, %10 ], [ 0, %5 ]
   store i32 %storemerge, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN8wasmi_ir4enum11Instruction26filter_imm16_and_offset_hi17h9f7f6ad4559c1ef0E(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.06.0.extract.trunc = trunc i64 %1 to i16
-  %.sroa.47.0.extract.shift = lshr i64 %1, 16
-  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 516
+  br i1 %4, label %5, label %10
+
+5:                                                ; preds = %2
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.06.0.extract.trunc, 516
-  br i1 %3, label %4, label %8
+  %.sroa.47.0.extract.shift = lshr i64 %1, 16
+  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %6 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i32$GT$4from17hd9a760bc12155ac5E"(i16 noundef %.sroa.47.0.extract.trunc)
+  %7 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %6, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %7, ptr %9, align 4
+  br label %12
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i32$GT$4from17hd9a760bc12155ac5E"(i16 noundef %.sroa.47.0.extract.trunc)
-  %6 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %5, ptr %7, align 4
-  br label %10
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %11, align 4
+  br label %12
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.06.0.extract.trunc, ptr %9, align 4
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.47.0.extract.trunc, ptr %.sroa.3.0..sroa_idx2, align 2
-  br label %10
-
-10:                                               ; preds = %4, %8
-  %.sroa.5.0.extract.trunc.sink = phi i32 [ %6, %4 ], [ %.sroa.5.0.extract.trunc, %8 ]
-  %storemerge = phi i32 [ 0, %4 ], [ 1, %8 ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.5.0.extract.trunc.sink, ptr %11, align 4
+12:                                               ; preds = %5, %10
+  %storemerge = phi i32 [ 1, %10 ], [ 0, %5 ]
   store i32 %storemerge, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN8wasmi_ir4enum11Instruction26filter_imm16_and_offset_hi17ha4a04671a77871c1E(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 5), (8, 12)) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.06.0.extract.trunc = trunc i64 %1 to i16
-  %.sroa.47.0.extract.shift = lshr i64 %1, 16
-  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 516
+  br i1 %4, label %5, label %10
+
+5:                                                ; preds = %2
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.06.0.extract.trunc, 516
-  br i1 %3, label %4, label %8
+  %.sroa.47.0.extract.shift = lshr i64 %1, 16
+  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %6 = tail call noundef i8 @"_ZN8wasmi_ir10immeditate92_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i8$GT$4from17h8ea49c9e748cb539E"(i16 noundef %.sroa.47.0.extract.trunc)
+  %7 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %6, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %7, ptr %9, align 4
+  br label %12
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i8 @"_ZN8wasmi_ir10immeditate92_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst16$GT$$u20$for$u20$i8$GT$4from17h8ea49c9e748cb539E"(i16 noundef %.sroa.47.0.extract.trunc)
-  %6 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %5, ptr %7, align 4
-  br label %10
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %11, align 4
+  br label %12
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.06.0.extract.trunc, ptr %9, align 4
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.47.0.extract.trunc, ptr %.sroa.3.0..sroa_idx2, align 2
-  br label %10
-
-10:                                               ; preds = %4, %8
-  %.sroa.5.0.extract.trunc.sink = phi i32 [ %6, %4 ], [ %.sroa.5.0.extract.trunc, %8 ]
-  %storemerge = phi i32 [ 0, %4 ], [ 1, %8 ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.5.0.extract.trunc.sink, ptr %11, align 4
+12:                                               ; preds = %5, %10
+  %storemerge = phi i32 [ 1, %10 ], [ 0, %5 ]
   store i32 %storemerge, ptr %0, align 4
   ret void
 }

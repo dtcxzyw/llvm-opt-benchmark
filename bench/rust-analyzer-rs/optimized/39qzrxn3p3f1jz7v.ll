@@ -23588,9 +23588,9 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %45, label %.loopexit.i.i.i, label %47
 
 46:                                               ; preds = %41
-  %.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.sroa.030.sroa.4.0.copyload.i.i.i.i, 32
-  %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i to i32
-  %.sroa.039.0.extract.trunc.i.i.i.i = trunc i64 %.sroa.030.sroa.4.0.copyload.i.i.i.i to i32
+  %.sroa.0.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.030.sroa.4.0.copyload.i.i.i.i to i32
+  %.sroa.0.sroa.5.0.extract.shift.i.i.i = lshr i64 %.sroa.030.sroa.4.0.copyload.i.i.i.i, 32
+  %.sroa.0.sroa.5.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.0.sroa.5.0.extract.shift.i.i.i to i32
   br label %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i"
 
 47:                                               ; preds = %44
@@ -23897,13 +23897,13 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit"
 
 "_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i": ; preds = %160, %155, %46
-  %.sroa.5.0.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i.i.i, %46 ], [ %153, %160 ], [ %153, %155 ]
-  %.sroa.0.0.i.i.i = phi i32 [ %.sroa.039.0.extract.trunc.i.i.i.i, %46 ], [ %.0.i.i.i.i.i.i, %160 ], [ %.0.i.i.i.i.i.i, %155 ]
+  %.sroa.0.sroa.5.0.i.i.i = phi i32 [ %.sroa.0.sroa.5.0.extract.trunc.i.i.i, %46 ], [ %153, %160 ], [ %153, %155 ]
+  %.sroa.0.sroa.0.0.i.i.i = phi i32 [ %.sroa.0.sroa.0.0.extract.trunc.i.i.i, %46 ], [ %.0.i.i.i.i.i.i, %160 ], [ %.0.i.i.i.i.i.i, %155 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8890)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8893)
   %163 = load i32, ptr %.val.i.i.i, align 4, !noalias !8895, !noundef !4
-  %164 = icmp ule i32 %.sroa.0.0.i.i.i, %163
-  %switch.selectcmp.i.i.i.i.i = icmp ule i32 %163, %.sroa.5.0.i.i.i
+  %164 = icmp ule i32 %.sroa.0.sroa.0.0.i.i.i, %163
+  %switch.selectcmp.i.i.i.i.i = icmp ule i32 %163, %.sroa.0.sroa.5.0.i.i.i
   %spec.select.i.i.i.i.i = select i1 %164, i1 %switch.selectcmp.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i, label %166, label %165
 
@@ -23913,11 +23913,11 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 166:                                              ; preds = %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !8899
-  %167 = sub i32 %.sroa.5.0.i.i.i, %.sroa.0.0.i.i.i
+  %167 = sub i32 %.sroa.0.sroa.5.0.i.i.i, %.sroa.0.sroa.0.0.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !noalias !8904
   store i32 %167, ptr %29, align 8, !noalias !8899
-  store i32 %.sroa.0.0.i.i.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !noalias !8899
-  store i32 %.sroa.5.0.i.i.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 4, !noalias !8899
+  store i32 %.sroa.0.sroa.0.0.i.i.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !noalias !8899
+  store i32 %.sroa.0.sroa.5.0.i.i.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 4, !noalias !8899
   store ptr %.sroa.3.0.i.i.i, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !noalias !8899
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8905)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8908)

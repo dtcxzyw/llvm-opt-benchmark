@@ -17318,9 +17318,6 @@ _ZN4http3uri3Uri4host17h222a5641bb949bb4E.exit.i.i.i.i.i: ; preds = %257
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %105), !noalias !2069
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %106), !noalias !2069
   store i8 1, ptr %1062, align 8, !noalias !2069
-  %.sroa.3.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.3.0.i.i.i to i8
-  %.sroa.3.sroa.3.0.extract.shift.i = lshr i64 %.sroa.3.0.i.i.i, 8
-  %.sroa.3.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.sroa.3.0.extract.shift.i to i56
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$tokio_tungstenite..connect..connect_async$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0721f2440eff1b84E"(ptr noundef nonnull align 8 %1063)
           to label %1067 unwind label %1065
 
@@ -17387,9 +17384,7 @@ switch.lookup:                                    ; preds = %1067
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(141) %.sroa.28126.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(141) %.sroa.31.i.i, i64 141, i1 false), !noalias !2028
   store i64 %.sroa.021.0.i.i.i, ptr %116, align 8, !noalias !2028
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i8 %.sroa.3.sroa.0.0.extract.trunc.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !2028
-  %.sroa.5103.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %116, i64 9
-  store i56 %.sroa.3.sroa.3.0.extract.trunc.i, ptr %.sroa.5103.0..sroa_idx.i, align 1, !noalias !2028
+  store i64 %.sroa.3.0.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !2028
   %.sroa.6104.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i64 %.sroa.5.0.i.i.i, ptr %.sroa.6104.0..sroa_idx.i, align 8, !noalias !2028
   %.sroa.7105.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %116, i64 24

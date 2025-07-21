@@ -1943,8 +1943,6 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %.sroa.021.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i16
-  %.sroa.5.0.extract.shift = lshr i64 %2, 48
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i16
   %.not.i = icmp eq i16 %.sroa.4.0.extract.trunc, -1
   br i1 %.not.i, label %7, label %15
 
@@ -2006,28 +2004,19 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread:
   %.sroa.049.0.extract.trunc = trunc i64 %30 to i32
   %.sroa.450.0.extract.shift = lshr i64 %30, 32
   %.sroa.450.0.extract.trunc = trunc i64 %.sroa.450.0.extract.shift to i16
-  %.sroa.551.0.extract.shift = lshr i64 %30, 48
   %31 = icmp ne i32 %.sroa.021.0.extract.trunc, %.sroa.049.0.extract.trunc
   %32 = icmp ne i16 %.sroa.4.0.extract.trunc, %.sroa.450.0.extract.trunc
   %or.cond.not57 = or i1 %31, %32
-  %33 = icmp ne i64 %.sroa.5.0.extract.shift, %.sroa.551.0.extract.shift
+  %.unshifted = xor i64 %2, %30
+  %33 = icmp ugt i64 %.unshifted, 281474976710655
   %or.cond52 = or i1 %33, %or.cond.not57
   br i1 %or.cond52, label %.critedge, label %35
 
 .critedge:                                        ; preds = %29
-  %.sroa.551.0.extract.trunc = trunc nuw i64 %.sroa.551.0.extract.shift to i16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.021.0.extract.trunc, ptr %34, align 4
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.443.0..sroa_idx, align 4
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %.sroa.5.0.extract.trunc, ptr %.sroa.544.0..sroa_idx, align 2
+  store i64 %2, ptr %34, align 4
   %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.049.0.extract.trunc, ptr %.sroa.645.0..sroa_idx, align 4
-  %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.450.0.extract.trunc, ptr %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx, align 4
-  %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.551.0.extract.trunc, ptr %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx, align 2
+  store i64 %30, ptr %.sroa.645.0..sroa_idx, align 4
   br label %35
 
 35:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge
@@ -2044,8 +2033,6 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %.sroa.021.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i16
-  %.sroa.5.0.extract.shift = lshr i64 %2, 48
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i16
   %.not.i = icmp eq i16 %.sroa.4.0.extract.trunc, -1
   br i1 %.not.i, label %7, label %15
 
@@ -2107,28 +2094,19 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread:
   %.sroa.049.0.extract.trunc = trunc i64 %30 to i32
   %.sroa.450.0.extract.shift = lshr i64 %30, 32
   %.sroa.450.0.extract.trunc = trunc i64 %.sroa.450.0.extract.shift to i16
-  %.sroa.551.0.extract.shift = lshr i64 %30, 48
   %31 = icmp ne i32 %.sroa.021.0.extract.trunc, %.sroa.049.0.extract.trunc
   %32 = icmp ne i16 %.sroa.4.0.extract.trunc, %.sroa.450.0.extract.trunc
   %or.cond.not57 = or i1 %31, %32
-  %33 = icmp ne i64 %.sroa.5.0.extract.shift, %.sroa.551.0.extract.shift
+  %.unshifted = xor i64 %2, %30
+  %33 = icmp ugt i64 %.unshifted, 281474976710655
   %or.cond52 = or i1 %33, %or.cond.not57
   br i1 %or.cond52, label %.critedge, label %35
 
 .critedge:                                        ; preds = %29
-  %.sroa.551.0.extract.trunc = trunc nuw i64 %.sroa.551.0.extract.shift to i16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.021.0.extract.trunc, ptr %34, align 4
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.443.0..sroa_idx, align 4
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %.sroa.5.0.extract.trunc, ptr %.sroa.544.0..sroa_idx, align 2
+  store i64 %2, ptr %34, align 4
   %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.049.0.extract.trunc, ptr %.sroa.645.0..sroa_idx, align 4
-  %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.450.0.extract.trunc, ptr %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx, align 4
-  %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.551.0.extract.trunc, ptr %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx, align 2
+  store i64 %30, ptr %.sroa.645.0..sroa_idx, align 4
   br label %35
 
 35:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge
@@ -2145,8 +2123,6 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %.sroa.021.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i16
-  %.sroa.5.0.extract.shift = lshr i64 %2, 48
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i16
   %.not.i = icmp eq i16 %.sroa.4.0.extract.trunc, -1
   br i1 %.not.i, label %7, label %15
 
@@ -2208,28 +2184,19 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread:
   %.sroa.049.0.extract.trunc = trunc i64 %30 to i32
   %.sroa.450.0.extract.shift = lshr i64 %30, 32
   %.sroa.450.0.extract.trunc = trunc i64 %.sroa.450.0.extract.shift to i16
-  %.sroa.551.0.extract.shift = lshr i64 %30, 48
   %31 = icmp ne i32 %.sroa.021.0.extract.trunc, %.sroa.049.0.extract.trunc
   %32 = icmp ne i16 %.sroa.4.0.extract.trunc, %.sroa.450.0.extract.trunc
   %or.cond.not57 = or i1 %31, %32
-  %33 = icmp ne i64 %.sroa.5.0.extract.shift, %.sroa.551.0.extract.shift
+  %.unshifted = xor i64 %2, %30
+  %33 = icmp ugt i64 %.unshifted, 281474976710655
   %or.cond52 = or i1 %33, %or.cond.not57
   br i1 %or.cond52, label %.critedge, label %35
 
 .critedge:                                        ; preds = %29
-  %.sroa.551.0.extract.trunc = trunc nuw i64 %.sroa.551.0.extract.shift to i16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.021.0.extract.trunc, ptr %34, align 4
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.443.0..sroa_idx, align 4
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %.sroa.5.0.extract.trunc, ptr %.sroa.544.0..sroa_idx, align 2
+  store i64 %2, ptr %34, align 4
   %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.049.0.extract.trunc, ptr %.sroa.645.0..sroa_idx, align 4
-  %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.450.0.extract.trunc, ptr %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx, align 4
-  %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.551.0.extract.trunc, ptr %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx, align 2
+  store i64 %30, ptr %.sroa.645.0..sroa_idx, align 4
   br label %35
 
 35:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge

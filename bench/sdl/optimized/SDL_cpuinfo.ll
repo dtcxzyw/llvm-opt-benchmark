@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @SDL_CPUFeatures = internal unnamed_addr global i32 -1, align 4
 @SDL_SystemRAM = internal unnamed_addr global i32 0, align 4
 @SDL_SIMDAlignment = internal unnamed_addr global i32 -1, align 4
-@SDL_GetCPUType.SDL_CPUType = internal global [13 x i8] zeroinitializer, align 1
+@SDL_GetCPUType.SDL_CPUType = internal global [13 x i8] zeroinitializer, align 4
 @CPU_CPUIDMaxFunction = internal unnamed_addr global i32 0, align 4
 @.str.8 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 @CPU_calcCPUIDFeatures.checked = internal unnamed_addr global i1 false, align 1
@@ -65,7 +65,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 define hidden i32 @SDL_GetCPUCacheLineSize_REAL() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  %3 = load i8, ptr @SDL_GetCPUType.SDL_CPUType, align 1
+  %3 = load i8, ptr @SDL_GetCPUType.SDL_CPUType, align 4
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %4, label %SDL_GetCPUType.exit
 
@@ -122,111 +122,81 @@ CPU_calcCPUIDFeatures.exit.i:                     ; preds = %16, %11, %5, %4
   %27 = extractvalue { i32, i32, i32, i32 } %26, 1
   %28 = extractvalue { i32, i32, i32, i32 } %26, 2
   %29 = extractvalue { i32, i32, i32, i32 } %26, 3
-  %30 = trunc i32 %27 to i8
-  store i8 %30, ptr @SDL_GetCPUType.SDL_CPUType, align 1
-  %31 = lshr i32 %27, 8
-  %32 = trunc i32 %31 to i8
-  store i8 %32, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 1), align 1
-  %33 = lshr i32 %27, 16
-  %34 = trunc i32 %33 to i8
-  store i8 %34, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 2), align 1
-  %35 = lshr i32 %27, 24
-  %36 = trunc nuw i32 %35 to i8
-  store i8 %36, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 3), align 1
-  %37 = trunc i32 %29 to i8
-  store i8 %37, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 4), align 1
-  %38 = lshr i32 %29, 8
-  %39 = trunc i32 %38 to i8
-  store i8 %39, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 5), align 1
-  %40 = lshr i32 %29, 16
-  %41 = trunc i32 %40 to i8
-  store i8 %41, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 6), align 1
-  %42 = lshr i32 %29, 24
-  %43 = trunc nuw i32 %42 to i8
-  store i8 %43, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 7), align 1
-  %44 = trunc i32 %28 to i8
-  store i8 %44, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 8), align 1
-  %45 = lshr i32 %28, 8
-  %46 = trunc i32 %45 to i8
-  store i8 %46, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 9), align 1
-  %47 = lshr i32 %28, 16
-  %48 = trunc i32 %47 to i8
-  store i8 %48, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 10), align 1
-  %49 = lshr i32 %28, 24
-  %50 = trunc nuw i32 %49 to i8
-  store i8 %50, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 11), align 1
+  store i32 %27, ptr @SDL_GetCPUType.SDL_CPUType, align 4
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 4), align 4
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @SDL_GetCPUType.SDL_CPUType, i64 8), align 4
   br label %CPU_calcCPUIDFeatures.exit.thread.i
 
 CPU_calcCPUIDFeatures.exit.thread.i:              ; preds = %25, %CPU_calcCPUIDFeatures.exit.i, %7
-  %51 = load i8, ptr @SDL_GetCPUType.SDL_CPUType, align 1
-  %.not33.i = icmp eq i8 %51, 0
-  br i1 %.not33.i, label %52, label %SDL_GetCPUType.exit
+  %30 = load i8, ptr @SDL_GetCPUType.SDL_CPUType, align 4
+  %.not33.i = icmp eq i8 %30, 0
+  br i1 %.not33.i, label %31, label %SDL_GetCPUType.exit
 
-52:                                               ; preds = %CPU_calcCPUIDFeatures.exit.thread.i
-  %53 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.8, i64 noundef 13) #7
+31:                                               ; preds = %CPU_calcCPUIDFeatures.exit.thread.i
+  %32 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.8, i64 noundef 13) #7
   br label %SDL_GetCPUType.exit
 
-SDL_GetCPUType.exit:                              ; preds = %0, %CPU_calcCPUIDFeatures.exit.thread.i, %52
-  %54 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str) #7
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %62, label %56
+SDL_GetCPUType.exit:                              ; preds = %0, %CPU_calcCPUIDFeatures.exit.thread.i, %31
+  %33 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str) #7
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %41, label %35
 
-56:                                               ; preds = %SDL_GetCPUType.exit
-  %57 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.1) #7
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %62, label %59
+35:                                               ; preds = %SDL_GetCPUType.exit
+  %36 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.1) #7
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %41, label %38
 
-59:                                               ; preds = %56
-  %60 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.2) #7
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %67
+38:                                               ; preds = %35
+  %39 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.2) #7
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %46
 
-62:                                               ; preds = %59, %56, %SDL_GetCPUType.exit
-  %63 = call { i32, i32, i32, i32 } asm sideeffect "        pushq %rbx        \0A        xorq %rcx,%rcx   \0A        cpuid              \0A        movq %rbx, %rsi  \0A        popq %rbx         \0A", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 1) #7, !srcloc !8
-  %64 = extractvalue { i32, i32, i32, i32 } %63, 1
-  %65 = lshr i32 %64, 5
-  %66 = and i32 %65, 2040
-  br label %88
+41:                                               ; preds = %38, %35, %SDL_GetCPUType.exit
+  %42 = call { i32, i32, i32, i32 } asm sideeffect "        pushq %rbx        \0A        xorq %rcx,%rcx   \0A        cpuid              \0A        movq %rbx, %rsi  \0A        popq %rbx         \0A", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 1) #7, !srcloc !8
+  %43 = extractvalue { i32, i32, i32, i32 } %42, 1
+  %44 = lshr i32 %43, 5
+  %45 = and i32 %44, 2040
+  br label %67
 
-67:                                               ; preds = %59
-  %68 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.3) #7
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %73, label %70
+46:                                               ; preds = %38
+  %47 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.3) #7
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %52, label %49
 
-70:                                               ; preds = %67
-  %71 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.4) #7
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %77
+49:                                               ; preds = %46
+  %50 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @SDL_GetCPUType.SDL_CPUType, ptr noundef nonnull @.str.4) #7
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %56
 
-73:                                               ; preds = %70, %67
-  %74 = call { i32, i32, i32, i32 } asm sideeffect "        pushq %rbx        \0A        xorq %rcx,%rcx   \0A        cpuid              \0A        movq %rbx, %rsi  \0A        popq %rbx         \0A", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483643) #7, !srcloc !9
-  %75 = extractvalue { i32, i32, i32, i32 } %74, 2
-  %76 = and i32 %75, 255
-  br label %88
+52:                                               ; preds = %49, %46
+  %53 = call { i32, i32, i32, i32 } asm sideeffect "        pushq %rbx        \0A        xorq %rcx,%rcx   \0A        cpuid              \0A        movq %rbx, %rsi  \0A        popq %rbx         \0A", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483643) #7, !srcloc !9
+  %54 = extractvalue { i32, i32, i32, i32 } %53, 2
+  %55 = and i32 %54, 255
+  br label %67
 
-77:                                               ; preds = %70
-  %78 = call i64 @sysconf(i32 noundef 190) #7
-  %79 = trunc i64 %78 to i32
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %88, label %81
+56:                                               ; preds = %49
+  %57 = call i64 @sysconf(i32 noundef 190) #7
+  %58 = trunc i64 %57 to i32
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %67, label %60
 
-81:                                               ; preds = %77
-  %82 = call noalias ptr @fopen(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
-  %.not = icmp eq ptr %82, null
-  br i1 %.not, label %88, label %83
+60:                                               ; preds = %56
+  %61 = call noalias ptr @fopen(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
+  %.not = icmp eq ptr %61, null
+  br i1 %.not, label %67, label %62
 
-83:                                               ; preds = %81
+62:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
-  %84 = call i32 (ptr, ptr, ...) @__isoc23_fscanf(ptr noundef nonnull %82, ptr noundef nonnull @.str.7, ptr noundef nonnull %2) #7
-  %85 = icmp eq i32 %84, 1
-  %86 = load i32, ptr %2, align 4
-  %spec.select = select i1 %85, i32 %86, i32 128
-  %87 = call i32 @fclose(ptr noundef nonnull %82)
+  %63 = call i32 (ptr, ptr, ...) @__isoc23_fscanf(ptr noundef nonnull %61, ptr noundef nonnull @.str.7, ptr noundef nonnull %2) #7
+  %64 = icmp eq i32 %63, 1
+  %65 = load i32, ptr %2, align 4
+  %spec.select = select i1 %64, i32 %65, i32 128
+  %66 = call i32 @fclose(ptr noundef nonnull %61)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
-  br label %88
+  br label %67
 
-88:                                               ; preds = %62, %73, %83, %81, %77
-  %.0 = phi i32 [ %79, %77 ], [ %66, %62 ], [ %76, %73 ], [ %spec.select, %83 ], [ 128, %81 ]
+67:                                               ; preds = %41, %52, %62, %60, %56
+  %.0 = phi i32 [ %58, %56 ], [ %45, %41 ], [ %55, %52 ], [ %spec.select, %62 ], [ 128, %60 ]
   ret i32 %.0
 }
 

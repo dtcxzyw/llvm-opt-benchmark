@@ -50930,16 +50930,8 @@ define hidden void @"_ZN88_$LT$png..text_metadata..ZTXtChunk$u20$as$u20$png..tex
 
 152:                                              ; preds = %"_ZN6flate24zlib5write20ZlibEncoder$LT$W$GT$6finish17hcba3474f44da7ac5E.exit"
   %153 = ptrtoint ptr %.sroa.6162.0 to i64
-  %.sroa.6162.0.extract.trunc = trunc i64 %153 to i8
-  %.sroa.6162.1.extract.shift = lshr i64 %153, 8
-  %.sroa.6162.1.extract.trunc = trunc i64 %.sroa.6162.1.extract.shift to i8
-  %.sroa.6162.2.extract.shift = lshr i64 %153, 16
-  %.sroa.6162.2.extract.trunc = trunc nuw i64 %.sroa.6162.2.extract.shift to i48
   store i64 %.sroa.0160.0, ptr %9, align 8
-  store i8 %.sroa.6162.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
-  store i8 %.sroa.6162.1.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.4181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i48 %.sroa.6162.2.extract.trunc, ptr %.sroa.4181.0..sroa_idx, align 2
+  store i64 %153, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 %.sroa.12.0, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   %154 = icmp eq i64 %62, 0
@@ -51461,16 +51453,8 @@ define hidden void @"_ZN88_$LT$png..text_metadata..ZTXtChunk$u20$as$u20$png..tex
 
 152:                                              ; preds = %"_ZN6flate24zlib5write20ZlibEncoder$LT$W$GT$6finish17hcba3474f44da7ac5E.exit"
   %153 = ptrtoint ptr %.sroa.6162.0 to i64
-  %.sroa.6162.0.extract.trunc = trunc i64 %153 to i8
-  %.sroa.6162.1.extract.shift = lshr i64 %153, 8
-  %.sroa.6162.1.extract.trunc = trunc i64 %.sroa.6162.1.extract.shift to i8
-  %.sroa.6162.2.extract.shift = lshr i64 %153, 16
-  %.sroa.6162.2.extract.trunc = trunc nuw i64 %.sroa.6162.2.extract.shift to i48
   store i64 %.sroa.0160.0, ptr %9, align 8
-  store i8 %.sroa.6162.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
-  store i8 %.sroa.6162.1.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.4181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i48 %.sroa.6162.2.extract.trunc, ptr %.sroa.4181.0..sroa_idx, align 2
+  store i64 %153, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 %.sroa.12.0, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   %154 = icmp eq i64 %62, 0

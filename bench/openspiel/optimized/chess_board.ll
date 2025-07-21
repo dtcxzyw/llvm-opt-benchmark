@@ -4864,8 +4864,8 @@ define void @_ZN10open_spiel5chess10ChessBoard10set_squareENS_12chess_common6Squ
 
 11:                                               ; preds = %9, %6, %3
   %.sroa.3.0.extract.shift = lshr i16 %2, 8
-  %.sroa.3.0.extract.trunc = trunc nuw i16 %.sroa.3.0.extract.shift to i8
-  %.sroa.07.0.extract.trunc = trunc i16 %2 to i8
+  %.sroa.3.0.extract.trunc = zext nneg i16 %.sroa.3.0.extract.shift to i64
+  %.sroa.07.0.extract.trunc = zext i16 %2 to i64
   %.sroa.0.0.extract.trunc.i = zext i16 %1 to i32
   %.sroa.2.0.extract.shift.i = lshr i16 %1, 8
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i32
@@ -4895,17 +4895,18 @@ define void @_ZN10open_spiel5chess10ChessBoard10set_squareENS_12chess_common6Squ
   %30 = load i64, ptr %29, align 8
   %31 = xor i64 %30, %28
   store i64 %31, ptr %29, align 8
-  %32 = sext i8 %.sroa.07.0.extract.trunc to i64
+  %sext = shl i64 %.sroa.07.0.extract.trunc, 56
+  %32 = ashr exact i64 %sext, 56
   %33 = load ptr, ptr %21, align 8
   %34 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.69", ptr %33, i64 %32
-  %35 = sext i8 %.sroa.3.0.extract.trunc to i64
-  %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds i64, ptr %36, i64 %35
+  %sext10 = shl nuw i64 %.sroa.3.0.extract.trunc, 56
+  %35 = load ptr, ptr %34, align 8
+  %36 = ashr exact i64 %sext10, 53
+  %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = xor i64 %38, %31
   store i64 %39, ptr %29, align 8
-  store i8 %.sroa.07.0.extract.trunc, ptr %19, align 2
-  store i8 %.sroa.3.0.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 1
+  store i16 %2, ptr %19, align 2
   ret void
 
 40:                                               ; preds = %8

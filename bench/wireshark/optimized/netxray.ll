@@ -1346,7 +1346,7 @@ define internal noundef zeroext i1 @netxray_dump_open_1_1(ptr noundef initialize
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @netxray_dump_1_1(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
-  %6 = alloca %struct.netxrayrec_1_x_hdr, align 4
+  %6 = alloca %struct.netxrayrec_1_x_hdr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #8
@@ -1356,7 +1356,7 @@ define internal noundef zeroext i1 @netxray_dump_1_1(ptr noundef %0, ptr noundef
 
 10:                                               ; preds = %5
   store i32 -24, ptr %3, align 4
-  br label %65
+  br label %61
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1369,7 +1369,7 @@ define internal noundef zeroext i1 @netxray_dump_1_1(ptr noundef %0, ptr noundef
 
 17:                                               ; preds = %11
   store i32 -9, ptr %3, align 4
-  br label %65
+  br label %61
 
 18:                                               ; preds = %11
   %19 = load i32, ptr %14, align 8
@@ -1378,7 +1378,7 @@ define internal noundef zeroext i1 @netxray_dump_1_1(ptr noundef %0, ptr noundef
 
 21:                                               ; preds = %18
   store i32 -22, ptr %3, align 4
-  br label %65
+  br label %61
 
 22:                                               ; preds = %18
   %23 = load i8, ptr %8, align 4, !range !6, !noundef !7
@@ -1399,7 +1399,7 @@ define internal noundef zeroext i1 @netxray_dump_1_1(ptr noundef %0, ptr noundef
 
 28:                                               ; preds = %25
   store i32 -27, ptr %3, align 4
-  br label %65
+  br label %61
 
 29:                                               ; preds = %25
   %30 = trunc nuw i64 %27 to i32
@@ -1423,38 +1423,33 @@ define internal noundef zeroext i1 @netxray_dump_1_1(ptr noundef %0, ptr noundef
   %43 = sext i32 %42 to i64
   %44 = udiv i64 %43, 1000
   %45 = add i64 %40, %44
-  %46 = trunc i64 %45 to i32
-  store i32 %46, ptr %6, align 4
-  %47 = lshr i64 %45, 32
-  %48 = trunc nuw i64 %47 to i32
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %51 = load i32, ptr %50, align 4
-  %52 = trunc i32 %51 to i16
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 %52, ptr %53, align 4
-  %54 = trunc i32 %33 to i16
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 %54, ptr %55, align 2
-  %56 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 28, ptr noundef %3)
-  br i1 %56, label %57, label %65
+  store i64 %45, ptr %6, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %47 = load i32, ptr %46, align 4
+  %48 = trunc i32 %47 to i16
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i16 %48, ptr %49, align 8
+  %50 = trunc i32 %33 to i16
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i16 %50, ptr %51, align 2
+  %52 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 28, ptr noundef %3)
+  br i1 %52, label %53, label %61
 
-57:                                               ; preds = %32
-  %58 = load i32, ptr %14, align 8
-  %59 = zext i32 %58 to i64
-  %60 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %59, ptr noundef %3)
-  br i1 %60, label %61, label %65
+53:                                               ; preds = %32
+  %54 = load i32, ptr %14, align 8
+  %55 = zext i32 %54 to i64
+  %56 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %55, ptr noundef %3)
+  br i1 %56, label %57, label %61
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %63 = load i32, ptr %62, align 4
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %62, align 4
-  br label %65
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %59 = load i32, ptr %58, align 4
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %58, align 4
+  br label %61
 
-65:                                               ; preds = %57, %32, %61, %28, %21, %17, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %17 ], [ false, %21 ], [ false, %28 ], [ true, %61 ], [ false, %32 ], [ false, %57 ]
+61:                                               ; preds = %53, %32, %57, %28, %21, %17, %10
+  %.0 = phi i1 [ false, %10 ], [ false, %17 ], [ false, %21 ], [ false, %28 ], [ true, %57 ], [ false, %32 ], [ false, %53 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #8
   ret i1 %.0
 }
@@ -1601,7 +1596,7 @@ define internal noundef zeroext i1 @netxray_dump_open_2_0(ptr noundef initialize
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @netxray_dump_2_0(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
-  %6 = alloca %struct.netxrayrec_2_x_hdr, align 4
+  %6 = alloca %struct.netxrayrec_2_x_hdr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1613,7 +1608,7 @@ define internal noundef zeroext i1 @netxray_dump_2_0(ptr noundef %0, ptr noundef
 
 12:                                               ; preds = %5
   store i32 -24, ptr %3, align 4
-  br label %112
+  br label %108
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1625,7 +1620,7 @@ define internal noundef zeroext i1 @netxray_dump_2_0(ptr noundef %0, ptr noundef
 
 18:                                               ; preds = %13
   store i32 -9, ptr %3, align 4
-  br label %112
+  br label %108
 
 19:                                               ; preds = %13
   %20 = load i32, ptr %7, align 8
@@ -1634,7 +1629,7 @@ define internal noundef zeroext i1 @netxray_dump_2_0(ptr noundef %0, ptr noundef
 
 22:                                               ; preds = %19
   store i32 -22, ptr %3, align 4
-  br label %112
+  br label %108
 
 23:                                               ; preds = %19
   %24 = load i8, ptr %10, align 4, !range !6, !noundef !7
@@ -1655,7 +1650,7 @@ define internal noundef zeroext i1 @netxray_dump_2_0(ptr noundef %0, ptr noundef
 
 29:                                               ; preds = %26
   store i32 -27, ptr %3, align 4
-  br label %112
+  br label %108
 
 30:                                               ; preds = %26
   %31 = trunc nuw i64 %28 to i32
@@ -1681,123 +1676,118 @@ define internal noundef zeroext i1 @netxray_dump_2_0(ptr noundef %0, ptr noundef
   %45 = sext i32 %44 to i64
   %46 = udiv i64 %45, 1000
   %47 = add i64 %42, %46
-  %48 = trunc i64 %47 to i32
-  store i32 %48, ptr %6, align 4
-  %49 = lshr i64 %47, 32
-  %50 = trunc nuw i64 %49 to i32
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %50, ptr %51, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %53 = load i32, ptr %52, align 4
-  %54 = trunc i32 %53 to i16
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 %54, ptr %55, align 4
-  %56 = trunc i32 %35 to i16
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 %56, ptr %57, align 2
-  switch i32 %34, label %102 [
-    i32 22, label %58
-    i32 19, label %95
-    i32 36, label %95
-    i32 27, label %98
+  store i64 %47, ptr %6, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %49 = load i32, ptr %48, align 4
+  %50 = trunc i32 %49 to i16
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i16 %50, ptr %51, align 8
+  %52 = trunc i32 %35 to i16
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i16 %52, ptr %53, align 2
+  switch i32 %34, label %98 [
+    i32 22, label %54
+    i32 19, label %91
+    i32 36, label %91
+    i32 27, label %94
   ]
 
-58:                                               ; preds = %33
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %60 = load i16, ptr %59, align 8
-  %61 = and i16 %60, 1
-  %.not46 = icmp eq i16 %61, 0
-  br i1 %.not46, label %66, label %62
+54:                                               ; preds = %33
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %56 = load i16, ptr %55, align 8
+  %57 = and i16 %56, 1
+  %.not46 = icmp eq i16 %57, 0
+  br i1 %.not46, label %62, label %58
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 114
-  %64 = load i16, ptr %63, align 2
-  %65 = trunc i16 %64 to i8
-  br label %66
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 114
+  %60 = load i16, ptr %59, align 2
+  %61 = trunc i16 %60 to i8
+  br label %62
 
-66:                                               ; preds = %58, %62
-  %67 = phi i8 [ %65, %62 ], [ 0, %58 ]
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 %67, ptr %68, align 4
-  %69 = and i16 %60, 4
-  %.not47 = icmp eq i16 %69, 0
-  br i1 %.not47, label %74, label %70
+62:                                               ; preds = %54, %58
+  %63 = phi i8 [ %61, %58 ], [ 0, %54 ]
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 %63, ptr %64, align 8
+  %65 = and i16 %56, 4
+  %.not47 = icmp eq i16 %65, 0
+  br i1 %.not47, label %70, label %66
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %72 = load i16, ptr %71, align 8
-  %73 = trunc i16 %72 to i8
-  br label %74
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %68 = load i16, ptr %67, align 8
+  %69 = trunc i16 %68 to i8
+  br label %70
 
-74:                                               ; preds = %66, %70
-  %75 = phi i8 [ %73, %70 ], [ 0, %66 ]
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 %75, ptr %76, align 1
-  %77 = and i16 %60, 8
-  %.not48 = icmp eq i16 %77, 0
-  br i1 %.not48, label %81, label %78
+70:                                               ; preds = %62, %66
+  %71 = phi i8 [ %69, %66 ], [ 0, %62 ]
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 25
+  store i8 %71, ptr %72, align 1
+  %73 = and i16 %56, 8
+  %.not48 = icmp eq i16 %73, 0
+  br i1 %.not48, label %77, label %74
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 122
-  %80 = load i8, ptr %79, align 2
-  br label %81
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 122
+  %76 = load i8, ptr %75, align 2
+  br label %77
 
-81:                                               ; preds = %74, %78
-  %82 = phi i8 [ %80, %78 ], [ 0, %74 ]
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  store i8 %82, ptr %83, align 2
-  %84 = and i16 %60, 16
-  %.not49 = icmp eq i16 %84, 0
-  br i1 %.not49, label %92, label %85
+77:                                               ; preds = %70, %74
+  %78 = phi i8 [ %76, %74 ], [ 0, %70 ]
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 26
+  store i8 %78, ptr %79, align 2
+  %80 = and i16 %56, 16
+  %.not49 = icmp eq i16 %80, 0
+  br i1 %.not49, label %88, label %81
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 123
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i16
-  %89 = mul nuw nsw i16 %88, 127
-  %90 = udiv i16 %89, 100
-  %91 = trunc i16 %90 to i8
-  br label %92
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 123
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i16
+  %85 = mul nuw nsw i16 %84, 127
+  %86 = udiv i16 %85, 100
+  %87 = trunc i16 %86 to i8
+  br label %88
 
-92:                                               ; preds = %81, %85
-  %93 = phi i8 [ %91, %85 ], [ -1, %81 ]
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 27
-  store i8 %93, ptr %94, align 1
-  br label %102
+88:                                               ; preds = %77, %81
+  %89 = phi i8 [ %87, %81 ], [ -1, %77 ]
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 27
+  store i8 %89, ptr %90, align 1
+  br label %98
 
-95:                                               ; preds = %33, %33
-  %96 = load i8, ptr %8, align 8, !range !6, !noundef !7
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 %96, ptr %97, align 4
-  br label %102
+91:                                               ; preds = %33, %33
+  %92 = load i8, ptr %8, align 8, !range !6, !noundef !7
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 %92, ptr %93, align 8
+  br label %98
 
-98:                                               ; preds = %33
-  %99 = load i8, ptr %8, align 8
-  %.not45 = icmp sgt i8 %99, -1
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %101 = zext i1 %.not45 to i8
-  store i8 %101, ptr %100, align 4
-  br label %102
+94:                                               ; preds = %33
+  %95 = load i8, ptr %8, align 8
+  %.not45 = icmp sgt i8 %95, -1
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %97 = zext i1 %.not45 to i8
+  store i8 %97, ptr %96, align 8
+  br label %98
 
-102:                                              ; preds = %98, %95, %92, %33
-  %103 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 40, ptr noundef %3)
-  br i1 %103, label %104, label %112
+98:                                               ; preds = %94, %91, %88, %33
+  %99 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 40, ptr noundef %3)
+  br i1 %99, label %100, label %108
 
-104:                                              ; preds = %102
-  %105 = load i32, ptr %7, align 8
-  %106 = zext i32 %105 to i64
-  %107 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %106, ptr noundef %3)
-  br i1 %107, label %108, label %112
+100:                                              ; preds = %98
+  %101 = load i32, ptr %7, align 8
+  %102 = zext i32 %101 to i64
+  %103 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %102, ptr noundef %3)
+  br i1 %103, label %104, label %108
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %110 = load i32, ptr %109, align 4
-  %111 = add i32 %110, 1
-  store i32 %111, ptr %109, align 4
-  br label %112
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %106 = load i32, ptr %105, align 4
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %105, align 4
+  br label %108
 
-112:                                              ; preds = %104, %102, %108, %29, %22, %18, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %18 ], [ false, %22 ], [ false, %29 ], [ true, %108 ], [ false, %102 ], [ false, %104 ]
+108:                                              ; preds = %100, %98, %104, %29, %22, %18, %12
+  %.0 = phi i1 [ false, %12 ], [ false, %18 ], [ false, %22 ], [ false, %29 ], [ true, %104 ], [ false, %98 ], [ false, %100 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
   ret i1 %.0
 }

@@ -183,13 +183,13 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
   %23 = load volatile i64, ptr %22, align 8
   %24 = and i64 %23, 1
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %119, label %26
+  br i1 %25, label %115, label %26
 
 26:                                               ; preds = %20
   %27 = load volatile i64, ptr %22, align 8
   %28 = and i64 %27, 64
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %119, label %30
+  br i1 %29, label %115, label %30
 
 30:                                               ; preds = %26
   %31 = icmp eq ptr %21, null
@@ -198,30 +198,30 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 120
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 %4) #8, !srcloc !6
-  br label %119
+  br label %115
 
 34:                                               ; preds = %30
-  br i1 %13, label %35, label %119
+  br i1 %13, label %35, label %115
 
 35:                                               ; preds = %34
   %36 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, i32 0) #8, !srcloc !7
   %37 = extractvalue { i32, i32, i32, i32 } %36, 1
   %38 = and i32 %37, 7
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %119, label %40
+  br i1 %39, label %115, label %40
 
 40:                                               ; preds = %35
   %41 = icmp ne i32 %38, 1
   %42 = select i1 %41, i32 2, i32 1
   %43 = tail call i32 @intel_tcc_get_tjmax(i32 noundef %0) #8
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %119, label %45
+  br i1 %44, label %115, label %45
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %47 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3520, i64 noundef 128) #10
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %119, label %49
+  br i1 %48, label %115, label %49
 
 49:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
@@ -286,7 +286,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
   %81 = phi ptr [ inttoptr (i64 -12 to ptr), %.thread ], [ %77, %.loopexit ]
   %82 = ptrtoint ptr %81 to i64
   %83 = trunc i64 %82 to i32
-  br label %117
+  br label %113
 
 84:                                               ; preds = %.loopexit
   %85 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -311,51 +311,46 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
 95:                                               ; preds = %84
   %96 = ptrtoint ptr %92 to i64
   %97 = trunc i64 %96 to i32
-  br label %114
+  br label %110
 
 98:                                               ; preds = %84
   %99 = call i32 @thermal_zone_device_enable(ptr noundef %92) #8
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %112
+  br i1 %100, label %101, label %108
 
 101:                                              ; preds = %98
   %102 = call fastcc i64 @native_read_msr()
-  %103 = trunc i64 %102 to i32
-  %104 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 %103, ptr %104, align 8
-  %105 = lshr i64 %102, 32
-  %106 = trunc nuw i64 %105 to i32
-  %107 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  store i32 %106, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %47, i64 120
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %108, i64 %4) #8, !srcloc !6
+  %103 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i64 %102, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %47, i64 120
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %104, i64 %4) #8, !srcloc !6
   call void @_raw_spin_lock_irq(ptr noundef nonnull @pkg_temp_lock) #8
-  %109 = load ptr, ptr @zones, align 8
-  %110 = sext i32 %10 to i64
-  %111 = getelementptr ptr, ptr %109, i64 %110
-  store ptr %47, ptr %111, align 8
+  %105 = load ptr, ptr @zones, align 8
+  %106 = sext i32 %10 to i64
+  %107 = getelementptr ptr, ptr %105, i64 %106
+  store ptr %47, ptr %107, align 8
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @pkg_temp_lock) #8
-  br label %119
+  br label %115
 
-112:                                              ; preds = %98
-  %113 = load ptr, ptr %93, align 8
-  call void @thermal_zone_device_unregister(ptr noundef %113) #8
-  br label %114
+108:                                              ; preds = %98
+  %109 = load ptr, ptr %93, align 8
+  call void @thermal_zone_device_unregister(ptr noundef %109) #8
+  br label %110
 
-114:                                              ; preds = %112, %95
-  %115 = phi i32 [ %97, %95 ], [ %99, %112 ]
-  %116 = load ptr, ptr %78, align 8
-  call void @kfree(ptr noundef %116) #8
-  br label %117
+110:                                              ; preds = %108, %95
+  %111 = phi i32 [ %97, %95 ], [ %99, %108 ]
+  %112 = load ptr, ptr %78, align 8
+  call void @kfree(ptr noundef %112) #8
+  br label %113
 
-117:                                              ; preds = %114, %80
-  %118 = phi i32 [ %83, %80 ], [ %115, %114 ]
+113:                                              ; preds = %110, %80
+  %114 = phi i32 [ %83, %80 ], [ %111, %110 ]
   call void @kfree(ptr noundef nonnull %47) #8
-  br label %119
+  br label %115
 
-119:                                              ; preds = %117, %101, %45, %40, %35, %34, %32, %26, %20
-  %120 = phi i32 [ -19, %26 ], [ -19, %20 ], [ 0, %32 ], [ %118, %117 ], [ 0, %101 ], [ -12, %34 ], [ -19, %35 ], [ %43, %40 ], [ -12, %45 ]
-  ret i32 %120
+115:                                              ; preds = %113, %101, %45, %40, %35, %34, %32, %26, %20
+  %116 = phi i32 [ -19, %26 ], [ -19, %20 ], [ 0, %32 ], [ %114, %113 ], [ 0, %101 ], [ -12, %34 ], [ -19, %35 ], [ %43, %40 ], [ -12, %45 ]
+  ret i32 %116
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

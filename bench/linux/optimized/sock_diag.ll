@@ -272,12 +272,7 @@ define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr noundef writeon
   br label %37
 
 37:                                               ; preds = %34, %29
-  %38 = trunc i64 %30 to i32
-  store i32 %38, ptr %1, align 4
-  %39 = lshr i64 %30, 32
-  %40 = trunc nuw i64 %39 to i32
-  %41 = getelementptr i8, ptr %1, i64 4
-  store i32 %40, ptr %41, align 4
+  store i64 %30, ptr %1, align 4
   ret void
 }
 

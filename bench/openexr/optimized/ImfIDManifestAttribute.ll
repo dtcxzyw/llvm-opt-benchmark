@@ -388,53 +388,24 @@ declare void @_ZN7Imf_3_49Attribute23unRegisterAttributeTypeEPKc(ptr noundef) lo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_414TypedAttributeINS_20CompressedIDManifestEE12writeValueToERNS_7OStreamEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2) unnamed_addr #3 align 2 {
-  %4 = alloca [8 x i8], align 1
+  %4 = alloca [8 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  %8 = trunc i64 %7 to i8
-  store i8 %8, ptr %4, align 1, !tbaa !15
-  %9 = lshr i64 %7, 8
-  %10 = trunc i64 %9 to i8
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %10, ptr %11, align 1, !tbaa !15
-  %12 = lshr i64 %7, 16
-  %13 = trunc i64 %12 to i8
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %13, ptr %14, align 1, !tbaa !15
-  %15 = lshr i64 %7, 24
-  %16 = trunc i64 %15 to i8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %16, ptr %17, align 1, !tbaa !15
-  %18 = lshr i64 %7, 32
-  %19 = trunc i64 %18 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %19, ptr %20, align 1, !tbaa !15
-  %21 = lshr i64 %7, 40
-  %22 = trunc i64 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 %22, ptr %23, align 1, !tbaa !15
-  %24 = lshr i64 %7, 48
-  %25 = trunc i64 %24 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i8 %25, ptr %26, align 1, !tbaa !15
-  %27 = lshr i64 %7, 56
-  %28 = trunc nuw i64 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 7
-  store i8 %28, ptr %29, align 1, !tbaa !15
-  %30 = load ptr, ptr %1, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 8)
+  store i64 %7, ptr %4, align 8
+  %8 = load ptr, ptr %1, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !16
-  %35 = load i32, ptr %5, align 8, !tbaa !17
-  %36 = load ptr, ptr %1, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %34, i32 noundef %35)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !15
+  %13 = load i32, ptr %5, align 8, !tbaa !16
+  %14 = load ptr, ptr %1, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %12, i32 noundef %13)
   ret void
 }
 
@@ -464,15 +435,15 @@ define void @_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEE13readValueF
   %14 = add nsw i64 %13, -8
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %15, ptr %16, align 8, !tbaa !17
+  store i32 %15, ptr %16, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %18 = load ptr, ptr %17, align 8, !tbaa !15
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %12
   tail call void @free(ptr noundef nonnull %18) #17
-  store ptr null, ptr %17, align 8, !tbaa !16
+  store ptr null, ptr %17, align 8, !tbaa !15
   br label %20
 
 20:                                               ; preds = %19, %12
@@ -486,8 +457,8 @@ define void @_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEE13readValueF
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %25, ptr %26, align 8, !tbaa !6
   %27 = call noalias ptr @malloc(i64 noundef %14) #21
-  store ptr %27, ptr %17, align 8, !tbaa !16
-  %28 = load i32, ptr %16, align 8, !tbaa !17
+  store ptr %27, ptr %17, align 8, !tbaa !15
+  %28 = load i32, ptr %16, align 8, !tbaa !16
   %29 = load ptr, ptr %1, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
@@ -555,6 +526,5 @@ attributes #21 = { nounwind allocsize(0) }
 !12 = !{!"long", !11, i64 0}
 !13 = !{!"p1 omnipotent char", !14, i64 0}
 !14 = !{!"any pointer", !11, i64 0}
-!15 = !{!11, !11, i64 0}
-!16 = !{!7, !13, i64 24}
-!17 = !{!7, !10, i64 8}
+!15 = !{!7, !13, i64 24}
+!16 = !{!7, !10, i64 8}

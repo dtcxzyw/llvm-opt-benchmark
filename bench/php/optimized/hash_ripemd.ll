@@ -102,156 +102,130 @@ define dso_local void @PHP_RIPEMD128Update(ptr noundef captures(none) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_RIPEMD128Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
-  %3 = alloca [8 x i8], align 1
+  %3 = alloca [8 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !4
-  %6 = trunc i32 %5 to i8
-  store i8 %6, ptr %3, align 1, !tbaa !8
-  %7 = lshr i32 %5, 8
-  %8 = trunc i32 %7 to i8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %8, ptr %9, align 1, !tbaa !8
-  %10 = lshr i32 %5, 16
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %11, ptr %12, align 1, !tbaa !8
-  %13 = lshr i32 %5, 24
-  %14 = trunc nuw i32 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %14, ptr %15, align 1, !tbaa !8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !4
-  %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1, !tbaa !8
-  %20 = lshr i32 %17, 8
-  %21 = trunc i32 %20 to i8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1, !tbaa !8
-  %23 = lshr i32 %17, 16
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1, !tbaa !8
-  %26 = lshr i32 %17, 24
-  %27 = trunc nuw i32 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1, !tbaa !8
-  %29 = lshr i32 %5, 3
-  %30 = and i32 %29, 63
-  %31 = icmp samesign ult i32 %30, 56
-  %.v = select i1 %31, i32 56, i32 120
-  %32 = sub nsw i32 %.v, %30
-  %33 = zext i32 %32 to i64
-  %34 = shl nsw i32 %32, 3
-  %35 = add i32 %34, %5
-  store i32 %35, ptr %4, align 4, !tbaa !4
-  %36 = icmp ult i32 %35, %34
-  %37 = zext i1 %36 to i32
-  %38 = lshr i32 %32, 29
-  %39 = add i32 %38, %17
-  %40 = add i32 %39, %37
-  store i32 %40, ptr %16, align 4, !tbaa !4
-  %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ult i32 %32, %41
-  br i1 %.not.i, label %53, label %42
+  store i32 %5, ptr %3, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %7 = load i32, ptr %6, align 4, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = lshr i32 %5, 3
+  %10 = and i32 %9, 63
+  %11 = icmp samesign ult i32 %10, 56
+  %.v = select i1 %11, i32 56, i32 120
+  %12 = sub nsw i32 %.v, %10
+  %13 = zext i32 %12 to i64
+  %14 = shl nsw i32 %12, 3
+  %15 = add i32 %14, %5
+  store i32 %15, ptr %4, align 4, !tbaa !4
+  %16 = icmp ult i32 %15, %14
+  %17 = zext i1 %16 to i32
+  %18 = lshr i32 %12, 29
+  %19 = add i32 %18, %7
+  %20 = add i32 %19, %17
+  store i32 %20, ptr %6, align 4, !tbaa !4
+  %21 = sub nuw nsw i32 64, %10
+  %.not.i = icmp ult i32 %12, %21
+  br i1 %.not.i, label %33, label %22
 
-42:                                               ; preds = %2
-  %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %45 = zext nneg i32 %30 to i64
-  %46 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
-  tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
-  %47 = add nuw nsw i64 %43, 63
-  %48 = icmp samesign ult i64 %47, %33
-  br i1 %48, label %.lr.ph.i, label %PHP_RIPEMD128Update.exit
+22:                                               ; preds = %2
+  %23 = zext nneg i32 %21 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %25 = zext nneg i32 %10 to i64
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 0, i64 %25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %23, i1 false)
+  tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull %24)
+  %27 = add nuw nsw i64 %23, 63
+  %28 = icmp samesign ult i64 %27, %13
+  br i1 %28, label %.lr.ph.i, label %PHP_RIPEMD128Update.exit
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
-  %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
-  %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
-  %50 = add nuw nsw i64 %.031.i, 64
-  %51 = add nuw nsw i64 %.031.i, 127
-  %52 = icmp samesign ult i64 %51, %33
-  br i1 %52, label %.lr.ph.i, label %PHP_RIPEMD128Update.exit
+.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
+  %.031.i = phi i64 [ %30, %.lr.ph.i ], [ %23, %22 ]
+  %29 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
+  tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %29)
+  %30 = add nuw nsw i64 %.031.i, 64
+  %31 = add nuw nsw i64 %.031.i, 127
+  %32 = icmp samesign ult i64 %31, %13
+  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD128Update.exit
 
-53:                                               ; preds = %2
-  %54 = zext nneg i32 %30 to i64
+33:                                               ; preds = %2
+  %34 = zext nneg i32 %10 to i64
   br label %PHP_RIPEMD128Update.exit
 
-PHP_RIPEMD128Update.exit:                         ; preds = %.lr.ph.i, %42, %53
-  %.028.i = phi i64 [ %54, %53 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
-  %58 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
-  %59 = load i32, ptr %4, align 4, !tbaa !4
-  %60 = lshr i32 %59, 3
-  %61 = and i32 %60, 63
-  %62 = add i32 %59, 64
-  store i32 %62, ptr %4, align 4, !tbaa !4
-  %63 = icmp ugt i32 %59, -65
-  %64 = load i32, ptr %16, align 4, !tbaa !4
-  %65 = zext i1 %63 to i32
-  %66 = add i32 %64, %65
-  store i32 %66, ptr %16, align 4, !tbaa !4
-  %.not.i17 = icmp samesign ult i32 %61, 56
-  br i1 %.not.i17, label %72, label %67
+PHP_RIPEMD128Update.exit:                         ; preds = %.lr.ph.i, %22, %33
+  %.028.i = phi i64 [ %34, %33 ], [ 0, %22 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %33 ], [ %23, %22 ], [ %30, %.lr.ph.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %.028.i
+  %37 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
+  %38 = sub i64 %13, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %37, i64 %38, i1 false)
+  %39 = load i32, ptr %4, align 4, !tbaa !4
+  %40 = lshr i32 %39, 3
+  %41 = and i32 %40, 63
+  %42 = add i32 %39, 64
+  store i32 %42, ptr %4, align 4, !tbaa !4
+  %43 = icmp ugt i32 %39, -65
+  %44 = load i32, ptr %6, align 4, !tbaa !4
+  %45 = zext i1 %43 to i32
+  %46 = add i32 %44, %45
+  store i32 %46, ptr %6, align 4, !tbaa !4
+  %.not.i17 = icmp samesign ult i32 %41, 56
+  br i1 %.not.i17, label %52, label %47
 
-67:                                               ; preds = %PHP_RIPEMD128Update.exit
-  %68 = sub nuw nsw i32 64, %61
-  %69 = zext nneg i32 %68 to i64
-  %70 = zext nneg i32 %61 to i64
-  %71 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
-  tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
+47:                                               ; preds = %PHP_RIPEMD128Update.exit
+  %48 = sub nuw nsw i32 64, %41
+  %49 = zext nneg i32 %48 to i64
+  %50 = zext nneg i32 %41 to i64
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 4 dereferenceable(1) %3, i64 %49, i1 false)
+  tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull %35)
   br label %PHP_RIPEMD128Update.exit22
 
-72:                                               ; preds = %PHP_RIPEMD128Update.exit
-  %73 = zext nneg i32 %61 to i64
+52:                                               ; preds = %PHP_RIPEMD128Update.exit
+  %53 = zext nneg i32 %41 to i64
   br label %PHP_RIPEMD128Update.exit22
 
-PHP_RIPEMD128Update.exit22:                       ; preds = %72, %67
-  %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
-  %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
-  %74 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i18
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
-  %76 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %77
+PHP_RIPEMD128Update.exit22:                       ; preds = %52, %47
+  %.028.i18 = phi i64 [ %53, %52 ], [ 0, %47 ]
+  %.1.i19 = phi i64 [ 0, %52 ], [ %49, %47 ]
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %.028.i18
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
+  %56 = sub nuw nsw i64 8, %.1.i19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %55, i64 %56, i1 false)
+  br label %57
 
-77:                                               ; preds = %77, %PHP_RIPEMD128Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next.i, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
-  %79 = load i32, ptr %78, align 4, !tbaa !4
-  %80 = lshr i32 %79, 24
-  %81 = trunc nuw i32 %80 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 3
-  store i8 %81, ptr %83, align 1, !tbaa !8
-  %84 = load i32, ptr %78, align 4, !tbaa !4
-  %85 = lshr i32 %84, 16
-  %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 2
-  store i8 %86, ptr %87, align 1, !tbaa !8
-  %88 = load i32, ptr %78, align 4, !tbaa !4
-  %89 = lshr i32 %88, 8
-  %90 = trunc i32 %89 to i8
-  %91 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store i8 %90, ptr %91, align 1, !tbaa !8
-  %92 = load i32, ptr %78, align 4, !tbaa !4
-  %93 = trunc i32 %92 to i8
-  store i8 %93, ptr %82, align 1, !tbaa !8
+57:                                               ; preds = %57, %PHP_RIPEMD128Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next23.i, %57 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next.i, %57 ]
+  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
+  %59 = load i32, ptr %58, align 4, !tbaa !4
+  %60 = lshr i32 %59, 24
+  %61 = trunc nuw i32 %60 to i8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
+  store i8 %61, ptr %63, align 1, !tbaa !8
+  %64 = load i32, ptr %58, align 4, !tbaa !4
+  %65 = lshr i32 %64, 16
+  %66 = trunc i32 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 2
+  store i8 %66, ptr %67, align 1, !tbaa !8
+  %68 = load i32, ptr %58, align 4, !tbaa !4
+  %69 = lshr i32 %68, 8
+  %70 = trunc i32 %69 to i8
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  store i8 %70, ptr %71, align 1, !tbaa !8
+  %72 = load i32, ptr %58, align 4, !tbaa !4
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %62, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 4
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57
 
-RIPEMDEncode.exit:                                ; preds = %77
+RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 88) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
@@ -343,156 +317,130 @@ define dso_local void @PHP_RIPEMD160Update(ptr noundef captures(none) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_RIPEMD160Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
-  %3 = alloca [8 x i8], align 1
+  %3 = alloca [8 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !4
-  %6 = trunc i32 %5 to i8
-  store i8 %6, ptr %3, align 1, !tbaa !8
-  %7 = lshr i32 %5, 8
-  %8 = trunc i32 %7 to i8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %8, ptr %9, align 1, !tbaa !8
-  %10 = lshr i32 %5, 16
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %11, ptr %12, align 1, !tbaa !8
-  %13 = lshr i32 %5, 24
-  %14 = trunc nuw i32 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %14, ptr %15, align 1, !tbaa !8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i32, ptr %16, align 4, !tbaa !4
-  %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1, !tbaa !8
-  %20 = lshr i32 %17, 8
-  %21 = trunc i32 %20 to i8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1, !tbaa !8
-  %23 = lshr i32 %17, 16
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1, !tbaa !8
-  %26 = lshr i32 %17, 24
-  %27 = trunc nuw i32 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1, !tbaa !8
-  %29 = lshr i32 %5, 3
-  %30 = and i32 %29, 63
-  %31 = icmp samesign ult i32 %30, 56
-  %.v = select i1 %31, i32 56, i32 120
-  %32 = sub nsw i32 %.v, %30
-  %33 = zext i32 %32 to i64
-  %34 = shl nsw i32 %32, 3
-  %35 = add i32 %34, %5
-  store i32 %35, ptr %4, align 4, !tbaa !4
-  %36 = icmp ult i32 %35, %34
-  %37 = zext i1 %36 to i32
-  %38 = lshr i32 %32, 29
-  %39 = add i32 %38, %17
-  %40 = add i32 %39, %37
-  store i32 %40, ptr %16, align 4, !tbaa !4
-  %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ult i32 %32, %41
-  br i1 %.not.i, label %53, label %42
+  store i32 %5, ptr %3, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load i32, ptr %6, align 4, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = lshr i32 %5, 3
+  %10 = and i32 %9, 63
+  %11 = icmp samesign ult i32 %10, 56
+  %.v = select i1 %11, i32 56, i32 120
+  %12 = sub nsw i32 %.v, %10
+  %13 = zext i32 %12 to i64
+  %14 = shl nsw i32 %12, 3
+  %15 = add i32 %14, %5
+  store i32 %15, ptr %4, align 4, !tbaa !4
+  %16 = icmp ult i32 %15, %14
+  %17 = zext i1 %16 to i32
+  %18 = lshr i32 %12, 29
+  %19 = add i32 %18, %7
+  %20 = add i32 %19, %17
+  store i32 %20, ptr %6, align 4, !tbaa !4
+  %21 = sub nuw nsw i32 64, %10
+  %.not.i = icmp ult i32 %12, %21
+  br i1 %.not.i, label %33, label %22
 
-42:                                               ; preds = %2
-  %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %45 = zext nneg i32 %30 to i64
-  %46 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
-  tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
-  %47 = add nuw nsw i64 %43, 63
-  %48 = icmp samesign ult i64 %47, %33
-  br i1 %48, label %.lr.ph.i, label %PHP_RIPEMD160Update.exit
+22:                                               ; preds = %2
+  %23 = zext nneg i32 %21 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %25 = zext nneg i32 %10 to i64
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 0, i64 %25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %23, i1 false)
+  tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull %24)
+  %27 = add nuw nsw i64 %23, 63
+  %28 = icmp samesign ult i64 %27, %13
+  br i1 %28, label %.lr.ph.i, label %PHP_RIPEMD160Update.exit
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
-  %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
-  %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
-  %50 = add nuw nsw i64 %.031.i, 64
-  %51 = add nuw nsw i64 %.031.i, 127
-  %52 = icmp samesign ult i64 %51, %33
-  br i1 %52, label %.lr.ph.i, label %PHP_RIPEMD160Update.exit
+.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
+  %.031.i = phi i64 [ %30, %.lr.ph.i ], [ %23, %22 ]
+  %29 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
+  tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %29)
+  %30 = add nuw nsw i64 %.031.i, 64
+  %31 = add nuw nsw i64 %.031.i, 127
+  %32 = icmp samesign ult i64 %31, %13
+  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD160Update.exit
 
-53:                                               ; preds = %2
-  %54 = zext nneg i32 %30 to i64
+33:                                               ; preds = %2
+  %34 = zext nneg i32 %10 to i64
   br label %PHP_RIPEMD160Update.exit
 
-PHP_RIPEMD160Update.exit:                         ; preds = %.lr.ph.i, %42, %53
-  %.028.i = phi i64 [ %54, %53 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
-  %58 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
-  %59 = load i32, ptr %4, align 4, !tbaa !4
-  %60 = lshr i32 %59, 3
-  %61 = and i32 %60, 63
-  %62 = add i32 %59, 64
-  store i32 %62, ptr %4, align 4, !tbaa !4
-  %63 = icmp ugt i32 %59, -65
-  %64 = load i32, ptr %16, align 4, !tbaa !4
-  %65 = zext i1 %63 to i32
-  %66 = add i32 %64, %65
-  store i32 %66, ptr %16, align 4, !tbaa !4
-  %.not.i17 = icmp samesign ult i32 %61, 56
-  br i1 %.not.i17, label %72, label %67
+PHP_RIPEMD160Update.exit:                         ; preds = %.lr.ph.i, %22, %33
+  %.028.i = phi i64 [ %34, %33 ], [ 0, %22 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %33 ], [ %23, %22 ], [ %30, %.lr.ph.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %.028.i
+  %37 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
+  %38 = sub i64 %13, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %37, i64 %38, i1 false)
+  %39 = load i32, ptr %4, align 4, !tbaa !4
+  %40 = lshr i32 %39, 3
+  %41 = and i32 %40, 63
+  %42 = add i32 %39, 64
+  store i32 %42, ptr %4, align 4, !tbaa !4
+  %43 = icmp ugt i32 %39, -65
+  %44 = load i32, ptr %6, align 4, !tbaa !4
+  %45 = zext i1 %43 to i32
+  %46 = add i32 %44, %45
+  store i32 %46, ptr %6, align 4, !tbaa !4
+  %.not.i17 = icmp samesign ult i32 %41, 56
+  br i1 %.not.i17, label %52, label %47
 
-67:                                               ; preds = %PHP_RIPEMD160Update.exit
-  %68 = sub nuw nsw i32 64, %61
-  %69 = zext nneg i32 %68 to i64
-  %70 = zext nneg i32 %61 to i64
-  %71 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
-  tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
+47:                                               ; preds = %PHP_RIPEMD160Update.exit
+  %48 = sub nuw nsw i32 64, %41
+  %49 = zext nneg i32 %48 to i64
+  %50 = zext nneg i32 %41 to i64
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 4 dereferenceable(1) %3, i64 %49, i1 false)
+  tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull %35)
   br label %PHP_RIPEMD160Update.exit22
 
-72:                                               ; preds = %PHP_RIPEMD160Update.exit
-  %73 = zext nneg i32 %61 to i64
+52:                                               ; preds = %PHP_RIPEMD160Update.exit
+  %53 = zext nneg i32 %41 to i64
   br label %PHP_RIPEMD160Update.exit22
 
-PHP_RIPEMD160Update.exit22:                       ; preds = %72, %67
-  %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
-  %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
-  %74 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i18
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
-  %76 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %77
+PHP_RIPEMD160Update.exit22:                       ; preds = %52, %47
+  %.028.i18 = phi i64 [ %53, %52 ], [ 0, %47 ]
+  %.1.i19 = phi i64 [ 0, %52 ], [ %49, %47 ]
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %.028.i18
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
+  %56 = sub nuw nsw i64 8, %.1.i19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %55, i64 %56, i1 false)
+  br label %57
 
-77:                                               ; preds = %77, %PHP_RIPEMD160Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next.i, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
-  %79 = load i32, ptr %78, align 4, !tbaa !4
-  %80 = lshr i32 %79, 24
-  %81 = trunc nuw i32 %80 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 3
-  store i8 %81, ptr %83, align 1, !tbaa !8
-  %84 = load i32, ptr %78, align 4, !tbaa !4
-  %85 = lshr i32 %84, 16
-  %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 2
-  store i8 %86, ptr %87, align 1, !tbaa !8
-  %88 = load i32, ptr %78, align 4, !tbaa !4
-  %89 = lshr i32 %88, 8
-  %90 = trunc i32 %89 to i8
-  %91 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store i8 %90, ptr %91, align 1, !tbaa !8
-  %92 = load i32, ptr %78, align 4, !tbaa !4
-  %93 = trunc i32 %92 to i8
-  store i8 %93, ptr %82, align 1, !tbaa !8
+57:                                               ; preds = %57, %PHP_RIPEMD160Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next23.i, %57 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next.i, %57 ]
+  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
+  %59 = load i32, ptr %58, align 4, !tbaa !4
+  %60 = lshr i32 %59, 24
+  %61 = trunc nuw i32 %60 to i8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
+  store i8 %61, ptr %63, align 1, !tbaa !8
+  %64 = load i32, ptr %58, align 4, !tbaa !4
+  %65 = lshr i32 %64, 16
+  %66 = trunc i32 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 2
+  store i8 %66, ptr %67, align 1, !tbaa !8
+  %68 = load i32, ptr %58, align 4, !tbaa !4
+  %69 = lshr i32 %68, 8
+  %70 = trunc i32 %69 to i8
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  store i8 %70, ptr %71, align 1, !tbaa !8
+  %72 = load i32, ptr %58, align 4, !tbaa !4
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %62, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 5
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57
 
-RIPEMDEncode.exit:                                ; preds = %77
+RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 92) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
@@ -584,156 +532,130 @@ define dso_local void @PHP_RIPEMD256Update(ptr noundef captures(none) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_RIPEMD256Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
-  %3 = alloca [8 x i8], align 1
+  %3 = alloca [8 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4, !tbaa !4
-  %6 = trunc i32 %5 to i8
-  store i8 %6, ptr %3, align 1, !tbaa !8
-  %7 = lshr i32 %5, 8
-  %8 = trunc i32 %7 to i8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %8, ptr %9, align 1, !tbaa !8
-  %10 = lshr i32 %5, 16
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %11, ptr %12, align 1, !tbaa !8
-  %13 = lshr i32 %5, 24
-  %14 = trunc nuw i32 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %14, ptr %15, align 1, !tbaa !8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %17 = load i32, ptr %16, align 4, !tbaa !4
-  %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1, !tbaa !8
-  %20 = lshr i32 %17, 8
-  %21 = trunc i32 %20 to i8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1, !tbaa !8
-  %23 = lshr i32 %17, 16
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1, !tbaa !8
-  %26 = lshr i32 %17, 24
-  %27 = trunc nuw i32 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1, !tbaa !8
-  %29 = lshr i32 %5, 3
-  %30 = and i32 %29, 63
-  %31 = icmp samesign ult i32 %30, 56
-  %.v = select i1 %31, i32 56, i32 120
-  %32 = sub nsw i32 %.v, %30
-  %33 = zext i32 %32 to i64
-  %34 = shl nsw i32 %32, 3
-  %35 = add i32 %34, %5
-  store i32 %35, ptr %4, align 4, !tbaa !4
-  %36 = icmp ult i32 %35, %34
-  %37 = zext i1 %36 to i32
-  %38 = lshr i32 %32, 29
-  %39 = add i32 %38, %17
-  %40 = add i32 %39, %37
-  store i32 %40, ptr %16, align 4, !tbaa !4
-  %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ult i32 %32, %41
-  br i1 %.not.i, label %53, label %42
+  store i32 %5, ptr %3, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %7 = load i32, ptr %6, align 4, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = lshr i32 %5, 3
+  %10 = and i32 %9, 63
+  %11 = icmp samesign ult i32 %10, 56
+  %.v = select i1 %11, i32 56, i32 120
+  %12 = sub nsw i32 %.v, %10
+  %13 = zext i32 %12 to i64
+  %14 = shl nsw i32 %12, 3
+  %15 = add i32 %14, %5
+  store i32 %15, ptr %4, align 4, !tbaa !4
+  %16 = icmp ult i32 %15, %14
+  %17 = zext i1 %16 to i32
+  %18 = lshr i32 %12, 29
+  %19 = add i32 %18, %7
+  %20 = add i32 %19, %17
+  store i32 %20, ptr %6, align 4, !tbaa !4
+  %21 = sub nuw nsw i32 64, %10
+  %.not.i = icmp ult i32 %12, %21
+  br i1 %.not.i, label %33, label %22
 
-42:                                               ; preds = %2
-  %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = zext nneg i32 %30 to i64
-  %46 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
-  tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
-  %47 = add nuw nsw i64 %43, 63
-  %48 = icmp samesign ult i64 %47, %33
-  br i1 %48, label %.lr.ph.i, label %PHP_RIPEMD256Update.exit
+22:                                               ; preds = %2
+  %23 = zext nneg i32 %21 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = zext nneg i32 %10 to i64
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 0, i64 %25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %23, i1 false)
+  tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull %24)
+  %27 = add nuw nsw i64 %23, 63
+  %28 = icmp samesign ult i64 %27, %13
+  br i1 %28, label %.lr.ph.i, label %PHP_RIPEMD256Update.exit
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
-  %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
-  %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
-  %50 = add nuw nsw i64 %.031.i, 64
-  %51 = add nuw nsw i64 %.031.i, 127
-  %52 = icmp samesign ult i64 %51, %33
-  br i1 %52, label %.lr.ph.i, label %PHP_RIPEMD256Update.exit
+.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
+  %.031.i = phi i64 [ %30, %.lr.ph.i ], [ %23, %22 ]
+  %29 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
+  tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %29)
+  %30 = add nuw nsw i64 %.031.i, 64
+  %31 = add nuw nsw i64 %.031.i, 127
+  %32 = icmp samesign ult i64 %31, %13
+  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD256Update.exit
 
-53:                                               ; preds = %2
-  %54 = zext nneg i32 %30 to i64
+33:                                               ; preds = %2
+  %34 = zext nneg i32 %10 to i64
   br label %PHP_RIPEMD256Update.exit
 
-PHP_RIPEMD256Update.exit:                         ; preds = %.lr.ph.i, %42, %53
-  %.028.i = phi i64 [ %54, %53 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
-  %58 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
-  %59 = load i32, ptr %4, align 4, !tbaa !4
-  %60 = lshr i32 %59, 3
-  %61 = and i32 %60, 63
-  %62 = add i32 %59, 64
-  store i32 %62, ptr %4, align 4, !tbaa !4
-  %63 = icmp ugt i32 %59, -65
-  %64 = load i32, ptr %16, align 4, !tbaa !4
-  %65 = zext i1 %63 to i32
-  %66 = add i32 %64, %65
-  store i32 %66, ptr %16, align 4, !tbaa !4
-  %.not.i17 = icmp samesign ult i32 %61, 56
-  br i1 %.not.i17, label %72, label %67
+PHP_RIPEMD256Update.exit:                         ; preds = %.lr.ph.i, %22, %33
+  %.028.i = phi i64 [ %34, %33 ], [ 0, %22 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %33 ], [ %23, %22 ], [ %30, %.lr.ph.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %.028.i
+  %37 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
+  %38 = sub i64 %13, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %37, i64 %38, i1 false)
+  %39 = load i32, ptr %4, align 4, !tbaa !4
+  %40 = lshr i32 %39, 3
+  %41 = and i32 %40, 63
+  %42 = add i32 %39, 64
+  store i32 %42, ptr %4, align 4, !tbaa !4
+  %43 = icmp ugt i32 %39, -65
+  %44 = load i32, ptr %6, align 4, !tbaa !4
+  %45 = zext i1 %43 to i32
+  %46 = add i32 %44, %45
+  store i32 %46, ptr %6, align 4, !tbaa !4
+  %.not.i17 = icmp samesign ult i32 %41, 56
+  br i1 %.not.i17, label %52, label %47
 
-67:                                               ; preds = %PHP_RIPEMD256Update.exit
-  %68 = sub nuw nsw i32 64, %61
-  %69 = zext nneg i32 %68 to i64
-  %70 = zext nneg i32 %61 to i64
-  %71 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
-  tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
+47:                                               ; preds = %PHP_RIPEMD256Update.exit
+  %48 = sub nuw nsw i32 64, %41
+  %49 = zext nneg i32 %48 to i64
+  %50 = zext nneg i32 %41 to i64
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 4 dereferenceable(1) %3, i64 %49, i1 false)
+  tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull %35)
   br label %PHP_RIPEMD256Update.exit22
 
-72:                                               ; preds = %PHP_RIPEMD256Update.exit
-  %73 = zext nneg i32 %61 to i64
+52:                                               ; preds = %PHP_RIPEMD256Update.exit
+  %53 = zext nneg i32 %41 to i64
   br label %PHP_RIPEMD256Update.exit22
 
-PHP_RIPEMD256Update.exit22:                       ; preds = %72, %67
-  %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
-  %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
-  %74 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i18
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
-  %76 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %77
+PHP_RIPEMD256Update.exit22:                       ; preds = %52, %47
+  %.028.i18 = phi i64 [ %53, %52 ], [ 0, %47 ]
+  %.1.i19 = phi i64 [ 0, %52 ], [ %49, %47 ]
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %.028.i18
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
+  %56 = sub nuw nsw i64 8, %.1.i19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %55, i64 %56, i1 false)
+  br label %57
 
-77:                                               ; preds = %77, %PHP_RIPEMD256Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next.i, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
-  %79 = load i32, ptr %78, align 4, !tbaa !4
-  %80 = lshr i32 %79, 24
-  %81 = trunc nuw i32 %80 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 3
-  store i8 %81, ptr %83, align 1, !tbaa !8
-  %84 = load i32, ptr %78, align 4, !tbaa !4
-  %85 = lshr i32 %84, 16
-  %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 2
-  store i8 %86, ptr %87, align 1, !tbaa !8
-  %88 = load i32, ptr %78, align 4, !tbaa !4
-  %89 = lshr i32 %88, 8
-  %90 = trunc i32 %89 to i8
-  %91 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store i8 %90, ptr %91, align 1, !tbaa !8
-  %92 = load i32, ptr %78, align 4, !tbaa !4
-  %93 = trunc i32 %92 to i8
-  store i8 %93, ptr %82, align 1, !tbaa !8
+57:                                               ; preds = %57, %PHP_RIPEMD256Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next23.i, %57 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next.i, %57 ]
+  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
+  %59 = load i32, ptr %58, align 4, !tbaa !4
+  %60 = lshr i32 %59, 24
+  %61 = trunc nuw i32 %60 to i8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
+  store i8 %61, ptr %63, align 1, !tbaa !8
+  %64 = load i32, ptr %58, align 4, !tbaa !4
+  %65 = lshr i32 %64, 16
+  %66 = trunc i32 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 2
+  store i8 %66, ptr %67, align 1, !tbaa !8
+  %68 = load i32, ptr %58, align 4, !tbaa !4
+  %69 = lshr i32 %68, 8
+  %70 = trunc i32 %69 to i8
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  store i8 %70, ptr %71, align 1, !tbaa !8
+  %72 = load i32, ptr %58, align 4, !tbaa !4
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %62, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57
 
-RIPEMDEncode.exit:                                ; preds = %77
+RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
@@ -829,156 +751,130 @@ define dso_local void @PHP_RIPEMD320Update(ptr noundef captures(none) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_RIPEMD320Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
-  %3 = alloca [8 x i8], align 1
+  %3 = alloca [8 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 4, !tbaa !4
-  %6 = trunc i32 %5 to i8
-  store i8 %6, ptr %3, align 1, !tbaa !8
-  %7 = lshr i32 %5, 8
-  %8 = trunc i32 %7 to i8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %8, ptr %9, align 1, !tbaa !8
-  %10 = lshr i32 %5, 16
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %11, ptr %12, align 1, !tbaa !8
-  %13 = lshr i32 %5, 24
-  %14 = trunc nuw i32 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %14, ptr %15, align 1, !tbaa !8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %17 = load i32, ptr %16, align 4, !tbaa !4
-  %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1, !tbaa !8
-  %20 = lshr i32 %17, 8
-  %21 = trunc i32 %20 to i8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1, !tbaa !8
-  %23 = lshr i32 %17, 16
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1, !tbaa !8
-  %26 = lshr i32 %17, 24
-  %27 = trunc nuw i32 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1, !tbaa !8
-  %29 = lshr i32 %5, 3
-  %30 = and i32 %29, 63
-  %31 = icmp samesign ult i32 %30, 56
-  %.v = select i1 %31, i32 56, i32 120
-  %32 = sub nsw i32 %.v, %30
-  %33 = zext i32 %32 to i64
-  %34 = shl nsw i32 %32, 3
-  %35 = add i32 %34, %5
-  store i32 %35, ptr %4, align 4, !tbaa !4
-  %36 = icmp ult i32 %35, %34
-  %37 = zext i1 %36 to i32
-  %38 = lshr i32 %32, 29
-  %39 = add i32 %38, %17
-  %40 = add i32 %39, %37
-  store i32 %40, ptr %16, align 4, !tbaa !4
-  %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ult i32 %32, %41
-  br i1 %.not.i, label %53, label %42
+  store i32 %5, ptr %3, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %7 = load i32, ptr %6, align 4, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = lshr i32 %5, 3
+  %10 = and i32 %9, 63
+  %11 = icmp samesign ult i32 %10, 56
+  %.v = select i1 %11, i32 56, i32 120
+  %12 = sub nsw i32 %.v, %10
+  %13 = zext i32 %12 to i64
+  %14 = shl nsw i32 %12, 3
+  %15 = add i32 %14, %5
+  store i32 %15, ptr %4, align 4, !tbaa !4
+  %16 = icmp ult i32 %15, %14
+  %17 = zext i1 %16 to i32
+  %18 = lshr i32 %12, 29
+  %19 = add i32 %18, %7
+  %20 = add i32 %19, %17
+  store i32 %20, ptr %6, align 4, !tbaa !4
+  %21 = sub nuw nsw i32 64, %10
+  %.not.i = icmp ult i32 %12, %21
+  br i1 %.not.i, label %33, label %22
 
-42:                                               ; preds = %2
-  %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %45 = zext nneg i32 %30 to i64
-  %46 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
-  tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
-  %47 = add nuw nsw i64 %43, 63
-  %48 = icmp samesign ult i64 %47, %33
-  br i1 %48, label %.lr.ph.i, label %PHP_RIPEMD320Update.exit
+22:                                               ; preds = %2
+  %23 = zext nneg i32 %21 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %25 = zext nneg i32 %10 to i64
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 0, i64 %25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %23, i1 false)
+  tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull %24)
+  %27 = add nuw nsw i64 %23, 63
+  %28 = icmp samesign ult i64 %27, %13
+  br i1 %28, label %.lr.ph.i, label %PHP_RIPEMD320Update.exit
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
-  %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
-  %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
-  %50 = add nuw nsw i64 %.031.i, 64
-  %51 = add nuw nsw i64 %.031.i, 127
-  %52 = icmp samesign ult i64 %51, %33
-  br i1 %52, label %.lr.ph.i, label %PHP_RIPEMD320Update.exit
+.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
+  %.031.i = phi i64 [ %30, %.lr.ph.i ], [ %23, %22 ]
+  %29 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
+  tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %29)
+  %30 = add nuw nsw i64 %.031.i, 64
+  %31 = add nuw nsw i64 %.031.i, 127
+  %32 = icmp samesign ult i64 %31, %13
+  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD320Update.exit
 
-53:                                               ; preds = %2
-  %54 = zext nneg i32 %30 to i64
+33:                                               ; preds = %2
+  %34 = zext nneg i32 %10 to i64
   br label %PHP_RIPEMD320Update.exit
 
-PHP_RIPEMD320Update.exit:                         ; preds = %.lr.ph.i, %42, %53
-  %.028.i = phi i64 [ %54, %53 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
-  %58 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
-  %59 = load i32, ptr %4, align 4, !tbaa !4
-  %60 = lshr i32 %59, 3
-  %61 = and i32 %60, 63
-  %62 = add i32 %59, 64
-  store i32 %62, ptr %4, align 4, !tbaa !4
-  %63 = icmp ugt i32 %59, -65
-  %64 = load i32, ptr %16, align 4, !tbaa !4
-  %65 = zext i1 %63 to i32
-  %66 = add i32 %64, %65
-  store i32 %66, ptr %16, align 4, !tbaa !4
-  %.not.i17 = icmp samesign ult i32 %61, 56
-  br i1 %.not.i17, label %72, label %67
+PHP_RIPEMD320Update.exit:                         ; preds = %.lr.ph.i, %22, %33
+  %.028.i = phi i64 [ %34, %33 ], [ 0, %22 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %33 ], [ %23, %22 ], [ %30, %.lr.ph.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %.028.i
+  %37 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
+  %38 = sub i64 %13, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %37, i64 %38, i1 false)
+  %39 = load i32, ptr %4, align 4, !tbaa !4
+  %40 = lshr i32 %39, 3
+  %41 = and i32 %40, 63
+  %42 = add i32 %39, 64
+  store i32 %42, ptr %4, align 4, !tbaa !4
+  %43 = icmp ugt i32 %39, -65
+  %44 = load i32, ptr %6, align 4, !tbaa !4
+  %45 = zext i1 %43 to i32
+  %46 = add i32 %44, %45
+  store i32 %46, ptr %6, align 4, !tbaa !4
+  %.not.i17 = icmp samesign ult i32 %41, 56
+  br i1 %.not.i17, label %52, label %47
 
-67:                                               ; preds = %PHP_RIPEMD320Update.exit
-  %68 = sub nuw nsw i32 64, %61
-  %69 = zext nneg i32 %68 to i64
-  %70 = zext nneg i32 %61 to i64
-  %71 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
-  tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
+47:                                               ; preds = %PHP_RIPEMD320Update.exit
+  %48 = sub nuw nsw i32 64, %41
+  %49 = zext nneg i32 %48 to i64
+  %50 = zext nneg i32 %41 to i64
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 4 dereferenceable(1) %3, i64 %49, i1 false)
+  tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull %35)
   br label %PHP_RIPEMD320Update.exit22
 
-72:                                               ; preds = %PHP_RIPEMD320Update.exit
-  %73 = zext nneg i32 %61 to i64
+52:                                               ; preds = %PHP_RIPEMD320Update.exit
+  %53 = zext nneg i32 %41 to i64
   br label %PHP_RIPEMD320Update.exit22
 
-PHP_RIPEMD320Update.exit22:                       ; preds = %72, %67
-  %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
-  %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
-  %74 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i18
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
-  %76 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %77
+PHP_RIPEMD320Update.exit22:                       ; preds = %52, %47
+  %.028.i18 = phi i64 [ %53, %52 ], [ 0, %47 ]
+  %.1.i19 = phi i64 [ 0, %52 ], [ %49, %47 ]
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 0, i64 %.028.i18
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
+  %56 = sub nuw nsw i64 8, %.1.i19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %55, i64 %56, i1 false)
+  br label %57
 
-77:                                               ; preds = %77, %PHP_RIPEMD320Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next.i, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
-  %79 = load i32, ptr %78, align 4, !tbaa !4
-  %80 = lshr i32 %79, 24
-  %81 = trunc nuw i32 %80 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 3
-  store i8 %81, ptr %83, align 1, !tbaa !8
-  %84 = load i32, ptr %78, align 4, !tbaa !4
-  %85 = lshr i32 %84, 16
-  %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 2
-  store i8 %86, ptr %87, align 1, !tbaa !8
-  %88 = load i32, ptr %78, align 4, !tbaa !4
-  %89 = lshr i32 %88, 8
-  %90 = trunc i32 %89 to i8
-  %91 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store i8 %90, ptr %91, align 1, !tbaa !8
-  %92 = load i32, ptr %78, align 4, !tbaa !4
-  %93 = trunc i32 %92 to i8
-  store i8 %93, ptr %82, align 1, !tbaa !8
+57:                                               ; preds = %57, %PHP_RIPEMD320Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next23.i, %57 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next.i, %57 ]
+  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
+  %59 = load i32, ptr %58, align 4, !tbaa !4
+  %60 = lshr i32 %59, 24
+  %61 = trunc nuw i32 %60 to i8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
+  store i8 %61, ptr %63, align 1, !tbaa !8
+  %64 = load i32, ptr %58, align 4, !tbaa !4
+  %65 = lshr i32 %64, 16
+  %66 = trunc i32 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 2
+  store i8 %66, ptr %67, align 1, !tbaa !8
+  %68 = load i32, ptr %58, align 4, !tbaa !4
+  %69 = lshr i32 %68, 8
+  %70 = trunc i32 %69 to i8
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  store i8 %70, ptr %71, align 1, !tbaa !8
+  %72 = load i32, ptr %58, align 4, !tbaa !4
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %62, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 10
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57
 
-RIPEMDEncode.exit:                                ; preds = %77
+RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 112) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void

@@ -8757,15 +8757,10 @@ define hidden void @_ZN9elfshaker4repo6remote12fetch_remote17h1bf32241e62a2658E(
 
 72:                                               ; preds = %65
   %73 = ptrtoint ptr %69 to i64
-  %.sroa.454.4.extract.shift = lshr i64 %73, 32
-  %.sroa.454.4.extract.trunc = trunc nuw i64 %.sroa.454.4.extract.shift to i32
-  %.sroa.454.0.extract.trunc = trunc i64 %73 to i32
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %74, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.454.0.extract.trunc, ptr %.sroa.265.0..sroa_idx, align 8
-  %.sroa.366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.454.4.extract.trunc, ptr %.sroa.366.0..sroa_idx, align 4
+  store i64 %73, ptr %.sroa.265.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %94
 
@@ -9128,15 +9123,10 @@ define hidden void @_ZN9elfshaker4repo6remote13update_remote17h688ee212c9506748E
 
 89:                                               ; preds = %82
   %90 = ptrtoint ptr %86 to i64
-  %.sroa.464.4.extract.shift = lshr i64 %90, 32
-  %.sroa.464.4.extract.trunc = trunc nuw i64 %.sroa.464.4.extract.shift to i32
-  %.sroa.464.0.extract.trunc = trunc i64 %90 to i32
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %91, align 8
   %.sroa.275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.464.0.extract.trunc, ptr %.sroa.275.0..sroa_idx, align 8
-  %.sroa.376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.464.4.extract.trunc, ptr %.sroa.376.0..sroa_idx, align 4
+  store i64 %90, ptr %.sroa.275.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %112
 

@@ -2087,9 +2087,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %13
   %.sroa.5.0.extract.shift = lshr i64 %2, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i32 %.sroa.06.0.extract.trunc, ptr %25, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %.sroa.5.0.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %2, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i8 0, ptr %26, align 4, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 200

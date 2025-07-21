@@ -86574,8 +86574,6 @@ define hidden void @_ZN8language6buffer14BufferSnapshot17suggested_indents17hb16
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 108
-  %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %12, i64 5
-  %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -87030,12 +87028,7 @@ default.unreachable.i.i.i:                        ; preds = %102
   br label %39
 
 165:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h91a2bd562aaeaddbE.exit"
-  %.sroa.566.4.extract.trunc = trunc i64 %.sroa.566.2 to i40
-  %.sroa.566.10.extract.shift = lshr i64 %.sroa.566.2, 48
-  %.sroa.566.10.extract.trunc = trunc nuw i64 %.sroa.566.10.extract.shift to i16
-  store i40 %.sroa.566.4.extract.trunc, ptr %12, align 8
-  store i8 %.sroa.566.9.extract.trunc, ptr %.sroa.4.0..sroa_idx1, align 1
-  store i16 %.sroa.566.10.extract.trunc, ptr %.sroa.5.0..sroa_idx3, align 2
+  store i64 %.sroa.566.2, ptr %12, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !24512)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %166 = load ptr, ptr %16, align 8, !alias.scope !24512, !noalias !24515, !noundef !11

@@ -69,25 +69,23 @@ define linkonce_odr dso_local void @_ZN4absl12NoDestructorINS_18profiling_intern
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 0, ptr %6, align 4, !tbaa !10
-  store i32 0, ptr %5, align 8, !tbaa !13
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 0, ptr %7, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store ptr null, ptr %8, align 8, !tbaa !16
+  store i64 0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 0, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  store ptr null, ptr %7, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %4, ptr %9, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %4, ptr %8, align 8, !tbaa !17
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEE13PlacementImplC2IJEEEDpOT_.exit unwind label %10
+          to label %_ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEE13PlacementImplC2IJEEEDpOT_.exit unwind label %9
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #14
   unreachable
 
 _ZN4absl12NoDestructorINS_18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEEE13PlacementImplC2IJEEEDpOT_.exit: ; preds = %1
@@ -106,11 +104,9 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(672) initializes((0, 24), (112, 124)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %3, align 4, !tbaa !10
-  store i32 0, ptr %2, align 8, !tbaa !13
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 0, ptr %4, align 8, !tbaa !14
+  store i64 0, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 0, ptr %3, align 8, !tbaa !10
   ret void
 }
 
@@ -147,21 +143,21 @@ define dso_local void @_ZN4absl18container_internal14HashtablezInfo18PrepareForS
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %.fca.0.extract, ptr %18, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !25
+  store i32 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %1, ptr %19, align 8, !tbaa !26
+  store i64 %1, ptr %19, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %21 = tail call noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %20, i32 noundef 64, i32 noundef 0)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 %21, ptr %22, align 4, !tbaa !27
+  store i32 %21, ptr %22, align 4, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store i64 %2, ptr %23, align 8, !tbaa !32
+  store i64 %2, ptr %23, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store i64 %3, ptr %24, align 8, !tbaa !33
+  store i64 %3, ptr %24, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store i64 %4, ptr %25, align 8, !tbaa !34
+  store i64 %4, ptr %25, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i16 %5, ptr %26, align 8, !tbaa !35
+  store i16 %5, ptr %26, align 8, !tbaa !33
   ret void
 }
 
@@ -192,15 +188,15 @@ define dso_local noundef ptr @_ZN4absl18container_internal10SampleSlowERNS0_13Sa
   %8 = alloca i64, align 8
   %9 = alloca i16, align 2
   %10 = alloca i64, align 8
-  store i64 %1, ptr %6, align 8, !tbaa !36
-  store i64 %2, ptr %7, align 8, !tbaa !36
-  store i64 %3, ptr %8, align 8, !tbaa !36
-  store i16 %4, ptr %9, align 2, !tbaa !37
+  store i64 %1, ptr %6, align 8, !tbaa !34
+  store i64 %2, ptr %7, align 8, !tbaa !34
+  store i64 %3, ptr %8, align 8, !tbaa !34
+  store i16 %4, ptr %9, align 2, !tbaa !35
   %11 = load atomic i32, ptr @_ZZN4absl18container_internalL19ShouldForceSamplingEvE12global_state.0 monotonic, align 4
   switch i32 %11, label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit [
     i32 0, label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread
     i32 2, label %12
-  ], !prof !38
+  ], !prof !36
 
 12:                                               ; preds = %5
   %13 = tail call zeroext i1 @AbslContainerInternalSampleEverything()
@@ -211,24 +207,24 @@ define dso_local noundef ptr @_ZN4absl18container_internal10SampleSlowERNS0_13Sa
 _ZN4absl18container_internalL19ShouldForceSamplingEv.exit: ; preds = %5, %12
   %.0.i = phi i32 [ %14, %12 ], [ %11, %5 ]
   %15 = icmp eq i32 %.0.i, 1
-  br i1 %15, label %16, label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread, !prof !39
+  br i1 %15, label %16, label %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread, !prof !37
 
 16:                                               ; preds = %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
-  store i64 1, ptr %0, align 8, !tbaa !40
+  store i64 1, ptr %0, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !36
-  store i64 1, ptr %17, align 8, !tbaa !36
-  store i64 %18, ptr %10, align 8, !tbaa !36
+  %18 = load i64, ptr %17, align 8, !tbaa !34
+  store i64 1, ptr %17, align 8, !tbaa !34
+  store i64 %18, ptr %10, align 8, !tbaa !34
   %19 = tail call noundef nonnull align 8 dereferenceable(712) ptr @_ZN4absl18container_internal23GlobalHashtablezSamplerEv()
   %20 = call noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmS8_S8_RtEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(712) %19, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 2 dereferenceable(2) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
   br label %21
 
 _ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread: ; preds = %5, %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
-  store i64 9223372036854775807, ptr %0, align 8, !tbaa !36
+  store i64 9223372036854775807, ptr %0, align 8, !tbaa !34
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 9223372036854775807, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !36
+  store i64 9223372036854775807, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !34
   br label %21
 
 21:                                               ; preds = %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread, %16
@@ -251,11 +247,11 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleR
   br label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit
 
 15:                                               ; preds = %6
-  %16 = load i64, ptr %1, align 8, !tbaa !36
-  %17 = load i64, ptr %2, align 8, !tbaa !36
-  %18 = load i64, ptr %3, align 8, !tbaa !36
-  %19 = load i64, ptr %4, align 8, !tbaa !36
-  %20 = load i16, ptr %5, align 2, !tbaa !37
+  %16 = load i64, ptr %1, align 8, !tbaa !34
+  %17 = load i64, ptr %2, align 8, !tbaa !34
+  %18 = load i64, ptr %3, align 8, !tbaa !34
+  %19 = load i64, ptr %4, align 8, !tbaa !34
+  %20 = load i16, ptr %5, align 2, !tbaa !35
   %21 = tail call noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmmmtEEEPS3_DpT_(ptr noundef nonnull align 8 dereferenceable(712) %0, i64 noundef %16, i64 noundef %17, i64 noundef %18, i64 noundef %19, i16 noundef zeroext %20)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit
@@ -264,111 +260,109 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleR
   %24 = tail call noalias noundef nonnull dereferenceable(672) ptr @_Znwm(i64 noundef 672) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(672) %24, i8 0, i64 24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 116
+  store i64 0, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i32 0, ptr %26, align 4, !tbaa !10
-  store i32 0, ptr %25, align 4, !tbaa !13
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  store i32 0, ptr %27, align 4, !tbaa !14
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
   invoke void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %28 unwind label %67
+          to label %27 unwind label %66
 
-28:                                               ; preds = %23
-  %29 = load i64, ptr %1, align 8, !tbaa !36
-  %30 = load i64, ptr %2, align 8, !tbaa !36
-  %31 = load i64, ptr %3, align 8, !tbaa !36
-  %32 = load i64, ptr %4, align 8, !tbaa !36
-  %33 = load i16, ptr %5, align 2, !tbaa !37
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 32
+27:                                               ; preds = %23
+  %28 = load i64, ptr %1, align 8, !tbaa !34
+  %29 = load i64, ptr %2, align 8, !tbaa !34
+  %30 = load i64, ptr %3, align 8, !tbaa !34
+  %31 = load i64, ptr %4, align 8, !tbaa !34
+  %32 = load i16, ptr %5, align 2, !tbaa !35
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store atomic i64 0, ptr %33 monotonic, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store atomic i64 0, ptr %34 monotonic, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store atomic i64 0, ptr %35 monotonic, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store atomic i64 0, ptr %36 monotonic, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store atomic i64 0, ptr %37 monotonic, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store atomic i64 0, ptr %38 monotonic, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %24, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store atomic i64 0, ptr %39 monotonic, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store atomic i64 0, ptr %40 monotonic, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  store atomic i64 -1, ptr %41 monotonic, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %24, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 88
+  store atomic i64 -1, ptr %40 monotonic, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 96
+  store atomic i64 0, ptr %41 monotonic, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 104
   store atomic i64 0, ptr %42 monotonic, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  store atomic i64 0, ptr %43 monotonic, align 8
-  %44 = invoke { i64, i32 } @_ZN4absl3NowEv()
-          to label %.noexc unwind label %67
+  %43 = invoke { i64, i32 } @_ZN4absl3NowEv()
+          to label %.noexc unwind label %66
 
-.noexc:                                           ; preds = %28
-  %.fca.0.extract.i = extractvalue { i64, i32 } %44, 0
-  %.fca.1.extract.i = extractvalue { i64, i32 } %44, 1
+.noexc:                                           ; preds = %27
+  %.fca.0.extract.i = extractvalue { i64, i32 } %43, 0
+  %.fca.1.extract.i = extractvalue { i64, i32 } %43, 1
   store i64 %.fca.0.extract.i, ptr %25, align 8
-  store i32 %.fca.1.extract.i, ptr %27, align 8, !tbaa !25
-  %45 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %29, ptr %45, align 8, !tbaa !26
-  %46 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %47 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %46, i32 noundef 64, i32 noundef 0)
-          to label %48 unwind label %67
+  store i32 %.fca.1.extract.i, ptr %26, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %28, ptr %44, align 8, !tbaa !24
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 136
+  %46 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %45, i32 noundef 64, i32 noundef 0)
+          to label %47 unwind label %66
 
-48:                                               ; preds = %.noexc
-  %49 = getelementptr inbounds nuw i8, ptr %24, i64 124
-  store i32 %47, ptr %49, align 4, !tbaa !27
-  %50 = getelementptr inbounds nuw i8, ptr %24, i64 648
-  store i64 %30, ptr %50, align 8, !tbaa !32
-  %51 = getelementptr inbounds nuw i8, ptr %24, i64 656
-  store i64 %31, ptr %51, align 8, !tbaa !33
-  %52 = getelementptr inbounds nuw i8, ptr %24, i64 664
-  store i64 %32, ptr %52, align 8, !tbaa !34
-  %53 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  store i16 %33, ptr %53, align 8, !tbaa !35
+47:                                               ; preds = %.noexc
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 124
+  store i32 %46, ptr %48, align 4, !tbaa !25
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 648
+  store i64 %29, ptr %49, align 8, !tbaa !30
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 656
+  store i64 %30, ptr %50, align 8, !tbaa !31
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 664
+  store i64 %31, ptr %51, align 8, !tbaa !32
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  store i16 %32, ptr %52, align 8, !tbaa !33
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %54
+          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %53
 
-54:                                               ; preds = %48
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %47
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #14
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #14
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %48
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load atomic i64, ptr %57 monotonic, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %60 = ptrtoint ptr %24 to i64
-  %storemerge5.i = inttoptr i64 %58 to ptr
-  store ptr %storemerge5.i, ptr %59, align 8
-  %61 = cmpxchg weak ptr %57, i64 %58, i64 %60 release monotonic, align 8
-  %62 = extractvalue { i64, i1 } %61, 1
-  br i1 %62, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
+_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %47
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %57 = load atomic i64, ptr %56 monotonic, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %59 = ptrtoint ptr %24 to i64
+  %storemerge5.i = inttoptr i64 %57 to ptr
+  store ptr %storemerge5.i, ptr %58, align 8
+  %60 = cmpxchg weak ptr %56, i64 %57, i64 %59 release monotonic, align 8
+  %61 = extractvalue { i64, i1 } %60, 1
+  br i1 %61, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
 
 _ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i: ; preds = %_ZN4absl9MutexLockD2Ev.exit, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
-  %63 = phi { i64, i1 } [ %65, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ], [ %61, %_ZN4absl9MutexLockD2Ev.exit ]
-  %64 = extractvalue { i64, i1 } %63, 0
-  %storemerge.i = inttoptr i64 %64 to ptr
-  store ptr %storemerge.i, ptr %59, align 8
-  %65 = cmpxchg weak ptr %57, i64 %64, i64 %60 release monotonic, align 8
-  %66 = extractvalue { i64, i1 } %65, 1
-  br i1 %66, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, !llvm.loop !42
+  %62 = phi { i64, i1 } [ %64, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ], [ %60, %_ZN4absl9MutexLockD2Ev.exit ]
+  %63 = extractvalue { i64, i1 } %62, 0
+  %storemerge.i = inttoptr i64 %63 to ptr
+  store ptr %storemerge.i, ptr %58, align 8
+  %64 = cmpxchg weak ptr %56, i64 %63, i64 %59 release monotonic, align 8
+  %65 = extractvalue { i64, i1 } %64, 1
+  br i1 %65, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, !llvm.loop !40
 
-67:                                               ; preds = %.noexc, %28, %23
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %.noexc, %27, %23
+  %67 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %_ZN4absl9MutexLockD2Ev.exit26 unwind label %69
+          to label %_ZN4absl9MutexLockD2Ev.exit26 unwind label %68
 
-69:                                               ; preds = %67
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %66
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #14
+  %70 = extractvalue { ptr, i32 } %69, 0
+  tail call void @__clang_call_terminate(ptr %70) #14
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit26:                    ; preds = %67
-  resume { ptr, i32 } %68
+_ZN4absl9MutexLockD2Ev.exit26:                    ; preds = %66
+  resume { ptr, i32 } %67
 
 _ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PushNewEPS3_.exit: ; preds = %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, %_ZN4absl9MutexLockD2Ev.exit, %15, %12
   %.022 = phi ptr [ null, %12 ], [ %21, %15 ], [ %24, %_ZN4absl9MutexLockD2Ev.exit ], [ %24, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ]
@@ -724,7 +718,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleR
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = icmp eq ptr %9, %7
   br i1 %10, label %_ZN4absl9MutexLockD2Ev.exit, label %11
 
@@ -734,9 +728,9 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleR
 
 _ZN4absl9MutexLockC2EPNS_5MutexE.exit:            ; preds = %11
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !19
-  store ptr %13, ptr %8, align 8, !tbaa !19
-  store ptr null, ptr %12, align 8, !tbaa !19
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  store ptr %13, ptr %8, align 8, !tbaa !17
+  store ptr null, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store atomic i64 0, ptr %14 monotonic, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -766,24 +760,24 @@ _ZN4absl9MutexLockC2EPNS_5MutexE.exit:            ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i64 %.fca.0.extract.i, ptr %25, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store i32 %.fca.1.extract.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !25
+  store i32 %.fca.1.extract.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %1, ptr %26, align 8, !tbaa !26
+  store i64 %1, ptr %26, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %28 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %27, i32 noundef 64, i32 noundef 0)
           to label %29 unwind label %40
 
 29:                                               ; preds = %.noexc
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 124
-  store i32 %28, ptr %30, align 4, !tbaa !27
+  store i32 %28, ptr %30, align 4, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 648
-  store i64 %2, ptr %31, align 8, !tbaa !32
+  store i64 %2, ptr %31, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 656
-  store i64 %3, ptr %32, align 8, !tbaa !33
+  store i64 %3, ptr %32, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 664
-  store i64 %4, ptr %33, align 8, !tbaa !34
+  store i64 %4, ptr %33, align 8, !tbaa !32
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store i16 %5, ptr %34, align 8, !tbaa !35
+  store i16 %5, ptr %34, align 8, !tbaa !33
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %35
 
@@ -868,10 +862,10 @@ define linkonce_odr dso_local void @_ZN4absl18profiling_internal14SampleRecorder
 
 _ZN4absl9MutexLockC2EPNS_5MutexE.exit:            ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %9, ptr %10, align 8, !tbaa !19
-  store ptr %1, ptr %8, align 8, !tbaa !19
+  store ptr %9, ptr %10, align 8, !tbaa !17
+  store ptr %1, ptr %8, align 8, !tbaa !17
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %11
 
@@ -948,37 +942,35 @@ attributes #15 = { builtin allocsize(0) }
 !7 = !{!"long", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
-!10 = !{!11, !12, i64 4}
-!11 = !{!"_ZTSN4absl8Duration5HiRepE", !12, i64 0, !12, i64 4}
-!12 = !{!"int", !8, i64 0}
-!13 = !{!11, !12, i64 0}
-!14 = !{!15, !12, i64 8}
-!15 = !{!"_ZTSN4absl8DurationE", !11, i64 0, !12, i64 8}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"_ZTSSt13__atomic_baseIPFvRKN4absl18container_internal14HashtablezInfoEEE", !18, i64 0}
-!18 = !{!"any pointer", !8, i64 0}
-!19 = !{!20, !24, i64 16}
-!20 = !{!"_ZTSN4absl18profiling_internal6SampleINS_18container_internal14HashtablezInfoEEE", !21, i64 0, !24, i64 8, !24, i64 16, !7, i64 24}
-!21 = !{!"_ZTSN4absl5MutexE", !22, i64 0}
-!22 = !{!"_ZTSSt6atomicIlE", !23, i64 0}
-!23 = !{!"_ZTSSt13__atomic_baseIlE", !7, i64 0}
-!24 = !{!"p1 _ZTSN4absl18container_internal14HashtablezInfoE", !18, i64 0}
-!25 = !{!12, !12, i64 0}
-!26 = !{!20, !7, i64 24}
-!27 = !{!28, !12, i64 124}
-!28 = !{!"_ZTSN4absl18container_internal14HashtablezInfoE", !20, i64 0, !29, i64 32, !29, i64 40, !29, i64 48, !29, i64 56, !29, i64 64, !29, i64 72, !29, i64 80, !29, i64 88, !29, i64 96, !29, i64 104, !30, i64 112, !12, i64 124, !31, i64 128, !8, i64 136, !7, i64 648, !7, i64 656, !7, i64 664}
-!29 = !{!"_ZTSSt6atomicImE", !6, i64 0}
-!30 = !{!"_ZTSN4absl4TimeE", !15, i64 0}
-!31 = !{!"short", !8, i64 0}
-!32 = !{!28, !7, i64 648}
-!33 = !{!28, !7, i64 656}
-!34 = !{!28, !7, i64 664}
-!35 = !{!28, !31, i64 128}
-!36 = !{!7, !7, i64 0}
-!37 = !{!31, !31, i64 0}
-!38 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!39 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!40 = !{!41, !7, i64 0}
-!41 = !{!"_ZTSN4absl18container_internal13SamplingStateE", !7, i64 0, !7, i64 8}
-!42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.mustprogress"}
+!10 = !{!11, !13, i64 8}
+!11 = !{!"_ZTSN4absl8DurationE", !12, i64 0, !13, i64 8}
+!12 = !{!"_ZTSN4absl8Duration5HiRepE", !13, i64 0, !13, i64 4}
+!13 = !{!"int", !8, i64 0}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"_ZTSSt13__atomic_baseIPFvRKN4absl18container_internal14HashtablezInfoEEE", !16, i64 0}
+!16 = !{!"any pointer", !8, i64 0}
+!17 = !{!18, !22, i64 16}
+!18 = !{!"_ZTSN4absl18profiling_internal6SampleINS_18container_internal14HashtablezInfoEEE", !19, i64 0, !22, i64 8, !22, i64 16, !7, i64 24}
+!19 = !{!"_ZTSN4absl5MutexE", !20, i64 0}
+!20 = !{!"_ZTSSt6atomicIlE", !21, i64 0}
+!21 = !{!"_ZTSSt13__atomic_baseIlE", !7, i64 0}
+!22 = !{!"p1 _ZTSN4absl18container_internal14HashtablezInfoE", !16, i64 0}
+!23 = !{!13, !13, i64 0}
+!24 = !{!18, !7, i64 24}
+!25 = !{!26, !13, i64 124}
+!26 = !{!"_ZTSN4absl18container_internal14HashtablezInfoE", !18, i64 0, !27, i64 32, !27, i64 40, !27, i64 48, !27, i64 56, !27, i64 64, !27, i64 72, !27, i64 80, !27, i64 88, !27, i64 96, !27, i64 104, !28, i64 112, !13, i64 124, !29, i64 128, !8, i64 136, !7, i64 648, !7, i64 656, !7, i64 664}
+!27 = !{!"_ZTSSt6atomicImE", !6, i64 0}
+!28 = !{!"_ZTSN4absl4TimeE", !11, i64 0}
+!29 = !{!"short", !8, i64 0}
+!30 = !{!26, !7, i64 648}
+!31 = !{!26, !7, i64 656}
+!32 = !{!26, !7, i64 664}
+!33 = !{!26, !29, i64 128}
+!34 = !{!7, !7, i64 0}
+!35 = !{!29, !29, i64 0}
+!36 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!37 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!38 = !{!39, !7, i64 0}
+!39 = !{!"_ZTSN4absl18container_internal13SamplingStateE", !7, i64 0, !7, i64 8}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.mustprogress"}

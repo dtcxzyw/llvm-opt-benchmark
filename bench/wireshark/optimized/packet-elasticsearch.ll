@@ -256,8 +256,8 @@ define internal noundef i32 @dissect_elasticsearch_zen_ping(ptr noundef %0, ptr 
   %5 = alloca ptr, align 8
   %6 = alloca %struct.version_t, align 4
   %7 = alloca ptr, align 8
-  %8 = alloca %struct.version_t, align 4
-  %9 = alloca %struct.version_t, align 4
+  %8 = alloca %struct.version_t, align 8
+  %9 = alloca %struct.version_t, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -276,212 +276,207 @@ define internal noundef i32 @dissect_elasticsearch_zen_ping(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %20 = tail call fastcc i64 @read_vint(ptr noundef %0, i32 noundef 4), !noalias !6
-  %.sroa.01.0.extract.trunc.i = trunc i64 %20 to i32
   %.sroa.4.0.extract.shift.i = lshr i64 %20, 32
   %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  store i32 %.sroa.01.0.extract.trunc.i, ptr %8, align 4, !alias.scope !6
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %21, align 4, !alias.scope !6
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %23 = udiv i32 %.sroa.4.0.extract.trunc.i, 1000000
-  %.lhs.trunc.i = trunc nuw nsw i32 %23 to i16
-  %24 = urem i16 %.lhs.trunc.i, 100
-  %.zext.i = zext nneg i16 %24 to i32
-  %25 = udiv i32 %.sroa.4.0.extract.trunc.i, 10000
-  %26 = urem i32 %25, 100
-  %27 = udiv i32 %.sroa.4.0.extract.trunc.i, 100
-  %28 = urem i32 %27, 100
-  %29 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %22, i64 noundef 9, i32 noundef 2, i64 noundef 9, ptr noundef nonnull @.str.103, i32 noundef %.zext.i, i32 noundef %26, i32 noundef %28)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
+  store i64 %20, ptr %8, align 8, !alias.scope !6
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %22 = udiv i32 %.sroa.4.0.extract.trunc.i, 1000000
+  %.lhs.trunc.i = trunc nuw nsw i32 %22 to i16
+  %23 = urem i16 %.lhs.trunc.i, 100
+  %.zext.i = zext nneg i16 %23 to i32
+  %24 = udiv i32 %.sroa.4.0.extract.trunc.i, 10000
+  %25 = urem i32 %24, 100
+  %26 = udiv i32 %.sroa.4.0.extract.trunc.i, 100
+  %27 = urem i32 %26, 100
+  %28 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %21, i64 noundef 9, i32 noundef 2, i64 noundef 9, ptr noundef nonnull @.str.103, i32 noundef %.zext.i, i32 noundef %25, i32 noundef %27)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #7
-  %30 = load i32, ptr @hf_elasticsearch_version, align 4
-  %31 = load i32, ptr %6, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %30, ptr noundef %0, i32 noundef 4, i32 noundef %31, i32 noundef %33)
-  %35 = add i32 %31, 4
-  %36 = load i32, ptr @hf_elasticsearch_ping_request_id, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0)
-  %38 = add i32 %31, 8
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %40 = load ptr, ptr %39, align 8
-  %41 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %38), !noalias !9
-  %42 = trunc i64 %41 to i32
-  %43 = add i32 %38, %42
-  %44 = lshr i64 %41, 32
-  %45 = trunc nuw i64 %44 to i32
-  %46 = call ptr @tvb_get_string_enc(ptr noundef %40, ptr noundef %0, i32 noundef %43, i32 noundef %45, i32 noundef 2), !noalias !9
-  %47 = add i32 %45, %42
-  %48 = load i32, ptr @hf_elasticsearch_cluster_name, align 4
-  %49 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %48, ptr noundef %0, i32 noundef %38, i32 noundef %47, ptr noundef %46)
-  %50 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %46)
-  %51 = add i32 %47, %38
-  %52 = load i32, ptr @ett_elasticsearch_discovery_node, align 4
-  %53 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %0, i32 noundef %51, i32 noundef -1, i32 noundef %52, ptr noundef nonnull %7, ptr noundef nonnull @.str.100)
-  %54 = load ptr, ptr %39, align 8
-  %55 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %51), !noalias !12
-  %56 = trunc i64 %55 to i32
-  %57 = add i32 %51, %56
-  %58 = lshr i64 %55, 32
-  %59 = trunc nuw i64 %58 to i32
-  %60 = call ptr @tvb_get_string_enc(ptr noundef %54, ptr noundef %0, i32 noundef %57, i32 noundef %59, i32 noundef 2), !noalias !12
-  %61 = add i32 %59, %56
-  %62 = load i32, ptr @hf_elasticsearch_node_name, align 4
-  %63 = call ptr @proto_tree_add_string(ptr noundef %53, i32 noundef %62, ptr noundef %0, i32 noundef %51, i32 noundef %61, ptr noundef %60)
-  %64 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.101, ptr noundef %60)
-  %65 = add i32 %61, %51
-  %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.102, ptr noundef nonnull %67)
-  %68 = load ptr, ptr %39, align 8
-  %69 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %65), !noalias !15
-  %70 = trunc i64 %69 to i32
-  %71 = add i32 %65, %70
-  %72 = lshr i64 %69, 32
-  %73 = trunc nuw i64 %72 to i32
-  %74 = call ptr @tvb_get_string_enc(ptr noundef %68, ptr noundef %0, i32 noundef %71, i32 noundef %73, i32 noundef 2), !noalias !15
-  %75 = add i32 %73, %70
-  %76 = load i32, ptr @hf_elasticsearch_node_id, align 4
-  %77 = call ptr @proto_tree_add_string(ptr noundef %53, i32 noundef %76, ptr noundef %0, i32 noundef %65, i32 noundef %75, ptr noundef %74)
-  %78 = add i32 %75, %65
-  %79 = load ptr, ptr %39, align 8
-  %80 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %78), !noalias !18
-  %81 = trunc i64 %80 to i32
-  %82 = add i32 %78, %81
-  %83 = lshr i64 %80, 32
-  %84 = trunc nuw i64 %83 to i32
-  %85 = call ptr @tvb_get_string_enc(ptr noundef %79, ptr noundef %0, i32 noundef %82, i32 noundef %84, i32 noundef 2), !noalias !18
-  %86 = add i32 %84, %81
-  %87 = load i32, ptr @hf_elasticsearch_host_name, align 4
-  %88 = call ptr @proto_tree_add_string(ptr noundef %53, i32 noundef %87, ptr noundef %0, i32 noundef %78, i32 noundef %86, ptr noundef %85)
-  %89 = add i32 %86, %78
-  %90 = load ptr, ptr %39, align 8
-  %91 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %89), !noalias !21
-  %92 = trunc i64 %91 to i32
-  %93 = add i32 %89, %92
-  %94 = lshr i64 %91, 32
-  %95 = trunc nuw i64 %94 to i32
-  %96 = call ptr @tvb_get_string_enc(ptr noundef %90, ptr noundef %0, i32 noundef %93, i32 noundef %95, i32 noundef 2), !noalias !21
-  %97 = add i32 %95, %92
-  %98 = load i32, ptr @hf_elasticsearch_host_address, align 4
-  %99 = call ptr @proto_tree_add_string(ptr noundef %53, i32 noundef %98, ptr noundef %0, i32 noundef %89, i32 noundef %97, ptr noundef %96)
-  %100 = add i32 %97, %89
+  %29 = load i32, ptr @hf_elasticsearch_version, align 4
+  %30 = load i32, ptr %6, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef %30, i32 noundef %32)
+  %34 = add i32 %30, 4
+  %35 = load i32, ptr @hf_elasticsearch_ping_request_id, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0)
+  %37 = add i32 %30, 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %39 = load ptr, ptr %38, align 8
+  %40 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %37), !noalias !9
+  %41 = trunc i64 %40 to i32
+  %42 = add i32 %37, %41
+  %43 = lshr i64 %40, 32
+  %44 = trunc nuw i64 %43 to i32
+  %45 = call ptr @tvb_get_string_enc(ptr noundef %39, ptr noundef %0, i32 noundef %42, i32 noundef %44, i32 noundef 2), !noalias !9
+  %46 = add i32 %44, %41
+  %47 = load i32, ptr @hf_elasticsearch_cluster_name, align 4
+  %48 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %47, ptr noundef %0, i32 noundef %37, i32 noundef %46, ptr noundef %45)
+  %49 = load ptr, ptr %10, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %45)
+  %50 = add i32 %46, %37
+  %51 = load i32, ptr @ett_elasticsearch_discovery_node, align 4
+  %52 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %0, i32 noundef %50, i32 noundef -1, i32 noundef %51, ptr noundef nonnull %7, ptr noundef nonnull @.str.100)
+  %53 = load ptr, ptr %38, align 8
+  %54 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %50), !noalias !12
+  %55 = trunc i64 %54 to i32
+  %56 = add i32 %50, %55
+  %57 = lshr i64 %54, 32
+  %58 = trunc nuw i64 %57 to i32
+  %59 = call ptr @tvb_get_string_enc(ptr noundef %53, ptr noundef %0, i32 noundef %56, i32 noundef %58, i32 noundef 2), !noalias !12
+  %60 = add i32 %58, %55
+  %61 = load i32, ptr @hf_elasticsearch_node_name, align 4
+  %62 = call ptr @proto_tree_add_string(ptr noundef %52, i32 noundef %61, ptr noundef %0, i32 noundef %50, i32 noundef %60, ptr noundef %59)
+  %63 = load ptr, ptr %10, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.101, ptr noundef %59)
+  %64 = add i32 %60, %50
+  %65 = load ptr, ptr %10, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.102, ptr noundef nonnull %66)
+  %67 = load ptr, ptr %38, align 8
+  %68 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %64), !noalias !15
+  %69 = trunc i64 %68 to i32
+  %70 = add i32 %64, %69
+  %71 = lshr i64 %68, 32
+  %72 = trunc nuw i64 %71 to i32
+  %73 = call ptr @tvb_get_string_enc(ptr noundef %67, ptr noundef %0, i32 noundef %70, i32 noundef %72, i32 noundef 2), !noalias !15
+  %74 = add i32 %72, %69
+  %75 = load i32, ptr @hf_elasticsearch_node_id, align 4
+  %76 = call ptr @proto_tree_add_string(ptr noundef %52, i32 noundef %75, ptr noundef %0, i32 noundef %64, i32 noundef %74, ptr noundef %73)
+  %77 = add i32 %74, %64
+  %78 = load ptr, ptr %38, align 8
+  %79 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %77), !noalias !18
+  %80 = trunc i64 %79 to i32
+  %81 = add i32 %77, %80
+  %82 = lshr i64 %79, 32
+  %83 = trunc nuw i64 %82 to i32
+  %84 = call ptr @tvb_get_string_enc(ptr noundef %78, ptr noundef %0, i32 noundef %81, i32 noundef %83, i32 noundef 2), !noalias !18
+  %85 = add i32 %83, %80
+  %86 = load i32, ptr @hf_elasticsearch_host_name, align 4
+  %87 = call ptr @proto_tree_add_string(ptr noundef %52, i32 noundef %86, ptr noundef %0, i32 noundef %77, i32 noundef %85, ptr noundef %84)
+  %88 = add i32 %85, %77
+  %89 = load ptr, ptr %38, align 8
+  %90 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %88), !noalias !21
+  %91 = trunc i64 %90 to i32
+  %92 = add i32 %88, %91
+  %93 = lshr i64 %90, 32
+  %94 = trunc nuw i64 %93 to i32
+  %95 = call ptr @tvb_get_string_enc(ptr noundef %89, ptr noundef %0, i32 noundef %92, i32 noundef %94, i32 noundef 2), !noalias !21
+  %96 = add i32 %94, %91
+  %97 = load i32, ptr @hf_elasticsearch_host_address, align 4
+  %98 = call ptr @proto_tree_add_string(ptr noundef %52, i32 noundef %97, ptr noundef %0, i32 noundef %88, i32 noundef %96, ptr noundef %95)
+  %99 = add i32 %96, %88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  %101 = load i32, ptr @ett_elasticsearch_address, align 4
-  %102 = call ptr @proto_tree_add_subtree(ptr noundef %53, ptr noundef %0, i32 noundef %100, i32 noundef -1, i32 noundef %101, ptr noundef nonnull %5, ptr noundef nonnull @.str.104)
-  %103 = load i32, ptr @hf_elasticsearch_address_type, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %100, i32 noundef 2, i32 noundef 0)
-  %105 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %100)
-  %106 = add i32 %100, 2
-  %.not.i = icmp eq i16 %105, 1
-  br i1 %.not.i, label %109, label %107
+  %100 = load i32, ptr @ett_elasticsearch_address, align 4
+  %101 = call ptr @proto_tree_add_subtree(ptr noundef %52, ptr noundef %0, i32 noundef %99, i32 noundef -1, i32 noundef %100, ptr noundef nonnull %5, ptr noundef nonnull @.str.104)
+  %102 = load i32, ptr @hf_elasticsearch_address_type, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0)
+  %104 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %99)
+  %105 = add i32 %99, 2
+  %.not.i = icmp eq i16 %104, 1
+  br i1 %.not.i, label %108, label %106
 
-107:                                              ; preds = %4
-  %108 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_elasticsearch_unsupported_address_type)
+106:                                              ; preds = %4
+  %107 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_elasticsearch_unsupported_address_type)
   br label %elasticsearch_partial_dissect_address.exit
 
-109:                                              ; preds = %4
-  %110 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %106)
-  %111 = load i32, ptr @hf_elasticsearch_address_format, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %111, ptr noundef %0, i32 noundef %106, i32 noundef 1, i32 noundef 0)
-  %113 = add i32 %100, 3
-  switch i8 %110, label %143 [
-    i8 0, label %114
-    i8 1, label %131
+108:                                              ; preds = %4
+  %109 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %105)
+  %110 = load i32, ptr @hf_elasticsearch_address_format, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %110, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0)
+  %112 = add i32 %99, 3
+  switch i8 %109, label %142 [
+    i8 0, label %113
+    i8 1, label %130
   ]
 
-114:                                              ; preds = %109
-  %115 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %113)
-  %116 = load i32, ptr @hf_elasticsearch_address_length, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %116, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0)
-  %118 = add i32 %100, 4
-  %119 = icmp eq i8 %115, 4
-  br i1 %119, label %120, label %124
+113:                                              ; preds = %108
+  %114 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %112)
+  %115 = load i32, ptr @hf_elasticsearch_address_length, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %115, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0)
+  %117 = add i32 %99, 4
+  %118 = icmp eq i8 %114, 4
+  br i1 %118, label %119, label %123
 
-120:                                              ; preds = %114
-  %121 = load i32, ptr @hf_elasticsearch_address_ipv4, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %121, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef 0)
-  %123 = add i32 %100, 8
-  br label %145
+119:                                              ; preds = %113
+  %120 = load i32, ptr @hf_elasticsearch_address_ipv4, align 4
+  %121 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %120, ptr noundef %0, i32 noundef %117, i32 noundef 4, i32 noundef 0)
+  %122 = add i32 %99, 8
+  br label %144
 
-124:                                              ; preds = %114
-  %125 = load i32, ptr @hf_elasticsearch_address_ipv6, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %125, ptr noundef %0, i32 noundef %118, i32 noundef 16, i32 noundef 0)
-  %127 = add i32 %100, 20
-  %128 = load i32, ptr @hf_elasticsearch_address_ipv6_scope_id, align 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 4, i32 noundef 0)
-  %130 = add i32 %100, 24
-  br label %145
+123:                                              ; preds = %113
+  %124 = load i32, ptr @hf_elasticsearch_address_ipv6, align 4
+  %125 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %124, ptr noundef %0, i32 noundef %117, i32 noundef 16, i32 noundef 0)
+  %126 = add i32 %99, 20
+  %127 = load i32, ptr @hf_elasticsearch_address_ipv6_scope_id, align 4
+  %128 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %127, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef 0)
+  %129 = add i32 %99, 24
+  br label %144
 
-131:                                              ; preds = %109
-  %132 = load ptr, ptr %39, align 8
-  %133 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %113), !noalias !24
-  %134 = trunc i64 %133 to i32
-  %135 = add i32 %113, %134
-  %136 = lshr i64 %133, 32
-  %137 = trunc nuw i64 %136 to i32
-  %138 = call ptr @tvb_get_string_enc(ptr noundef %132, ptr noundef %0, i32 noundef %135, i32 noundef %137, i32 noundef 2), !noalias !24
-  %139 = add i32 %137, %134
-  %140 = load i32, ptr @hf_elasticsearch_address_name, align 4
-  %141 = call ptr @proto_tree_add_string(ptr noundef %102, i32 noundef %140, ptr noundef %0, i32 noundef %113, i32 noundef %139, ptr noundef %138)
-  %142 = add i32 %139, %113
-  br label %145
+130:                                              ; preds = %108
+  %131 = load ptr, ptr %38, align 8
+  %132 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %112), !noalias !24
+  %133 = trunc i64 %132 to i32
+  %134 = add i32 %112, %133
+  %135 = lshr i64 %132, 32
+  %136 = trunc nuw i64 %135 to i32
+  %137 = call ptr @tvb_get_string_enc(ptr noundef %131, ptr noundef %0, i32 noundef %134, i32 noundef %136, i32 noundef 2), !noalias !24
+  %138 = add i32 %136, %133
+  %139 = load i32, ptr @hf_elasticsearch_address_name, align 4
+  %140 = call ptr @proto_tree_add_string(ptr noundef %101, i32 noundef %139, ptr noundef %0, i32 noundef %112, i32 noundef %138, ptr noundef %137)
+  %141 = add i32 %138, %112
+  br label %144
 
-143:                                              ; preds = %109
-  %144 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_elasticsearch_unsupported_address_format)
-  br label %145
+142:                                              ; preds = %108
+  %143 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_elasticsearch_unsupported_address_format)
+  br label %144
 
-145:                                              ; preds = %143, %131, %124, %120
-  %.057.i = phi i32 [ %113, %143 ], [ %123, %120 ], [ %130, %124 ], [ %142, %131 ]
-  %146 = load ptr, ptr %5, align 8
-  %147 = load i32, ptr @hf_elasticsearch_address_port, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %0, i32 noundef %.057.i, i32 noundef 4, i32 noundef 0)
-  %149 = add i32 %.057.i, 4
-  %150 = load ptr, ptr %5, align 8
-  %151 = sub i32 %149, %100
-  call void @proto_item_set_len(ptr noundef %150, i32 noundef %151)
+144:                                              ; preds = %142, %130, %123, %119
+  %.057.i = phi i32 [ %112, %142 ], [ %122, %119 ], [ %129, %123 ], [ %141, %130 ]
+  %145 = load ptr, ptr %5, align 8
+  %146 = load i32, ptr @hf_elasticsearch_address_port, align 4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %0, i32 noundef %.057.i, i32 noundef 4, i32 noundef 0)
+  %148 = add i32 %.057.i, 4
+  %149 = load ptr, ptr %5, align 8
+  %150 = sub i32 %148, %99
+  call void @proto_item_set_len(ptr noundef %149, i32 noundef %150)
   br label %elasticsearch_partial_dissect_address.exit
 
-elasticsearch_partial_dissect_address.exit:       ; preds = %107, %145
-  %.0.i = phi i32 [ %106, %107 ], [ %149, %145 ]
+elasticsearch_partial_dissect_address.exit:       ; preds = %106, %144
+  %.0.i = phi i32 [ %105, %106 ], [ %148, %144 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  %152 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.0.i)
-  %.sroa.015.0.extract.trunc = trunc i64 %152 to i32
-  %.sroa.517.0.extract.shift = lshr i64 %152, 32
+  %151 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.0.i)
+  %.sroa.015.0.extract.trunc = trunc i64 %151 to i32
+  %.sroa.517.0.extract.shift = lshr i64 %151, 32
   %.sroa.517.0.extract.trunc = trunc nuw i64 %.sroa.517.0.extract.shift to i32
-  %153 = load i32, ptr @hf_elasticsearch_attributes_length, align 4
-  %154 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %153, ptr noundef %0, i32 noundef %.0.i, i32 noundef %.sroa.015.0.extract.trunc, i32 noundef %.sroa.517.0.extract.trunc)
-  %155 = add i32 %.0.i, %.sroa.015.0.extract.trunc
+  %152 = load i32, ptr @hf_elasticsearch_attributes_length, align 4
+  %153 = call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %152, ptr noundef %0, i32 noundef %.0.i, i32 noundef %.sroa.015.0.extract.trunc, i32 noundef %.sroa.517.0.extract.trunc)
+  %154 = add i32 %.0.i, %.sroa.015.0.extract.trunc
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #7
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %156 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %155), !noalias !27
-  %.sroa.01.0.extract.trunc.i108 = trunc i64 %156 to i32
-  %.sroa.4.0.extract.shift.i109 = lshr i64 %156, 32
-  %.sroa.4.0.extract.trunc.i110 = trunc nuw i64 %.sroa.4.0.extract.shift.i109 to i32
-  store i32 %.sroa.01.0.extract.trunc.i108, ptr %9, align 4, !alias.scope !27
-  %157 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.sroa.4.0.extract.trunc.i110, ptr %157, align 4, !alias.scope !27
-  %158 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %159 = udiv i32 %.sroa.4.0.extract.trunc.i110, 1000000
-  %.lhs.trunc.i111 = trunc nuw nsw i32 %159 to i16
-  %160 = urem i16 %.lhs.trunc.i111, 100
-  %.zext.i112 = zext nneg i16 %160 to i32
-  %161 = udiv i32 %.sroa.4.0.extract.trunc.i110, 10000
+  %155 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %154), !noalias !27
+  %.sroa.4.0.extract.shift.i108 = lshr i64 %155, 32
+  %.sroa.4.0.extract.trunc.i109 = trunc nuw i64 %.sroa.4.0.extract.shift.i108 to i32
+  store i64 %155, ptr %9, align 8, !alias.scope !27
+  %156 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %157 = udiv i32 %.sroa.4.0.extract.trunc.i109, 1000000
+  %.lhs.trunc.i110 = trunc nuw nsw i32 %157 to i16
+  %158 = urem i16 %.lhs.trunc.i110, 100
+  %.zext.i111 = zext nneg i16 %158 to i32
+  %159 = udiv i32 %.sroa.4.0.extract.trunc.i109, 10000
+  %160 = urem i32 %159, 100
+  %161 = udiv i32 %.sroa.4.0.extract.trunc.i109, 100
   %162 = urem i32 %161, 100
-  %163 = udiv i32 %.sroa.4.0.extract.trunc.i110, 100
-  %164 = urem i32 %163, 100
-  %165 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %158, i64 noundef 9, i32 noundef 2, i64 noundef 9, ptr noundef nonnull @.str.103, i32 noundef %.zext.i112, i32 noundef %162, i32 noundef %164)
-  %.sroa.013.0.copyload = load i32, ptr %9, align 4
-  %.sroa.5.0.copyload = load i32, ptr %157, align 4
+  %163 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %156, i64 noundef 9, i32 noundef 2, i64 noundef 9, ptr noundef nonnull @.str.103, i32 noundef %.zext.i111, i32 noundef %160, i32 noundef %162)
+  %.sroa.013.0.copyload = load i32, ptr %9, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #7
-  %166 = load i32, ptr @hf_elasticsearch_version, align 4
-  %167 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %166, ptr noundef %0, i32 noundef %155, i32 noundef %.sroa.013.0.copyload, i32 noundef %.sroa.5.0.copyload)
-  %168 = add i32 %.sroa.013.0.copyload, %155
+  %164 = load i32, ptr @hf_elasticsearch_version, align 4
+  %165 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %164, ptr noundef %0, i32 noundef %154, i32 noundef %.sroa.013.0.copyload, i32 noundef %.sroa.5.0.copyload)
+  %166 = add i32 %.sroa.013.0.copyload, %154
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #7
-  ret i32 %168
+  ret i32 %166
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -1470,7 +1470,7 @@ define internal range(i32 -1, 1) i32 @H5T__ref_disk_write(ptr readnone captures(
   %13 = trunc nuw i8 %12 to i1
   %14 = xor i1 %13, true
   %15 = select i1 %11, i1 true, i1 %14
-  br i1 %15, label %16, label %47, !prof !9
+  br i1 %15, label %16, label %38, !prof !9
 
 16:                                               ; preds = %8
   %.not = icmp eq ptr %7, null
@@ -1493,7 +1493,7 @@ define internal range(i32 -1, 1) i32 @H5T__ref_disk_write(ptr readnone captures(
   %23 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !26
   %24 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_disk_write, i32 noundef 996, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.26) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  br label %47
+  br label %38
 
 25:                                               ; preds = %.thread, %16
   %26 = load i16, ptr %1, align 1
@@ -1501,33 +1501,21 @@ define internal range(i32 -1, 1) i32 @H5T__ref_disk_write(ptr readnone captures(
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %29 = add i64 %2, -2
-  %30 = trunc i64 %29 to i8
-  store i8 %30, ptr %28, align 1, !tbaa !22
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %32 = lshr i64 %29, 8
-  %33 = trunc i64 %32 to i8
-  store i8 %33, ptr %31, align 1, !tbaa !22
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %35 = lshr i64 %29, 16
-  %36 = trunc i64 %35 to i8
-  store i8 %36, ptr %34, align 1, !tbaa !22
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %38 = lshr i64 %29, 24
-  %39 = trunc i64 %38 to i8
-  store i8 %39, ptr %37, align 1, !tbaa !22
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %41 = call i32 @H5VL_blob_put(ptr noundef %4, ptr noundef nonnull %27, i64 noundef %29, ptr noundef nonnull %40, ptr noundef null) #11
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %47
+  %30 = trunc i64 %29 to i32
+  store i32 %30, ptr %28, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %32 = call i32 @H5VL_blob_put(ptr noundef %4, ptr noundef nonnull %27, i64 noundef %29, ptr noundef nonnull %31, ptr noundef null) #11
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %38
 
-43:                                               ; preds = %25
-  %44 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !26
-  %45 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !26
-  %46 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_disk_write, i32 noundef 1017, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.30) #11
-  br label %47
+34:                                               ; preds = %25
+  %35 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !26
+  %36 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !26
+  %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_disk_write, i32 noundef 1017, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.30) #11
+  br label %38
 
-47:                                               ; preds = %21, %8, %25, %43
-  %.033 = phi i32 [ -1, %43 ], [ 0, %25 ], [ -1, %21 ], [ 0, %8 ]
+38:                                               ; preds = %21, %8, %25, %34
+  %.033 = phi i32 [ -1, %34 ], [ 0, %25 ], [ -1, %21 ], [ 0, %8 ]
   ret i32 %.033
 }
 

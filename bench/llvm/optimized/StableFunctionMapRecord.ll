@@ -4874,11 +4874,9 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIS3_IjjEmES5_EEbT_RT0_.exit.threa
 _ZSt11__push_heapIPSt4pairIS0_IjjEmElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit: ; preds = %66, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit6.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIS3_IjjEmES5_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIS3_IjjEmES5_EEbT_RT0_.exit.thread.i, %61
   %.013.lcssa.i = phi i64 [ %.1, %61 ], [ %.01321.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIS3_IjjEmES5_EEbT_RT0_.exit.i ], [ %.022.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIS3_IjjEmES5_EEbT_RT0_.exit.thread.i ], [ %.01321.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit6.i.i.i ], [ %.01321.i, %66 ]
   %82 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %82, align 4, !tbaa !68
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i, ptr %83, align 4, !tbaa !69
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store i64 %4, ptr %84, align 8, !tbaa !53
+  store i64 %3, ptr %82, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store i64 %4, ptr %83, align 8, !tbaa !53
   ret void
 }
 

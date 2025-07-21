@@ -956,104 +956,95 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 captures(none
   tail call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %11)
   %12 = tail call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 8)
   %13 = tail call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 9)
-  %14 = trunc i64 %1 to i32
-  store i32 %14, ptr %9, align 16, !tbaa !3
-  %15 = lshr i64 %1, 32
-  %16 = trunc nuw i64 %15 to i32
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %16, ptr %17, align 4, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %19 = load i32, ptr %18, align 4, !tbaa !97
-  %20 = icmp eq i32 %19, 128
-  %21 = icmp eq i32 %19, 64
-  %22 = select i1 %21, i32 3346440, i32 2297864
-  %23 = select i1 %20, i32 4395016, i32 %22
-  %24 = lshr i32 %19, 5
-  %25 = zext nneg i32 %24 to i64
-  %26 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %23, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9, i64 noundef %25)
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %38, label %27
+  store i64 %1, ptr %9, align 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 916
+  %15 = load i32, ptr %14, align 4, !tbaa !97
+  %16 = icmp eq i32 %15, 128
+  %17 = icmp eq i32 %15, 64
+  %18 = select i1 %17, i32 3346440, i32 2297864
+  %19 = select i1 %16, i32 4395016, i32 %18
+  %20 = lshr i32 %15, 5
+  %21 = zext nneg i32 %20 to i64
+  %22 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %19, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9, i64 noundef %21)
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %34, label %23
 
-27:                                               ; preds = %3
-  %28 = icmp samesign ult i32 %26, 5
-  br i1 %28, label %29, label %_ZN5dtm_t3dieEj.exit
+23:                                               ; preds = %3
+  %24 = icmp samesign ult i32 %22, 5
+  br i1 %24, label %25, label %_ZN5dtm_t3dieEj.exit
 
-29:                                               ; preds = %27
-  %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !98
+25:                                               ; preds = %23
+  %26 = zext nneg i32 %22 to i64
+  %27 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 
-_ZN5dtm_t3dieEj.exit:                             ; preds = %27, %29
-  %.0.i = phi ptr [ %32, %29 ], [ @.str.5, %27 ]
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull @.str.7, i32 noundef 357, i32 noundef %26, ptr noundef %.0.i)
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.7, i32 noundef 358)
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store i64 8589934614, ptr %35, align 8
+_ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
+  %.0.i = phi ptr [ %28, %25 ], [ @.str.5, %23 ]
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull @.str.7, i32 noundef 357, i32 noundef %22, ptr noundef %.0.i)
+  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.7, i32 noundef 358)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 8589934614, ptr %31, align 8
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 896
   store i32 1792, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %37 = load ptr, ptr %36, align 8, !tbaa !7
-  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %37)
-  br label %38
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %33 = load ptr, ptr %32, align 8, !tbaa !7
+  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
+  br label %34
 
-38:                                               ; preds = %_ZN5dtm_t3dieEj.exit, %3
-  %39 = load i32, ptr %18, align 4, !tbaa !97
-  %40 = icmp eq i32 %39, 64
-  %41 = select i1 %40, i32 274467, i32 270371
-  store i32 %41, ptr %6, align 16, !tbaa !3
-  %42 = shl i32 %39, 17
-  %43 = and i32 %42, -1048576
-  %44 = or disjoint i32 %43, 263187
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %44, ptr %45, align 4, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 -23847709, ptr %46, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 1048691, ptr %47, align 4, !tbaa !3
-  %48 = add i64 %2, %1
-  %49 = trunc i64 %48 to i32
-  store i32 %49, ptr %9, align 16, !tbaa !3
-  %50 = lshr i64 %48, 32
-  %51 = trunc nuw i64 %50 to i32
-  store i32 %51, ptr %17, align 4, !tbaa !3
-  %52 = icmp eq i32 %39, 128
-  %53 = select i1 %40, i32 3608585, i32 2560009
-  %54 = select i1 %52, i32 4657161, i32 %53
-  %55 = lshr i32 %39, 5
-  %56 = zext nneg i32 %55 to i64
-  %57 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %54, ptr noundef nonnull %6, i64 noundef 4, ptr noundef nonnull %9, i64 noundef %56)
-  %.not18 = icmp eq i32 %57, 0
-  br i1 %.not18, label %69, label %58
+34:                                               ; preds = %_ZN5dtm_t3dieEj.exit, %3
+  %35 = load i32, ptr %14, align 4, !tbaa !97
+  %36 = icmp eq i32 %35, 64
+  %37 = select i1 %36, i32 274467, i32 270371
+  store i32 %37, ptr %6, align 16, !tbaa !3
+  %38 = shl i32 %35, 17
+  %39 = and i32 %38, -1048576
+  %40 = or disjoint i32 %39, 263187
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %40, ptr %41, align 4, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 -23847709, ptr %42, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 1048691, ptr %43, align 4, !tbaa !3
+  %44 = add i64 %2, %1
+  store i64 %44, ptr %9, align 16
+  %45 = icmp eq i32 %35, 128
+  %46 = select i1 %36, i32 3608585, i32 2560009
+  %47 = select i1 %45, i32 4657161, i32 %46
+  %48 = lshr i32 %35, 5
+  %49 = zext nneg i32 %48 to i64
+  %50 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %47, ptr noundef nonnull %6, i64 noundef 4, ptr noundef nonnull %9, i64 noundef %49)
+  %.not18 = icmp eq i32 %50, 0
+  br i1 %.not18, label %62, label %51
 
-58:                                               ; preds = %38
-  %59 = icmp samesign ult i32 %57, 5
-  br i1 %59, label %60, label %_ZN5dtm_t3dieEj.exit21
+51:                                               ; preds = %34
+  %52 = icmp samesign ult i32 %50, 5
+  br i1 %52, label %53, label %_ZN5dtm_t3dieEj.exit21
 
-60:                                               ; preds = %58
-  %61 = zext nneg i32 %57 to i64
-  %62 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !98
+53:                                               ; preds = %51
+  %54 = zext nneg i32 %50 to i64
+  %55 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %54
+  %56 = load ptr, ptr %55, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit21
 
-_ZN5dtm_t3dieEj.exit21:                           ; preds = %58, %60
-  %.0.i19 = phi ptr [ %63, %60 ], [ @.str.5, %58 ]
-  %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull @.str.7, i32 noundef 357, i32 noundef %57, ptr noundef %.0.i19)
-  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.7, i32 noundef 358)
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store i64 8589934614, ptr %66, align 8
+_ZN5dtm_t3dieEj.exit21:                           ; preds = %51, %53
+  %.0.i19 = phi ptr [ %56, %53 ], [ @.str.5, %51 ]
+  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull @.str.7, i32 noundef 357, i32 noundef %50, ptr noundef %.0.i19)
+  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.7, i32 noundef 358)
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 8589934614, ptr %59, align 8
   %.sroa.22.0..sroa_idx.i.i.i20 = getelementptr inbounds nuw i8, ptr %0, i64 896
   store i32 1792, ptr %.sroa.22.0..sroa_idx.i.i.i20, align 8, !tbaa !3
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %68 = load ptr, ptr %67, align 8, !tbaa !7
-  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %68)
-  br label %69
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %61 = load ptr, ptr %60, align 8, !tbaa !7
+  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %61)
+  br label %62
 
-69:                                               ; preds = %_ZN5dtm_t3dieEj.exit21, %38
+62:                                               ; preds = %_ZN5dtm_t3dieEj.exit21, %34
   tail call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 8, i64 noundef %12)
   tail call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 9, i64 noundef %13)
-  %70 = load i32, ptr %10, align 4, !tbaa !89
-  tail call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %70)
+  %63 = load i32, ptr %10, align 4, !tbaa !89
+  tail call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %63)
   ret void
 }
 
@@ -1066,7 +1057,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t9write_csrEjm(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900)) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [6 x i32], align 16
-  %6 = alloca [2 x i32], align 4
+  %6 = alloca [2 x i32], align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 940
   %8 = load i32, ptr %7, align 4, !tbaa !89
   tail call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %8)
@@ -1101,72 +1092,67 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 1048691, ptr %31, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  %32 = trunc i64 %2 to i32
-  store i32 %32, ptr %6, align 4, !tbaa !3
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %34 = lshr i64 %2, 32
-  %35 = trunc nuw i64 %34 to i32
-  store i32 %35, ptr %33, align 4, !tbaa !3
-  %36 = icmp eq i32 %11, 128
-  %37 = select i1 %12, i32 3608576, i32 2560000
-  %38 = select i1 %36, i32 4657152, i32 %37
-  %39 = lshr i32 %11, 5
-  %40 = zext nneg i32 %39 to i64
-  %41 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %38, ptr noundef nonnull %5, i64 noundef 6, ptr noundef nonnull %6, i64 noundef %40)
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %53, label %42
+  store i64 %2, ptr %6, align 8
+  %32 = icmp eq i32 %11, 128
+  %33 = select i1 %12, i32 3608576, i32 2560000
+  %34 = select i1 %32, i32 4657152, i32 %33
+  %35 = lshr i32 %11, 5
+  %36 = zext nneg i32 %35 to i64
+  %37 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %34, ptr noundef nonnull %5, i64 noundef 6, ptr noundef nonnull %6, i64 noundef %36)
+  %.not = icmp eq i32 %37, 0
+  br i1 %.not, label %49, label %38
 
-42:                                               ; preds = %4
-  %43 = icmp samesign ult i32 %41, 5
-  br i1 %43, label %44, label %_ZN5dtm_t3dieEj.exit
+38:                                               ; preds = %4
+  %39 = icmp samesign ult i32 %37, 5
+  br i1 %39, label %40, label %_ZN5dtm_t3dieEj.exit
 
-44:                                               ; preds = %42
-  %45 = zext nneg i32 %41 to i64
-  %46 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !98
+40:                                               ; preds = %38
+  %41 = zext nneg i32 %37 to i64
+  %42 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 
-_ZN5dtm_t3dieEj.exit:                             ; preds = %42, %44
-  %.0.i = phi ptr [ %47, %44 ], [ @.str.5, %42 ]
-  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull @.str.7, i32 noundef 357, i32 noundef %41, ptr noundef %.0.i)
-  %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.7, i32 noundef 358)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store i64 8589934614, ptr %50, align 8
+_ZN5dtm_t3dieEj.exit:                             ; preds = %38, %40
+  %.0.i = phi ptr [ %43, %40 ], [ @.str.5, %38 ]
+  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull @.str.7, i32 noundef 357, i32 noundef %37, ptr noundef %.0.i)
+  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.7, i32 noundef 358)
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 8589934614, ptr %46, align 8
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 896
   store i32 1792, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %48 = load ptr, ptr %47, align 8, !tbaa !7
+  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %48)
+  br label %49
+
+49:                                               ; preds = %_ZN5dtm_t3dieEj.exit, %4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 4294967300, ptr %50, align 8
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 896
+  store i32 0, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %52 = load ptr, ptr %51, align 8, !tbaa !7
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %52)
-  br label %53
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %54 = load i32, ptr %53, align 8, !tbaa !88
+  %55 = load i32, ptr %10, align 4, !tbaa !97
+  %56 = icmp eq i32 %55, 64
+  br i1 %56, label %57, label %61
 
-53:                                               ; preds = %_ZN5dtm_t3dieEj.exit, %4
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store i64 4294967300, ptr %54, align 8
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 896
+57:                                               ; preds = %49
+  store i64 4294967301, ptr %50, align 8
   store i32 0, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %56 = load ptr, ptr %55, align 8, !tbaa !7
-  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %56)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %58 = load i32, ptr %57, align 8, !tbaa !88
-  %59 = load i32, ptr %10, align 4, !tbaa !97
-  %60 = icmp eq i32 %59, 64
-  br i1 %60, label %61, label %65
+  %58 = load ptr, ptr %51, align 8, !tbaa !7
+  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %58)
+  %59 = load i32, ptr %53, align 8, !tbaa !88
+  %60 = or i32 %59, %54
+  br label %61
 
-61:                                               ; preds = %53
-  store i64 4294967301, ptr %54, align 8
-  store i32 0, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
-  %62 = load ptr, ptr %55, align 8, !tbaa !7
-  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %62)
-  %63 = load i32, ptr %57, align 8, !tbaa !88
-  %64 = or i32 %63, %58
-  br label %65
-
-65:                                               ; preds = %61, %53
-  %.0.in = phi i32 [ %64, %61 ], [ %58, %53 ]
+61:                                               ; preds = %57, %49
+  %.0.in = phi i32 [ %60, %57 ], [ %54, %49 ]
   %.0 = zext i32 %.0.in to i64
-  %66 = load i32, ptr %7, align 4, !tbaa !89
-  tail call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %66)
+  %62 = load i32, ptr %7, align 4, !tbaa !89
+  tail call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %62)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
   ret i64 %.0

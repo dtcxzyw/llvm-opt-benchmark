@@ -1756,123 +1756,32 @@ define noundef i32 @RIPEMD160_Final(ptr noundef writeonly captures(none) initial
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4, !tbaa !3
-  %19 = trunc i32 %18 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 85
-  store i8 %19, ptr %16, align 1, !tbaa !15
-  %21 = lshr i32 %18, 8
-  %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  store i8 %22, ptr %20, align 1, !tbaa !15
-  %24 = lshr i32 %18, 16
-  %25 = trunc i32 %24 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 87
-  store i8 %25, ptr %23, align 1, !tbaa !15
-  %27 = lshr i32 %18, 24
-  %28 = trunc nuw i32 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i8 %28, ptr %26, align 1, !tbaa !15
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load i32, ptr %30, align 4, !tbaa !8
-  %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 89
-  store i8 %32, ptr %29, align 1, !tbaa !15
-  %34 = lshr i32 %31, 8
-  %35 = trunc i32 %34 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 90
-  store i8 %35, ptr %33, align 1, !tbaa !15
-  %37 = lshr i32 %31, 16
-  %38 = trunc i32 %37 to i8
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 91
-  store i8 %38, ptr %36, align 1, !tbaa !15
-  %40 = lshr i32 %31, 24
-  %41 = trunc nuw i32 %40 to i8
-  store i8 %41, ptr %39, align 1, !tbaa !15
+  store i32 %18, ptr %16, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %21 = load i32, ptr %20, align 4, !tbaa !8
+  store i32 %21, ptr %19, align 1
   tail call void @ripemd160_block_data_order(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef 1)
   store i32 0, ptr %4, align 4, !tbaa !9
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 64) #7
-  %42 = load i32, ptr %1, align 4, !tbaa !10
-  %43 = trunc i32 %42 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %43, ptr %0, align 1, !tbaa !15
-  %45 = lshr i32 %42, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %46, ptr %44, align 1, !tbaa !15
-  %48 = lshr i32 %42, 16
-  %49 = trunc i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %49, ptr %47, align 1, !tbaa !15
-  %51 = lshr i32 %42, 24
-  %52 = trunc nuw i32 %51 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %52, ptr %50, align 1, !tbaa !15
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !11
-  %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %56, ptr %53, align 1, !tbaa !15
-  %58 = lshr i32 %55, 8
-  %59 = trunc i32 %58 to i8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %59, ptr %57, align 1, !tbaa !15
-  %61 = lshr i32 %55, 16
-  %62 = trunc i32 %61 to i8
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %62, ptr %60, align 1, !tbaa !15
-  %64 = lshr i32 %55, 24
-  %65 = trunc nuw i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %65, ptr %63, align 1, !tbaa !15
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %68 = load i32, ptr %67, align 4, !tbaa !12
-  %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %69, ptr %66, align 1, !tbaa !15
-  %71 = lshr i32 %68, 8
-  %72 = trunc i32 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %72, ptr %70, align 1, !tbaa !15
-  %74 = lshr i32 %68, 16
-  %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %75, ptr %73, align 1, !tbaa !15
-  %77 = lshr i32 %68, 24
-  %78 = trunc nuw i32 %77 to i8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %78, ptr %76, align 1, !tbaa !15
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %81 = load i32, ptr %80, align 4, !tbaa !13
-  %82 = trunc i32 %81 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %82, ptr %79, align 1, !tbaa !15
-  %84 = lshr i32 %81, 8
-  %85 = trunc i32 %84 to i8
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %85, ptr %83, align 1, !tbaa !15
-  %87 = lshr i32 %81, 16
-  %88 = trunc i32 %87 to i8
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %88, ptr %86, align 1, !tbaa !15
-  %90 = lshr i32 %81, 24
-  %91 = trunc nuw i32 %90 to i8
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %91, ptr %89, align 1, !tbaa !15
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %94 = load i32, ptr %93, align 4, !tbaa !14
-  %95 = trunc i32 %94 to i8
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 %95, ptr %92, align 1, !tbaa !15
-  %97 = lshr i32 %94, 8
-  %98 = trunc i32 %97 to i8
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %98, ptr %96, align 1, !tbaa !15
-  %100 = lshr i32 %94, 16
-  %101 = trunc i32 %100 to i8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 %101, ptr %99, align 1, !tbaa !15
-  %103 = lshr i32 %94, 24
-  %104 = trunc nuw i32 %103 to i8
-  store i8 %104, ptr %102, align 1, !tbaa !15
+  %22 = load i32, ptr %1, align 4, !tbaa !10
+  store i32 %22, ptr %0, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !11
+  store i32 %25, ptr %23, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = load i32, ptr %27, align 4, !tbaa !12
+  store i32 %28, ptr %26, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %31 = load i32, ptr %30, align 4, !tbaa !13
+  store i32 %31, ptr %29, align 1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load i32, ptr %33, align 4, !tbaa !14
+  store i32 %34, ptr %32, align 1
   ret i32 1
 }
 

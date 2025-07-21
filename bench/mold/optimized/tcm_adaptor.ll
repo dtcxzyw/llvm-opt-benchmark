@@ -628,109 +628,108 @@ define void @_ZN3tbb6detail2r111tcm_adaptor13adjust_demandERNS1_9pm_clientEii(pt
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = invoke i64 @_ZN3tbb6detail2r15arena14update_requestEii(ptr noundef nonnull align 128 dereferenceable(768) %9, i32 noundef %2, i32 noundef %3)
-          to label %11 unwind label %15
+          to label %11 unwind label %16
 
 11:                                               ; preds = %4
-  %.sroa.0.0.extract.trunc.i = trunc i64 %10 to i32
   %.sroa.4.0.extract.shift.i = lshr i64 %10, 32
   %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %14, align 8, !tbaa !61
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %12, align 4, !tbaa !62
+  store i64 %10, ptr %14, align 8
   %.not = icmp eq i32 %13, %.sroa.4.0.extract.trunc.i
-  br i1 %.not, label %.critedge, label %17
+  %15 = trunc i64 %10 to i32
+  br i1 %.not, label %.critedge, label %18
 
-15:                                               ; preds = %36, %19, %4
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %37, %20, %4
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %17
 
-17:                                               ; preds = %11
-  %18 = icmp ult i64 %10, 4294967296
-  br i1 %18, label %19, label %24
+18:                                               ; preds = %11
+  %19 = icmp ult i64 %10, 4294967296
+  br i1 %19, label %20, label %25
 
-19:                                               ; preds = %17
-  %20 = load ptr, ptr @_ZN3tbb6detail2r112_GLOBAL__N_121tcm_deactivate_permitE, align 8, !tbaa !20
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %22 = load ptr, ptr %21, align 8, !tbaa !21
-  %23 = invoke noundef i32 %20(ptr noundef %22)
-          to label %_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit unwind label %15
+20:                                               ; preds = %18
+  %21 = load ptr, ptr @_ZN3tbb6detail2r112_GLOBAL__N_121tcm_deactivate_permitE, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
+  %24 = invoke noundef i32 %21(ptr noundef %23)
+          to label %_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit unwind label %16
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %6, align 8, !tbaa !59
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !57
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %29, align 4, !tbaa !86
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %28, align 8, !tbaa !85
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %31 = load i32, ptr %30, align 8, !tbaa !84
-  %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %36, label %32
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %6, align 8, !tbaa !59
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i64, ptr %27, align 8, !tbaa !57
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  store i32 %.sroa.4.0.extract.trunc.i, ptr %30, align 4, !tbaa !86
+  store i32 %15, ptr %29, align 8, !tbaa !85
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %32 = load i32, ptr %31, align 8, !tbaa !84
+  %.not.i = icmp eq i32 %32, 0
+  br i1 %.not.i, label %37, label %33
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !83
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %34, align 8, !tbaa !63
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %.sroa.4.0.extract.trunc.i, ptr %35, align 4, !tbaa !64
-  br label %36
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %35 = load ptr, ptr %34, align 8, !tbaa !83
+  store i32 %15, ptr %35, align 8, !tbaa !63
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i32 %.sroa.4.0.extract.trunc.i, ptr %36, align 4, !tbaa !64
+  br label %37
 
-36:                                               ; preds = %32, %24
-  %37 = load ptr, ptr @_ZN3tbb6detail2r112_GLOBAL__N_118tcm_request_permitE, align 8, !tbaa !20
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %39 = invoke noundef i32 %37(i64 noundef %27, ptr noundef nonnull byval(%struct._tcm_permit_request_t) align 8 %28, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull %38, ptr noundef null)
-          to label %_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit unwind label %15
+37:                                               ; preds = %33, %25
+  %38 = load ptr, ptr @_ZN3tbb6detail2r112_GLOBAL__N_118tcm_request_permitE, align 8, !tbaa !20
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %40 = invoke noundef i32 %38(i64 noundef %28, ptr noundef nonnull byval(%struct._tcm_permit_request_t) align 8 %29, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull %39, ptr noundef null)
+          to label %_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit unwind label %16
 
-_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit: ; preds = %36, %19
-  %40 = load ptr, ptr %5, align 8, !tbaa !3
-  %.not.i12 = icmp eq ptr %40, null
-  br i1 %.not.i12, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i, label %41
+_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit: ; preds = %37, %20
+  %41 = load ptr, ptr %5, align 8, !tbaa !3
+  %.not.i12 = icmp eq ptr %41, null
+  br i1 %.not.i12, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i, label %42
 
-41:                                               ; preds = %_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit
-  %42 = atomicrmw xchg ptr %40, i8 0 seq_cst, align 1
-  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %40)
-          to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i unwind label %43
+42:                                               ; preds = %_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit
+  %43 = atomicrmw xchg ptr %41, i8 0 seq_cst, align 1
+  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %41)
+          to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i unwind label %44
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #17
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #17
   unreachable
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i: ; preds = %41, %_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit
+_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i: ; preds = %42, %_ZN3tbb6detail2r110tcm_client17deactivate_permitEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   call void @_ZN3tbb6detail2r110tcm_client16actualize_permitEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  br label %52
+  br label %53
 
 .critedge:                                        ; preds = %11
-  %46 = load ptr, ptr %5, align 8, !tbaa !3
-  %.not.i13 = icmp eq ptr %46, null
-  br i1 %.not.i13, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit15, label %47
+  %47 = load ptr, ptr %5, align 8, !tbaa !3
+  %.not.i13 = icmp eq ptr %47, null
+  br i1 %.not.i13, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit15, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = atomicrmw xchg ptr %46, i8 0 seq_cst, align 1
-  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %46)
-          to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit15 unwind label %49
+48:                                               ; preds = %.critedge
+  %49 = atomicrmw xchg ptr %47, i8 0 seq_cst, align 1
+  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %47)
+          to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit15 unwind label %50
 
-49:                                               ; preds = %47
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #17
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #17
   unreachable
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit15: ; preds = %47, %.critedge
+_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit15: ; preds = %48, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  br label %52
+  br label %53
 
-52:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit15, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i
+53:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit15, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i
   ret void
 }
 

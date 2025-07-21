@@ -32643,7 +32643,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt5Image4CropERKNS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr dead_on_unwind noalias writable sret(%"class.pbrt::Image") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0118 = alloca i32, align 4
+  %.sroa.0110 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
@@ -32686,6 +32686,8 @@ define dso_local void @_ZNK4pbrt5Image4CropERKNS_7Bounds2IiEEN4pstd3pmr21polymor
   %22 = load i32, ptr %1, align 8, !tbaa !40
   %.sroa.2.0.insert.ext.i = zext i32 %14 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
+  %.sroa.0.0.insert.ext.i = zext i32 %11 to i64
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !109
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -32693,10 +32695,8 @@ define dso_local void @_ZNK4pbrt5Image4CropERKNS_7Bounds2IiEEN4pstd3pmr21polymor
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i64, ptr %27, align 8, !tbaa !67
   store i64 %28, ptr %8, align 8, !tbaa !67
-  %.sroa.087.0.insert.ext = zext i32 %11 to i64
-  %.sroa.087.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.087.0.insert.ext
   %29 = ptrtoint ptr %3 to i64
-  call void @_ZN4pbrt5ImageC2ENS_11PixelFormatENS_6Point2IiEEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %22, i64 %.sroa.087.0.insert.insert, ptr %24, i64 %26, ptr noundef nonnull %8, i64 %29)
+  call void @_ZN4pbrt5ImageC2ENS_11PixelFormatENS_6Point2IiEEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %22, i64 %.sroa.0.0.insert.insert.i, ptr %24, i64 %26, ptr noundef nonnull %8, i64 %29)
   %30 = load i64, ptr %2, align 4
   %31 = trunc i64 %30 to i32
   %32 = load i32, ptr %12, align 4, !tbaa !59
@@ -32705,8 +32705,8 @@ define dso_local void @_ZNK4pbrt5Image4CropERKNS_7Bounds2IiEEN4pstd3pmr21polymor
   %34 = lshr i64 %30, 32
   %35 = trunc nuw i64 %34 to i32
   %36 = tail call i32 @llvm.smax.i32(i32 %32, i32 %35)
-  %.not137 = icmp sle i32 %32, %35
-  %.not = select i1 %.not.i, i1 true, i1 %.not137
+  %.not129 = icmp sle i32 %32, %35
+  %.not = select i1 %.not.i, i1 true, i1 %.not129
   br i1 %.not, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %21
@@ -32721,45 +32721,45 @@ define dso_local void @_ZNK4pbrt5Image4CropERKNS_7Bounds2IiEEN4pstd3pmr21polymor
   %41 = phi i32 [ %31, %.preheader.lr.ph ], [ %46, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
   %42 = phi i32 [ %33, %.preheader.lr.ph ], [ %47, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
   %43 = phi i64 [ %.pre, %.preheader.lr.ph ], [ %48, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
-  %.sroa.072.4.extract.shift133 = phi i64 [ %34, %.preheader.lr.ph ], [ %.sroa.072.4.extract.shift, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
-  %.sroa.072.0.extract.trunc132 = phi i32 [ %31, %.preheader.lr.ph ], [ %.sroa.072.0.extract.trunc, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
-  %.sroa.072.0131 = phi i64 [ %30, %.preheader.lr.ph ], [ %.sroa.072.1, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
+  %.sroa.065.4.extract.shift125 = phi i64 [ %34, %.preheader.lr.ph ], [ %.sroa.065.4.extract.shift, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
+  %.sroa.065.0.extract.trunc124 = phi i32 [ %31, %.preheader.lr.ph ], [ %.sroa.065.0.extract.trunc, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
+  %.sroa.065.0123 = phi i64 [ %30, %.preheader.lr.ph ], [ %.sroa.065.1, %_ZN4pbrt16Bounds2iIteratorppEv.exit ]
   %44 = trunc i64 %43 to i32
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph, label %_ZN4pbrt16Bounds2iIteratorppEv.exit
 
 .lr.ph:                                           ; preds = %.preheader
-  %.sroa.090.0.extract.trunc = trunc i64 %.sroa.072.0131 to i32
-  %.sroa.1397.0.extract.shift = lshr i64 %.sroa.072.0131, 32
-  %.sroa.1397.0.extract.trunc = trunc nuw i64 %.sroa.1397.0.extract.shift to i32
+  %.sroa.082.0.extract.trunc = trunc i64 %.sroa.065.0123 to i32
+  %.sroa.1389.0.extract.shift = lshr i64 %.sroa.065.0123, 32
+  %.sroa.1389.0.extract.trunc = trunc nuw i64 %.sroa.1389.0.extract.shift to i32
   br label %54
 
 ._crit_edge:                                      ; preds = %_ZN4pbrt16Bounds2iIteratorppEv.exit, %21
   ret void
 
 _ZN4pbrt16Bounds2iIteratorppEv.exit.loopexit:     ; preds = %131
-  %.pre135 = load i32, ptr %9, align 4, !tbaa !60
-  %.pre136 = load i32, ptr %2, align 4
+  %.pre127 = load i32, ptr %9, align 4, !tbaa !60
+  %.pre128 = load i32, ptr %2, align 4
   br label %_ZN4pbrt16Bounds2iIteratorppEv.exit
 
 _ZN4pbrt16Bounds2iIteratorppEv.exit:              ; preds = %_ZN4pbrt16Bounds2iIteratorppEv.exit.loopexit, %.preheader
-  %46 = phi i32 [ %.pre136, %_ZN4pbrt16Bounds2iIteratorppEv.exit.loopexit ], [ %41, %.preheader ]
-  %47 = phi i32 [ %.pre135, %_ZN4pbrt16Bounds2iIteratorppEv.exit.loopexit ], [ %42, %.preheader ]
+  %46 = phi i32 [ %.pre128, %_ZN4pbrt16Bounds2iIteratorppEv.exit.loopexit ], [ %41, %.preheader ]
+  %47 = phi i32 [ %.pre127, %_ZN4pbrt16Bounds2iIteratorppEv.exit.loopexit ], [ %42, %.preheader ]
   %48 = phi i64 [ %132, %_ZN4pbrt16Bounds2iIteratorppEv.exit.loopexit ], [ %43, %.preheader ]
-  %49 = add nsw i32 %.sroa.072.0.extract.trunc132, 1
-  %.sroa.072.0.insert.ext = zext i32 %49 to i64
-  %.sroa.072.0.insert.mask = and i64 %.sroa.072.0131, -4294967296
-  %.sroa.072.0.insert.insert = or disjoint i64 %.sroa.072.0.insert.mask, %.sroa.072.0.insert.ext
+  %49 = add nsw i32 %.sroa.065.0.extract.trunc124, 1
+  %.sroa.065.0.insert.ext = zext i32 %49 to i64
+  %.sroa.065.0.insert.mask = and i64 %.sroa.065.0123, -4294967296
+  %.sroa.065.0.insert.insert = or disjoint i64 %.sroa.065.0.insert.mask, %.sroa.065.0.insert.ext
   %50 = icmp eq i32 %49, %47
-  %.sroa.072.0.insert.ext78 = zext i32 %46 to i64
-  %.sroa.072.4.insert.shift = add i64 %.sroa.072.0.insert.mask, 4294967296
-  %.sroa.072.4.insert.insert = or disjoint i64 %.sroa.072.4.insert.shift, %.sroa.072.0.insert.ext78
-  %.sroa.072.1 = select i1 %50, i64 %.sroa.072.4.insert.insert, i64 %.sroa.072.0.insert.insert
-  %.sroa.072.0.extract.trunc = trunc i64 %.sroa.072.1 to i32
-  %.not.i.i = icmp ne i32 %31, %.sroa.072.0.extract.trunc
-  %.sroa.072.4.extract.shift = lshr i64 %.sroa.072.1, 32
-  %.sroa.072.4.extract.trunc = trunc nuw i64 %.sroa.072.4.extract.shift to i32
-  %51 = icmp ne i32 %36, %.sroa.072.4.extract.trunc
+  %.sroa.065.0.insert.ext71 = zext i32 %46 to i64
+  %.sroa.065.4.insert.shift = add i64 %.sroa.065.0.insert.mask, 4294967296
+  %.sroa.065.4.insert.insert = or disjoint i64 %.sroa.065.4.insert.shift, %.sroa.065.0.insert.ext71
+  %.sroa.065.1 = select i1 %50, i64 %.sroa.065.4.insert.insert, i64 %.sroa.065.0.insert.insert
+  %.sroa.065.0.extract.trunc = trunc i64 %.sroa.065.1 to i32
+  %.not.i.i = icmp ne i32 %31, %.sroa.065.0.extract.trunc
+  %.sroa.065.4.extract.shift = lshr i64 %.sroa.065.1, 32
+  %.sroa.065.4.extract.trunc = trunc nuw i64 %.sroa.065.4.extract.shift to i32
+  %51 = icmp ne i32 %36, %.sroa.065.4.extract.trunc
   %52 = select i1 %.not.i.i, i1 true, i1 %51
   br i1 %52, label %.preheader, label %._crit_edge
 
@@ -32782,30 +32782,32 @@ _ZN4pbrt16Bounds2iIteratorppEv.exit:              ; preds = %_ZN4pbrt16Bounds2iI
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %131 ]
   %55 = phi i32 [ %44, %.lr.ph ], [ %133, %131 ]
   %.sroa.02.0.copyload = load i64, ptr %2, align 4
-  %.sroa.2.0.extract.shift.i47 = lshr i64 %.sroa.02.0.copyload, 32
-  %56 = sub i64 %.sroa.072.0131, %.sroa.02.0.copyload
-  %57 = sub nsw i64 %.sroa.072.4.extract.shift133, %.sroa.2.0.extract.shift.i47
-  %.sroa.2.0.insert.ext.i49 = shl i64 %57, 32
+  %.sroa.2.0.extract.shift.i44 = lshr i64 %.sroa.02.0.copyload, 32
+  %56 = sub i64 %.sroa.065.0123, %.sroa.02.0.copyload
+  %57 = sub nsw i64 %.sroa.065.4.extract.shift125, %.sroa.2.0.extract.shift.i44
+  %.sroa.2.0.insert.ext.i46 = shl i64 %57, 32
+  %.sroa.0.0.insert.ext.i48 = and i64 %56, 4294967295
+  %.sroa.0.0.insert.insert.i49 = or disjoint i64 %.sroa.2.0.insert.ext.i46, %.sroa.0.0.insert.ext.i48
   %.sroa.04.0.copyload.i = load i64, ptr %37, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0118)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0110)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
   %.sroa.9.0.extract.shift.i = lshr i64 %.sroa.04.0.copyload.i, 32
-  store i32 1, ptr %.sroa.0118, align 4
+  store i32 1, ptr %.sroa.0110, align 4
   store i32 1, ptr %.sroa.4, align 4
   %58 = trunc i64 %.sroa.04.0.copyload.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %54, %.sink.split89.i.cont
-  %.sroa.090.0 = phi i32 [ %.sroa.090.0.extract.trunc, %54 ], [ %.sroa.090.1, %.sink.split89.i.cont ]
+  %.sroa.082.0 = phi i32 [ %.sroa.082.0.extract.trunc, %54 ], [ %.sroa.082.1, %.sink.split89.i.cont ]
   %59 = phi i1 [ true, %54 ], [ false, %.sink.split89.i.cont ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %.sroa.0118, %54 ], [ %.sroa.4, %.sink.split89.i.cont ]
-  %.sroa.speculated = select i1 %59, i32 %.sroa.090.0, i32 %.sroa.1397.0.extract.trunc
+  %indvars.iv.i.sroa.phi = phi ptr [ %.sroa.0110, %54 ], [ %.sroa.4, %.sink.split89.i.cont ]
+  %.sroa.speculated = select i1 %59, i32 %.sroa.082.0, i32 %.sroa.1389.0.extract.trunc
   %60 = icmp sgt i32 %.sroa.speculated, -1
   %.sroa.speculated71.i.v = select i1 %59, i64 %.sroa.04.0.copyload.i, i64 %.sroa.9.0.extract.shift.i
   %.sroa.speculated71.i = trunc i64 %.sroa.speculated71.i.v to i32
   %61 = icmp slt i32 %.sroa.speculated, %.sroa.speculated71.i
-  %or.cond.i64 = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond.i64, label %.sink.split89.i.cont, label %62
+  %or.cond.i58 = select i1 %60, i1 %61, i1 false
+  br i1 %or.cond.i58, label %.sink.split89.i.cont, label %62
 
 62:                                               ; preds = %.preheader.i
   %63 = load i32, ptr %indvars.iv.i.sroa.phi, align 4, !tbaa !63
@@ -32834,18 +32836,18 @@ _ZN4pbrt16Bounds2iIteratorppEv.exit:              ; preds = %_ZN4pbrt16Bounds2iI
   br i1 %59, label %.sink.split89.i.cont, label %.sink.split89.i.cont.thread
 
 .sink.split89.i.cont:                             ; preds = %.sink.split89.i, %.preheader.i
-  %.sroa.090.1 = phi i32 [ %.sroa.090.0, %.preheader.i ], [ %.sink90.i, %.sink.split89.i ]
+  %.sroa.082.1 = phi i32 [ %.sroa.082.0, %.preheader.i ], [ %.sink90.i, %.sink.split89.i ]
   br i1 %59, label %.preheader.i, label %.sink.split89.i.cont.thread, !llvm.loop !65
 
 .noexc:                                           ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0118)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0110)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
 .sink.split89.i.cont.thread:                      ; preds = %.sink.split89.i, %.sink.split89.i.cont
-  %.sroa.1397.4.ph = phi i32 [ %.sroa.1397.0.extract.trunc, %.sink.split89.i.cont ], [ %.sink90.i, %.sink.split89.i ]
-  %.sroa.090.6.ph = phi i32 [ %.sroa.090.1, %.sink.split89.i.cont ], [ %.sroa.090.0, %.sink.split89.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0118)
+  %.sroa.1389.4.ph = phi i32 [ %.sroa.1389.0.extract.trunc, %.sink.split89.i.cont ], [ %.sink90.i, %.sink.split89.i ]
+  %.sroa.082.6.ph = phi i32 [ %.sroa.082.1, %.sink.split89.i.cont ], [ %.sroa.082.0, %.sink.split89.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0110)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
   %72 = load i32, ptr %1, align 8, !tbaa !40
   switch i32 %72, label %.invoke [
@@ -32856,8 +32858,8 @@ _ZN4pbrt16Bounds2iIteratorppEv.exit:              ; preds = %_ZN4pbrt16Bounds2iI
 
 73:                                               ; preds = %.sink.split89.i.cont.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #35
-  %74 = mul nsw i32 %.sroa.1397.4.ph, %58
-  %75 = add nsw i32 %74, %.sroa.090.6.ph
+  %74 = mul nsw i32 %.sroa.1389.4.ph, %58
+  %75 = add nsw i32 %74, %.sroa.082.6.ph
   %76 = mul nsw i32 %75, %55
   %77 = sext i32 %76 to i64
   %78 = load ptr, ptr %40, align 8, !tbaa !66
@@ -32894,8 +32896,8 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %90
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
 92:                                               ; preds = %.sink.split89.i.cont.thread
-  %93 = mul nsw i32 %.sroa.1397.4.ph, %58
-  %94 = add nsw i32 %93, %.sroa.090.6.ph
+  %93 = mul nsw i32 %.sroa.1389.4.ph, %58
+  %94 = add nsw i32 %93, %.sroa.082.6.ph
   %95 = mul nsw i32 %94, %55
   %96 = sext i32 %95 to i64
   %97 = load ptr, ptr %39, align 8, !tbaa !70
@@ -32934,8 +32936,8 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %111, %107, %105
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
 119:                                              ; preds = %.sink.split89.i.cont.thread
-  %120 = mul nsw i32 %.sroa.1397.4.ph, %58
-  %121 = add nsw i32 %120, %.sroa.090.6.ph
+  %120 = mul nsw i32 %.sroa.1389.4.ph, %58
+  %121 = add nsw i32 %120, %.sroa.082.6.ph
   %122 = mul nsw i32 %121, %55
   %123 = sext i32 %122 to i64
   %124 = load ptr, ptr %38, align 8, !tbaa !74
@@ -32955,10 +32957,8 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %111, %107, %105
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %119, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %.noexc
   %.0.i = phi float [ %91, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %118, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %127, %119 ], [ 0.000000e+00, %.noexc ]
-  %.sroa.068.0.insert.ext = and i64 %56, 4294967295
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext.i49, %.sroa.068.0.insert.ext
   %130 = trunc nuw nsw i64 %indvars.iv to i32
-  invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 %.sroa.068.0.insert.insert, i32 noundef %130, float noundef %.0.i)
+  invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 %.sroa.0.0.insert.insert.i49, i32 noundef %130, float noundef %.0.i)
           to label %131 unwind label %.loopexit
 
 131:                                              ; preds = %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit

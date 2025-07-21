@@ -2318,9 +2318,7 @@ define void @_ZN2cv6detail16MultiBandBlender7prepareENS_5Rect_IiEE(ptr noundef n
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 %1, ptr %14, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 %.sroa.3.sroa.0.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 %.sroa.3.sroa.8.0.extract.trunc, ptr %.sroa.3.0..sroa_idx.sroa_idx, align 4
+  store i64 %2, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.speculated43 = tail call i32 @llvm.smax.i32(i32 %.sroa.3.sroa.0.0.extract.trunc, i32 %.sroa.3.sroa.8.0.extract.trunc)
   %15 = sitofp i32 %.sroa.speculated43 to double
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 184

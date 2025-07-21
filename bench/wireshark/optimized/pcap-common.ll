@@ -2069,7 +2069,7 @@ define hidden noundef zeroext i1 @pcap_write_phdr(ptr noundef %0, i32 noundef %1
   %15 = alloca [4 x i8], align 1
   %16 = alloca [16 x i8], align 16
   %17 = alloca [4 x i8], align 1
-  switch i32 %1, label %321 [
+  switch i32 %1, label %299 [
     i32 13, label %18
     i32 44, label %43
     i32 75, label %51
@@ -2080,7 +2080,7 @@ define hidden noundef zeroext i1 @pcap_write_phdr(ptr noundef %0, i32 noundef %1
     i32 140, label %98
     i32 19, label %102
     i32 98, label %104
-    i32 112, label %301
+    i32 112, label %279
   ]
 
 18:                                               ; preds = %4
@@ -2135,7 +2135,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   store i8 %40, ptr %41, align 1
   %42 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 4, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #9
-  br i1 %42, label %321, label %322
+  br i1 %42, label %299, label %300
 
 43:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #9
@@ -2151,7 +2151,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   store i8 23, ptr %49, align 1
   %50 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 16, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #9
-  br i1 %50, label %321, label %322
+  br i1 %50, label %299, label %300
 
 51:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
@@ -2172,7 +2172,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   store i8 %61, ptr %62, align 1
   %63 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
-  br i1 %63, label %321, label %322
+  br i1 %63, label %299, label %300
 
 64:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
@@ -2194,7 +2194,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   store i8 %73, ptr %74, align 2
   %75 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 16, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
-  br i1 %75, label %321, label %322
+  br i1 %75, label %299, label %300
 
 76:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %13) #9
@@ -2218,7 +2218,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   store i8 %88, ptr %89, align 1
   %90 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 5, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13) #9
-  br i1 %90, label %321, label %322
+  br i1 %90, label %299, label %300
 
 pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   %.val = load i8, ptr %2, align 8, !range !15, !noundef !16
@@ -2229,7 +2229,7 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   store i32 %92, ptr %12, align 4
   %93 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
-  br i1 %93, label %321, label %322
+  br i1 %93, label %299, label %300
 
 94:                                               ; preds = %4
   %.val34 = load i16, ptr %2, align 8
@@ -2243,7 +2243,7 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   store i16 %rev7.i, ptr %96, align 2
   %97 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 4, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  br i1 %97, label %321, label %322
+  br i1 %97, label %299, label %300
 
 98:                                               ; preds = %4
   %.val36 = load i8, ptr %2, align 8
@@ -2255,7 +2255,7 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   store i8 %.val37, ptr %100, align 1
   %101 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #9
-  br i1 %101, label %321, label %322
+  br i1 %101, label %299, label %300
 
 102:                                              ; preds = %4
   %.val38 = load i8, ptr %2, align 8, !range !15, !noundef !16
@@ -2263,482 +2263,453 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   store i8 %.val38, ptr %9, align 1
   %103 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  br i1 %103, label %321, label %322
+  br i1 %103, label %299, label %300
 
 104:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   %105 = load i64, ptr %2, align 8
-  %106 = trunc i64 %105 to i8
-  store i8 %106, ptr %6, align 16
-  %107 = lshr i64 %105, 8
-  %108 = trunc i64 %107 to i8
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %108, ptr %109, align 1
-  %110 = lshr i64 %105, 16
-  %111 = trunc i64 %110 to i8
-  %112 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %111, ptr %112, align 2
-  %113 = lshr i64 %105, 24
-  %114 = trunc i64 %113 to i8
-  %115 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %114, ptr %115, align 1
-  %116 = lshr i64 %105, 32
-  %117 = trunc i64 %116 to i8
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %117, ptr %118, align 4
-  %119 = lshr i64 %105, 40
-  %120 = trunc i64 %119 to i8
-  %121 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %120, ptr %121, align 1
-  %122 = lshr i64 %105, 48
-  %123 = trunc i64 %122 to i8
-  %124 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i8 %123, ptr %124, align 2
-  %125 = lshr i64 %105, 56
-  %126 = trunc nuw i64 %125 to i8
-  %127 = getelementptr inbounds nuw i8, ptr %6, i64 7
-  store i8 %126, ptr %127, align 1
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %129 = load i8, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 %129, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %132 = load i8, ptr %131, align 1
-  %133 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  store i8 %132, ptr %133, align 1
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %135 = load i16, ptr %134, align 2
-  %136 = zext i16 %135 to i32
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %138 = load i16, ptr %137, align 2
-  %139 = zext i16 %138 to i32
-  %.not.i.i = icmp sgt i8 %129, -1
+  store i64 %105, ptr %6, align 16
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %107 = load i8, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i8 %107, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %110 = load i8, ptr %109, align 1
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  store i8 %110, ptr %111, align 1
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %113 = load i16, ptr %112, align 2
+  %114 = zext i16 %113 to i32
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  %116 = load i16, ptr %115, align 2
+  %117 = zext i16 %116 to i32
+  %.not.i.i = icmp sgt i8 %107, -1
   br i1 %.not.i.i, label %.loopexit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %104
-  %140 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %141
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %119
 
-141:                                              ; preds = %141, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %141 ]
-  %.2.i.i = phi i32 [ 16, %.preheader.i.i ], [ %144, %141 ]
-  %142 = getelementptr [16 x %struct.erf_ehdr], ptr %140, i64 0, i64 %indvars.iv.i.i
-  %143 = load i64, ptr %142, align 8
-  %144 = add nuw nsw i32 %.2.i.i, 8
+119:                                              ; preds = %119, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %119 ]
+  %.2.i.i = phi i32 [ 16, %.preheader.i.i ], [ %122, %119 ]
+  %120 = getelementptr [16 x %struct.erf_ehdr], ptr %118, i64 0, i64 %indvars.iv.i.i
+  %121 = load i64, ptr %120, align 8
+  %122 = add nuw nsw i32 %.2.i.i, 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %145 = icmp slt i64 %143, 0
-  %146 = icmp samesign ult i64 %indvars.iv.i.i, 15
-  %147 = and i1 %146, %145
-  br i1 %147, label %141, label %.loopexit.i.i, !llvm.loop !14
+  %123 = icmp slt i64 %121, 0
+  %124 = icmp samesign ult i64 %indvars.iv.i.i, 15
+  %125 = and i1 %124, %123
+  br i1 %125, label %119, label %.loopexit.i.i, !llvm.loop !14
 
-.loopexit.i.i:                                    ; preds = %141, %104
-  %.1.i.i = phi i32 [ 16, %104 ], [ %144, %141 ]
-  %148 = and i8 %129, 127
-  switch i8 %148, label %pcap_get_phdr_size.exit.i [
-    i8 5, label %149
-    i8 6, label %149
-    i8 7, label %149
-    i8 8, label %149
-    i8 9, label %149
-    i8 12, label %149
-    i8 17, label %149
-    i8 18, label %151
-    i8 2, label %153
-    i8 11, label %153
-    i8 16, label %153
-    i8 20, label %153
+.loopexit.i.i:                                    ; preds = %119, %104
+  %.1.i.i = phi i32 [ 16, %104 ], [ %122, %119 ]
+  %126 = and i8 %107, 127
+  switch i8 %126, label %pcap_get_phdr_size.exit.i [
+    i8 5, label %127
+    i8 6, label %127
+    i8 7, label %127
+    i8 8, label %127
+    i8 9, label %127
+    i8 12, label %127
+    i8 17, label %127
+    i8 18, label %129
+    i8 2, label %131
+    i8 11, label %131
+    i8 16, label %131
+    i8 20, label %131
   ]
 
-149:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
-  %150 = add i32 %.1.i.i, 4
+127:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
+  %128 = add i32 %.1.i.i, 4
   br label %pcap_get_phdr_size.exit.i
 
-151:                                              ; preds = %.loopexit.i.i
-  %152 = add i32 %.1.i.i, 4
+129:                                              ; preds = %.loopexit.i.i
+  %130 = add i32 %.1.i.i, 4
   br label %pcap_get_phdr_size.exit.i
 
-153:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
-  %154 = add i32 %.1.i.i, 2
+131:                                              ; preds = %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
+  %132 = add i32 %.1.i.i, 2
   br label %pcap_get_phdr_size.exit.i
 
-pcap_get_phdr_size.exit.i:                        ; preds = %153, %151, %149, %.loopexit.i.i
-  %.0.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ]
-  %155 = add i32 %.0.i.i, %139
-  %156 = icmp sgt i32 %155, %136
-  br i1 %156, label %173, label %157
+pcap_get_phdr_size.exit.i:                        ; preds = %131, %129, %127, %.loopexit.i.i
+  %.0.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ]
+  %133 = add i32 %.0.i.i, %117
+  %134 = icmp sgt i32 %133, %114
+  br i1 %134, label %151, label %135
 
-157:                                              ; preds = %pcap_get_phdr_size.exit.i
+135:                                              ; preds = %pcap_get_phdr_size.exit.i
   br i1 %.not.i.i, label %.loopexit.i78.i, label %.preheader.i74.i
 
-.preheader.i74.i:                                 ; preds = %157
-  %158 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %159
+.preheader.i74.i:                                 ; preds = %135
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %137
 
-159:                                              ; preds = %159, %.preheader.i74.i
-  %indvars.iv.i75.i = phi i64 [ 0, %.preheader.i74.i ], [ %indvars.iv.next.i77.i, %159 ]
-  %.2.i76.i = phi i32 [ 16, %.preheader.i74.i ], [ %162, %159 ]
-  %160 = getelementptr [16 x %struct.erf_ehdr], ptr %158, i64 0, i64 %indvars.iv.i75.i
-  %161 = load i64, ptr %160, align 8
-  %162 = add nuw nsw i32 %.2.i76.i, 8
+137:                                              ; preds = %137, %.preheader.i74.i
+  %indvars.iv.i75.i = phi i64 [ 0, %.preheader.i74.i ], [ %indvars.iv.next.i77.i, %137 ]
+  %.2.i76.i = phi i32 [ 16, %.preheader.i74.i ], [ %140, %137 ]
+  %138 = getelementptr [16 x %struct.erf_ehdr], ptr %136, i64 0, i64 %indvars.iv.i75.i
+  %139 = load i64, ptr %138, align 8
+  %140 = add nuw nsw i32 %.2.i76.i, 8
   %indvars.iv.next.i77.i = add nuw nsw i64 %indvars.iv.i75.i, 1
-  %163 = icmp slt i64 %161, 0
-  %164 = icmp samesign ult i64 %indvars.iv.i75.i, 15
-  %165 = and i1 %164, %163
-  br i1 %165, label %159, label %.loopexit.i78.i, !llvm.loop !14
+  %141 = icmp slt i64 %139, 0
+  %142 = icmp samesign ult i64 %indvars.iv.i75.i, 15
+  %143 = and i1 %142, %141
+  br i1 %143, label %137, label %.loopexit.i78.i, !llvm.loop !14
 
-.loopexit.i78.i:                                  ; preds = %159, %157
-  %.1.i79.i = phi i32 [ 16, %157 ], [ %162, %159 ]
-  switch i8 %148, label %pcap_get_phdr_size.exit81.i [
-    i8 5, label %166
-    i8 6, label %166
-    i8 7, label %166
-    i8 8, label %166
-    i8 9, label %166
-    i8 12, label %166
-    i8 17, label %166
-    i8 18, label %168
-    i8 2, label %170
-    i8 11, label %170
-    i8 16, label %170
-    i8 20, label %170
+.loopexit.i78.i:                                  ; preds = %137, %135
+  %.1.i79.i = phi i32 [ 16, %135 ], [ %140, %137 ]
+  switch i8 %126, label %pcap_get_phdr_size.exit81.i [
+    i8 5, label %144
+    i8 6, label %144
+    i8 7, label %144
+    i8 8, label %144
+    i8 9, label %144
+    i8 12, label %144
+    i8 17, label %144
+    i8 18, label %146
+    i8 2, label %148
+    i8 11, label %148
+    i8 16, label %148
+    i8 20, label %148
   ]
 
-166:                                              ; preds = %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i
-  %167 = add i32 %.1.i79.i, 4
+144:                                              ; preds = %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i
+  %145 = add i32 %.1.i79.i, 4
   br label %pcap_get_phdr_size.exit81.i
 
-168:                                              ; preds = %.loopexit.i78.i
-  %169 = add i32 %.1.i79.i, 4
+146:                                              ; preds = %.loopexit.i78.i
+  %147 = add i32 %.1.i79.i, 4
   br label %pcap_get_phdr_size.exit81.i
 
-170:                                              ; preds = %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i
-  %171 = add i32 %.1.i79.i, 2
+148:                                              ; preds = %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i, %.loopexit.i78.i
+  %149 = add i32 %.1.i79.i, 2
   br label %pcap_get_phdr_size.exit81.i
 
-pcap_get_phdr_size.exit81.i:                      ; preds = %170, %168, %166, %.loopexit.i78.i
-  %.0.i80.i = phi i32 [ %.1.i79.i, %.loopexit.i78.i ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ]
-  %172 = add i32 %.0.i80.i, %139
-  br label %173
+pcap_get_phdr_size.exit81.i:                      ; preds = %148, %146, %144, %.loopexit.i78.i
+  %.0.i80.i = phi i32 [ %.1.i79.i, %.loopexit.i78.i ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ]
+  %150 = add i32 %.0.i80.i, %117
+  br label %151
 
-173:                                              ; preds = %pcap_get_phdr_size.exit81.i, %pcap_get_phdr_size.exit.i
-  %174 = phi i32 [ %172, %pcap_get_phdr_size.exit81.i ], [ %136, %pcap_get_phdr_size.exit.i ]
-  %175 = lshr i32 %174, 8
-  %176 = trunc i32 %175 to i8
-  %177 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 %176, ptr %177, align 2
+151:                                              ; preds = %pcap_get_phdr_size.exit81.i, %pcap_get_phdr_size.exit.i
+  %152 = phi i32 [ %150, %pcap_get_phdr_size.exit81.i ], [ %114, %pcap_get_phdr_size.exit.i ]
+  %153 = lshr i32 %152, 8
+  %154 = trunc i32 %153 to i8
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i8 %154, ptr %155, align 2
   br i1 %.not.i.i, label %.loopexit.i87.i, label %.preheader.i83.i
 
-.preheader.i83.i:                                 ; preds = %173
-  %178 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %179
+.preheader.i83.i:                                 ; preds = %151
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %157
 
-179:                                              ; preds = %179, %.preheader.i83.i
-  %indvars.iv.i84.i = phi i64 [ 0, %.preheader.i83.i ], [ %indvars.iv.next.i86.i, %179 ]
-  %.2.i85.i = phi i32 [ 16, %.preheader.i83.i ], [ %182, %179 ]
-  %180 = getelementptr [16 x %struct.erf_ehdr], ptr %178, i64 0, i64 %indvars.iv.i84.i
-  %181 = load i64, ptr %180, align 8
-  %182 = add nuw nsw i32 %.2.i85.i, 8
+157:                                              ; preds = %157, %.preheader.i83.i
+  %indvars.iv.i84.i = phi i64 [ 0, %.preheader.i83.i ], [ %indvars.iv.next.i86.i, %157 ]
+  %.2.i85.i = phi i32 [ 16, %.preheader.i83.i ], [ %160, %157 ]
+  %158 = getelementptr [16 x %struct.erf_ehdr], ptr %156, i64 0, i64 %indvars.iv.i84.i
+  %159 = load i64, ptr %158, align 8
+  %160 = add nuw nsw i32 %.2.i85.i, 8
   %indvars.iv.next.i86.i = add nuw nsw i64 %indvars.iv.i84.i, 1
-  %183 = icmp slt i64 %181, 0
-  %184 = icmp samesign ult i64 %indvars.iv.i84.i, 15
-  %185 = and i1 %184, %183
-  br i1 %185, label %179, label %.loopexit.i87.i, !llvm.loop !14
+  %161 = icmp slt i64 %159, 0
+  %162 = icmp samesign ult i64 %indvars.iv.i84.i, 15
+  %163 = and i1 %162, %161
+  br i1 %163, label %157, label %.loopexit.i87.i, !llvm.loop !14
 
-.loopexit.i87.i:                                  ; preds = %179, %173
-  %.1.i88.i = phi i32 [ 16, %173 ], [ %182, %179 ]
-  switch i8 %148, label %pcap_get_phdr_size.exit90.i [
-    i8 5, label %186
-    i8 6, label %186
-    i8 7, label %186
-    i8 8, label %186
-    i8 9, label %186
-    i8 12, label %186
-    i8 17, label %186
-    i8 18, label %188
-    i8 2, label %190
-    i8 11, label %190
-    i8 16, label %190
-    i8 20, label %190
+.loopexit.i87.i:                                  ; preds = %157, %151
+  %.1.i88.i = phi i32 [ 16, %151 ], [ %160, %157 ]
+  switch i8 %126, label %pcap_get_phdr_size.exit90.i [
+    i8 5, label %164
+    i8 6, label %164
+    i8 7, label %164
+    i8 8, label %164
+    i8 9, label %164
+    i8 12, label %164
+    i8 17, label %164
+    i8 18, label %166
+    i8 2, label %168
+    i8 11, label %168
+    i8 16, label %168
+    i8 20, label %168
   ]
 
-186:                                              ; preds = %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i
-  %187 = add i32 %.1.i88.i, 4
+164:                                              ; preds = %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i
+  %165 = add i32 %.1.i88.i, 4
   br label %pcap_get_phdr_size.exit90.i
 
-188:                                              ; preds = %.loopexit.i87.i
-  %189 = add i32 %.1.i88.i, 4
+166:                                              ; preds = %.loopexit.i87.i
+  %167 = add i32 %.1.i88.i, 4
   br label %pcap_get_phdr_size.exit90.i
 
-190:                                              ; preds = %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i
-  %191 = add i32 %.1.i88.i, 2
+168:                                              ; preds = %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i, %.loopexit.i87.i
+  %169 = add i32 %.1.i88.i, 2
   br label %pcap_get_phdr_size.exit90.i
 
-pcap_get_phdr_size.exit90.i:                      ; preds = %190, %188, %186, %.loopexit.i87.i
-  %.0.i89.i = phi i32 [ %.1.i88.i, %.loopexit.i87.i ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ]
-  %192 = add i32 %.0.i89.i, %139
-  %193 = icmp sgt i32 %192, %136
-  br i1 %193, label %210, label %194
+pcap_get_phdr_size.exit90.i:                      ; preds = %168, %166, %164, %.loopexit.i87.i
+  %.0.i89.i = phi i32 [ %.1.i88.i, %.loopexit.i87.i ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ]
+  %170 = add i32 %.0.i89.i, %117
+  %171 = icmp sgt i32 %170, %114
+  br i1 %171, label %188, label %172
 
-194:                                              ; preds = %pcap_get_phdr_size.exit90.i
+172:                                              ; preds = %pcap_get_phdr_size.exit90.i
   br i1 %.not.i.i, label %.loopexit.i96.i, label %.preheader.i92.i
 
-.preheader.i92.i:                                 ; preds = %194
-  %195 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %196
+.preheader.i92.i:                                 ; preds = %172
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %174
 
-196:                                              ; preds = %196, %.preheader.i92.i
-  %indvars.iv.i93.i = phi i64 [ 0, %.preheader.i92.i ], [ %indvars.iv.next.i95.i, %196 ]
-  %.2.i94.i = phi i32 [ 16, %.preheader.i92.i ], [ %199, %196 ]
-  %197 = getelementptr [16 x %struct.erf_ehdr], ptr %195, i64 0, i64 %indvars.iv.i93.i
-  %198 = load i64, ptr %197, align 8
-  %199 = add nuw nsw i32 %.2.i94.i, 8
+174:                                              ; preds = %174, %.preheader.i92.i
+  %indvars.iv.i93.i = phi i64 [ 0, %.preheader.i92.i ], [ %indvars.iv.next.i95.i, %174 ]
+  %.2.i94.i = phi i32 [ 16, %.preheader.i92.i ], [ %177, %174 ]
+  %175 = getelementptr [16 x %struct.erf_ehdr], ptr %173, i64 0, i64 %indvars.iv.i93.i
+  %176 = load i64, ptr %175, align 8
+  %177 = add nuw nsw i32 %.2.i94.i, 8
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i93.i, 1
-  %200 = icmp slt i64 %198, 0
-  %201 = icmp samesign ult i64 %indvars.iv.i93.i, 15
-  %202 = and i1 %201, %200
-  br i1 %202, label %196, label %.loopexit.i96.i, !llvm.loop !14
+  %178 = icmp slt i64 %176, 0
+  %179 = icmp samesign ult i64 %indvars.iv.i93.i, 15
+  %180 = and i1 %179, %178
+  br i1 %180, label %174, label %.loopexit.i96.i, !llvm.loop !14
 
-.loopexit.i96.i:                                  ; preds = %196, %194
-  %.1.i97.i = phi i32 [ 16, %194 ], [ %199, %196 ]
-  switch i8 %148, label %pcap_get_phdr_size.exit99.i [
-    i8 5, label %203
-    i8 6, label %203
-    i8 7, label %203
-    i8 8, label %203
-    i8 9, label %203
-    i8 12, label %203
-    i8 17, label %203
-    i8 18, label %205
-    i8 2, label %207
-    i8 11, label %207
-    i8 16, label %207
-    i8 20, label %207
+.loopexit.i96.i:                                  ; preds = %174, %172
+  %.1.i97.i = phi i32 [ 16, %172 ], [ %177, %174 ]
+  switch i8 %126, label %pcap_get_phdr_size.exit99.i [
+    i8 5, label %181
+    i8 6, label %181
+    i8 7, label %181
+    i8 8, label %181
+    i8 9, label %181
+    i8 12, label %181
+    i8 17, label %181
+    i8 18, label %183
+    i8 2, label %185
+    i8 11, label %185
+    i8 16, label %185
+    i8 20, label %185
   ]
 
-203:                                              ; preds = %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i
-  %204 = add i32 %.1.i97.i, 4
+181:                                              ; preds = %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i
+  %182 = add i32 %.1.i97.i, 4
   br label %pcap_get_phdr_size.exit99.i
 
-205:                                              ; preds = %.loopexit.i96.i
-  %206 = add i32 %.1.i97.i, 4
+183:                                              ; preds = %.loopexit.i96.i
+  %184 = add i32 %.1.i97.i, 4
   br label %pcap_get_phdr_size.exit99.i
 
-207:                                              ; preds = %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i
-  %208 = add i32 %.1.i97.i, 2
+185:                                              ; preds = %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i, %.loopexit.i96.i
+  %186 = add i32 %.1.i97.i, 2
   br label %pcap_get_phdr_size.exit99.i
 
-pcap_get_phdr_size.exit99.i:                      ; preds = %207, %205, %203, %.loopexit.i96.i
-  %.0.i98.i = phi i32 [ %.1.i97.i, %.loopexit.i96.i ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ]
-  %209 = add i32 %.0.i98.i, %139
-  br label %210
+pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.loopexit.i96.i
+  %.0.i98.i = phi i32 [ %.1.i97.i, %.loopexit.i96.i ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ]
+  %187 = add i32 %.0.i98.i, %117
+  br label %188
 
-210:                                              ; preds = %pcap_get_phdr_size.exit99.i, %pcap_get_phdr_size.exit90.i
-  %211 = phi i32 [ %209, %pcap_get_phdr_size.exit99.i ], [ %136, %pcap_get_phdr_size.exit90.i ]
-  %212 = trunc i32 %211 to i8
-  %213 = getelementptr inbounds nuw i8, ptr %6, i64 11
-  store i8 %212, ptr %213, align 1
-  %214 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %215 = load i16, ptr %214, align 4
-  %216 = lshr i16 %215, 8
-  %217 = trunc nuw i16 %216 to i8
-  %218 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 %217, ptr %218, align 4
-  %219 = trunc i16 %215 to i8
-  %220 = getelementptr inbounds nuw i8, ptr %6, i64 13
-  store i8 %219, ptr %220, align 1
-  %221 = lshr i16 %138, 8
-  %222 = trunc nuw i16 %221 to i8
-  %223 = getelementptr inbounds nuw i8, ptr %6, i64 14
-  store i8 %222, ptr %223, align 2
-  %224 = trunc i16 %138 to i8
-  %225 = getelementptr inbounds nuw i8, ptr %6, i64 15
-  store i8 %224, ptr %225, align 1
-  %226 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %3)
-  br i1 %226, label %227, label %pcap_write_erf_pseudoheader.exit.thread
+188:                                              ; preds = %pcap_get_phdr_size.exit99.i, %pcap_get_phdr_size.exit90.i
+  %189 = phi i32 [ %187, %pcap_get_phdr_size.exit99.i ], [ %114, %pcap_get_phdr_size.exit90.i ]
+  %190 = trunc i32 %189 to i8
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 11
+  store i8 %190, ptr %191, align 1
+  %192 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %193 = load i16, ptr %192, align 4
+  %194 = lshr i16 %193, 8
+  %195 = trunc nuw i16 %194 to i8
+  %196 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i8 %195, ptr %196, align 4
+  %197 = trunc i16 %193 to i8
+  %198 = getelementptr inbounds nuw i8, ptr %6, i64 13
+  store i8 %197, ptr %198, align 1
+  %199 = lshr i16 %116, 8
+  %200 = trunc nuw i16 %199 to i8
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 14
+  store i8 %200, ptr %201, align 2
+  %202 = trunc i16 %116 to i8
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 15
+  store i8 %202, ptr %203, align 1
+  %204 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %3)
+  br i1 %204, label %205, label %pcap_write_erf_pseudoheader.exit.thread
 
-227:                                              ; preds = %210
-  %228 = load i8, ptr %128, align 8
-  %.not.i39 = icmp sgt i8 %228, -1
-  br i1 %.not.i39, label %266, label %229
+205:                                              ; preds = %188
+  %206 = load i8, ptr %106, align 8
+  %.not.i39 = icmp sgt i8 %206, -1
+  br i1 %.not.i39, label %244, label %207
 
-229:                                              ; preds = %227
+207:                                              ; preds = %205
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  %230 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %231 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %232 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %233 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %234 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %235 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %236 = getelementptr inbounds nuw i8, ptr %8, i64 6
-  %237 = getelementptr inbounds nuw i8, ptr %8, i64 7
-  br label %238
+  %208 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %210 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %211 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %212 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %8, i64 5
+  %214 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  %215 = getelementptr inbounds nuw i8, ptr %8, i64 7
+  br label %216
 
-238:                                              ; preds = %261, %229
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %261 ], [ 0, %229 ]
-  %239 = getelementptr [16 x %struct.erf_ehdr], ptr %230, i64 0, i64 %indvars.iv.i
-  %240 = load i64, ptr %239, align 8
-  %241 = lshr i64 %240, 56
-  %242 = trunc nuw i64 %241 to i8
-  store i8 %242, ptr %8, align 1
-  %243 = lshr i64 %240, 48
-  %244 = trunc i64 %243 to i8
-  store i8 %244, ptr %231, align 1
-  %245 = lshr i64 %240, 40
-  %246 = trunc i64 %245 to i8
-  store i8 %246, ptr %232, align 1
-  %247 = lshr i64 %240, 32
-  %248 = trunc i64 %247 to i8
-  store i8 %248, ptr %233, align 1
-  %249 = lshr i64 %240, 24
-  %250 = trunc i64 %249 to i8
-  store i8 %250, ptr %234, align 1
-  %251 = lshr i64 %240, 16
-  %252 = trunc i64 %251 to i8
-  store i8 %252, ptr %235, align 1
-  %253 = lshr i64 %240, 8
-  %254 = trunc i64 %253 to i8
-  store i8 %254, ptr %236, align 1
-  %255 = trunc i64 %240 to i8
-  store i8 %255, ptr %237, align 1
-  %256 = icmp eq i64 %indvars.iv.i, 15
-  br i1 %256, label %257, label %259
+216:                                              ; preds = %239, %207
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %239 ], [ 0, %207 ]
+  %217 = getelementptr [16 x %struct.erf_ehdr], ptr %208, i64 0, i64 %indvars.iv.i
+  %218 = load i64, ptr %217, align 8
+  %219 = lshr i64 %218, 56
+  %220 = trunc nuw i64 %219 to i8
+  store i8 %220, ptr %8, align 1
+  %221 = lshr i64 %218, 48
+  %222 = trunc i64 %221 to i8
+  store i8 %222, ptr %209, align 1
+  %223 = lshr i64 %218, 40
+  %224 = trunc i64 %223 to i8
+  store i8 %224, ptr %210, align 1
+  %225 = lshr i64 %218, 32
+  %226 = trunc i64 %225 to i8
+  store i8 %226, ptr %211, align 1
+  %227 = lshr i64 %218, 24
+  %228 = trunc i64 %227 to i8
+  store i8 %228, ptr %212, align 1
+  %229 = lshr i64 %218, 16
+  %230 = trunc i64 %229 to i8
+  store i8 %230, ptr %213, align 1
+  %231 = lshr i64 %218, 8
+  %232 = trunc i64 %231 to i8
+  store i8 %232, ptr %214, align 1
+  %233 = trunc i64 %218 to i8
+  store i8 %233, ptr %215, align 1
+  %234 = icmp eq i64 %indvars.iv.i, 15
+  br i1 %234, label %235, label %237
 
-257:                                              ; preds = %238
-  %258 = and i8 %242, 127
-  store i8 %258, ptr %8, align 1
-  br label %259
+235:                                              ; preds = %216
+  %236 = and i8 %220, 127
+  store i8 %236, ptr %8, align 1
+  br label %237
 
-259:                                              ; preds = %257, %238
-  %260 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 8, ptr noundef %3)
-  br i1 %260, label %261, label %.critedge.i
+237:                                              ; preds = %235, %216
+  %238 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 8, ptr noundef %3)
+  br i1 %238, label %239, label %.critedge.i
 
-261:                                              ; preds = %259
+239:                                              ; preds = %237
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %262 = icmp slt i64 %240, 0
-  %263 = icmp samesign ult i64 %indvars.iv.i, 15
-  %264 = and i1 %263, %262
-  br i1 %264, label %238, label %265, !llvm.loop !18
+  %240 = icmp slt i64 %218, 0
+  %241 = icmp samesign ult i64 %indvars.iv.i, 15
+  %242 = and i1 %241, %240
+  br i1 %242, label %216, label %243, !llvm.loop !18
 
-265:                                              ; preds = %261
+243:                                              ; preds = %239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  %.pre.i = load i8, ptr %128, align 8
-  br label %266
+  %.pre.i = load i8, ptr %106, align 8
+  br label %244
 
-266:                                              ; preds = %265, %227
-  %267 = phi i8 [ %.pre.i, %265 ], [ %228, %227 ]
-  %268 = and i8 %267, 127
-  switch i8 %268, label %pcap_write_erf_pseudoheader.exit [
-    i8 5, label %269
-    i8 6, label %269
-    i8 7, label %269
-    i8 8, label %269
-    i8 9, label %269
-    i8 12, label %269
-    i8 17, label %269
-    i8 18, label %283
-    i8 2, label %297
-    i8 11, label %297
-    i8 16, label %297
-    i8 20, label %297
+244:                                              ; preds = %243, %205
+  %245 = phi i8 [ %.pre.i, %243 ], [ %206, %205 ]
+  %246 = and i8 %245, 127
+  switch i8 %246, label %pcap_write_erf_pseudoheader.exit [
+    i8 5, label %247
+    i8 6, label %247
+    i8 7, label %247
+    i8 8, label %247
+    i8 9, label %247
+    i8 12, label %247
+    i8 17, label %247
+    i8 18, label %261
+    i8 2, label %275
+    i8 11, label %275
+    i8 16, label %275
+    i8 20, label %275
   ]
 
-269:                                              ; preds = %266, %266, %266, %266, %266, %266, %266
-  %270 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %271 = load i32, ptr %270, align 8
-  %272 = lshr i32 %271, 24
-  %273 = trunc nuw i32 %272 to i8
-  store i8 %273, ptr %7, align 2
-  %274 = lshr i32 %271, 16
-  %275 = trunc i32 %274 to i8
-  %276 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %275, ptr %276, align 1
-  %277 = lshr i32 %271, 8
-  %278 = trunc i32 %277 to i8
-  %279 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %278, ptr %279, align 2
-  %280 = trunc i32 %271 to i8
-  %281 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 %280, ptr %281, align 1
-  %282 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3)
-  br i1 %282, label %pcap_write_erf_pseudoheader.exit, label %pcap_write_erf_pseudoheader.exit.thread
+247:                                              ; preds = %244, %244, %244, %244, %244, %244, %244
+  %248 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %249 = load i32, ptr %248, align 8
+  %250 = lshr i32 %249, 24
+  %251 = trunc nuw i32 %250 to i8
+  store i8 %251, ptr %7, align 2
+  %252 = lshr i32 %249, 16
+  %253 = trunc i32 %252 to i8
+  %254 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 %253, ptr %254, align 1
+  %255 = lshr i32 %249, 8
+  %256 = trunc i32 %255 to i8
+  %257 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 %256, ptr %257, align 2
+  %258 = trunc i32 %249 to i8
+  %259 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  store i8 %258, ptr %259, align 1
+  %260 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3)
+  br i1 %260, label %pcap_write_erf_pseudoheader.exit, label %pcap_write_erf_pseudoheader.exit.thread
 
-283:                                              ; preds = %266
-  %284 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %285 = load i32, ptr %284, align 8
-  %286 = lshr i32 %285, 24
-  %287 = trunc nuw i32 %286 to i8
-  store i8 %287, ptr %7, align 2
-  %288 = lshr i32 %285, 16
-  %289 = trunc i32 %288 to i8
-  %290 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %289, ptr %290, align 1
-  %291 = lshr i32 %285, 8
-  %292 = trunc i32 %291 to i8
-  %293 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %292, ptr %293, align 2
-  %294 = trunc i32 %285 to i8
-  %295 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i8 %294, ptr %295, align 1
-  %296 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3)
-  br i1 %296, label %pcap_write_erf_pseudoheader.exit, label %pcap_write_erf_pseudoheader.exit.thread
+261:                                              ; preds = %244
+  %262 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %263 = load i32, ptr %262, align 8
+  %264 = lshr i32 %263, 24
+  %265 = trunc nuw i32 %264 to i8
+  store i8 %265, ptr %7, align 2
+  %266 = lshr i32 %263, 16
+  %267 = trunc i32 %266 to i8
+  %268 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 %267, ptr %268, align 1
+  %269 = lshr i32 %263, 8
+  %270 = trunc i32 %269 to i8
+  %271 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 %270, ptr %271, align 2
+  %272 = trunc i32 %263 to i8
+  %273 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  store i8 %272, ptr %273, align 1
+  %274 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3)
+  br i1 %274, label %pcap_write_erf_pseudoheader.exit, label %pcap_write_erf_pseudoheader.exit.thread
 
-297:                                              ; preds = %266, %266, %266, %266
-  %298 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %299 = load i16, ptr %298, align 1
-  store i16 %299, ptr %7, align 2
-  %300 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2, ptr noundef %3)
-  br i1 %300, label %pcap_write_erf_pseudoheader.exit, label %pcap_write_erf_pseudoheader.exit.thread
+275:                                              ; preds = %244, %244, %244, %244
+  %276 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %277 = load i16, ptr %276, align 1
+  store i16 %277, ptr %7, align 2
+  %278 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2, ptr noundef %3)
+  br i1 %278, label %pcap_write_erf_pseudoheader.exit, label %pcap_write_erf_pseudoheader.exit.thread
 
-.critedge.i:                                      ; preds = %259
+.critedge.i:                                      ; preds = %237
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   br label %pcap_write_erf_pseudoheader.exit.thread
 
-pcap_write_erf_pseudoheader.exit.thread:          ; preds = %210, %.critedge.i, %269, %283, %297
+pcap_write_erf_pseudoheader.exit.thread:          ; preds = %188, %.critedge.i, %247, %261, %275
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
-  br label %322
+  br label %300
 
-pcap_write_erf_pseudoheader.exit:                 ; preds = %266, %269, %283, %297
+pcap_write_erf_pseudoheader.exit:                 ; preds = %244, %247, %261, %275
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
-  br label %321
+  br label %299
 
-301:                                              ; preds = %4
+279:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #9
-  %302 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %303 = load i8, ptr %302, align 1
-  %304 = load i8, ptr %2, align 8
-  %.not.i40 = icmp eq i8 %304, 0
-  %305 = select i1 %.not.i40, i8 0, i8 -128
-  %306 = or i8 %305, %303
-  store i8 %306, ptr %5, align 1
-  %307 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %308 = load i32, ptr %307, align 4
-  %309 = lshr i32 %308, 24
-  %310 = trunc nuw i32 %309 to i8
-  %311 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %310, ptr %311, align 1
-  %312 = lshr i32 %308, 16
-  %313 = trunc i32 %312 to i8
-  %314 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %313, ptr %314, align 1
-  %315 = lshr i32 %308, 8
-  %316 = trunc i32 %315 to i8
-  %317 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %316, ptr %317, align 1
-  %318 = trunc i32 %308 to i8
-  %319 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i8 %318, ptr %319, align 1
-  %320 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 5, ptr noundef %3)
+  %280 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %281 = load i8, ptr %280, align 1
+  %282 = load i8, ptr %2, align 8
+  %.not.i40 = icmp eq i8 %282, 0
+  %283 = select i1 %.not.i40, i8 0, i8 -128
+  %284 = or i8 %283, %281
+  store i8 %284, ptr %5, align 1
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %286 = load i32, ptr %285, align 4
+  %287 = lshr i32 %286, 24
+  %288 = trunc nuw i32 %287 to i8
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %288, ptr %289, align 1
+  %290 = lshr i32 %286, 16
+  %291 = trunc i32 %290 to i8
+  %292 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %291, ptr %292, align 1
+  %293 = lshr i32 %286, 8
+  %294 = trunc i32 %293 to i8
+  %295 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %294, ptr %295, align 1
+  %296 = trunc i32 %286 to i8
+  %297 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i8 %296, ptr %297, align 1
+  %298 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 5, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #9
-  br i1 %320, label %321, label %322
+  br i1 %298, label %299, label %300
 
-321:                                              ; preds = %pcap_write_erf_pseudoheader.exit, %301, %102, %98, %94, %pcap_write_bt_pseudoheader.exit, %76, %64, %51, %43, %pcap_write_sunatm_pseudoheader.exit, %4
-  br label %322
+299:                                              ; preds = %pcap_write_erf_pseudoheader.exit, %279, %102, %98, %94, %pcap_write_bt_pseudoheader.exit, %76, %64, %51, %43, %pcap_write_sunatm_pseudoheader.exit, %4
+  br label %300
 
-322:                                              ; preds = %pcap_write_erf_pseudoheader.exit.thread, %301, %102, %98, %94, %pcap_write_bt_pseudoheader.exit, %76, %64, %51, %43, %pcap_write_sunatm_pseudoheader.exit, %321
-  %.0 = phi i1 [ true, %321 ], [ false, %pcap_write_sunatm_pseudoheader.exit ], [ false, %43 ], [ false, %51 ], [ false, %64 ], [ false, %76 ], [ false, %pcap_write_bt_pseudoheader.exit ], [ false, %94 ], [ false, %98 ], [ false, %102 ], [ false, %301 ], [ false, %pcap_write_erf_pseudoheader.exit.thread ]
+300:                                              ; preds = %pcap_write_erf_pseudoheader.exit.thread, %279, %102, %98, %94, %pcap_write_bt_pseudoheader.exit, %76, %64, %51, %43, %pcap_write_sunatm_pseudoheader.exit, %299
+  %.0 = phi i1 [ true, %299 ], [ false, %pcap_write_sunatm_pseudoheader.exit ], [ false, %43 ], [ false, %51 ], [ false, %64 ], [ false, %76 ], [ false, %pcap_write_bt_pseudoheader.exit ], [ false, %94 ], [ false, %98 ], [ false, %102 ], [ false, %279 ], [ false, %pcap_write_erf_pseudoheader.exit.thread ]
   ret i1 %.0
 }
 

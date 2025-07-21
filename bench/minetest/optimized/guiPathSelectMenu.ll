@@ -903,8 +903,6 @@ _ZN17GUIFileSelectMenuD0Ev.exit:                  ; preds = %if.then.i.i4.i.i.i,
 define dso_local void @_ZN17GUIFileSelectMenu13regenerateGuiEN3irr4core8vector2dIjEE(ptr noundef nonnull align 8 dereferenceable(473) %this, i64 %screensize.coerce) unnamed_addr #5 align 2 {
 entry:
   %screensize.sroa.0.0.extract.trunc = trunc i64 %screensize.coerce to i32
-  %screensize.sroa.3.0.extract.shift = lshr i64 %screensize.coerce, 32
-  %screensize.sroa.3.0.extract.trunc = trunc nuw i64 %screensize.sroa.3.0.extract.shift to i32
   %vtable = load ptr, ptr %this, align 8, !tbaa !12
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
@@ -922,9 +920,7 @@ entry:
   %rect.sroa.4.0.DesiredRect.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i32 0, ptr %rect.sroa.4.0.DesiredRect.sroa_idx, align 4, !tbaa !54
   %rect.sroa.5.0.DesiredRect.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store i32 %screensize.sroa.0.0.extract.trunc, ptr %rect.sroa.5.0.DesiredRect.sroa_idx, align 8, !tbaa !54
-  %rect.sroa.6.0.DesiredRect.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 108
-  store i32 %screensize.sroa.3.0.extract.trunc, ptr %rect.sroa.6.0.DesiredRect.sroa_idx, align 4, !tbaa !54
+  store i64 %screensize.coerce, ptr %rect.sroa.5.0.DesiredRect.sroa_idx, align 8
   tail call void @_ZN3irr3gui11IGUIElement27recalculateAbsolutePositionEb(ptr noundef nonnull align 8 dereferenceable(308) %this, i1 noundef zeroext false)
   %Environment = getelementptr inbounds nuw i8, ptr %this, i64 296
   %2 = load ptr, ptr %Environment, align 8, !tbaa !55
@@ -938,9 +934,10 @@ entry:
   %div20 = lshr i32 %screensize.sroa.0.0.extract.trunc, 1
   %div1121 = lshr i32 %conv, 1
   %sub = sub nsw i32 %div20, %div1121
-  %div1322 = lshr i32 %screensize.sroa.3.0.extract.trunc, 1
+  %sum.shift = lshr i64 %screensize.coerce, 33
+  %div13221 = trunc nuw nsw i64 %sum.shift to i32
   %div1423 = lshr i32 %conv5, 1
-  %sub15 = sub nsw i32 %div1322, %div1423
+  %sub15 = sub nsw i32 %div13221, %div1423
   %RelativeRect.i = getelementptr inbounds nuw i8, ptr %call8, i64 48
   %LowerRightCorner.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 56
   %5 = load i32, ptr %LowerRightCorner.i.i.i, align 4, !tbaa !56

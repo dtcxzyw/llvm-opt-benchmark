@@ -2531,19 +2531,14 @@ define internal fastcc range(i32 -28, 268435722) i32 @calipso_genopt(ptr noundef
   %80 = zext nneg i32 %48 to i64
   %81 = tail call zeroext i16 @crc_ccitt(i16 noundef zeroext -1, ptr noundef %65, i64 noundef %80) #14
   %82 = xor i16 %81, -1
-  %83 = trunc i16 %82 to i8
-  %84 = getelementptr i8, ptr %65, i64 8
-  store i8 %83, ptr %84, align 1
-  %85 = lshr i16 %82, 8
-  %86 = trunc nuw i16 %85 to i8
-  %87 = getelementptr i8, ptr %65, i64 9
-  store i8 %86, ptr %87, align 1
-  %88 = add nuw nsw i32 %48, %10
+  %83 = getelementptr i8, ptr %65, i64 8
+  store i16 %82, ptr %83, align 1
+  %84 = add nuw nsw i32 %48, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge, %14, %5
-  %89 = phi i32 [ %88, %._crit_edge ], [ -28, %5 ], [ -1, %14 ], [ -28, %.preheader ]
-  ret i32 %89
+  %85 = phi i32 [ %84, %._crit_edge ], [ -28, %5 ], [ -1, %14 ], [ -28, %.preheader ]
+  ret i32 %85
 }
 
 ; Function Attrs: null_pointer_is_valid

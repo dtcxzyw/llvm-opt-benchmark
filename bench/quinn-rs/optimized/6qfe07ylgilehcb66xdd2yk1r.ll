@@ -8823,16 +8823,11 @@ define void @"_ZN137_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u2
   %32 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !976, !nonnull !8, !noundef !8
   %34 = ptrtoint ptr %30 to i64
-  %.sroa.6.0.extract.trunc.i = trunc i64 %34 to i8
-  %.sroa.6.1.extract.shift.i = lshr i64 %34, 8
-  %.sroa.6.1.extract.trunc.i = trunc nuw i64 %.sroa.6.1.extract.shift.i to i56
   store ptr %8, ptr %0, align 8, !alias.scope !966
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val.i.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !966
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !966
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i56 %.sroa.6.1.extract.trunc.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i, align 1, !alias.scope !966
+  store i64 %34, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !966
   %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %33, ptr %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx.i, align 8, !alias.scope !966
   br label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$$GT$8try_from17h09d99ae68a135b4bE.exit"
@@ -8890,16 +8885,11 @@ define void @"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u2
   %20 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %21 = load ptr, ptr %20, align 8, !noalias !991, !nonnull !8, !noundef !8
   %22 = ptrtoint ptr %18 to i64
-  %.sroa.6.0.extract.trunc = trunc i64 %22 to i8
-  %.sroa.6.1.extract.shift = lshr i64 %22, 8
-  %.sroa.6.1.extract.trunc = trunc nuw i64 %.sroa.6.1.extract.shift to i56
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.6.0.extract.trunc, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i56 %.sroa.6.1.extract.trunc, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 1
+  store i64 %22, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %21, ptr %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
   br label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17hd97384e2e3b4e37aE.exit24"
@@ -9314,16 +9304,11 @@ define void @"_ZN137_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u2
   %32 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !1050, !nonnull !8, !noundef !8
   %34 = ptrtoint ptr %30 to i64
-  %.sroa.6.0.extract.trunc.i = trunc i64 %34 to i8
-  %.sroa.6.1.extract.shift.i = lshr i64 %34, 8
-  %.sroa.6.1.extract.trunc.i = trunc nuw i64 %.sroa.6.1.extract.shift.i to i56
   store ptr %8, ptr %0, align 8, !alias.scope !1040
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val.i.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1040
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.6.0.extract.trunc.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1040
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i56 %.sroa.6.1.extract.trunc.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i, align 1, !alias.scope !1040
+  store i64 %34, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1040
   %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %33, ptr %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx.i, align 8, !alias.scope !1040
   br label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$$GT$8try_from17hadb9f02648dbfaf2E.exit"
@@ -9381,16 +9366,11 @@ define void @"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u2
   %20 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %21 = load ptr, ptr %20, align 8, !noalias !1065, !nonnull !8, !noundef !8
   %22 = ptrtoint ptr %18 to i64
-  %.sroa.6.0.extract.trunc = trunc i64 %22 to i8
-  %.sroa.6.1.extract.shift = lshr i64 %22, 8
-  %.sroa.6.1.extract.trunc = trunc nuw i64 %.sroa.6.1.extract.shift to i56
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.6.0.extract.trunc, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i56 %.sroa.6.1.extract.trunc, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 1
+  store i64 %22, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %21, ptr %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
   br label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17hace1a45d5ccfa03bE.exit24"

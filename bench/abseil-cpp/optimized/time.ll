@@ -295,29 +295,27 @@ define dso_local noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64 %0, i32 %1) lo
   %7 = lshr i32 %1, 2
   %8 = zext nneg i32 %7 to i64
   %9 = add nuw nsw i64 %6, %8
-  br label %19
+  br label %18
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %11, align 4, !tbaa !43
-  store i32 0, ptr %3, align 8, !tbaa !44
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !45
-  %13 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0, i32 %1, i64 0, i32 4, ptr noundef nonnull %3) #13
-  %14 = icmp sgt i64 %13, 0
+  store i64 0, ptr %3, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %11, align 8, !tbaa !43
+  %12 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0, i32 %1, i64 0, i32 4, ptr noundef nonnull %3) #13
+  %13 = icmp sgt i64 %12, 0
   %.sroa.07.0.copyload.i = load i64, ptr %3, align 8
-  %15 = icmp sgt i64 %.sroa.07.0.copyload.i, -1
-  %or.cond.i = select i1 %14, i1 true, i1 %15
-  %16 = icmp eq i64 %13, -9223372036854775808
-  %17 = add nsw i64 %13, -1
-  %spec.select.i = select i1 %16, i64 -9223372036854775808, i64 %17
-  %18 = select i1 %or.cond.i, i64 %13, i64 %spec.select.i
+  %14 = icmp sgt i64 %.sroa.07.0.copyload.i, -1
+  %or.cond.i = select i1 %13, i1 true, i1 %14
+  %15 = icmp eq i64 %12, -9223372036854775808
+  %16 = add nsw i64 %12, -1
+  %spec.select.i = select i1 %15, i64 -9223372036854775808, i64 %16
+  %17 = select i1 %or.cond.i, i64 %12, i64 %spec.select.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
-  br label %19
+  br label %18
 
-19:                                               ; preds = %10, %5
-  %.0 = phi i64 [ %9, %5 ], [ %18, %10 ]
+18:                                               ; preds = %10, %5
+  %.0 = phi i64 [ %9, %5 ], [ %17, %10 ]
   ret i64 %.0
 }
 
@@ -332,29 +330,27 @@ define dso_local noundef i64 @_ZN4absl12ToUnixMicrosENS_4TimeE(i64 %0, i32 %1) l
   %7 = udiv i32 %1, 4000
   %8 = zext nneg i32 %7 to i64
   %9 = add nuw nsw i64 %6, %8
-  br label %19
+  br label %18
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %11, align 4, !tbaa !43
-  store i32 0, ptr %3, align 8, !tbaa !44
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !45
-  %13 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0, i32 %1, i64 0, i32 4000, ptr noundef nonnull %3) #13
-  %14 = icmp sgt i64 %13, 0
+  store i64 0, ptr %3, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %11, align 8, !tbaa !43
+  %12 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0, i32 %1, i64 0, i32 4000, ptr noundef nonnull %3) #13
+  %13 = icmp sgt i64 %12, 0
   %.sroa.07.0.copyload.i = load i64, ptr %3, align 8
-  %15 = icmp sgt i64 %.sroa.07.0.copyload.i, -1
-  %or.cond.i = select i1 %14, i1 true, i1 %15
-  %16 = icmp eq i64 %13, -9223372036854775808
-  %17 = add nsw i64 %13, -1
-  %spec.select.i = select i1 %16, i64 -9223372036854775808, i64 %17
-  %18 = select i1 %or.cond.i, i64 %13, i64 %spec.select.i
+  %14 = icmp sgt i64 %.sroa.07.0.copyload.i, -1
+  %or.cond.i = select i1 %13, i1 true, i1 %14
+  %15 = icmp eq i64 %12, -9223372036854775808
+  %16 = add nsw i64 %12, -1
+  %spec.select.i = select i1 %15, i64 -9223372036854775808, i64 %16
+  %17 = select i1 %or.cond.i, i64 %12, i64 %spec.select.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
-  br label %19
+  br label %18
 
-19:                                               ; preds = %10, %5
-  %.0 = phi i64 [ %9, %5 ], [ %18, %10 ]
+18:                                               ; preds = %10, %5
+  %.0 = phi i64 [ %9, %5 ], [ %17, %10 ]
   ret i64 %.0
 }
 
@@ -369,29 +365,27 @@ define dso_local noundef i64 @_ZN4absl12ToUnixMillisENS_4TimeE(i64 %0, i32 %1) l
   %7 = udiv i32 %1, 4000000
   %8 = zext nneg i32 %7 to i64
   %9 = add nuw nsw i64 %6, %8
-  br label %19
+  br label %18
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %11, align 4, !tbaa !43
-  store i32 0, ptr %3, align 8, !tbaa !44
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !45
-  %13 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0, i32 %1, i64 0, i32 4000000, ptr noundef nonnull %3) #13
-  %14 = icmp sgt i64 %13, 0
+  store i64 0, ptr %3, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %11, align 8, !tbaa !43
+  %12 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0, i32 %1, i64 0, i32 4000000, ptr noundef nonnull %3) #13
+  %13 = icmp sgt i64 %12, 0
   %.sroa.07.0.copyload.i = load i64, ptr %3, align 8
-  %15 = icmp sgt i64 %.sroa.07.0.copyload.i, -1
-  %or.cond.i = select i1 %14, i1 true, i1 %15
-  %16 = icmp eq i64 %13, -9223372036854775808
-  %17 = add nsw i64 %13, -1
-  %spec.select.i = select i1 %16, i64 -9223372036854775808, i64 %17
-  %18 = select i1 %or.cond.i, i64 %13, i64 %spec.select.i
+  %14 = icmp sgt i64 %.sroa.07.0.copyload.i, -1
+  %or.cond.i = select i1 %13, i1 true, i1 %14
+  %15 = icmp eq i64 %12, -9223372036854775808
+  %16 = add nsw i64 %12, -1
+  %spec.select.i = select i1 %15, i64 -9223372036854775808, i64 %16
+  %17 = select i1 %or.cond.i, i64 %12, i64 %spec.select.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
-  br label %19
+  br label %18
 
-19:                                               ; preds = %10, %5
-  %.0 = phi i64 [ %9, %5 ], [ %18, %10 ]
+18:                                               ; preds = %10, %5
+  %.0 = phi i64 [ %9, %5 ], [ %17, %10 ]
   ret i64 %.0
 }
 
@@ -448,22 +442,20 @@ define dso_local noundef i64 @_ZN4absl11ToUniversalENS_4TimeE(i64 %0, i32 %1) lo
   %.sroa.212.0.copyload.i.i = load i32, ptr %.sroa.212.0..sroa_idx.i.i, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %6, align 4, !tbaa !43
-  store i32 0, ptr %3, align 8, !tbaa !44
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %7, align 8, !tbaa !45
-  %8 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %.sroa.011.0.copyload.i.i, i32 %.sroa.212.0.copyload.i.i, i64 0, i32 400, ptr noundef nonnull %3) #13
-  %9 = icmp sgt i64 %8, 0
+  store i64 0, ptr %3, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %6, align 8, !tbaa !43
+  %7 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %.sroa.011.0.copyload.i.i, i32 %.sroa.212.0.copyload.i.i, i64 0, i32 400, ptr noundef nonnull %3) #13
+  %8 = icmp sgt i64 %7, 0
   %.sroa.07.0.copyload.i = load i64, ptr %3, align 8
-  %10 = icmp sgt i64 %.sroa.07.0.copyload.i, -1
-  %or.cond.i = select i1 %9, i1 true, i1 %10
-  %11 = icmp eq i64 %8, -9223372036854775808
-  %12 = add nsw i64 %8, -1
-  %spec.select.i = select i1 %11, i64 -9223372036854775808, i64 %12
-  %13 = select i1 %or.cond.i, i64 %8, i64 %spec.select.i
+  %9 = icmp sgt i64 %.sroa.07.0.copyload.i, -1
+  %or.cond.i = select i1 %8, i1 true, i1 %9
+  %10 = icmp eq i64 %7, -9223372036854775808
+  %11 = add nsw i64 %7, -1
+  %spec.select.i = select i1 %10, i64 -9223372036854775808, i64 %11
+  %12 = select i1 %or.cond.i, i64 %7, i64 %spec.select.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
-  ret i64 %13
+  ret i64 %12
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
@@ -589,24 +581,24 @@ define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind noalia
   br i1 %spec.select.i.i, label %9, label %18
 
 9:                                                ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 9223372036854775807, i8 noundef signext 12, i64 noundef 31, i64 noundef 0, i8 noundef signext 23, i8 noundef signext 59, i8 noundef signext 59) #13, !noalias !46
+  %13 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 9223372036854775807, i8 noundef signext 12, i64 noundef 31, i64 noundef 0, i8 noundef signext 23, i8 noundef signext 59, i8 noundef signext 59) #13, !noalias !44
   %.fca.1.extract.i.i.i.i = extractvalue { i64, i64 } %13, 1
   %.sroa.2.8.insert.ext.i.i = and i64 %.fca.1.extract.i.i.i.i, 1099511627775
   %14 = extractvalue { i64, i64 } %13, 0
-  store i64 %14, ptr %0, align 8, !tbaa !32, !alias.scope !46
-  store i64 %.sroa.2.8.insert.ext.i.i, ptr %10, align 8, !alias.scope !46
-  store i64 9223372036854775807, ptr %11, align 8, !alias.scope !46
-  store i32 -1, ptr %12, align 8, !tbaa !4, !alias.scope !46
+  store i64 %14, ptr %0, align 8, !tbaa !32, !alias.scope !44
+  store i64 %.sroa.2.8.insert.ext.i.i, ptr %10, align 8, !alias.scope !44
+  store i64 9223372036854775807, ptr %11, align 8, !alias.scope !44
+  store i32 -1, ptr %12, align 8, !tbaa !4, !alias.scope !44
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 0, ptr %15, align 4, !tbaa !49, !alias.scope !46
+  store i32 0, ptr %15, align 4, !tbaa !47, !alias.scope !44
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %16, align 8, !tbaa !52, !alias.scope !46
+  store i8 0, ptr %16, align 8, !tbaa !50, !alias.scope !44
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr @.str, ptr %17, align 8, !tbaa !53, !alias.scope !46
+  store ptr @.str, ptr %17, align 8, !tbaa !51, !alias.scope !44
   br label %40
 
 18:                                               ; preds = %4
@@ -618,16 +610,16 @@ define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind noalia
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -9223372036854775808, ptr %0, align 8, !tbaa !32, !alias.scope !54
-  store i64 257, ptr %21, align 8, !alias.scope !54
-  store i64 -9223372036854775808, ptr %22, align 8, !alias.scope !54
-  store i32 -1, ptr %23, align 8, !tbaa !4, !alias.scope !54
+  store i64 -9223372036854775808, ptr %0, align 8, !tbaa !32, !alias.scope !52
+  store i64 257, ptr %21, align 8, !alias.scope !52
+  store i64 -9223372036854775808, ptr %22, align 8, !alias.scope !52
+  store i32 -1, ptr %23, align 8, !tbaa !4, !alias.scope !52
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 0, ptr %24, align 4, !tbaa !49, !alias.scope !54
+  store i32 0, ptr %24, align 4, !tbaa !47, !alias.scope !52
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %25, align 8, !tbaa !52, !alias.scope !54
+  store i8 0, ptr %25, align 8, !tbaa !50, !alias.scope !52
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr @.str, ptr %26, align 8, !tbaa !53, !alias.scope !54
+  store ptr @.str, ptr %26, align 8, !tbaa !51, !alias.scope !52
   br label %40
 
 27:                                               ; preds = %18
@@ -649,15 +641,15 @@ define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind noalia
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %32, ptr %33, align 4, !tbaa !49
+  store i32 %32, ptr %33, align 4, !tbaa !47
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %35 = load i8, ptr %34, align 4, !tbaa !39, !range !40, !noundef !41
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %35, ptr %36, align 8, !tbaa !52
+  store i8 %35, ptr %36, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %38, ptr %39, align 8, !tbaa !53
+  store ptr %38, ptr %39, align 8, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   br label %40
@@ -677,12 +669,12 @@ define dso_local void @_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civ
   store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %7 = load i32, ptr %6, align 8, !tbaa !57
+  %7 = load i32, ptr %6, align 8, !tbaa !55
   %switch = icmp ult i32 %7, 3
   br i1 %switch, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %4
-  store i32 %7, ptr %0, align 4, !tbaa !62
+  store i32 %7, ptr %0, align 4, !tbaa !60
   br label %8
 
 8:                                                ; preds = %4, %.sink.split
@@ -734,8 +726,8 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %10 = load i64, ptr %6, align 8, !tbaa !66
-  %11 = load i64, ptr %1, align 8, !tbaa !66
+  %10 = load i64, ptr %6, align 8, !tbaa !64
+  %11 = load i64, ptr %1, align 8, !tbaa !64
   %12 = icmp slt i64 %10, %11
   br i1 %12, label %.thread, label %13
 
@@ -745,9 +737,9 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load i8, ptr %16, align 8, !tbaa !67
+  %17 = load i8, ptr %16, align 8, !tbaa !65
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i8, ptr %18, align 8, !tbaa !67
+  %19 = load i8, ptr %18, align 8, !tbaa !65
   %20 = icmp slt i8 %17, %19
   br i1 %20, label %.thread, label %21
 
@@ -757,9 +749,9 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %25 = load i8, ptr %24, align 1, !tbaa !68
+  %25 = load i8, ptr %24, align 1, !tbaa !66
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !68
+  %27 = load i8, ptr %26, align 1, !tbaa !66
   %28 = icmp slt i8 %25, %27
   br i1 %28, label %.thread, label %29
 
@@ -769,9 +761,9 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %33 = load i8, ptr %32, align 2, !tbaa !69
+  %33 = load i8, ptr %32, align 2, !tbaa !67
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %35 = load i8, ptr %34, align 2, !tbaa !69
+  %35 = load i8, ptr %34, align 2, !tbaa !67
   %36 = icmp slt i8 %33, %35
   br i1 %36, label %.thread, label %37
 
@@ -781,9 +773,9 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 11
-  %41 = load i8, ptr %40, align 1, !tbaa !70
+  %41 = load i8, ptr %40, align 1, !tbaa !68
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %43 = load i8, ptr %42, align 1, !tbaa !70
+  %43 = load i8, ptr %42, align 1, !tbaa !68
   %44 = icmp slt i8 %41, %43
   br i1 %44, label %.thread, label %45
 
@@ -801,9 +793,9 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
 
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %48 = load i8, ptr %47, align 4, !tbaa !71
+  %48 = load i8, ptr %47, align 4, !tbaa !69
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %50 = load i8, ptr %49, align 4, !tbaa !71
+  %50 = load i8, ptr %49, align 4, !tbaa !69
   %51 = icmp slt i8 %48, %50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
   br i1 %51, label %97, label %thread-pre-split
@@ -820,8 +812,8 @@ thread-pre-split:                                 ; preds = %_ZN4absl13time_inte
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %55 = load i64, ptr %1, align 8, !tbaa !66
-  %56 = load i64, ptr %7, align 8, !tbaa !66
+  %55 = load i64, ptr %1, align 8, !tbaa !64
+  %56 = load i64, ptr %7, align 8, !tbaa !64
   %57 = icmp slt i64 %55, %56
   br i1 %57, label %.thread7, label %58
 
@@ -831,9 +823,9 @@ thread-pre-split:                                 ; preds = %_ZN4absl13time_inte
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %62 = load i8, ptr %61, align 8, !tbaa !67
+  %62 = load i8, ptr %61, align 8, !tbaa !65
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %64 = load i8, ptr %63, align 8, !tbaa !67
+  %64 = load i8, ptr %63, align 8, !tbaa !65
   %65 = icmp slt i8 %62, %64
   br i1 %65, label %.thread7, label %66
 
@@ -843,9 +835,9 @@ thread-pre-split:                                 ; preds = %_ZN4absl13time_inte
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %70 = load i8, ptr %69, align 1, !tbaa !68
+  %70 = load i8, ptr %69, align 1, !tbaa !66
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %72 = load i8, ptr %71, align 1, !tbaa !68
+  %72 = load i8, ptr %71, align 1, !tbaa !66
   %73 = icmp slt i8 %70, %72
   br i1 %73, label %.thread7, label %74
 
@@ -855,9 +847,9 @@ thread-pre-split:                                 ; preds = %_ZN4absl13time_inte
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %78 = load i8, ptr %77, align 2, !tbaa !69
+  %78 = load i8, ptr %77, align 2, !tbaa !67
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %80 = load i8, ptr %79, align 2, !tbaa !69
+  %80 = load i8, ptr %79, align 2, !tbaa !67
   %81 = icmp slt i8 %78, %80
   br i1 %81, label %.thread7, label %82
 
@@ -867,9 +859,9 @@ thread-pre-split:                                 ; preds = %_ZN4absl13time_inte
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %86 = load i8, ptr %85, align 1, !tbaa !70
+  %86 = load i8, ptr %85, align 1, !tbaa !68
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 11
-  %88 = load i8, ptr %87, align 1, !tbaa !70
+  %88 = load i8, ptr %87, align 1, !tbaa !68
   %89 = icmp slt i8 %86, %88
   br i1 %89, label %.thread7, label %90
 
@@ -879,9 +871,9 @@ thread-pre-split:                                 ; preds = %_ZN4absl13time_inte
 
 _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %93 = load i8, ptr %92, align 4, !tbaa !71
+  %93 = load i8, ptr %92, align 4, !tbaa !69
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %95 = load i8, ptr %94, align 4, !tbaa !71
+  %95 = load i8, ptr %94, align 4, !tbaa !69
   %96 = icmp slt i8 %93, %95
   br i1 %96, label %.thread7, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread6
 
@@ -911,29 +903,29 @@ define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14NextTransitionENS_4Time
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   store i64 %1, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
-  store i64 1970, ptr %6, align 8, !tbaa !72
+  store i64 1970, ptr %6, align 8, !tbaa !70
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 1, ptr %7, align 8, !tbaa !73
+  store i8 1, ptr %7, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  store i8 1, ptr %8, align 1, !tbaa !74
+  store i8 1, ptr %8, align 1, !tbaa !72
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 0, ptr %9, align 2, !tbaa !75
+  store i8 0, ptr %9, align 2, !tbaa !73
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 11
-  store i8 0, ptr %10, align 1, !tbaa !76
+  store i8 0, ptr %10, align 1, !tbaa !74
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 0, ptr %11, align 4, !tbaa !77
+  store i8 0, ptr %11, align 4, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 1970, ptr %12, align 8, !tbaa !72
+  store i64 1970, ptr %12, align 8, !tbaa !70
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 1, ptr %13, align 8, !tbaa !73
+  store i8 1, ptr %13, align 8, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 1, ptr %14, align 1, !tbaa !74
+  store i8 1, ptr %14, align 1, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  store i8 0, ptr %15, align 2, !tbaa !75
+  store i8 0, ptr %15, align 2, !tbaa !73
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 27
-  store i8 0, ptr %16, align 1, !tbaa !76
+  store i8 0, ptr %16, align 1, !tbaa !74
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i8 0, ptr %17, align 4, !tbaa !77
+  store i8 0, ptr %17, align 4, !tbaa !75
   %18 = call noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15next_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br i1 %18, label %19, label %_ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit
 
@@ -968,29 +960,29 @@ define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14PrevTransitionENS_4Time
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   store i64 %1, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
-  store i64 1970, ptr %6, align 8, !tbaa !72
+  store i64 1970, ptr %6, align 8, !tbaa !70
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 1, ptr %7, align 8, !tbaa !73
+  store i8 1, ptr %7, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  store i8 1, ptr %8, align 1, !tbaa !74
+  store i8 1, ptr %8, align 1, !tbaa !72
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 0, ptr %9, align 2, !tbaa !75
+  store i8 0, ptr %9, align 2, !tbaa !73
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 11
-  store i8 0, ptr %10, align 1, !tbaa !76
+  store i8 0, ptr %10, align 1, !tbaa !74
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 0, ptr %11, align 4, !tbaa !77
+  store i8 0, ptr %11, align 4, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 1970, ptr %12, align 8, !tbaa !72
+  store i64 1970, ptr %12, align 8, !tbaa !70
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 1, ptr %13, align 8, !tbaa !73
+  store i8 1, ptr %13, align 8, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  store i8 1, ptr %14, align 1, !tbaa !74
+  store i8 1, ptr %14, align 1, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  store i8 0, ptr %15, align 2, !tbaa !75
+  store i8 0, ptr %15, align 2, !tbaa !73
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 27
-  store i8 0, ptr %16, align 1, !tbaa !76
+  store i8 0, ptr %16, align 1, !tbaa !74
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i8 0, ptr %17, align 4, !tbaa !77
+  store i8 0, ptr %17, align 4, !tbaa !75
   %18 = call noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15prev_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br i1 %18, label %19, label %_ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit
 
@@ -1030,16 +1022,16 @@ define dso_local void @_ZN4absl15ConvertDateTimeEliiiiiNS_8TimeZoneE(ptr dead_on
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 9223372036854775807, ptr %15, align 4, !alias.scope !78
+  store i64 9223372036854775807, ptr %15, align 4, !alias.scope !76
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 -1, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !4, !alias.scope !78
+  store i32 -1, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !4, !alias.scope !76
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !81, !alias.scope !78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !alias.scope !78
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !79, !alias.scope !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !alias.scope !76
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %17, align 4, !tbaa !82, !alias.scope !78
+  store i32 0, ptr %17, align 4, !tbaa !80, !alias.scope !76
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %18, align 4, !tbaa !85, !alias.scope !78
+  store i8 1, ptr %18, align 4, !tbaa !83, !alias.scope !76
   br label %55
 
 19:                                               ; preds = %8
@@ -1048,16 +1040,16 @@ define dso_local void @_ZN4absl15ConvertDateTimeEliiiiiNS_8TimeZoneE(ptr dead_on
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -9223372036854775808, ptr %22, align 4, !alias.scope !86
+  store i64 -9223372036854775808, ptr %22, align 4, !alias.scope !84
   %.sroa.4.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 -1, ptr %.sroa.4.0..sroa_idx.i19, align 4, !tbaa !4, !alias.scope !86
+  store i32 -1, ptr %.sroa.4.0..sroa_idx.i19, align 4, !tbaa !4, !alias.scope !84
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %23, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false), !tbaa.struct !81, !alias.scope !86
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false), !alias.scope !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %23, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false), !tbaa.struct !79, !alias.scope !84
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false), !alias.scope !84
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %24, align 4, !tbaa !82, !alias.scope !86
+  store i32 0, ptr %24, align 4, !tbaa !80, !alias.scope !84
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %25, align 4, !tbaa !85, !alias.scope !86
+  store i8 1, ptr %25, align 4, !tbaa !83, !alias.scope !84
   br label %55
 
 _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE.exit: ; preds = %19
@@ -1070,27 +1062,27 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %.fca.0.extract.i = extractvalue { i64, i64 } %31, 0
   %.fca.1.extract.i = extractvalue { i64, i64 } %31, 1
   %.sroa.2.0.extract.trunc.i.i = trunc i64 %.fca.1.extract.i to i40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13, !noalias !89
-  store i64 %.fca.0.extract.i, ptr %9, align 8, !noalias !89
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13, !noalias !87
+  store i64 %.fca.0.extract.i, ptr %9, align 8, !noalias !87
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !89
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13, !noalias !89
-  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %9), !noalias !89
-  %32 = load i32, ptr %10, align 8, !tbaa !57, !noalias !89
+  store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !87
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13, !noalias !87
+  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %9), !noalias !87
+  %32 = load i32, ptr %10, align 8, !tbaa !55, !noalias !87
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %34 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !89
+  %34 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !87
   %.fca.0.extract8.i = extractvalue { i64, i32 } %34, 0
   %.fca.1.extract9.i = extractvalue { i64, i32 } %34, 1
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %36 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !89
+  %36 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !87
   %.fca.0.extract2.i = extractvalue { i64, i32 } %36, 0
   %.fca.1.extract3.i = extractvalue { i64, i32 } %36, 1
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %38 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !89
+  %38 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !87
   %.fca.0.extract.i20 = extractvalue { i64, i32 } %38, 0
   %.fca.1.extract.i21 = extractvalue { i64, i32 } %38, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13, !noalias !89
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13, !noalias !89
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13, !noalias !87
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13, !noalias !87
   store i64 %.fca.0.extract8.i, ptr %0, align 4
   %.sroa.6.4..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.fca.1.extract9.i, ptr %.sroa.6.4..sroa_idx, align 4, !tbaa !4
@@ -1107,12 +1099,12 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
 
 .sink.split:                                      ; preds = %_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %32, ptr %41, align 4, !tbaa !82
+  store i32 %32, ptr %41, align 4, !tbaa !80
   br label %42
 
 42:                                               ; preds = %_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE.exit, %.sink.split
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %43, align 4, !tbaa !85
+  store i8 0, ptr %43, align 4, !tbaa !83
   %.not = icmp eq i64 %1, %.fca.0.extract.i
   %.sroa.5.8.extract.trunc = trunc i64 %.fca.1.extract.i to i32
   %sext = shl i32 %.sroa.5.8.extract.trunc, 24
@@ -1144,7 +1136,7 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   br i1 %.not18, label %55, label %54
 
 54:                                               ; preds = %52, %48, %45, %42
-  store i8 1, ptr %43, align 4, !tbaa !85
+  store i8 1, ptr %43, align 4, !tbaa !83
   br label %55
 
 55:                                               ; preds = %52, %54, %21, %14
@@ -1159,10 +1151,10 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %4 = alloca %"class.absl::TimeZone", align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !92
+  %6 = load i32, ptr %5, align 4, !tbaa !90
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !94
+  %9 = load i32, ptr %8, align 8, !tbaa !92
   %10 = icmp eq i32 %9, 2147483647
   %11 = zext i1 %10 to i64
   %.020 = add nsw i64 %7, 1900
@@ -1171,40 +1163,40 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %14 = select i1 %10, i32 2147483636, i32 %13
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !95
+  %17 = load i32, ptr %16, align 4, !tbaa !93
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !96
+  %20 = load i32, ptr %19, align 8, !tbaa !94
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !97
+  %23 = load i32, ptr %22, align 4, !tbaa !95
   %24 = sext i32 %23 to i64
-  %25 = load i32, ptr %0, align 8, !tbaa !98
+  %25 = load i32, ptr %0, align 8, !tbaa !96
   %26 = sext i32 %25 to i64
   %27 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %12, i64 noundef %15, i64 noundef %18, i64 noundef %21, i64 noundef %24, i64 noundef %26) #13
   %.fca.0.extract.i = extractvalue { i64, i64 } %27, 0
   %.fca.1.extract.i = extractvalue { i64, i64 } %27, 1
   %.sroa.2.0.extract.trunc.i.i = trunc i64 %.fca.1.extract.i to i40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13, !noalias !99
-  store i64 %.fca.0.extract.i, ptr %2, align 8, !noalias !99
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13, !noalias !97
+  store i64 %.fca.0.extract.i, ptr %2, align 8, !noalias !97
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !99
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13, !noalias !99
-  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %2) #13, !noalias !99
+  store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !97
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13, !noalias !97
+  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %2) #13, !noalias !97
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13, !noalias !99
+  %29 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13, !noalias !97
   %.fca.0.extract8.i = extractvalue { i64, i32 } %29, 0
   %.fca.1.extract9.i = extractvalue { i64, i32 } %29, 1
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %31 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13, !noalias !99
+  %31 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13, !noalias !97
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %33 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13, !noalias !99
+  %33 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13, !noalias !97
   %.fca.0.extract.i22 = extractvalue { i64, i32 } %33, 0
   %.fca.1.extract.i23 = extractvalue { i64, i32 } %33, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13, !noalias !99
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13, !noalias !99
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13, !noalias !97
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13, !noalias !97
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load i32, ptr %34, align 8, !tbaa !102
+  %35 = load i32, ptr %34, align 8, !tbaa !100
   %36 = icmp eq i32 %35, 0
   %.sroa.019.0.copyload = select i1 %36, i64 %.fca.0.extract.i22, i64 %.fca.0.extract8.i
   %.sroa.4.0.copyload.sroa.speculated = select i1 %36, i32 %.fca.1.extract.i23, i32 %.fca.1.extract9.i
@@ -1227,7 +1219,7 @@ define dso_local void @_ZN4absl4ToTMENS_4TimeENS_8TimeZoneE(ptr dead_on_unwind n
   br i1 %spec.select.i.i.i, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 9223372036854775807, i8 noundef signext 12, i64 noundef 31, i64 noundef 0, i8 noundef signext 23, i8 noundef signext 59, i8 noundef signext 59) #13, !noalias !103
+  %12 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 9223372036854775807, i8 noundef signext 12, i64 noundef 31, i64 noundef 0, i8 noundef signext 23, i8 noundef signext 59, i8 noundef signext 59) #13, !noalias !101
   %.fca.1.extract.i.i.i.i.i = extractvalue { i64, i64 } %12, 1
   %13 = extractvalue { i64, i64 } %12, 0
   br label %_ZNK4absl8TimeZone2AtENS_4TimeE.exit
@@ -1238,17 +1230,17 @@ define dso_local void @_ZN4absl4ToTMENS_4TimeENS_8TimeZoneE(ptr dead_on_unwind n
   br i1 %spec.select.i.i53.i, label %_ZNK4absl8TimeZone2AtENS_4TimeE.exit, label %16
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13, !noalias !108
-  store i64 %1, ptr %5, align 8, !noalias !108
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13, !noalias !108
-  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5) #13, !noalias !108
-  %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8, !tbaa !32, !noalias !108
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13, !noalias !106
+  store i64 %1, ptr %5, align 8, !noalias !106
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13, !noalias !106
+  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5) #13, !noalias !106
+  %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8, !tbaa !32, !noalias !106
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !108
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !106
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %18 = load i8, ptr %17, align 4, !tbaa !39, !range !40, !noalias !108, !noundef !41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13, !noalias !108
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13, !noalias !108
+  %18 = load i8, ptr %17, align 4, !tbaa !39, !range !40, !noalias !106, !noundef !41
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13, !noalias !106
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13, !noalias !106
   %19 = zext nneg i8 %18 to i32
   br label %_ZNK4absl8TimeZone2AtENS_4TimeE.exit
 
@@ -1259,24 +1251,24 @@ _ZNK4absl8TimeZone2AtENS_4TimeE.exit:             ; preds = %14, %11, %16
   %sh.diff = lshr i64 %.sroa.10.0, 8
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %20 = ashr i32 %tr.sh.diff, 24
-  store i32 %20, ptr %0, align 8, !tbaa !98
+  store i32 %20, ptr %0, align 8, !tbaa !96
   %21 = trunc i64 %.sroa.10.0 to i32
   %22 = ashr i32 %21, 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %22, ptr %23, align 4, !tbaa !97
+  store i32 %22, ptr %23, align 4, !tbaa !95
   %24 = shl i32 %21, 8
   %25 = ashr i32 %24, 24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %25, ptr %26, align 8, !tbaa !96
+  store i32 %25, ptr %26, align 8, !tbaa !94
   %27 = shl i32 %21, 16
   %28 = ashr i32 %27, 24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %28, ptr %29, align 4, !tbaa !95
+  store i32 %28, ptr %29, align 4, !tbaa !93
   %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.0 to i8
   %30 = sext i8 %.sroa.10.8.extract.trunc to i32
   %31 = add nsw i32 %30, -1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %31, ptr %32, align 8, !tbaa !94
+  store i32 %31, ptr %32, align 8, !tbaa !92
   %33 = icmp slt i64 %.sroa.0.0, -2147481748
   br i1 %33, label %switch.lookup, label %34
 
@@ -1292,7 +1284,7 @@ _ZNK4absl8TimeZone2AtENS_4TimeE.exit:             ; preds = %14, %11, %16
 switch.lookup:                                    ; preds = %34, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit, %36
   %.sink = phi i32 [ %38, %36 ], [ -2147483648, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit ], [ 2147481747, %34 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink, ptr %39, align 4, !tbaa !92
+  store i32 %.sink, ptr %39, align 4, !tbaa !90
   %40 = srem i64 %.sroa.0.0, 400
   %sext.i = shl i64 %.sroa.10.0, 56
   %41 = ashr exact i64 %sext.i, 56
@@ -1322,7 +1314,7 @@ switch.lookup:                                    ; preds = %34, %_ZNK4absl8Time
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE, i64 0, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %switch.load, ptr %61, align 8, !tbaa !109
+  store i32 %switch.load, ptr %61, align 8, !tbaa !107
   %62 = icmp sgt i8 %.sroa.10.8.extract.trunc, 2
   %63 = and i64 %.sroa.0.0, 3
   %64 = icmp eq i64 %63, 0
@@ -1347,9 +1339,9 @@ _ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tag
   %74 = add nsw i32 %73, %70
   %75 = add i32 %74, %72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %75, ptr %76, align 4, !tbaa !110
+  store i32 %75, ptr %76, align 4, !tbaa !108
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sroa.29.0, ptr %77, align 8, !tbaa !102
+  store i32 %.sroa.29.0, ptr %77, align 8, !tbaa !100
   ret void
 }
 
@@ -1901,71 +1893,69 @@ attributes #14 = { nounwind willreturn memory(none) }
 !40 = !{i8 0, i8 2}
 !41 = !{}
 !42 = !{!36, !14, i64 24}
-!43 = !{!12, !5, i64 4}
-!44 = !{!12, !5, i64 0}
-!45 = !{!11, !5, i64 8}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv: argument 0"}
-!48 = distinct !{!48, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv"}
-!49 = !{!50, !5, i64 28}
-!50 = !{!"_ZTSN4absl8TimeZone9CivilInfoE", !51, i64 0, !11, i64 16, !5, i64 28, !13, i64 32, !14, i64 40}
-!51 = !{!"_ZTSN4absl13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE", !38, i64 0}
-!52 = !{!50, !13, i64 32}
-!53 = !{!50, !14, i64 40}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN4absl12_GLOBAL__N_121InfinitePastCivilInfoEv: argument 0"}
-!56 = distinct !{!56, !"_ZN4absl12_GLOBAL__N_121InfinitePastCivilInfoEv"}
-!57 = !{!58, !59, i64 0}
-!58 = !{!"_ZTSN4absl13time_internal4cctz9time_zone12civil_lookupE", !59, i64 0, !60, i64 8, !60, i64 16, !60, i64 24}
-!59 = !{!"_ZTSN4absl13time_internal4cctz9time_zone12civil_lookup10civil_kindE", !6, i64 0}
-!60 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEE", !61, i64 0}
-!61 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !10, i64 0}
-!62 = !{!63, !64, i64 0}
-!63 = !{!"_ZTSN4absl8TimeZone8TimeInfoE", !64, i64 0, !65, i64 4, !65, i64 16, !65, i64 28}
-!64 = !{!"_ZTSN4absl8TimeZone8TimeInfo9CivilKindE", !6, i64 0}
-!65 = !{!"_ZTSN4absl4TimeE", !11, i64 0}
-!66 = !{!37, !10, i64 0}
-!67 = !{!37, !6, i64 8}
-!68 = !{!37, !6, i64 9}
-!69 = !{!37, !6, i64 10}
-!70 = !{!37, !6, i64 11}
-!71 = !{!37, !6, i64 12}
-!72 = !{!38, !10, i64 0}
-!73 = !{!38, !6, i64 8}
-!74 = !{!38, !6, i64 9}
-!75 = !{!38, !6, i64 10}
-!76 = !{!38, !6, i64 11}
-!77 = !{!38, !6, i64 12}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN4absl12_GLOBAL__N_128InfiniteFutureTimeConversionEv: argument 0"}
-!80 = distinct !{!80, !"_ZN4absl12_GLOBAL__N_128InfiniteFutureTimeConversionEv"}
-!81 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 4, !4}
-!82 = !{!83, !84, i64 36}
-!83 = !{!"_ZTSN4absl14TimeConversionE", !65, i64 0, !65, i64 12, !65, i64 24, !84, i64 36, !13, i64 40}
-!84 = !{!"_ZTSN4absl14TimeConversion4KindE", !6, i64 0}
-!85 = !{!83, !13, i64 40}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZN4absl12_GLOBAL__N_126InfinitePastTimeConversionEv: argument 0"}
-!88 = distinct !{!88, !"_ZN4absl12_GLOBAL__N_126InfinitePastTimeConversionEv"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE: argument 0"}
-!91 = distinct !{!91, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE"}
-!92 = !{!93, !5, i64 20}
-!93 = !{!"_ZTS2tm", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !10, i64 40, !14, i64 48}
-!94 = !{!93, !5, i64 16}
-!95 = !{!93, !5, i64 12}
-!96 = !{!93, !5, i64 8}
-!97 = !{!93, !5, i64 4}
-!98 = !{!93, !5, i64 0}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE: argument 0"}
-!101 = distinct !{!101, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE"}
-!102 = !{!93, !5, i64 32}
-!103 = !{!104, !106}
-!104 = distinct !{!104, !105, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv: argument 0"}
-!105 = distinct !{!105, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv"}
-!106 = distinct !{!106, !107, !"_ZNK4absl8TimeZone2AtENS_4TimeE: argument 0"}
-!107 = distinct !{!107, !"_ZNK4absl8TimeZone2AtENS_4TimeE"}
-!108 = !{!106}
-!109 = !{!93, !5, i64 24}
-!110 = !{!93, !5, i64 28}
+!43 = !{!11, !5, i64 8}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv: argument 0"}
+!46 = distinct !{!46, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv"}
+!47 = !{!48, !5, i64 28}
+!48 = !{!"_ZTSN4absl8TimeZone9CivilInfoE", !49, i64 0, !11, i64 16, !5, i64 28, !13, i64 32, !14, i64 40}
+!49 = !{!"_ZTSN4absl13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE", !38, i64 0}
+!50 = !{!48, !13, i64 32}
+!51 = !{!48, !14, i64 40}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZN4absl12_GLOBAL__N_121InfinitePastCivilInfoEv: argument 0"}
+!54 = distinct !{!54, !"_ZN4absl12_GLOBAL__N_121InfinitePastCivilInfoEv"}
+!55 = !{!56, !57, i64 0}
+!56 = !{!"_ZTSN4absl13time_internal4cctz9time_zone12civil_lookupE", !57, i64 0, !58, i64 8, !58, i64 16, !58, i64 24}
+!57 = !{!"_ZTSN4absl13time_internal4cctz9time_zone12civil_lookup10civil_kindE", !6, i64 0}
+!58 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEE", !59, i64 0}
+!59 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !10, i64 0}
+!60 = !{!61, !62, i64 0}
+!61 = !{!"_ZTSN4absl8TimeZone8TimeInfoE", !62, i64 0, !63, i64 4, !63, i64 16, !63, i64 28}
+!62 = !{!"_ZTSN4absl8TimeZone8TimeInfo9CivilKindE", !6, i64 0}
+!63 = !{!"_ZTSN4absl4TimeE", !11, i64 0}
+!64 = !{!37, !10, i64 0}
+!65 = !{!37, !6, i64 8}
+!66 = !{!37, !6, i64 9}
+!67 = !{!37, !6, i64 10}
+!68 = !{!37, !6, i64 11}
+!69 = !{!37, !6, i64 12}
+!70 = !{!38, !10, i64 0}
+!71 = !{!38, !6, i64 8}
+!72 = !{!38, !6, i64 9}
+!73 = !{!38, !6, i64 10}
+!74 = !{!38, !6, i64 11}
+!75 = !{!38, !6, i64 12}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN4absl12_GLOBAL__N_128InfiniteFutureTimeConversionEv: argument 0"}
+!78 = distinct !{!78, !"_ZN4absl12_GLOBAL__N_128InfiniteFutureTimeConversionEv"}
+!79 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 4, !4}
+!80 = !{!81, !82, i64 36}
+!81 = !{!"_ZTSN4absl14TimeConversionE", !63, i64 0, !63, i64 12, !63, i64 24, !82, i64 36, !13, i64 40}
+!82 = !{!"_ZTSN4absl14TimeConversion4KindE", !6, i64 0}
+!83 = !{!81, !13, i64 40}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZN4absl12_GLOBAL__N_126InfinitePastTimeConversionEv: argument 0"}
+!86 = distinct !{!86, !"_ZN4absl12_GLOBAL__N_126InfinitePastTimeConversionEv"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE: argument 0"}
+!89 = distinct !{!89, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE"}
+!90 = !{!91, !5, i64 20}
+!91 = !{!"_ZTS2tm", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !10, i64 40, !14, i64 48}
+!92 = !{!91, !5, i64 16}
+!93 = !{!91, !5, i64 12}
+!94 = !{!91, !5, i64 8}
+!95 = !{!91, !5, i64 4}
+!96 = !{!91, !5, i64 0}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE: argument 0"}
+!99 = distinct !{!99, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE"}
+!100 = !{!91, !5, i64 32}
+!101 = !{!102, !104}
+!102 = distinct !{!102, !103, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv: argument 0"}
+!103 = distinct !{!103, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv"}
+!104 = distinct !{!104, !105, !"_ZNK4absl8TimeZone2AtENS_4TimeE: argument 0"}
+!105 = distinct !{!105, !"_ZNK4absl8TimeZone2AtENS_4TimeE"}
+!106 = !{!104}
+!107 = !{!91, !5, i64 24}
+!108 = !{!91, !5, i64 28}

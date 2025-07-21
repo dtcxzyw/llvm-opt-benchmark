@@ -3916,13 +3916,9 @@ define internal fastcc void @_ZN6uucore8features4mode8parse_op17h9053c48dd3b952a
   ]
 
 52:                                               ; preds = %.thread
-  %.sroa.426.4.extract.shift = lshr i64 %50, 32
-  %.sroa.426.4.extract.trunc = trunc nuw i64 %.sroa.426.4.extract.shift to i32
   store i64 %47, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.426.0.extract.trunc, ptr %.sroa.235.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.426.4.extract.trunc, ptr %.sroa.3.0..sroa_idx36, align 4
+  store i64 %50, ptr %.sroa.235.0..sroa_idx, align 8
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 22, ptr %.sroa.437.0..sroa_idx, align 8
   br label %57

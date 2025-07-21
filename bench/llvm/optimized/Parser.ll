@@ -17753,34 +17753,29 @@ _ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb.exit: ; preds = %20, %_ZNSt10u
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %31, ptr %32, align 8, !tbaa !1150
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i to i32
-  %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %27, align 8, !tbaa !971
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.2.0.extract.trunc.i, ptr %33, align 4, !tbaa !1041
-  br i1 %2, label %34, label %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit
+  store i64 %.sroa.0.0.copyload.i, ptr %27, align 8
+  br i1 %2, label %33, label %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit
 
-34:                                               ; preds = %_ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb.exit
-  %35 = load ptr, ptr %4, align 8, !tbaa !86
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2928
-  %37 = load i64, ptr %36, align 8, !tbaa !1100
-  %.not.i3 = icmp eq i64 %37, 0
-  br i1 %.not.i3, label %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit, label %38
+33:                                               ; preds = %_ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb.exit
+  %34 = load ptr, ptr %4, align 8, !tbaa !86
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 2928
+  %36 = load i64, ptr %35, align 8, !tbaa !1100
+  %.not.i3 = icmp eq i64 %36, 0
+  br i1 %.not.i3, label %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit, label %37
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 2936
-  %40 = load ptr, ptr %39, align 8, !tbaa !1747
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 2944
-  %42 = load ptr, ptr %41, align 8, !tbaa !1747
-  %.not2.i = icmp eq ptr %40, %42
-  br i1 %.not2.i, label %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit, label %43
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 2936
+  %39 = load ptr, ptr %38, align 8, !tbaa !1747
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 2944
+  %41 = load ptr, ptr %40, align 8, !tbaa !1747
+  %.not2.i = icmp eq ptr %39, %41
+  br i1 %.not2.i, label %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit, label %42
 
-43:                                               ; preds = %38
-  tail call void @_ZN5clang12Preprocessor28AnnotatePreviousCachedTokensERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %35, ptr noundef nonnull align 8 dereferenceable(20) %27) #21
+42:                                               ; preds = %37
+  tail call void @_ZN5clang12Preprocessor28AnnotatePreviousCachedTokensERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %34, ptr noundef nonnull align 8 dereferenceable(20) %27) #21
   br label %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit
 
-_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit: ; preds = %43, %38, %34, %_ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb.exit
+_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit: ; preds = %42, %37, %33, %_ZN5clang12Preprocessor10EnterTokenERKNS_5TokenEb.exit
   ret void
 }
 

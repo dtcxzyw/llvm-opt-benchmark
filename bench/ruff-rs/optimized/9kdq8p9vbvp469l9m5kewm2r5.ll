@@ -9111,7 +9111,7 @@ _ZN21ruff_python_formatter9statement6clause12ClauseHeader19first_keyword_range17
   store i32 %138, ptr %.sroa.234.0..sroa_idx, align 4
   %.sroa.335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %140, ptr %.sroa.335.0..sroa_idx, align 8
-  br label %195
+  br label %197
 
 142:                                              ; preds = %_ZN21ruff_python_formatter9statement6clause12ClauseHeader19first_keyword_range17hb50674e4a5c34847E.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
@@ -9269,30 +9269,30 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hed3071c15f500ebbE.exit.thread.
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hed3071c15f500ebbE.exit.i: ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hffb253bef725cee1E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !1081
   %cond.i = icmp eq i8 %.sroa.4.0.copyload.i.i, 12
-  br i1 %cond.i, label %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit.thread, label %187
+  br i1 %cond.i, label %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit.thread, label %189
 
 _ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit.thread: ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hed3071c15f500ebbE.exit.i
-  %.sroa.0.4.extract.shift.i = lshr i64 %.sroa.05.0.copyload.i.i, 32
-  %.sroa.0.4.extract.trunc.i = trunc nuw i64 %.sroa.0.4.extract.shift.i to i32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1076
-  br label %189
+  %187 = lshr i64 %.sroa.05.0.copyload.i.i, 32
+  %188 = trunc nuw i64 %187 to i32
+  br label %191
 
-187:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hed3071c15f500ebbE.exit.i
+189:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hed3071c15f500ebbE.exit.i
   call void @_ZN14ruff_formatter11diagnostics11FormatError12syntax_error17hf4bad71092adb206E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.112, i64 noundef 82)
   br label %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit
 
-_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hed3071c15f500ebbE.exit.thread.i, %187
+_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hed3071c15f500ebbE.exit.thread.i, %189
   %.pr = load i32, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1076
   %.not56 = icmp eq i32 %.pr, 4
-  br i1 %.not56, label %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit._crit_edge, label %188
+  br i1 %.not56, label %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit._crit_edge, label %190
 
 _ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit._crit_edge: ; preds = %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %189
+  br label %191
 
-188:                                              ; preds = %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit
+190:                                              ; preds = %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit
   %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.546.0.copyload = load i32, ptr %.sroa.546.0..sroa_idx, align 4
   %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -9307,28 +9307,28 @@ _ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exi
   %.sroa.351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.647.0.copyload, ptr %.sroa.351.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %195
+  br label %197
 
-189:                                              ; preds = %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit._crit_edge, %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit.thread
-  %190 = phi i32 [ %.pre, %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit._crit_edge ], [ %.sroa.0.4.extract.trunc.i, %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit.thread ]
+191:                                              ; preds = %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit._crit_edge, %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit.thread
+  %192 = phi i32 [ %.pre, %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit._crit_edge ], [ %188, %_ZN21ruff_python_formatter9statement6clause11colon_range17h477f8182fe7c95ddE.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %.not57 = icmp ugt i32 %138, %190
-  br i1 %.not57, label %191, label %192, !prof !333
+  %.not57 = icmp ugt i32 %138, %192
+  br i1 %.not57, label %193, label %194, !prof !333
 
-191:                                              ; preds = %189
+193:                                              ; preds = %191
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.100) #19
   unreachable
 
-192:                                              ; preds = %189
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %138, ptr %193, align 4
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %190, ptr %194, align 8
+194:                                              ; preds = %191
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %138, ptr %195, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %192, ptr %196, align 8
   store i32 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %195
+  br label %197
 
-195:                                              ; preds = %192, %188, %141
+197:                                              ; preds = %194, %190, %141
   ret void
 }
 

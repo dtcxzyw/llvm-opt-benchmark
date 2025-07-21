@@ -53728,9 +53728,6 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %102 = ptrtoint ptr %.sroa.532.0.copyload to i64
   %103 = icmp ne ptr %.sroa.431.0.copyload, null
   tail call void @llvm.assume(i1 %103)
-  %.sroa.056.0.extract.trunc = trunc i64 %.sroa.030.0.copyload to i32
-  %.sroa.056.4.extract.shift = lshr i64 %.sroa.030.0.copyload, 32
-  %.sroa.056.4.extract.trunc = trunc nuw i64 %.sroa.056.4.extract.shift to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14588)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14591)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14594)
@@ -53803,9 +53800,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %144 = sub i64 %143, %141
   store i64 %144, ptr %142, align 8, !alias.scope !14588, !noalias !14598
   %145 = getelementptr inbounds i8, ptr %139, i64 -12
-  store i32 %.sroa.056.0.extract.trunc, ptr %145, align 4, !noalias !14610
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %139, i64 -8
-  store i32 %.sroa.056.4.extract.trunc, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !14610
+  store i64 %.sroa.030.0.copyload, ptr %145, align 4, !noalias !14610
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %139, i64 -4
   store i32 %36, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !14610
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.431.0.copyload, i64 24
