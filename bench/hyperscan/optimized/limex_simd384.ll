@@ -442,9 +442,9 @@ testbit384.exit.lr.ph:                            ; preds = %61
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 368
   br label %testbit384.exit
 
-testbit384.exit:                                  ; preds = %testbit384.exit.lr.ph, %127
-  %82 = phi i32 [ %60, %testbit384.exit.lr.ph ], [ %128, %127 ]
-  %indvars.iv = phi i64 [ 0, %testbit384.exit.lr.ph ], [ %indvars.iv.next, %127 ]
+testbit384.exit:                                  ; preds = %testbit384.exit.lr.ph, %122
+  %82 = phi i32 [ %60, %testbit384.exit.lr.ph ], [ %123, %122 ]
+  %indvars.iv = phi i64 [ 0, %testbit384.exit.lr.ph ], [ %indvars.iv.next, %122 ]
   %83 = load i32, ptr %81, align 16
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 %84
@@ -468,7 +468,7 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   %100 = load <2 x i64>, ptr %99, align 1
   %101 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %100, <2 x i64> %.0.in.i.sroa.speculated)
   %.not.i10.not = icmp eq i32 %101, 0
-  br i1 %.not.i10.not, label %120, label %102
+  br i1 %.not.i10.not, label %115, label %102
 
 102:                                              ; preds = %testbit384.exit
   %103 = getelementptr inbounds nuw i8, ptr %89, i64 20
@@ -476,43 +476,38 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   %105 = zext i32 %104 to i64
   %106 = getelementptr inbounds nuw i8, ptr %89, i64 %105
   call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 16) ], !noalias !49
-  %107 = load <2 x i64>, ptr %106, align 16, !noalias !49
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 16) ], !noalias !49
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %108, i64 16) ], !noalias !49
   %109 = load <2 x i64>, ptr %108, align 16, !noalias !49
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 16) ], !noalias !49
-  %111 = load <2 x i64>, ptr %110, align 16, !noalias !49
-  %112 = and <2 x i64> %107, %68
-  %113 = and <2 x i64> %109, %69
-  %114 = and <2 x i64> %111, %70
-  %115 = or <2 x i64> %113, %112
-  %116 = or <2 x i64> %115, %114
-  %117 = bitcast <2 x i64> %116 to <16 x i8>
-  %118 = icmp ne <16 x i8> %117, zeroinitializer
-  %119 = bitcast <16 x i1> %118 to i16
-  %.not72 = icmp eq i16 %119, 0
-  br i1 %.not72, label %127, label %120
+  %110 = or <2 x i64> %109, %67
+  %111 = xor <2 x i64> %110, %.sroa.551.0.copyload
+  %112 = bitcast <2 x i64> %111 to <16 x i8>
+  %113 = icmp ne <16 x i8> %112, splat (i8 -1)
+  %114 = bitcast <16 x i1> %113 to i16
+  %.not72 = icmp eq i16 %114, 0
+  br i1 %.not72, label %122, label %115
 
-120:                                              ; preds = %102, %testbit384.exit
-  %121 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %122 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %123 = load i32, ptr %122, align 4
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw i8, ptr %80, i64 %124
-  %126 = getelementptr inbounds nuw %union.RepeatControl, ptr %76, i64 %indvars.iv
-  call void @repeatUnpack(ptr noundef %125, ptr noundef nonnull %121, i64 noundef %3, ptr noundef nonnull %126) #12
+115:                                              ; preds = %102, %testbit384.exit
+  %116 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %118 = load i32, ptr %117, align 4
+  %119 = zext i32 %118 to i64
+  %120 = getelementptr inbounds nuw i8, ptr %80, i64 %119
+  %121 = getelementptr inbounds nuw %union.RepeatControl, ptr %76, i64 %indvars.iv
+  call void @repeatUnpack(ptr noundef %120, ptr noundef nonnull %116, i64 noundef %3, ptr noundef nonnull %121) #12
   %.pre = load i32, ptr %59, align 4
-  br label %127
+  br label %122
 
-127:                                              ; preds = %120, %102
-  %128 = phi i32 [ %.pre, %120 ], [ %82, %102 ]
+122:                                              ; preds = %115, %102
+  %123 = phi i32 [ %.pre, %115 ], [ %82, %102 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %129 = zext i32 %128 to i64
-  %130 = icmp samesign ult i64 %indvars.iv.next, %129
-  br i1 %130, label %testbit384.exit, label %nfaExecLimEx384_Expand_Repeats.exit
+  %124 = zext i32 %123 to i64
+  %125 = icmp samesign ult i64 %indvars.iv.next, %124
+  br i1 %125, label %testbit384.exit, label %nfaExecLimEx384_Expand_Repeats.exit
 
-nfaExecLimEx384_Expand_Repeats.exit:              ; preds = %127, %61, %moNfaExpandState384.exit
+nfaExecLimEx384_Expand_Repeats.exit:              ; preds = %122, %61, %moNfaExpandState384.exit
   ret i8 0
 }
 

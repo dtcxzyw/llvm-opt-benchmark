@@ -1657,39 +1657,30 @@ minTemp1_fast.exit:                               ; preds = %firstShiftWithOneBi
 
 .lr.ph.i:                                         ; preds = %minTemp1_fast.exit
   %66 = sdiv i32 %64, 100
-  %67 = load i64, ptr %8, align 16, !tbaa !11
-  %68 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 3
-  %69 = load i64, ptr %68, align 8, !tbaa !11
-  %70 = shl i32 3, %1
-  %71 = zext nneg i32 %70 to i64
-  %72 = zext nneg i32 %66 to i64
-  %73 = lshr i64 -1, %71
-  %74 = and i64 %69, %73
-  %75 = or i64 %74, %67
-  br label %76
+  %67 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 3
+  %68 = load i64, ptr %67, align 8, !tbaa !11
+  %69 = shl i32 3, %1
+  %70 = zext nneg i32 %69 to i64
+  %71 = zext nneg i32 %66 to i64
+  %72 = lshr i64 -1, %70
+  %invariant.op = xor i64 %68, -1
+  br label %73
 
-76:                                               ; preds = %76, %.lr.ph.i
-  %indvars.iv.i7 = phi i64 [ %72, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i7
-  %78 = load i64, ptr %77, align 8, !tbaa !11
-  %79 = and i64 %78, %25
-  %80 = shl i64 %79, %13
-  %81 = lshr i64 %80, %10
-  %82 = and i64 %78, %22
-  %83 = shl i64 %82, %10
-  %84 = lshr i64 %83, %13
-  %85 = and i64 %75, %78
-  %86 = or i64 %85, %81
-  %87 = or i64 %86, %84
-  store i64 %87, ptr %77, align 8, !tbaa !11
+73:                                               ; preds = %73, %.lr.ph.i
+  %indvars.iv.i7 = phi i64 [ %71, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
+  %74 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i7
+  %75 = load i64, ptr %74, align 8, !tbaa !11
+  %76 = or i64 %75, %72
+  %.reass.reass = xor i64 %76, %invariant.op
+  store i64 %.reass.reass, ptr %74, align 8, !tbaa !11
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i7, -1
   %.not.i = icmp eq i64 %indvars.iv.i7, 0
-  br i1 %.not.i, label %arrangeQuoters_superFast_lessThen5.exit, label %76, !llvm.loop !13
+  br i1 %.not.i, label %arrangeQuoters_superFast_lessThen5.exit, label %73, !llvm.loop !13
 
-arrangeQuoters_superFast_lessThen5.exit:          ; preds = %76, %minTemp1_fast.exit
-  %88 = load i32, ptr %4, align 4, !tbaa !6
-  %89 = tail call i32 @adjustInfoAfterSwap(ptr noundef %3, i32 noundef %88, i32 noundef %1, i32 noundef 4) #9
-  store i32 %89, ptr %4, align 4, !tbaa !6
+arrangeQuoters_superFast_lessThen5.exit:          ; preds = %73, %minTemp1_fast.exit
+  %77 = load i32, ptr %4, align 4, !tbaa !6
+  %78 = tail call i32 @adjustInfoAfterSwap(ptr noundef %3, i32 noundef %77, i32 noundef %1, i32 noundef 4) #9
+  store i32 %78, ptr %4, align 4, !tbaa !6
   br label %minTemp1_fast.exit.thread
 
 minTemp1_fast.exit.thread:                        ; preds = %15, %firstShiftWithOneBit.exit.i, %arrangeQuoters_superFast_lessThen5.exit

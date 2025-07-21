@@ -372,7 +372,7 @@ sodium_base64_check_variant.exit:                 ; preds = %5
   %.084 = phi i32 [ %28, %.loopexit77 ], [ 0, %.preheader78 ]
   %.05583 = phi i64 [ %31, %.loopexit77 ], [ 0, %.preheader78 ]
   %.05882 = phi i64 [ %23, %.loopexit77 ], [ 0, %.preheader78 ]
-  %.06081 = phi i64 [ %63, %.loopexit77 ], [ 0, %.preheader78 ]
+  %.06081 = phi i64 [ %52, %.loopexit77 ], [ 0, %.preheader78 ]
   %24 = shl i32 %.084, 8
   %25 = getelementptr i8, ptr %2, i64 %.05882
   %26 = load i8, ptr %25, align 1
@@ -383,180 +383,147 @@ sodium_base64_check_variant.exit:                 ; preds = %5
 
 30:                                               ; preds = %.lr.ph, %30
   %.15680 = phi i64 [ %29, %.lr.ph ], [ %31, %30 ]
-  %.16179 = phi i64 [ %.06081, %.lr.ph ], [ %63, %30 ]
+  %.16179 = phi i64 [ %.06081, %.lr.ph ], [ %52, %30 ]
   %31 = add i64 %.15680, -6
   %32 = trunc i64 %31 to i32
   %33 = lshr i32 %28, %32
   %34 = and i32 %33, 63
-  %35 = add nuw nsw i32 %34, 65510
+  %35 = add nuw nsw i32 %34, 65484
   %36 = lshr i32 %35, 8
-  %37 = add nuw nsw i32 %34, 65
-  %38 = and i32 %36, %37
-  %39 = xor i32 %36, -1
-  %40 = add nuw nsw i32 %34, 65484
-  %41 = lshr i32 %40, 8
-  %42 = add nuw nsw i32 %34, 71
-  %43 = and i32 %42, %39
-  %44 = and i32 %43, %41
-  %45 = or i32 %44, %38
-  %46 = xor i32 %41, -1
-  %47 = add nuw nsw i32 %34, 65474
-  %48 = lshr i32 %47, 8
-  %49 = add nuw nsw i32 %34, 252
-  %50 = and i32 %48, %49
-  %51 = and i32 %50, %46
-  %52 = xor i32 %34, 16321
-  %.neg.i = add nuw nsw i32 %52, 1
-  %53 = lshr i32 %.neg.i, 8
-  %54 = and i32 %53, 45
-  %55 = xor i32 %54, 45
+  %37 = add nuw nsw i32 %34, 65474
+  %38 = lshr i32 %37, 8
+  %39 = sub nsw i32 3, %34
+  %40 = and i32 %36, %39
+  %41 = xor i32 %40, %38
+  %42 = xor i32 %34, 16321
+  %.neg.i = add nuw nsw i32 %42, 1
+  %43 = lshr i32 %.neg.i, 8
+  %44 = and i32 %43, 45
+  %45 = xor i32 %44, 45
   %.neg10.i = add nuw nsw i32 %34, 32705
-  %56 = lshr i32 %.neg10.i, 8
-  %57 = and i32 %56, 95
-  %58 = xor i32 %57, 95
-  %59 = or i32 %45, %58
-  %60 = or i32 %59, %51
-  %61 = or i32 %60, %55
-  %62 = trunc i32 %61 to i8
-  %63 = add i64 %.16179, 1
-  %64 = getelementptr i8, ptr %0, i64 %.16179
-  store i8 %62, ptr %64, align 1
-  %65 = icmp ugt i64 %31, 5
-  br i1 %65, label %30, label %.loopexit77, !llvm.loop !8
+  %46 = lshr i32 %.neg10.i, 8
+  %47 = and i32 %46, 95
+  %48 = xor i32 %47, 95
+  %49 = or i32 %41, %48
+  %50 = or i32 %49, %45
+  %51 = trunc i32 %50 to i8
+  %52 = add i64 %.16179, 1
+  %53 = getelementptr i8, ptr %0, i64 %.16179
+  store i8 %51, ptr %53, align 1
+  %54 = icmp ugt i64 %31, 5
+  br i1 %54, label %30, label %.loopexit77, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit77
   %.not69 = icmp eq i64 %31, 0
   br i1 %.not69, label %._crit_edge.thread, label %._crit_edge.thread.sink.split
 
-.loopexit:                                        ; preds = %73
-  %66 = add nuw i64 %.15990, 1
-  %exitcond110.not = icmp eq i64 %66, %3
+.loopexit:                                        ; preds = %62
+  %55 = add nuw i64 %.15990, 1
+  %exitcond110.not = icmp eq i64 %55, %3
   br i1 %exitcond110.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !9
 
 .lr.ph93:                                         ; preds = %.preheader76, %.loopexit
-  %.192 = phi i32 [ %71, %.loopexit ], [ 0, %.preheader76 ]
-  %.291 = phi i64 [ %74, %.loopexit ], [ 0, %.preheader76 ]
-  %.15990 = phi i64 [ %66, %.loopexit ], [ 0, %.preheader76 ]
-  %.36389 = phi i64 [ %106, %.loopexit ], [ 0, %.preheader76 ]
-  %67 = shl i32 %.192, 8
-  %68 = getelementptr i8, ptr %2, i64 %.15990
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = or disjoint i32 %67, %70
-  %72 = or disjoint i64 %.291, 8
-  br label %73
+  %.192 = phi i32 [ %60, %.loopexit ], [ 0, %.preheader76 ]
+  %.291 = phi i64 [ %63, %.loopexit ], [ 0, %.preheader76 ]
+  %.15990 = phi i64 [ %55, %.loopexit ], [ 0, %.preheader76 ]
+  %.36389 = phi i64 [ %84, %.loopexit ], [ 0, %.preheader76 ]
+  %56 = shl i32 %.192, 8
+  %57 = getelementptr i8, ptr %2, i64 %.15990
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = or disjoint i32 %56, %59
+  %61 = or disjoint i64 %.291, 8
+  br label %62
 
-73:                                               ; preds = %.lr.ph93, %73
-  %.388 = phi i64 [ %72, %.lr.ph93 ], [ %74, %73 ]
-  %.487 = phi i64 [ %.36389, %.lr.ph93 ], [ %106, %73 ]
-  %74 = add i64 %.388, -6
-  %75 = trunc i64 %74 to i32
-  %76 = lshr i32 %71, %75
-  %77 = and i32 %76, 63
-  %78 = add nuw nsw i32 %77, 65510
-  %79 = lshr i32 %78, 8
-  %80 = add nuw nsw i32 %77, 65
-  %81 = and i32 %79, %80
-  %82 = xor i32 %79, -1
-  %83 = add nuw nsw i32 %77, 65484
-  %84 = lshr i32 %83, 8
-  %85 = add nuw nsw i32 %77, 71
-  %86 = and i32 %85, %82
-  %87 = and i32 %86, %84
-  %88 = or i32 %87, %81
-  %89 = xor i32 %84, -1
-  %90 = add nuw nsw i32 %77, 65474
-  %91 = lshr i32 %90, 8
-  %92 = add nuw nsw i32 %77, 252
-  %93 = and i32 %91, %92
-  %94 = and i32 %93, %89
-  %95 = xor i32 %77, 16321
-  %.neg.i72 = add nuw nsw i32 %95, 1
-  %96 = lshr i32 %.neg.i72, 8
-  %97 = and i32 %96, 43
-  %98 = xor i32 %97, 43
-  %.neg10.i73 = add nuw nsw i32 %77, 16321
-  %99 = lshr i32 %.neg10.i73, 8
-  %100 = and i32 %99, 47
-  %101 = xor i32 %100, 47
-  %102 = or i32 %88, %101
-  %103 = or i32 %102, %94
-  %104 = or i32 %103, %98
-  %105 = trunc i32 %104 to i8
-  %106 = add i64 %.487, 1
-  %107 = getelementptr i8, ptr %0, i64 %.487
-  store i8 %105, ptr %107, align 1
-  %108 = icmp ugt i64 %74, 5
-  br i1 %108, label %73, label %.loopexit, !llvm.loop !10
+62:                                               ; preds = %.lr.ph93, %62
+  %.388 = phi i64 [ %61, %.lr.ph93 ], [ %63, %62 ]
+  %.487 = phi i64 [ %.36389, %.lr.ph93 ], [ %84, %62 ]
+  %63 = add i64 %.388, -6
+  %64 = trunc i64 %63 to i32
+  %65 = lshr i32 %60, %64
+  %66 = and i32 %65, 63
+  %67 = add nuw nsw i32 %66, 65484
+  %68 = lshr i32 %67, 8
+  %69 = add nuw nsw i32 %66, 65474
+  %70 = lshr i32 %69, 8
+  %71 = sub nsw i32 3, %66
+  %72 = and i32 %68, %71
+  %73 = xor i32 %72, %70
+  %74 = xor i32 %66, 16321
+  %.neg.i72 = add nuw nsw i32 %74, 1
+  %75 = lshr i32 %.neg.i72, 8
+  %76 = and i32 %75, 43
+  %77 = xor i32 %76, 43
+  %.neg10.i73 = add nuw nsw i32 %66, 16321
+  %78 = lshr i32 %.neg10.i73, 8
+  %79 = and i32 %78, 47
+  %80 = xor i32 %79, 47
+  %81 = or i32 %73, %80
+  %82 = or i32 %81, %77
+  %83 = trunc i32 %82 to i8
+  %84 = add i64 %.487, 1
+  %85 = getelementptr i8, ptr %0, i64 %.487
+  store i8 %83, ptr %85, align 1
+  %86 = icmp ugt i64 %63, 5
+  br i1 %86, label %62, label %.loopexit, !llvm.loop !10
 
 ._crit_edge94:                                    ; preds = %.loopexit
-  %.not68 = icmp eq i64 %74, 0
+  %.not68 = icmp eq i64 %63, 0
   br i1 %.not68, label %._crit_edge.thread, label %._crit_edge.thread.sink.split
 
 ._crit_edge.thread.sink.split:                    ; preds = %._crit_edge94, %._crit_edge
-  %.lcssa120.lcssa.sink = phi i64 [ %31, %._crit_edge ], [ %74, %._crit_edge94 ]
-  %.lcssa121.sink = phi i32 [ %28, %._crit_edge ], [ %71, %._crit_edge94 ]
-  %.sink141 = phi i32 [ 45, %._crit_edge ], [ 43, %._crit_edge94 ]
-  %.sink137 = phi i32 [ 32705, %._crit_edge ], [ 16321, %._crit_edge94 ]
-  %.sink135 = phi i32 [ 95, %._crit_edge ], [ 47, %._crit_edge94 ]
-  %.lcssa.lcssa.sink126 = phi i64 [ %63, %._crit_edge ], [ %106, %._crit_edge94 ]
-  %109 = trunc nuw nsw i64 %.lcssa120.lcssa.sink to i32
-  %110 = sub nuw nsw i32 6, %109
-  %111 = shl i32 %.lcssa121.sink, %110
-  %112 = and i32 %111, 63
-  %113 = add nuw nsw i32 %112, 65510
-  %114 = lshr i32 %113, 8
-  %115 = add nuw nsw i32 %112, 65
-  %116 = and i32 %114, %115
-  %117 = xor i32 %114, -1
-  %118 = add nuw nsw i32 %112, 65484
-  %119 = lshr i32 %118, 8
-  %120 = add nuw nsw i32 %112, 71
-  %121 = and i32 %120, %117
-  %122 = and i32 %121, %119
-  %123 = or i32 %122, %116
-  %124 = xor i32 %119, -1
-  %125 = add nuw nsw i32 %112, 65474
-  %126 = lshr i32 %125, 8
-  %127 = add nuw nsw i32 %112, 252
-  %128 = and i32 %126, %127
-  %129 = and i32 %128, %124
-  %130 = xor i32 %112, 16321
-  %.neg.i74 = add nuw nsw i32 %130, 1
-  %131 = lshr i32 %.neg.i74, 8
-  %132 = xor i32 %131, -1
-  %133 = and i32 %.sink141, %132
-  %.neg10.i75 = add nuw nsw i32 %112, %.sink137
-  %134 = lshr i32 %.neg10.i75, 8
-  %135 = xor i32 %134, -1
-  %136 = and i32 %.sink135, %135
-  %137 = or i32 %123, %136
-  %138 = or i32 %137, %129
-  %139 = or i32 %138, %133
-  %140 = trunc i32 %139 to i8
-  %141 = add i64 %.lcssa.lcssa.sink126, 1
-  %142 = getelementptr i8, ptr %0, i64 %.lcssa.lcssa.sink126
-  store i8 %140, ptr %142, align 1
+  %.lcssa120.lcssa.sink = phi i64 [ %31, %._crit_edge ], [ %63, %._crit_edge94 ]
+  %.lcssa121.sink = phi i32 [ %28, %._crit_edge ], [ %60, %._crit_edge94 ]
+  %.sink138 = phi i32 [ 45, %._crit_edge ], [ 43, %._crit_edge94 ]
+  %.sink134 = phi i32 [ 32705, %._crit_edge ], [ 16321, %._crit_edge94 ]
+  %.sink133 = phi i32 [ 95, %._crit_edge ], [ 47, %._crit_edge94 ]
+  %.lcssa.lcssa.sink126 = phi i64 [ %52, %._crit_edge ], [ %84, %._crit_edge94 ]
+  %87 = trunc nuw nsw i64 %.lcssa120.lcssa.sink to i32
+  %88 = sub nuw nsw i32 6, %87
+  %89 = shl i32 %.lcssa121.sink, %88
+  %90 = and i32 %89, 63
+  %91 = add nuw nsw i32 %90, 65484
+  %92 = lshr i32 %91, 8
+  %93 = add nuw nsw i32 %90, 65474
+  %94 = lshr i32 %93, 8
+  %95 = sub nsw i32 3, %90
+  %96 = and i32 %92, %95
+  %97 = xor i32 %96, %94
+  %98 = xor i32 %90, 16321
+  %.neg.i74 = add nuw nsw i32 %98, 1
+  %99 = lshr i32 %.neg.i74, 8
+  %100 = xor i32 %99, -1
+  %101 = and i32 %.sink138, %100
+  %.neg10.i75 = add nuw nsw i32 %90, %.sink134
+  %102 = lshr i32 %.neg10.i75, 8
+  %103 = xor i32 %102, -1
+  %104 = and i32 %.sink133, %103
+  %105 = or i32 %97, %104
+  %106 = or i32 %105, %101
+  %107 = trunc i32 %106 to i8
+  %108 = add i64 %.lcssa.lcssa.sink126, 1
+  %109 = getelementptr i8, ptr %0, i64 %.lcssa.lcssa.sink126
+  store i8 %107, ptr %109, align 1
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %.preheader76, %.preheader78, %._crit_edge94, %._crit_edge
-  %.262 = phi i64 [ %63, %._crit_edge ], [ %106, %._crit_edge94 ], [ 0, %.preheader78 ], [ 0, %.preheader76 ], [ %141, %._crit_edge.thread.sink.split ]
-  %143 = icmp ult i64 %.262, %.057
-  br i1 %143, label %.lr.ph100.preheader, label %.preheader
+  %.262 = phi i64 [ %52, %._crit_edge ], [ %84, %._crit_edge94 ], [ 0, %.preheader78 ], [ 0, %.preheader76 ], [ %108, %._crit_edge.thread.sink.split ]
+  %110 = icmp ult i64 %.262, %.057
+  br i1 %110, label %.lr.ph100.preheader, label %.preheader
 
 .lr.ph100.preheader:                              ; preds = %._crit_edge.thread
   %scevgep = getelementptr i8, ptr %0, i64 %.262
-  %144 = sub nuw i64 %.057, %.262
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 61, i64 %144, i1 false)
+  %111 = sub nuw i64 %.057, %.262
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 61, i64 %111, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph100.preheader, %._crit_edge.thread
   %.5.lcssa = phi i64 [ %.262, %._crit_edge.thread ], [ %.057, %.lr.ph100.preheader ]
   %scevgep111 = getelementptr i8, ptr %0, i64 %.5.lcssa
-  %145 = add i64 %.5.lcssa, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 %145)
-  %146 = sub i64 %umax, %.5.lcssa
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep111, i8 0, i64 %146, i1 false)
+  %112 = add i64 %.5.lcssa, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 %112)
+  %113 = sub i64 %umax, %.5.lcssa
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep111, i8 0, i64 %113, i1 false)
   ret ptr %0
 }
 
@@ -564,403 +531,468 @@ sodium_base64_check_variant.exit:                 ; preds = %5
 define dso_local range(i32 -1, 1) i32 @sodium_base642bin(ptr noundef nonnull writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = and i32 %7, -7
   %.not.i = icmp eq i32 %9, 1
-  br i1 %.not.i, label %sodium_base64_check_variant.exit.preheader, label %83
+  br i1 %.not.i, label %sodium_base64_check_variant.exit.preheader, label %137
 
 sodium_base64_check_variant.exit.preheader:       ; preds = %8
-  %.not172 = icmp eq i64 %3, 0
-  br i1 %.not172, label %.loopexit94.thread, label %.lr.ph.lr.ph
+  %.not275 = icmp eq i64 %3, 0
+  br i1 %.not275, label %.loopexit94.thread, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %sodium_base64_check_variant.exit.preheader
   %.not = icmp samesign ult i32 %7, 4
   %.not60 = icmp eq ptr %4, null
-  br i1 %.not, label %.lr.ph.us, label %.lr.ph
+  br i1 %.not, label %.lr.ph.us, label %.lr.ph.lr.ph.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %sodium_base64_check_variant.exit.outer.us
-  %.0.ph139.us = phi i64 [ %.2.us, %sodium_base64_check_variant.exit.outer.us ], [ 0, %.lr.ph.lr.ph ]
-  %.044.ph138.us = phi i32 [ %80, %sodium_base64_check_variant.exit.outer.us ], [ 0, %.lr.ph.lr.ph ]
-  %.049.ph137.us = phi i64 [ %.150.us, %sodium_base64_check_variant.exit.outer.us ], [ 0, %.lr.ph.lr.ph ]
-  %.082.ph136.us = phi i64 [ %18, %sodium_base64_check_variant.exit.outer.us ], [ 0, %.lr.ph.lr.ph ]
-  br label %20
+  %.0.ph204.us = phi i64 [ %.2.us, %sodium_base64_check_variant.exit.outer.us ], [ 0, %.lr.ph.lr.ph ]
+  %.044.ph202.us = phi i32 [ %57, %sodium_base64_check_variant.exit.outer.us ], [ 0, %.lr.ph.lr.ph ]
+  %.049.ph200.us = phi i64 [ %.150.us, %sodium_base64_check_variant.exit.outer.us ], [ 0, %.lr.ph.lr.ph ]
+  %.082.ph199.us = phi i64 [ %18, %sodium_base64_check_variant.exit.outer.us ], [ 0, %.lr.ph.lr.ph ]
+  br i1 %.not60, label %.lr.ph.split.us.split.us.us, label %.lr.ph.split.us.split.us214
 
 10:                                               ; preds = %.split.us.us
-  %11 = add nsw i64 %.0.ph139.us, -2
-  %.not59.us = icmp ult i64 %.049.ph137.us, %1
-  br i1 %.not59.us, label %12, label %.split145.us
+  %11 = add nsw i64 %.0.ph204.us, -2
+  %.not59.us = icmp ult i64 %.049.ph200.us, %1
+  br i1 %.not59.us, label %12, label %.split216.us
 
 12:                                               ; preds = %10
   %13 = trunc nuw nsw i64 %11 to i32
-  %14 = lshr i32 %80, %13
+  %14 = lshr i32 %57, %13
   %15 = trunc i32 %14 to i8
-  %16 = add nuw i64 %.049.ph137.us, 1
-  %17 = getelementptr i8, ptr %0, i64 %.049.ph137.us
+  %16 = add nuw i64 %.049.ph200.us, 1
+  %17 = getelementptr i8, ptr %0, i64 %.049.ph200.us
   store i8 %15, ptr %17, align 1
   br label %sodium_base64_check_variant.exit.outer.us
 
 sodium_base64_check_variant.exit.outer.us:        ; preds = %.split.us.us, %12
-  %.150.us = phi i64 [ %16, %12 ], [ %.049.ph137.us, %.split.us.us ]
-  %.2.us = phi i64 [ %11, %12 ], [ %81, %.split.us.us ]
-  %18 = add nuw i64 %.082106.us.us, 1
+  %.150.us = phi i64 [ %16, %12 ], [ %.049.ph200.us, %.split.us.us ]
+  %.2.us = phi i64 [ %11, %12 ], [ %58, %.split.us.us ]
+  %18 = add nuw i64 %.us-phi171.us, 1
   %19 = icmp ult i64 %18, %3
   br i1 %19, label %.lr.ph.us, label %.loopexit94, !llvm.loop !11
 
-20:                                               ; preds = %sodium_base64_check_variant.exit.us.us, %.lr.ph.us
-  %.082106.us.us = phi i64 [ %.082.ph136.us, %.lr.ph.us ], [ %77, %sodium_base64_check_variant.exit.us.us ]
-  %21 = getelementptr i8, ptr %2, i64 %.082106.us.us
-  %22 = load i8, ptr %21, align 1
-  %23 = sext i8 %22 to i32
-  %24 = add nsw i32 %23, -65
-  %25 = lshr i32 %24, 8
-  %26 = xor i32 %25, -1
-  %27 = sub nsw i32 90, %23
-  %28 = lshr i32 %27, 8
-  %29 = and i32 %28, 255
-  %30 = xor i32 %29, 255
-  %31 = and i32 %30, %26
-  %32 = and i32 %31, %24
-  %33 = add nsw i32 %23, 65439
-  %34 = lshr i32 %33, 8
-  %35 = xor i32 %34, -1
-  %36 = sub nsw i32 122, %23
-  %37 = lshr i32 %36, 8
-  %38 = and i32 %37, 255
-  %39 = xor i32 %38, 255
-  %40 = add nsw i32 %23, 185
-  %41 = and i32 %40, %35
-  %42 = and i32 %41, %39
-  %43 = add nsw i32 %23, 65488
+.lr.ph.split.us.split.us214:                      ; preds = %.lr.ph.us, %sodium_base64_check_variant.exit.us.us
+  %.082106.us.us = phi i64 [ %54, %sodium_base64_check_variant.exit.us.us ], [ %.082.ph199.us, %.lr.ph.us ]
+  %20 = getelementptr i8, ptr %2, i64 %.082106.us.us
+  %21 = load i8, ptr %20, align 1
+  %22 = sext i8 %21 to i32
+  %23 = add nsw i32 %22, 65488
+  %24 = lshr i32 %23, 8
+  %25 = xor i32 %24, -1
+  %26 = sub nsw i32 57, %22
+  %27 = lshr i32 %26, 8
+  %28 = and i32 %27, 255
+  %29 = add nsw i32 %22, 4
+  %30 = or i32 %29, %25
+  %31 = xor i32 %28, %30
+  %32 = xor i32 %22, 16340
+  %.neg.i70.us.us210 = add nsw i32 %32, 1
+  %33 = lshr i32 %.neg.i70.us.us210, 8
+  %34 = and i32 %33, 62
+  %35 = xor i32 %34, 62
+  %36 = or i32 %35, %31
+  %37 = xor i32 %22, 16336
+  %.neg14.i71.us.us211 = add nsw i32 %37, 1
+  %38 = lshr i32 %.neg14.i71.us.us211, 8
+  %39 = and i32 %38, 63
+  %40 = xor i32 %39, 63
+  %41 = or i32 %36, %40
+  %42 = xor i32 %41, -256
+  %43 = sub nsw i32 0, %42
   %44 = lshr i32 %43, 8
-  %45 = xor i32 %44, -1
-  %46 = sub nsw i32 57, %23
-  %47 = lshr i32 %46, 8
-  %48 = and i32 %47, 255
-  %49 = xor i32 %48, 255
-  %50 = add nsw i32 %23, 4
-  %51 = and i32 %50, %45
-  %52 = and i32 %51, %49
-  %53 = xor i32 %23, 16340
-  %.neg.i70.us.us = add nsw i32 %53, 1
-  %54 = lshr i32 %.neg.i70.us.us, 8
-  %55 = and i32 %54, 62
-  %56 = xor i32 %55, 62
-  %57 = xor i32 %23, 16336
-  %.neg14.i71.us.us = add nsw i32 %57, 1
-  %58 = lshr i32 %.neg14.i71.us.us, 8
-  %59 = and i32 %58, 63
-  %60 = xor i32 %59, 63
-  %61 = or i32 %60, %56
-  %62 = or i32 %61, %42
-  %63 = or i32 %62, %52
-  %64 = or i32 %63, %32
-  %65 = sub nsw i32 0, %64
-  %66 = lshr i32 %65, 8
-  %67 = and i32 %66, 255
-  %68 = xor i32 %67, 255
-  %69 = xor i32 %23, 65470
-  %.neg15.i72.us.us = add nsw i32 %69, 1
-  %70 = lshr i32 %.neg15.i72.us.us, 8
-  %71 = and i32 %68, %70
-  %72 = or i32 %71, %64
-  %73 = icmp eq i32 %72, 255
-  br i1 %73, label %74, label %.split.us.us
+  %45 = and i32 %44, 255
+  %46 = xor i32 %45, 255
+  %47 = xor i32 %22, 65470
+  %.neg15.i72.us.us212 = add nsw i32 %47, 1
+  %48 = lshr i32 %.neg15.i72.us.us212, 8
+  %49 = and i32 %46, %48
+  %50 = or i32 %49, %42
+  %51 = icmp eq i32 %50, 255
+  br i1 %51, label %52, label %.split.us.us
 
-74:                                               ; preds = %20
-  br i1 %.not60, label %.loopexit94, label %75
-
-75:                                               ; preds = %74
-  %76 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %23) #8
-  %.not61.us.us = icmp eq ptr %76, null
+52:                                               ; preds = %.lr.ph.split.us.split.us214
+  %53 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %22) #8
+  %.not61.us.us = icmp eq ptr %53, null
   br i1 %.not61.us.us, label %.loopexit94, label %sodium_base64_check_variant.exit.us.us
 
-sodium_base64_check_variant.exit.us.us:           ; preds = %75
-  %77 = add nuw i64 %.082106.us.us, 1
-  %78 = icmp ult i64 %77, %3
-  br i1 %78, label %20, label %.loopexit94.loopexit.split.loop.exit279, !llvm.loop !11
+sodium_base64_check_variant.exit.us.us:           ; preds = %52
+  %54 = add nuw i64 %.082106.us.us, 1
+  %55 = icmp ult i64 %54, %3
+  br i1 %55, label %.lr.ph.split.us.split.us214, label %.loopexit94.loopexit.split.loop.exit389, !llvm.loop !11
 
-.split.us.us:                                     ; preds = %20
-  %79 = shl i32 %.044.ph138.us, 6
-  %80 = add i32 %72, %79
-  %81 = add nuw nsw i64 %.0.ph139.us, 6
-  %82 = icmp ugt i64 %.0.ph139.us, 1
-  br i1 %82, label %10, label %sodium_base64_check_variant.exit.outer.us
+.split.us.us:                                     ; preds = %.lr.ph.split.us.split.us214, %.lr.ph.split.us.split.us.us
+  %.us-phi171.us = phi i64 [ %.082.ph199.us, %.lr.ph.split.us.split.us.us ], [ %.082106.us.us, %.lr.ph.split.us.split.us214 ]
+  %.us-phi172.us = phi i32 [ %90, %.lr.ph.split.us.split.us.us ], [ %50, %.lr.ph.split.us.split.us214 ]
+  %56 = shl i32 %.044.ph202.us, 6
+  %57 = add i32 %.us-phi172.us, %56
+  %58 = add nuw nsw i64 %.0.ph204.us, 6
+  %59 = icmp ugt i64 %.0.ph204.us, 1
+  br i1 %59, label %10, label %sodium_base64_check_variant.exit.outer.us
 
-83:                                               ; preds = %8
+.lr.ph.split.us.split.us.us:                      ; preds = %.lr.ph.us
+  %60 = getelementptr i8, ptr %2, i64 %.082.ph199.us
+  %61 = load i8, ptr %60, align 1
+  %62 = sext i8 %61 to i32
+  %63 = add nsw i32 %62, 65488
+  %64 = lshr i32 %63, 8
+  %65 = xor i32 %64, -1
+  %66 = sub nsw i32 57, %62
+  %67 = lshr i32 %66, 8
+  %68 = and i32 %67, 255
+  %69 = add nsw i32 %62, 4
+  %70 = or i32 %69, %65
+  %71 = xor i32 %68, %70
+  %72 = xor i32 %62, 16340
+  %.neg.i70.us.us.us = add nsw i32 %72, 1
+  %73 = lshr i32 %.neg.i70.us.us.us, 8
+  %74 = and i32 %73, 62
+  %75 = xor i32 %74, 62
+  %76 = or i32 %75, %71
+  %77 = xor i32 %62, 16336
+  %.neg14.i71.us.us.us = add nsw i32 %77, 1
+  %78 = lshr i32 %.neg14.i71.us.us.us, 8
+  %79 = and i32 %78, 63
+  %80 = xor i32 %79, 63
+  %81 = or i32 %76, %80
+  %82 = xor i32 %81, -256
+  %83 = sub nsw i32 0, %82
+  %84 = lshr i32 %83, 8
+  %85 = and i32 %84, 255
+  %86 = xor i32 %85, 255
+  %87 = xor i32 %62, 65470
+  %.neg15.i72.us.us.us = add nsw i32 %87, 1
+  %88 = lshr i32 %.neg15.i72.us.us.us, 8
+  %89 = and i32 %86, %88
+  %90 = or i32 %89, %82
+  %91 = icmp eq i32 %90, 255
+  br i1 %91, label %.loopexit94, label %.split.us.us
+
+.lr.ph.lr.ph.split:                               ; preds = %.lr.ph.lr.ph
+  br i1 %.not60, label %.lr.ph.us239, label %.lr.ph
+
+.lr.ph.us239:                                     ; preds = %.lr.ph.lr.ph.split, %sodium_base64_check_variant.exit.outer.us245
+  %.0.ph204.us240 = phi i64 [ %.2.us247, %sodium_base64_check_variant.exit.outer.us245 ], [ 0, %.lr.ph.lr.ph.split ]
+  %.044.ph202.us241 = phi i32 [ %134, %sodium_base64_check_variant.exit.outer.us245 ], [ 0, %.lr.ph.lr.ph.split ]
+  %.049.ph200.us242 = phi i64 [ %.150.us246, %sodium_base64_check_variant.exit.outer.us245 ], [ 0, %.lr.ph.lr.ph.split ]
+  %.082.ph199.us243 = phi i64 [ %132, %sodium_base64_check_variant.exit.outer.us245 ], [ 0, %.lr.ph.lr.ph.split ]
+  %92 = getelementptr i8, ptr %2, i64 %.082.ph199.us243
+  %93 = load i8, ptr %92, align 1
+  %94 = sext i8 %93 to i32
+  %95 = add nsw i32 %94, 65488
+  %96 = lshr i32 %95, 8
+  %97 = xor i32 %96, -1
+  %98 = sub nsw i32 57, %94
+  %99 = lshr i32 %98, 8
+  %100 = and i32 %99, 255
+  %101 = add nsw i32 %94, 4
+  %102 = or i32 %101, %97
+  %103 = xor i32 %100, %102
+  %104 = xor i32 %94, 16338
+  %.neg.i.us.us = add nsw i32 %104, 1
+  %105 = lshr i32 %.neg.i.us.us, 8
+  %106 = and i32 %105, 62
+  %107 = xor i32 %106, 62
+  %108 = or i32 %107, %103
+  %109 = xor i32 %94, 16288
+  %.neg14.i.us.us = add nsw i32 %109, 1
+  %110 = lshr i32 %.neg14.i.us.us, 8
+  %111 = and i32 %110, 63
+  %112 = xor i32 %111, 63
+  %113 = or i32 %108, %112
+  %114 = xor i32 %113, -256
+  %115 = sub nsw i32 0, %114
+  %116 = lshr i32 %115, 8
+  %117 = and i32 %116, 255
+  %118 = xor i32 %117, 255
+  %119 = xor i32 %94, 65470
+  %.neg15.i.us.us = add nsw i32 %119, 1
+  %120 = lshr i32 %.neg15.i.us.us, 8
+  %121 = and i32 %118, %120
+  %122 = or i32 %121, %114
+  %123 = icmp eq i32 %122, 255
+  br i1 %123, label %.loopexit94, label %.split.split.us.us
+
+124:                                              ; preds = %.split.split.us.us
+  %125 = add nsw i64 %.0.ph204.us240, -2
+  %.not59.us244 = icmp ult i64 %.049.ph200.us242, %1
+  br i1 %.not59.us244, label %126, label %.split216.us
+
+126:                                              ; preds = %124
+  %127 = trunc nuw nsw i64 %125 to i32
+  %128 = lshr i32 %134, %127
+  %129 = trunc i32 %128 to i8
+  %130 = add nuw i64 %.049.ph200.us242, 1
+  %131 = getelementptr i8, ptr %0, i64 %.049.ph200.us242
+  store i8 %129, ptr %131, align 1
+  br label %sodium_base64_check_variant.exit.outer.us245
+
+sodium_base64_check_variant.exit.outer.us245:     ; preds = %.split.split.us.us, %126
+  %.150.us246 = phi i64 [ %130, %126 ], [ %.049.ph200.us242, %.split.split.us.us ]
+  %.2.us247 = phi i64 [ %125, %126 ], [ %135, %.split.split.us.us ]
+  %132 = add nuw i64 %.082.ph199.us243, 1
+  %exitcond.not = icmp eq i64 %132, %3
+  br i1 %exitcond.not, label %.loopexit94, label %.lr.ph.us239, !llvm.loop !11
+
+.split.split.us.us:                               ; preds = %.lr.ph.us239
+  %133 = shl i32 %.044.ph202.us241, 6
+  %134 = add i32 %122, %133
+  %135 = add nuw nsw i64 %.0.ph204.us240, 6
+  %136 = icmp ugt i64 %.0.ph204.us240, 1
+  br i1 %136, label %124, label %sodium_base64_check_variant.exit.outer.us245
+
+137:                                              ; preds = %8
   tail call void @sodium_misuse() #7
   unreachable
 
-84:                                               ; preds = %.lr.ph, %sodium_base64_check_variant.exit
-  %.082106 = phi i64 [ %.082.ph136, %.lr.ph ], [ %141, %sodium_base64_check_variant.exit ]
-  %85 = getelementptr i8, ptr %2, i64 %.082106
-  %86 = load i8, ptr %85, align 1
-  %87 = sext i8 %86 to i32
-  %88 = add nsw i32 %87, -65
-  %89 = lshr i32 %88, 8
-  %90 = xor i32 %89, -1
-  %91 = sub nsw i32 90, %87
-  %92 = lshr i32 %91, 8
-  %93 = and i32 %92, 255
-  %94 = xor i32 %93, 255
-  %95 = and i32 %94, %90
-  %96 = and i32 %95, %88
-  %97 = add nsw i32 %87, 65439
-  %98 = lshr i32 %97, 8
-  %99 = xor i32 %98, -1
-  %100 = sub nsw i32 122, %87
-  %101 = lshr i32 %100, 8
-  %102 = and i32 %101, 255
-  %103 = xor i32 %102, 255
-  %104 = add nsw i32 %87, 185
-  %105 = and i32 %104, %99
-  %106 = and i32 %105, %103
-  %107 = add nsw i32 %87, 65488
-  %108 = lshr i32 %107, 8
-  %109 = xor i32 %108, -1
-  %110 = sub nsw i32 57, %87
-  %111 = lshr i32 %110, 8
-  %112 = and i32 %111, 255
-  %113 = xor i32 %112, 255
-  %114 = add nsw i32 %87, 4
-  %115 = and i32 %114, %109
-  %116 = and i32 %115, %113
-  %117 = xor i32 %87, 16338
-  %.neg.i = add nsw i32 %117, 1
-  %118 = lshr i32 %.neg.i, 8
-  %119 = and i32 %118, 62
-  %120 = xor i32 %119, 62
-  %121 = xor i32 %87, 16288
-  %.neg14.i = add nsw i32 %121, 1
-  %122 = lshr i32 %.neg14.i, 8
-  %123 = and i32 %122, 63
-  %124 = xor i32 %123, 63
-  %125 = or i32 %124, %120
-  %126 = or i32 %125, %106
-  %127 = or i32 %126, %116
-  %128 = or i32 %127, %96
-  %129 = sub nsw i32 0, %128
-  %130 = lshr i32 %129, 8
-  %131 = and i32 %130, 255
-  %132 = xor i32 %131, 255
-  %133 = xor i32 %87, 65470
-  %.neg15.i = add nsw i32 %133, 1
-  %134 = lshr i32 %.neg15.i, 8
-  %135 = and i32 %132, %134
-  %136 = or i32 %135, %128
-  %137 = icmp eq i32 %136, 255
-  br i1 %137, label %138, label %.split
+138:                                              ; preds = %.lr.ph, %sodium_base64_check_variant.exit
+  %.082106 = phi i64 [ %.082.ph199, %.lr.ph ], [ %173, %sodium_base64_check_variant.exit ]
+  %139 = getelementptr i8, ptr %2, i64 %.082106
+  %140 = load i8, ptr %139, align 1
+  %141 = sext i8 %140 to i32
+  %142 = add nsw i32 %141, 65488
+  %143 = lshr i32 %142, 8
+  %144 = xor i32 %143, -1
+  %145 = sub nsw i32 57, %141
+  %146 = lshr i32 %145, 8
+  %147 = and i32 %146, 255
+  %148 = add nsw i32 %141, 4
+  %149 = or i32 %148, %144
+  %150 = xor i32 %147, %149
+  %151 = xor i32 %141, 16338
+  %.neg.i = add nsw i32 %151, 1
+  %152 = lshr i32 %.neg.i, 8
+  %153 = and i32 %152, 62
+  %154 = xor i32 %153, 62
+  %155 = or i32 %154, %150
+  %156 = xor i32 %141, 16288
+  %.neg14.i = add nsw i32 %156, 1
+  %157 = lshr i32 %.neg14.i, 8
+  %158 = and i32 %157, 63
+  %159 = xor i32 %158, 63
+  %160 = or i32 %155, %159
+  %161 = xor i32 %160, -256
+  %162 = sub nsw i32 0, %161
+  %163 = lshr i32 %162, 8
+  %164 = and i32 %163, 255
+  %165 = xor i32 %164, 255
+  %166 = xor i32 %141, 65470
+  %.neg15.i = add nsw i32 %166, 1
+  %167 = lshr i32 %.neg15.i, 8
+  %168 = and i32 %165, %167
+  %169 = or i32 %168, %161
+  %170 = icmp eq i32 %169, 255
+  br i1 %170, label %171, label %.split.split
 
-138:                                              ; preds = %84
-  br i1 %.not60, label %.loopexit94, label %139
-
-139:                                              ; preds = %138
-  %140 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %87) #8
-  %.not61 = icmp eq ptr %140, null
+171:                                              ; preds = %138
+  %172 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %141) #8
+  %.not61 = icmp eq ptr %172, null
   br i1 %.not61, label %.loopexit94, label %sodium_base64_check_variant.exit
 
-sodium_base64_check_variant.exit:                 ; preds = %139
-  %141 = add nuw i64 %.082106, 1
-  %142 = icmp ult i64 %141, %3
-  br i1 %142, label %84, label %.loopexit94.loopexit230.split.loop.exit267, !llvm.loop !11
+sodium_base64_check_variant.exit:                 ; preds = %171
+  %173 = add nuw i64 %.082106, 1
+  %174 = icmp ult i64 %173, %3
+  br i1 %174, label %138, label %.loopexit94.loopexit349.split.loop.exit382, !llvm.loop !11
 
-.split:                                           ; preds = %84
-  %143 = shl i32 %.044.ph138, 6
-  %144 = add i32 %136, %143
-  %145 = add nuw nsw i64 %.0.ph139, 6
-  %146 = icmp ugt i64 %.0.ph139, 1
-  br i1 %146, label %147, label %sodium_base64_check_variant.exit.outer
+.split.split:                                     ; preds = %138
+  %175 = shl i32 %.044.ph202, 6
+  %176 = add i32 %169, %175
+  %177 = add nuw nsw i64 %.0.ph204, 6
+  %178 = icmp ugt i64 %.0.ph204, 1
+  br i1 %178, label %179, label %sodium_base64_check_variant.exit.outer
 
-147:                                              ; preds = %.split
-  %148 = add nsw i64 %.0.ph139, -2
-  %.not59 = icmp ult i64 %.049.ph137, %1
-  br i1 %.not59, label %150, label %.split145.us
+179:                                              ; preds = %.split.split
+  %180 = add nsw i64 %.0.ph204, -2
+  %.not59 = icmp ult i64 %.049.ph200, %1
+  br i1 %.not59, label %182, label %.split216.us
 
-.split145.us:                                     ; preds = %147, %10
-  %.us-phi146 = phi i64 [ %.049.ph137.us, %10 ], [ %.049.ph137, %147 ]
-  %.us-phi147 = phi i64 [ %11, %10 ], [ %148, %147 ]
-  %.us-phi148 = phi i32 [ %80, %10 ], [ %144, %147 ]
-  %.us-phi149 = phi i64 [ %.082106.us.us, %10 ], [ %.082106, %147 ]
-  %149 = tail call ptr @__errno_location() #9
-  store i32 34, ptr %149, align 4
+.split216.us:                                     ; preds = %179, %124, %10
+  %.us-phi217 = phi i64 [ %.049.ph200.us, %10 ], [ %.049.ph200.us242, %124 ], [ %.049.ph200, %179 ]
+  %.us-phi218 = phi i64 [ %11, %10 ], [ %125, %124 ], [ %180, %179 ]
+  %.us-phi219 = phi i32 [ %57, %10 ], [ %134, %124 ], [ %176, %179 ]
+  %.us-phi220 = phi i64 [ %.us-phi171.us, %10 ], [ %.082.ph199.us243, %124 ], [ %.082106, %179 ]
+  %181 = tail call ptr @__errno_location() #9
+  store i32 34, ptr %181, align 4
   br label %.loopexit94
 
-150:                                              ; preds = %147
-  %151 = trunc nuw nsw i64 %148 to i32
-  %152 = lshr i32 %144, %151
-  %153 = trunc i32 %152 to i8
-  %154 = add nuw i64 %.049.ph137, 1
-  %155 = getelementptr i8, ptr %0, i64 %.049.ph137
-  store i8 %153, ptr %155, align 1
+182:                                              ; preds = %179
+  %183 = trunc nuw nsw i64 %180 to i32
+  %184 = lshr i32 %176, %183
+  %185 = trunc i32 %184 to i8
+  %186 = add nuw i64 %.049.ph200, 1
+  %187 = getelementptr i8, ptr %0, i64 %.049.ph200
+  store i8 %185, ptr %187, align 1
   br label %sodium_base64_check_variant.exit.outer
 
-sodium_base64_check_variant.exit.outer:           ; preds = %150, %.split
-  %.150 = phi i64 [ %154, %150 ], [ %.049.ph137, %.split ]
-  %.2 = phi i64 [ %148, %150 ], [ %145, %.split ]
-  %156 = add nuw i64 %.082106, 1
-  %157 = icmp ult i64 %156, %3
-  br i1 %157, label %.lr.ph, label %.loopexit94, !llvm.loop !11
+sodium_base64_check_variant.exit.outer:           ; preds = %182, %.split.split
+  %.150 = phi i64 [ %186, %182 ], [ %.049.ph200, %.split.split ]
+  %.2 = phi i64 [ %180, %182 ], [ %177, %.split.split ]
+  %188 = add nuw i64 %.082106, 1
+  %189 = icmp ult i64 %188, %3
+  br i1 %189, label %.lr.ph, label %.loopexit94, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %sodium_base64_check_variant.exit.outer
-  %.0.ph139 = phi i64 [ %.2, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph ]
-  %.044.ph138 = phi i32 [ %144, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph ]
-  %.049.ph137 = phi i64 [ %.150, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph ]
-  %.082.ph136 = phi i64 [ %156, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph ]
-  br label %84
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph.split, %sodium_base64_check_variant.exit.outer
+  %.0.ph204 = phi i64 [ %.2, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph.split ]
+  %.044.ph202 = phi i32 [ %176, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph.split ]
+  %.049.ph200 = phi i64 [ %.150, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph.split ]
+  %.082.ph199 = phi i64 [ %188, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph.split ]
+  br label %138
 
-.loopexit94.loopexit.split.loop.exit279:          ; preds = %sodium_base64_check_variant.exit.us.us
-  %158 = add nuw i64 %.082.ph136.us, 1
-  %umax212.le = tail call i64 @llvm.umax.i64(i64 %3, i64 %158)
+.loopexit94.loopexit.split.loop.exit389:          ; preds = %sodium_base64_check_variant.exit.us.us
+  %190 = add i64 %.082.ph199.us, 1
+  %umax323.le = tail call i64 @llvm.umax.i64(i64 %3, i64 %190)
   br label %.loopexit94
 
-.loopexit94.loopexit230.split.loop.exit267:       ; preds = %sodium_base64_check_variant.exit
-  %159 = add nuw i64 %.082.ph136, 1
-  %umax.le = tail call i64 @llvm.umax.i64(i64 %3, i64 %159)
+.loopexit94.loopexit349.split.loop.exit382:       ; preds = %sodium_base64_check_variant.exit
+  %191 = add nuw i64 %.082.ph199, 1
+  %umax.le = tail call i64 @llvm.umax.i64(i64 %3, i64 %191)
   br label %.loopexit94
 
-.loopexit94:                                      ; preds = %sodium_base64_check_variant.exit.outer, %138, %139, %sodium_base64_check_variant.exit.outer.us, %74, %75, %.loopexit94.loopexit230.split.loop.exit267, %.loopexit94.loopexit.split.loop.exit279, %.split145.us
-  %.049.ph105 = phi i64 [ %.us-phi146, %.split145.us ], [ %.049.ph137.us, %.loopexit94.loopexit.split.loop.exit279 ], [ %.049.ph137, %.loopexit94.loopexit230.split.loop.exit267 ], [ %.049.ph137.us, %75 ], [ %.049.ph137.us, %74 ], [ %.150.us, %sodium_base64_check_variant.exit.outer.us ], [ %.049.ph137, %139 ], [ %.049.ph137, %138 ], [ %.150, %sodium_base64_check_variant.exit.outer ]
-  %.08299 = phi i64 [ %.us-phi149, %.split145.us ], [ %umax212.le, %.loopexit94.loopexit.split.loop.exit279 ], [ %umax.le, %.loopexit94.loopexit230.split.loop.exit267 ], [ %.082.ph136.us, %74 ], [ %.082106.us.us, %75 ], [ %18, %sodium_base64_check_variant.exit.outer.us ], [ %.082.ph136, %138 ], [ %.082106, %139 ], [ %156, %sodium_base64_check_variant.exit.outer ]
-  %.not69 = phi i1 [ true, %.split145.us ], [ false, %.loopexit94.loopexit.split.loop.exit279 ], [ false, %.loopexit94.loopexit230.split.loop.exit267 ], [ false, %75 ], [ false, %74 ], [ false, %sodium_base64_check_variant.exit.outer.us ], [ false, %139 ], [ false, %138 ], [ false, %sodium_base64_check_variant.exit.outer ]
-  %.145 = phi i32 [ %.us-phi148, %.split145.us ], [ %.044.ph138.us, %.loopexit94.loopexit.split.loop.exit279 ], [ %.044.ph138, %.loopexit94.loopexit230.split.loop.exit267 ], [ %.044.ph138.us, %75 ], [ %.044.ph138.us, %74 ], [ %80, %sodium_base64_check_variant.exit.outer.us ], [ %.044.ph138, %139 ], [ %.044.ph138, %138 ], [ %144, %sodium_base64_check_variant.exit.outer ]
-  %.1 = phi i64 [ %.us-phi147, %.split145.us ], [ %.0.ph139.us, %.loopexit94.loopexit.split.loop.exit279 ], [ %.0.ph139, %.loopexit94.loopexit230.split.loop.exit267 ], [ %.0.ph139.us, %75 ], [ %.0.ph139.us, %74 ], [ %.2.us, %sodium_base64_check_variant.exit.outer.us ], [ %.0.ph139, %139 ], [ %.0.ph139, %138 ], [ %.2, %sodium_base64_check_variant.exit.outer ]
-  %160 = icmp ugt i64 %.1, 4
-  br i1 %160, label %.critedge, label %.loopexit94.thread
+.loopexit94:                                      ; preds = %sodium_base64_check_variant.exit.outer, %171, %sodium_base64_check_variant.exit.outer.us245, %.lr.ph.us239, %sodium_base64_check_variant.exit.outer.us, %.lr.ph.split.us.split.us.us, %52, %.loopexit94.loopexit349.split.loop.exit382, %.loopexit94.loopexit.split.loop.exit389, %.split216.us
+  %.049.ph105 = phi i64 [ %.us-phi217, %.split216.us ], [ %.049.ph200.us, %.loopexit94.loopexit.split.loop.exit389 ], [ %.049.ph200, %.loopexit94.loopexit349.split.loop.exit382 ], [ %.049.ph200.us, %52 ], [ %.150.us, %sodium_base64_check_variant.exit.outer.us ], [ %.049.ph200.us, %.lr.ph.split.us.split.us.us ], [ %.150.us246, %sodium_base64_check_variant.exit.outer.us245 ], [ %.049.ph200.us242, %.lr.ph.us239 ], [ %.049.ph200, %171 ], [ %.150, %sodium_base64_check_variant.exit.outer ]
+  %.08299 = phi i64 [ %.us-phi220, %.split216.us ], [ %umax323.le, %.loopexit94.loopexit.split.loop.exit389 ], [ %umax.le, %.loopexit94.loopexit349.split.loop.exit382 ], [ %.082106.us.us, %52 ], [ %18, %sodium_base64_check_variant.exit.outer.us ], [ %.082.ph199.us, %.lr.ph.split.us.split.us.us ], [ %3, %sodium_base64_check_variant.exit.outer.us245 ], [ %.082.ph199.us243, %.lr.ph.us239 ], [ %.082106, %171 ], [ %188, %sodium_base64_check_variant.exit.outer ]
+  %.not69 = phi i1 [ true, %.split216.us ], [ false, %.loopexit94.loopexit.split.loop.exit389 ], [ false, %.loopexit94.loopexit349.split.loop.exit382 ], [ false, %52 ], [ false, %.lr.ph.split.us.split.us.us ], [ false, %sodium_base64_check_variant.exit.outer.us ], [ false, %.lr.ph.us239 ], [ false, %sodium_base64_check_variant.exit.outer.us245 ], [ false, %171 ], [ false, %sodium_base64_check_variant.exit.outer ]
+  %.145 = phi i32 [ %.us-phi219, %.split216.us ], [ %.044.ph202.us, %.loopexit94.loopexit.split.loop.exit389 ], [ %.044.ph202, %.loopexit94.loopexit349.split.loop.exit382 ], [ %.044.ph202.us, %52 ], [ %57, %sodium_base64_check_variant.exit.outer.us ], [ %.044.ph202.us, %.lr.ph.split.us.split.us.us ], [ %134, %sodium_base64_check_variant.exit.outer.us245 ], [ %.044.ph202.us241, %.lr.ph.us239 ], [ %.044.ph202, %171 ], [ %176, %sodium_base64_check_variant.exit.outer ]
+  %.1 = phi i64 [ %.us-phi218, %.split216.us ], [ %.0.ph204.us, %.loopexit94.loopexit.split.loop.exit389 ], [ %.0.ph204, %.loopexit94.loopexit349.split.loop.exit382 ], [ %.0.ph204.us, %52 ], [ %.2.us, %sodium_base64_check_variant.exit.outer.us ], [ %.0.ph204.us, %.lr.ph.split.us.split.us.us ], [ %.2.us247, %sodium_base64_check_variant.exit.outer.us245 ], [ %.0.ph204.us240, %.lr.ph.us239 ], [ %.0.ph204, %171 ], [ %.2, %sodium_base64_check_variant.exit.outer ]
+  %192 = icmp ugt i64 %.1, 4
+  br i1 %192, label %.critedge, label %.loopexit94.thread
 
 .loopexit94.thread:                               ; preds = %sodium_base64_check_variant.exit.preheader, %.loopexit94
-  %.1224 = phi i64 [ %.1, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
-  %.145223 = phi i32 [ %.145, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
-  %.not69222 = phi i1 [ %.not69, %.loopexit94 ], [ false, %sodium_base64_check_variant.exit.preheader ]
-  %.08299221 = phi i64 [ %.08299, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
-  %.049.ph105220 = phi i64 [ %.049.ph105, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
-  %161 = trunc nuw nsw i64 %.1224 to i32
-  %notmask = shl nsw i32 -1, %161
-  %162 = xor i32 %notmask, -1
-  %163 = and i32 %.145223, %162
-  %.not62 = icmp ne i32 %163, 0
-  %brmerge = or i1 %.not69222, %.not62
-  br i1 %brmerge, label %.critedge, label %164
+  %.1336 = phi i64 [ %.1, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
+  %.145335 = phi i32 [ %.145, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
+  %.not69334 = phi i1 [ %.not69, %.loopexit94 ], [ false, %sodium_base64_check_variant.exit.preheader ]
+  %.08299333 = phi i64 [ %.08299, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
+  %.049.ph105332 = phi i64 [ %.049.ph105, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
+  %193 = trunc nuw nsw i64 %.1336 to i32
+  %notmask = shl nsw i32 -1, %193
+  %194 = xor i32 %notmask, -1
+  %195 = and i32 %.145335, %194
+  %.not62 = icmp ne i32 %195, 0
+  %brmerge = or i1 %.not69334, %.not62
+  br i1 %brmerge, label %.critedge, label %196
 
-164:                                              ; preds = %.loopexit94.thread
-  %165 = and i32 %7, 2
-  %166 = icmp ne i32 %165, 0
-  %.not15.i = icmp samesign ult i64 %.1224, 2
-  %or.cond = or i1 %166, %.not15.i
+196:                                              ; preds = %.loopexit94.thread
+  %197 = and i32 %7, 2
+  %198 = icmp ne i32 %197, 0
+  %.not15.i = icmp samesign ult i64 %.1336, 2
+  %or.cond = or i1 %198, %.not15.i
   br i1 %or.cond, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %164
-  %167 = lshr i64 %.1224, 1
-  %168 = icmp eq ptr %4, null
-  %umax214 = tail call i64 @llvm.umax.i64(i64 %.08299221, i64 %3)
-  br i1 %168, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.i
+.lr.ph.i:                                         ; preds = %196
+  %199 = lshr i64 %.1336, 1
+  %200 = icmp eq ptr %4, null
+  %umax325 = tail call i64 @llvm.umax.i64(i64 %.08299333, i64 %3)
+  br i1 %200, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.i
 
 .lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph.i
-  %169 = add i64 %.08299221, %167
+  %201 = add i64 %.08299333, %199
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %174
-  %.6 = phi i64 [ %176, %174 ], [ %.08299221, %.lr.ph.split.us.i.preheader ]
-  %.01116.us.i = phi i64 [ %175, %174 ], [ %167, %.lr.ph.split.us.i.preheader ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %206
+  %.6 = phi i64 [ %208, %206 ], [ %.08299333, %.lr.ph.split.us.i.preheader ]
+  %.01116.us.i = phi i64 [ %207, %206 ], [ %199, %.lr.ph.split.us.i.preheader ]
   %.not14.us.i = icmp ult i64 %.6, %3
-  br i1 %.not14.us.i, label %170, label %.loopexit.sink.split.i
+  br i1 %.not14.us.i, label %202, label %.loopexit.sink.split.i
 
-170:                                              ; preds = %.lr.ph.split.us.i
+202:                                              ; preds = %.lr.ph.split.us.i
   fence acquire
-  %171 = getelementptr i8, ptr %2, i64 %.6
-  %172 = load i8, ptr %171, align 1
-  %173 = icmp eq i8 %172, 61
-  br i1 %173, label %174, label %.loopexit.sink.split.i
+  %203 = getelementptr i8, ptr %2, i64 %.6
+  %204 = load i8, ptr %203, align 1
+  %205 = icmp eq i8 %204, 61
+  br i1 %205, label %206, label %.loopexit.sink.split.i
 
-174:                                              ; preds = %170
-  %175 = add nsw i64 %.01116.us.i, -1
-  %176 = add nuw i64 %.6, 1
-  %.not.us.i = icmp eq i64 %175, 0
+206:                                              ; preds = %202
+  %207 = add nsw i64 %.01116.us.i, -1
+  %208 = add nuw i64 %.6, 1
+  %.not.us.i = icmp eq i64 %207, 0
   br i1 %.not.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !12
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %187
-  %.4 = phi i64 [ %188, %187 ], [ %.08299221, %.lr.ph.i ]
-  %.01116.i = phi i64 [ %.1.i, %187 ], [ %167, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %219
+  %.4 = phi i64 [ %220, %219 ], [ %.08299333, %.lr.ph.i ]
+  %.01116.i = phi i64 [ %.1.i, %219 ], [ %199, %.lr.ph.i ]
   %.not14.i = icmp ult i64 %.4, %3
-  br i1 %.not14.i, label %177, label %.loopexit.sink.split.i
+  br i1 %.not14.i, label %209, label %.loopexit.sink.split.i
 
-177:                                              ; preds = %.lr.ph.split.i
+209:                                              ; preds = %.lr.ph.split.i
   fence acquire
-  %178 = getelementptr i8, ptr %2, i64 %.4
-  %179 = load i8, ptr %178, align 1
-  %180 = icmp eq i8 %179, 61
-  br i1 %180, label %181, label %183
+  %210 = getelementptr i8, ptr %2, i64 %.4
+  %211 = load i8, ptr %210, align 1
+  %212 = icmp eq i8 %211, 61
+  br i1 %212, label %213, label %215
 
-181:                                              ; preds = %177
-  %182 = add nsw i64 %.01116.i, -1
-  br label %187
+213:                                              ; preds = %209
+  %214 = add nsw i64 %.01116.i, -1
+  br label %219
 
-183:                                              ; preds = %177
-  %184 = sext i8 %179 to i32
-  %185 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef %184) #8
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %.loopexit.sink.split.i, label %187
+215:                                              ; preds = %209
+  %216 = sext i8 %211 to i32
+  %217 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef %216) #8
+  %218 = icmp eq ptr %217, null
+  br i1 %218, label %.loopexit.sink.split.i, label %219
 
-187:                                              ; preds = %183, %181
-  %.1.i = phi i64 [ %182, %181 ], [ %.01116.i, %183 ]
-  %188 = add nuw i64 %.4, 1
+219:                                              ; preds = %215, %213
+  %.1.i = phi i64 [ %214, %213 ], [ %.01116.i, %215 ]
+  %220 = add nuw i64 %.4, 1
   %.not.i73 = icmp eq i64 %.1.i, 0
   br i1 %.not.i73, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !12
 
-.loopexit.sink.split.i:                           ; preds = %183, %.lr.ph.split.i, %170, %.lr.ph.split.us.i
-  %.5 = phi i64 [ %.6, %170 ], [ %umax214, %.lr.ph.split.us.i ], [ %.4, %183 ], [ %umax214, %.lr.ph.split.i ]
-  %.sink.i = phi i32 [ 22, %170 ], [ 34, %.lr.ph.split.us.i ], [ 22, %183 ], [ 34, %.lr.ph.split.i ]
-  %189 = tail call ptr @__errno_location() #9
-  store i32 %.sink.i, ptr %189, align 4
+.loopexit.sink.split.i:                           ; preds = %215, %.lr.ph.split.i, %202, %.lr.ph.split.us.i
+  %.5 = phi i64 [ %.6, %202 ], [ %umax325, %.lr.ph.split.us.i ], [ %.4, %215 ], [ %umax325, %.lr.ph.split.i ]
+  %.sink.i = phi i32 [ 22, %202 ], [ 34, %.lr.ph.split.us.i ], [ 22, %215 ], [ 34, %.lr.ph.split.i ]
+  %221 = tail call ptr @__errno_location() #9
+  store i32 %.sink.i, ptr %221, align 4
   br label %.critedge
 
-.loopexit:                                        ; preds = %187, %174, %164
-  %.183.ph = phi i64 [ %.08299221, %164 ], [ %169, %174 ], [ %188, %187 ]
+.loopexit:                                        ; preds = %219, %206, %196
+  %.183.ph = phi i64 [ %.08299333, %196 ], [ %201, %206 ], [ %220, %219 ]
   %.not64 = icmp ne ptr %4, null
-  %190 = icmp ult i64 %.183.ph, %3
-  %or.cond171 = and i1 %.not64, %190
-  br i1 %or.cond171, label %.lr.ph167, label %.critedge
+  %222 = icmp ult i64 %.183.ph, %3
+  %or.cond274 = and i1 %.not64, %222
+  br i1 %or.cond274, label %.lr.ph270, label %.critedge
 
-.lr.ph167:                                        ; preds = %.loopexit, %195
-  %.3166 = phi i64 [ %196, %195 ], [ %.183.ph, %.loopexit ]
-  %191 = getelementptr i8, ptr %2, i64 %.3166
-  %192 = load i8, ptr %191, align 1
-  %193 = sext i8 %192 to i32
-  %194 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %193) #8
-  %.not65 = icmp eq ptr %194, null
-  br i1 %.not65, label %.critedge, label %195
+.lr.ph270:                                        ; preds = %.loopexit, %227
+  %.3269 = phi i64 [ %228, %227 ], [ %.183.ph, %.loopexit ]
+  %223 = getelementptr i8, ptr %2, i64 %.3269
+  %224 = load i8, ptr %223, align 1
+  %225 = sext i8 %224 to i32
+  %226 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %225) #8
+  %.not65 = icmp eq ptr %226, null
+  br i1 %.not65, label %.critedge, label %227
 
-195:                                              ; preds = %.lr.ph167
-  %196 = add i64 %.3166, 1
-  %exitcond.not = icmp eq i64 %196, %3
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph167, !llvm.loop !13
+227:                                              ; preds = %.lr.ph270
+  %228 = add i64 %.3269, 1
+  %exitcond326.not = icmp eq i64 %228, %3
+  br i1 %exitcond326.not, label %.critedge, label %.lr.ph270, !llvm.loop !13
 
-.critedge:                                        ; preds = %.lr.ph167, %195, %.loopexit94, %.loopexit94.thread, %.loopexit.sink.split.i, %.loopexit
-  %.14789 = phi i32 [ 0, %.loopexit ], [ -1, %.loopexit94.thread ], [ -1, %.loopexit94 ], [ -1, %.loopexit.sink.split.i ], [ 0, %195 ], [ 0, %.lr.ph167 ]
-  %.284 = phi i64 [ %.183.ph, %.loopexit ], [ %.08299221, %.loopexit94.thread ], [ %.08299, %.loopexit94 ], [ %.5, %.loopexit.sink.split.i ], [ %.3166, %.lr.ph167 ], [ %3, %195 ]
-  %.251 = phi i64 [ %.049.ph105220, %.loopexit ], [ 0, %.loopexit94.thread ], [ 0, %.loopexit94 ], [ 0, %.loopexit.sink.split.i ], [ %.049.ph105220, %195 ], [ %.049.ph105220, %.lr.ph167 ]
+.critedge:                                        ; preds = %.lr.ph270, %227, %.loopexit94, %.loopexit94.thread, %.loopexit.sink.split.i, %.loopexit
+  %.14789 = phi i32 [ 0, %.loopexit ], [ -1, %.loopexit94.thread ], [ -1, %.loopexit94 ], [ -1, %.loopexit.sink.split.i ], [ 0, %227 ], [ 0, %.lr.ph270 ]
+  %.284 = phi i64 [ %.183.ph, %.loopexit ], [ %.08299333, %.loopexit94.thread ], [ %.08299, %.loopexit94 ], [ %.5, %.loopexit.sink.split.i ], [ %.3269, %.lr.ph270 ], [ %3, %227 ]
+  %.251 = phi i64 [ %.049.ph105332, %.loopexit ], [ 0, %.loopexit94.thread ], [ 0, %.loopexit94 ], [ 0, %.loopexit.sink.split.i ], [ %.049.ph105332, %227 ], [ %.049.ph105332, %.lr.ph270 ]
   %.not66 = icmp eq ptr %6, null
-  br i1 %.not66, label %199, label %197
+  br i1 %.not66, label %231, label %229
 
-197:                                              ; preds = %.critedge
-  %198 = getelementptr i8, ptr %2, i64 %.284
-  store ptr %198, ptr %6, align 8
-  br label %202
+229:                                              ; preds = %.critedge
+  %230 = getelementptr i8, ptr %2, i64 %.284
+  store ptr %230, ptr %6, align 8
+  br label %234
 
-199:                                              ; preds = %.critedge
+231:                                              ; preds = %.critedge
   %.not67 = icmp eq i64 %.284, %3
-  br i1 %.not67, label %202, label %200
+  br i1 %.not67, label %234, label %232
 
-200:                                              ; preds = %199
-  %201 = tail call ptr @__errno_location() #9
-  store i32 22, ptr %201, align 4
-  br label %202
+232:                                              ; preds = %231
+  %233 = tail call ptr @__errno_location() #9
+  store i32 22, ptr %233, align 4
+  br label %234
 
-202:                                              ; preds = %199, %200, %197
-  %.248 = phi i32 [ %.14789, %197 ], [ -1, %200 ], [ %.14789, %199 ]
+234:                                              ; preds = %231, %232, %229
+  %.248 = phi i32 [ %.14789, %229 ], [ -1, %232 ], [ %.14789, %231 ]
   %.not68 = icmp eq ptr %5, null
-  br i1 %.not68, label %204, label %203
+  br i1 %.not68, label %236, label %235
 
-203:                                              ; preds = %202
+235:                                              ; preds = %234
   store i64 %.251, ptr %5, align 8
-  br label %204
+  br label %236
 
-204:                                              ; preds = %203, %202
+236:                                              ; preds = %235, %234
   ret i32 %.248
 }
 

@@ -3308,21 +3308,21 @@ check_length.exit1730:                            ; preds = %786, %787
   %796 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %795, i32 noundef %794, ptr noundef nonnull @.str.1085)
   %797 = add i32 %796, %794
   %798 = icmp ult i32 %797, %793
-  br i1 %798, label %.lr.ph23, label %.critedge
+  br i1 %798, label %.lr.ph26, label %.critedge
 
-.lr.ph23:                                         ; preds = %792, %800
-  %.022 = phi i32 [ %803, %800 ], [ %797, %792 ]
-  %799 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.022)
+.lr.ph26:                                         ; preds = %792, %800
+  %.025 = phi i32 [ %803, %800 ], [ %797, %792 ]
+  %799 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.025)
   br i1 %799, label %800, label %.critedge
 
-800:                                              ; preds = %.lr.ph23
+800:                                              ; preds = %.lr.ph26
   %801 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %802 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %801, i32 noundef %.022, ptr noundef nonnull @.str.1086)
-  %803 = add i32 %802, %.022
+  %802 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %801, i32 noundef %.025, ptr noundef nonnull @.str.1086)
+  %803 = add i32 %802, %.025
   %804 = icmp ult i32 %803, %793
-  br i1 %804, label %.lr.ph23, label %.critedge, !llvm.loop !10
+  br i1 %804, label %.lr.ph26, label %.critedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %.lr.ph23, %800, %792
+.critedge:                                        ; preds = %.lr.ph26, %800, %792
   %805 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
   %806 = trunc nuw i8 %805 to i1
   br i1 %806, label %807, label %.critedge133
@@ -3429,29 +3429,29 @@ check_length.exit1738:                            ; preds = %843
 849:                                              ; preds = %843
   %850 = load i32, ptr @hf_sapdiag_item_value, align 4
   tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %850, i32 noundef %4, ptr noundef nonnull @.str.1093)
-  %.not17 = icmp eq i8 %844, 0
-  br i1 %.not17, label %.critedge133, label %.lr.ph20.preheader
+  %.not20 = icmp eq i8 %844, 0
+  br i1 %.not20, label %.critedge133, label %.lr.ph23.preheader
 
-.lr.ph20.preheader:                               ; preds = %849
+.lr.ph23.preheader:                               ; preds = %849
   %851 = add i32 %4, 1
-  br label %.lr.ph20
+  br label %.lr.ph23
 
-.lr.ph20:                                         ; preds = %.lr.ph20.preheader, %854
-  %.119 = phi i32 [ %852, %854 ], [ %851, %.lr.ph20.preheader ]
-  %.0166418 = phi i8 [ %858, %854 ], [ %844, %.lr.ph20.preheader ]
-  %852 = add i32 %.119, 17
+.lr.ph23:                                         ; preds = %.lr.ph23.preheader, %854
+  %.122 = phi i32 [ %852, %854 ], [ %851, %.lr.ph23.preheader ]
+  %.0166421 = phi i8 [ %858, %854 ], [ %844, %.lr.ph23.preheader ]
+  %852 = add i32 %.122, 17
   %853 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %852)
   br i1 %853, label %854, label %.critedge133
 
-854:                                              ; preds = %.lr.ph20
-  %855 = add i32 %.119, 16
+854:                                              ; preds = %.lr.ph23
+  %855 = add i32 %.122, 16
   %856 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_hexstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %856, i32 noundef %.119)
+  tail call fastcc void @add_item_value_hexstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %856, i32 noundef %.122)
   %857 = load i32, ptr @hf_sapdiag_item_value, align 4
   tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %857, i32 noundef %855, ptr noundef nonnull @.str.1095)
-  %858 = add i8 %.0166418, -1
+  %858 = add i8 %.0166421, -1
   %.not = icmp eq i8 %858, 0
-  br i1 %.not, label %.critedge133, label %.lr.ph20, !llvm.loop !11
+  br i1 %.not, label %.critedge133, label %.lr.ph23, !llvm.loop !11
 
 859:                                              ; preds = %841
   %860 = icmp eq i8 %7, 34
@@ -3558,19 +3558,19 @@ check_length.exit1740:                            ; preds = %861, %862
 
 918:                                              ; preds = %916, %902
   %919 = icmp ult i32 %913, %903
-  br i1 %919, label %.lr.ph15, label %.critedge133
+  br i1 %919, label %.lr.ph18, label %.critedge133
 
-.lr.ph15:                                         ; preds = %918, %921
-  %.214 = phi i32 [ %923, %921 ], [ %913, %918 ]
-  %920 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.214)
+.lr.ph18:                                         ; preds = %918, %921
+  %.217 = phi i32 [ %923, %921 ], [ %913, %918 ]
+  %920 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.217)
   br i1 %920, label %921, label %.critedge133
 
-921:                                              ; preds = %.lr.ph15
+921:                                              ; preds = %.lr.ph18
   %922 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %922, i32 noundef %.214, ptr noundef nonnull @.str.1110)
-  %923 = add i32 %.214, 1
+  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %922, i32 noundef %.217, ptr noundef nonnull @.str.1110)
+  %923 = add i32 %.217, 1
   %exitcond.not = icmp eq i32 %923, %903
-  br i1 %exitcond.not, label %.critedge133, label %.lr.ph15, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge133, label %.lr.ph18, !llvm.loop !12
 
 924:                                              ; preds = %900
   %925 = icmp eq i8 %6, 10
@@ -4047,18 +4047,18 @@ check_length.exit1766:                            ; preds = %1107, %1108
   br i1 %1153, label %.lr.ph, label %.critedge133
 
 .lr.ph:                                           ; preds = %1151, %1156
-  %.312 = phi i32 [ %1164, %1156 ], [ %4, %1151 ]
-  %1154 = add i32 %.312, 3
+  %.315 = phi i32 [ %1164, %1156 ], [ %4, %1151 ]
+  %1154 = add i32 %.315, 3
   %1155 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %1154)
   br i1 %1155, label %1156, label %.critedge133
 
 1156:                                             ; preds = %.lr.ph
   %1157 = load i32, ptr @hf_sapdiag_item_control_properties_id, align 4
-  %1158 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1157, ptr noundef %0, i32 noundef %.312, i32 noundef 2, i32 noundef 0)
-  %1159 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.312)
+  %1158 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1157, ptr noundef %0, i32 noundef %.315, i32 noundef 2, i32 noundef 0)
+  %1159 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.315)
   %1160 = zext i16 %1159 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.1159, i32 noundef %1160)
-  %1161 = add i32 %.312, 2
+  %1161 = add i32 %.315, 2
   %1162 = load i32, ptr @hf_sapdiag_item_control_properties_value, align 4
   %1163 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1162, i32 noundef %1161, ptr noundef nonnull @.str.1160)
   %1164 = add i32 %1163, %1161
@@ -4116,104 +4116,88 @@ check_length.exit1766:                            ; preds = %1107, %1108
   %1189 = or i1 %1188, %1186
   %or.cond3296 = or i1 %990, %1189
   %or.cond1678 = and i1 %or.cond, %or.cond3296
-  br i1 %or.cond1678, label %1208, label %1190
+  %or.cond1678.not = xor i1 %or.cond1678, true
+  %1190 = or i1 %250, %724
+  %1191 = xor i1 %176, %1190
+  %or.cond12 = and i1 %1191, %or.cond1678.not
+  br i1 %or.cond12, label %1192, label %1196
 
-1190:                                             ; preds = %1182
-  %1191 = icmp eq i8 %7, 33
-  %or.cond335 = and i1 %or.cond, %1191
-  %1192 = icmp eq i8 %1183, 2
-  %1193 = add i8 %7, -11
-  %1194 = icmp ult i8 %1193, 4
-  %1195 = or i1 %1192, %1194
-  %1196 = or i1 %1068, %1195
-  %1197 = or i1 %724, %1196
-  %1198 = and i1 %or.cond26, %1197
-  %or.cond1686 = or i1 %or.cond335, %1198
-  br i1 %or.cond1686, label %1208, label %1199
+1192:                                             ; preds = %1182
+  %1193 = icmp eq i8 %7, 16
+  %1194 = or i1 %1017, %785
+  %1195 = xor i1 %176, %1194
+  %or.cond1693 = xor i1 %1195, true
+  %or.cond437 = and i1 %or.cond210, %248
+  %or.cond1694 = or i1 %or.cond437, %or.cond1693
+  br i1 %or.cond1694, label %1196, label %1199
 
-1199:                                             ; preds = %1190
-  %1200 = icmp eq i8 %7, 16
-  %1201 = icmp eq i8 %1183, 36
-  %1202 = or i1 %1191, %1201
-  %or.cond4079 = or i1 %1200, %1202
-  %or.cond1689 = and i1 %or.cond26, %or.cond4079
-  %1203 = icmp eq i8 %7, 18
-  %or.cond413 = and i1 %or.cond160, %1203
-  %or.cond1690 = or i1 %or.cond413, %or.cond1689
-  %1204 = add i8 %7, -9
-  %1205 = icmp ult i8 %1204, 3
-  %1206 = or i1 %212, %1205
-  %1207 = and i1 %or.cond210, %1206
-  %or.cond1694 = or i1 %1207, %or.cond1690
-  br i1 %or.cond1694, label %1208, label %1211
-
-1208:                                             ; preds = %1199, %1190, %1182
-  %1209 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1210 = getelementptr i8, ptr %1, i64 408
-  %.val1695 = load ptr, ptr %1210, align 8
-  tail call fastcc void @add_item_value_string(ptr noundef %0, ptr %.val1695, ptr noundef %2, ptr noundef %3, i32 noundef %1209, i32 noundef %4, i32 noundef %8, ptr noundef nonnull @.str.61, i32 noundef 1)
+1196:                                             ; preds = %1192, %1182
+  %1197 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1198 = getelementptr i8, ptr %1, i64 408
+  %.val1695 = load ptr, ptr %1198, align 8
+  tail call fastcc void @add_item_value_string(ptr noundef %0, ptr %.val1695, ptr noundef %2, ptr noundef %3, i32 noundef %1197, i32 noundef %4, i32 noundef %8, ptr noundef nonnull @.str.61, i32 noundef 1)
   br label %.critedge133
 
-1211:                                             ; preds = %1199
-  %1212 = icmp eq i8 %6, 8
-  %or.cond440 = and i1 %176, %1212
-  br i1 %or.cond440, label %.critedge133, label %1213
+1199:                                             ; preds = %1192
+  %1200 = icmp eq i8 %6, 8
+  %or.cond440 = and i1 %176, %1200
+  br i1 %or.cond440, label %.critedge133, label %1201
 
-1213:                                             ; preds = %1211
-  %1214 = icmp eq i8 %5, 17
-  br i1 %1214, label %1215, label %1218
+1201:                                             ; preds = %1199
+  %1202 = icmp eq i8 %5, 17
+  br i1 %1202, label %1203, label %1206
 
-1215:                                             ; preds = %1213
-  %1216 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1217 = getelementptr i8, ptr %1, i64 408
-  %.val1696 = load ptr, ptr %1217, align 8
-  tail call fastcc void @add_item_value_string(ptr noundef %0, ptr %.val1696, ptr noundef %2, ptr noundef %3, i32 noundef %1216, i32 noundef %4, i32 noundef %8, ptr noundef nonnull @.str.61, i32 noundef 0)
+1203:                                             ; preds = %1201
+  %1204 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1205 = getelementptr i8, ptr %1, i64 408
+  %.val1696 = load ptr, ptr %1205, align 8
+  tail call fastcc void @add_item_value_string(ptr noundef %0, ptr %.val1696, ptr noundef %2, ptr noundef %3, i32 noundef %1204, i32 noundef %4, i32 noundef %8, ptr noundef nonnull @.str.61, i32 noundef 0)
   br label %.critedge133
 
-1218:                                             ; preds = %1213
-  %or.cond446 = and i1 %or.cond284, %1200
-  br i1 %or.cond446, label %1219, label %1220
+1206:                                             ; preds = %1201
+  %or.cond446 = and i1 %or.cond284, %1193
+  br i1 %or.cond446, label %1207, label %1208
 
-1219:                                             ; preds = %1218
+1207:                                             ; preds = %1206
   tail call fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %8)
   br label %.critedge133
 
-1220:                                             ; preds = %1218
-  %1221 = icmp eq i8 %6, 11
-  %or.cond449 = and i1 %1180, %1221
-  br i1 %or.cond449, label %1222, label %1223
+1208:                                             ; preds = %1206
+  %1209 = icmp eq i8 %6, 11
+  %or.cond449 = and i1 %1180, %1209
+  br i1 %or.cond449, label %1210, label %1211
 
-1222:                                             ; preds = %1220
+1210:                                             ; preds = %1208
   tail call fastcc void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %8)
   br label %.critedge133
 
-1223:                                             ; preds = %1220
-  %1224 = icmp eq i8 %5, 19
-  br i1 %1224, label %1225, label %1229
+1211:                                             ; preds = %1208
+  %1212 = icmp eq i8 %5, 19
+  br i1 %1212, label %1213, label %1217
 
-1225:                                             ; preds = %1223
+1213:                                             ; preds = %1211
   %.not.i1767 = icmp eq i32 %8, 2
-  br i1 %.not.i1767, label %check_length.exit1768, label %1226
+  br i1 %.not.i1767, label %check_length.exit1768, label %1214
 
-1226:                                             ; preds = %1225
-  %1227 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_sapdiag_item_length_invalid, ptr noundef nonnull @.str.1167, ptr noundef nonnull @.str.693)
+1214:                                             ; preds = %1213
+  %1215 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_sapdiag_item_length_invalid, ptr noundef nonnull @.str.1167, ptr noundef nonnull @.str.693)
   br label %check_length.exit1768
 
-check_length.exit1768:                            ; preds = %1225, %1226
-  %1228 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1228, i32 noundef %4, ptr noundef nonnull @.str.1165)
+check_length.exit1768:                            ; preds = %1213, %1214
+  %1216 = load i32, ptr @hf_sapdiag_item_value, align 4
+  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1216, i32 noundef %4, ptr noundef nonnull @.str.1165)
   br label %.critedge133
 
-1229:                                             ; preds = %1223
-  %1230 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
-  %1231 = trunc nuw i8 %1230 to i1
-  br i1 %1231, label %1232, label %.critedge133
+1217:                                             ; preds = %1211
+  %1218 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %1219 = trunc nuw i8 %1218 to i1
+  br i1 %1219, label %1220, label %.critedge133
 
-1232:                                             ; preds = %1229
-  %1233 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_sapdiag_item_unknown, ptr noundef nonnull @.str.1166, i32 noundef %10, i32 noundef %177, i32 noundef %179)
+1220:                                             ; preds = %1217
+  %1221 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_sapdiag_item_unknown, ptr noundef nonnull @.str.1166, i32 noundef %10, i32 noundef %177, i32 noundef %179)
   br label %.critedge133
 
-.critedge133:                                     ; preds = %1156, %.lr.ph, %921, %.lr.ph15, %.lr.ph20, %854, %1151, %918, %849, %1211, %check_length.exit1738, %.critedge, %807, %check_length.exit, %128, %check_length.exit1698, %check_length.exit1702, %check_length.exit1706, %check_length.exit1710, %check_length.exit1714, %check_length.exit1718, %check_length.exit1722, %check_length.exit1726, %check_length.exit1730, %819, %811, %834, %check_length.exit1734, %867, %891, %check_length.exit1742, %check_length.exit1746, %check_length.exit1748, %check_length.exit1752, %check_length.exit1754, %check_length.exit1758, %check_length.exit1762, %check_length.exit1766, %1171, %1208, %1215, %1222, %1229, %1232, %check_length.exit1768, %1219, %1181, %1168, %1117, %1147, %check_length.exit1764, %check_length.exit1760, %check_length.exit1756, %1019, %check_length.exit1750, %966, %check_length.exit1744, %879, %check_length.exit1740, %check_length.exit1736, %check_length.exit1732, %check_length.exit1728, %check_length.exit1724, %752, %check_length.exit1720, %check_length.exit1716, %check_length.exit1712, %check_length.exit1708, %check_length.exit1704, %check_length.exit1700
+.critedge133:                                     ; preds = %1156, %.lr.ph, %921, %.lr.ph18, %.lr.ph23, %854, %1151, %918, %849, %1199, %check_length.exit1738, %.critedge, %807, %check_length.exit, %128, %check_length.exit1698, %check_length.exit1702, %check_length.exit1706, %check_length.exit1710, %check_length.exit1714, %check_length.exit1718, %check_length.exit1722, %check_length.exit1726, %check_length.exit1730, %819, %811, %834, %check_length.exit1734, %867, %891, %check_length.exit1742, %check_length.exit1746, %check_length.exit1748, %check_length.exit1752, %check_length.exit1754, %check_length.exit1758, %check_length.exit1762, %check_length.exit1766, %1171, %1196, %1203, %1210, %1217, %1220, %check_length.exit1768, %1207, %1181, %1168, %1117, %1147, %check_length.exit1764, %check_length.exit1760, %check_length.exit1756, %1019, %check_length.exit1750, %966, %check_length.exit1744, %879, %check_length.exit1740, %check_length.exit1736, %check_length.exit1732, %check_length.exit1728, %check_length.exit1724, %752, %check_length.exit1720, %check_length.exit1716, %check_length.exit1712, %check_length.exit1708, %check_length.exit1704, %check_length.exit1700
   ret void
 }
 

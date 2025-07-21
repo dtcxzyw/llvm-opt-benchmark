@@ -2069,7 +2069,7 @@ define dso_local void @qi_flush_piotlb(ptr noundef %0, i16 noundef zeroext %1, i
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1562, i32 2305, i64 12) #20, !srcloc !52
   tail call void asm sideeffect "502: nop\0A\09.pushsection .discard.instr_end\0A\09.long 502b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 502) #20, !srcloc !53
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i64 noundef 0) #18
-  br label %50
+  br label %46
 
 10:                                               ; preds = %6
   %11 = zext i32 %2 to i64
@@ -2079,7 +2079,7 @@ define dso_local void @qi_flush_piotlb(ptr noundef %0, i16 noundef zeroext %1, i
   %15 = or disjoint i64 %12, %14
   %16 = or disjoint i64 %15, 38
   store i64 %16, ptr %7, align 8
-  br label %46
+  br label %42
 
 17:                                               ; preds = %6
   %18 = add i64 %4, -1
@@ -2094,40 +2094,36 @@ define dso_local void @qi_flush_piotlb(ptr noundef %0, i16 noundef zeroext %1, i
   %27 = xor i64 %26, -1
   %28 = and i64 %3, %27
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %31, label %30, !prof !30
+  br i1 %29, label %32, label %30, !prof !30
 
 30:                                               ; preds = %17
   tail call void asm sideeffect "503: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 503b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 503) #20, !srcloc !55
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1577, i32 2307, i64 12) #20, !srcloc !56
   tail call void asm sideeffect "504: nop\0A\09.pushsection .discard.instr_end\0A\09.long 504b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 504) #20, !srcloc !57
-  br label %31
+  %31 = or i64 %26, -4096
+  br label %32
 
-31:                                               ; preds = %30, %17
-  %32 = phi i64 [ %26, %30 ], [ -1, %17 ]
-  %33 = zext i32 %2 to i64
-  %34 = shl nuw i64 %33, 32
-  %35 = zext i16 %1 to i64
-  %36 = shl nuw nsw i64 %35, 16
-  %37 = or disjoint i64 %34, %36
-  %38 = or disjoint i64 %37, 54
-  store i64 %38, ptr %7, align 8
-  %39 = and i64 %3, -4096
-  %40 = and i64 %39, %32
-  %41 = select i1 %5, i64 64, i64 0
-  %42 = and i32 %23, 63
-  %43 = zext nneg i32 %42 to i64
-  %44 = or disjoint i64 %41, %43
-  %45 = or disjoint i64 %44, %40
+32:                                               ; preds = %30, %17
+  %33 = phi i64 [ %31, %30 ], [ -1, %17 ]
+  %34 = zext i32 %2 to i64
+  %35 = shl nuw i64 %34, 32
+  %36 = zext i16 %1 to i64
+  %37 = shl nuw nsw i64 %36, 16
+  %38 = or disjoint i64 %35, %37
+  %39 = or disjoint i64 %38, 54
+  store i64 %39, ptr %7, align 8
+  %40 = xor i64 %3, %33
+  %41 = xor i64 %40, -1
+  br label %42
+
+42:                                               ; preds = %32, %10
+  %43 = phi i64 [ %41, %32 ], [ 0, %10 ]
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %43, ptr %44, align 8
+  %45 = call i32 @qi_submit_sync(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, i64 noundef 0), !range !49
   br label %46
 
-46:                                               ; preds = %31, %10
-  %47 = phi i64 [ %45, %31 ], [ 0, %10 ]
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %47, ptr %48, align 8
-  %49 = call i32 @qi_submit_sync(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, i64 noundef 0), !range !49
-  br label %50
-
-50:                                               ; preds = %46, %8
+46:                                               ; preds = %42, %8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
   ret void
 }
