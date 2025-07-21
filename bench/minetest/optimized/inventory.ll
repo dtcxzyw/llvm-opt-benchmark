@@ -7703,7 +7703,6 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i72.us, label %for.inc.us, label %if.end10.us
 
 if.end10.us:                                      ; preds = %for.body.us
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %agg.result) #29
   invoke void @_ZN13InventoryList7addItemEjRK9ItemStack(ptr dead_on_unwind nonnull writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %i.0153.us, ptr noundef nonnull align 8 dereferenceable(312) %agg.result)
           to label %invoke.cont12.us unwind label %lpad11.split.us
 
@@ -7738,7 +7737,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN9ItemStackD2Ev.exit.us
 
 _ZN9ItemStackD2Ev.exit.us:                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i83.us, %if.then.i.i.i81.us
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %agg.result) #29
   %24 = load i16, ptr %count.i, align 8, !tbaa !17
   %cmp.i86.us = icmp eq i16 %24, 0
   br i1 %cmp.i86.us, label %nrvo.skipdtor, label %_ZN9ItemStackD2Ev.exit.us.for.inc.us_crit_edge
@@ -7803,7 +7801,6 @@ for.body28.us:                                    ; preds = %for.body28.lr.ph, %
   br i1 %cmp.i94.us, label %if.end36.us, label %for.inc49.us
 
 if.end36.us:                                      ; preds = %for.body28.us
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %agg.result) #29
   invoke void @_ZN13InventoryList7addItemEjRK9ItemStack(ptr dead_on_unwind nonnull writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %i21.0161.us, ptr noundef nonnull align 8 dereferenceable(312) %agg.result)
           to label %invoke.cont39.us unwind label %lpad38.split.us
 
@@ -7838,7 +7835,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN9ItemStackD2Ev.exit129.us
 
 _ZN9ItemStackD2Ev.exit129.us:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i126.us, %if.then.i.i.i124.us
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %agg.result) #29
   %40 = load i16, ptr %count.i, align 8, !tbaa !17
   %cmp.i131.us = icmp eq i16 %40, 0
   br i1 %cmp.i131.us, label %nrvo.skipdtor, label %_ZN9ItemStackD2Ev.exit129.us.for.inc49.us_crit_edge

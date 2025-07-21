@@ -4444,7 +4444,6 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2.not.us, label %for.inc.us, label %if.then.us
 
 if.then.us:                                       ; preds = %for.body.us
-  call void @llvm.lifetime.start.p0(i64 840, ptr nonnull %agg.result) #30
   %arrayidx.i.i13.us = getelementptr inbounds nuw [8 x %class.StyleSpec], ptr %styles, i64 0, i64 %indvars.iv32
   invoke void @_ZNK9StyleSpecorERKS_(ptr dead_on_unwind nonnull writable sret(%class.StyleSpec) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(833) %agg.result, ptr noundef nonnull align 8 dereferenceable(833) %arrayidx.i.i13.us)
           to label %for.body.us.i.i.us unwind label %lpad.split.us
@@ -4520,7 +4519,6 @@ _ZN9StyleSpecaSEOS_.exit.loopexit.us:             ; preds = %_ZNSt7__cxx1112basi
   %22 = load i8, ptr %state_map.i18, align 8, !tbaa !74
   store i8 %22, ptr %state_map.i, align 8, !tbaa !74
   call void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm25EED2Ev(ptr noundef nonnull align 8 dereferenceable(800) %properties3.i14) #30
-  call void @llvm.lifetime.end.p0(i64 840, ptr nonnull %agg.result) #30
   br label %for.inc.us
 
 lpad.split.us:                                    ; preds = %if.then.us
