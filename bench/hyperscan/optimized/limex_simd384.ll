@@ -442,8 +442,8 @@ testbit384.exit.lr.ph:                            ; preds = %61
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 368
   br label %testbit384.exit
 
-testbit384.exit:                                  ; preds = %testbit384.exit.lr.ph, %122
-  %82 = phi i32 [ %60, %testbit384.exit.lr.ph ], [ %123, %122 ]
+testbit384.exit:                                  ; preds = %testbit384.exit.lr.ph, %127
+  %82 = phi i32 [ %60, %testbit384.exit.lr.ph ], [ %128, %122 ]
   %indvars.iv = phi i64 [ 0, %testbit384.exit.lr.ph ], [ %indvars.iv.next, %122 ]
   %83 = load i32, ptr %81, align 16
   %84 = zext i32 %83 to i64
@@ -489,7 +489,7 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   %.not72 = icmp eq i16 %114, 0
   br i1 %.not72, label %122, label %115
 
-115:                                              ; preds = %102, %testbit384.exit
+115:; preds = %102, %testbit384.exit
   %116 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %117 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %118 = load i32, ptr %117, align 4
@@ -498,16 +498,16 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   %121 = getelementptr inbounds nuw %union.RepeatControl, ptr %76, i64 %indvars.iv
   call void @repeatUnpack(ptr noundef %120, ptr noundef nonnull %116, i64 noundef %3, ptr noundef nonnull %121) #12
   %.pre = load i32, ptr %59, align 4
-  br label %122
+  br label %127
 
-122:                                              ; preds = %115, %102
-  %123 = phi i32 [ %.pre, %115 ], [ %82, %102 ]
+127:                                              ; preds = %115, %102
+  %128 = phi i32 [ %.pre, %115 ], [ %82, %102 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %124 = zext i32 %123 to i64
-  %125 = icmp samesign ult i64 %indvars.iv.next, %124
-  br i1 %125, label %testbit384.exit, label %nfaExecLimEx384_Expand_Repeats.exit
+  %129 = zext i32 %128 to i64
+  %130 = icmp samesign ult i64 %indvars.iv.next, %129
+  br i1 %130, label %testbit384.exit, label %nfaExecLimEx384_Expand_Repeats.exit
 
-nfaExecLimEx384_Expand_Repeats.exit:              ; preds = %122, %61, %moNfaExpandState384.exit
+nfaExecLimEx384_Expand_Repeats.exit:              ; preds = %127, %61, %moNfaExpandState384.exit
   ret i8 0
 }
 

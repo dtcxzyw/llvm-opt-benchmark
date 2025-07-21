@@ -426,14 +426,14 @@ lor.lhs.false47:                                  ; preds = %lor.lhs.false39
   %cmp50 = icmp eq i32 %sub.i, 31
   %or.cond23 = icmp eq i32 %2, 30
   %cmp54 = icmp eq i32 %call5, 2006
-  %4 = and i1 %or.cond23, %cmp54
+  %or.cond27 = and i1 %or.cond23, %cmp54
   %or.cond27 = and i1 %cmp36, %4
   br i1 %or.cond27, label %cleanup, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false47
   %cmp58 = icmp eq i32 %sub.i, 20
-  %5 = add i32 %sub.i, -19
-  %or.cond29 = icmp ult i32 %5, 2
+  %4 = add i32 %sub.i, -19
+  %or.cond29 = icmp ult i32 %4, 2
   %or.cond31 = and i1 %or.cond29, %cmp44
   %cmp62 = icmp eq i32 %call5, 2007
   %or.cond33 = and i1 %or.cond31, %cmp62
@@ -442,8 +442,8 @@ lor.lhs.false55:                                  ; preds = %lor.lhs.false47
 lor.lhs.false63:                                  ; preds = %lor.lhs.false55
   %cmp64 = icmp eq i32 %sub.i, 7
   %cmp66 = icmp eq i32 %sub.i, 8
-  %6 = add i32 %sub.i, -7
-  %or.cond35 = icmp ult i32 %6, 2
+  %5 = add i32 %sub.i, -7
+  %or.cond35 = icmp ult i32 %5, 2
   %or.cond37 = and i1 %or.cond35, %cmp44
   %cmp70 = icmp eq i32 %call5, 2008
   %or.cond39 = and i1 %or.cond37, %cmp70
@@ -461,8 +461,8 @@ lor.lhs.false71:                                  ; preds = %lor.lhs.false63
 lor.lhs.false79:                                  ; preds = %lor.lhs.false71
   %cmp80 = icmp eq i32 %sub.i, 15
   %cmp82 = icmp eq i32 %sub.i, 16
-  %7 = add i32 %sub.i, -15
-  %or.cond47 = icmp ult i32 %7, 2
+  %6 = add i32 %sub.i, -15
+  %or.cond47 = icmp ult i32 %6, 2
   %or.cond49 = and i1 %or.cond47, %cmp36
   %cmp86 = icmp eq i32 %call5, 2010
   %or.cond51 = and i1 %or.cond49, %cmp86
@@ -470,8 +470,8 @@ lor.lhs.false79:                                  ; preds = %lor.lhs.false71
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false79
   %cmp90 = icmp eq i32 %sub.i, 24
-  %8 = add i32 %sub.i, -23
-  %or.cond53 = icmp ult i32 %8, 2
+  %7 = add i32 %sub.i, -23
+  %or.cond53 = icmp ult i32 %7, 2
   %or.cond55 = and i1 %or.cond53, %cmp36
   %cmp94 = icmp eq i32 %call5, 2012
   %or.cond57 = and i1 %or.cond55, %cmp94
@@ -480,8 +480,8 @@ lor.lhs.false87:                                  ; preds = %lor.lhs.false79
 lor.lhs.false95:                                  ; preds = %lor.lhs.false87
   %cmp96 = icmp eq i32 %sub.i, 11
   %cmp98 = icmp eq i32 %sub.i, 12
-  %9 = add i32 %sub.i, -11
-  %or.cond59 = icmp ult i32 %9, 2
+  %8 = add i32 %sub.i, -11
+  %or.cond59 = icmp ult i32 %8, 2
   %or.cond61 = and i1 %or.cond59, %cmp44
   %cmp102 = icmp eq i32 %call5, 2013
   %or.cond63 = and i1 %or.cond61, %cmp102
@@ -497,8 +497,8 @@ lor.lhs.false103:                                 ; preds = %lor.lhs.false95
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false103
   %cmp118 = icmp eq i32 %sub.i, 2
-  %10 = add i32 %sub.i, -1
-  %or.cond73 = icmp ult i32 %10, 2
+  %9 = add i32 %sub.i, -1
+  %or.cond73 = icmp ult i32 %9, 2
   %or.cond75 = and i1 %or.cond73, %cmp44
   %or.cond77 = and i1 %or.cond75, %cmp38
   br i1 %or.cond77, label %cleanup, label %lor.lhs.false123
@@ -648,8 +648,8 @@ if.end:                                           ; preds = %lor.lhs.false353
   ]
 
 if.then360:                                       ; preds = %if.end
-  %23 = add i32 %sub.i, -5
-  %or.cond237 = icmp ult i32 %23, 2
+  %11 = add i32 %sub.i, -5
+  %or.cond237 = icmp ult i32 %11, 2
   %or.cond239 = and i1 %or.cond237, %cmp44
   %or.cond241 = and i1 %cmp58, %cmp18
   %or.cond584 = or i1 %or.cond239, %or.cond241
@@ -663,8 +663,8 @@ if.then360:                                       ; preds = %if.end
 if.then386:                                       ; preds = %if.end
   %or.cond249 = and i1 %cmp74, %cmp36
   %or.cond251621 = or i1 %cmp64, %cmp28616
-  %24 = and i1 %cmp18, %or.cond251621
-  %or.cond588 = or i1 %or.cond249, %24
+  %12 = and i1 %cmp18, %or.cond251621
+  %or.cond588 = or i1 %or.cond249, %12
   %or.cond255 = and i1 %cmp50, %cmp356
   %or.cond589 = or i1 %or.cond255, %or.cond588
   %or.cond257 = and i1 %cmp298, %cmp156
@@ -677,22 +677,22 @@ if.then410:                                       ; preds = %if.end
   %25 = and i1 %or.cond155620, %cmp18
   %or.cond592 = or i1 %or.cond259, %25
   %or.cond265 = and i1 %cmp58, %cmp356
-  %or.cond593 = or i1 %or.cond265, %or.cond592
+  %14 = or i1 %or.cond265, %or.cond592
   %cmp427 = icmp eq i32 %sub.i, 4
   %or.cond267 = and i1 %cmp427, %cmp156
-  %or.cond594 = or i1 %or.cond267, %or.cond593
+  %15 = or i1 %or.cond267, %14
   br i1 %or.cond594, label %cleanup, label %if.end520
 
 if.then434:                                       ; preds = %if.end
-  %or.cond273619 = icmp eq i32 %2, 2
-  %26 = or i1 %cmp82, %or.cond273619
-  %27 = and i1 %26, %cmp18
+  %or.cond273620 = icmp eq i32 %2, 2
+  %16 = or i1 %cmp82, %or.cond273620
+  %17 = and i1 %16, %cmp18
   %or.cond279 = and i1 %cmp96, %cmp356
-  %28 = or i1 %27, %or.cond279
+  %18 = or i1 %17, %or.cond279
   %29 = or i1 %or.cond205, %28
   %or.cond283 = and i1 %cmp72, %cmp30617
-  %30 = or i1 %29, %or.cond283
-  %or.cond600 = or i1 %or.cond75, %30
+  %19 = or i1 %29, %or.cond283
+  %20 = or i1 %or.cond75, %19
   br i1 %or.cond600, label %cleanup, label %if.end520
 
 if.then468:                                       ; preds = %if.end
@@ -700,12 +700,12 @@ if.then468:                                       ; preds = %if.end
   %or.cond289 = and i1 %cmp32, %cmp477
   %cmp483 = icmp eq i32 %sub.i, 29
   %or.cond293 = and i1 %cmp483, %cmp186
-  %31 = or i1 %or.cond289, %or.cond293
+  %21 = or i1 %or.cond289, %or.cond293
   %or.cond295 = and i1 %cmp, %cmp332
-  %32 = or i1 %or.cond295, %31
-  %33 = or i1 %or.cond179, %32
-  %34 = or i1 %or.cond55, %33
-  %brmerge605 = or i1 %or.cond119, %34
+  %22 = or i1 %or.cond295, %21
+  %23 = or i1 %or.cond179, %22
+  %or.cond604 = or i1 %or.cond55, %23
+  %brmerge605 = or i1 %or.cond119, %or.cond604
   br i1 %brmerge605, label %cleanup, label %if.end520
 
 if.then498:                                       ; preds = %if.end
@@ -715,9 +715,9 @@ if.then498:                                       ; preds = %if.end
   %or.cond606 = or i1 %or.cond299, %or.cond301
   %brmerge607 = or i1 %or.cond123, %or.cond606
   %or.cond305 = and i1 %cmp160, %cmp186
-  %or.cond608 = or i1 %or.cond305, %brmerge607
+  %24 = or i1 %or.cond305, %brmerge607
   %or.cond307 = and i1 %cmp50, %cmp168
-  %or.cond609 = or i1 %or.cond307, %or.cond608
+  %25 = or i1 %or.cond307, %24
   br i1 %or.cond609, label %cleanup, label %if.end520
 
 if.end520:                                        ; preds = %if.then468, %if.then434, %if.then410, %if.then386, %if.then360, %if.then498, %if.end

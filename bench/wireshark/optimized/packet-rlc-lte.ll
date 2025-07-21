@@ -3799,7 +3799,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   store i32 2, ptr %107, align 4
   %108 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i16 %7, ptr %108, align 4
-  br label %419
+  br label %430
 
 109:                                              ; preds = %103
   %110 = load i16, ptr %49, align 2
@@ -3850,7 +3850,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %136 = xor i1 %9, true
   %137 = zext i1 %136 to i8
   store i8 %137, ptr %130, align 8
-  br label %419
+  br label %430
 
 138:                                              ; preds = %111
   %139 = getelementptr inbounds nuw i8, ptr %80, i64 20
@@ -3863,7 +3863,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %143 = load i32, ptr %142, align 4
   %144 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %143, ptr %144, align 4
-  br label %419
+  br label %430
 
 145:                                              ; preds = %99
   %146 = getelementptr inbounds nuw i8, ptr %80, i64 2
@@ -4026,7 +4026,7 @@ reassembly_add_segment.exit:                      ; preds = %163, %164
 
 reassembly_add_segment.exit305:                   ; preds = %223, %222, %213, %211
   %.not289 = icmp eq i32 %148, 0
-  br i1 %.not289, label %419, label %247
+  br i1 %.not289, label %430, label %247
 
 247:                                              ; preds = %reassembly_add_segment.exit305
   %248 = load i8, ptr %83, align 1
@@ -4049,22 +4049,22 @@ reassembly_add_segment.exit305:                   ; preds = %223, %222, %213, %2
   %.not290 = icmp eq ptr %260, null
   br i1 %.not290, label %419, label %261
 
-261:                                              ; preds = %247
+261:; preds = %247
   %262 = load i32, ptr %153, align 4
   %263 = getelementptr inbounds nuw i8, ptr %260, i64 12
   store i32 %262, ptr %263, align 4
-  br label %419
+  br label %430
 
-264:                                              ; preds = %78
+264:; preds = %78
   %265 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %266 = load i8, ptr %265, align 1
-  %267 = icmp eq i8 %266, 16
-  %.296 = select i1 %267, i32 65536, i32 1024
+  %.not290 = icmp eq i8 %266, 16
+  %.296 = select i1 %.not290, i32 65536, i32 1024
   br i1 %69, label %276, label %268
 
-268:                                              ; preds = %264
-  %269 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
-  %270 = load i16, ptr %269, align 2
+268:; preds = %264
+  %274 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
+  %270 = load i16, ptr %274, align 2
   %271 = zext i16 %270 to i32
   %272 = add nuw nsw i32 %271, 1
   %273 = add nuw nsw i32 %.296, 65535
@@ -4072,143 +4072,143 @@ reassembly_add_segment.exit305:                   ; preds = %223, %222, %213, %2
   %275 = trunc i32 %274 to i16
   br label %276
 
-276:                                              ; preds = %264, %268
+276:; preds = %264, %268
   %.2 = phi i16 [ %275, %268 ], [ %7, %264 ]
   %277 = load i8, ptr %61, align 1
   %278 = call zeroext i1 @is_mac_lte_frame_retx(ptr noundef %0, i8 noundef zeroext %277)
   br i1 %278, label %279, label %282
 
-279:                                              ; preds = %276
+279:; preds = %276
   %280 = getelementptr inbounds nuw i8, ptr %80, i64 20
   store i32 2, ptr %280, align 4
   %281 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i16 %7, ptr %281, align 4
   br label %419
 
-282:                                              ; preds = %276
+282:; preds = %276
   %283 = zext i16 %7 to i32
   %284 = zext i16 %.2 to i32
   %.not284 = icmp eq i16 %7, %.2
-  br i1 %.not284, label %293, label %285
+  br i1 %.not284, label %304, label %296
 
-285:                                              ; preds = %282
-  %286 = add nuw nsw i32 %.296, %283
-  %287 = sub nsw i32 %286, %284
-  %288 = add nsw i32 %.296, -1
-  %289 = and i32 %287, %288
-  %290 = icmp samesign ult i32 %289, 50
-  br i1 %290, label %291, label %376
+296:                                              ; preds = %282
+  %297 = add nuw nsw i32 %.296, %283
+  %298 = sub nsw i32 %297, %284
+  %299 = add nsw i32 %.296, -1
+  %300 = and i32 %298, %299
+  %301 = icmp samesign ult i32 %300, 50
+  br i1 %301, label %302, label %376
 
-291:                                              ; preds = %285
-  %292 = getelementptr inbounds nuw i8, ptr %.0262, i64 16
-  store ptr null, ptr %292, align 8
+302:                                              ; preds = %296
+  %303 = getelementptr inbounds nuw i8, ptr %.0262, i64 16
+  store ptr null, ptr %303, align 8
   br label %376
 
-293:                                              ; preds = %282
+304:                                              ; preds = %282
   store i8 1, ptr %80, align 4
-  %294 = getelementptr inbounds nuw i8, ptr %80, i64 2
-  store i16 %7, ptr %294, align 2
-  %295 = getelementptr inbounds nuw i8, ptr %.0262, i64 4
-  %296 = load i32, ptr %295, align 4
-  %297 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  store i32 %296, ptr %297, align 4
-  %298 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
-  %299 = load i8, ptr %298, align 8, !range !12, !noundef !13
-  %300 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i8 %299, ptr %300, align 4
-  %301 = getelementptr inbounds nuw i8, ptr %80, i64 20
-  store i32 0, ptr %301, align 4
-  %302 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
-  store i16 %7, ptr %302, align 2
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %304 = load i32, ptr %303, align 4
-  store i32 %304, ptr %295, align 4
-  %305 = xor i1 %9, true
-  %306 = zext i1 %305 to i8
-  store i8 %306, ptr %298, align 8
-  %307 = getelementptr inbounds nuw i8, ptr %.0262, i64 16
-  %308 = load ptr, ptr %307, align 8
-  %.not285 = icmp eq ptr %308, null
-  br i1 %.not285, label %337, label %309
+  %305 = getelementptr inbounds nuw i8, ptr %80, i64 2
+  store i16 %7, ptr %305, align 2
+  %306 = getelementptr inbounds nuw i8, ptr %.0262, i64 4
+  %307 = load i32, ptr %306, align 4
+  %308 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  store i32 %307, ptr %308, align 4
+  %309 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
+  %310 = load i8, ptr %309, align 8, !range !12, !noundef !13
+  %311 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store i8 %310, ptr %311, align 4
+  %312 = getelementptr inbounds nuw i8, ptr %80, i64 20
+  store i32 0, ptr %312, align 4
+  %313 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
+  store i16 %7, ptr %313, align 2
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %315 = load i32, ptr %314, align 4
+  store i32 %315, ptr %306, align 4
+  %316 = xor i1 %9, true
+  %317 = zext i1 %316 to i8
+  store i8 %317, ptr %309, align 8
+  %318 = getelementptr inbounds nuw i8, ptr %.0262, i64 16
+  %319 = load ptr, ptr %318, align 8
+  %.not285 = icmp eq ptr %319, null
+  br i1 %.not285, label %348, label %320
 
-309:                                              ; preds = %293
-  %310 = load i16, ptr %308, align 8
-  %311 = icmp ugt i16 %310, 98
-  br i1 %311, label %312, label %313
+320:                                              ; preds = %304
+  %321 = load i16, ptr %319, align 8
+  %322 = icmp ugt i16 %321, 98
+  br i1 %322, label %323, label %324
 
-312:                                              ; preds = %309
-  store ptr null, ptr %307, align 8
+323:                                              ; preds = %320
+  store ptr null, ptr %318, align 8
   br label %reassembly_add_segment.exit307
 
-313:                                              ; preds = %309
-  %314 = zext i16 %4 to i32
-  %315 = load i32, ptr %303, align 4
-  %316 = call ptr @wmem_file_scope()
-  %317 = zext i16 %5 to i64
-  %318 = call ptr @tvb_memdup(ptr noundef %316, ptr noundef %1, i32 noundef range(i32 0, 65536) %314, i64 noundef %317)
-  %319 = load ptr, ptr %307, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
-  %321 = zext nneg i16 %310 to i64
-  %322 = getelementptr [100 x %struct.rlc_segment], ptr %320, i64 0, i64 %321
-  store i32 %315, ptr %322, align 8
-  %323 = load ptr, ptr %307, align 8
-  %.idx.i306 = mul nuw nsw i64 %321, 24
-  %324 = getelementptr i8, ptr %323, i64 12
-  %325 = getelementptr i8, ptr %324, i64 %.idx.i306
-  store i16 %7, ptr %325, align 4
-  %326 = load ptr, ptr %307, align 8
-  %327 = getelementptr i8, ptr %326, i64 16
-  %328 = getelementptr i8, ptr %327, i64 %.idx.i306
-  store ptr %318, ptr %328, align 8
-  %329 = load ptr, ptr %307, align 8
-  %330 = getelementptr i8, ptr %329, i64 24
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i306
-  store i16 %5, ptr %331, align 8
-  %332 = load ptr, ptr %307, align 8
-  %333 = load i16, ptr %332, align 8
-  %334 = add i16 %333, 1
-  store i16 %334, ptr %332, align 8
+324:                                              ; preds = %320
+  %325 = zext i16 %4 to i32
+  %326 = load i32, ptr %314, align 4
+  %327 = call ptr @wmem_file_scope()
+  %328 = zext i16 %5 to i64
+  %329 = call ptr @tvb_memdup(ptr noundef %327, ptr noundef %1, i32 noundef range(i32 0, 65536) %325, i64 noundef %328)
+  %330 = load ptr, ptr %318, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
+  %332 = zext nneg i16 %321 to i64
+  %333 = getelementptr [100 x %struct.rlc_segment], ptr %331, i64 0, i64 %332
+  store i32 %326, ptr %333, align 8
+  %334 = load ptr, ptr %318, align 8
+  %.idx.i306 = mul nuw nsw i64 %332, 24
+  %335 = getelementptr i8, ptr %334, i64 12
+  %336 = getelementptr i8, ptr %335, i64 %.idx.i306
+  store i16 %7, ptr %336, align 4
+  %337 = load ptr, ptr %318, align 8
+  %338 = getelementptr i8, ptr %337, i64 16
+  %339 = getelementptr i8, ptr %338, i64 %.idx.i306
+  store ptr %329, ptr %339, align 8
+  %340 = load ptr, ptr %318, align 8
+  %341 = getelementptr i8, ptr %340, i64 24
+  %342 = getelementptr i8, ptr %341, i64 %.idx.i306
+  store i16 %5, ptr %342, align 8
+  %343 = load ptr, ptr %318, align 8
+  %344 = load i16, ptr %343, align 8
+  %345 = add i16 %344, 1
+  store i16 %345, ptr %343, align 8
   br label %reassembly_add_segment.exit307
 
-reassembly_add_segment.exit307:                   ; preds = %312, %313
+reassembly_add_segment.exit307:                   ; preds = %323, %324
   %.not297 = xor i1 %8, true
-  %335 = icmp ugt i8 %3, 1
-  %or.cond5 = or i1 %335, %9
+  %346 = icmp ugt i8 %3, 1
+  %or.cond5 = or i1 %346, %9
   %or.cond298 = and i1 %or.cond5, %.not297
-  br i1 %or.cond298, label %336, label %337
+  br i1 %or.cond298, label %347, label %348
 
-336:                                              ; preds = %reassembly_add_segment.exit307
-  %.val303 = load i32, ptr %303, align 4
+347:                                              ; preds = %reassembly_add_segment.exit307
+  %.val303 = load i32, ptr %314, align 4
   call fastcc void @reassembly_record(ptr noundef %.0262, i32 %.val303, i16 noundef zeroext %7, ptr noundef %2)
-  store ptr null, ptr %307, align 8
-  br label %337
+  store ptr null, ptr %318, align 8
+  br label %348
 
-337:                                              ; preds = %reassembly_add_segment.exit307, %336, %293
-  %338 = icmp ugt i8 %3, 1
-  %or.cond7 = or i1 %338, %8
-  %or.cond300 = and i1 %or.cond7, %305
-  br i1 %or.cond300, label %339, label %351
+348:                                              ; preds = %reassembly_add_segment.exit307, %347, %304
+  %349 = icmp ugt i8 %3, 1
+  %or.cond7 = or i1 %349, %8
+  %or.cond300 = and i1 %or.cond7, %316
+  br i1 %or.cond300, label %350, label %351
 
-339:                                              ; preds = %337
-  %340 = call i32 @tvb_reported_length(ptr noundef %1)
-  %341 = load i8, ptr @global_rlc_lte_reassembly, align 1, !range !12, !noundef !13
-  %342 = trunc nuw i8 %341 to i1
-  br i1 %342, label %343, label %351
+350:                                              ; preds = %348
+  %351 = call i32 @tvb_reported_length(ptr noundef %1)
+  %352 = load i8, ptr @global_rlc_lte_reassembly, align 1, !range !12, !noundef !13
+  %353 = trunc nuw i8 %352 to i1
+  br i1 %353, label %354, label %351
 
-343:                                              ; preds = %339
-  %344 = zext i16 %6 to i32
-  %345 = trunc i32 %340 to i16
-  %346 = sub i16 %345, %6
-  %347 = call ptr @wmem_file_scope()
-  %348 = call noalias dereferenceable_or_null(2408) ptr @wmem_alloc0(ptr noundef %347, i64 noundef 2408) #18
-  store ptr %348, ptr %307, align 8
-  %349 = load i32, ptr %303, align 4
-  %350 = zext i16 %346 to i32
-  call fastcc void @reassembly_add_segment(ptr noundef %.0262, i16 noundef zeroext %7, i32 noundef %349, ptr noundef %1, i32 noundef %344, i32 noundef %350)
+354:                                              ; preds = %350
+  %355 = zext i16 %6 to i32
+  %356 = trunc i32 %351 to i16
+  %357 = sub i16 %356, %6
+  %358 = call ptr @wmem_file_scope()
+  %359 = call noalias dereferenceable_or_null(2408) ptr @wmem_alloc0(ptr noundef %358, i64 noundef 2408) #18
+  store ptr %359, ptr %318, align 8
+  %360 = load i32, ptr %314, align 4
+  %361 = zext i16 %357 to i32
+  call fastcc void @reassembly_add_segment(ptr noundef %.0262, i16 noundef zeroext %7, i32 noundef %360, ptr noundef %1, i32 noundef %355, i32 noundef %361)
   br label %351
 
-351:                                              ; preds = %339, %343, %337
-  %.not286 = icmp eq i32 %296, 0
+391:                                              ; preds = %339, %343, %337
+  %.not286 = icmp eq i32 %307, 0
   br i1 %.not286, label %419, label %352
 
 352:                                              ; preds = %351
@@ -4255,108 +4255,108 @@ reassembly_add_segment.exit307:                   ; preds = %312, %313
   %381 = getelementptr inbounds nuw i8, ptr %80, i64 20
   store i32 1, ptr %381, align 4
   store i8 0, ptr %80, align 4
-  %382 = getelementptr inbounds nuw i8, ptr %80, i64 2
-  store i16 %.2, ptr %382, align 2
-  %383 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i16 %7, ptr %383, align 4
-  %384 = getelementptr inbounds nuw i8, ptr %.0262, i64 4
-  %385 = load i32, ptr %384, align 4
-  %386 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  store i32 %385, ptr %386, align 4
-  %387 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
-  %388 = load i8, ptr %387, align 8, !range !12, !noundef !13
-  %389 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i8 %388, ptr %389, align 4
-  %390 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
-  store i16 %7, ptr %390, align 2
-  %391 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %392 = load i32, ptr %391, align 4
-  store i32 %392, ptr %384, align 4
-  %393 = xor i1 %9, true
-  %394 = zext i1 %393 to i8
-  store i8 %394, ptr %387, align 8
-  br label %419
+  %393 = getelementptr inbounds nuw i8, ptr %80, i64 2
+  store i16 %.2, ptr %393, align 2
+  %394 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  store i16 %7, ptr %394, align 4
+  %395 = getelementptr inbounds nuw i8, ptr %.0262, i64 4
+  %396 = load i32, ptr %395, align 4
+  %397 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  store i32 %396, ptr %397, align 4
+  %398 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
+  %399 = load i8, ptr %398, align 8, !range !12, !noundef !13
+  %400 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store i8 %399, ptr %400, align 4
+  %401 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
+  store i16 %7, ptr %401, align 2
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %403 = load i32, ptr %402, align 4
+  store i32 %403, ptr %395, align 4
+  %404 = xor i1 %9, true
+  %405 = zext i1 %404 to i8
+  store i8 %405, ptr %398, align 8
+  br label %430
 
-395:                                              ; preds = %376
-  %396 = sub nsw i32 %.296, %283
-  %397 = add nsw i32 %396, %284
-  %398 = and i32 %397, %288
-  %399 = lshr exact i32 %.296, 1
-  %400 = icmp samesign ult i32 %398, %399
-  %401 = getelementptr inbounds nuw i8, ptr %80, i64 20
-  %402 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  br i1 %400, label %403, label %404
+406:                                              ; preds = %376
+  %407 = sub nsw i32 %.296, %283
+  %408 = add nsw i32 %407, %284
+  %409 = and i32 %408, %299
+  %410 = lshr exact i32 %.296, 1
+  %411 = icmp samesign ult i32 %409, %410
+  %412 = getelementptr inbounds nuw i8, ptr %80, i64 20
+  %413 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  br i1 %411, label %414, label %415
 
-403:                                              ; preds = %395
-  store i32 3, ptr %401, align 4
-  store i16 %7, ptr %402, align 4
-  br label %419
+414:                                              ; preds = %406
+  store i32 3, ptr %412, align 4
+  store i16 %7, ptr %413, align 4
+  br label %430
 
-404:                                              ; preds = %395
-  store i32 4, ptr %401, align 4
-  store i16 %.2, ptr %402, align 4
-  %405 = add nuw nsw i32 %283, 65535
-  %406 = add nuw nsw i32 %405, %.296
-  %407 = add nuw nsw i32 %.296, 65535
-  %408 = and i32 %406, %407
-  %409 = trunc i32 %408 to i16
-  %410 = getelementptr inbounds nuw i8, ptr %80, i64 18
-  store i16 %409, ptr %410, align 2
-  %411 = getelementptr inbounds nuw i8, ptr %80, i64 2
-  store i16 %.2, ptr %411, align 2
-  %412 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
-  store i16 %7, ptr %412, align 2
-  %413 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %414 = load i32, ptr %413, align 4
-  %415 = getelementptr inbounds nuw i8, ptr %.0262, i64 4
-  store i32 %414, ptr %415, align 4
-  %416 = xor i1 %9, true
-  %417 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
-  %418 = zext i1 %416 to i8
-  store i8 %418, ptr %417, align 8
-  br label %419
+415:                                              ; preds = %406
+  store i32 4, ptr %412, align 4
+  store i16 %.2, ptr %413, align 4
+  %416 = add nuw nsw i32 %283, 65535
+  %417 = add nuw nsw i32 %416, %.296
+  %418 = add nuw nsw i32 %.296, 65535
+  %419 = and i32 %417, %418
+  %420 = trunc i32 %419 to i16
+  %421 = getelementptr inbounds nuw i8, ptr %80, i64 18
+  store i16 %420, ptr %421, align 2
+  %422 = getelementptr inbounds nuw i8, ptr %80, i64 2
+  store i16 %.2, ptr %422, align 2
+  %423 = getelementptr inbounds nuw i8, ptr %.0262, i64 2
+  store i16 %7, ptr %423, align 2
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %425 = load i32, ptr %424, align 4
+  %426 = getelementptr inbounds nuw i8, ptr %.0262, i64 4
+  store i32 %425, ptr %426, align 4
+  %427 = xor i1 %9, true
+  %428 = getelementptr inbounds nuw i8, ptr %.0262, i64 8
+  %429 = zext i1 %427 to i8
+  store i8 %429, ptr %428, align 8
+  br label %430
 
-419:                                              ; preds = %403, %404, %352, %373, %247, %261, %351, %380, %._crit_edge, %138, %reassembly_add_segment.exit305, %279, %106
-  %420 = load ptr, ptr @sequence_analysis_report_hash, align 8
-  %421 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %422 = load i32, ptr %421, align 4
-  %423 = call ptr @wmem_file_scope()
-  %424 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %423, i64 noundef 8) #18
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %424, i64 4
+430:                                              ; preds = %414, %415, %352, %373, %247, %261, %351, %380, %._crit_edge, %138, %reassembly_add_segment.exit305, %279, %106
+  %431 = load ptr, ptr @sequence_analysis_report_hash, align 8
+  %432 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %433 = load i32, ptr %432, align 4
+  %434 = call ptr @wmem_file_scope()
+  %435 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %434, i64 noundef 8) #18
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %435, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %425 = and i32 %.pre.i, -262144
-  store i32 %422, ptr %424, align 4
-  %426 = and i16 %7, 1023
-  %427 = zext nneg i16 %426 to i32
-  %428 = or disjoint i32 %425, %427
-  %429 = load i16, ptr %49, align 2
-  %430 = shl i16 %429, 10
-  %431 = load i16, ptr %55, align 4
-  %432 = and i16 %431, 31
-  %433 = zext nneg i16 %432 to i32
-  %434 = shl nuw nsw i32 %433, 12
-  %435 = and i16 %430, 3072
-  %.masked = zext nneg i16 %435 to i32
-  %436 = or disjoint i32 %428, %.masked
-  %437 = or disjoint i32 %436, %434
-  %438 = load i8, ptr %61, align 1
-  %439 = and i8 %438, 1
-  %440 = zext nneg i8 %439 to i32
-  %441 = shl nuw nsw i32 %440, 17
-  %442 = or disjoint i32 %437, %441
-  store i32 %442, ptr %.phi.trans.insert.i, align 4
-  %443 = call ptr @wmem_map_insert(ptr noundef %420, ptr noundef %424, ptr noundef %80)
+  %436 = and i32 %.pre.i, -262144
+  store i32 %433, ptr %435, align 4
+  %437 = and i16 %7, 1023
+  %438 = zext nneg i16 %437 to i32
+  %439 = or disjoint i32 %436, %438
+  %440 = load i16, ptr %49, align 2
+  %441 = shl i16 %440, 10
+  %442 = load i16, ptr %55, align 4
+  %443 = and i16 %442, 31
+  %444 = zext nneg i16 %443 to i32
+  %445 = shl nuw nsw i32 %444, 12
+  %446 = and i16 %441, 3072
+  %.masked = zext nneg i16 %446 to i32
+  %447 = or disjoint i32 %439, %.masked
+  %448 = or disjoint i32 %447, %445
+  %449 = load i8, ptr %61, align 1
+  %450 = and i8 %449, 1
+  %451 = zext nneg i8 %450 to i32
+  %452 = shl nuw nsw i32 %451, 17
+  %453 = or disjoint i32 %448, %452
+  store i32 %453, ptr %.phi.trans.insert.i, align 4
+  %454 = call ptr @wmem_map_insert(ptr noundef %431, ptr noundef %435, ptr noundef %80)
   call fastcc void @addChannelSequenceInfo(ptr noundef %80, i1 noundef zeroext false, ptr noundef %2, i16 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef %10, ptr noundef %0, ptr noundef %11, ptr noundef %1)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %44, %419
+.sink.split:                                      ; preds = %44, %430
   %.sink312 = phi ptr [ %80, %419 ], [ %43, %44 ]
-  %444 = getelementptr inbounds nuw i8, ptr %.sink312, i64 20
-  %445 = load i32, ptr %444, align 4
-  br label %446
+  %455 = getelementptr inbounds nuw i8, ptr %.sink312, i64 20
+  %456 = load i32, ptr %455, align 4
+  br label %457
 
-446:                                              ; preds = %.sink.split, %78
-  %.0 = phi i32 [ 6, %78 ], [ %445, %.sink.split ]
+457:                                              ; preds = %.sink.split, %78
+  %.0 = phi i32 [ 6, %78 ], [ %456, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
   ret i32 %.0
 }

@@ -2069,7 +2069,7 @@ define dso_local void @qi_flush_piotlb(ptr noundef %0, i16 noundef zeroext %1, i
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1562, i32 2305, i64 12) #20, !srcloc !52
   tail call void asm sideeffect "502: nop\0A\09.pushsection .discard.instr_end\0A\09.long 502b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 502) #20, !srcloc !53
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i64 noundef 0) #18
-  br label %46
+  br label %50
 
 10:                                               ; preds = %6
   %11 = zext i32 %2 to i64
@@ -2103,10 +2103,10 @@ define dso_local void @qi_flush_piotlb(ptr noundef %0, i16 noundef zeroext %1, i
   %31 = or i64 %26, -4096
   br label %32
 
-32:                                               ; preds = %30, %17
-  %33 = phi i64 [ %31, %30 ], [ -1, %17 ]
+46:                                               ; preds = %30, %17
+  %47 = phi i64 [ %31, %30 ], [ -1, %17 ]
   %34 = zext i32 %2 to i64
-  %35 = shl nuw i64 %34, 32
+  %35 = shl nuw i64 %34, 46
   %36 = zext i16 %1 to i64
   %37 = shl nuw nsw i64 %36, 16
   %38 = or disjoint i64 %35, %37
@@ -2123,7 +2123,7 @@ define dso_local void @qi_flush_piotlb(ptr noundef %0, i16 noundef zeroext %1, i
   %45 = call i32 @qi_submit_sync(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, i64 noundef 0), !range !49
   br label %46
 
-46:                                               ; preds = %42, %8
+50:                                               ; preds = %42, %8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
   ret void
 }
