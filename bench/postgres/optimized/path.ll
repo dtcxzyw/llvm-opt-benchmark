@@ -169,8 +169,8 @@ define dso_local void @canonicalize_path_enc(ptr noundef %0, i32 %1) local_unnam
   br i1 %4, label %.lr.ph.preheader.i, label %trim_trailing_separator.exit
 
 .lr.ph.preheader.i:                               ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %3
-  %.013.i = getelementptr inbounds i8, ptr %5, i64 -1
+  %5 = getelementptr i8, ptr %0, i64 %3
+  %.013.i = getelementptr i8, ptr %5, i64 -1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
@@ -978,8 +978,8 @@ trim_directory.exit:                              ; preds = %20, %.critedge.i
   br i1 %71, label %.lr.ph.preheader.i, label %trim_trailing_separator.exit
 
 .lr.ph.preheader.i:                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %70
-  %.013.i48 = getelementptr inbounds i8, ptr %72, i64 -1
+  %72 = getelementptr i8, ptr %0, i64 %70
+  %.013.i48 = getelementptr i8, ptr %72, i64 -1
   br label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %75, %.lr.ph.preheader.i

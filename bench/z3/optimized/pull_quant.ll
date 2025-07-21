@@ -5603,8 +5603,8 @@ _ZN6bufferI6symbolLb1ELj16EE9push_backERKS0_.exit: ; preds = %_ZSt4findIP6symbol
 .lr.ph.i.i145.preheader:                          ; preds = %._crit_edge233.loopexit
   %229 = zext i32 %.pre249 to i64
   %.idx = shl nuw nsw i64 %229, 3
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %230, i64 -8
+  %230 = getelementptr i8, ptr %227, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %230, i64 -8
   br label %.lr.ph.i.i145
 
 .lr.ph.i.i145:                                    ; preds = %.lr.ph.i.i145.preheader, %.lr.ph.i.i145
@@ -5749,8 +5749,8 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i:    ; preds = %.noexc155, %._crit_
 .lr.ph.i.i158.preheader:                          ; preds = %.loopexit203
   %284 = zext i32 %282 to i64
   %.idx199 = shl nuw nsw i64 %284, 3
-  %285 = getelementptr inbounds nuw i8, ptr %281, i64 %.idx199
-  %.012.i.i156 = getelementptr inbounds i8, ptr %285, i64 -8
+  %285 = getelementptr i8, ptr %281, i64 %.idx199
+  %.012.i.i156 = getelementptr i8, ptr %285, i64 -8
   br label %.lr.ph.i.i158
 
 .lr.ph.i.i158:                                    ; preds = %.lr.ph.i.i158.preheader, %.lr.ph.i.i158

@@ -948,8 +948,8 @@ define i32 @wc_DhAgree_ct(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %.not54, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %.04453 = getelementptr inbounds i8, ptr %22, i64 -1
+  %22 = getelementptr i8, ptr %1, i64 %15
+  %.04453 = getelementptr i8, ptr %22, i64 -1
   %23 = load i32, ptr %2, align 4, !tbaa !21
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 %24

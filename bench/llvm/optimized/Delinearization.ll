@@ -2044,8 +2044,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit30: ; preds
   %65 = load ptr, ptr %2, align 8, !tbaa !3
   %66 = zext i32 %63 to i64
   %.idx = shl nuw nsw i64 %66, 3
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %67, i64 -8
+  %67 = getelementptr i8, ptr %65, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %67, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -2901,8 +2901,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit30.i.i: ; p
   %283 = load ptr, ptr %8, align 8, !tbaa !3
   %284 = zext i32 %281 to i64
   %.idx.i.i = shl nuw nsw i64 %284, 3
-  %285 = getelementptr inbounds nuw i8, ptr %283, i64 %.idx.i.i
-  %.012.i.i.i.i = getelementptr inbounds i8, ptr %285, i64 -8
+  %285 = getelementptr i8, ptr %283, i64 %.idx.i.i
+  %.012.i.i.i.i = getelementptr i8, ptr %285, i64 -8
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i

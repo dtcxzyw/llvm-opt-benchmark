@@ -38772,9 +38772,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.idx = shl nuw nsw i64 %13, 3
-  %15 = getelementptr i8, ptr %14, i64 %.idx
-  %16 = getelementptr i8, ptr %15, i64 -8
-  %.not50 = icmp eq i32 %12, 1
+  %15 = add nsw i64 %.idx, -8
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %.not50 = icmp eq i64 %15, 0
   br i1 %.not50, label %.critedge, label %.lr.ph
 
 17:                                               ; preds = %.lr.ph
@@ -106320,9 +106320,9 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.idx = shl nuw nsw i64 %23, 3
-  %25 = getelementptr i8, ptr %24, i64 %.idx
-  %26 = getelementptr i8, ptr %25, i64 -8
-  %.not71 = icmp eq i32 %22, 1
+  %25 = add nsw i64 %.idx, -8
+  %26 = getelementptr i8, ptr %24, i64 %25
+  %.not71 = icmp eq i64 %25, 0
   br i1 %.not71, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20

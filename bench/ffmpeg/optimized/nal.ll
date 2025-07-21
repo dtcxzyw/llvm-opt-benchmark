@@ -8,183 +8,182 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 3
-  %7 = sub nsw i64 0, %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 -3
-  %10 = icmp ult ptr %0, %9
-  br i1 %10, label %.lr.ph.i, label %._crit_edge.i
+  %4 = ptrtoint ptr %0 to i64
+  %5 = and i64 %4, 3
+  %6 = sub nuw nsw i64 4, %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = getelementptr inbounds i8, ptr %1, i64 -3
+  %9 = icmp ult ptr %0, %8
+  br i1 %9, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %2, %21
-  %.04456.i = phi ptr [ %22, %21 ], [ %0, %2 ]
-  %11 = load i8, ptr %.04456.i, align 1, !tbaa !4
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %21
+.lr.ph.i:                                         ; preds = %2, %20
+  %.04456.i = phi ptr [ %21, %20 ], [ %0, %2 ]
+  %10 = load i8, ptr %.04456.i, align 1, !tbaa !4
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %12, label %20
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.04456.i, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !4
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %17, label %21
+12:                                               ; preds = %.lr.ph.i
+  %13 = getelementptr inbounds nuw i8, ptr %.04456.i, i64 1
+  %14 = load i8, ptr %13, align 1, !tbaa !4
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %16, label %20
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %.04456.i, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !4
-  %20 = icmp eq i8 %19, 1
-  br i1 %20, label %nal_find_startcode_internal.exit, label %21
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.04456.i, i64 2
+  %18 = load i8, ptr %17, align 1, !tbaa !4
+  %19 = icmp eq i8 %18, 1
+  br i1 %19, label %nal_find_startcode_internal.exit, label %20
 
-21:                                               ; preds = %17, %13, %.lr.ph.i
-  %22 = getelementptr inbounds nuw i8, ptr %.04456.i, i64 1
-  %23 = icmp ult ptr %22, %8
-  %24 = icmp ult ptr %22, %9
-  %25 = and i1 %23, %24
-  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+20:                                               ; preds = %16, %12, %.lr.ph.i
+  %21 = getelementptr inbounds nuw i8, ptr %.04456.i, i64 1
+  %22 = icmp ult ptr %21, %7
+  %23 = icmp ult ptr %21, %8
+  %24 = and i1 %22, %23
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %21, %2
-  %.044.lcssa.i = phi ptr [ %0, %2 ], [ %22, %21 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 -6
-  %27 = icmp ult ptr %.044.lcssa.i, %26
-  br i1 %27, label %.lr.ph68.i, label %.preheader.i
+._crit_edge.i:                                    ; preds = %20, %2
+  %.044.lcssa.i = phi ptr [ %0, %2 ], [ %21, %20 ]
+  %25 = getelementptr inbounds i8, ptr %1, i64 -6
+  %26 = icmp ult ptr %.044.lcssa.i, %25
+  br i1 %26, label %.lr.ph68.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %68, %._crit_edge.i
-  %.145.lcssa.i = phi ptr [ %.044.lcssa.i, %._crit_edge.i ], [ %69, %68 ]
-  %28 = icmp ult ptr %.145.lcssa.i, %9
-  br i1 %28, label %.lr.ph71.preheader.i, label %nal_find_startcode_internal.exit.thread
+.preheader.i:                                     ; preds = %67, %._crit_edge.i
+  %.145.lcssa.i = phi ptr [ %.044.lcssa.i, %._crit_edge.i ], [ %68, %67 ]
+  %27 = icmp ult ptr %.145.lcssa.i, %8
+  br i1 %27, label %.lr.ph71.preheader.i, label %nal_find_startcode_internal.exit.thread
 
 .lr.ph71.preheader.i:                             ; preds = %.preheader.i
   %.145.lcssa83.i = ptrtoint ptr %.145.lcssa.i to i64
-  %29 = add i64 %3, -3
-  %30 = sub i64 %29, %.145.lcssa83.i
-  %scevgep.i = getelementptr i8, ptr %.145.lcssa.i, i64 %30
+  %28 = add i64 %3, -3
+  %29 = sub i64 %28, %.145.lcssa83.i
+  %scevgep.i = getelementptr i8, ptr %.145.lcssa.i, i64 %29
   br label %.lr.ph71.i
 
-.lr.ph68.i:                                       ; preds = %._crit_edge.i, %68
-  %.14566.i = phi ptr [ %69, %68 ], [ %.044.lcssa.i, %._crit_edge.i ]
-  %31 = load i32, ptr %.14566.i, align 4
-  %32 = sub i32 16843008, %31
-  %33 = or i32 %32, %31
-  %34 = and i32 %33, -2139062144
-  %.not.i = icmp eq i32 %34, -2139062144
-  %35 = lshr i32 %31, 16
-  %36 = trunc i32 %35 to i8
-  br i1 %.not.i, label %68, label %37
+.lr.ph68.i:                                       ; preds = %._crit_edge.i, %67
+  %.14566.i = phi ptr [ %68, %67 ], [ %.044.lcssa.i, %._crit_edge.i ]
+  %30 = load i32, ptr %.14566.i, align 4
+  %31 = sub i32 16843008, %30
+  %32 = or i32 %31, %30
+  %33 = and i32 %32, -2139062144
+  %.not.i = icmp eq i32 %33, -2139062144
+  %34 = lshr i32 %30, 16
+  %35 = trunc i32 %34 to i8
+  br i1 %.not.i, label %67, label %36
 
-37:                                               ; preds = %.lr.ph68.i
-  %38 = and i32 %31, 65280
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %48
+36:                                               ; preds = %.lr.ph68.i
+  %37 = and i32 %30, 65280
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %47
 
-40:                                               ; preds = %37
-  %41 = and i32 %31, 255
-  %42 = icmp eq i32 %41, 0
-  %43 = icmp eq i8 %36, 1
-  %or.cond.i = and i1 %42, %43
-  br i1 %or.cond.i, label %nal_find_startcode_internal.exit, label %44
+39:                                               ; preds = %36
+  %40 = and i32 %30, 255
+  %41 = icmp eq i32 %40, 0
+  %42 = icmp eq i8 %35, 1
+  %or.cond.i = and i1 %41, %42
+  br i1 %or.cond.i, label %nal_find_startcode_internal.exit, label %43
 
-44:                                               ; preds = %40
-  %45 = icmp eq i8 %36, 0
-  br i1 %45, label %46, label %48
+43:                                               ; preds = %39
+  %44 = icmp eq i8 %35, 0
+  br i1 %44, label %45, label %47
 
-46:                                               ; preds = %44
-  %.mask.i = and i32 %31, -16777216
-  %47 = icmp eq i32 %.mask.i, 16777216
-  br i1 %47, label %.thread.loopexit87.split.loop.exit.i, label %.thread85.i
+45:                                               ; preds = %43
+  %.mask.i = and i32 %30, -16777216
+  %46 = icmp eq i32 %.mask.i, 16777216
+  br i1 %46, label %.thread.loopexit87.split.loop.exit.i, label %.thread85.i
 
-48:                                               ; preds = %44, %37
-  %49 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 3
-  %50 = icmp ult i32 %31, 16777216
-  br i1 %50, label %53, label %68
+47:                                               ; preds = %43, %36
+  %48 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 3
+  %49 = icmp ult i32 %30, 16777216
+  br i1 %49, label %52, label %67
 
-.thread85.i:                                      ; preds = %46
-  %51 = icmp ult i32 %31, 16777216
-  br i1 %51, label %.thread86.i, label %68
+.thread85.i:                                      ; preds = %45
+  %50 = icmp ult i32 %30, 16777216
+  br i1 %50, label %.thread86.i, label %67
 
 .thread86.i:                                      ; preds = %.thread85.i
-  %52 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 3
-  br label %55
+  %51 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 3
+  br label %54
 
-53:                                               ; preds = %48
-  %54 = icmp eq i8 %36, 0
-  br i1 %54, label %55, label %._crit_edge84.i
+52:                                               ; preds = %47
+  %53 = icmp eq i8 %35, 0
+  br i1 %53, label %54, label %._crit_edge84.i
 
-._crit_edge84.i:                                  ; preds = %53
+._crit_edge84.i:                                  ; preds = %52
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4
-  br label %60
+  br label %59
 
-55:                                               ; preds = %53, %.thread86.i
-  %56 = phi ptr [ %52, %.thread86.i ], [ %49, %53 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
-  %58 = load i8, ptr %57, align 1, !tbaa !4
-  %59 = icmp eq i8 %58, 1
-  br i1 %59, label %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19, label %60
+54:                                               ; preds = %52, %.thread86.i
+  %55 = phi ptr [ %51, %.thread86.i ], [ %48, %52 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
+  %57 = load i8, ptr %56, align 1, !tbaa !4
+  %58 = icmp eq i8 %57, 1
+  br i1 %58, label %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19, label %59
 
-60:                                               ; preds = %55, %._crit_edge84.i
-  %61 = phi ptr [ %49, %._crit_edge84.i ], [ %56, %55 ]
-  %62 = phi i8 [ %.pre.i, %._crit_edge84.i ], [ %58, %55 ]
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %64, label %68
+59:                                               ; preds = %54, %._crit_edge84.i
+  %60 = phi ptr [ %48, %._crit_edge84.i ], [ %55, %54 ]
+  %61 = phi i8 [ %.pre.i, %._crit_edge84.i ], [ %57, %54 ]
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %63, label %67
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 5
-  %66 = load i8, ptr %65, align 1, !tbaa !4
-  %67 = icmp eq i8 %66, 1
-  br i1 %67, label %nal_find_startcode_internal.exit, label %68
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 5
+  %65 = load i8, ptr %64, align 1, !tbaa !4
+  %66 = icmp eq i8 %65, 1
+  br i1 %66, label %nal_find_startcode_internal.exit, label %67
 
-68:                                               ; preds = %64, %60, %.thread85.i, %48, %.lr.ph68.i
-  %69 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
-  %70 = icmp ult ptr %69, %26
-  br i1 %70, label %.lr.ph68.i, label %.preheader.i, !llvm.loop !9
+67:                                               ; preds = %63, %59, %.thread85.i, %47, %.lr.ph68.i
+  %68 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
+  %69 = icmp ult ptr %68, %25
+  br i1 %69, label %.lr.ph68.i, label %.preheader.i, !llvm.loop !9
 
-.lr.ph71.i:                                       ; preds = %81, %.lr.ph71.preheader.i
-  %.24670.i = phi ptr [ %82, %81 ], [ %.145.lcssa.i, %.lr.ph71.preheader.i ]
-  %71 = load i8, ptr %.24670.i, align 1, !tbaa !4
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %73, label %81
+.lr.ph71.i:                                       ; preds = %80, %.lr.ph71.preheader.i
+  %.24670.i = phi ptr [ %81, %80 ], [ %.145.lcssa.i, %.lr.ph71.preheader.i ]
+  %70 = load i8, ptr %.24670.i, align 1, !tbaa !4
+  %71 = icmp eq i8 %70, 0
+  br i1 %71, label %72, label %80
 
-73:                                               ; preds = %.lr.ph71.i
-  %74 = getelementptr inbounds nuw i8, ptr %.24670.i, i64 1
-  %75 = load i8, ptr %74, align 1, !tbaa !4
-  %76 = icmp eq i8 %75, 0
-  br i1 %76, label %77, label %81
+72:                                               ; preds = %.lr.ph71.i
+  %73 = getelementptr inbounds nuw i8, ptr %.24670.i, i64 1
+  %74 = load i8, ptr %73, align 1, !tbaa !4
+  %75 = icmp eq i8 %74, 0
+  br i1 %75, label %76, label %80
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %.24670.i, i64 2
-  %79 = load i8, ptr %78, align 1, !tbaa !4
-  %80 = icmp eq i8 %79, 1
-  br i1 %80, label %nal_find_startcode_internal.exit, label %81
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %.24670.i, i64 2
+  %78 = load i8, ptr %77, align 1, !tbaa !4
+  %79 = icmp eq i8 %78, 1
+  br i1 %79, label %nal_find_startcode_internal.exit, label %80
 
-81:                                               ; preds = %77, %73, %.lr.ph71.i
-  %82 = getelementptr inbounds nuw i8, ptr %.24670.i, i64 1
-  %exitcond.not.i = icmp eq ptr %82, %scevgep.i
+80:                                               ; preds = %76, %72, %.lr.ph71.i
+  %81 = getelementptr inbounds nuw i8, ptr %.24670.i, i64 1
+  %exitcond.not.i = icmp eq ptr %81, %scevgep.i
   br i1 %exitcond.not.i, label %nal_find_startcode_internal.exit.thread, label %.lr.ph71.i, !llvm.loop !10
 
-.thread.loopexit87.split.loop.exit.i:             ; preds = %46
-  %83 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 1
+.thread.loopexit87.split.loop.exit.i:             ; preds = %45
+  %82 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 1
   br label %nal_find_startcode_internal.exit
 
-nal_find_startcode_internal.exit.loopexit12.split.loop.exit19: ; preds = %55
-  %84 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 2
+nal_find_startcode_internal.exit.loopexit12.split.loop.exit19: ; preds = %54
+  %83 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 2
   br label %nal_find_startcode_internal.exit
 
-nal_find_startcode_internal.exit:                 ; preds = %17, %64, %40, %77, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19, %.thread.loopexit87.split.loop.exit.i
-  %.0.i = phi ptr [ %83, %.thread.loopexit87.split.loop.exit.i ], [ %84, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19 ], [ %.24670.i, %77 ], [ %61, %64 ], [ %.14566.i, %40 ], [ %.04456.i, %17 ]
-  %85 = icmp ult ptr %0, %.0.i
-  %86 = icmp ult ptr %.0.i, %1
-  %or.cond = and i1 %85, %86
-  br i1 %or.cond, label %87, label %nal_find_startcode_internal.exit.thread
+nal_find_startcode_internal.exit:                 ; preds = %16, %63, %39, %76, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19, %.thread.loopexit87.split.loop.exit.i
+  %.0.i = phi ptr [ %82, %.thread.loopexit87.split.loop.exit.i ], [ %83, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19 ], [ %.24670.i, %76 ], [ %60, %63 ], [ %.14566.i, %39 ], [ %.04456.i, %16 ]
+  %84 = icmp ult ptr %0, %.0.i
+  %85 = icmp ult ptr %.0.i, %1
+  %or.cond = and i1 %84, %85
+  br i1 %or.cond, label %86, label %nal_find_startcode_internal.exit.thread
 
-87:                                               ; preds = %nal_find_startcode_internal.exit
-  %88 = getelementptr inbounds i8, ptr %.0.i, i64 -1
-  %89 = load i8, ptr %88, align 1, !tbaa !4
-  %.not = icmp eq i8 %89, 0
-  %spec.select = select i1 %.not, ptr %88, ptr %.0.i
+86:                                               ; preds = %nal_find_startcode_internal.exit
+  %87 = getelementptr inbounds i8, ptr %.0.i, i64 -1
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %.not = icmp eq i8 %88, 0
+  %spec.select = select i1 %.not, ptr %87, ptr %.0.i
   br label %nal_find_startcode_internal.exit.thread
 
-nal_find_startcode_internal.exit.thread:          ; preds = %81, %.preheader.i, %87, %nal_find_startcode_internal.exit
-  %.0 = phi ptr [ %.0.i, %nal_find_startcode_internal.exit ], [ %spec.select, %87 ], [ %1, %.preheader.i ], [ %1, %81 ]
+nal_find_startcode_internal.exit.thread:          ; preds = %80, %.preheader.i, %86, %nal_find_startcode_internal.exit
+  %.0 = phi ptr [ %.0.i, %nal_find_startcode_internal.exit ], [ %spec.select, %86 ], [ %1, %.preheader.i ], [ %1, %80 ]
   ret ptr %.0
 }
 

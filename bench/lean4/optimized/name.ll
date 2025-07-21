@@ -858,8 +858,8 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i: ; preds = %_ZN4lean
 .lr.ph.i.i.preheader.i:                           ; preds = %._crit_edge.i
   %65 = load ptr, ptr %3, align 8, !tbaa !27
   %.idx.i = shl nuw nsw i64 %59, 3
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %66, i64 -8
+  %66 = getelementptr i8, ptr %65, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %66, i64 -8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -956,8 +956,8 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i50: ; preds = %_ZN4le
 .lr.ph.i.i.preheader.i53:                         ; preds = %._crit_edge.i52
   %97 = load ptr, ptr %4, align 8, !tbaa !27
   %.idx.i54 = shl nuw nsw i64 %91, 3
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx.i54
-  %.012.i.i.i55 = getelementptr inbounds i8, ptr %98, i64 -8
+  %98 = getelementptr i8, ptr %97, i64 %.idx.i54
+  %.012.i.i.i55 = getelementptr i8, ptr %98, i64 -8
   br label %.lr.ph.i.i.i56
 
 .lr.ph.i.i.i56:                                   ; preds = %.lr.ph.i.i.i56, %.lr.ph.i.i.preheader.i53
@@ -1308,8 +1308,8 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i: ; preds = %_ZN4lean
 .lr.ph.i.i.preheader.i:                           ; preds = %._crit_edge.i
   %38 = load ptr, ptr %3, align 8, !tbaa !27
   %.idx.i = shl nuw nsw i64 %32, 3
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %39, i64 -8
+  %39 = getelementptr i8, ptr %38, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %39, i64 -8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -1409,8 +1409,8 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i54: ; preds = %_ZN4le
 .lr.ph.i.i.preheader.i57:                         ; preds = %._crit_edge.i56
   %72 = load ptr, ptr %4, align 8, !tbaa !27
   %.idx.i58 = shl nuw nsw i64 %66, 3
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i58
-  %.012.i.i.i59 = getelementptr inbounds i8, ptr %73, i64 -8
+  %73 = getelementptr i8, ptr %72, i64 %.idx.i58
+  %.012.i.i.i59 = getelementptr i8, ptr %73, i64 -8
   br label %.lr.ph.i.i.i60
 
 .lr.ph.i.i.i60:                                   ; preds = %.lr.ph.i.i.i60, %.lr.ph.i.i.preheader.i57

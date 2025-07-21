@@ -6772,9 +6772,9 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; pr
   store i64 %16, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.idx = shl nuw nsw i64 %10, 3
-  %18 = getelementptr i8, ptr %17, i64 %.idx
-  %19 = getelementptr i8, ptr %18, i64 -8
-  %20 = icmp eq i8 %9, 1
+  %18 = add nsw i64 %.idx, -8
+  %19 = getelementptr i8, ptr %17, i64 %18
+  %20 = icmp eq i64 %18, 0
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit

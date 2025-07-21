@@ -1473,8 +1473,8 @@ castleReportCurrent.exit:                         ; preds = %.thread719, %mmbit_
 
 .lr.ph1183.preheader:                             ; preds = %775
   %801 = zext nneg i32 %778 to i64
-  %802 = getelementptr inbounds nuw i8, ptr %771, i64 %801
-  %803 = getelementptr inbounds i8, ptr %802, i64 -8
+  %802 = getelementptr i8, ptr %771, i64 %801
+  %803 = getelementptr i8, ptr %802, i64 -8
   br label %.lr.ph1183
 
 804:                                              ; preds = %.lr.ph1183
@@ -5012,8 +5012,8 @@ mmbit_get_flat_block.exit77:                      ; preds = %2669, %2672, %2675,
 
 .lr.ph1345.preheader:                             ; preds = %2664
   %2690 = zext nneg i32 %2667 to i64
-  %2691 = getelementptr inbounds nuw i8, ptr %2659, i64 %2690
-  %2692 = getelementptr inbounds i8, ptr %2691, i64 -8
+  %2691 = getelementptr i8, ptr %2659, i64 %2690
+  %2692 = getelementptr i8, ptr %2691, i64 -8
   br label %.lr.ph1345
 
 2693:                                             ; preds = %.lr.ph1345
@@ -5156,8 +5156,8 @@ mmbit_get_flat_block.exit:                        ; preds = %2738, %2741, %2744,
 
 .lr.ph1349.preheader:                             ; preds = %2733
   %2760 = zext nneg i32 %2736 to i64
-  %2761 = getelementptr inbounds nuw i8, ptr %740, i64 %2760
-  %2762 = getelementptr inbounds i8, ptr %2761, i64 -8
+  %2761 = getelementptr i8, ptr %740, i64 %2760
+  %2762 = getelementptr i8, ptr %2761, i64 -8
   br label %.lr.ph1349
 
 2763:                                             ; preds = %.lr.ph1349
@@ -6706,8 +6706,8 @@ castleReportCurrent.exit:                         ; preds = %.thread609, %mmbit_
 
 .lr.ph995.preheader:                              ; preds = %773
   %799 = zext nneg i32 %776 to i64
-  %800 = getelementptr inbounds nuw i8, ptr %769, i64 %799
-  %801 = getelementptr inbounds i8, ptr %800, i64 -8
+  %800 = getelementptr i8, ptr %769, i64 %799
+  %801 = getelementptr i8, ptr %800, i64 -8
   br label %.lr.ph995
 
 802:                                              ; preds = %.lr.ph995
@@ -9431,8 +9431,8 @@ mmbit_get_flat_block.exit71:                      ; preds = %2237, %2240, %2243,
 
 .lr.ph1115.preheader:                             ; preds = %2232
   %2258 = zext nneg i32 %2235 to i64
-  %2259 = getelementptr inbounds nuw i8, ptr %2227, i64 %2258
-  %2260 = getelementptr inbounds i8, ptr %2259, i64 -8
+  %2259 = getelementptr i8, ptr %2227, i64 %2258
+  %2260 = getelementptr i8, ptr %2259, i64 -8
   br label %.lr.ph1115
 
 2261:                                             ; preds = %.lr.ph1115
@@ -9576,8 +9576,8 @@ mmbit_get_flat_block.exit:                        ; preds = %2306, %2309, %2312,
 
 .lr.ph1119.preheader:                             ; preds = %2301
   %2329 = zext nneg i32 %2304 to i64
-  %2330 = getelementptr inbounds nuw i8, ptr %740, i64 %2329
-  %2331 = getelementptr inbounds i8, ptr %2330, i64 -8
+  %2330 = getelementptr i8, ptr %740, i64 %2329
+  %2331 = getelementptr i8, ptr %2330, i64 -8
   br label %.lr.ph1119
 
 2332:                                             ; preds = %.lr.ph1119
@@ -12517,8 +12517,8 @@ mmbit_get_flat_block.exit:                        ; preds = %1592, %1595, %1598,
 
 .lr.ph911.preheader:                              ; preds = %1587
   %1613 = zext nneg i32 %1590 to i64
-  %1614 = getelementptr inbounds nuw i8, ptr %1582, i64 %1613
-  %1615 = getelementptr inbounds i8, ptr %1614, i64 -8
+  %1614 = getelementptr i8, ptr %1582, i64 %1613
+  %1615 = getelementptr i8, ptr %1614, i64 -8
   br label %.lr.ph911
 
 1616:                                             ; preds = %.lr.ph911
@@ -12661,8 +12661,8 @@ mmbit_get_flat_block.exit111:                     ; preds = %1661, %1664, %1667,
 
 .lr.ph915.preheader:                              ; preds = %1656
   %1682 = zext nneg i32 %1659 to i64
-  %1683 = getelementptr inbounds nuw i8, ptr %17, i64 %1682
-  %1684 = getelementptr inbounds i8, ptr %1683, i64 -8
+  %1683 = getelementptr i8, ptr %17, i64 %1682
+  %1684 = getelementptr i8, ptr %1683, i64 -8
   br label %.lr.ph915
 
 1685:                                             ; preds = %.lr.ph915

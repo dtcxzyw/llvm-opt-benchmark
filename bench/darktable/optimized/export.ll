@@ -2939,289 +2939,288 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
 86:                                               ; preds = %67
   %87 = getelementptr i8, ptr %80, i64 %81
   %88 = getelementptr i8, ptr %87, i64 1
-  %89 = add i64 %69, 40
-  %90 = add i64 %89, %72
-  %91 = add i64 %90, %75
-  %92 = add i64 %91, %78
-  %93 = add i64 %92, %81
-  %94 = add i64 %93, 1
-  %95 = load i32, ptr %88, align 4, !tbaa !116
-  %96 = getelementptr i8, ptr %87, i64 5
-  %97 = load i32, ptr %96, align 4, !tbaa !116
-  %98 = getelementptr i8, ptr %87, i64 9
-  %99 = load i32, ptr %98, align 4, !tbaa !116
-  %100 = getelementptr i8, ptr %87, i64 13
-  %101 = load i32, ptr %100, align 4, !tbaa !116
-  %102 = getelementptr i8, ptr %87, i64 17
-  %103 = sext i32 %99 to i64
-  %104 = getelementptr inbounds i8, ptr %102, i64 %103
-  %105 = sext i32 %101 to i64
-  %106 = getelementptr inbounds nuw i8, ptr %82, i64 48
-  %107 = load ptr, ptr %106, align 8, !tbaa !132
-  %108 = call i32 (...) %107() #19
-  %109 = getelementptr inbounds nuw i8, ptr %83, i64 48
-  %110 = load ptr, ptr %109, align 8, !tbaa !133
-  %111 = call i32 (...) %110() #19
+  %89 = add i64 %72, %69
+  %90 = add i64 %89, %75
+  %91 = add i64 %90, %78
+  %92 = add i64 %91, %81
+  %93 = add i64 %92, 41
+  %94 = load i32, ptr %88, align 4, !tbaa !116
+  %95 = getelementptr i8, ptr %87, i64 5
+  %96 = load i32, ptr %95, align 4, !tbaa !116
+  %97 = getelementptr i8, ptr %87, i64 9
+  %98 = load i32, ptr %97, align 4, !tbaa !116
+  %99 = getelementptr i8, ptr %87, i64 13
+  %100 = load i32, ptr %99, align 4, !tbaa !116
+  %101 = getelementptr i8, ptr %87, i64 17
+  %102 = sext i32 %98 to i64
+  %103 = getelementptr inbounds i8, ptr %101, i64 %102
+  %104 = sext i32 %100 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %82, i64 48
+  %106 = load ptr, ptr %105, align 8, !tbaa !132
+  %107 = call i32 (...) %106() #19
+  %108 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %109 = load ptr, ptr %108, align 8, !tbaa !133
+  %110 = call i32 (...) %109() #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
-  store i32 %108, ptr %4, align 4, !tbaa !116
+  store i32 %107, ptr %4, align 4, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store i64 0, ptr %5, align 8, !tbaa !134
-  %112 = call noalias ptr @malloc(i64 noundef %103) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr align 1 %102, i64 %103, i1 false)
-  %113 = icmp slt i32 %95, %108
-  br i1 %113, label %.lr.ph, label %._crit_edge
+  %111 = call noalias ptr @malloc(i64 noundef %102) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %111, ptr align 1 %101, i64 %102, i1 false)
+  %112 = icmp slt i32 %94, %107
+  br i1 %112, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %86
-  %114 = getelementptr inbounds nuw i8, ptr %82, i64 104
-  %115 = load ptr, ptr %114, align 8, !tbaa !135
-  %.not183231 = icmp eq ptr %115, null
+  %113 = getelementptr inbounds nuw i8, ptr %82, i64 104
+  %114 = load ptr, ptr %113, align 8, !tbaa !135
+  %.not183231 = icmp eq ptr %114, null
   br i1 %.not183231, label %.loopexit, label %.lr.ph235
 
-116:                                              ; preds = %120
-  %117 = load ptr, ptr %114, align 8, !tbaa !135
-  %.not183 = icmp eq ptr %117, null
+115:                                              ; preds = %119
+  %116 = load ptr, ptr %113, align 8, !tbaa !135
+  %.not183 = icmp eq ptr %116, null
   br i1 %.not183, label %.loopexit, label %.lr.ph235
 
-.lr.ph235:                                        ; preds = %.lr.ph, %116
-  %118 = phi ptr [ %117, %116 ], [ %115, %.lr.ph ]
-  %.0161196234 = phi ptr [ %119, %116 ], [ %112, %.lr.ph ]
-  %.0159197233 = phi i32 [ %122, %116 ], [ %95, %.lr.ph ]
-  %.0157198232 = phi i64 [ %121, %116 ], [ %103, %.lr.ph ]
-  %119 = call ptr %118(ptr noundef nonnull %82, ptr noundef %.0161196234, i64 noundef %.0157198232, i32 noundef %.0159197233, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
-  %.not184 = icmp eq ptr %119, null
-  br i1 %.not184, label %.loopexit, label %120
+.lr.ph235:                                        ; preds = %.lr.ph, %115
+  %117 = phi ptr [ %116, %115 ], [ %114, %.lr.ph ]
+  %.0161196234 = phi ptr [ %118, %115 ], [ %111, %.lr.ph ]
+  %.0159197233 = phi i32 [ %121, %115 ], [ %94, %.lr.ph ]
+  %.0157198232 = phi i64 [ %120, %115 ], [ %102, %.lr.ph ]
+  %118 = call ptr %117(ptr noundef nonnull %82, ptr noundef %.0161196234, i64 noundef %.0157198232, i32 noundef %.0159197233, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
+  %.not184 = icmp eq ptr %118, null
+  br i1 %.not184, label %.loopexit, label %119
 
-120:                                              ; preds = %.lr.ph235
+119:                                              ; preds = %.lr.ph235
   call void @free(ptr noundef %.0161196234) #19
-  %121 = load i64, ptr %5, align 8, !tbaa !134
-  %122 = load i32, ptr %4, align 4, !tbaa !116
-  %123 = icmp slt i32 %122, %108
-  br i1 %123, label %116, label %._crit_edge
+  %120 = load i64, ptr %5, align 8, !tbaa !134
+  %121 = load i32, ptr %4, align 4, !tbaa !116
+  %122 = icmp slt i32 %121, %107
+  br i1 %122, label %115, label %._crit_edge
 
-._crit_edge:                                      ; preds = %120, %86
-  %.0157.lcssa = phi i64 [ %103, %86 ], [ %121, %120 ]
-  %.0153.lcssa = phi ptr [ null, %86 ], [ %119, %120 ]
-  store i32 %111, ptr %4, align 4, !tbaa !116
+._crit_edge:                                      ; preds = %119, %86
+  %.0157.lcssa = phi i64 [ %102, %86 ], [ %120, %119 ]
+  %.0153.lcssa = phi ptr [ null, %86 ], [ %118, %119 ]
+  store i32 %110, ptr %4, align 4, !tbaa !116
   store i64 0, ptr %5, align 8, !tbaa !134
-  %124 = call noalias ptr @malloc(i64 noundef %105) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %124, ptr align 1 %104, i64 %105, i1 false)
-  %125 = icmp slt i32 %97, %111
-  br i1 %125, label %.lr.ph206, label %._crit_edge207
+  %123 = call noalias ptr @malloc(i64 noundef %104) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %123, ptr align 1 %103, i64 %104, i1 false)
+  %124 = icmp slt i32 %96, %110
+  br i1 %124, label %.lr.ph206, label %._crit_edge207
 
 .lr.ph206:                                        ; preds = %._crit_edge
-  %126 = getelementptr inbounds nuw i8, ptr %83, i64 144
-  %127 = load ptr, ptr %126, align 8, !tbaa !136
-  %.not181238 = icmp eq ptr %127, null
+  %125 = getelementptr inbounds nuw i8, ptr %83, i64 144
+  %126 = load ptr, ptr %125, align 8, !tbaa !136
+  %.not181238 = icmp eq ptr %126, null
   br i1 %.not181238, label %.loopexit, label %.lr.ph242
 
-128:                                              ; preds = %132
-  %129 = load ptr, ptr %126, align 8, !tbaa !136
-  %.not181 = icmp eq ptr %129, null
+127:                                              ; preds = %131
+  %128 = load ptr, ptr %125, align 8, !tbaa !136
+  %.not181 = icmp eq ptr %128, null
   br i1 %.not181, label %.loopexit, label %.lr.ph242
 
-.lr.ph242:                                        ; preds = %.lr.ph206, %128
-  %130 = phi ptr [ %129, %128 ], [ %127, %.lr.ph206 ]
-  %.1162201241 = phi ptr [ %131, %128 ], [ %124, %.lr.ph206 ]
-  %.1160202240 = phi i32 [ %134, %128 ], [ %97, %.lr.ph206 ]
-  %.0158203239 = phi i64 [ %133, %128 ], [ %105, %.lr.ph206 ]
-  %131 = call ptr %130(ptr noundef nonnull %83, ptr noundef %.1162201241, i64 noundef %.0158203239, i32 noundef %.1160202240, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
-  %.not182 = icmp eq ptr %131, null
-  br i1 %.not182, label %.loopexit, label %132
+.lr.ph242:                                        ; preds = %.lr.ph206, %127
+  %129 = phi ptr [ %128, %127 ], [ %126, %.lr.ph206 ]
+  %.1162201241 = phi ptr [ %130, %127 ], [ %123, %.lr.ph206 ]
+  %.1160202240 = phi i32 [ %133, %127 ], [ %96, %.lr.ph206 ]
+  %.0158203239 = phi i64 [ %132, %127 ], [ %104, %.lr.ph206 ]
+  %130 = call ptr %129(ptr noundef nonnull %83, ptr noundef %.1162201241, i64 noundef %.0158203239, i32 noundef %.1160202240, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
+  %.not182 = icmp eq ptr %130, null
+  br i1 %.not182, label %.loopexit, label %131
 
-132:                                              ; preds = %.lr.ph242
+131:                                              ; preds = %.lr.ph242
   call void @free(ptr noundef %.1162201241) #19
-  %133 = load i64, ptr %5, align 8, !tbaa !134
-  %134 = load i32, ptr %4, align 4, !tbaa !116
-  %135 = icmp slt i32 %134, %111
-  br i1 %135, label %128, label %._crit_edge207.thread
+  %132 = load i64, ptr %5, align 8, !tbaa !134
+  %133 = load i32, ptr %4, align 4, !tbaa !116
+  %134 = icmp slt i32 %133, %110
+  br i1 %134, label %127, label %._crit_edge207.thread
 
-._crit_edge207.thread:                            ; preds = %132
-  %136 = icmp ne ptr %.0153.lcssa, null
-  br label %137
+._crit_edge207.thread:                            ; preds = %131
+  %135 = icmp ne ptr %.0153.lcssa, null
+  br label %136
 
 ._crit_edge207:                                   ; preds = %._crit_edge
   %.not226 = icmp eq ptr %.0153.lcssa, null
-  br i1 %.not226, label %224, label %137
+  br i1 %.not226, label %223, label %136
 
-137:                                              ; preds = %._crit_edge207.thread, %._crit_edge207
-  %138 = phi i1 [ %136, %._crit_edge207.thread ], [ true, %._crit_edge207 ]
-  %.1156.lcssa221 = phi ptr [ %131, %._crit_edge207.thread ], [ null, %._crit_edge207 ]
-  %.0158.lcssa220 = phi i64 [ %133, %._crit_edge207.thread ], [ %105, %._crit_edge207 ]
-  %139 = add nsw i32 %101, %99
-  %140 = sext i32 %139 to i64
-  %141 = sub nsw i64 %36, %140
-  %142 = add i64 %.0157.lcssa, %141
-  %143 = add i64 %142, %.0158.lcssa220
-  %144 = call noalias ptr @malloc(i64 noundef %143) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr align 1 %33, i64 %94, i1 false)
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %94
-  store i32 %108, ptr %145, align 1
-  %146 = getelementptr i8, ptr %144, i64 %93
-  %147 = getelementptr i8, ptr %146, i64 5
-  store i32 %111, ptr %147, align 1
-  %148 = getelementptr i8, ptr %146, i64 9
+136:                                              ; preds = %._crit_edge207.thread, %._crit_edge207
+  %137 = phi i1 [ %135, %._crit_edge207.thread ], [ true, %._crit_edge207 ]
+  %.1156.lcssa221 = phi ptr [ %130, %._crit_edge207.thread ], [ null, %._crit_edge207 ]
+  %.0158.lcssa220 = phi i64 [ %132, %._crit_edge207.thread ], [ %104, %._crit_edge207 ]
+  %138 = add nsw i32 %100, %98
+  %139 = sext i32 %138 to i64
+  %140 = sub nsw i64 %36, %139
+  %141 = add i64 %.0157.lcssa, %140
+  %142 = add i64 %141, %.0158.lcssa220
+  %143 = call noalias ptr @malloc(i64 noundef %142) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %143, ptr align 1 %33, i64 %93, i1 false)
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %93
+  store i32 %107, ptr %144, align 1
+  %145 = getelementptr i8, ptr %143, i64 %92
+  %146 = getelementptr i8, ptr %145, i64 45
+  store i32 %110, ptr %146, align 1
+  %147 = getelementptr i8, ptr %145, i64 49
   %.0.extract.trunc61 = trunc i64 %.0157.lcssa to i32
-  store i32 %.0.extract.trunc61, ptr %148, align 1
-  %149 = getelementptr i8, ptr %146, i64 13
+  store i32 %.0.extract.trunc61, ptr %147, align 1
+  %148 = getelementptr i8, ptr %145, i64 53
   %.0.extract.trunc = trunc i64 %.0158.lcssa220 to i32
-  store i32 %.0.extract.trunc, ptr %149, align 1
-  %150 = add i64 %93, 17
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 %150
-  br i1 %138, label %152, label %153
+  store i32 %.0.extract.trunc, ptr %148, align 1
+  %149 = add i64 %92, 57
+  %150 = getelementptr inbounds nuw i8, ptr %143, i64 %149
+  br i1 %137, label %151, label %152
 
-152:                                              ; preds = %137
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %151, ptr nonnull align 1 %.0153.lcssa, i64 %.0157.lcssa, i1 false)
-  br label %154
+151:                                              ; preds = %136
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %150, ptr nonnull align 1 %.0153.lcssa, i64 %.0157.lcssa, i1 false)
+  br label %153
 
-153:                                              ; preds = %137
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %151, ptr align 1 %102, i64 %103, i1 false)
-  br label %154
+152:                                              ; preds = %136
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %150, ptr align 1 %101, i64 %102, i1 false)
+  br label %153
 
-154:                                              ; preds = %153, %152
-  %155 = getelementptr i8, ptr %144, i64 %.0157.lcssa
-  %156 = getelementptr i8, ptr %155, i64 %150
-  br i1 %125, label %157, label %158
+153:                                              ; preds = %152, %151
+  %154 = getelementptr i8, ptr %143, i64 %.0157.lcssa
+  %155 = getelementptr i8, ptr %154, i64 %149
+  br i1 %124, label %156, label %157
 
-157:                                              ; preds = %154
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %156, ptr nonnull align 1 %.1156.lcssa221, i64 %.0158.lcssa220, i1 false)
-  br label %159
+156:                                              ; preds = %153
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %155, ptr nonnull align 1 %.1156.lcssa221, i64 %.0158.lcssa220, i1 false)
+  br label %158
 
-158:                                              ; preds = %154
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %156, ptr align 1 %104, i64 %105, i1 false)
-  br label %159
+157:                                              ; preds = %153
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %155, ptr align 1 %103, i64 %104, i1 false)
+  br label %158
 
-159:                                              ; preds = %158, %157
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.109, ptr noundef %38, i32 noundef %95, i32 noundef %97, i32 noundef %108, i32 noundef %111) #19
+158:                                              ; preds = %157, %156
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.109, ptr noundef %38, i32 noundef %94, i32 noundef %96, i32 noundef %107, i32 noundef %110) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !104
-  %161 = and i32 %160, 256
-  %.not177 = icmp eq i32 %161, 0
-  br i1 %.not177, label %163, label %162
+  %159 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !104
+  %160 = and i32 %159, 256
+  %.not177 = icmp eq i32 %160, 0
+  br i1 %.not177, label %162, label %161
 
-162:                                              ; preds = %159
+161:                                              ; preds = %158
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.28, i32 noundef 2006, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef nonnull @.str.110) #19
-  br label %163
+  br label %162
 
-163:                                              ; preds = %162, %159
-  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
-  %165 = call ptr @dt_database_get(ptr noundef %164) #19
-  %166 = call i32 @sqlite3_prepare_v2(ptr noundef %165, ptr noundef nonnull @.str.110, i32 noundef -1, ptr noundef nonnull %6, ptr noundef null) #19
-  %.not178 = icmp eq i32 %166, 0
-  br i1 %.not178, label %173, label %167
+162:                                              ; preds = %161, %158
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
+  %164 = call ptr @dt_database_get(ptr noundef %163) #19
+  %165 = call i32 @sqlite3_prepare_v2(ptr noundef %164, ptr noundef nonnull @.str.110, i32 noundef -1, ptr noundef nonnull %6, ptr noundef null) #19
+  %.not178 = icmp eq i32 %165, 0
+  br i1 %.not178, label %172, label %166
 
-167:                                              ; preds = %163
-  %168 = load ptr, ptr @stderr, align 8, !tbaa !119
-  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
-  %170 = call ptr @dt_database_get(ptr noundef %169) #19
-  %171 = call ptr @sqlite3_errmsg(ptr noundef %170) #19
-  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.28, i32 noundef 2006, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef nonnull @.str.110, ptr noundef %171) #23
-  br label %173
+166:                                              ; preds = %162
+  %167 = load ptr, ptr @stderr, align 8, !tbaa !119
+  %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
+  %169 = call ptr @dt_database_get(ptr noundef %168) #19
+  %170 = call ptr @sqlite3_errmsg(ptr noundef %169) #19
+  %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.28, i32 noundef 2006, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef nonnull @.str.110, ptr noundef %170) #23
+  br label %172
 
-173:                                              ; preds = %167, %163
-  %174 = load ptr, ptr %6, align 8, !tbaa !121
-  %175 = trunc i64 %143 to i32
-  %176 = call i32 @sqlite3_bind_blob(ptr noundef %174, i32 noundef 1, ptr noundef nonnull %144, i32 noundef %175, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #19
-  %.not179 = icmp eq i32 %176, 0
-  br i1 %.not179, label %183, label %177
+172:                                              ; preds = %166, %162
+  %173 = load ptr, ptr %6, align 8, !tbaa !121
+  %174 = trunc i64 %142 to i32
+  %175 = call i32 @sqlite3_bind_blob(ptr noundef %173, i32 noundef 1, ptr noundef nonnull %143, i32 noundef %174, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #19
+  %.not179 = icmp eq i32 %175, 0
+  br i1 %.not179, label %182, label %176
 
-177:                                              ; preds = %173
-  %178 = load ptr, ptr @stderr, align 8, !tbaa !119
-  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
-  %180 = call ptr @dt_database_get(ptr noundef %179) #19
-  %181 = call ptr @sqlite3_errmsg(ptr noundef %180) #19
-  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.28, i32 noundef 2008, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef %181) #23
-  br label %183
+176:                                              ; preds = %172
+  %177 = load ptr, ptr @stderr, align 8, !tbaa !119
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
+  %179 = call ptr @dt_database_get(ptr noundef %178) #19
+  %180 = call ptr @sqlite3_errmsg(ptr noundef %179) #19
+  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.28, i32 noundef 2008, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef %180) #23
+  br label %182
 
-183:                                              ; preds = %177, %173
-  %184 = load ptr, ptr %6, align 8, !tbaa !121
-  %185 = call i32 @sqlite3_bind_int(ptr noundef %184, i32 noundef 2, i32 noundef %29) #19
-  %.not180 = icmp eq i32 %185, 0
-  br i1 %.not180, label %192, label %186
+182:                                              ; preds = %176, %172
+  %183 = load ptr, ptr %6, align 8, !tbaa !121
+  %184 = call i32 @sqlite3_bind_int(ptr noundef %183, i32 noundef 2, i32 noundef %29) #19
+  %.not180 = icmp eq i32 %184, 0
+  br i1 %.not180, label %191, label %185
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr @stderr, align 8, !tbaa !119
-  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
-  %189 = call ptr @dt_database_get(ptr noundef %188) #19
-  %190 = call ptr @sqlite3_errmsg(ptr noundef %189) #19
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.28, i32 noundef 2009, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef %190) #23
-  br label %192
+185:                                              ; preds = %182
+  %186 = load ptr, ptr @stderr, align 8, !tbaa !119
+  %187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
+  %188 = call ptr @dt_database_get(ptr noundef %187) #19
+  %189 = call ptr @sqlite3_errmsg(ptr noundef %188) #19
+  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.28, i32 noundef 2009, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef %189) #23
+  br label %191
 
-192:                                              ; preds = %186, %183
-  %193 = load ptr, ptr %6, align 8, !tbaa !121
-  %194 = call i32 @sqlite3_step(ptr noundef %193) #19
-  %195 = load ptr, ptr %6, align 8, !tbaa !121
-  %196 = call i32 @sqlite3_finalize(ptr noundef %195) #19
+191:                                              ; preds = %185, %182
+  %192 = load ptr, ptr %6, align 8, !tbaa !121
+  %193 = call i32 @sqlite3_step(ptr noundef %192) #19
+  %194 = load ptr, ptr %6, align 8, !tbaa !121
+  %195 = call i32 @sqlite3_finalize(ptr noundef %194) #19
   call void @free(ptr noundef %.0153.lcssa) #19
   call void @free(ptr noundef %.1156.lcssa221) #19
-  call void @free(ptr noundef nonnull %144) #19
+  call void @free(ptr noundef nonnull %143) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  br label %224
+  br label %223
 
-.loopexit:                                        ; preds = %.lr.ph235, %116, %.lr.ph242, %128, %.lr.ph, %.lr.ph206
-  %.0155 = phi ptr [ null, %.lr.ph206 ], [ null, %.lr.ph ], [ %131, %128 ], [ null, %.lr.ph242 ], [ null, %116 ], [ null, %.lr.ph235 ]
-  %.1154 = phi ptr [ %.0153.lcssa, %.lr.ph206 ], [ null, %.lr.ph ], [ %.0153.lcssa, %128 ], [ %.0153.lcssa, %.lr.ph242 ], [ null, %.lr.ph235 ], [ %119, %116 ]
+.loopexit:                                        ; preds = %.lr.ph235, %115, %.lr.ph242, %127, %.lr.ph, %.lr.ph206
+  %.0155 = phi ptr [ null, %.lr.ph206 ], [ null, %.lr.ph ], [ %130, %127 ], [ null, %.lr.ph242 ], [ null, %115 ], [ null, %.lr.ph235 ]
+  %.1154 = phi ptr [ %.0153.lcssa, %.lr.ph206 ], [ null, %.lr.ph ], [ %.0153.lcssa, %127 ], [ %.0153.lcssa, %.lr.ph242 ], [ null, %.lr.ph235 ], [ %118, %115 ]
   call void @free(ptr noundef %.1154) #19
   call void @free(ptr noundef %.0155) #19
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.111, ptr noundef %38, i32 noundef %95, i32 noundef %97, i32 noundef %108, i32 noundef %111) #19
-  %197 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !104
-  %198 = and i32 %197, 256
-  %.not185 = icmp eq i32 %198, 0
-  br i1 %.not185, label %200, label %199
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.111, ptr noundef %38, i32 noundef %94, i32 noundef %96, i32 noundef %107, i32 noundef %110) #19
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !104
+  %197 = and i32 %196, 256
+  %.not185 = icmp eq i32 %197, 0
+  br i1 %.not185, label %199, label %198
 
-199:                                              ; preds = %.loopexit
+198:                                              ; preds = %.loopexit
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.28, i32 noundef 2030, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef nonnull @.str.107) #19
-  br label %200
+  br label %199
 
-200:                                              ; preds = %199, %.loopexit
-  %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
-  %202 = call ptr @dt_database_get(ptr noundef %201) #19
-  %203 = call i32 @sqlite3_prepare_v2(ptr noundef %202, ptr noundef nonnull @.str.107, i32 noundef -1, ptr noundef nonnull %7, ptr noundef null) #19
-  %.not186 = icmp eq i32 %203, 0
-  br i1 %.not186, label %210, label %204
+199:                                              ; preds = %198, %.loopexit
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
+  %201 = call ptr @dt_database_get(ptr noundef %200) #19
+  %202 = call i32 @sqlite3_prepare_v2(ptr noundef %201, ptr noundef nonnull @.str.107, i32 noundef -1, ptr noundef nonnull %7, ptr noundef null) #19
+  %.not186 = icmp eq i32 %202, 0
+  br i1 %.not186, label %209, label %203
 
-204:                                              ; preds = %200
-  %205 = load ptr, ptr @stderr, align 8, !tbaa !119
-  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
-  %207 = call ptr @dt_database_get(ptr noundef %206) #19
-  %208 = call ptr @sqlite3_errmsg(ptr noundef %207) #19
-  %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.28, i32 noundef 2030, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef nonnull @.str.107, ptr noundef %208) #23
-  br label %210
+203:                                              ; preds = %199
+  %204 = load ptr, ptr @stderr, align 8, !tbaa !119
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
+  %206 = call ptr @dt_database_get(ptr noundef %205) #19
+  %207 = call ptr @sqlite3_errmsg(ptr noundef %206) #19
+  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.28, i32 noundef 2030, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef nonnull @.str.107, ptr noundef %207) #23
+  br label %209
 
-210:                                              ; preds = %204, %200
-  %211 = load ptr, ptr %7, align 8, !tbaa !121
-  %212 = call i32 @sqlite3_bind_int(ptr noundef %211, i32 noundef 1, i32 noundef %29) #19
-  %.not187 = icmp eq i32 %212, 0
-  br i1 %.not187, label %219, label %213
+209:                                              ; preds = %203, %199
+  %210 = load ptr, ptr %7, align 8, !tbaa !121
+  %211 = call i32 @sqlite3_bind_int(ptr noundef %210, i32 noundef 1, i32 noundef %29) #19
+  %.not187 = icmp eq i32 %211, 0
+  br i1 %.not187, label %218, label %212
 
-213:                                              ; preds = %210
-  %214 = load ptr, ptr @stderr, align 8, !tbaa !119
-  %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
-  %216 = call ptr @dt_database_get(ptr noundef %215) #19
-  %217 = call ptr @sqlite3_errmsg(ptr noundef %216) #19
-  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.28, i32 noundef 2031, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef %217) #23
-  br label %219
+212:                                              ; preds = %209
+  %213 = load ptr, ptr @stderr, align 8, !tbaa !119
+  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !118
+  %215 = call ptr @dt_database_get(ptr noundef %214) #19
+  %216 = call ptr @sqlite3_errmsg(ptr noundef %215) #19
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.28, i32 noundef 2031, ptr noundef nonnull @__FUNCTION__.init_presets, ptr noundef %216) #23
+  br label %218
 
-219:                                              ; preds = %213, %210
-  %220 = load ptr, ptr %7, align 8, !tbaa !121
-  %221 = call i32 @sqlite3_step(ptr noundef %220) #19
-  %222 = load ptr, ptr %7, align 8, !tbaa !121
-  %223 = call i32 @sqlite3_finalize(ptr noundef %222) #19
-  br label %224
+218:                                              ; preds = %212, %209
+  %219 = load ptr, ptr %7, align 8, !tbaa !121
+  %220 = call i32 @sqlite3_step(ptr noundef %219) #19
+  %221 = load ptr, ptr %7, align 8, !tbaa !121
+  %222 = call i32 @sqlite3_finalize(ptr noundef %221) #19
+  br label %223
 
-224:                                              ; preds = %192, %._crit_edge207, %219
+223:                                              ; preds = %191, %._crit_edge207, %218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %224, %67, %62
-  %225 = load ptr, ptr %2, align 8, !tbaa !121
-  %226 = call i32 @sqlite3_step(ptr noundef %225) #19
-  %227 = icmp eq i32 %226, 100
-  br i1 %227, label %.lr.ph211, label %._crit_edge212
+.critedge:                                        ; preds = %223, %67, %62
+  %224 = load ptr, ptr %2, align 8, !tbaa !121
+  %225 = call i32 @sqlite3_step(ptr noundef %224) #19
+  %226 = icmp eq i32 %225, 100
+  br i1 %226, label %.lr.ph211, label %._crit_edge212
 
 ._crit_edge212:                                   ; preds = %.critedge, %24
-  %228 = load ptr, ptr %2, align 8, !tbaa !121
-  %229 = call i32 @sqlite3_finalize(ptr noundef %228) #19
+  %227 = load ptr, ptr %2, align 8, !tbaa !121
+  %228 = call i32 @sqlite3_finalize(ptr noundef %227) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
   ret void
 }

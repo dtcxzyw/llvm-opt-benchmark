@@ -480,7 +480,7 @@ smart_str_alloc.exit.split.us:                    ; preds = %smart_str_alloc.exi
 
 .preheader.us:                                    ; preds = %smart_str_alloc.exit.split.us
   %21 = zext nneg i32 %19 to i64
-  %gep = getelementptr i8, ptr getelementptr (i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1641), i64 -1), i64 %21
+  %gep119 = getelementptr i8, ptr getelementptr (i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1641), i64 -1), i64 %21
   br label %22
 
 22:                                               ; preds = %.preheader.us, %37
@@ -534,9 +534,9 @@ smart_str_alloc.exit.split.us:                    ; preds = %smart_str_alloc.exi
   br i1 %.not42.us, label %41, label %22
 
 41:                                               ; preds = %37
-  %.not43.us = icmp eq ptr %gep, %39
+  %.not43.us = icmp eq ptr %gep119, %39
   %42 = getelementptr inbounds i8, ptr %39, i64 %17
-  %.not44.us = icmp ugt ptr %gep, %42
+  %.not44.us = icmp ugt ptr %gep119, %42
   %or.cond46.us = select i1 %.not43.us, i1 true, i1 %.not44.us
   br i1 %or.cond46.us, label %63, label %43
 
@@ -573,7 +573,7 @@ smart_str_alloc.exit57.us:                        ; preds = %52, %47
   %57 = load ptr, ptr %1, align 8, !tbaa !70
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 %.1.i56.us, ptr %58, align 8, !tbaa !73
-  %59 = ptrtoint ptr %gep to i64
+  %59 = ptrtoint ptr %gep119 to i64
   %60 = sub i64 %59, %44
   %61 = trunc i64 %60 to i32
   store i32 %61, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2140), align 4, !tbaa !75

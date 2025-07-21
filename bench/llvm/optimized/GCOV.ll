@@ -1498,7 +1498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %4, align 8, !tbaa !138
-  %.sroa.0.08.i.i = getelementptr inbounds nuw i8, ptr %32, i64 3
+  %.sroa.0.08.i.i = getelementptr i8, ptr %32, i64 3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i

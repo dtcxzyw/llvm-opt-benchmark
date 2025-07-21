@@ -52242,8 +52242,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h73cdded2771db6ecE.exit.thread.
   br i1 %38, label %60, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %.promoted.i.i.i.i.sink.i.i15.i, i64 %.sroa.5.sroa.0.114.i
-  %41 = getelementptr inbounds i8, ptr %40, i64 -1
+  %40 = add nsw i64 %.sroa.5.sroa.0.114.i, -1
+  %41 = getelementptr inbounds i8, ptr %.promoted.i.i.i.i.sink.i.i15.i, i64 %40
   %42 = load i8, ptr %41, align 1, !noundef !6
   switch i8 %42, label %60 [
     i8 10, label %43
@@ -52251,11 +52251,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h73cdded2771db6ecE.exit.thread.
   ]
 
 43:                                               ; preds = %39
-  %44 = icmp eq i64 %.sroa.5.sroa.0.114.i, 1
+  %44 = icmp eq i64 %40, 0
   br i1 %44, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %40, i64 -2
+  %46 = getelementptr inbounds i8, ptr %41, i64 -1
   %47 = load i8, ptr %46, align 1, !noundef !6
   %48 = icmp eq i8 %47, 13
   %spec.select.i.i.i.i = select i1 %48, i8 2, i8 0
@@ -53830,8 +53830,8 @@ define hidden void @_ZN9itertools9Itertools4join17hcd4e54ad13da9bd5E(ptr dead_on
   br i1 %22, label %44, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.01217.i, i64 %.sroa.6.sroa.0.016.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 -1
+  %24 = add nsw i64 %.sroa.6.sroa.0.016.i, -1
+  %25 = getelementptr inbounds i8, ptr %.sroa.0.01217.i, i64 %24
   %26 = load i8, ptr %25, align 1, !noalias !8043, !noundef !6
   switch i8 %26, label %44 [
     i8 10, label %27
@@ -53839,11 +53839,11 @@ define hidden void @_ZN9itertools9Itertools4join17hcd4e54ad13da9bd5E(ptr dead_on
   ]
 
 27:                                               ; preds = %23
-  %28 = icmp eq i64 %.sroa.6.sroa.0.016.i, 1
+  %28 = icmp eq i64 %24, 0
   br i1 %28, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %24, i64 -2
+  %30 = getelementptr inbounds i8, ptr %25, i64 -1
   %31 = load i8, ptr %30, align 1, !noalias !8043, !noundef !6
   %32 = icmp eq i8 %31, 13
   %spec.select.i.i.i.i = select i1 %32, i8 2, i8 0
@@ -54153,8 +54153,8 @@ define hidden void @_ZN9itertools9Itertools4join17hcd4e54ad13da9bd5E(ptr dead_on
   %132 = phi ptr [ inttoptr (i64 1 to ptr), %"_ZN113_$LT$ruff_source_file..newlines..NewlineWithTrailingNewline$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32818b40083f92c9E.exit.thread.i.thread.i.i" ], [ %127, %"_ZN113_$LT$ruff_source_file..newlines..NewlineWithTrailingNewline$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32818b40083f92c9E.exit.thread.i.i.i" ]
   %133 = phi ptr [ %73, %"_ZN113_$LT$ruff_source_file..newlines..NewlineWithTrailingNewline$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32818b40083f92c9E.exit.thread.i.thread.i.i" ], [ %126, %"_ZN113_$LT$ruff_source_file..newlines..NewlineWithTrailingNewline$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32818b40083f92c9E.exit.thread.i.i.i" ]
   %134 = phi i32 [ %72, %"_ZN113_$LT$ruff_source_file..newlines..NewlineWithTrailingNewline$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32818b40083f92c9E.exit.thread.i.thread.i.i" ], [ %125, %"_ZN113_$LT$ruff_source_file..newlines..NewlineWithTrailingNewline$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32818b40083f92c9E.exit.thread.i.i.i" ]
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i50.i.i, i64 %.sroa.7.sroa.0.012.i52.i.i
-  %136 = getelementptr inbounds i8, ptr %135, i64 -1
+  %135 = add nsw i64 %.sroa.7.sroa.0.012.i52.i.i, -1
+  %136 = getelementptr inbounds i8, ptr %.sroa.0.013.i50.i.i, i64 %135
   %137 = load i8, ptr %136, align 1, !noalias !8126, !noundef !6
   switch i8 %137, label %"_ZN11ruff_linter5rules10pydocstyle5rules8sections18parameters_section28_$u7b$$u7b$closure$u7d$$u7d$17hb0b52bcea18ce55bE.exit.i.i.i.i" [
     i8 10, label %138
@@ -54162,11 +54162,11 @@ define hidden void @_ZN9itertools9Itertools4join17hcd4e54ad13da9bd5E(ptr dead_on
   ]
 
 138:                                              ; preds = %130
-  %139 = icmp eq i64 %.sroa.7.sroa.0.012.i52.i.i, 1
+  %139 = icmp eq i64 %135, 0
   br i1 %139, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i.i.i.i", label %140
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds i8, ptr %135, i64 -2
+  %141 = getelementptr inbounds i8, ptr %136, i64 -1
   %142 = load i8, ptr %141, align 1, !noalias !8126, !noundef !6
   %143 = icmp eq i8 %142, 13
   %spec.select.i.i.i.i.i.i.i = select i1 %143, i8 2, i8 0

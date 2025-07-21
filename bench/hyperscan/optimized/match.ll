@@ -576,8 +576,8 @@ roseCatchUpMPV.exit:                              ; preds = %276, %canSkipCatchU
 
 .lr.ph.preheader:                                 ; preds = %298
   %324 = zext nneg i32 %301 to i64
-  %325 = getelementptr inbounds nuw i8, ptr %296, i64 %324
-  %326 = getelementptr inbounds i8, ptr %325, i64 -8
+  %325 = getelementptr i8, ptr %296, i64 %324
+  %326 = getelementptr i8, ptr %325, i64 -8
   br label %.lr.ph
 
 327:                                              ; preds = %.lr.ph

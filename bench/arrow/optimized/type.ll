@@ -26953,9 +26953,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit:
   %3 = load ptr, ptr %0, align 8, !tbaa !47
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !40
-  %6 = getelementptr i8, ptr %3, i64 %5
-  %7 = getelementptr i8, ptr %6, i64 -1
-  %8 = icmp eq i64 %5, 1
+  %6 = add i64 %5, -1
+  %7 = getelementptr i8, ptr %3, i64 %6
+  %8 = icmp eq i64 %6, 0
   br i1 %8, label %.lr.ph, label %9, !prof !559
 
 9:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
@@ -27145,9 +27145,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
   %97 = load ptr, ptr %0, align 8, !tbaa !47
   %98 = load i64, ptr %4, align 8, !tbaa !40
-  %99 = getelementptr i8, ptr %97, i64 %98
-  %100 = getelementptr i8, ptr %99, i64 -1
-  %101 = icmp eq i64 %98, 1
+  %99 = add i64 %98, -1
+  %100 = getelementptr i8, ptr %97, i64 %99
+  %101 = icmp eq i64 %99, 0
   br i1 %101, label %.lr.ph.split.backedge, label %102, !prof !559
 
 .lr.ph.split.backedge:                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i19

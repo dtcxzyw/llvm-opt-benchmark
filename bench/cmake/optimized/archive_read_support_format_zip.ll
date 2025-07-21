@@ -1279,8 +1279,8 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_read_data_skip_st
 .lr.ph.preheader:                                 ; preds = %.preheader80, %._crit_edge
   %58 = phi i64 [ %100, %._crit_edge ], [ %53, %.preheader80 ]
   %59 = phi ptr [ %99, %._crit_edge ], [ %52, %.preheader80 ]
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %58
-  %61 = getelementptr inbounds i8, ptr %60, i64 -16
+  %60 = getelementptr i8, ptr %59, i64 %58
+  %61 = getelementptr i8, ptr %60, i64 -16
   br label %.lr.ph
 
 ._crit_edge85:                                    ; preds = %._crit_edge, %.preheader80

@@ -9689,10 +9689,10 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i: ; preds = %3146, %_ZNK4llvm8
 _ZN4llvm8CallBase7arg_endEv.exit.i:               ; preds = %3155, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i
   %3171 = phi i32 [ %.pre230.i, %3155 ], [ %.pre231.i, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i ]
   %.0.i.i170.neg.i = phi i64 [ %.neg.i, %3155 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i ]
-  %3172 = shl i32 %3171, 5
-  %3173 = zext i32 %3172 to i64
-  %3174 = add nsw i64 %.0.i.i170.neg.i, %.0.i.i.i.neg.i
-  %gepdiff.i = add nsw i64 %3174, %3173
+  %3172 = add nsw i64 %.0.i.i170.neg.i, %.0.i.i.i.neg.i
+  %3173 = shl i32 %3171, 5
+  %3174 = zext i32 %3173 to i64
+  %gepdiff.i = add nsw i64 %3172, %3174
   %3175 = and i64 %gepdiff.i, 137438953440
   %.not223.i = icmp eq i64 %3175, 0
   br i1 %.not223.i, label %._crit_edge210.i, label %.lr.ph209.i

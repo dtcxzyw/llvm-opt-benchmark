@@ -57279,11 +57279,11 @@ define hidden void @"_ZN11ide_assists14assist_context7Assists3add28_$u7b$$u7b$cl
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %.idx.i = shl i64 %81, 4
-  %92 = getelementptr i8, ptr %91, i64 %.idx.i
-  %93 = getelementptr i8, ptr %92, i64 -64
+  %92 = add i64 %.idx.i, -64
+  %93 = getelementptr i8, ptr %91, i64 %92
   %94 = icmp ne ptr %93, null
   tail call void @llvm.assume(i1 %94)
-  %95 = icmp eq i64 %.idx.i, 64
+  %95 = icmp eq i64 %92, 0
   br i1 %95, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %90

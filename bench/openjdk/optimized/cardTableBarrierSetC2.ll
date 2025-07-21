@@ -411,8 +411,8 @@ define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMa
 .lr.ph:                                           ; preds = %3
   %14 = zext i32 %13 to i64
   %.idx = shl nuw nsw i64 %14, 3
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
-  %.014 = getelementptr inbounds i8, ptr %15, i64 -8
+  %15 = getelementptr i8, ptr %11, i64 %.idx
+  %.014 = getelementptr i8, ptr %15, i64 -8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %17
 

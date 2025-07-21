@@ -5558,8 +5558,8 @@ define internal fastcc range(i32 1, 3) i32 @Dau_DsdWritePrime(ptr noundef %0, pt
   %40 = select i1 %24, i32 15, i32 %39
   %41 = zext nneg i32 %38 to i64
   %.idx.i = shl nuw nsw i64 %41, 3
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %.01925.i = getelementptr inbounds i8, ptr %42, i64 -8
+  %42 = getelementptr i8, ptr %1, i64 %.idx.i
+  %.01925.i = getelementptr i8, ptr %42, i64 -8
   %43 = zext nneg i32 %40 to i64
   br label %.lr.ph.us.i
 
@@ -5899,8 +5899,8 @@ Dau_DsdWriteString.exit72:                        ; preds = %.lr.ph.i69, %Abc_Tt
   %209 = select i1 %191, i32 15, i32 %208
   %210 = zext nneg i32 %207 to i64
   %.idx.i80 = shl nuw nsw i64 %210, 3
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i80
-  %.01925.i81 = getelementptr inbounds i8, ptr %211, i64 -8
+  %211 = getelementptr i8, ptr %1, i64 %.idx.i80
+  %.01925.i81 = getelementptr i8, ptr %211, i64 -8
   %212 = zext nneg i32 %209 to i64
   br label %.lr.ph.us.i82
 

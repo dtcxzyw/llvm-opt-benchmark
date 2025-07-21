@@ -5157,8 +5157,8 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIN12_GLOBAL__N_117CritSectionMark
 .lr.ph.i.i24.preheader.i.i.i:                     ; preds = %37
   %39 = zext i32 %35 to i64
   %.idx.i.i.i = shl nuw nsw i64 %39, 4
-  %40 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
-  %.012.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 -16
+  %40 = getelementptr i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
+  %.012.i.i.i.i.i = getelementptr i8, ptr %40, i64 -16
   br label %.lr.ph.i.i24.i.i.i
 
 .lr.ph.i.i24.i.i.i:                               ; preds = %.lr.ph.i.i24.i.i.i, %.lr.ph.i.i24.preheader.i.i.i

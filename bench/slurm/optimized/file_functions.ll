@@ -1730,8 +1730,8 @@ _strip_comments.exit.i:                           ; preds = %190, %188, %.lr.ph.
 
 .lr.ph.i20.preheader.i:                           ; preds = %_strip_comments.exit.i
   %sext.i = and i64 %193, 2147483647
-  %195 = getelementptr inbounds nuw i8, ptr %.01732.i, i64 %sext.i
-  %.01720.i.i = getelementptr inbounds i8, ptr %195, i64 -1
+  %195 = getelementptr i8, ptr %.01732.i, i64 %sext.i
+  %.01720.i.i = getelementptr i8, ptr %195, i64 -1
   br label %.lr.ph.i20.i
 
 .lr.ph.i20.i:                                     ; preds = %209, %.lr.ph.i20.preheader.i

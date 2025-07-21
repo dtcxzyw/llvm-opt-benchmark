@@ -1450,8 +1450,8 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i190:        ; preds = %.noexc195, %._crit_
 .lr.ph.i.i197.preheader:                          ; preds = %.loopexit
   %504 = load ptr, ptr %8, align 8, !tbaa !47
   %505 = zext i32 %502 to i64
-  %506 = getelementptr inbounds nuw i8, ptr %504, i64 %505
-  %.012.i.i = getelementptr inbounds i8, ptr %506, i64 -1
+  %506 = getelementptr i8, ptr %504, i64 %505
+  %.012.i.i = getelementptr i8, ptr %506, i64 -1
   br label %.lr.ph.i.i197
 
 .lr.ph.i.i197:                                    ; preds = %.lr.ph.i.i197.preheader, %.lr.ph.i.i197

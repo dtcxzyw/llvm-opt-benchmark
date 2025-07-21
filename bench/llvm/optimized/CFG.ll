@@ -20983,8 +20983,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb
 .lr.ph.i.i.preheader:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80
   %44 = zext i32 %42 to i64
   %.idx = shl nuw nsw i64 %44, 4
-  %45 = getelementptr inbounds nuw i8, ptr %.val55, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %45, i64 -16
+  %45 = getelementptr i8, ptr %.val55, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %45, i64 -16
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

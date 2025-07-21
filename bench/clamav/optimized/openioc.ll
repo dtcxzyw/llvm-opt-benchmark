@@ -179,8 +179,8 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 74:                                               ; preds = %68
   %sext = shl i64 %69, 32
   %75 = ashr exact i64 %sext, 32
-  %76 = getelementptr inbounds i8, ptr %.0103, i64 %75
-  %.0101141 = getelementptr inbounds i8, ptr %76, i64 -1
+  %76 = getelementptr i8, ptr %.0103, i64 %75
+  %.0101141 = getelementptr i8, ptr %76, i64 -1
   %77 = load i8, ptr %.0101141, align 1, !tbaa !54
   %78 = sext i8 %77 to i64
   %79 = getelementptr inbounds i16, ptr %60, i64 %78

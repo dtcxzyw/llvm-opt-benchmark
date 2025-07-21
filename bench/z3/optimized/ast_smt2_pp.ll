@@ -9996,8 +9996,8 @@ _ZN6vectorI6symbolLb0EjE3endEv.exit:              ; preds = %_ZN6vectorI6symbolL
 .lr.ph.i.i11.preheader:                           ; preds = %_ZN6vectorI6symbolLb0EjE3endEv.exit
   %65 = zext i32 %63 to i64
   %66 = shl nuw nsw i64 %65, 3
-  %67 = getelementptr inbounds nuw i8, ptr %61, i64 %66
-  %.012.i.i = getelementptr inbounds i8, ptr %67, i64 -8
+  %67 = getelementptr i8, ptr %61, i64 %66
+  %.012.i.i = getelementptr i8, ptr %67, i64 -8
   br label %.lr.ph.i.i11
 
 .lr.ph.i.i11:                                     ; preds = %.lr.ph.i.i11.preheader, %.lr.ph.i.i11

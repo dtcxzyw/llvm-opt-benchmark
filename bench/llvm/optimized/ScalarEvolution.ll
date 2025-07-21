@@ -46664,9 +46664,8 @@ define dso_local noundef ptr @_ZN4llvm15ScalarEvolution16createNodeForGEPEPNS_11
 
 .lr.ph.preheader:                                 ; preds = %2
   %10 = zext i32 %9 to i64
-  %.idx = sub nsw i64 0, %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %.010 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %11 = sub nsw i64 32, %10
+  %.010 = getelementptr inbounds i8, ptr %1, i64 %11
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit, %2

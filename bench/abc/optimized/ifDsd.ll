@@ -2547,8 +2547,8 @@ If_DsdObjTruthId.exit47:                          ; preds = %If_DsdObjTruthId.ex
   br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.thread55
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i
-  %.021.i = getelementptr inbounds i8, ptr %90, i64 -8
+  %90 = getelementptr i8, ptr %89, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %90, i64 -8
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -2757,8 +2757,8 @@ If_DsdManComputeTruthPtr.exit:                    ; preds = %.lr.ph18.i.i, %26, 
   %65 = xor i32 %notmask.i, -1
   %66 = zext nneg i32 %63 to i64
   %.idx.i = shl nuw nsw i64 %66, 3
-  %67 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
-  %.021.i = getelementptr inbounds i8, ptr %67, i64 -8
+  %67 = getelementptr i8, ptr %25, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %67, i64 -8
   %68 = zext nneg i32 %65 to i64
   %69 = select i1 %58, i64 15, i64 %68
   br label %.lr.ph.us.i
@@ -3024,8 +3024,8 @@ If_DsdObjTruth.exit:                              ; preds = %33, %40
   %77 = select i1 %71, i32 15, i32 %76
   %78 = zext nneg i32 %75 to i64
   %.idx.i = shl nuw nsw i64 %78, 3
-  %79 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i
-  %.021.i = getelementptr inbounds i8, ptr %79, i64 -8
+  %79 = getelementptr i8, ptr %61, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %79, i64 -8
   %80 = zext nneg i32 %77 to i64
   br label %.lr.ph.us.i
 

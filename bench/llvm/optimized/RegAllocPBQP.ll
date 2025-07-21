@@ -11126,34 +11126,34 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
   %18 = icmp ugt i32 %11, 1
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
-  br i1 %18, label %.preheader.us.preheader, label %._crit_edge34
+  br i1 %18, label %.preheader.us.preheader, label %._crit_edge33
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %wide.trip.count40 = zext i32 %5 to i64
+  %wide.trip.count39 = zext i32 %5 to i64
   %invariant.gep = getelementptr i8, ptr %8, i64 -1
   %wide.trip.count = zext i32 %11 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv37 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next38, %._crit_edge.us ]
+  %indvars.iv36 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next37, %._crit_edge.us ]
   %21 = phi i32 [ 0, %.preheader.us.preheader ], [ %.sroa.speculated25.us, %._crit_edge.us ]
-  %22 = trunc nuw i64 %indvars.iv37 to i32
+  %22 = trunc nuw i64 %indvars.iv36 to i32
   %23 = mul i32 %11, %22
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw float, ptr %20, i64 %24
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv37
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv36
   br label %26
 
 26:                                               ; preds = %.preheader.us, %37
   %indvars.iv = phi i64 [ 1, %.preheader.us ], [ %indvars.iv.next, %37 ]
-  %.02931.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %37 ]
+  %.02930.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %37 ]
   %27 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
   %28 = load float, ptr %27, align 4, !tbaa !151
   %29 = fcmp oeq float %28, 0x7FF0000000000000
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %26
-  %31 = add i32 %.02931.us, 1
+  %31 = add i32 %.02930.us, 1
   %32 = add nsw i64 %indvars.iv, -1
   %33 = getelementptr inbounds nuw i32, ptr %16, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !130
@@ -11165,53 +11165,51 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
   br label %37
 
 37:                                               ; preds = %30, %26
-  %.1.us = phi i32 [ %31, %30 ], [ %.02931.us, %26 ]
+  %.1.us = phi i32 [ %31, %30 ], [ %.02930.us, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !850
 
 ._crit_edge.us:                                   ; preds = %37
   %.sroa.speculated25.us = tail call i32 @llvm.umax.i32(i32 %21, i32 %.1.us)
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !851
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
+  br i1 %exitcond40.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !851
 
-._crit_edge34:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
+._crit_edge33:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %.us-phi = phi i32 [ 0, %.preheader.lr.ph ], [ %.sroa.speculated25.us, %._crit_edge.us ]
   store i32 %.us-phi, ptr %0, align 8, !tbaa !841
   br label %38
 
-38:                                               ; preds = %._crit_edge34, %2
+38:                                               ; preds = %._crit_edge33, %2
   %39 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %39, 2
-  %.add = add nsw i64 %.idx, -4
-  %.ptr30 = getelementptr inbounds i8, ptr %16, i64 %.add
-  %40 = icmp eq i32 %11, 1
-  %.not17.i.i = icmp eq i64 %.add, 4
-  %or.cond.i.i = select i1 %40, i1 true, i1 %.not17.i.i
+  %40 = add nsw i64 %.idx, -4
+  %41 = getelementptr inbounds i8, ptr %16, i64 %40
+  %or.cond.i.i = icmp ult i64 %40, 8
   br i1 %or.cond.i.i, label %_ZSt11max_elementIPjET_S1_S1_.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.pre.i.i = load i32, ptr %16, align 4, !tbaa !130
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %42 = phi i32 [ %46, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
-  %43 = phi ptr [ %47, %.lr.ph.i.i ], [ %41, %.lr.ph.preheader.i.i ]
+  %43 = phi i32 [ %47, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %44 = phi ptr [ %48, %.lr.ph.i.i ], [ %42, %.lr.ph.preheader.i.i ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %16, %.lr.ph.preheader.i.i ]
-  %44 = load i32, ptr %43, align 4, !tbaa !130
-  %45 = icmp ult i32 %42, %44
-  %46 = tail call i32 @llvm.umax.i32(i32 %42, i32 %44)
-  %spec.select.i.i = select i1 %45, ptr %43, ptr %.018.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %.not.i.i = icmp eq ptr %47, %.ptr30
+  %45 = load i32, ptr %44, align 4, !tbaa !130
+  %46 = icmp ult i32 %43, %45
+  %47 = tail call i32 @llvm.umax.i32(i32 %43, i32 %45)
+  %spec.select.i.i = select i1 %46, ptr %44, ptr %.018.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %.not.i.i = icmp eq ptr %48, %41
   br i1 %.not.i.i, label %_ZSt11max_elementIPjET_S1_S1_.exit, label %.lr.ph.i.i, !llvm.loop !852
 
 _ZSt11max_elementIPjET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %38
   %.011.i.i = phi ptr [ %16, %38 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %48 = load i32, ptr %.011.i.i, align 4, !tbaa !130
-  store i32 %48, ptr %3, align 4, !tbaa !849
+  %49 = load i32, ptr %.011.i.i, align 4, !tbaa !130
+  store i32 %49, ptr %3, align 4, !tbaa !849
   tail call void @_ZdaPv(ptr noundef nonnull %16) #28
   ret void
 }

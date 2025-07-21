@@ -5561,9 +5561,8 @@ define internal fastcc noundef zeroext i1 @_ZL14isNoWrapAddRecPN4llvm5ValueEPKNS
 
 .lr.ph.preheader:                                 ; preds = %11
   %15 = zext i32 %14 to i64
-  %.idx = sub nsw i64 0, %15
-  %16 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %.04316 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %16 = sub nsw i64 32, %15
+  %.04316 = getelementptr inbounds i8, ptr %0, i64 %16
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20

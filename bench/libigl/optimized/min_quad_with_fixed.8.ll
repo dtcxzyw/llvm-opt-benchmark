@@ -5241,20 +5241,20 @@ _ZN5Eigen12SparseMatrixIdLi0EiE14initAssignmentIS1_EEvRKT_.exit: ; preds = %39, 
 50:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiE14initAssignmentIS1_EEvRKT_.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !11
-  %53 = icmp eq i64 %52, -1
-  br i1 %53, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %54
-
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !122
   %.idx = shl nsw i64 %52, 2
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !122
-  %59 = add nsw i64 %.idx, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %58, ptr align 4 %56, i64 %59, i1 false)
+  %53 = add nsw i64 %.idx, 4
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %55
+
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %57 = load ptr, ptr %56, align 8, !tbaa !122
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8, !tbaa !122
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %59, ptr align 4 %57, i64 %53, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
 
-_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit: ; preds = %50, %54
+_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit: ; preds = %50, %55
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -7155,15 +7155,14 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %59 = add nsw i64 %3, %29
   %60 = sdiv i64 %59, 64
   %.idx = shl nsw i64 %60, 3
-  %61 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %62 = and i64 %59, -9223372036854775745
-  %63 = icmp ugt i64 %62, -9223372036854775808
-  %storemerge.idx.i.i.i75.neg = select i1 %63, i64 8, i64 0
-  %storemerge.idx.i.i.i75 = select i1 %63, i64 -8, i64 0
-  %storemerge.i.i.i76 = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i75
+  %61 = and i64 %59, -9223372036854775745
+  %62 = icmp ugt i64 %61, -9223372036854775808
+  %storemerge.idx.i.i.i75 = select i1 %62, i64 -8, i64 0
+  %63 = add nsw i64 %storemerge.idx.i.i.i75, %.idx
+  %storemerge.i.i.i76 = getelementptr inbounds i8, ptr %1, i64 %63
   %64 = trunc i64 %59 to i32
   %65 = and i32 %64, 63
-  %.not.i.i.i = icmp eq i64 %.idx, %storemerge.idx.i.i.i75.neg
+  %.not.i.i.i = icmp eq i64 %63, 0
   br i1 %.not.i.i.i, label %91, label %66
 
 66:                                               ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -7363,15 +7362,14 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %157 = add nsw i64 %3, %156
   %158 = sdiv i64 %157, 64
   %.idx158 = shl nsw i64 %158, 3
-  %159 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %.idx158
-  %160 = and i64 %157, -9223372036854775745
-  %161 = icmp ugt i64 %160, -9223372036854775808
-  %storemerge.idx.i.i.i85.neg = select i1 %161, i64 8, i64 0
-  %storemerge.idx.i.i.i85 = select i1 %161, i64 -8, i64 0
-  %storemerge.i.i.i86 = getelementptr inbounds i8, ptr %159, i64 %storemerge.idx.i.i.i85
+  %159 = and i64 %157, -9223372036854775745
+  %160 = icmp ugt i64 %159, -9223372036854775808
+  %storemerge.idx.i.i.i85 = select i1 %160, i64 -8, i64 0
+  %161 = add nsw i64 %storemerge.idx.i.i.i85, %.idx158
+  %storemerge.i.i.i86 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %161
   %162 = trunc i64 %157 to i32
   %163 = and i32 %162, 63
-  %.not.i.i.i89 = icmp eq i64 %.idx158, %storemerge.idx.i.i.i85.neg
+  %.not.i.i.i89 = icmp eq i64 %161, 0
   br i1 %.not.i.i.i89, label %190, label %164
 
 164:                                              ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
@@ -14913,20 +14911,20 @@ _ZN5Eigen12SparseMatrixIdLi1EiE14initAssignmentIS1_EEvRKT_.exit: ; preds = %39, 
 50:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi1EiE14initAssignmentIS1_EEvRKT_.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !228
-  %53 = icmp eq i64 %52, -1
-  br i1 %53, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %54
-
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !139
   %.idx = shl nsw i64 %52, 2
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !139
-  %59 = add nsw i64 %.idx, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %58, ptr align 4 %56, i64 %59, i1 false)
+  %53 = add nsw i64 %.idx, 4
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %55
+
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %57 = load ptr, ptr %56, align 8, !tbaa !139
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8, !tbaa !139
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %59, ptr align 4 %57, i64 %53, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
 
-_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit: ; preds = %50, %54
+_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit: ; preds = %50, %55
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 56

@@ -468,8 +468,8 @@ readline.exit.i:                                  ; preds = %.split.i.i, %.split
   ]
 
 .preheader.i:                                     ; preds = %.preheader136.i
-  %103 = getelementptr inbounds i8, ptr %.1107.i, i64 %.031.i
-  %104 = getelementptr inbounds i8, ptr %103, i64 -1
+  %103 = getelementptr i8, ptr %.1107.i, i64 %.031.i
+  %104 = getelementptr i8, ptr %103, i64 -1
   %.not39199.i = icmp sgt i64 %.031.i, 1
   br i1 %.not39199.i, label %.lr.ph.i, label %.critedge47.i
 

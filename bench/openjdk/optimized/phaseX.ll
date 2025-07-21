@@ -3867,8 +3867,8 @@ define hidden void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnul
 .lr.ph66:                                         ; preds = %9
   %17 = zext i32 %16 to i64
   %.idx = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
-  %19 = getelementptr inbounds i8, ptr %18, i64 -8
+  %18 = getelementptr i8, ptr %14, i64 %.idx
+  %19 = getelementptr i8, ptr %18, i64 -8
   %.not8.i = icmp eq ptr %2, null
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -10925,8 +10925,8 @@ define hidden void @_ZN4Node10replace_byEPS_(ptr noundef nonnull readonly align 
 .lr.ph35:                                         ; preds = %2
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %9 = getelementptr inbounds i8, ptr %8, i64 -8
+  %8 = getelementptr i8, ptr %4, i64 %.idx
+  %9 = getelementptr i8, ptr %8, i64 -8
   %10 = icmp eq ptr %1, null
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32

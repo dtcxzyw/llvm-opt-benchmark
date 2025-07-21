@@ -241,8 +241,8 @@ define internal range(i32 0, 101) i32 @mxf_probe(ptr noundef readonly captures(n
 7:                                                ; preds = %1
   %narrow = tail call i32 @llvm.umin.i32(i32 %5, i32 65551)
   %spec.select = zext nneg i32 %narrow to i64
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select
-  %9 = getelementptr inbounds i8, ptr %8, i64 -14
+  %8 = getelementptr i8, ptr %3, i64 %spec.select
+  %9 = getelementptr i8, ptr %8, i64 -14
   %.not21 = icmp eq i32 %5, 14
   br i1 %.not21, label %.loopexit, label %.lr.ph
 

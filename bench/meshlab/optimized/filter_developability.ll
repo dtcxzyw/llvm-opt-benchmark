@@ -9584,10 +9584,10 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit:           ; preds = %_ZNSt6vectorIN3vcg4
 _ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit: ; preds = %102, %._crit_edge.i.i
   %112 = phi ptr [ %72, %102 ], [ %111, %._crit_edge.i.i ]
   %.idx = mul nsw i64 %.120, 24
-  %113 = getelementptr inbounds i8, ptr %103, i64 %.idx
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %113 = add nsw i64 %.idx, 24
+  %114 = getelementptr inbounds i8, ptr %103, i64 %113
   %115 = ptrtoint ptr %114 to i64
-  %.not.i.i24 = icmp eq i64 %.120, -1
+  %.not.i.i24 = icmp eq i64 %113, 0
   br i1 %.not.i.i24, label %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32, label %116
 
 116:                                              ; preds = %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit

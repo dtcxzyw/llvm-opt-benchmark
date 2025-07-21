@@ -2362,13 +2362,12 @@ _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i: ; preds = %157, %.noe
   %159 = phi i32 [ %.pre18.i.i, %.noexc44 ], [ %.pre17.i.i, %157 ]
   %160 = phi ptr [ %150, %.noexc44 ], [ %.pre.i.i43, %157 ]
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  %.idx12.i.i = shl nsw i64 %.pre-phi.i.i, 3
-  %162 = getelementptr inbounds i8, ptr %161, i64 %.idx12.i.i
-  %163 = sext i32 %159 to i64
-  %.idx13.i.i = shl nsw i64 %163, 3
-  %164 = getelementptr inbounds i8, ptr %162, i64 %.idx13.i.i
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %148, i64 %163
+  %162 = sext i32 %159 to i64
+  %.idx1215.i.i = add nsw i64 %.pre-phi.i.i, 1
+  %163 = add nsw i64 %.idx1215.i.i, %162
+  %164 = shl nsw i64 %163, 3
+  %165 = getelementptr inbounds i8, ptr %161, i64 %164
+  %166 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %148, i64 %162
   %.not.i6.i.i = icmp eq ptr %166, %165
   br i1 %.not.i6.i.i, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i.i, label %167
 
@@ -2376,14 +2375,12 @@ _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i: ; preds = %157, %.noe
   %168 = getelementptr inbounds nuw i8, ptr %160, i64 12
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
-  %.idx11.i.i = shl nsw i64 %170, 3
-  %171 = add nsw i64 %.idx13.i.i, %.idx12.i.i
-  %reass.sub.i = sub nsw i64 %.idx11.i.i, %171
-  %172 = icmp sgt i64 %reass.sub.i, 8
+  %171 = sub nsw i64 %170, %163
+  %172 = icmp sgt i64 %171, 0
   br i1 %172, label %173, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i.i
 
 173:                                              ; preds = %167
-  %gepdiff.i.i = add nsw i64 %reass.sub.i, -8
+  %gepdiff.i.i = shl nuw nsw i64 %171, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %165, ptr nonnull align 8 %166, i64 %gepdiff.i.i, i1 false)
   br label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i.i
 
@@ -3052,13 +3049,12 @@ _ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit.i:  ; preds = %21, %7
   %23 = phi i32 [ %.pre18.i, %7 ], [ %.pre17.i, %21 ]
   %24 = phi ptr [ %14, %7 ], [ %.pre.i, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.idx12.i = shl nsw i64 %.pre-phi.i, 3
-  %26 = getelementptr inbounds i8, ptr %25, i64 %.idx12.i
-  %27 = sext i32 %23 to i64
-  %.idx13.i = shl nsw i64 %27, 3
-  %28 = getelementptr inbounds i8, ptr %26, i64 %.idx13.i
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = getelementptr inbounds %"struct.QList<int>::Node", ptr %12, i64 %27
+  %26 = sext i32 %23 to i64
+  %.idx1215.i = add nsw i64 %.pre-phi.i, 1
+  %27 = add nsw i64 %.idx1215.i, %26
+  %28 = shl nsw i64 %27, 3
+  %29 = getelementptr inbounds i8, ptr %25, i64 %28
+  %30 = getelementptr inbounds %"struct.QList<int>::Node", ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit7.i, label %31
 
@@ -3066,14 +3062,12 @@ _ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit.i:  ; preds = %21, %7
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %.idx11.i = shl nsw i64 %34, 3
-  %35 = add nsw i64 %.idx12.i, %.idx13.i
-  %reass.sub = sub nsw i64 %.idx11.i, %35
-  %36 = icmp sgt i64 %reass.sub, 8
+  %35 = sub nsw i64 %34, %27
+  %36 = icmp sgt i64 %35, 0
   br i1 %36, label %37, label %_ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit7.i
 
 37:                                               ; preds = %31
-  %gepdiff.i = add nsw i64 %reass.sub, -8
+  %gepdiff.i = shl nuw nsw i64 %35, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %30, i64 %gepdiff.i, i1 false)
   br label %_ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit7.i
 
@@ -9507,13 +9501,12 @@ _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i: ; preds = %152, %.noe
   %154 = phi i32 [ %.pre18.i.i, %.noexc45 ], [ %.pre17.i.i, %152 ]
   %155 = phi ptr [ %145, %.noexc45 ], [ %.pre.i.i44, %152 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %.idx12.i.i = shl nsw i64 %.pre-phi.i.i, 3
-  %157 = getelementptr inbounds i8, ptr %156, i64 %.idx12.i.i
-  %158 = sext i32 %154 to i64
-  %.idx13.i.i = shl nsw i64 %158, 3
-  %159 = getelementptr inbounds i8, ptr %157, i64 %.idx13.i.i
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %161 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %143, i64 %158
+  %157 = sext i32 %154 to i64
+  %.idx1215.i.i = add nsw i64 %.pre-phi.i.i, 1
+  %158 = add nsw i64 %.idx1215.i.i, %157
+  %159 = shl nsw i64 %158, 3
+  %160 = getelementptr inbounds i8, ptr %156, i64 %159
+  %161 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %143, i64 %157
   %.not.i6.i.i = icmp eq ptr %161, %160
   br i1 %.not.i6.i.i, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i.i, label %162
 
@@ -9521,14 +9514,12 @@ _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i.i: ; preds = %152, %.noe
   %163 = getelementptr inbounds nuw i8, ptr %155, i64 12
   %164 = load i32, ptr %163, align 4
   %165 = sext i32 %164 to i64
-  %.idx11.i.i = shl nsw i64 %165, 3
-  %166 = add nsw i64 %.idx13.i.i, %.idx12.i.i
-  %reass.sub.i = sub nsw i64 %.idx11.i.i, %166
-  %167 = icmp sgt i64 %reass.sub.i, 8
+  %166 = sub nsw i64 %165, %158
+  %167 = icmp sgt i64 %166, 0
   br i1 %167, label %168, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i.i
 
 168:                                              ; preds = %162
-  %gepdiff.i.i = add nsw i64 %reass.sub.i, -8
+  %gepdiff.i.i = shl nuw nsw i64 %166, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %160, ptr nonnull align 8 %161, i64 %gepdiff.i.i, i1 false)
   br label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i.i
 

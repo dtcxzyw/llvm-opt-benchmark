@@ -880,8 +880,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 .lr.ph.i.i.preheader:                             ; preds = %284
   %287 = load ptr, ptr %3, align 8, !tbaa !3
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 %285
-  %.012.i.i = getelementptr inbounds i8, ptr %288, i64 -1
+  %288 = getelementptr i8, ptr %287, i64 %285
+  %.012.i.i = getelementptr i8, ptr %288, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -2577,8 +2577,8 @@ _ZSt12reverse_copyIPKcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11ch
 
 .lr.ph.i.i.preheader.i:                           ; preds = %38
   %41 = load ptr, ptr %4, align 8, !tbaa !32, !alias.scope !127
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
-  %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %42, i64 -1
+  %42 = getelementptr i8, ptr %41, i64 %39
+  %.sroa.0.08.i.i.i = getelementptr i8, ptr %42, i64 -1
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

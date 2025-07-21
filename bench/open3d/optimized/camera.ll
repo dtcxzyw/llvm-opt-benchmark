@@ -29987,15 +29987,14 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %59 = add nsw i64 %3, %29
   %60 = sdiv i64 %59, 64
   %.idx = shl nsw i64 %60, 3
-  %61 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %62 = and i64 %59, -9223372036854775745
-  %63 = icmp ugt i64 %62, -9223372036854775808
-  %storemerge.idx.i.i.i75.neg = select i1 %63, i64 8, i64 0
-  %storemerge.idx.i.i.i75 = select i1 %63, i64 -8, i64 0
-  %storemerge.i.i.i76 = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i75
+  %61 = and i64 %59, -9223372036854775745
+  %62 = icmp ugt i64 %61, -9223372036854775808
+  %storemerge.idx.i.i.i75 = select i1 %62, i64 -8, i64 0
+  %63 = add nsw i64 %storemerge.idx.i.i.i75, %.idx
+  %storemerge.i.i.i76 = getelementptr inbounds i8, ptr %1, i64 %63
   %64 = trunc i64 %59 to i32
   %65 = and i32 %64, 63
-  %.not.i.i.i = icmp eq i64 %.idx, %storemerge.idx.i.i.i75.neg
+  %.not.i.i.i = icmp eq i64 %63, 0
   br i1 %.not.i.i.i, label %91, label %66
 
 66:                                               ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -30195,15 +30194,14 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %157 = add nsw i64 %3, %156
   %158 = sdiv i64 %157, 64
   %.idx158 = shl nsw i64 %158, 3
-  %159 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %.idx158
-  %160 = and i64 %157, -9223372036854775745
-  %161 = icmp ugt i64 %160, -9223372036854775808
-  %storemerge.idx.i.i.i85.neg = select i1 %161, i64 8, i64 0
-  %storemerge.idx.i.i.i85 = select i1 %161, i64 -8, i64 0
-  %storemerge.i.i.i86 = getelementptr inbounds i8, ptr %159, i64 %storemerge.idx.i.i.i85
+  %159 = and i64 %157, -9223372036854775745
+  %160 = icmp ugt i64 %159, -9223372036854775808
+  %storemerge.idx.i.i.i85 = select i1 %160, i64 -8, i64 0
+  %161 = add nsw i64 %storemerge.idx.i.i.i85, %.idx158
+  %storemerge.i.i.i86 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %161
   %162 = trunc i64 %157 to i32
   %163 = and i32 %162, 63
-  %.not.i.i.i89 = icmp eq i64 %.idx158, %storemerge.idx.i.i.i85.neg
+  %.not.i.i.i89 = icmp eq i64 %161, 0
   br i1 %.not.i.i.i89, label %190, label %164
 
 164:                                              ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
@@ -106261,8 +106259,8 @@ define linkonce_odr hidden void @_ZN3fmt3v106detail18for_each_codepointIZNS1_11f
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %8 = getelementptr inbounds i8, ptr %7, i64 -3
+  %7 = getelementptr i8, ptr %0, i64 %1
+  %8 = getelementptr i8, ptr %7, i64 -3
   %.not3668 = icmp sgt i64 %1, 3
   br i1 %.not3668, label %.lr.ph, label %.loopexit
 

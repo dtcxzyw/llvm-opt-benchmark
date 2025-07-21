@@ -1961,8 +1961,8 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_bac
 .lr.ph.i.i242.preheader:                          ; preds = %._crit_edge357
   %314 = zext i32 %311 to i64
   %.idx = shl nuw nsw i64 %314, 3
-  %315 = getelementptr inbounds nuw i8, ptr %312, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %315, i64 -8
+  %315 = getelementptr i8, ptr %312, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %315, i64 -8
   br label %.lr.ph.i.i242
 
 .lr.ph.i.i242:                                    ; preds = %.lr.ph.i.i242.preheader, %.lr.ph.i.i242

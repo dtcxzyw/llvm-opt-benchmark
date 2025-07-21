@@ -2063,8 +2063,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit10: ; pred
   br i1 %65, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %63
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %66, i64 -1
+  %66 = getelementptr i8, ptr %64, i64 %63
+  %.sroa.0.08.i.i = getelementptr i8, ptr %66, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -4378,8 +4378,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit10: ; pred
   br i1 %65, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %63
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %66, i64 -1
+  %66 = getelementptr i8, ptr %64, i64 %63
+  %.sroa.0.08.i.i = getelementptr i8, ptr %66, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

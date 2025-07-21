@@ -1959,8 +1959,8 @@ _.exit:                                           ; preds = %9, %11
   br i1 %82, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 %81
-  %.0149 = getelementptr inbounds i8, ptr %83, i64 -1
+  %83 = getelementptr i8, ptr %79, i64 %81
+  %.0149 = getelementptr i8, ptr %83, i64 -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %86

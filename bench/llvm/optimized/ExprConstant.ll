@@ -21202,9 +21202,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19LValueExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -51394,9 +51394,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_22TemporaryExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -57401,8 +57401,8 @@ _ZN4llvm11SmallVectorIhLj8EEC2Em.exit:            ; preds = %_ZNK5clang4Type13is
   br i1 %69, label %.lr.ph.i.i.preheader.i, label %_ZSt7reverseIPhEvT_S1_.exit.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %.pre16.i, i64 %68
-  %.012.i.i.i = getelementptr inbounds i8, ptr %70, i64 -1
+  %70 = getelementptr i8, ptr %.pre16.i, i64 %68
+  %.012.i.i.i = getelementptr i8, ptr %70, i64 -1
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -57767,8 +57767,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_113BitCastBuffer11writeObjectEN5cla
   br i1 %9, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPhEvT_S1_.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %.pre16, i64 %8
-  %.012.i.i = getelementptr inbounds i8, ptr %10, i64 -1
+  %10 = getelementptr i8, ptr %.pre16, i64 %8
+  %.012.i.i = getelementptr i8, ptr %10, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -59423,8 +59423,8 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit.i: ; preds = %80, %76
 
 .lr.ph.i.i.preheader.i:                           ; preds = %._crit_edge.i
   %90 = load ptr, ptr %15, align 8, !tbaa !1135
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %85
-  %.012.i.i.i = getelementptr inbounds i8, ptr %91, i64 -1
+  %91 = getelementptr i8, ptr %90, i64 %85
+  %.012.i.i.i = getelementptr i8, ptr %91, i64 -1
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -60207,8 +60207,8 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit.i: ; preds = %101, %96
 
 .lr.ph.i.i.preheader.i:                           ; preds = %._crit_edge.i
   %111 = load ptr, ptr %6, align 8, !tbaa !1135
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %106
-  %.012.i.i.i = getelementptr inbounds i8, ptr %112, i64 -1
+  %112 = getelementptr i8, ptr %111, i64 %106
+  %.012.i.i.i = getelementptr i8, ptr %112, i64 -1
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -64314,9 +64314,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_26MemberPointerExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -90692,9 +90692,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18ArrayExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -102414,9 +102414,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19RecordExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -109805,9 +109805,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -118895,9 +118895,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18FloatExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -127746,9 +127746,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19VectorExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -138517,9 +138517,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20ComplexExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -152210,9 +152210,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19AtomicExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -161723,9 +161723,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -187203,9 +187203,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_17VoidExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -195215,9 +195215,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseI
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not45 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not45 = icmp eq i64 %11, 0
   br i1 %.not45, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20PointerExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2

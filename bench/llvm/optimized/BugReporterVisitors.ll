@@ -4501,8 +4501,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento9MemRegionELb1EE9push_backES5_.e
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge
   %.idx = shl nuw nsw i64 %29, 3
-  %31 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %31, i64 -8
+  %31 = getelementptr i8, ptr %.pre, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %31, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

@@ -1917,8 +1917,8 @@ define internal fastcc void @Ses_ManPrintFuncs(ptr noundef readonly captures(non
   %36 = select i1 %20, i32 15, i32 %35
   %37 = zext nneg i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
-  %.021.i = getelementptr inbounds i8, ptr %38, i64 -8
+  %38 = getelementptr i8, ptr %18, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %38, i64 -8
   %39 = zext nneg i32 %36 to i64
   br label %.lr.ph.us.i
 
@@ -4645,8 +4645,8 @@ Abc_NormalizeArrivalTimes.exit:                   ; preds = %.lr.ph30.i, %._crit
   %124 = select i1 %108, i32 15, i32 %123
   %125 = zext nneg i32 %122 to i64
   %.idx.i133 = shl nuw nsw i64 %125, 3
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i133
-  %.021.i = getelementptr inbounds i8, ptr %126, i64 -8
+  %126 = getelementptr i8, ptr %0, i64 %.idx.i133
+  %.021.i = getelementptr i8, ptr %126, i64 -8
   %127 = zext nneg i32 %124 to i64
   br label %.lr.ph.us.i
 
@@ -4960,8 +4960,8 @@ Abc_Clock.exit135:                                ; preds = %159, %162
   %274 = select i1 %259, i32 15, i32 %273
   %275 = zext nneg i32 %272 to i64
   %.idx.i.i = shl nuw nsw i64 %275, 3
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i
-  %.021.i.i = getelementptr inbounds i8, ptr %276, i64 -8
+  %276 = getelementptr i8, ptr %0, i64 %.idx.i.i
+  %.021.i.i = getelementptr i8, ptr %276, i64 -8
   %277 = zext nneg i32 %274 to i64
   br label %.lr.ph.us.i.i
 

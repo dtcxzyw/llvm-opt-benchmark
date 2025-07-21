@@ -1343,11 +1343,11 @@ define internal void @_piwigo_album_changed(ptr readnone captures(none) %0, ptr 
   %20 = tail call ptr @g_strchug(ptr noundef %19) #16
   %21 = tail call ptr @g_strchomp(ptr noundef %20) #16
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #18
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 -1
+  %23 = add nsw i64 %22, -1
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !6
   %26 = icmp ne i8 %25, 41
-  %.not28 = icmp eq i64 %22, 1
+  %.not28 = icmp eq i64 %23, 0
   %or.cond = or i1 %26, %.not28
   br i1 %or.cond, label %.critedge.thread33, label %.lr.ph.preheader
 

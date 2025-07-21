@@ -10161,25 +10161,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10248,8 +10248,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread
 
@@ -10257,125 +10257,125 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = load i32, ptr %.0810.i.i.i.i, align 4
-  %88 = load i32, ptr %.011.i.i.i.i, align 4
-  %89 = icmp eq i32 %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = load i32, ptr %.0810.i.i.i.i, align 4
+  %86 = load i32, ptr %.011.i.i.i.i, align 4
+  %87 = icmp eq i32 %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %92, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
+  %93 = icmp eq i32 %90, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %96 = load i32, ptr %95, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp eq i32 %98, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
+  %99 = icmp eq i32 %96, %98
+  br i1 %99, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i: ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i: ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %101 = load i32, ptr %100, align 4
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp eq i32 %103, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
+  %104 = icmp eq i32 %101, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i, %96, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %90 ], [ false, %96 ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i, %94, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12879,25 +12879,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12966,8 +12966,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread
 
@@ -12975,117 +12975,117 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = mul nsw i64 %.pre, 12
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %101
-  %.011.i.i.i.i = phi ptr [ %103, %101 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %102, %101 ], [ %4, %85 ]
-  %87 = load i32, ptr %.0810.i.i.i.i, align 4
-  %88 = load i32, ptr %.011.i.i.i.i, align 4
-  %89 = icmp eq i32 %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %99
+  %.011.i.i.i.i = phi ptr [ %101, %99 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %100, %99 ], [ %4, %83 ]
+  %85 = load i32, ptr %.0810.i.i.i.i, align 4
+  %86 = load i32, ptr %.011.i.i.i.i, align 4
+  %87 = icmp eq i32 %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %92, %94
-  br i1 %95, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
+  %93 = icmp eq i32 %90, %92
+  br i1 %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i: ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i: ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %95 = load i32, ptr %94, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %97, %99
-  br i1 %100, label %101, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
+  %98 = icmp eq i32 %95, %97
+  br i1 %98, label %99, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit
 
-101:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %.not.i.i.i.i = icmp eq ptr %102, %86
+99:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
+  %.not.i.i.i.i = icmp eq ptr %100, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !41
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit: ; preds = %101, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit
-  %104 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %90 ], [ true, %101 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i ]
-  ret i1 %104
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit: ; preds = %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit
+  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i ]
+  ret i1 %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15492,25 +15492,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15579,8 +15579,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread
 
@@ -15588,105 +15588,105 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 3
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load i32, ptr %.0810.i.i.i.i, align 4
-  %88 = load i32, ptr %.011.i.i.i.i, align 4
-  %89 = icmp eq i32 %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load i32, ptr %.0810.i.i.i.i, align 4
+  %86 = load i32, ptr %.011.i.i.i.i, align 4
+  %87 = icmp eq i32 %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp eq i32 %91, %93
-  %95 = select i1 %89, i1 %94, i1 false
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp ne ptr %96, %86
-  %or.cond7.not = select i1 %95, i1 %.not.i.i.i.i, i1 false
+  %92 = icmp eq i32 %89, %91
+  %93 = select i1 %87, i1 %92, i1 false
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp ne ptr %94, %84
+  %or.cond7.not = select i1 %93, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit, !llvm.loop !59
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit
-  %98 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread ], [ %95, %.lr.ph.i.i.i.i ]
-  ret i1 %98
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  ret i1 %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18093,25 +18093,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18180,8 +18180,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread
 
@@ -18189,149 +18189,149 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 3
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %131
-  %.011.i.i.i.i = phi ptr [ %133, %131 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %132, %131 ], [ %4, %85 ]
-  %87 = load i16, ptr %.0810.i.i.i.i, align 2
-  %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %88
-  %90 = load float, ptr %89, align 4
-  %91 = load i16, ptr %.011.i.i.i.i, align 2
-  %92 = zext i16 %91 to i64
-  %93 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %92
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp oeq float %90, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %129
+  %.011.i.i.i.i = phi ptr [ %131, %129 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %130, %129 ], [ %4, %83 ]
+  %85 = load i16, ptr %.0810.i.i.i.i, align 2
+  %86 = zext i16 %85 to i64
+  %87 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %86
+  %88 = load float, ptr %87, align 4
+  %89 = load i16, ptr %.011.i.i.i.i, align 2
+  %90 = zext i16 %89 to i64
+  %91 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp oeq float %88, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %.lr.ph.i.i.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
-  %98 = load i16, ptr %97, align 2
-  %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %99
-  %101 = load float, ptr %100, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
-  %103 = load i16, ptr %102, align 2
-  %104 = zext i16 %103 to i64
-  %105 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %104
-  %106 = load float, ptr %105, align 4
-  %107 = fcmp oeq float %101, %106
-  br i1 %107, label %108, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
+94:                                               ; preds = %.lr.ph.i.i.i.i
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
+  %96 = load i16, ptr %95, align 2
+  %97 = zext i16 %96 to i64
+  %98 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %97
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
+  %101 = load i16, ptr %100, align 2
+  %102 = zext i16 %101 to i64
+  %103 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %102
+  %104 = load float, ptr %103, align 4
+  %105 = fcmp oeq float %99, %104
+  br i1 %105, label %106, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
 
-108:                                              ; preds = %96
-  %109 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
-  %110 = load i16, ptr %109, align 2
-  %111 = zext i16 %110 to i64
-  %112 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %111
-  %113 = load float, ptr %112, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %115 = load i16, ptr %114, align 2
-  %116 = zext i16 %115 to i64
-  %117 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %116
-  %118 = load float, ptr %117, align 4
-  %119 = fcmp oeq float %113, %118
-  br i1 %119, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
+106:                                              ; preds = %94
+  %107 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %108 = load i16, ptr %107, align 2
+  %109 = zext i16 %108 to i64
+  %110 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %109
+  %111 = load float, ptr %110, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
+  %113 = load i16, ptr %112, align 2
+  %114 = zext i16 %113 to i64
+  %115 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %114
+  %116 = load float, ptr %115, align 4
+  %117 = fcmp oeq float %111, %116
+  br i1 %117, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i: ; preds = %108
-  %120 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 6
-  %121 = load i16, ptr %120, align 2
-  %122 = zext i16 %121 to i64
-  %123 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %122
-  %124 = load float, ptr %123, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 6
-  %126 = load i16, ptr %125, align 2
-  %127 = zext i16 %126 to i64
-  %128 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %127
-  %129 = load float, ptr %128, align 4
-  %130 = fcmp oeq float %124, %129
-  br i1 %130, label %131, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i: ; preds = %106
+  %118 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 6
+  %119 = load i16, ptr %118, align 2
+  %120 = zext i16 %119 to i64
+  %121 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %120
+  %122 = load float, ptr %121, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 6
+  %124 = load i16, ptr %123, align 2
+  %125 = zext i16 %124 to i64
+  %126 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %125
+  %127 = load float, ptr %126, align 4
+  %128 = fcmp oeq float %122, %127
+  br i1 %128, label %129, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit
 
-131:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i
-  %132 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %133 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %132, %86
+129:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i
+  %130 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %130, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !77
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit: ; preds = %131, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i, %108, %96, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit
-  %134 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %96 ], [ false, %108 ], [ true, %131 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i ]
-  ret i1 %134
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit: ; preds = %129, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i, %106, %94, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit
+  %132 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %94 ], [ false, %106 ], [ true, %129 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i ]
+  ret i1 %132
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20732,25 +20732,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20819,8 +20819,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread
 
@@ -20828,135 +20828,135 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = mul nsw i64 %.pre, 6
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %119
-  %.011.i.i.i.i = phi ptr [ %121, %119 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %120, %119 ], [ %4, %85 ]
-  %87 = load i16, ptr %.0810.i.i.i.i, align 2
-  %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %88
-  %90 = load float, ptr %89, align 4
-  %91 = load i16, ptr %.011.i.i.i.i, align 2
-  %92 = zext i16 %91 to i64
-  %93 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %92
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp oeq float %90, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %117
+  %.011.i.i.i.i = phi ptr [ %119, %117 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %118, %117 ], [ %4, %83 ]
+  %85 = load i16, ptr %.0810.i.i.i.i, align 2
+  %86 = zext i16 %85 to i64
+  %87 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %86
+  %88 = load float, ptr %87, align 4
+  %89 = load i16, ptr %.011.i.i.i.i, align 2
+  %90 = zext i16 %89 to i64
+  %91 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp oeq float %88, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %.lr.ph.i.i.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
-  %98 = load i16, ptr %97, align 2
-  %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %99
-  %101 = load float, ptr %100, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
-  %103 = load i16, ptr %102, align 2
-  %104 = zext i16 %103 to i64
-  %105 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %104
-  %106 = load float, ptr %105, align 4
-  %107 = fcmp oeq float %101, %106
-  br i1 %107, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
+94:                                               ; preds = %.lr.ph.i.i.i.i
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
+  %96 = load i16, ptr %95, align 2
+  %97 = zext i16 %96 to i64
+  %98 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %97
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
+  %101 = load i16, ptr %100, align 2
+  %102 = zext i16 %101 to i64
+  %103 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %102
+  %104 = load float, ptr %103, align 4
+  %105 = fcmp oeq float %99, %104
+  br i1 %105, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i: ; preds = %96
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
-  %109 = load i16, ptr %108, align 2
-  %110 = zext i16 %109 to i64
-  %111 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %110
-  %112 = load float, ptr %111, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %114 = load i16, ptr %113, align 2
-  %115 = zext i16 %114 to i64
-  %116 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %115
-  %117 = load float, ptr %116, align 4
-  %118 = fcmp oeq float %112, %117
-  br i1 %118, label %119, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i: ; preds = %94
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %107 = load i16, ptr %106, align 2
+  %108 = zext i16 %107 to i64
+  %109 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %108
+  %110 = load float, ptr %109, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
+  %112 = load i16, ptr %111, align 2
+  %113 = zext i16 %112 to i64
+  %114 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %113
+  %115 = load float, ptr %114, align 4
+  %116 = fcmp oeq float %110, %115
+  br i1 %116, label %117, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit
 
-119:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 6
-  %121 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 6
-  %.not.i.i.i.i = icmp eq ptr %120, %86
+117:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i
+  %118 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 6
+  %119 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 6
+  %.not.i.i.i.i = icmp eq ptr %118, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !95
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit: ; preds = %119, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i, %96, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit
-  %122 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %96 ], [ true, %119 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i ]
-  ret i1 %122
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit: ; preds = %117, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i, %94, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit
+  %120 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %94 ], [ true, %117 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i ]
+  ret i1 %120
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23363,25 +23363,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23450,8 +23450,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread
 
@@ -23459,121 +23459,121 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 2
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = load i16, ptr %.0810.i.i.i.i, align 2
-  %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %88
-  %90 = load float, ptr %89, align 4
-  %91 = load i16, ptr %.011.i.i.i.i, align 2
-  %92 = zext i16 %91 to i64
-  %93 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %92
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp oeq float %90, %94
-  br i1 %95, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = load i16, ptr %.0810.i.i.i.i, align 2
+  %86 = zext i16 %85 to i64
+  %87 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %86
+  %88 = load float, ptr %87, align 4
+  %89 = load i16, ptr %.011.i.i.i.i, align 2
+  %90 = zext i16 %89 to i64
+  %91 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp oeq float %88, %92
+  br i1 %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
-  %97 = load i16, ptr %96, align 2
-  %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %98
-  %100 = load float, ptr %99, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
-  %102 = load i16, ptr %101, align 2
-  %103 = zext i16 %102 to i64
-  %104 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %103
-  %105 = load float, ptr %104, align 4
-  %106 = fcmp oeq float %100, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
+  %95 = load i16, ptr %94, align 2
+  %96 = zext i16 %95 to i64
+  %97 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %96
+  %98 = load float, ptr %97, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
+  %100 = load i16, ptr %99, align 2
+  %101 = zext i16 %100 to i64
+  %102 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %101
+  %103 = load float, ptr %102, align 4
+  %104 = fcmp oeq float %98, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !113
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25974,25 +25974,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26061,8 +26061,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread
 
@@ -26070,125 +26070,125 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = load float, ptr %.0810.i.i.i.i, align 4
-  %88 = load float, ptr %.011.i.i.i.i, align 4
-  %89 = fcmp oeq float %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = load float, ptr %.0810.i.i.i.i, align 4
+  %86 = load float, ptr %.011.i.i.i.i, align 4
+  %87 = fcmp oeq float %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %90 = load float, ptr %89, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp oeq float %92, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
+  %93 = fcmp oeq float %90, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %96 = load float, ptr %95, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %98 = load float, ptr %97, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %100 = load float, ptr %99, align 4
-  %101 = fcmp oeq float %98, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
+  %99 = fcmp oeq float %96, %98
+  br i1 %99, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i: ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i: ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %101 = load float, ptr %100, align 4
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
   %103 = load float, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %105 = load float, ptr %104, align 4
-  %106 = fcmp oeq float %103, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
+  %104 = fcmp oeq float %101, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !131
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i, %96, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %90 ], [ false, %96 ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i, %94, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28589,25 +28589,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28676,8 +28676,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread
 
@@ -28685,117 +28685,117 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = mul nsw i64 %.pre, 12
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %101
-  %.011.i.i.i.i = phi ptr [ %103, %101 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %102, %101 ], [ %4, %85 ]
-  %87 = load float, ptr %.0810.i.i.i.i, align 4
-  %88 = load float, ptr %.011.i.i.i.i, align 4
-  %89 = fcmp oeq float %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %99
+  %.011.i.i.i.i = phi ptr [ %101, %99 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %100, %99 ], [ %4, %83 ]
+  %85 = load float, ptr %.0810.i.i.i.i, align 4
+  %86 = load float, ptr %.011.i.i.i.i, align 4
+  %87 = fcmp oeq float %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %90 = load float, ptr %89, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp oeq float %92, %94
-  br i1 %95, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
+  %93 = fcmp oeq float %90, %92
+  br i1 %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i: ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i: ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %95 = load float, ptr %94, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %97 = load float, ptr %96, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %99 = load float, ptr %98, align 4
-  %100 = fcmp oeq float %97, %99
-  br i1 %100, label %101, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
+  %98 = fcmp oeq float %95, %97
+  br i1 %98, label %99, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit
 
-101:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %.not.i.i.i.i = icmp eq ptr %102, %86
+99:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
+  %.not.i.i.i.i = icmp eq ptr %100, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !149
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit: ; preds = %101, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit
-  %104 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %90 ], [ true, %101 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i ]
-  ret i1 %104
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit: ; preds = %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit
+  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i ]
+  ret i1 %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31202,25 +31202,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31289,8 +31289,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread
 
@@ -31298,105 +31298,105 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 3
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load float, ptr %.0810.i.i.i.i, align 4
-  %88 = load float, ptr %.011.i.i.i.i, align 4
-  %89 = fcmp oeq float %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load float, ptr %.0810.i.i.i.i, align 4
+  %86 = load float, ptr %.011.i.i.i.i, align 4
+  %87 = fcmp oeq float %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %89 = load float, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %93 = load float, ptr %92, align 4
-  %94 = fcmp oeq float %91, %93
-  %95 = select i1 %89, i1 %94, i1 false
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp ne ptr %96, %86
-  %or.cond7.not = select i1 %95, i1 %.not.i.i.i.i, i1 false
+  %92 = fcmp oeq float %89, %91
+  %93 = select i1 %87, i1 %92, i1 false
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp ne ptr %94, %84
+  %or.cond7.not = select i1 %93, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit, !llvm.loop !167
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit
-  %98 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread ], [ %95, %.lr.ph.i.i.i.i ]
-  ret i1 %98
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  ret i1 %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33797,25 +33797,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -33884,8 +33884,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread
 
@@ -33893,125 +33893,125 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 5
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %90 = load double, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %92 = load double, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %94 = load double, ptr %93, align 8
-  %95 = fcmp oeq double %92, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
+  %93 = fcmp oeq double %90, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %96 = load double, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %100 = load double, ptr %99, align 8
-  %101 = fcmp oeq double %98, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
+  %99 = fcmp oeq double %96, %98
+  br i1 %99, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i: ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i: ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %101 = load double, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %103 = load double, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %105 = load double, ptr %104, align 8
-  %106 = fcmp oeq double %103, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
+  %104 = fcmp oeq double %101, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !185
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i, %96, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %90 ], [ false, %96 ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i, %94, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -36412,25 +36412,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -36499,8 +36499,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread
 
@@ -36508,117 +36508,117 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = mul nsw i64 %.pre, 24
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %101
-  %.011.i.i.i.i = phi ptr [ %103, %101 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %102, %101 ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %99
+  %.011.i.i.i.i = phi ptr [ %101, %99 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %100, %99 ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %90 = load double, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %92 = load double, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %94 = load double, ptr %93, align 8
-  %95 = fcmp oeq double %92, %94
-  br i1 %95, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
+  %93 = fcmp oeq double %90, %92
+  br i1 %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i: ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i: ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %95 = load double, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %97 = load double, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %99 = load double, ptr %98, align 8
-  %100 = fcmp oeq double %97, %99
-  br i1 %100, label %101, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
+  %98 = fcmp oeq double %95, %97
+  br i1 %98, label %99, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit
 
-101:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %102, %86
+99:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq ptr %100, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !203
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit: ; preds = %101, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit
-  %104 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %90 ], [ true, %101 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i ]
-  ret i1 %104
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit: ; preds = %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit
+  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i ]
+  ret i1 %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39019,25 +39019,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -39106,8 +39106,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread
 
@@ -39115,105 +39115,105 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %89 = load double, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %93 = load double, ptr %92, align 8
-  %94 = fcmp oeq double %91, %93
-  %95 = select i1 %89, i1 %94, i1 false
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp ne ptr %96, %86
-  %or.cond7.not = select i1 %95, i1 %.not.i.i.i.i, i1 false
+  %92 = fcmp oeq double %89, %91
+  %93 = select i1 %87, i1 %92, i1 false
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp ne ptr %94, %84
+  %or.cond7.not = select i1 %93, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit, !llvm.loop !221
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit
-  %98 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread ], [ %95, %.lr.ph.i.i.i.i ]
-  ret i1 %98
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  ret i1 %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -41614,25 +41614,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -41701,8 +41701,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread
 
@@ -41710,97 +41710,97 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 6
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4feqERKS0_(ptr noundef nonnull align 4 dereferenceable(64) %.0810.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %.011.i.i.i.i)
-  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 64
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 64
-  %.not.i.i.i.i = icmp ne ptr %88, %86
-  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4feqERKS0_(ptr noundef nonnull align 4 dereferenceable(64) %.0810.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %.011.i.i.i.i)
+  %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 64
+  %.not.i.i.i.i = icmp ne ptr %86, %84
+  %or.cond7.not = select i1 %85, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit, !llvm.loop !239
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
-  ret i1 %90
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  ret i1 %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44201,25 +44201,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -44288,8 +44288,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread
 
@@ -44297,97 +44297,97 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = mul nsw i64 %.pre, 36
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3feqERKS0_(ptr noundef nonnull align 4 dereferenceable(36) %.0810.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %.011.i.i.i.i)
-  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 36
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 36
-  %.not.i.i.i.i = icmp ne ptr %88, %86
-  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3feqERKS0_(ptr noundef nonnull align 4 dereferenceable(36) %.0810.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %.011.i.i.i.i)
+  %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 36
+  %.not.i.i.i.i = icmp ne ptr %86, %84
+  %or.cond7.not = select i1 %85, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit, !llvm.loop !257
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
-  ret i1 %90
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  ret i1 %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -46788,25 +46788,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46875,8 +46875,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread
 
@@ -46884,97 +46884,97 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2feqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %.0810.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.011.i.i.i.i)
-  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp ne ptr %88, %86
-  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2feqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %.0810.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.011.i.i.i.i)
+  %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp ne ptr %86, %84
+  %or.cond7.not = select i1 %85, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit, !llvm.loop !275
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
-  ret i1 %90
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  ret i1 %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -49375,25 +49375,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -49462,8 +49462,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread
 
@@ -49471,97 +49471,97 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 7
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4deqERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %.0810.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %.011.i.i.i.i)
-  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 128
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 128
-  %.not.i.i.i.i = icmp ne ptr %88, %86
-  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4deqERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %.0810.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %.011.i.i.i.i)
+  %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 128
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 128
+  %.not.i.i.i.i = icmp ne ptr %86, %84
+  %or.cond7.not = select i1 %85, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit, !llvm.loop !293
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
-  ret i1 %90
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  ret i1 %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -51962,25 +51962,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -52049,8 +52049,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread
 
@@ -52058,97 +52058,97 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = mul nsw i64 %.pre, 72
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3deqERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0810.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.011.i.i.i.i)
-  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 72
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 72
-  %.not.i.i.i.i = icmp ne ptr %88, %86
-  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3deqERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0810.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.011.i.i.i.i)
+  %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 72
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 72
+  %.not.i.i.i.i = icmp ne ptr %86, %84
+  %or.cond7.not = select i1 %85, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit, !llvm.loop !311
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
-  ret i1 %90
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  ret i1 %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -54549,25 +54549,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -54636,8 +54636,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread
 
@@ -54645,97 +54645,97 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 5
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2deqERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i)
-  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp ne ptr %88, %86
-  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2deqERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i)
+  %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp ne ptr %86, %84
+  %or.cond7.not = select i1 %85, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit, !llvm.loop !329
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
-  ret i1 %90
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  ret i1 %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -57214,25 +57214,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -57301,8 +57301,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread
 
@@ -57310,141 +57310,141 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = mul nsw i64 %.pre, 24
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %118
-  %.011.i.i.i.i = phi ptr [ %120, %118 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %119, %118 ], [ %4, %85 ]
-  %87 = load float, ptr %.0810.i.i.i.i, align 4
-  %88 = load float, ptr %.011.i.i.i.i, align 4
-  %89 = fcmp oeq float %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %116
+  %.011.i.i.i.i = phi ptr [ %118, %116 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %117, %116 ], [ %4, %83 ]
+  %85 = load float, ptr %.0810.i.i.i.i, align 4
+  %86 = load float, ptr %.011.i.i.i.i, align 4
+  %87 = fcmp oeq float %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %90 = load float, ptr %89, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp oeq float %92, %94
-  br i1 %95, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
+  %93 = fcmp oeq float %90, %92
+  br i1 %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i: ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i: ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %95 = load float, ptr %94, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %97 = load float, ptr %96, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %99 = load float, ptr %98, align 4
-  %100 = fcmp oeq float %97, %99
-  br i1 %100, label %101, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
+  %98 = fcmp oeq float %95, %97
+  br i1 %98, label %99, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
 
-101:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %104 = load float, ptr %102, align 4
-  %105 = load float, ptr %103, align 4
-  %106 = fcmp oeq float %104, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
+99:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
+  %102 = load float, ptr %100, align 4
+  %103 = load float, ptr %101, align 4
+  %104 = fcmp oeq float %102, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %107 = load float, ptr %106, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %109 = load float, ptr %108, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %111 = load float, ptr %110, align 4
-  %112 = fcmp oeq float %109, %111
-  br i1 %112, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
+  %110 = fcmp oeq float %107, %109
+  br i1 %110, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i: ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 20
+_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i: ; preds = %105
+  %111 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 20
+  %112 = load float, ptr %111, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 20
   %114 = load float, ptr %113, align 4
-  %115 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 20
-  %116 = load float, ptr %115, align 4
-  %117 = fcmp oeq float %114, %116
-  br i1 %117, label %118, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
+  %115 = fcmp oeq float %112, %114
+  br i1 %115, label %116, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit
 
-118:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i
-  %119 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
-  %120 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %119, %86
+116:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i
+  %117 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq ptr %117, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !348
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit: ; preds = %118, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i, %107, %101, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit
-  %121 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %90 ], [ false, %101 ], [ false, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i ], [ true, %118 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i ]
-  ret i1 %121
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit: ; preds = %116, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i, %105, %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit
+  %119 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %99 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i ], [ true, %116 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i ]
+  ret i1 %119
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -59923,25 +59923,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -60010,8 +60010,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread
 
@@ -60019,141 +60019,141 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = mul nsw i64 %.pre, 48
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %118
-  %.011.i.i.i.i = phi ptr [ %120, %118 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %119, %118 ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %116
+  %.011.i.i.i.i = phi ptr [ %118, %116 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %117, %116 ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %90 = load double, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %92 = load double, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %94 = load double, ptr %93, align 8
-  %95 = fcmp oeq double %92, %94
-  br i1 %95, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
+  %93 = fcmp oeq double %90, %92
+  br i1 %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i: ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i: ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %95 = load double, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %97 = load double, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %99 = load double, ptr %98, align 8
-  %100 = fcmp oeq double %97, %99
-  br i1 %100, label %101, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
+  %98 = fcmp oeq double %95, %97
+  br i1 %98, label %99, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
 
-101:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %104 = load double, ptr %102, align 8
-  %105 = load double, ptr %103, align 8
-  %106 = fcmp oeq double %104, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
+99:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
+  %102 = load double, ptr %100, align 8
+  %103 = load double, ptr %101, align 8
+  %104 = fcmp oeq double %102, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %107 = load double, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
   %109 = load double, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %111 = load double, ptr %110, align 8
-  %112 = fcmp oeq double %109, %111
-  br i1 %112, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
+  %110 = fcmp oeq double %107, %109
+  br i1 %110, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i: ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 40
+_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i: ; preds = %105
+  %111 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 40
+  %112 = load double, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 40
   %114 = load double, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 40
-  %116 = load double, ptr %115, align 8
-  %117 = fcmp oeq double %114, %116
-  br i1 %117, label %118, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
+  %115 = fcmp oeq double %112, %114
+  br i1 %115, label %116, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit
 
-118:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i
-  %119 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
-  %120 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
-  %.not.i.i.i.i = icmp eq ptr %119, %86
+116:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i
+  %117 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
+  %.not.i.i.i.i = icmp eq ptr %117, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !367
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit: ; preds = %118, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i, %107, %101, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit
-  %121 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %90 ], [ false, %101 ], [ false, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i ], [ true, %118 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i ]
-  ret i1 %121
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit: ; preds = %116, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i, %105, %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit
+  %119 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %99 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i ], [ true, %116 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i ]
+  ret i1 %119
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -62624,25 +62624,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -62711,8 +62711,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread
 
@@ -62720,121 +62720,121 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = load float, ptr %.0810.i.i.i.i, align 4
-  %88 = load float, ptr %.011.i.i.i.i, align 4
-  %89 = fcmp oeq float %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = load float, ptr %.0810.i.i.i.i, align 4
+  %86 = load float, ptr %.011.i.i.i.i, align 4
+  %87 = fcmp oeq float %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %89 = load float, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %93 = load float, ptr %92, align 4
-  %94 = fcmp oeq float %91, %93
-  %95 = select i1 %89, i1 %94, i1 false
-  br i1 %95, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit
+  %92 = fcmp oeq float %89, %91
+  %93 = select i1 %87, i1 %92, i1 false
+  br i1 %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %98 = load float, ptr %96, align 4
-  %99 = load float, ptr %97, align 4
-  %100 = fcmp oeq float %98, %99
-  %101 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %96 = load float, ptr %94, align 4
+  %97 = load float, ptr %95, align 4
+  %98 = fcmp oeq float %96, %97
+  %99 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %100 = load float, ptr %99, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
   %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %104 = load float, ptr %103, align 4
-  %105 = fcmp oeq float %102, %104
-  %106 = select i1 %100, i1 %105, i1 false
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit
+  %103 = fcmp oeq float %100, %102
+  %104 = select i1 %98, i1 %103, i1 false
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !386
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -65305,25 +65305,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -65392,8 +65392,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread
 
@@ -65401,121 +65401,121 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 5
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %89 = load double, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %93 = load double, ptr %92, align 8
-  %94 = fcmp oeq double %91, %93
-  %95 = select i1 %89, i1 %94, i1 false
-  br i1 %95, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit
+  %92 = fcmp oeq double %89, %91
+  %93 = select i1 %87, i1 %92, i1 false
+  br i1 %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %98 = load double, ptr %96, align 8
-  %99 = load double, ptr %97, align 8
-  %100 = fcmp oeq double %98, %99
-  %101 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %96 = load double, ptr %94, align 8
+  %97 = load double, ptr %95, align 8
+  %98 = fcmp oeq double %96, %97
+  %99 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %100 = load double, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %102 = load double, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %104 = load double, ptr %103, align 8
-  %105 = fcmp oeq double %102, %104
-  %106 = select i1 %100, i1 %105, i1 false
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit
+  %103 = fcmp oeq double %100, %102
+  %104 = select i1 %98, i1 %103, i1 false
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !405
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -67995,25 +67995,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68082,8 +68082,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread
 
@@ -68091,105 +68091,105 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 3
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load float, ptr %.0810.i.i.i.i, align 4
-  %88 = load float, ptr %.011.i.i.i.i, align 4
-  %89 = fcmp oeq float %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load float, ptr %.0810.i.i.i.i, align 4
+  %86 = load float, ptr %.011.i.i.i.i, align 4
+  %87 = fcmp oeq float %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %89 = load float, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %93 = load float, ptr %92, align 4
-  %94 = fcmp oeq float %91, %93
-  %95 = select i1 %89, i1 %94, i1 false
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp ne ptr %96, %86
-  %or.cond7.not = select i1 %95, i1 %.not.i.i.i.i, i1 false
+  %92 = fcmp oeq float %89, %91
+  %93 = select i1 %87, i1 %92, i1 false
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp ne ptr %94, %84
+  %or.cond7.not = select i1 %93, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit, !llvm.loop !424
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit
-  %98 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread ], [ %95, %.lr.ph.i.i.i.i ]
-  ret i1 %98
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  ret i1 %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -70652,25 +70652,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -70739,8 +70739,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread
 
@@ -70748,105 +70748,105 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %89 = load double, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %93 = load double, ptr %92, align 8
-  %94 = fcmp oeq double %91, %93
-  %95 = select i1 %89, i1 %94, i1 false
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp ne ptr %96, %86
-  %or.cond7.not = select i1 %95, i1 %.not.i.i.i.i, i1 false
+  %92 = fcmp oeq double %89, %91
+  %93 = select i1 %87, i1 %92, i1 false
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp ne ptr %94, %84
+  %or.cond7.not = select i1 %93, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit, !llvm.loop !443
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit
-  %98 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread ], [ %95, %.lr.ph.i.i.i.i ]
-  ret i1 %98
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  ret i1 %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -73340,25 +73340,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73427,8 +73427,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread
 
@@ -73436,129 +73436,129 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 5
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %110
-  %.011.i.i.i.i = phi ptr [ %112, %110 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %111, %110 ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  br i1 %89, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %108
+  %.011.i.i.i.i = phi ptr [ %110, %108 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %109, %108 ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  br i1 %87, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %89 = load i8, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %91 = load i8, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %93 = load i8, ptr %92, align 8
-  %94 = xor i8 %93, %91
-  %95 = and i8 %94, 1
-  %96 = icmp eq i8 %95, 0
-  br i1 %96, label %97, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
+  %92 = xor i8 %91, %89
+  %93 = and i8 %92, 1
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %95, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
 
-97:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i
-  %98 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %100 = load double, ptr %98, align 8
-  %101 = load double, ptr %99, align 8
-  %102 = fcmp oeq double %100, %101
-  br i1 %102, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
+95:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %98 = load double, ptr %96, align 8
+  %99 = load double, ptr %97, align 8
+  %100 = fcmp oeq double %98, %99
+  br i1 %100, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i: ; preds = %97
-  %103 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i: ; preds = %95
+  %101 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %102 = load i8, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %104 = load i8, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %106 = load i8, ptr %105, align 8
-  %107 = xor i8 %106, %104
-  %108 = and i8 %107, 1
-  %109 = icmp eq i8 %108, 0
-  br i1 %109, label %110, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
+  %105 = xor i8 %104, %102
+  %106 = and i8 %105, 1
+  %107 = icmp eq i8 %106, 0
+  br i1 %107, label %108, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit
 
-110:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i
-  %111 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %112 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %111, %86
+108:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i
+  %109 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %109, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !463
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit: ; preds = %110, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i, %97, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit
-  %113 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %97 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i ], [ true, %110 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i ]
-  ret i1 %113
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit: ; preds = %108, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i, %95, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit
+  %111 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %95 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i ], [ true, %108 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i ]
+  ret i1 %111
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -76029,25 +76029,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -76116,8 +76116,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread
 
@@ -76125,121 +76125,121 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = load i32, ptr %.0810.i.i.i.i, align 4
-  %88 = load i32, ptr %.011.i.i.i.i, align 4
-  %89 = icmp eq i32 %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = load i32, ptr %.0810.i.i.i.i, align 4
+  %86 = load i32, ptr %.011.i.i.i.i, align 4
+  %87 = icmp eq i32 %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp eq i32 %91, %93
-  %95 = select i1 %89, i1 %94, i1 false
-  br i1 %95, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit
+  %92 = icmp eq i32 %89, %91
+  %93 = select i1 %87, i1 %92, i1 false
+  br i1 %93, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %98 = load i32, ptr %96, align 4
-  %99 = load i32, ptr %97, align 4
-  %100 = icmp eq i32 %98, %99
-  %101 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %96 = load i32, ptr %94, align 4
+  %97 = load i32, ptr %95, align 4
+  %98 = icmp eq i32 %96, %97
+  %99 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %100 = load i32, ptr %99, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp eq i32 %102, %104
-  %106 = select i1 %100, i1 %105, i1 false
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit
+  %103 = icmp eq i32 %100, %102
+  %104 = select i1 %98, i1 %103, i1 false
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !482
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit: ; preds = %107, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %107 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit: ; preds = %105, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78713,25 +78713,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -78800,8 +78800,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread
 
@@ -78809,149 +78809,149 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 3
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %129
-  %.011.i.i.i.i = phi ptr [ %131, %129 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %130, %129 ], [ %4, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 6
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %87, align 2
-  %88 = zext i16 %.sroa.0.0.copyload.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %88
-  %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 6
-  %.sroa.0.0.copyload.i3.i.i.i.i.i = load i16, ptr %91, align 2
-  %92 = zext i16 %.sroa.0.0.copyload.i3.i.i.i.i.i to i64
-  %93 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %92
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp oeq float %90, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %127
+  %.011.i.i.i.i = phi ptr [ %129, %127 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %128, %127 ], [ %4, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 6
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %85, align 2
+  %86 = zext i16 %.sroa.0.0.copyload.i.i.i.i.i.i to i64
+  %87 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %86
+  %88 = load float, ptr %87, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 6
+  %.sroa.0.0.copyload.i3.i.i.i.i.i = load i16, ptr %89, align 2
+  %90 = zext i16 %.sroa.0.0.copyload.i3.i.i.i.i.i to i64
+  %91 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp oeq float %88, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %.lr.ph.i.i.i.i
-  %97 = load i16, ptr %.0810.i.i.i.i, align 2
-  %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %98
-  %100 = load float, ptr %99, align 4
-  %101 = load i16, ptr %.011.i.i.i.i, align 2
-  %102 = zext i16 %101 to i64
-  %103 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %102
-  %104 = load float, ptr %103, align 4
-  %105 = fcmp oeq float %100, %104
-  br i1 %105, label %106, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
+94:                                               ; preds = %.lr.ph.i.i.i.i
+  %95 = load i16, ptr %.0810.i.i.i.i, align 2
+  %96 = zext i16 %95 to i64
+  %97 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %96
+  %98 = load float, ptr %97, align 4
+  %99 = load i16, ptr %.011.i.i.i.i, align 2
+  %100 = zext i16 %99 to i64
+  %101 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %100
+  %102 = load float, ptr %101, align 4
+  %103 = fcmp oeq float %98, %102
+  br i1 %103, label %104, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
 
-106:                                              ; preds = %96
-  %107 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
-  %108 = load i16, ptr %107, align 2
-  %109 = zext i16 %108 to i64
-  %110 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %109
-  %111 = load float, ptr %110, align 4
-  %112 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
-  %113 = load i16, ptr %112, align 2
-  %114 = zext i16 %113 to i64
-  %115 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %114
-  %116 = load float, ptr %115, align 4
-  %117 = fcmp oeq float %111, %116
-  br i1 %117, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
+104:                                              ; preds = %94
+  %105 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
+  %106 = load i16, ptr %105, align 2
+  %107 = zext i16 %106 to i64
+  %108 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %107
+  %109 = load float, ptr %108, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
+  %111 = load i16, ptr %110, align 2
+  %112 = zext i16 %111 to i64
+  %113 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %112
+  %114 = load float, ptr %113, align 4
+  %115 = fcmp oeq float %109, %114
+  br i1 %115, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i: ; preds = %106
-  %118 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
-  %119 = load i16, ptr %118, align 2
-  %120 = zext i16 %119 to i64
-  %121 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %120
-  %122 = load float, ptr %121, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %124 = load i16, ptr %123, align 2
-  %125 = zext i16 %124 to i64
-  %126 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %125
-  %127 = load float, ptr %126, align 4
-  %128 = fcmp oeq float %122, %127
-  br i1 %128, label %129, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i: ; preds = %104
+  %116 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %117 = load i16, ptr %116, align 2
+  %118 = zext i16 %117 to i64
+  %119 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %118
+  %120 = load float, ptr %119, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
+  %122 = load i16, ptr %121, align 2
+  %123 = zext i16 %122 to i64
+  %124 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %123
+  %125 = load float, ptr %124, align 4
+  %126 = fcmp oeq float %120, %125
+  br i1 %126, label %127, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit
 
-129:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i
-  %130 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %131 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %130, %86
+127:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %128, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !501
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit: ; preds = %129, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i, %106, %96, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit
-  %132 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread ], [ false, %96 ], [ false, %106 ], [ false, %.lr.ph.i.i.i.i ], [ true, %129 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i ]
-  ret i1 %132
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit: ; preds = %127, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i, %104, %94, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit
+  %130 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread ], [ false, %94 ], [ false, %104 ], [ false, %.lr.ph.i.i.i.i ], [ true, %127 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i ]
+  ret i1 %130
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -81408,25 +81408,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -81495,8 +81495,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread
 
@@ -81504,125 +81504,125 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %86 = load float, ptr %85, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
   %88 = load float, ptr %87, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %90 = load float, ptr %89, align 4
-  %91 = fcmp oeq float %88, %90
-  br i1 %91, label %92, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
+  %89 = fcmp oeq float %86, %88
+  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
 
-92:                                               ; preds = %.lr.ph.i.i.i.i
-  %93 = load float, ptr %.0810.i.i.i.i, align 4
-  %94 = load float, ptr %.011.i.i.i.i, align 4
-  %95 = fcmp oeq float %93, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
+90:                                               ; preds = %.lr.ph.i.i.i.i
+  %91 = load float, ptr %.0810.i.i.i.i, align 4
+  %92 = load float, ptr %.011.i.i.i.i, align 4
+  %93 = fcmp oeq float %91, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %96 = load float, ptr %95, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %98 = load float, ptr %97, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %100 = load float, ptr %99, align 4
-  %101 = fcmp oeq float %98, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
+  %99 = fcmp oeq float %96, %98
+  br i1 %99, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i: ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i: ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %101 = load float, ptr %100, align 4
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %103 = load float, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %105 = load float, ptr %104, align 4
-  %106 = fcmp oeq float %103, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
+  %104 = fcmp oeq float %101, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !520
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i, %96, %92, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread ], [ false, %92 ], [ false, %96 ], [ false, %.lr.ph.i.i.i.i ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i, %94, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -84079,25 +84079,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -84166,8 +84166,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread
 
@@ -84175,125 +84175,125 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 5
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %86 = load double, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %88 = load double, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %90 = load double, ptr %89, align 8
-  %91 = fcmp oeq double %88, %90
-  br i1 %91, label %92, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
+  %89 = fcmp oeq double %86, %88
+  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
 
-92:                                               ; preds = %.lr.ph.i.i.i.i
-  %93 = load double, ptr %.0810.i.i.i.i, align 8
-  %94 = load double, ptr %.011.i.i.i.i, align 8
-  %95 = fcmp oeq double %93, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
+90:                                               ; preds = %.lr.ph.i.i.i.i
+  %91 = load double, ptr %.0810.i.i.i.i, align 8
+  %92 = load double, ptr %.011.i.i.i.i, align 8
+  %93 = fcmp oeq double %91, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %96 = load double, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %100 = load double, ptr %99, align 8
-  %101 = fcmp oeq double %98, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
+  %99 = fcmp oeq double %96, %98
+  br i1 %99, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i: ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i: ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %101 = load double, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %103 = load double, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %105 = load double, ptr %104, align 8
-  %106 = fcmp oeq double %103, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
+  %104 = fcmp oeq double %101, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !539
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i, %96, %92, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread ], [ false, %92 ], [ false, %96 ], [ false, %.lr.ph.i.i.i.i ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i, %94, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -86750,25 +86750,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -86837,8 +86837,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread
 
@@ -86846,125 +86846,125 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 5
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %107
-  %.011.i.i.i.i = phi ptr [ %109, %107 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %108, %107 ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %105
+  %.011.i.i.i.i = phi ptr [ %107, %105 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %106, %105 ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %93 = load double, ptr %91, align 8
-  %94 = load double, ptr %92, align 8
-  %95 = fcmp oeq double %93, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %91 = load double, ptr %89, align 8
+  %92 = load double, ptr %90, align 8
+  %93 = fcmp oeq double %91, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %96 = load double, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %100 = load double, ptr %99, align 8
-  %101 = fcmp oeq double %98, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
+  %99 = fcmp oeq double %96, %98
+  br i1 %99, label %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i: ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i: ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %101 = load double, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %103 = load double, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %105 = load double, ptr %104, align 8
-  %106 = fcmp oeq double %103, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
+  %104 = fcmp oeq double %101, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %109 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %108, %86
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %106, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !558
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit: ; preds = %107, %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i, %96, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit
-  %110 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %96 ], [ false, %.lr.ph.i.i.i.i ], [ true, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i ]
-  ret i1 %110
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i, %94, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread ], [ false, %88 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i ]
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -89421,25 +89421,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -89508,8 +89508,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread
 
@@ -89517,97 +89517,97 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatheqERKS0_(ptr noundef nonnull align 2 dereferenceable(16) %.0810.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(16) %.011.i.i.i.i)
-  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp ne ptr %88, %86
-  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatheqERKS0_(ptr noundef nonnull align 2 dereferenceable(16) %.0810.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(16) %.011.i.i.i.i)
+  %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp ne ptr %86, %84
+  %or.cond7.not = select i1 %85, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit, !llvm.loop !577
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
-  ret i1 %90
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  ret i1 %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -92064,25 +92064,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -92151,8 +92151,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread
 
@@ -92160,157 +92160,157 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 5
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %130
-  %.011.i.i.i.i = phi ptr [ %132, %130 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %131, %130 ], [ %4, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+.lr.ph.i.i.i.i:                                   ; preds = %83, %128
+  %.011.i.i.i.i = phi ptr [ %130, %128 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %129, %128 ], [ %4, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 12
+  %86 = load float, ptr %85, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
   %88 = load float, ptr %87, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 12
-  %90 = load float, ptr %89, align 4
-  %91 = fcmp oeq float %88, %90
-  br i1 %91, label %92, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+  %89 = fcmp oeq float %86, %88
+  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-92:                                               ; preds = %.lr.ph.i.i.i.i
-  %93 = load float, ptr %.0810.i.i.i.i, align 4
-  %94 = load float, ptr %.011.i.i.i.i, align 4
-  %95 = fcmp oeq float %93, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+90:                                               ; preds = %.lr.ph.i.i.i.i
+  %91 = load float, ptr %.0810.i.i.i.i, align 4
+  %92 = load float, ptr %.011.i.i.i.i, align 4
+  %93 = fcmp oeq float %91, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %96 = load float, ptr %95, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
   %98 = load float, ptr %97, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %100 = load float, ptr %99, align 4
-  %101 = fcmp oeq float %98, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+  %99 = fcmp oeq float %96, %98
+  br i1 %99, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i: ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i: ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %101 = load float, ptr %100, align 4
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %103 = load float, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %105 = load float, ptr %104, align 4
-  %106 = fcmp oeq float %103, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+  %104 = fcmp oeq float %101, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 28
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 28
+  %107 = load float, ptr %106, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 28
   %109 = load float, ptr %108, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 28
-  %111 = load float, ptr %110, align 4
-  %112 = fcmp oeq float %109, %111
-  br i1 %112, label %113, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+  %110 = fcmp oeq float %107, %109
+  br i1 %110, label %111, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-113:                                              ; preds = %107
-  %114 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %115 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %116 = load float, ptr %115, align 4
-  %117 = load float, ptr %114, align 4
-  %118 = fcmp oeq float %116, %117
-  br i1 %118, label %119, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %114 = load float, ptr %113, align 4
+  %115 = load float, ptr %112, align 4
+  %116 = fcmp oeq float %114, %115
+  br i1 %116, label %117, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-119:                                              ; preds = %113
-  %120 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 20
+117:                                              ; preds = %111
+  %118 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 20
+  %119 = load float, ptr %118, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 20
   %121 = load float, ptr %120, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 20
-  %123 = load float, ptr %122, align 4
-  %124 = fcmp oeq float %121, %123
-  br i1 %124, label %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+  %122 = fcmp oeq float %119, %121
+  br i1 %122, label %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i: ; preds = %119
-  %125 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i: ; preds = %117
+  %123 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %124 = load float, ptr %123, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %126 = load float, ptr %125, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %128 = load float, ptr %127, align 4
-  %129 = fcmp oeq float %126, %128
-  br i1 %129, label %130, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
+  %127 = fcmp oeq float %124, %126
+  br i1 %127, label %128, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit
 
-130:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i
-  %131 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %132 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %131, %86
+128:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %129, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !596
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit: ; preds = %130, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i, %119, %113, %107, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i, %96, %92, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit
-  %133 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread ], [ false, %92 ], [ false, %96 ], [ false, %.lr.ph.i.i.i.i ], [ false, %113 ], [ false, %119 ], [ false, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i ], [ true, %130 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i ]
-  ret i1 %133
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit: ; preds = %128, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i, %117, %111, %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i, %94, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit
+  %131 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ false, %111 ], [ false, %117 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i ], [ true, %128 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i ]
+  ret i1 %131
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -94767,25 +94767,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -94854,8 +94854,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread
 
@@ -94863,157 +94863,157 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 6
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %130
-  %.011.i.i.i.i = phi ptr [ %132, %130 ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %131, %130 ], [ %4, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+.lr.ph.i.i.i.i:                                   ; preds = %83, %128
+  %.011.i.i.i.i = phi ptr [ %130, %128 ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %129, %128 ], [ %4, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %86 = load double, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %88 = load double, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %90 = load double, ptr %89, align 8
-  %91 = fcmp oeq double %88, %90
-  br i1 %91, label %92, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+  %89 = fcmp oeq double %86, %88
+  br i1 %89, label %90, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-92:                                               ; preds = %.lr.ph.i.i.i.i
-  %93 = load double, ptr %.0810.i.i.i.i, align 8
-  %94 = load double, ptr %.011.i.i.i.i, align 8
-  %95 = fcmp oeq double %93, %94
-  br i1 %95, label %96, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+90:                                               ; preds = %.lr.ph.i.i.i.i
+  %91 = load double, ptr %.0810.i.i.i.i, align 8
+  %92 = load double, ptr %.011.i.i.i.i, align 8
+  %93 = fcmp oeq double %91, %92
+  br i1 %93, label %94, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %96 = load double, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %100 = load double, ptr %99, align 8
-  %101 = fcmp oeq double %98, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+  %99 = fcmp oeq double %96, %98
+  br i1 %99, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i: ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i: ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
+  %101 = load double, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %103 = load double, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
-  %105 = load double, ptr %104, align 8
-  %106 = fcmp oeq double %103, %105
-  br i1 %106, label %107, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+  %104 = fcmp oeq double %101, %103
+  br i1 %104, label %105, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 56
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 56
+  %107 = load double, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 56
   %109 = load double, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 56
-  %111 = load double, ptr %110, align 8
-  %112 = fcmp oeq double %109, %111
-  br i1 %112, label %113, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+  %110 = fcmp oeq double %107, %109
+  br i1 %110, label %111, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-113:                                              ; preds = %107
-  %114 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
-  %115 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
-  %116 = load double, ptr %115, align 8
-  %117 = load double, ptr %114, align 8
-  %118 = fcmp oeq double %116, %117
-  br i1 %118, label %119, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %114 = load double, ptr %113, align 8
+  %115 = load double, ptr %112, align 8
+  %116 = fcmp oeq double %114, %115
+  br i1 %116, label %117, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-119:                                              ; preds = %113
-  %120 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 40
+117:                                              ; preds = %111
+  %118 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 40
+  %119 = load double, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 40
   %121 = load double, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 40
-  %123 = load double, ptr %122, align 8
-  %124 = fcmp oeq double %121, %123
-  br i1 %124, label %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+  %122 = fcmp oeq double %119, %121
+  br i1 %122, label %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i: ; preds = %119
-  %125 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
+_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i: ; preds = %117
+  %123 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
+  %124 = load double, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
   %126 = load double, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
-  %128 = load double, ptr %127, align 8
-  %129 = fcmp oeq double %126, %128
-  br i1 %129, label %130, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
+  %127 = fcmp oeq double %124, %126
+  br i1 %127, label %128, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit
 
-130:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i
-  %131 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 64
-  %132 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 64
-  %.not.i.i.i.i = icmp eq ptr %131, %86
+128:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 64
+  %.not.i.i.i.i = icmp eq ptr %129, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !615
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit: ; preds = %130, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i, %119, %113, %107, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i, %96, %92, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit
-  %133 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread ], [ false, %92 ], [ false, %96 ], [ false, %.lr.ph.i.i.i.i ], [ false, %113 ], [ false, %119 ], [ false, %107 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i ], [ true, %130 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i ]
-  ret i1 %133
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit: ; preds = %128, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i, %117, %111, %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i, %94, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit
+  %131 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ false, %111 ], [ false, %117 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i ], [ true, %128 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i ]
+  ret i1 %131
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -97474,25 +97474,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -97561,8 +97561,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread
 
@@ -97570,90 +97570,90 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.pre)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKbS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKbS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -100106,25 +100106,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -100193,8 +100193,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread
 
@@ -100202,90 +100202,90 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.pre)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKcS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKcS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -102738,25 +102738,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -102825,8 +102825,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread
 
@@ -102834,90 +102834,90 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.pre)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKhS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKhS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -105326,25 +105326,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -105413,8 +105413,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread
 
@@ -105422,91 +105422,91 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %.idx = shl nsw i64 %.pre, 1
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKsS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKsS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -107914,25 +107914,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -108001,8 +108001,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread
 
@@ -108010,91 +108010,91 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %.idx = shl nsw i64 %.pre, 1
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKtS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKtS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -110502,25 +110502,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -110589,8 +110589,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread
 
@@ -110598,91 +110598,91 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %.idx = shl nsw i64 %.pre, 2
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -113090,25 +113090,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -113177,8 +113177,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread
 
@@ -113186,91 +113186,91 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %.idx = shl nsw i64 %.pre, 2
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKjS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKjS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -115678,25 +115678,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -115765,8 +115765,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread
 
@@ -115774,91 +115774,91 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %.idx = shl nsw i64 %.pre, 3
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKlS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKlS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -118266,25 +118266,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -118353,8 +118353,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread
 
@@ -118362,91 +118362,91 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.not.i.i.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit, label %86
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   %.idx = shl nsw i64 %.pre, 3
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %4, ptr %6, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit
 
-_ZSt5equalIPKmS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread, %86, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit
-  %87 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ %.not7.i.i.i.i, %86 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread ]
-  ret i1 %87
+_ZSt5equalIPKmS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread ]
+  ret i1 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120854,25 +120854,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -120941,8 +120941,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread
 
@@ -120950,99 +120950,99 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 3
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %90, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load double, ptr %.0810.i.i.i.i, align 8
-  %88 = load double, ptr %.011.i.i.i.i, align 8
-  %89 = fcmp oeq double %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp ne ptr %90, %86
-  %or.cond7.not = select i1 %89, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load double, ptr %.0810.i.i.i.i, align 8
+  %86 = load double, ptr %.011.i.i.i.i, align 8
+  %87 = fcmp oeq double %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp ne ptr %88, %84
+  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit, !llvm.loop !783
 
-_ZSt5equalIPKdS1_EbT_S2_T0_.exit:                 ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit
-  %92 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread ], [ %89, %.lr.ph.i.i.i.i ]
-  ret i1 %92
+_ZSt5equalIPKdS1_EbT_S2_T0_.exit:                 ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit
+  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
+  ret i1 %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -123451,25 +123451,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -123538,8 +123538,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread
 
@@ -123547,99 +123547,99 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 2
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %90, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load float, ptr %.0810.i.i.i.i, align 4
-  %88 = load float, ptr %.011.i.i.i.i, align 4
-  %89 = fcmp oeq float %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
-  %91 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %.not.i.i.i.i = icmp ne ptr %90, %86
-  %or.cond7.not = select i1 %89, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load float, ptr %.0810.i.i.i.i, align 4
+  %86 = load float, ptr %.011.i.i.i.i, align 4
+  %87 = fcmp oeq float %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
+  %.not.i.i.i.i = icmp ne ptr %88, %84
+  %or.cond7.not = select i1 %87, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit, !llvm.loop !801
 
-_ZSt5equalIPKfS1_EbT_S2_T0_.exit:                 ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit
-  %92 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread ], [ %89, %.lr.ph.i.i.i.i ]
-  ret i1 %92
+_ZSt5equalIPKfS1_EbT_S2_T0_.exit:                 ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit
+  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
+  ret i1 %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -126048,25 +126048,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -126135,8 +126135,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread
 
@@ -126144,105 +126144,105 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 1
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load i16, ptr %.0810.i.i.i.i, align 2
-  %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %88
-  %90 = load float, ptr %89, align 4
-  %91 = load i16, ptr %.011.i.i.i.i, align 2
-  %92 = zext i16 %91 to i64
-  %93 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %92
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp oeq float %90, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
-  %.not.i.i.i.i = icmp ne ptr %96, %86
-  %or.cond7.not = select i1 %95, i1 %.not.i.i.i.i, i1 false
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load i16, ptr %.0810.i.i.i.i, align 2
+  %86 = zext i16 %85 to i64
+  %87 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %86
+  %88 = load float, ptr %87, align 4
+  %89 = load i16, ptr %.011.i.i.i.i, align 2
+  %90 = zext i16 %89 to i64
+  %91 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp oeq float %88, %92
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 2
+  %.not.i.i.i.i = icmp ne ptr %94, %84
+  %or.cond7.not = select i1 %93, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit, !llvm.loop !819
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit
-  %98 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread ], [ %95, %.lr.ph.i.i.i.i ]
-  ret i1 %98
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  ret i1 %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -128973,25 +128973,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -129060,8 +129060,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread
 
@@ -129069,113 +129069,113 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit
   %.not.i = icmp eq i64 %.pre, %.pre6
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 5
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not10.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not10.i.i.i.i, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %97, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ %6, %85 ]
-  %.0811.i.i.i.i = phi ptr [ %96, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ %4, %85 ]
-  %87 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i) #17
-  %88 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i) #17
-  %89 = icmp eq i64 %87, %88
-  br i1 %89, label %90, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %83, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %95, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ %6, %83 ]
+  %.0811.i.i.i.i = phi ptr [ %94, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ %4, %83 ]
+  %85 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i) #17
+  %86 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i) #17
+  %87 = icmp eq i64 %85, %86
+  br i1 %87, label %88, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit
 
-90:                                               ; preds = %.lr.ph.i.i.i.i
-  %91 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i) #17
-  %92 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i) #17
-  %93 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i) #17
-  %94 = icmp eq i64 %93, 0
-  br i1 %94, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i) #17
+  %90 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i) #17
+  %91 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i) #17
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i: ; preds = %90
-  %bcmp.i.i.i.i.i4 = tail call i32 @bcmp(ptr %91, ptr %92, i64 %93)
-  %95 = icmp eq i32 %bcmp.i.i.i.i.i4, 0
-  br i1 %95, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i: ; preds = %88
+  %bcmp.i.i.i.i.i4 = tail call i32 @bcmp(ptr %89, ptr %90, i64 %91)
+  %93 = icmp eq i32 %bcmp.i.i.i.i.i4, 0
+  br i1 %93, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %90
-  %96 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 32
-  %97 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %96, %86
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %88
+  %94 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %94, %84
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !845
 
-_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit
-  %98 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i ]
-  ret i1 %98
+_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i ]
+  ret i1 %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -132343,25 +132343,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds 
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 8, i64 12
-  %46 = select i1 %41, i64 4, i64 %45
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %46)
+  %.ph.i = select i1 %41, i64 4, i64 %45
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %25, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
+  br i1 %.not7.i.i.i.i.i, label %46, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %47
+  br i1 %.not6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread, label %46
 
-47:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %49, %51
+46:                                               ; preds = %38, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %48, %50
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
-  %53 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %52, %47 ], [ false, %38 ], [ false, %8 ]
-  ret i1 %53
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.thread: ; preds = %8, %38, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %2
+  %52 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %2 ], [ %51, %46 ], [ false, %38 ], [ false, %8 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -132430,8 +132430,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i.i: ; pred
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, i64 8, i64 12
-  %43 = select i1 %38, i64 4, i64 %42
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %43)
+  %.ph.i.i = select i1 %38, i64 4, i64 %42
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %22, i64 %.ph.i.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread
 
@@ -132439,102 +132439,102 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i: ; preds = %
   br i1 %.not6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit: ; preds = %35, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread: ; preds = %35, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit
   %.not.i = icmp eq i64 %.pre, %.pre5
-  br i1 %.not.i, label %49, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit
+  br i1 %.not.i, label %48, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit
 
-49:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %53
+48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = select i1 %59, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %57, %53, %49
-  %62 = phi i32 [ 1, %49 ], [ %61, %57 ], [ 2, %53 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %66
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i: ; preds = %56, %52, %48
+  %61 = phi i32 [ 1, %48 ], [ %60, %56 ], [ 2, %52 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %65
 
-66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %70
+65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 0
-  %74 = select i1 %73, i32 3, i32 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 3, i32 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %70, %66, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
-  %75 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %74, %70 ], [ 2, %66 ]
-  %.not6.i = icmp ne i32 %62, %75
-  %brmerge.i = or i1 %52, %.not6.i
-  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i: ; preds = %69, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i
+  %74 = phi i32 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit.i ], [ %73, %69 ], [ 2, %65 ]
+  %.not6.i = icmp ne i32 %61, %74
+  %brmerge.i = or i1 %51, %.not6.i
+  br i1 %brmerge.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, i64 8, i64 12
-  %84 = select i1 %79, i64 4, i64 %83
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %63, i64 %84)
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 8, i64 12
+  %.ph.i = select i1 %78, i64 4, i64 %82
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %62, i64 %.ph.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %85, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit
+  br i1 %.not7.i.i.i.i.i, label %83, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit7.i
-  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, label %85
+  br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, label %83
 
-85:                                               ; preds = %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
+83:                                               ; preds = %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
   %.idx = shl nsw i64 %.pre, 3
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %84 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %6, %85 ]
-  %.0810.i.i.i.i = phi ptr [ %93, %.lr.ph.i.i.i.i ], [ %4, %85 ]
-  %87 = load ptr, ptr %.0810.i.i.i.i, align 8
+.lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
+  %.011.i.i.i.i = phi ptr [ %92, %.lr.ph.i.i.i.i ], [ %6, %83 ]
+  %.0810.i.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i ], [ %4, %83 ]
+  %85 = load ptr, ptr %.0810.i.i.i.i, align 8
+  %86 = ptrtoint ptr %85 to i64
+  %87 = load ptr, ptr %.011.i.i.i.i, align 8
   %88 = ptrtoint ptr %87 to i64
-  %89 = load ptr, ptr %.011.i.i.i.i, align 8
-  %90 = ptrtoint ptr %89 to i64
-  %91 = xor i64 %90, %88
-  %92 = icmp ult i64 %91, 8
-  %93 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %94 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp ne ptr %93, %86
-  %or.cond7.not = select i1 %92, i1 %.not.i.i.i.i, i1 false
+  %89 = xor i64 %88, %86
+  %90 = icmp ult i64 %89, 8
+  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp ne ptr %91, %84
+  %or.cond7.not = select i1 %90, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, !llvm.loop !870
 
-_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread, %85, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit
-  %95 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %76 ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread ], [ %92, %.lr.ph.i.i.i.i ]
-  ret i1 %95
+_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit
+  %93 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread ], [ %90, %.lr.ph.i.i.i.i ]
+  ret i1 %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

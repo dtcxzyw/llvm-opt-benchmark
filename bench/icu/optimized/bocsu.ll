@@ -35,8 +35,8 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   %18 = phi i32 [ 64, %16 ], [ %14, %9 ]
   %.042 = phi ptr [ %5, %16 ], [ %13, %9 ]
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %.042, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 -4
+  %20 = getelementptr i8, ptr %.042, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -4
   %22 = icmp slt i32 %.03657, %2
   br i1 %22, label %.lr.ph, label %._crit_edge
 

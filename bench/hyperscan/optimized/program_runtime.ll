@@ -5813,8 +5813,8 @@ canSkipCatchUpMPV.exit1415.thread3138:            ; preds = %3054, %canSkipCatch
 
 .lr.ph5281.preheader:                             ; preds = %3075
   %3101 = zext nneg i32 %3078 to i64
-  %3102 = getelementptr inbounds nuw i8, ptr %3073, i64 %3101
-  %3103 = getelementptr inbounds i8, ptr %3102, i64 -8
+  %3102 = getelementptr i8, ptr %3073, i64 %3101
+  %3103 = getelementptr i8, ptr %3102, i64 -8
   br label %.lr.ph5281
 
 3104:                                             ; preds = %.lr.ph5281
@@ -7552,8 +7552,8 @@ canSkipCatchUpMPV.exit.i.thread3226:              ; preds = %4129, %canSkipCatch
 
 .lr.ph5197.preheader:                             ; preds = %4144
   %4170 = zext nneg i32 %4147 to i64
-  %4171 = getelementptr inbounds nuw i8, ptr %4071, i64 %4170
-  %4172 = getelementptr inbounds i8, ptr %4171, i64 -8
+  %4171 = getelementptr i8, ptr %4071, i64 %4170
+  %4172 = getelementptr i8, ptr %4171, i64 -8
   br label %.lr.ph5197
 
 4173:                                             ; preds = %.lr.ph5197
@@ -8826,8 +8826,8 @@ mmbit_set_i.exit1656.thread3297:                  ; preds = %.thread3292, %mmbit
 
 .lr.ph5171.preheader:                             ; preds = %4894
   %4920 = zext nneg i32 %4897 to i64
-  %4921 = getelementptr inbounds nuw i8, ptr %4889, i64 %4920
-  %4922 = getelementptr inbounds i8, ptr %4921, i64 -8
+  %4921 = getelementptr i8, ptr %4889, i64 %4920
+  %4922 = getelementptr i8, ptr %4921, i64 -8
   br label %.lr.ph5171
 
 4923:                                             ; preds = %.lr.ph5171
@@ -12957,7 +12957,7 @@ mmbit_sparse_iter_unset.exit:                     ; preds = %7140, %7207, %7063,
   %7269 = getelementptr inbounds nuw i8, ptr %7253, i64 %7254
   %7270 = getelementptr inbounds i8, ptr %7269, i64 %7263
   %7271 = icmp samesign ult i64 %7262, 8
-  %7272 = getelementptr inbounds nuw i8, ptr %7268, i64 %7262
+  %7272 = getelementptr i8, ptr %7268, i64 %7262
   br i1 %7271, label %7273, label %7280
 
 7273:                                             ; preds = %7260
@@ -12979,7 +12979,7 @@ mmbit_sparse_iter_unset.exit:                     ; preds = %7140, %7207, %7063,
   br i1 %7279, label %.lr.ph5045, label %cmpForward.exit2447
 
 7280:                                             ; preds = %7260
-  %7281 = getelementptr inbounds i8, ptr %7272, i64 -8
+  %7281 = getelementptr i8, ptr %7272, i64 -8
   %7282 = getelementptr inbounds i8, ptr %7269, i64 -8
   %.not5359 = icmp eq i64 %7262, 8
   br i1 %.not5359, label %._crit_edge5041, label %.lr.ph5040
@@ -13025,7 +13025,7 @@ cmpForward.exit2447:                              ; preds = %7276, %7273, %._cri
   %7301 = sub nsw i64 0, %7295
   %7302 = getelementptr inbounds i8, ptr %7300, i64 %7301
   %7303 = icmp samesign ult i64 %7298, 8
-  %7304 = getelementptr inbounds nuw i8, ptr %7302, i64 %7298
+  %7304 = getelementptr i8, ptr %7302, i64 %7298
   br i1 %7303, label %7305, label %7312
 
 7305:                                             ; preds = %7297
@@ -13047,7 +13047,7 @@ cmpForward.exit2447:                              ; preds = %7276, %7273, %._cri
   br i1 %7311, label %.lr.ph5054, label %roseCheckLongLiteral.exit
 
 7312:                                             ; preds = %7297
-  %7313 = getelementptr inbounds i8, ptr %7304, i64 -8
+  %7313 = getelementptr i8, ptr %7304, i64 -8
   %7314 = getelementptr inbounds nuw i8, ptr %7253, i64 %7298
   %7315 = getelementptr inbounds i8, ptr %7314, i64 -8
   %.not5361 = icmp eq i64 %7298, 8
@@ -13117,7 +13117,7 @@ roseCheckLongLiteral.exit:                        ; preds = %7308, %7305, %._cri
   %7351 = getelementptr inbounds nuw i8, ptr %7335, i64 %7336
   %7352 = getelementptr inbounds i8, ptr %7351, i64 %7345
   %7353 = icmp samesign ult i64 %7344, 8
-  %7354 = getelementptr inbounds nuw i8, ptr %7350, i64 %7344
+  %7354 = getelementptr i8, ptr %7350, i64 %7344
   br i1 %7353, label %7355, label %7365
 
 7355:                                             ; preds = %7342
@@ -13143,7 +13143,7 @@ roseCheckLongLiteral.exit:                        ; preds = %7308, %7305, %._cri
   br i1 %7364, label %.lr.ph5027, label %cmpForward.exit2435
 
 7365:                                             ; preds = %7342
-  %7366 = getelementptr inbounds i8, ptr %7354, i64 -8
+  %7366 = getelementptr i8, ptr %7354, i64 -8
   %7367 = getelementptr inbounds i8, ptr %7351, i64 -8
   %.not5355 = icmp eq i64 %7344, 8
   br i1 %.not5355, label %._crit_edge5023, label %.lr.ph5022
@@ -13207,7 +13207,7 @@ cmpForward.exit2435:                              ; preds = %7361, %7355, %._cri
   %7404 = sub nsw i64 0, %7398
   %7405 = getelementptr inbounds i8, ptr %7403, i64 %7404
   %7406 = icmp samesign ult i64 %7401, 8
-  %7407 = getelementptr inbounds nuw i8, ptr %7405, i64 %7401
+  %7407 = getelementptr i8, ptr %7405, i64 %7401
   br i1 %7406, label %7408, label %7418
 
 7408:                                             ; preds = %7400
@@ -13233,7 +13233,7 @@ cmpForward.exit2435:                              ; preds = %7361, %7355, %._cri
   br i1 %7417, label %.lr.ph5036, label %roseCheckLongLiteral.exit1039
 
 7418:                                             ; preds = %7400
-  %7419 = getelementptr inbounds i8, ptr %7407, i64 -8
+  %7419 = getelementptr i8, ptr %7407, i64 -8
   %7420 = getelementptr inbounds nuw i8, ptr %7335, i64 %7401
   %7421 = getelementptr inbounds i8, ptr %7420, i64 -8
   %.not5357 = icmp eq i64 %7401, 8
@@ -13321,7 +13321,7 @@ roseCheckLongLiteral.exit1039:                    ; preds = %7414, %7408, %._cri
   %7475 = getelementptr inbounds nuw i8, ptr %7459, i64 %7460
   %7476 = getelementptr inbounds i8, ptr %7475, i64 %7469
   %7477 = icmp samesign ult i64 %7468, 8
-  %7478 = getelementptr inbounds nuw i8, ptr %7474, i64 %7468
+  %7478 = getelementptr i8, ptr %7474, i64 %7468
   br i1 %7477, label %7479, label %7486
 
 7479:                                             ; preds = %7466
@@ -13343,7 +13343,7 @@ roseCheckLongLiteral.exit1039:                    ; preds = %7414, %7408, %._cri
   br i1 %7485, label %.lr.ph5009, label %cmpForward.exit2423
 
 7486:                                             ; preds = %7466
-  %7487 = getelementptr inbounds i8, ptr %7478, i64 -8
+  %7487 = getelementptr i8, ptr %7478, i64 -8
   %7488 = getelementptr inbounds i8, ptr %7475, i64 -8
   %.not5351 = icmp eq i64 %7468, 8
   br i1 %.not5351, label %._crit_edge5005, label %.lr.ph5004
@@ -13389,7 +13389,7 @@ cmpForward.exit2423:                              ; preds = %7482, %7479, %._cri
   %7509 = sub nsw i64 0, %7500
   %7510 = getelementptr inbounds i8, ptr %7508, i64 %7509
   %7511 = icmp samesign ult i64 %7505, 8
-  %7512 = getelementptr inbounds nuw i8, ptr %7510, i64 %7505
+  %7512 = getelementptr i8, ptr %7510, i64 %7505
   br i1 %7511, label %7513, label %7520
 
 7513:                                             ; preds = %7504
@@ -13411,7 +13411,7 @@ cmpForward.exit2423:                              ; preds = %7482, %7479, %._cri
   br i1 %7519, label %.lr.ph5018, label %roseCheckMediumLiteral.exit
 
 7520:                                             ; preds = %7504
-  %7521 = getelementptr inbounds i8, ptr %7512, i64 -8
+  %7521 = getelementptr i8, ptr %7512, i64 -8
   %7522 = getelementptr inbounds nuw i8, ptr %7459, i64 %7505
   %7523 = getelementptr inbounds i8, ptr %7522, i64 -8
   %.not5353 = icmp eq i64 %7505, 8
@@ -13481,7 +13481,7 @@ roseCheckMediumLiteral.exit:                      ; preds = %7516, %7513, %._cri
   %7559 = getelementptr inbounds nuw i8, ptr %7543, i64 %7544
   %7560 = getelementptr inbounds i8, ptr %7559, i64 %7553
   %7561 = icmp samesign ult i64 %7552, 8
-  %7562 = getelementptr inbounds nuw i8, ptr %7558, i64 %7552
+  %7562 = getelementptr i8, ptr %7558, i64 %7552
   br i1 %7561, label %7563, label %7573
 
 7563:                                             ; preds = %7550
@@ -13507,7 +13507,7 @@ roseCheckMediumLiteral.exit:                      ; preds = %7516, %7513, %._cri
   br i1 %7572, label %.lr.ph4991, label %cmpForward.exit
 
 7573:                                             ; preds = %7550
-  %7574 = getelementptr inbounds i8, ptr %7562, i64 -8
+  %7574 = getelementptr i8, ptr %7562, i64 -8
   %7575 = getelementptr inbounds i8, ptr %7559, i64 -8
   %.not5347 = icmp eq i64 %7552, 8
   br i1 %.not5347, label %._crit_edge4987, label %.lr.ph4986
@@ -13571,7 +13571,7 @@ cmpForward.exit:                                  ; preds = %7569, %7563, %._cri
   %7614 = sub nsw i64 0, %7605
   %7615 = getelementptr inbounds i8, ptr %7613, i64 %7614
   %7616 = icmp samesign ult i64 %7610, 8
-  %7617 = getelementptr inbounds nuw i8, ptr %7615, i64 %7610
+  %7617 = getelementptr i8, ptr %7615, i64 %7610
   br i1 %7616, label %7618, label %7628
 
 7618:                                             ; preds = %7609
@@ -13597,7 +13597,7 @@ cmpForward.exit:                                  ; preds = %7569, %7563, %._cri
   br i1 %7627, label %.lr.ph5000, label %roseCheckMediumLiteral.exit1049
 
 7628:                                             ; preds = %7609
-  %7629 = getelementptr inbounds i8, ptr %7617, i64 -8
+  %7629 = getelementptr i8, ptr %7617, i64 -8
   %7630 = getelementptr inbounds nuw i8, ptr %7543, i64 %7610
   %7631 = getelementptr inbounds i8, ptr %7630, i64 -8
   %.not5349 = icmp eq i64 %7610, 8
@@ -14193,8 +14193,8 @@ mmbit_set_i.exit1614:                             ; preds = %.thread3629, %.lr.p
 
 .lr.ph4876.preheader:                             ; preds = %7958
   %7984 = zext nneg i32 %7961 to i64
-  %7985 = getelementptr inbounds nuw i8, ptr %7953, i64 %7984
-  %7986 = getelementptr inbounds i8, ptr %7985, i64 -8
+  %7985 = getelementptr i8, ptr %7953, i64 %7984
+  %7986 = getelementptr i8, ptr %7985, i64 -8
   br label %.lr.ph4876
 
 7987:                                             ; preds = %.lr.ph4876
@@ -16246,8 +16246,8 @@ isAllExhausted.exit1454.thread:                   ; preds = %.lr.ph4865, %.lr.ph
 
 .lr.ph4733.preheader:                             ; preds = %9166
   %9192 = zext nneg i32 %9169 to i64
-  %9193 = getelementptr inbounds nuw i8, ptr %9161, i64 %9192
-  %9194 = getelementptr inbounds i8, ptr %9193, i64 -8
+  %9193 = getelementptr i8, ptr %9161, i64 %9192
+  %9194 = getelementptr i8, ptr %9193, i64 -8
   br label %.lr.ph4733
 
 9195:                                             ; preds = %.lr.ph4733
@@ -23023,8 +23023,8 @@ canSkipCatchUpMPV.exit650.thread1660:             ; preds = %722, %canSkipCatchU
 
 .lr.ph3389.preheader:                             ; preds = %740
   %766 = zext nneg i32 %743 to i64
-  %767 = getelementptr inbounds nuw i8, ptr %738, i64 %766
-  %768 = getelementptr inbounds i8, ptr %767, i64 -8
+  %767 = getelementptr i8, ptr %738, i64 %766
+  %768 = getelementptr i8, ptr %767, i64 -8
   br label %.lr.ph3389
 
 769:                                              ; preds = %.lr.ph3389
@@ -23809,8 +23809,8 @@ canSkipCatchUpMPV.exit.i.thread1721:              ; preds = %1197, %canSkipCatch
 
 .lr.ph3337.preheader:                             ; preds = %1211
   %1237 = zext nneg i32 %1214 to i64
-  %1238 = getelementptr inbounds nuw i8, ptr %1143, i64 %1237
-  %1239 = getelementptr inbounds i8, ptr %1238, i64 -8
+  %1238 = getelementptr i8, ptr %1143, i64 %1237
+  %1239 = getelementptr i8, ptr %1238, i64 -8
   br label %.lr.ph3337
 
 1240:                                             ; preds = %.lr.ph3337
@@ -25015,8 +25015,8 @@ mmbit_set_i.exit814.thread1825:                   ; preds = %.thread1820, %mmbit
 
 .lr.ph3311.preheader:                             ; preds = %1910
   %1936 = zext nneg i32 %1913 to i64
-  %1937 = getelementptr inbounds nuw i8, ptr %1906, i64 %1936
-  %1938 = getelementptr inbounds i8, ptr %1937, i64 -8
+  %1937 = getelementptr i8, ptr %1906, i64 %1936
+  %1938 = getelementptr i8, ptr %1937, i64 -8
   br label %.lr.ph3311
 
 1939:                                             ; preds = %.lr.ph3311
@@ -25731,7 +25731,7 @@ mmbit_isset.exit.thread1965:                      ; preds = %2281, %mmbit_isset.
   %2323 = getelementptr inbounds nuw i8, ptr %2309, i64 %2310
   %2324 = getelementptr inbounds i8, ptr %2323, i64 %2318
   %2325 = icmp samesign ult i64 %2317, 8
-  %2326 = getelementptr inbounds nuw i8, ptr %2322, i64 %2317
+  %2326 = getelementptr i8, ptr %2322, i64 %2317
   br i1 %2325, label %2327, label %2334
 
 2327:                                             ; preds = %2315
@@ -25753,7 +25753,7 @@ mmbit_isset.exit.thread1965:                      ; preds = %2281, %mmbit_isset.
   br i1 %2333, label %.lr.ph3276, label %cmpForward.exit1147
 
 2334:                                             ; preds = %2315
-  %2335 = getelementptr inbounds i8, ptr %2326, i64 -8
+  %2335 = getelementptr i8, ptr %2326, i64 -8
   %2336 = getelementptr inbounds i8, ptr %2323, i64 -8
   %.not3417 = icmp eq i64 %2317, 8
   br i1 %.not3417, label %._crit_edge3272, label %.lr.ph3271
@@ -25797,7 +25797,7 @@ cmpForward.exit1147:                              ; preds = %2330, %2327, %._cri
   %2353 = sub nsw i64 0, %2348
   %2354 = getelementptr inbounds i8, ptr %2352, i64 %2353
   %2355 = icmp samesign ult i64 %2351, 8
-  %2356 = getelementptr inbounds nuw i8, ptr %2354, i64 %2351
+  %2356 = getelementptr i8, ptr %2354, i64 %2351
   br i1 %2355, label %2357, label %2364
 
 2357:                                             ; preds = %2350
@@ -25819,7 +25819,7 @@ cmpForward.exit1147:                              ; preds = %2330, %2327, %._cri
   br i1 %2363, label %.lr.ph3285, label %.thread2004
 
 2364:                                             ; preds = %2350
-  %2365 = getelementptr inbounds i8, ptr %2356, i64 -8
+  %2365 = getelementptr i8, ptr %2356, i64 -8
   %2366 = getelementptr inbounds nuw i8, ptr %2309, i64 %2351
   %2367 = getelementptr inbounds i8, ptr %2366, i64 -8
   %.not3419 = icmp eq i64 %2351, 8
@@ -25883,7 +25883,7 @@ cmpForward.exit1147.thread:                       ; preds = %.lr.ph3271, %.lr.ph
   %2401 = getelementptr inbounds nuw i8, ptr %2387, i64 %2388
   %2402 = getelementptr inbounds i8, ptr %2401, i64 %2396
   %2403 = icmp samesign ult i64 %2395, 8
-  %2404 = getelementptr inbounds nuw i8, ptr %2400, i64 %2395
+  %2404 = getelementptr i8, ptr %2400, i64 %2395
   br i1 %2403, label %2405, label %2415
 
 2405:                                             ; preds = %2393
@@ -25909,7 +25909,7 @@ cmpForward.exit1147.thread:                       ; preds = %.lr.ph3271, %.lr.ph
   br i1 %2414, label %.lr.ph3258, label %cmpForward.exit1159
 
 2415:                                             ; preds = %2393
-  %2416 = getelementptr inbounds i8, ptr %2404, i64 -8
+  %2416 = getelementptr i8, ptr %2404, i64 -8
   %2417 = getelementptr inbounds i8, ptr %2401, i64 -8
   %.not3413 = icmp eq i64 %2395, 8
   br i1 %.not3413, label %._crit_edge3254, label %.lr.ph3253
@@ -25971,7 +25971,7 @@ cmpForward.exit1159:                              ; preds = %2411, %2405, %._cri
   %2452 = sub nsw i64 0, %2447
   %2453 = getelementptr inbounds i8, ptr %2451, i64 %2452
   %2454 = icmp samesign ult i64 %2450, 8
-  %2455 = getelementptr inbounds nuw i8, ptr %2453, i64 %2450
+  %2455 = getelementptr i8, ptr %2453, i64 %2450
   br i1 %2454, label %2456, label %2466
 
 2456:                                             ; preds = %2449
@@ -25997,7 +25997,7 @@ cmpForward.exit1159:                              ; preds = %2411, %2405, %._cri
   br i1 %2465, label %.lr.ph3267, label %.thread2025
 
 2466:                                             ; preds = %2449
-  %2467 = getelementptr inbounds i8, ptr %2455, i64 -8
+  %2467 = getelementptr i8, ptr %2455, i64 -8
   %2468 = getelementptr inbounds nuw i8, ptr %2387, i64 %2450
   %2469 = getelementptr inbounds i8, ptr %2468, i64 -8
   %.not3415 = icmp eq i64 %2450, 8
@@ -26079,7 +26079,7 @@ cmpForward.exit1159.thread:                       ; preds = %.lr.ph3253, %.lr.ph
   %2521 = getelementptr inbounds nuw i8, ptr %2507, i64 %2508
   %2522 = getelementptr inbounds i8, ptr %2521, i64 %2516
   %2523 = icmp samesign ult i64 %2515, 8
-  %2524 = getelementptr inbounds nuw i8, ptr %2520, i64 %2515
+  %2524 = getelementptr i8, ptr %2520, i64 %2515
   br i1 %2523, label %2525, label %2532
 
 2525:                                             ; preds = %2513
@@ -26101,7 +26101,7 @@ cmpForward.exit1159.thread:                       ; preds = %.lr.ph3253, %.lr.ph
   br i1 %2531, label %.lr.ph3240, label %cmpForward.exit
 
 2532:                                             ; preds = %2513
-  %2533 = getelementptr inbounds i8, ptr %2524, i64 -8
+  %2533 = getelementptr i8, ptr %2524, i64 -8
   %2534 = getelementptr inbounds i8, ptr %2521, i64 -8
   %.not3409 = icmp eq i64 %2515, 8
   br i1 %.not3409, label %._crit_edge3236, label %.lr.ph3235
@@ -26145,7 +26145,7 @@ cmpForward.exit:                                  ; preds = %2528, %2525, %._cri
   %2553 = sub nsw i64 0, %2546
   %2554 = getelementptr inbounds i8, ptr %2552, i64 %2553
   %2555 = icmp samesign ult i64 %2550, 8
-  %2556 = getelementptr inbounds nuw i8, ptr %2554, i64 %2550
+  %2556 = getelementptr i8, ptr %2554, i64 %2550
   br i1 %2555, label %2557, label %2564
 
 2557:                                             ; preds = %2549
@@ -26167,7 +26167,7 @@ cmpForward.exit:                                  ; preds = %2528, %2525, %._cri
   br i1 %2563, label %.lr.ph3249, label %.thread2046
 
 2564:                                             ; preds = %2549
-  %2565 = getelementptr inbounds i8, ptr %2556, i64 -8
+  %2565 = getelementptr i8, ptr %2556, i64 -8
   %2566 = getelementptr inbounds nuw i8, ptr %2507, i64 %2550
   %2567 = getelementptr inbounds i8, ptr %2566, i64 -8
   %.not3411 = icmp eq i64 %2550, 8
@@ -26231,7 +26231,7 @@ cmpForward.exit.thread:                           ; preds = %.lr.ph3235, %.lr.ph
   %2601 = getelementptr inbounds nuw i8, ptr %2587, i64 %2588
   %2602 = getelementptr inbounds i8, ptr %2601, i64 %2596
   %2603 = icmp samesign ult i64 %2595, 8
-  %2604 = getelementptr inbounds nuw i8, ptr %2600, i64 %2595
+  %2604 = getelementptr i8, ptr %2600, i64 %2595
   br i1 %2603, label %2605, label %2615
 
 2605:                                             ; preds = %2593
@@ -26257,7 +26257,7 @@ cmpForward.exit.thread:                           ; preds = %.lr.ph3235, %.lr.ph
   br i1 %2614, label %.lr.ph3222, label %cmpForward.exit1135
 
 2615:                                             ; preds = %2593
-  %2616 = getelementptr inbounds i8, ptr %2604, i64 -8
+  %2616 = getelementptr i8, ptr %2604, i64 -8
   %2617 = getelementptr inbounds i8, ptr %2601, i64 -8
   %.not3405 = icmp eq i64 %2595, 8
   br i1 %.not3405, label %._crit_edge3218, label %.lr.ph3217
@@ -26319,7 +26319,7 @@ cmpForward.exit1135:                              ; preds = %2611, %2605, %._cri
   %2654 = sub nsw i64 0, %2647
   %2655 = getelementptr inbounds i8, ptr %2653, i64 %2654
   %2656 = icmp samesign ult i64 %2651, 8
-  %2657 = getelementptr inbounds nuw i8, ptr %2655, i64 %2651
+  %2657 = getelementptr i8, ptr %2655, i64 %2651
   br i1 %2656, label %2658, label %2668
 
 2658:                                             ; preds = %2650
@@ -26345,7 +26345,7 @@ cmpForward.exit1135:                              ; preds = %2611, %2605, %._cri
   br i1 %2667, label %.lr.ph3231, label %.thread2067
 
 2668:                                             ; preds = %2650
-  %2669 = getelementptr inbounds i8, ptr %2657, i64 -8
+  %2669 = getelementptr i8, ptr %2657, i64 -8
   %2670 = getelementptr inbounds nuw i8, ptr %2587, i64 %2651
   %2671 = getelementptr inbounds i8, ptr %2670, i64 -8
   %.not3407 = icmp eq i64 %2651, 8
@@ -26690,8 +26690,8 @@ mmbit_set_i.exit793:                              ; preds = %.thread2075, %.lr.p
 
 .lr.ph3130.preheader:                             ; preds = %2869
   %2895 = zext nneg i32 %2872 to i64
-  %2896 = getelementptr inbounds nuw i8, ptr %2865, i64 %2895
-  %2897 = getelementptr inbounds i8, ptr %2896, i64 -8
+  %2896 = getelementptr i8, ptr %2865, i64 %2895
+  %2897 = getelementptr i8, ptr %2896, i64 -8
   br label %.lr.ph3130
 
 2898:                                             ; preds = %.lr.ph3130
@@ -28708,8 +28708,8 @@ isAllExhausted.exit675.thread:                    ; preds = %.lr.ph3119, %.lr.ph
 
 .lr.ph.preheader:                                 ; preds = %4048
   %4074 = zext nneg i32 %4051 to i64
-  %4075 = getelementptr inbounds nuw i8, ptr %4044, i64 %4074
-  %4076 = getelementptr inbounds i8, ptr %4075, i64 -8
+  %4075 = getelementptr i8, ptr %4044, i64 %4074
+  %4076 = getelementptr i8, ptr %4075, i64 -8
   br label %.lr.ph
 
 4077:                                             ; preds = %.lr.ph

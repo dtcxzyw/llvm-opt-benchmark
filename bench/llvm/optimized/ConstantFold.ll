@@ -6152,9 +6152,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11GEPOperator17hasAllZer
 
 .lr.ph.preheader:                                 ; preds = %1
   %5 = zext i32 %4 to i64
-  %.idx = sub nsw i64 0, %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %.01119 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %6 = sub nsw i64 32, %5
+  %.01119 = getelementptr inbounds i8, ptr %0, i64 %6
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19

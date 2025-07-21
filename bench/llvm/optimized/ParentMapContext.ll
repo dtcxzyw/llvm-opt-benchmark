@@ -32676,9 +32676,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.idx = shl nuw nsw i64 %13, 3
-  %15 = getelementptr i8, ptr %14, i64 %.idx
-  %16 = getelementptr i8, ptr %15, i64 -8
-  %.not50 = icmp eq i32 %12, 1
+  %15 = add nsw i64 %.idx, -8
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %.not50 = icmp eq i64 %15, 0
   br i1 %.not50, label %.critedge, label %.lr.ph
 
 17:                                               ; preds = %.lr.ph

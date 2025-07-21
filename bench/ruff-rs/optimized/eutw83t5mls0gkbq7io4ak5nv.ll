@@ -2247,9 +2247,9 @@ _ZN8smallvec10infallible17h6ff659b7aa002d22E.exit: ; preds = %9, %"_ZN8smallvec1
 59:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h0934d2d8dbc7f7acE.exit"
   %60 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %.idx = shl nuw nsw i64 %14, 6
-  %61 = getelementptr i8, ptr %60, i64 %.idx
-  %62 = getelementptr i8, ptr %61, i64 -128
-  %63 = icmp eq i64 %14, 2
+  %61 = add nsw i64 %.idx, -128
+  %62 = getelementptr i8, ptr %60, i64 %61
+  %63 = icmp eq i64 %61, 0
   br i1 %63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59

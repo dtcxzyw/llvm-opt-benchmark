@@ -43,8 +43,8 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 21:                                               ; preds = %2
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 -1
+  %23 = getelementptr i8, ptr %0, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -1
   %.not41 = icmp eq i32 %1, 1
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 

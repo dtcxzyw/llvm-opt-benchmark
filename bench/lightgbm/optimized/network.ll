@@ -5600,8 +5600,8 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %._crit
   br i1 %35, label %.lr.ph.i.i49.preheader, label %_ZSt7reverseIPcEvT_S1_.exit53
 
 .lr.ph.i.i49.preheader:                           ; preds = %_ZSt7reverseIPcEvT_S1_.exit
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %34
-  %.012.i.i47 = getelementptr inbounds i8, ptr %36, i64 -1
+  %36 = getelementptr i8, ptr %3, i64 %34
+  %.012.i.i47 = getelementptr i8, ptr %36, i64 -1
   br label %.lr.ph.i.i49
 
 .lr.ph.i.i49:                                     ; preds = %.lr.ph.i.i49.preheader, %.lr.ph.i.i49

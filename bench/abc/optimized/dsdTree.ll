@@ -3379,8 +3379,8 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %52 = xor i32 %notmask.i, -1
   %53 = zext nneg i32 %51 to i64
   %.idx.i = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
-  %.021.i = getelementptr inbounds i8, ptr %54, i64 -8
+  %54 = getelementptr i8, ptr %7, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %54, i64 -8
   %55 = zext nneg i32 %52 to i64
   %56 = select i1 %37, i64 15, i64 %55
   br label %.lr.ph.us.i

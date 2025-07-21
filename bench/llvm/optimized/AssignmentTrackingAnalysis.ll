@@ -27938,8 +27938,8 @@ _ZNK4llvm9BitVector19find_first_unset_inEjj.exit.thread.i.i: ; preds = %353, %_Z
 .lr.ph.i.i39.preheader.i.i:                       ; preds = %435
   %437 = zext i32 %.pre88.i.i to i64
   %.idx.i35.i = shl nuw nsw i64 %437, 5
-  %438 = getelementptr inbounds nuw i8, ptr %.pre86.i.i, i64 %.idx.i35.i
-  %.012.i.i.i.i = getelementptr inbounds i8, ptr %438, i64 -32
+  %438 = getelementptr i8, ptr %.pre86.i.i, i64 %.idx.i35.i
+  %.012.i.i.i.i = getelementptr i8, ptr %438, i64 -32
   br label %.lr.ph.i.i39.i.i
 
 .lr.ph.i.i39.i.i:                                 ; preds = %_ZSt4swapIN4llvm10VarLocInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i, %.lr.ph.i.i39.preheader.i.i
@@ -28846,8 +28846,8 @@ _ZNK4llvm9BitVector19find_first_unset_inEjj.exit.thread.i94.i: ; preds = %796, %
 .lr.ph.i.i39.preheader.i117.i:                    ; preds = %878
   %880 = zext i32 %.pre88.i100.i to i64
   %.idx.i118.i = shl nuw nsw i64 %880, 5
-  %881 = getelementptr inbounds nuw i8, ptr %.pre86.i99.i, i64 %.idx.i118.i
-  %.012.i.i.i119.i = getelementptr inbounds i8, ptr %881, i64 -32
+  %881 = getelementptr i8, ptr %.pre86.i99.i, i64 %.idx.i118.i
+  %.012.i.i.i119.i = getelementptr i8, ptr %881, i64 -32
   br label %.lr.ph.i.i39.i120.i
 
 .lr.ph.i.i39.i120.i:                              ; preds = %_ZSt4swapIN4llvm10VarLocInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit170.i, %.lr.ph.i.i39.preheader.i117.i

@@ -1620,8 +1620,8 @@ _ZN2os27dll_address_to_library_nameEPhPciPi.exit: ; preds = %13
 
 23:                                               ; preds = %21
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
-  %25 = getelementptr inbounds i8, ptr %0, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 -1
+  %25 = getelementptr i8, ptr %0, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -1
   %27 = icmp sgt i64 %24, 1
   br i1 %27, label %.preheader, label %._crit_edge
 

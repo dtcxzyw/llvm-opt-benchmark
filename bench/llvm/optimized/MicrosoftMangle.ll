@@ -29277,8 +29277,8 @@ _ZN4llvm5APInt11lshrInPlaceEj.exit.backedge:      ; preds = %117, %118, %121
   br i1 %125, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPcEvT_S1_.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 %124
-  %.012.i.i = getelementptr inbounds i8, ptr %126, i64 -1
+  %126 = getelementptr i8, ptr %123, i64 %124
+  %.012.i.i = getelementptr i8, ptr %126, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

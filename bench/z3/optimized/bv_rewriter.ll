@@ -11894,8 +11894,8 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i425:   ; preds = %.noexc430, %._crit_
 .lr.ph.i.i432.preheader:                          ; preds = %._crit_edge621
   %884 = zext i32 %.pre655 to i64
   %.idx = shl nuw nsw i64 %884, 3
-  %885 = getelementptr inbounds nuw i8, ptr %.pre654, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %885, i64 -8
+  %885 = getelementptr i8, ptr %.pre654, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %885, i64 -8
   br label %.lr.ph.i.i432
 
 .lr.ph.i.i432:                                    ; preds = %.lr.ph.i.i432.preheader, %.lr.ph.i.i432
@@ -14060,8 +14060,8 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_bac
 .lr.ph.i.i370.preheader:                          ; preds = %._crit_edge636
   %632 = zext i32 %630 to i64
   %.idx548 = shl nuw nsw i64 %632, 3
-  %633 = getelementptr inbounds nuw i8, ptr %629, i64 %.idx548
-  %.012.i.i = getelementptr inbounds i8, ptr %633, i64 -8
+  %633 = getelementptr i8, ptr %629, i64 %.idx548
+  %.012.i.i = getelementptr i8, ptr %633, i64 -8
   br label %.lr.ph.i.i370
 
 .lr.ph.i.i370:                                    ; preds = %.lr.ph.i.i370.preheader, %.lr.ph.i.i370

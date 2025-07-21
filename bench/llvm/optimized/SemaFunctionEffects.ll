@@ -1363,8 +1363,8 @@ _ZNK5clang21FunctionEffectKindSet5beginEv.exit.i: ; preds = %_ZNKSt6bitsetILm4EE
   %44 = load ptr, ptr %40, align 8, !tbaa !98
   %45 = zext i32 %42 to i64
   %.idx.i = shl nuw nsw i64 %45, 3
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %46, i64 -8
+  %46 = getelementptr i8, ptr %44, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %46, i64 -8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

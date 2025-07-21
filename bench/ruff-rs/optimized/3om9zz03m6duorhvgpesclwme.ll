@@ -8260,8 +8260,8 @@ define void @"_ZN167_$LT$ruff_python_formatter..statement..stmt_assign..FormatSt
   store i8 1, ptr %26, align 8
   %.not138 = icmp ne i64 %21, 1
   %.idx = shl i64 %21, 6
-  %27 = getelementptr i8, ptr %23, i64 %.idx
-  %28 = getelementptr i8, ptr %27, i64 -128
+  %27 = add i64 %.idx, -128
+  %28 = getelementptr i8, ptr %23, i64 %27
   %.sroa.017.0 = select i1 %.not138, ptr %28, ptr null
   br i1 %.not138, label %29, label %31
 
@@ -8298,7 +8298,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign26has_target_own_parentheses17h
 
 42:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %43 = icmp eq i64 %.idx, 128
+  %43 = icmp eq i64 %27, 0
   br i1 %43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42

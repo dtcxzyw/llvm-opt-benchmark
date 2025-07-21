@@ -366,8 +366,8 @@ define void @Dss_NtkPrint_rec(ptr noundef readonly captures(none) %0, ptr nounde
   %32 = select i1 %26, i32 15, i32 %31
   %33 = zext nneg i32 %30 to i64
   %.idx.i = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
-  %.021.i = getelementptr inbounds i8, ptr %34, i64 -8
+  %34 = getelementptr i8, ptr %15, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %34, i64 -8
   %35 = zext nneg i32 %32 to i64
   br label %.lr.ph.us.i
 
@@ -2787,8 +2787,8 @@ define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonl
   %47 = select i1 %41, i32 15, i32 %46
   %48 = zext nneg i32 %45 to i64
   %.idx.i = shl nuw nsw i64 %48, 3
-  %49 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i
-  %.021.i = getelementptr inbounds i8, ptr %49, i64 -8
+  %49 = getelementptr i8, ptr %30, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %49, i64 -8
   %50 = zext nneg i32 %47 to i64
   br label %.lr.ph.us.i
 

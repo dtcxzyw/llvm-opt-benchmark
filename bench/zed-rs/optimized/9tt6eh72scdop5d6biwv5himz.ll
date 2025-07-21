@@ -1355,11 +1355,11 @@ common.resume:                                    ; preds = %49
   %37 = zext i32 %16 to i64
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %.idx = mul nuw nsw i64 %37, 48
-  %39 = getelementptr i8, ptr %38, i64 %.idx
-  %40 = getelementptr i8, ptr %39, i64 -48
+  %39 = add nsw i64 %.idx, -48
+  %40 = getelementptr i8, ptr %38, i64 %39
   %41 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %41)
-  %42 = icmp eq i32 %16, 1
+  %42 = icmp eq i64 %39, 0
   br i1 %42, label %"_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17hf0fc754c0a84a691E.exit._crit_edge", label %"_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17hf0fc754c0a84a691E.exit"
 
 "_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17hf0fc754c0a84a691E.exit._crit_edge": ; preds = %"_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17hf0fc754c0a84a691E.exit", %18

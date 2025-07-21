@@ -286,9 +286,9 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
   store i8 %33, ptr %29, align 1, !tbaa !8
   %35 = trunc i64 %13 to i8
   store i8 %35, ptr %34, align 1, !tbaa !8
-  %36 = add nuw nsw i64 %9, 6
-  %37 = add nuw nsw i64 %36, %11
-  %38 = add nuw nsw i64 %37, %13
+  %36 = add nuw i64 %9, 6
+  %37 = add nuw i64 %36, %11
+  %38 = add nuw i64 %37, %13
   store i64 %38, ptr %3, align 8, !tbaa !9
   br label %42
 

@@ -2698,8 +2698,8 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_.exit: ; preds = %_ZN4llvm23Smal
   %72 = load ptr, ptr %3, align 8, !tbaa !57
   %73 = zext i32 %70 to i64
   %.idx = mul nuw nsw i64 %73, 192
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %74, i64 -192
+  %74 = getelementptr i8, ptr %72, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %74, i64 -192
   br label %.lr.ph.i.i28
 
 .lr.ph.i.i28:                                     ; preds = %.lr.ph.i.i28.preheader, %.lr.ph.i.i28

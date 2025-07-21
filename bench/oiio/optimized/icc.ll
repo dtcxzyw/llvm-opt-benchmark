@@ -2948,9 +2948,9 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_17extractItEEbNS0_4spanIKhLm1844674407370955
   %892 = load i32, ptr %891, align 4, !tbaa !12
   %893 = call noundef i32 @llvm.bswap.i32(i32 %892)
   %894 = zext i32 %856 to i64
-  %895 = getelementptr inbounds nuw i8, ptr %0, i64 %894
-  %896 = zext i32 %893 to i64
-  %897 = getelementptr inbounds nuw i8, ptr %895, i64 %896
+  %895 = zext i32 %893 to i64
+  %896 = getelementptr inbounds nuw i8, ptr %0, i64 %894
+  %897 = getelementptr inbounds nuw i8, ptr %896, i64 %895
   %898 = zext i32 %890 to i64
   %899 = getelementptr inbounds nuw i8, ptr %897, i64 %898
   %.not440 = icmp ugt ptr %899, %481

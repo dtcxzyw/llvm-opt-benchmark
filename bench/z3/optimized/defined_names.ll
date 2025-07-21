@@ -3042,8 +3042,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i44:          ; preds = %111
   %129 = load ptr, ptr %103, align 8, !tbaa !67
   %130 = zext i32 %127 to i64
   %.idx = shl nuw nsw i64 %130, 3
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %131, i64 -8
+  %131 = getelementptr i8, ptr %129, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %131, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -3067,8 +3067,8 @@ _ZSt7reverseIPP4sortEvT_S3_.exit:                 ; preds = %.lr.ph.i.i, %126
   %138 = load ptr, ptr %10, align 8, !tbaa !148
   %139 = zext i32 %136 to i64
   %.idx78 = shl nuw nsw i64 %139, 3
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx78
-  %.012.i.i47 = getelementptr inbounds i8, ptr %140, i64 -8
+  %140 = getelementptr i8, ptr %138, i64 %.idx78
+  %.012.i.i47 = getelementptr i8, ptr %140, i64 -8
   br label %.lr.ph.i.i49
 
 .lr.ph.i.i49:                                     ; preds = %.lr.ph.i.i49.preheader, %.lr.ph.i.i49

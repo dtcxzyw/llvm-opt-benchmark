@@ -2488,13 +2488,11 @@ _ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatt
 
 _ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread: ; preds = %30, %21, %_ZNK5ZXing11PatternView3sumEi.exit.i.i, %_ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit, %10
   %43 = sext i32 %7 to i64
-  %.idx = shl nsw i64 %43, 1
-  %44 = getelementptr inbounds i8, ptr %11, i64 %.idx
-  %45 = sext i32 %2 to i64
-  %.neg = mul nsw i64 %45, -2
-  %46 = getelementptr inbounds i8, ptr %44, i64 %.neg
-  %47 = add nsw i64 %.idx, %.neg
-  %.not43 = icmp sgt i64 %47, 0
+  %44 = sext i32 %2 to i64
+  %45 = sub nsw i64 %43, %44
+  %46 = shl nsw i64 %45, 1
+  %47 = getelementptr inbounds i8, ptr %11, i64 %46
+  %.not43 = icmp sgt i64 %45, 0
   br i1 %.not43, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread
@@ -2558,7 +2556,7 @@ _ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatt
 
 _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %62, %_ZNK5ZXing11PatternView3sumEi.exit.i.i13.us, %54, %_ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit18.us
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.044.us, i64 4
-  %.not.us = icmp ult ptr %75, %46
+  %.not.us = icmp ult ptr %75, %47
   br i1 %.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !115
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5ZXing11PatternView8skipPairEv.exit
@@ -2621,7 +2619,7 @@ _ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatt
 
 _ZN5ZXing11PatternView8skipPairEv.exit:           ; preds = %84, %_ZNK5ZXing11PatternView3sumEi.exit.i.i13, %_ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit18
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.044, i64 4
-  %.not = icmp ult ptr %96, %46
+  %.not = icmp ult ptr %96, %47
   br i1 %.not, label %.lr.ph.split, label %.critedge, !llvm.loop !115
 
 .critedge:                                        ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit, %_ZN5ZXing11PatternView8skipPairEv.exit.us, %_ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread

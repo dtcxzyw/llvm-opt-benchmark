@@ -5428,10 +5428,10 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i: ; preds = %422, %_ZNK4llvm8Cal
 _ZN4llvm8CallBase7arg_endEv.exit:                 ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i, %431
   %447 = phi i32 [ %.pre, %431 ], [ %.pre621, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i ]
   %.0.i.i.neg = phi i64 [ %.neg, %431 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i ]
-  %448 = shl i32 %447, 5
-  %449 = zext i32 %448 to i64
-  %450 = add nsw i64 %.0.i.i.neg, %.0.i.i.i.neg
-  %gepdiff = add nsw i64 %450, %449
+  %448 = add nsw i64 %.0.i.i.neg, %.0.i.i.i.neg
+  %449 = shl i32 %447, 5
+  %450 = zext i32 %449 to i64
+  %gepdiff = add nsw i64 %448, %450
   %451 = lshr exact i64 %gepdiff, 5
   %452 = and i64 %451, 4294967295
   %.not127 = icmp samesign ult i64 %indvars.iv, %452
@@ -6536,9 +6536,8 @@ _ZN4llvm12PatternMatch5matchINS_14BinaryOperatorENS0_14BinaryOp_matchINS0_12OneO
 
 .lr.ph.preheader.i:                               ; preds = %126
   %130 = zext i32 %129 to i64
-  %.idx.i = sub nsw i64 0, %130
-  %131 = getelementptr inbounds i8, ptr %73, i64 %.idx.i
-  %.02842.i = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %131 = sub nsw i64 32, %130
+  %.02842.i = getelementptr inbounds i8, ptr %73, i64 %131
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %132, %.lr.ph.preheader.i

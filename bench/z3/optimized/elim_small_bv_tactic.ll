@@ -12866,8 +12866,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %45, %.lr.ph.prehead
 .lr.ph.i.i.preheader:                             ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
   %29 = zext i32 %27 to i64
   %30 = shl nuw nsw i64 %29, 3
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %30
-  %.012.i.i = getelementptr inbounds i8, ptr %31, i64 -8
+  %31 = getelementptr i8, ptr %25, i64 %30
+  %.012.i.i = getelementptr i8, ptr %31, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

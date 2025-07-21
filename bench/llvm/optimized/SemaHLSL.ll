@@ -25478,8 +25478,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit77: ;
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge
   %.idx123 = shl nuw nsw i64 %127, 3
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx123
-  %.012.i.i = getelementptr inbounds i8, ptr %129, i64 -8
+  %129 = getelementptr i8, ptr %126, i64 %.idx123
+  %.012.i.i = getelementptr i8, ptr %129, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -25598,8 +25598,8 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
 
 .lr.ph.i.i89.preheader:                           ; preds = %._crit_edge133
   %.idx126 = shl nuw nsw i64 %179, 3
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx126
-  %.012.i.i87 = getelementptr inbounds i8, ptr %181, i64 -8
+  %181 = getelementptr i8, ptr %178, i64 %.idx126
+  %.012.i.i87 = getelementptr i8, ptr %181, i64 -8
   br label %.lr.ph.i.i89
 
 .lr.ph.i.i89:                                     ; preds = %.lr.ph.i.i89.preheader, %.lr.ph.i.i89

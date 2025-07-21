@@ -474,8 +474,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE.exit: ; preds = 
 
 63:                                               ; preds = %61
   %.val.us = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
-  %64 = getelementptr inbounds nuw i8, ptr %.val.us, i64 %.val10.us
-  %65 = getelementptr inbounds i8, ptr %64, i64 -1
+  %64 = add nsw i64 %.val10.us, -1
+  %65 = getelementptr inbounds i8, ptr %.val.us, i64 %64
   %66 = load i8, ptr %65, align 1, !noundef !3
   switch i8 %66, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.us [
     i8 10, label %67
@@ -483,11 +483,11 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE.exit: ; preds = 
   ]
 
 67:                                               ; preds = %63
-  %68 = icmp eq i64 %.val10.us, 1
+  %68 = icmp eq i64 %64, 0
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %64, i64 -2
+  %70 = getelementptr inbounds i8, ptr %65, i64 -1
   %71 = load i8, ptr %70, align 1, !noundef !3
   %72 = icmp eq i8 %71, 13
   %spec.select.i.us = select i1 %72, i8 2, i8 0
@@ -565,8 +565,8 @@ _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.us: ; 
 
 94:                                               ; preds = %92
   %.val = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
-  %95 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val10
-  %96 = getelementptr inbounds i8, ptr %95, i64 -1
+  %95 = add nsw i64 %.val10, -1
+  %96 = getelementptr inbounds i8, ptr %.val, i64 %95
   %97 = load i8, ptr %96, align 1, !noundef !3
   switch i8 %97, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit [
     i8 10, label %98
@@ -574,11 +574,11 @@ _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.us: ; 
   ]
 
 98:                                               ; preds = %94
-  %99 = icmp eq i64 %.val10, 1
+  %99 = icmp eq i64 %95, 0
   br i1 %99, label %113, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %95, i64 -2
+  %101 = getelementptr inbounds i8, ptr %96, i64 -1
   %102 = load i8, ptr %101, align 1, !noundef !3
   %103 = icmp eq i8 %102, 13
   %spec.select.i = select i1 %103, i8 2, i8 0
@@ -829,8 +829,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit: ; pred
 
 70:                                               ; preds = %68
   %.val = load ptr, ptr %11, align 8, !nonnull !3, !align !4, !noundef !3
-  %71 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val20
-  %72 = getelementptr inbounds i8, ptr %71, i64 -1
+  %71 = add nsw i64 %.val20, -1
+  %72 = getelementptr inbounds i8, ptr %.val, i64 %71
   %73 = load i8, ptr %72, align 1, !noundef !3
   switch i8 %73, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit [
     i8 10, label %74
@@ -838,11 +838,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit: ; pred
   ]
 
 74:                                               ; preds = %70
-  %75 = icmp eq i64 %.val20, 1
+  %75 = icmp eq i64 %71, 0
   br i1 %75, label %82, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %71, i64 -2
+  %77 = getelementptr inbounds i8, ptr %72, i64 -1
   %78 = load i8, ptr %77, align 1, !noundef !3
   %79 = icmp eq i8 %78, 13
   %spec.select.i = select i1 %79, i8 2, i8 0

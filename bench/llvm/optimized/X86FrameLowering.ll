@@ -21360,9 +21360,9 @@ _ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit.i: 
   %41 = extractvalue { ptr, i64 } %40, 0
   %42 = extractvalue { ptr, i64 } %40, 1
   %.idx.i = shl nuw nsw i64 %42, 1
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
-  %spec.select.i.i = getelementptr inbounds i8, ptr %43, i64 -2
-  %.not15.i = icmp eq i64 %42, 1
+  %43 = add nsw i64 %.idx.i, -2
+  %spec.select.i.i = getelementptr inbounds i8, ptr %41, i64 %43
+  %.not15.i = icmp eq i64 %43, 0
   br i1 %.not15.i, label %"_ZZNK4llvm16X86FrameLowering25spillCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8ArrayRefINS_15CalleeSavedInfoEEEPKNS_18TargetRegisterInfoEENK3$_0clENS_8RegisterE.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit.i, %.lr.ph.i
@@ -26947,8 +26947,8 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit: ; preds = %_Z
   %149 = load ptr, ptr %2, align 8, !tbaa !486
   %150 = zext i32 %147 to i64
   %.idx = shl nuw nsw i64 %150, 2
-  %151 = getelementptr inbounds nuw i8, ptr %149, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %151, i64 -4
+  %151 = getelementptr i8, ptr %149, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %151, i64 -4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

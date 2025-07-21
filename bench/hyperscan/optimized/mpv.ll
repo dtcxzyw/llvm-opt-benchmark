@@ -10283,8 +10283,8 @@ mmbit_get_flat_block.exit.i359:                   ; preds = %2314, %2306, %2303,
 
 .lr.ph1148.preheader:                             ; preds = %2295
   %2321 = zext nneg i32 %2298 to i64
-  %2322 = getelementptr inbounds nuw i8, ptr %2291, i64 %2321
-  %2323 = getelementptr inbounds i8, ptr %2322, i64 -8
+  %2322 = getelementptr i8, ptr %2291, i64 %2321
+  %2323 = getelementptr i8, ptr %2322, i64 -8
   br label %.lr.ph1148
 
 2324:                                             ; preds = %.lr.ph1148

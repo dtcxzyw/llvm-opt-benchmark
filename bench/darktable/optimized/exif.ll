@@ -25858,8 +25858,8 @@ define range(i32 0, 2) i32 @dt_exif_xmp_read(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not, label %120, label %116
 
 116:                                              ; preds = %3
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 %115
-  %118 = getelementptr inbounds i8, ptr %117, i64 -4
+  %117 = getelementptr i8, ptr %1, i64 %115
+  %118 = getelementptr i8, ptr %117, i64 -4
   %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %118, ptr noundef nonnull dereferenceable(5) @.str.282) #40
   %.not422 = icmp eq i32 %119, 0
   br i1 %.not422, label %2931, label %120

@@ -3354,8 +3354,8 @@ keeps_op1_alive.exit.thread:                      ; preds = %57, %57, %57, %57, 
   %95 = load ptr, ptr %25, align 8, !tbaa !56
   %96 = zext nneg i32 %93 to i64
   %.idx = mul nuw nsw i64 %96, 12
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
-  %.0146 = getelementptr inbounds i8, ptr %97, i64 -12
+  %97 = getelementptr i8, ptr %95, i64 %.idx
+  %.0146 = getelementptr i8, ptr %97, i64 -12
   br label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %.lr.ph151.preheader, %.lr.ph151

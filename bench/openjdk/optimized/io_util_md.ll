@@ -114,8 +114,8 @@ define hidden void @fileOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br i1 %13, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %12
-  %.038 = getelementptr inbounds i8, ptr %14, i64 -1
+  %14 = getelementptr i8, ptr %9, i64 %12
+  %.038 = getelementptr i8, ptr %14, i64 -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17

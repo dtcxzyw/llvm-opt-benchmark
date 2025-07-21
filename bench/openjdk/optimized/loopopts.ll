@@ -8732,8 +8732,8 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit:       ; preds = %2
 .lr.ph.lr.ph:                                     ; preds = %72
   %76 = zext i32 %75 to i64
   %.idx = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx
-  %78 = getelementptr inbounds i8, ptr %77, i64 -8
+  %77 = getelementptr i8, ptr %74, i64 %.idx
+  %78 = getelementptr i8, ptr %77, i64 -8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.lr.ph
 
@@ -16350,8 +16350,8 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit151:    ; preds = %310
 .lr.ph224:                                        ; preds = %_ZNK14PhaseIdealLoop9dom_depthEP4Node.exit151
   %328 = zext i32 %327 to i64
   %.idx234 = shl nuw nsw i64 %328, 3
-  %329 = getelementptr inbounds nuw i8, ptr %325, i64 %.idx234
-  %330 = getelementptr inbounds i8, ptr %329, i64 -8
+  %329 = getelementptr i8, ptr %325, i64 %.idx234
+  %330 = getelementptr i8, ptr %329, i64 -8
   %331 = getelementptr inbounds nuw i8, ptr %.0.i.i.i147, i64 16
   %332 = getelementptr inbounds nuw i8, ptr %.0.i.i.i147, i64 32
   %333 = getelementptr inbounds nuw i8, ptr %.0.i.i.i147, i64 36

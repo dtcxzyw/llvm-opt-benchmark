@@ -2853,8 +2853,8 @@ _ZN4lean10object_refD2Ev.exit131:                 ; preds = %_ZN4lean10object_re
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge207
   %.idx = shl nuw nsw i64 %.pre230, 3
-  %414 = getelementptr inbounds nuw i8, ptr %.pre229, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %414, i64 -8
+  %414 = getelementptr i8, ptr %.pre229, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %414, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

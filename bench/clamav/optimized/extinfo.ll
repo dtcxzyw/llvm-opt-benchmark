@@ -643,8 +643,8 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
 
 .lr.ph.i:                                         ; preds = %38
   %.idx.i = shl nuw nsw i64 %39, 2
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %.016.i = getelementptr inbounds i8, ptr %40, i64 -4
+  %40 = getelementptr i8, ptr %5, i64 %.idx.i
+  %.016.i = getelementptr i8, ptr %40, i64 -4
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8208
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8205
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8204

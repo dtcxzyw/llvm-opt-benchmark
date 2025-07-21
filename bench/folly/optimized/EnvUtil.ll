@@ -425,12 +425,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   unreachable
 
 118:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
-  %119 = getelementptr inbounds nuw i8, ptr %47, i64 %56
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
+  %119 = add nuw nsw i64 %56, 1
+  %120 = getelementptr inbounds nuw i8, ptr %47, i64 %119
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %.neg = xor i64 %56, -1
-  %gepdiff = add i64 %48, %.neg
+  %gepdiff = sub nsw i64 %48, %119
   store ptr %25, ptr %10, align 8, !tbaa !34, !alias.scope !59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22, !noalias !59
   store i64 %gepdiff, ptr %2, align 8, !tbaa !29, !noalias !59

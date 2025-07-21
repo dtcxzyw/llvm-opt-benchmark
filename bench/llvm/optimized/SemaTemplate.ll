@@ -19610,8 +19610,8 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit259.thread: ; pre
   %240 = load ptr, ptr %37, align 8, !tbaa !33
   %241 = zext i32 %238 to i64
   %.idx = shl nuw nsw i64 %241, 3
-  %242 = getelementptr inbounds nuw i8, ptr %240, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %242, i64 -8
+  %242 = getelementptr i8, ptr %240, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %242, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -121846,9 +121846,9 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_143Constraint
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.idx = shl nuw nsw i64 %30, 3
-  %32 = getelementptr i8, ptr %31, i64 %.idx
-  %33 = getelementptr i8, ptr %32, i64 -8
-  %.not72 = icmp eq i32 %29, 1
+  %32 = add nsw i64 %.idx, -8
+  %33 = getelementptr i8, ptr %31, i64 %32
+  %.not72 = icmp eq i64 %32, 0
   br i1 %.not72, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %57
@@ -178786,9 +178786,9 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_129CurrentIns
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.idx = shl nuw nsw i64 %30, 3
-  %32 = getelementptr i8, ptr %31, i64 %.idx
-  %33 = getelementptr i8, ptr %32, i64 -8
-  %.not72 = icmp eq i32 %29, 1
+  %32 = add nsw i64 %.idx, -8
+  %33 = getelementptr i8, ptr %31, i64 %32
+  %.not72 = icmp eq i64 %32, 0
   br i1 %.not72, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %57

@@ -10199,8 +10199,8 @@ _ZN4llvm11SmallVectorIPKN5clang4ExprELj8EEC2IS4_vEENS_8ArrayRefIT_EE.exit: ; pre
   %136 = load ptr, ptr %8, align 8, !tbaa !133
   %137 = zext i32 %128 to i64
   %.idx = shl nuw nsw i64 %137, 3
-  %138 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %138, i64 -8
+  %138 = getelementptr i8, ptr %136, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %138, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -22675,10 +22675,10 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   %4 = load i64, ptr %1, align 8
   %5 = lshr i64 %4, 29
   %.idx.i = and i64 %5, 524280
-  %6 = getelementptr i8, ptr %3, i64 %.idx.i
-  %7 = getelementptr i8, ptr %6, i64 -8
+  %6 = add nsw i64 %.idx.i, -8
+  %7 = getelementptr i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.not42 = icmp eq i64 %.idx.i, 8
+  %.not42 = icmp eq i64 %6, 0
   br i1 %.not42, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -43087,8 +43087,8 @@ _ZN4llvm11SmallVectorIPKN5clang4ExprELj8EEC2IS4_vEENS_8ArrayRefIT_EE.exit: ; pre
   %136 = load ptr, ptr %8, align 8, !tbaa !133
   %137 = zext i32 %128 to i64
   %.idx = shl nuw nsw i64 %137, 3
-  %138 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %138, i64 -8
+  %138 = getelementptr i8, ptr %136, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %138, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -55219,10 +55219,10 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   %4 = load i64, ptr %1, align 8
   %5 = lshr i64 %4, 29
   %.idx.i = and i64 %5, 524280
-  %6 = getelementptr i8, ptr %3, i64 %.idx.i
-  %7 = getelementptr i8, ptr %6, i64 -8
+  %6 = add nsw i64 %.idx.i, -8
+  %7 = getelementptr i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.not42 = icmp eq i64 %.idx.i, 8
+  %.not42 = icmp eq i64 %6, 0
   br i1 %.not42, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2

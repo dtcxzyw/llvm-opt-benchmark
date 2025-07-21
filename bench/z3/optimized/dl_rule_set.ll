@@ -10605,8 +10605,8 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit115: ; preds = %_ZNK6v
 
 .lr.ph.i.i184.preheader:                          ; preds = %_ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit115
   %361 = shl nuw nsw i64 %186, 3
-  %362 = getelementptr inbounds nuw i8, ptr %183, i64 %361
-  %.012.i.i = getelementptr inbounds i8, ptr %362, i64 -8
+  %362 = getelementptr i8, ptr %183, i64 %361
+  %.012.i.i = getelementptr i8, ptr %362, i64 -8
   br label %.lr.ph.i.i184
 
 .lr.ph.i.i184:                                    ; preds = %.lr.ph.i.i184.preheader, %.lr.ph.i.i184

@@ -83266,9 +83266,9 @@ _ZL32CheckImplicitArgumentConversionsRN5clang4SemaEPNS_8CallExprENS_14SourceLoca
   %710 = load i64, ptr %145, align 8
   %711 = lshr i64 %710, 29
   %.idx.i = and i64 %711, 524280
-  %712 = getelementptr i8, ptr %709, i64 %.idx.i
-  %713 = getelementptr i8, ptr %712, i64 -8
-  %.not245.i304 = icmp eq i64 %.idx.i, 8
+  %712 = add nsw i64 %.idx.i, -8
+  %713 = getelementptr i8, ptr %709, i64 %712
+  %.not245.i304 = icmp eq i64 %712, 0
   %714 = trunc i64 %710 to i16
   br i1 %.not245.i304, label %.loopexit, label %.lr.ph
 

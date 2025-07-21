@@ -136,8 +136,8 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
 .lr.ph.preheader:                                 ; preds = %.critedge
   %30 = shl nuw i32 %.1, 1
   %.idx = zext i32 %30 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %32 = getelementptr inbounds i8, ptr %31, i64 -2
+  %31 = getelementptr i8, ptr %0, i64 %.idx
+  %32 = getelementptr i8, ptr %31, i64 -2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

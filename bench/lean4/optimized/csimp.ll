@@ -13912,8 +13912,8 @@ _ZN4lean10object_refD2Ev.exit153:                 ; preds = %.critedge90, %510, 
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge179
   %.idx = shl nuw nsw i64 %521, 3
-  %523 = getelementptr inbounds nuw i8, ptr %520, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %523, i64 -8
+  %523 = getelementptr i8, ptr %520, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %523, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -41396,8 +41396,8 @@ _ZN4lean9to_bufferINS_4exprEEEvRKNS_8list_refIT_EERNS_6bufferIS3_Lm16EEE.exit: ;
 
 .lr.ph.i.i.preheader:                             ; preds = %70
   %.idx = shl nuw nsw i64 %72, 3
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %74, i64 -8
+  %74 = getelementptr i8, ptr %71, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %74, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

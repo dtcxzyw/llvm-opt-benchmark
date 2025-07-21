@@ -17,135 +17,277 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   %4 = load i64, ptr %2, align 8, !tbaa !5
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !5
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %8 = and i64 %1, 7
-  %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i8, ptr %7, i64 %9
-  %11 = trunc i64 %1 to i32
-  %12 = and i32 %11, 7
-  %13 = shl i64 %1, 56
-  %14 = xor i64 %6, 8387220255154660723
-  %15 = xor i64 %4, 7816392313619706465
-  %16 = xor i64 %6, 7237128888997146477
-  %17 = xor i64 %4, 8317987319222330741
-  %.not164 = icmp ult i64 %1, 8
+  %7 = and i64 %1, -8
+  %8 = getelementptr inbounds i8, ptr %0, i64 %7
+  %9 = trunc i64 %1 to i32
+  %10 = and i32 %9, 7
+  %11 = shl i64 %1, 56
+  %12 = xor i64 %6, 8387220255154660723
+  %13 = xor i64 %4, 7816392313619706465
+  %14 = xor i64 %6, 7237128888997146477
+  %15 = xor i64 %4, 8317987319222330741
+  %.not164 = icmp eq i64 %7, 0
   br i1 %.not164, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0159169 = phi ptr [ %35, %.lr.ph ], [ %0, %3 ]
-  %.0160168 = phi i64 [ %34, %.lr.ph ], [ %17, %3 ]
-  %.0161167 = phi i64 [ %32, %.lr.ph ], [ %16, %3 ]
-  %.0162166 = phi i64 [ %33, %.lr.ph ], [ %15, %3 ]
-  %.0163165 = phi i64 [ %29, %.lr.ph ], [ %14, %3 ]
-  %18 = load i64, ptr %.0159169, align 8, !tbaa !5
-  %19 = xor i64 %18, %.0163165
-  %20 = add i64 %.0160168, %.0161167
-  %21 = tail call i64 @llvm.fshl.i64(i64 %.0161167, i64 %.0161167, i64 13)
-  %22 = xor i64 %20, %21
-  %23 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 32)
-  %24 = add i64 %19, %.0162166
-  %25 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 16)
-  %26 = xor i64 %25, %24
-  %27 = add i64 %26, %23
-  %28 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 21)
-  %29 = xor i64 %28, %27
-  %30 = add i64 %24, %22
-  %31 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 17)
-  %32 = xor i64 %30, %31
-  %33 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 32)
-  %34 = xor i64 %27, %18
-  %35 = getelementptr inbounds nuw i8, ptr %.0159169, i64 8
-  %.not = icmp eq ptr %35, %10
+  %.0159169 = phi ptr [ %33, %.lr.ph ], [ %0, %3 ]
+  %.0160168 = phi i64 [ %32, %.lr.ph ], [ %15, %3 ]
+  %.0161167 = phi i64 [ %30, %.lr.ph ], [ %14, %3 ]
+  %.0162166 = phi i64 [ %31, %.lr.ph ], [ %13, %3 ]
+  %.0163165 = phi i64 [ %27, %.lr.ph ], [ %12, %3 ]
+  %16 = load i64, ptr %.0159169, align 8, !tbaa !5
+  %17 = xor i64 %16, %.0163165
+  %18 = add i64 %.0160168, %.0161167
+  %19 = tail call i64 @llvm.fshl.i64(i64 %.0161167, i64 %.0161167, i64 13)
+  %20 = xor i64 %18, %19
+  %21 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 32)
+  %22 = add i64 %17, %.0162166
+  %23 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 16)
+  %24 = xor i64 %23, %22
+  %25 = add i64 %24, %21
+  %26 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 21)
+  %27 = xor i64 %26, %25
+  %28 = add i64 %22, %20
+  %29 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 17)
+  %30 = xor i64 %28, %29
+  %31 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 32)
+  %32 = xor i64 %25, %16
+  %33 = getelementptr inbounds nuw i8, ptr %.0159169, i64 8
+  %.not = icmp eq ptr %33, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0163.lcssa = phi i64 [ %14, %3 ], [ %29, %.lr.ph ]
-  %.0162.lcssa = phi i64 [ %15, %3 ], [ %33, %.lr.ph ]
-  %.0161.lcssa = phi i64 [ %16, %3 ], [ %32, %.lr.ph ]
-  %.0160.lcssa = phi i64 [ %17, %3 ], [ %34, %.lr.ph ]
-  %.0159.lcssa = phi ptr [ %0, %3 ], [ %10, %.lr.ph ]
-  switch i32 %12, label %default.unreachable [
-    i32 7, label %36
-    i32 6, label %42
-    i32 5, label %48
-    i32 4, label %54
-    i32 3, label %60
-    i32 2, label %66
-    i32 1, label %72
-    i32 0, label %76
+  %.0163.lcssa = phi i64 [ %12, %3 ], [ %27, %.lr.ph ]
+  %.0162.lcssa = phi i64 [ %13, %3 ], [ %31, %.lr.ph ]
+  %.0161.lcssa = phi i64 [ %14, %3 ], [ %30, %.lr.ph ]
+  %.0160.lcssa = phi i64 [ %15, %3 ], [ %32, %.lr.ph ]
+  %.0159.lcssa = phi ptr [ %0, %3 ], [ %8, %.lr.ph ]
+  switch i32 %10, label %default.unreachable [
+    i32 7, label %34
+    i32 6, label %40
+    i32 5, label %46
+    i32 4, label %52
+    i32 3, label %58
+    i32 2, label %64
+    i32 1, label %70
+    i32 0, label %74
   ]
 
-36:                                               ; preds = %._crit_edge
-  %37 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 6
-  %38 = load i8, ptr %37, align 1, !tbaa !11
-  %39 = zext i8 %38 to i64
-  %40 = shl nuw nsw i64 %39, 48
-  %41 = or disjoint i64 %40, %13
-  br label %42
+34:                                               ; preds = %._crit_edge
+  %35 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 6
+  %36 = load i8, ptr %35, align 1, !tbaa !11
+  %37 = zext i8 %36 to i64
+  %38 = shl nuw nsw i64 %37, 48
+  %39 = or disjoint i64 %38, %11
+  br label %40
 
-42:                                               ; preds = %36, %._crit_edge
-  %.1 = phi i64 [ %41, %36 ], [ %13, %._crit_edge ]
-  %43 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 5
-  %44 = load i8, ptr %43, align 1, !tbaa !11
-  %45 = zext i8 %44 to i64
-  %46 = shl nuw nsw i64 %45, 40
-  %47 = or i64 %46, %.1
-  br label %48
+40:                                               ; preds = %34, %._crit_edge
+  %.1 = phi i64 [ %39, %34 ], [ %11, %._crit_edge ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 5
+  %42 = load i8, ptr %41, align 1, !tbaa !11
+  %43 = zext i8 %42 to i64
+  %44 = shl nuw nsw i64 %43, 40
+  %45 = or i64 %44, %.1
+  br label %46
 
-48:                                               ; preds = %42, %._crit_edge
-  %.2 = phi i64 [ %47, %42 ], [ %13, %._crit_edge ]
-  %49 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 4
-  %50 = load i8, ptr %49, align 1, !tbaa !11
-  %51 = zext i8 %50 to i64
-  %52 = shl nuw nsw i64 %51, 32
-  %53 = or i64 %52, %.2
-  br label %54
+46:                                               ; preds = %40, %._crit_edge
+  %.2 = phi i64 [ %45, %40 ], [ %11, %._crit_edge ]
+  %47 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 4
+  %48 = load i8, ptr %47, align 1, !tbaa !11
+  %49 = zext i8 %48 to i64
+  %50 = shl nuw nsw i64 %49, 32
+  %51 = or i64 %50, %.2
+  br label %52
 
-54:                                               ; preds = %48, %._crit_edge
-  %.3 = phi i64 [ %53, %48 ], [ %13, %._crit_edge ]
-  %55 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 3
-  %56 = load i8, ptr %55, align 1, !tbaa !11
-  %57 = zext i8 %56 to i64
-  %58 = shl nuw nsw i64 %57, 24
-  %59 = or i64 %58, %.3
-  br label %60
+52:                                               ; preds = %46, %._crit_edge
+  %.3 = phi i64 [ %51, %46 ], [ %11, %._crit_edge ]
+  %53 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 3
+  %54 = load i8, ptr %53, align 1, !tbaa !11
+  %55 = zext i8 %54 to i64
+  %56 = shl nuw nsw i64 %55, 24
+  %57 = or i64 %56, %.3
+  br label %58
 
-60:                                               ; preds = %54, %._crit_edge
-  %.4 = phi i64 [ %59, %54 ], [ %13, %._crit_edge ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 2
-  %62 = load i8, ptr %61, align 1, !tbaa !11
-  %63 = zext i8 %62 to i64
-  %64 = shl nuw nsw i64 %63, 16
-  %65 = or i64 %64, %.4
-  br label %66
+58:                                               ; preds = %52, %._crit_edge
+  %.4 = phi i64 [ %57, %52 ], [ %11, %._crit_edge ]
+  %59 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 2
+  %60 = load i8, ptr %59, align 1, !tbaa !11
+  %61 = zext i8 %60 to i64
+  %62 = shl nuw nsw i64 %61, 16
+  %63 = or i64 %62, %.4
+  br label %64
 
-66:                                               ; preds = %60, %._crit_edge
-  %.5 = phi i64 [ %65, %60 ], [ %13, %._crit_edge ]
-  %67 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 1
-  %68 = load i8, ptr %67, align 1, !tbaa !11
-  %69 = zext i8 %68 to i64
-  %70 = shl nuw nsw i64 %69, 8
-  %71 = or i64 %70, %.5
-  br label %72
+64:                                               ; preds = %58, %._crit_edge
+  %.5 = phi i64 [ %63, %58 ], [ %11, %._crit_edge ]
+  %65 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 1
+  %66 = load i8, ptr %65, align 1, !tbaa !11
+  %67 = zext i8 %66 to i64
+  %68 = shl nuw nsw i64 %67, 8
+  %69 = or i64 %68, %.5
+  br label %70
 
-72:                                               ; preds = %66, %._crit_edge
-  %.6 = phi i64 [ %71, %66 ], [ %13, %._crit_edge ]
-  %73 = load i8, ptr %.0159.lcssa, align 1, !tbaa !11
-  %74 = zext i8 %73 to i64
-  %75 = or i64 %.6, %74
-  br label %76
+70:                                               ; preds = %64, %._crit_edge
+  %.6 = phi i64 [ %69, %64 ], [ %11, %._crit_edge ]
+  %71 = load i8, ptr %.0159.lcssa, align 1, !tbaa !11
+  %72 = zext i8 %71 to i64
+  %73 = or i64 %.6, %72
+  br label %74
 
 default.unreachable:                              ; preds = %._crit_edge
   unreachable
 
-76:                                               ; preds = %._crit_edge, %72
-  %.0 = phi i64 [ %13, %._crit_edge ], [ %75, %72 ]
-  %77 = xor i64 %.0, %.0163.lcssa
-  %78 = add i64 %.0160.lcssa, %.0161.lcssa
-  %79 = tail call i64 @llvm.fshl.i64(i64 %.0161.lcssa, i64 %.0161.lcssa, i64 13)
+74:                                               ; preds = %._crit_edge, %70
+  %.0 = phi i64 [ %11, %._crit_edge ], [ %73, %70 ]
+  %75 = xor i64 %.0, %.0163.lcssa
+  %76 = add i64 %.0160.lcssa, %.0161.lcssa
+  %77 = tail call i64 @llvm.fshl.i64(i64 %.0161.lcssa, i64 %.0161.lcssa, i64 13)
+  %78 = xor i64 %76, %77
+  %79 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 32)
+  %80 = add i64 %75, %.0162.lcssa
+  %81 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 16)
+  %82 = xor i64 %81, %80
+  %83 = add i64 %82, %79
+  %84 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 21)
+  %85 = xor i64 %84, %83
+  %86 = add i64 %80, %78
+  %87 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 17)
+  %88 = xor i64 %86, %87
+  %89 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 32)
+  %90 = xor i64 %83, %.0
+  %91 = xor i64 %89, 255
+  %92 = add i64 %90, %88
+  %93 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %88, i64 13)
+  %94 = xor i64 %92, %93
+  %95 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 32)
+  %96 = add i64 %91, %85
+  %97 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 16)
+  %98 = xor i64 %97, %96
+  %99 = add i64 %95, %98
+  %100 = tail call i64 @llvm.fshl.i64(i64 %98, i64 %98, i64 21)
+  %101 = xor i64 %100, %99
+  %102 = add i64 %94, %96
+  %103 = tail call i64 @llvm.fshl.i64(i64 %94, i64 %94, i64 17)
+  %104 = xor i64 %103, %102
+  %105 = tail call i64 @llvm.fshl.i64(i64 %102, i64 %102, i64 32)
+  %106 = add i64 %104, %99
+  %107 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 13)
+  %108 = xor i64 %107, %106
+  %109 = add i64 %105, %101
+  %110 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 16)
+  %111 = xor i64 %110, %109
+  %112 = tail call i64 @llvm.fshl.i64(i64 %111, i64 %111, i64 21)
+  %113 = add i64 %108, %109
+  %114 = tail call i64 @llvm.fshl.i64(i64 %108, i64 %108, i64 17)
+  %115 = tail call i64 @llvm.fshl.i64(i64 %113, i64 %113, i64 32)
+  %116 = xor i64 %112, %114
+  %117 = xor i64 %116, %115
+  %118 = xor i64 %117, %113
+  ret i64 %118
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+  %4 = load i64, ptr %2, align 8, !tbaa !5
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !5
+  %7 = and i64 %1, -8
+  %8 = getelementptr inbounds i8, ptr %0, i64 %7
+  %9 = trunc i64 %1 to i32
+  %10 = and i32 %9, 7
+  %11 = shl i64 %1, 56
+  %12 = xor i64 %6, 8387220255154660723
+  %13 = xor i64 %4, 7816392313619706465
+  %14 = xor i64 %6, 7237128888997146477
+  %15 = xor i64 %4, 8317987319222330741
+  %.not199 = icmp eq i64 %7, 0
+  br i1 %.not199, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.0166204 = phi ptr [ %93, %.lr.ph ], [ %0, %3 ]
+  %.0167203 = phi i64 [ %92, %.lr.ph ], [ %15, %3 ]
+  %.0168202 = phi i64 [ %90, %.lr.ph ], [ %14, %3 ]
+  %.0169201 = phi i64 [ %91, %.lr.ph ], [ %13, %3 ]
+  %.0170200 = phi i64 [ %87, %.lr.ph ], [ %12, %3 ]
+  %16 = load i8, ptr %.0166204, align 1, !tbaa !11
+  %17 = zext i8 %16 to i32
+  %18 = add i8 %16, -65
+  %or.cond.i = icmp ult i8 %18, 26
+  %19 = or disjoint i32 %17, 32
+  %.0.i = select i1 %or.cond.i, i32 %19, i32 %17
+  %20 = getelementptr inbounds nuw i8, ptr %.0166204, i64 1
+  %21 = load i8, ptr %20, align 1, !tbaa !11
+  %22 = zext i8 %21 to i32
+  %23 = add i8 %21, -65
+  %or.cond.i171 = icmp ult i8 %23, 26
+  %24 = shl nuw nsw i32 %22, 8
+  %25 = or i32 %24, 8192
+  %26 = select i1 %or.cond.i171, i32 %25, i32 %24
+  %27 = or disjoint i32 %26, %.0.i
+  %28 = getelementptr inbounds nuw i8, ptr %.0166204, i64 2
+  %29 = load i8, ptr %28, align 1, !tbaa !11
+  %30 = zext i8 %29 to i32
+  %31 = add i8 %29, -65
+  %or.cond.i173 = icmp ult i8 %31, 26
+  %32 = shl nuw nsw i32 %30, 16
+  %33 = or i32 %32, 2097152
+  %34 = select i1 %or.cond.i173, i32 %33, i32 %32
+  %35 = or disjoint i32 %27, %34
+  %36 = getelementptr inbounds nuw i8, ptr %.0166204, i64 3
+  %37 = load i8, ptr %36, align 1, !tbaa !11
+  %38 = zext i8 %37 to i32
+  %39 = add i8 %37, -65
+  %or.cond.i175 = icmp ult i8 %39, 26
+  %40 = shl nuw i32 %38, 24
+  %41 = or i32 %40, 536870912
+  %42 = select i1 %or.cond.i175, i32 %41, i32 %40
+  %43 = or i32 %35, %42
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %.0166204, i64 4
+  %46 = load i8, ptr %45, align 1, !tbaa !11
+  %47 = zext i8 %46 to i32
+  %48 = add i8 %46, -65
+  %or.cond.i177 = icmp ult i8 %48, 26
+  %49 = or disjoint i32 %47, 32
+  %.0.i178 = select i1 %or.cond.i177, i32 %49, i32 %47
+  %50 = zext nneg i32 %.0.i178 to i64
+  %51 = shl nuw nsw i64 %50, 32
+  %52 = or disjoint i64 %51, %44
+  %53 = getelementptr inbounds nuw i8, ptr %.0166204, i64 5
+  %54 = load i8, ptr %53, align 1, !tbaa !11
+  %55 = zext i8 %54 to i32
+  %56 = add i8 %54, -65
+  %or.cond.i179 = icmp ult i8 %56, 26
+  %57 = or disjoint i32 %55, 32
+  %.0.i180 = select i1 %or.cond.i179, i32 %57, i32 %55
+  %58 = zext nneg i32 %.0.i180 to i64
+  %59 = shl nuw nsw i64 %58, 40
+  %60 = or disjoint i64 %52, %59
+  %61 = getelementptr inbounds nuw i8, ptr %.0166204, i64 6
+  %62 = load i8, ptr %61, align 1, !tbaa !11
+  %63 = zext i8 %62 to i32
+  %64 = add i8 %62, -65
+  %or.cond.i181 = icmp ult i8 %64, 26
+  %65 = or disjoint i32 %63, 32
+  %.0.i182 = select i1 %or.cond.i181, i32 %65, i32 %63
+  %66 = zext nneg i32 %.0.i182 to i64
+  %67 = shl nuw nsw i64 %66, 48
+  %68 = or i64 %60, %67
+  %69 = getelementptr inbounds nuw i8, ptr %.0166204, i64 7
+  %70 = load i8, ptr %69, align 1, !tbaa !11
+  %71 = zext i8 %70 to i32
+  %72 = add i8 %70, -65
+  %or.cond.i183 = icmp ult i8 %72, 26
+  %73 = or disjoint i32 %71, 32
+  %.0.i184 = select i1 %or.cond.i183, i32 %73, i32 %71
+  %74 = zext nneg i32 %.0.i184 to i64
+  %75 = shl nuw i64 %74, 56
+  %76 = or i64 %68, %75
+  %77 = xor i64 %76, %.0170200
+  %78 = add i64 %.0167203, %.0168202
+  %79 = tail call i64 @llvm.fshl.i64(i64 %.0168202, i64 %.0168202, i64 13)
   %80 = xor i64 %78, %79
   %81 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 32)
-  %82 = add i64 %77, %.0162.lcssa
+  %82 = add i64 %77, %.0169201
   %83 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %77, i64 16)
   %84 = xor i64 %83, %82
   %85 = add i64 %84, %81
@@ -155,319 +297,173 @@ default.unreachable:                              ; preds = %._crit_edge
   %89 = tail call i64 @llvm.fshl.i64(i64 %80, i64 %80, i64 17)
   %90 = xor i64 %88, %89
   %91 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %88, i64 32)
-  %92 = xor i64 %85, %.0
-  %93 = xor i64 %91, 255
-  %94 = add i64 %92, %90
-  %95 = tail call i64 @llvm.fshl.i64(i64 %90, i64 %90, i64 13)
-  %96 = xor i64 %94, %95
-  %97 = tail call i64 @llvm.fshl.i64(i64 %94, i64 %94, i64 32)
-  %98 = add i64 %93, %87
-  %99 = tail call i64 @llvm.fshl.i64(i64 %87, i64 %87, i64 16)
-  %100 = xor i64 %99, %98
-  %101 = add i64 %97, %100
-  %102 = tail call i64 @llvm.fshl.i64(i64 %100, i64 %100, i64 21)
-  %103 = xor i64 %102, %101
-  %104 = add i64 %96, %98
-  %105 = tail call i64 @llvm.fshl.i64(i64 %96, i64 %96, i64 17)
-  %106 = xor i64 %105, %104
-  %107 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 32)
-  %108 = add i64 %106, %101
-  %109 = tail call i64 @llvm.fshl.i64(i64 %106, i64 %106, i64 13)
-  %110 = xor i64 %109, %108
-  %111 = add i64 %107, %103
-  %112 = tail call i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 16)
-  %113 = xor i64 %112, %111
-  %114 = tail call i64 @llvm.fshl.i64(i64 %113, i64 %113, i64 21)
-  %115 = add i64 %110, %111
-  %116 = tail call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 17)
-  %117 = tail call i64 @llvm.fshl.i64(i64 %115, i64 %115, i64 32)
-  %118 = xor i64 %114, %116
-  %119 = xor i64 %118, %117
-  %120 = xor i64 %119, %115
-  ret i64 %120
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
-  %4 = load i64, ptr %2, align 8, !tbaa !5
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !5
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %8 = and i64 %1, 7
-  %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i8, ptr %7, i64 %9
-  %11 = trunc i64 %1 to i32
-  %12 = and i32 %11, 7
-  %13 = shl i64 %1, 56
-  %14 = xor i64 %6, 8387220255154660723
-  %15 = xor i64 %4, 7816392313619706465
-  %16 = xor i64 %6, 7237128888997146477
-  %17 = xor i64 %4, 8317987319222330741
-  %.not199 = icmp ult i64 %1, 8
-  br i1 %.not199, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0166204 = phi ptr [ %95, %.lr.ph ], [ %0, %3 ]
-  %.0167203 = phi i64 [ %94, %.lr.ph ], [ %17, %3 ]
-  %.0168202 = phi i64 [ %92, %.lr.ph ], [ %16, %3 ]
-  %.0169201 = phi i64 [ %93, %.lr.ph ], [ %15, %3 ]
-  %.0170200 = phi i64 [ %89, %.lr.ph ], [ %14, %3 ]
-  %18 = load i8, ptr %.0166204, align 1, !tbaa !11
-  %19 = zext i8 %18 to i32
-  %20 = add i8 %18, -65
-  %or.cond.i = icmp ult i8 %20, 26
-  %21 = or disjoint i32 %19, 32
-  %.0.i = select i1 %or.cond.i, i32 %21, i32 %19
-  %22 = getelementptr inbounds nuw i8, ptr %.0166204, i64 1
-  %23 = load i8, ptr %22, align 1, !tbaa !11
-  %24 = zext i8 %23 to i32
-  %25 = add i8 %23, -65
-  %or.cond.i171 = icmp ult i8 %25, 26
-  %26 = shl nuw nsw i32 %24, 8
-  %27 = or i32 %26, 8192
-  %28 = select i1 %or.cond.i171, i32 %27, i32 %26
-  %29 = or disjoint i32 %28, %.0.i
-  %30 = getelementptr inbounds nuw i8, ptr %.0166204, i64 2
-  %31 = load i8, ptr %30, align 1, !tbaa !11
-  %32 = zext i8 %31 to i32
-  %33 = add i8 %31, -65
-  %or.cond.i173 = icmp ult i8 %33, 26
-  %34 = shl nuw nsw i32 %32, 16
-  %35 = or i32 %34, 2097152
-  %36 = select i1 %or.cond.i173, i32 %35, i32 %34
-  %37 = or disjoint i32 %29, %36
-  %38 = getelementptr inbounds nuw i8, ptr %.0166204, i64 3
-  %39 = load i8, ptr %38, align 1, !tbaa !11
-  %40 = zext i8 %39 to i32
-  %41 = add i8 %39, -65
-  %or.cond.i175 = icmp ult i8 %41, 26
-  %42 = shl nuw i32 %40, 24
-  %43 = or i32 %42, 536870912
-  %44 = select i1 %or.cond.i175, i32 %43, i32 %42
-  %45 = or i32 %37, %44
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %.0166204, i64 4
-  %48 = load i8, ptr %47, align 1, !tbaa !11
-  %49 = zext i8 %48 to i32
-  %50 = add i8 %48, -65
-  %or.cond.i177 = icmp ult i8 %50, 26
-  %51 = or disjoint i32 %49, 32
-  %.0.i178 = select i1 %or.cond.i177, i32 %51, i32 %49
-  %52 = zext nneg i32 %.0.i178 to i64
-  %53 = shl nuw nsw i64 %52, 32
-  %54 = or disjoint i64 %53, %46
-  %55 = getelementptr inbounds nuw i8, ptr %.0166204, i64 5
-  %56 = load i8, ptr %55, align 1, !tbaa !11
-  %57 = zext i8 %56 to i32
-  %58 = add i8 %56, -65
-  %or.cond.i179 = icmp ult i8 %58, 26
-  %59 = or disjoint i32 %57, 32
-  %.0.i180 = select i1 %or.cond.i179, i32 %59, i32 %57
-  %60 = zext nneg i32 %.0.i180 to i64
-  %61 = shl nuw nsw i64 %60, 40
-  %62 = or disjoint i64 %54, %61
-  %63 = getelementptr inbounds nuw i8, ptr %.0166204, i64 6
-  %64 = load i8, ptr %63, align 1, !tbaa !11
-  %65 = zext i8 %64 to i32
-  %66 = add i8 %64, -65
-  %or.cond.i181 = icmp ult i8 %66, 26
-  %67 = or disjoint i32 %65, 32
-  %.0.i182 = select i1 %or.cond.i181, i32 %67, i32 %65
-  %68 = zext nneg i32 %.0.i182 to i64
-  %69 = shl nuw nsw i64 %68, 48
-  %70 = or i64 %62, %69
-  %71 = getelementptr inbounds nuw i8, ptr %.0166204, i64 7
-  %72 = load i8, ptr %71, align 1, !tbaa !11
-  %73 = zext i8 %72 to i32
-  %74 = add i8 %72, -65
-  %or.cond.i183 = icmp ult i8 %74, 26
-  %75 = or disjoint i32 %73, 32
-  %.0.i184 = select i1 %or.cond.i183, i32 %75, i32 %73
-  %76 = zext nneg i32 %.0.i184 to i64
-  %77 = shl nuw i64 %76, 56
-  %78 = or i64 %70, %77
-  %79 = xor i64 %78, %.0170200
-  %80 = add i64 %.0167203, %.0168202
-  %81 = tail call i64 @llvm.fshl.i64(i64 %.0168202, i64 %.0168202, i64 13)
-  %82 = xor i64 %80, %81
-  %83 = tail call i64 @llvm.fshl.i64(i64 %80, i64 %80, i64 32)
-  %84 = add i64 %79, %.0169201
-  %85 = tail call i64 @llvm.fshl.i64(i64 %79, i64 %79, i64 16)
-  %86 = xor i64 %85, %84
-  %87 = add i64 %86, %83
-  %88 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 21)
-  %89 = xor i64 %88, %87
-  %90 = add i64 %84, %82
-  %91 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 17)
-  %92 = xor i64 %90, %91
-  %93 = tail call i64 @llvm.fshl.i64(i64 %90, i64 %90, i64 32)
-  %94 = xor i64 %87, %78
-  %95 = getelementptr inbounds nuw i8, ptr %.0166204, i64 8
-  %.not = icmp eq ptr %95, %10
+  %92 = xor i64 %85, %76
+  %93 = getelementptr inbounds nuw i8, ptr %.0166204, i64 8
+  %.not = icmp eq ptr %93, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0170.lcssa = phi i64 [ %14, %3 ], [ %89, %.lr.ph ]
-  %.0169.lcssa = phi i64 [ %15, %3 ], [ %93, %.lr.ph ]
-  %.0168.lcssa = phi i64 [ %16, %3 ], [ %92, %.lr.ph ]
-  %.0167.lcssa = phi i64 [ %17, %3 ], [ %94, %.lr.ph ]
-  %.0166.lcssa = phi ptr [ %0, %3 ], [ %10, %.lr.ph ]
-  switch i32 %12, label %default.unreachable [
-    i32 7, label %96
-    i32 6, label %105
-    i32 5, label %114
-    i32 4, label %123
-    i32 3, label %133
-    i32 2, label %143
-    i32 1, label %153
-    i32 0, label %160
+  %.0170.lcssa = phi i64 [ %12, %3 ], [ %87, %.lr.ph ]
+  %.0169.lcssa = phi i64 [ %13, %3 ], [ %91, %.lr.ph ]
+  %.0168.lcssa = phi i64 [ %14, %3 ], [ %90, %.lr.ph ]
+  %.0167.lcssa = phi i64 [ %15, %3 ], [ %92, %.lr.ph ]
+  %.0166.lcssa = phi ptr [ %0, %3 ], [ %8, %.lr.ph ]
+  switch i32 %10, label %default.unreachable [
+    i32 7, label %94
+    i32 6, label %103
+    i32 5, label %112
+    i32 4, label %121
+    i32 3, label %131
+    i32 2, label %141
+    i32 1, label %151
+    i32 0, label %158
   ]
 
-96:                                               ; preds = %._crit_edge
-  %97 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 6
-  %98 = load i8, ptr %97, align 1, !tbaa !11
-  %99 = zext i8 %98 to i32
-  %100 = add i8 %98, -65
-  %or.cond.i185 = icmp ult i8 %100, 26
-  %101 = or disjoint i32 %99, 32
-  %.0.i186 = select i1 %or.cond.i185, i32 %101, i32 %99
-  %102 = zext nneg i32 %.0.i186 to i64
-  %103 = shl nuw nsw i64 %102, 48
-  %104 = or disjoint i64 %103, %13
-  br label %105
+94:                                               ; preds = %._crit_edge
+  %95 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 6
+  %96 = load i8, ptr %95, align 1, !tbaa !11
+  %97 = zext i8 %96 to i32
+  %98 = add i8 %96, -65
+  %or.cond.i185 = icmp ult i8 %98, 26
+  %99 = or disjoint i32 %97, 32
+  %.0.i186 = select i1 %or.cond.i185, i32 %99, i32 %97
+  %100 = zext nneg i32 %.0.i186 to i64
+  %101 = shl nuw nsw i64 %100, 48
+  %102 = or disjoint i64 %101, %11
+  br label %103
 
-105:                                              ; preds = %96, %._crit_edge
-  %.1 = phi i64 [ %104, %96 ], [ %13, %._crit_edge ]
-  %106 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 5
-  %107 = load i8, ptr %106, align 1, !tbaa !11
-  %108 = zext i8 %107 to i32
-  %109 = add i8 %107, -65
-  %or.cond.i187 = icmp ult i8 %109, 26
-  %110 = or disjoint i32 %108, 32
-  %.0.i188 = select i1 %or.cond.i187, i32 %110, i32 %108
-  %111 = zext nneg i32 %.0.i188 to i64
-  %112 = shl nuw nsw i64 %111, 40
-  %113 = or i64 %112, %.1
-  br label %114
+103:                                              ; preds = %94, %._crit_edge
+  %.1 = phi i64 [ %102, %94 ], [ %11, %._crit_edge ]
+  %104 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 5
+  %105 = load i8, ptr %104, align 1, !tbaa !11
+  %106 = zext i8 %105 to i32
+  %107 = add i8 %105, -65
+  %or.cond.i187 = icmp ult i8 %107, 26
+  %108 = or disjoint i32 %106, 32
+  %.0.i188 = select i1 %or.cond.i187, i32 %108, i32 %106
+  %109 = zext nneg i32 %.0.i188 to i64
+  %110 = shl nuw nsw i64 %109, 40
+  %111 = or i64 %110, %.1
+  br label %112
 
-114:                                              ; preds = %105, %._crit_edge
-  %.2 = phi i64 [ %113, %105 ], [ %13, %._crit_edge ]
-  %115 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 4
-  %116 = load i8, ptr %115, align 1, !tbaa !11
-  %117 = zext i8 %116 to i32
-  %118 = add i8 %116, -65
-  %or.cond.i189 = icmp ult i8 %118, 26
-  %119 = or disjoint i32 %117, 32
-  %.0.i190 = select i1 %or.cond.i189, i32 %119, i32 %117
-  %120 = zext nneg i32 %.0.i190 to i64
-  %121 = shl nuw nsw i64 %120, 32
-  %122 = or i64 %121, %.2
-  br label %123
+112:                                              ; preds = %103, %._crit_edge
+  %.2 = phi i64 [ %111, %103 ], [ %11, %._crit_edge ]
+  %113 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 4
+  %114 = load i8, ptr %113, align 1, !tbaa !11
+  %115 = zext i8 %114 to i32
+  %116 = add i8 %114, -65
+  %or.cond.i189 = icmp ult i8 %116, 26
+  %117 = or disjoint i32 %115, 32
+  %.0.i190 = select i1 %or.cond.i189, i32 %117, i32 %115
+  %118 = zext nneg i32 %.0.i190 to i64
+  %119 = shl nuw nsw i64 %118, 32
+  %120 = or i64 %119, %.2
+  br label %121
 
-123:                                              ; preds = %114, %._crit_edge
-  %.3 = phi i64 [ %122, %114 ], [ %13, %._crit_edge ]
-  %124 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 3
-  %125 = load i8, ptr %124, align 1, !tbaa !11
-  %126 = zext i8 %125 to i32
-  %127 = add i8 %125, -65
-  %or.cond.i191 = icmp ult i8 %127, 26
-  %128 = shl nuw i32 %126, 24
-  %129 = or i32 %128, 536870912
-  %130 = select i1 %or.cond.i191, i32 %129, i32 %128
-  %131 = zext i32 %130 to i64
-  %132 = or i64 %.3, %131
-  br label %133
+121:                                              ; preds = %112, %._crit_edge
+  %.3 = phi i64 [ %120, %112 ], [ %11, %._crit_edge ]
+  %122 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 3
+  %123 = load i8, ptr %122, align 1, !tbaa !11
+  %124 = zext i8 %123 to i32
+  %125 = add i8 %123, -65
+  %or.cond.i191 = icmp ult i8 %125, 26
+  %126 = shl nuw i32 %124, 24
+  %127 = or i32 %126, 536870912
+  %128 = select i1 %or.cond.i191, i32 %127, i32 %126
+  %129 = zext i32 %128 to i64
+  %130 = or i64 %.3, %129
+  br label %131
 
-133:                                              ; preds = %123, %._crit_edge
-  %.4 = phi i64 [ %132, %123 ], [ %13, %._crit_edge ]
-  %134 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 2
-  %135 = load i8, ptr %134, align 1, !tbaa !11
-  %136 = zext i8 %135 to i32
-  %137 = add i8 %135, -65
-  %or.cond.i193 = icmp ult i8 %137, 26
-  %138 = shl nuw nsw i32 %136, 16
-  %139 = or i32 %138, 2097152
-  %140 = select i1 %or.cond.i193, i32 %139, i32 %138
-  %141 = zext nneg i32 %140 to i64
-  %142 = or i64 %.4, %141
-  br label %143
+131:                                              ; preds = %121, %._crit_edge
+  %.4 = phi i64 [ %130, %121 ], [ %11, %._crit_edge ]
+  %132 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 2
+  %133 = load i8, ptr %132, align 1, !tbaa !11
+  %134 = zext i8 %133 to i32
+  %135 = add i8 %133, -65
+  %or.cond.i193 = icmp ult i8 %135, 26
+  %136 = shl nuw nsw i32 %134, 16
+  %137 = or i32 %136, 2097152
+  %138 = select i1 %or.cond.i193, i32 %137, i32 %136
+  %139 = zext nneg i32 %138 to i64
+  %140 = or i64 %.4, %139
+  br label %141
 
-143:                                              ; preds = %133, %._crit_edge
-  %.5 = phi i64 [ %142, %133 ], [ %13, %._crit_edge ]
-  %144 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 1
-  %145 = load i8, ptr %144, align 1, !tbaa !11
-  %146 = zext i8 %145 to i32
-  %147 = add i8 %145, -65
-  %or.cond.i195 = icmp ult i8 %147, 26
-  %148 = shl nuw nsw i32 %146, 8
-  %149 = or i32 %148, 8192
-  %150 = select i1 %or.cond.i195, i32 %149, i32 %148
-  %151 = zext nneg i32 %150 to i64
-  %152 = or i64 %.5, %151
-  br label %153
+141:                                              ; preds = %131, %._crit_edge
+  %.5 = phi i64 [ %140, %131 ], [ %11, %._crit_edge ]
+  %142 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 1
+  %143 = load i8, ptr %142, align 1, !tbaa !11
+  %144 = zext i8 %143 to i32
+  %145 = add i8 %143, -65
+  %or.cond.i195 = icmp ult i8 %145, 26
+  %146 = shl nuw nsw i32 %144, 8
+  %147 = or i32 %146, 8192
+  %148 = select i1 %or.cond.i195, i32 %147, i32 %146
+  %149 = zext nneg i32 %148 to i64
+  %150 = or i64 %.5, %149
+  br label %151
 
-153:                                              ; preds = %143, %._crit_edge
-  %.6 = phi i64 [ %152, %143 ], [ %13, %._crit_edge ]
-  %154 = load i8, ptr %.0166.lcssa, align 1, !tbaa !11
-  %155 = zext i8 %154 to i32
-  %156 = add i8 %154, -65
-  %or.cond.i197 = icmp ult i8 %156, 26
-  %157 = or disjoint i32 %155, 32
-  %.0.i198 = select i1 %or.cond.i197, i32 %157, i32 %155
-  %158 = zext nneg i32 %.0.i198 to i64
-  %159 = or i64 %.6, %158
-  br label %160
+151:                                              ; preds = %141, %._crit_edge
+  %.6 = phi i64 [ %150, %141 ], [ %11, %._crit_edge ]
+  %152 = load i8, ptr %.0166.lcssa, align 1, !tbaa !11
+  %153 = zext i8 %152 to i32
+  %154 = add i8 %152, -65
+  %or.cond.i197 = icmp ult i8 %154, 26
+  %155 = or disjoint i32 %153, 32
+  %.0.i198 = select i1 %or.cond.i197, i32 %155, i32 %153
+  %156 = zext nneg i32 %.0.i198 to i64
+  %157 = or i64 %.6, %156
+  br label %158
 
 default.unreachable:                              ; preds = %._crit_edge
   unreachable
 
-160:                                              ; preds = %._crit_edge, %153
-  %.0 = phi i64 [ %13, %._crit_edge ], [ %159, %153 ]
-  %161 = xor i64 %.0, %.0170.lcssa
-  %162 = add i64 %.0167.lcssa, %.0168.lcssa
-  %163 = tail call i64 @llvm.fshl.i64(i64 %.0168.lcssa, i64 %.0168.lcssa, i64 13)
-  %164 = xor i64 %162, %163
-  %165 = tail call i64 @llvm.fshl.i64(i64 %162, i64 %162, i64 32)
-  %166 = add i64 %161, %.0169.lcssa
-  %167 = tail call i64 @llvm.fshl.i64(i64 %161, i64 %161, i64 16)
-  %168 = xor i64 %167, %166
-  %169 = add i64 %168, %165
-  %170 = tail call i64 @llvm.fshl.i64(i64 %168, i64 %168, i64 21)
-  %171 = xor i64 %170, %169
-  %172 = add i64 %166, %164
-  %173 = tail call i64 @llvm.fshl.i64(i64 %164, i64 %164, i64 17)
-  %174 = xor i64 %172, %173
-  %175 = tail call i64 @llvm.fshl.i64(i64 %172, i64 %172, i64 32)
-  %176 = xor i64 %169, %.0
-  %177 = xor i64 %175, 255
-  %178 = add i64 %176, %174
-  %179 = tail call i64 @llvm.fshl.i64(i64 %174, i64 %174, i64 13)
-  %180 = xor i64 %178, %179
-  %181 = tail call i64 @llvm.fshl.i64(i64 %178, i64 %178, i64 32)
-  %182 = add i64 %177, %171
-  %183 = tail call i64 @llvm.fshl.i64(i64 %171, i64 %171, i64 16)
-  %184 = xor i64 %183, %182
-  %185 = add i64 %181, %184
-  %186 = tail call i64 @llvm.fshl.i64(i64 %184, i64 %184, i64 21)
-  %187 = xor i64 %186, %185
-  %188 = add i64 %180, %182
-  %189 = tail call i64 @llvm.fshl.i64(i64 %180, i64 %180, i64 17)
-  %190 = xor i64 %189, %188
-  %191 = tail call i64 @llvm.fshl.i64(i64 %188, i64 %188, i64 32)
-  %192 = add i64 %190, %185
-  %193 = tail call i64 @llvm.fshl.i64(i64 %190, i64 %190, i64 13)
-  %194 = xor i64 %193, %192
-  %195 = add i64 %191, %187
-  %196 = tail call i64 @llvm.fshl.i64(i64 %187, i64 %187, i64 16)
-  %197 = xor i64 %196, %195
-  %198 = tail call i64 @llvm.fshl.i64(i64 %197, i64 %197, i64 21)
-  %199 = add i64 %194, %195
-  %200 = tail call i64 @llvm.fshl.i64(i64 %194, i64 %194, i64 17)
-  %201 = tail call i64 @llvm.fshl.i64(i64 %199, i64 %199, i64 32)
-  %202 = xor i64 %198, %200
-  %203 = xor i64 %202, %201
-  %204 = xor i64 %203, %199
-  ret i64 %204
+158:                                              ; preds = %._crit_edge, %151
+  %.0 = phi i64 [ %11, %._crit_edge ], [ %157, %151 ]
+  %159 = xor i64 %.0, %.0170.lcssa
+  %160 = add i64 %.0167.lcssa, %.0168.lcssa
+  %161 = tail call i64 @llvm.fshl.i64(i64 %.0168.lcssa, i64 %.0168.lcssa, i64 13)
+  %162 = xor i64 %160, %161
+  %163 = tail call i64 @llvm.fshl.i64(i64 %160, i64 %160, i64 32)
+  %164 = add i64 %159, %.0169.lcssa
+  %165 = tail call i64 @llvm.fshl.i64(i64 %159, i64 %159, i64 16)
+  %166 = xor i64 %165, %164
+  %167 = add i64 %166, %163
+  %168 = tail call i64 @llvm.fshl.i64(i64 %166, i64 %166, i64 21)
+  %169 = xor i64 %168, %167
+  %170 = add i64 %164, %162
+  %171 = tail call i64 @llvm.fshl.i64(i64 %162, i64 %162, i64 17)
+  %172 = xor i64 %170, %171
+  %173 = tail call i64 @llvm.fshl.i64(i64 %170, i64 %170, i64 32)
+  %174 = xor i64 %167, %.0
+  %175 = xor i64 %173, 255
+  %176 = add i64 %174, %172
+  %177 = tail call i64 @llvm.fshl.i64(i64 %172, i64 %172, i64 13)
+  %178 = xor i64 %176, %177
+  %179 = tail call i64 @llvm.fshl.i64(i64 %176, i64 %176, i64 32)
+  %180 = add i64 %175, %169
+  %181 = tail call i64 @llvm.fshl.i64(i64 %169, i64 %169, i64 16)
+  %182 = xor i64 %181, %180
+  %183 = add i64 %179, %182
+  %184 = tail call i64 @llvm.fshl.i64(i64 %182, i64 %182, i64 21)
+  %185 = xor i64 %184, %183
+  %186 = add i64 %178, %180
+  %187 = tail call i64 @llvm.fshl.i64(i64 %178, i64 %178, i64 17)
+  %188 = xor i64 %187, %186
+  %189 = tail call i64 @llvm.fshl.i64(i64 %186, i64 %186, i64 32)
+  %190 = add i64 %188, %183
+  %191 = tail call i64 @llvm.fshl.i64(i64 %188, i64 %188, i64 13)
+  %192 = xor i64 %191, %190
+  %193 = add i64 %189, %185
+  %194 = tail call i64 @llvm.fshl.i64(i64 %185, i64 %185, i64 16)
+  %195 = xor i64 %194, %193
+  %196 = tail call i64 @llvm.fshl.i64(i64 %195, i64 %195, i64 21)
+  %197 = add i64 %192, %193
+  %198 = tail call i64 @llvm.fshl.i64(i64 %192, i64 %192, i64 17)
+  %199 = tail call i64 @llvm.fshl.i64(i64 %197, i64 %197, i64 32)
+  %200 = xor i64 %196, %198
+  %201 = xor i64 %200, %199
+  %202 = xor i64 %201, %197
+  ret i64 %202
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -10636,8 +10636,8 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %_ZNK10Node_ArrayixE
 .lr.ph23.preheader.i:                             ; preds = %31
   %36 = zext i32 %35 to i64
   %.idx.i = shl nuw nsw i64 %36, 3
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
-  %38 = getelementptr inbounds i8, ptr %37, i64 -8
+  %37 = getelementptr i8, ptr %33, i64 %.idx.i
+  %38 = getelementptr i8, ptr %37, i64 -8
   br label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %._crit_edge.i, %.lr.ph23.preheader.i
@@ -10784,8 +10784,8 @@ define hidden void @_ZN10Scheduling13cleanup_pinchEP4Node(ptr noundef nonnull re
 .lr.ph23.preheader:                               ; preds = %2
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %9 = getelementptr inbounds i8, ptr %8, i64 -8
+  %8 = getelementptr i8, ptr %4, i64 %.idx
+  %9 = getelementptr i8, ptr %8, i64 -8
   br label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %.lr.ph23.preheader, %._crit_edge

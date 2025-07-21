@@ -733,7 +733,7 @@ _ZNK5folly5RangeIPKcE4findERS1_.exit.thread.i:    ; preds = %_ZNK5folly5RangeIPK
 87:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
   store ptr %13, ptr %15, align 8, !tbaa !45
-  br label %.invoke94
+  br label %.invoke97
 
 _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit.i: ; preds = %81, %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
@@ -845,7 +845,7 @@ _ZNK5folly5RangeIPKcE8subpieceEmm.exit.i:         ; preds = %_ZN5folly5qfindIPKc
 120:                                              ; preds = %.lr.ph.i.i.i.i.i32.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
   store ptr %8, ptr %10, align 8, !tbaa !45
-  br label %.invoke94
+  br label %.invoke97
 
 _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit38.i: ; preds = %114, %112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
@@ -947,15 +947,15 @@ _ZNK5folly5RangeIPKcE8subpieceEmm.exit48.i:       ; preds = %_ZN5folly5qfindIPKc
 149:                                              ; preds = %.lr.ph.i.i.i.i.i55.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
   store ptr %3, ptr %5, align 8, !tbaa !45
-  br label %.invoke94
+  br label %.invoke97
 
-.invoke94:                                        ; preds = %87, %120, %149
+.invoke97:                                        ; preds = %87, %120, %149
   %150 = phi ptr [ %5, %149 ], [ %10, %120 ], [ %15, %87 ]
   invoke void @_ZZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_ENKUlNS_14ConversionCodeEE0_clES9_(ptr noundef nonnull align 8 dereferenceable(8) %150, i8 noundef zeroext 10)
           to label %.noexc59.invoke unwind label %157
 
-.noexc59.invoke:                                  ; preds = %.invoke94, %148, %119, %86
-  %151 = phi i8 [ %.sroa.42.0.extract.trunc.i.i.i.i, %86 ], [ %.sroa.42.0.extract.trunc.i.i.i27.i, %119 ], [ %.sroa.42.0.extract.trunc.i.i.i50.i, %148 ], [ 10, %.invoke94 ]
+.noexc59.invoke:                                  ; preds = %.invoke97, %148, %119, %86
+  %151 = phi i8 [ %.sroa.42.0.extract.trunc.i.i.i.i, %86 ], [ %.sroa.42.0.extract.trunc.i.i.i27.i, %119 ], [ %.sroa.42.0.extract.trunc.i.i.i50.i, %148 ], [ 10, %.invoke97 ]
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %151) #8
           to label %.noexc59.cont unwind label %157
 
@@ -981,7 +981,7 @@ _ZNK5folly5RangeIPKcE8subpieceEmm.exit48.i:       ; preds = %_ZN5folly5qfindIPKc
   %156 = icmp sgt i32 %155, 2006022
   br i1 %156, label %229, label %178
 
-157:                                              ; preds = %.invoke94, %.invoke, %.noexc59.invoke, %148, %_ZNK5folly5RangeIPKcE4findERS1_m.exit44.i, %119, %86
+157:                                              ; preds = %.invoke97, %.invoke, %.noexc59.invoke, %148, %_ZNK5folly5RangeIPKcE4findERS1_m.exit44.i, %119, %86
   %158 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -1082,11 +1082,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit74: ; preds = %_ZStl
 190:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %22) #25
   %191 = call ptr @fgets(ptr noundef nonnull %22, i32 noundef 1024, ptr noundef nonnull %180)
-  %.not2491 = icmp eq ptr %191, null
-  br i1 %.not2491, label %._crit_edge.thread, label %.lr.ph
+  %.not2494 = icmp eq ptr %191, null
+  br i1 %.not2494, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %190, %211
-  %.092 = phi i64 [ %.1, %211 ], [ -1, %190 ]
+  %.095 = phi i64 [ %.1, %211 ], [ -1, %190 ]
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %22, ptr noundef nonnull dereferenceable(16) @.str.15, i64 16)
   %192 = icmp eq i32 %bcmp, 0
   br i1 %192, label %193, label %203
@@ -1143,7 +1143,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit76: ; preds = %196
 209:                                              ; preds = %207
   %bcmp30 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %22, ptr noundef nonnull dereferenceable(15) @.str.20, i64 15)
   %210 = icmp eq i32 %bcmp30, 0
-  %spec.select = select i1 %210, i64 100, i64 %.092
+  %spec.select = select i1 %210, i64 100, i64 %.095
   br label %211
 
 211:                                              ; preds = %209, %207, %205, %203

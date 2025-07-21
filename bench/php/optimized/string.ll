@@ -10340,12 +10340,11 @@ zend_parse_arg_str_ex.exit.i:                     ; preds = %27
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i64 %75, ptr %76, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %78 = getelementptr inbounds nuw i8, ptr %65, i64 %46
-  %79 = sub nsw i64 0, %38
-  %80 = getelementptr inbounds i8, ptr %78, i64 %79
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %.not41.i = icmp slt i64 %46, %38
-  br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
+  %78 = sub nuw nsw i64 %46, %38
+  %79 = getelementptr i8, ptr %65, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 1
+  %81 = icmp sgt i64 %78, -1
+  br i1 %81, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %64, %.lr.ph.i
   %.039.i = phi ptr [ %83, %.lr.ph.i ], [ %77, %64 ]
@@ -10355,7 +10354,7 @@ zend_parse_arg_str_ex.exit.i:                     ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %82, ptr noundef nonnull readonly align 1 %.094125, i64 noundef %.095124, i1 false) #28
   %83 = getelementptr inbounds i8, ptr %82, i64 %.095124
   %84 = getelementptr inbounds nuw i8, ptr %.03538.i, i64 %38
-  %85 = icmp ult ptr %84, %81
+  %85 = icmp ult ptr %84, %80
   br i1 %85, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %64

@@ -1436,14 +1436,13 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit: ; preds = %.lr.ph.i.i, %260
   %299 = getelementptr inbounds i8, ptr %298, i64 %.idx360
   %300 = load i64, ptr %122, align 16
   %.idx359 = mul nsw i64 %300, 56
-  %301 = getelementptr inbounds i8, ptr %298, i64 %.idx359
-  %302 = getelementptr inbounds nuw i8, ptr %301, i64 56
-  %303 = icmp eq ptr %299, %302
+  %301 = add nsw i64 %.idx359, 56
+  %302 = getelementptr inbounds i8, ptr %298, i64 %301
+  %303 = icmp eq i64 %.idx360, %301
   br i1 %303, label %_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit268, label %304
 
 304:                                              ; preds = %297
-  %reass.sub = sub i64 %.idx359, %.idx360
-  %gepdiff361 = add i64 %reass.sub, 56
+  %gepdiff361 = sub nsw i64 %301, %.idx360
   %305 = icmp sgt i64 %gepdiff361, 0
   br i1 %305, label %.lr.ph.i.i.preheader.i244, label %.thread.i241
 

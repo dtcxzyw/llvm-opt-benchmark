@@ -7520,8 +7520,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit1
 .lr.ph.i.i101.preheader:                          ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit100
   %163 = zext i32 %161 to i64
   %164 = shl nuw nsw i64 %163, 3
-  %165 = getelementptr inbounds nuw i8, ptr %159, i64 %164
-  %.012.i.i = getelementptr inbounds i8, ptr %165, i64 -8
+  %165 = getelementptr i8, ptr %159, i64 %164
+  %.012.i.i = getelementptr i8, ptr %165, i64 -8
   br label %.lr.ph.i.i101
 
 .lr.ph.i.i101:                                    ; preds = %.lr.ph.i.i101.preheader, %.lr.ph.i.i101

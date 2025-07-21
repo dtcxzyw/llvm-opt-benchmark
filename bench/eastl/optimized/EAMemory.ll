@@ -1703,9 +1703,8 @@ return:                                           ; preds = %for.inc, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC6MemmemEPKvmS2_m(ptr noundef readonly captures(address, ret: address, provenance) %pMemory, i64 noundef %memorySize, ptr noundef readonly captures(none) %pFind, i64 noundef %findSize) local_unnamed_addr #4 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %pMemory, i64 %memorySize
-  %idx.neg = sub i64 0, %findSize
-  %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
+  %0 = sub i64 %memorySize, %findSize
+  %add.ptr1 = getelementptr inbounds i8, ptr %pMemory, i64 %0
   %tobool.not = icmp eq i64 %memorySize, 0
   %cmp.not = icmp ugt i64 %findSize, %memorySize
   %or.cond = or i1 %tobool.not, %cmp.not
@@ -1716,7 +1715,6 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then
-  %0 = sub i64 %memorySize, %findSize
   %cmp4.not17 = icmp slt i64 %0, 0
   br i1 %cmp4.not17, label %return, label %for.body.lr.ph
 

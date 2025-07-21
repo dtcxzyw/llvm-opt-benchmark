@@ -1867,8 +1867,8 @@ canSkipCatchUpMPV.exit.thread605:                 ; preds = %1033, %canSkipCatch
 
 .lr.ph987.preheader:                              ; preds = %1054
   %1080 = zext nneg i32 %1057 to i64
-  %1081 = getelementptr inbounds nuw i8, ptr %1052, i64 %1080
-  %1082 = getelementptr inbounds i8, ptr %1081, i64 -8
+  %1081 = getelementptr i8, ptr %1052, i64 %1080
+  %1082 = getelementptr i8, ptr %1081, i64 -8
   br label %.lr.ph987
 
 1083:                                             ; preds = %.lr.ph987
@@ -5830,8 +5830,8 @@ ensureStreamNeatAndTidy.exit:                     ; preds = %1039, %1092, %roseC
 
 .lr.ph1128.preheader:                             ; preds = %3306
   %3332 = zext nneg i32 %3309 to i64
-  %3333 = getelementptr inbounds nuw i8, ptr %3301, i64 %3332
-  %3334 = getelementptr inbounds i8, ptr %3333, i64 -8
+  %3333 = getelementptr i8, ptr %3301, i64 %3332
+  %3334 = getelementptr i8, ptr %3333, i64 -8
   br label %.lr.ph1128
 
 3335:                                             ; preds = %.lr.ph1128

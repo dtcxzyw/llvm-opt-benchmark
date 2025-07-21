@@ -2648,8 +2648,8 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %_ZNK6m
   br i1 %130, label %.lr.ph.i.i38.preheader, label %_ZSt7reverseIPcEvT_S1_.exit42
 
 .lr.ph.i.i38.preheader:                           ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %129
-  %.012.i.i36 = getelementptr inbounds i8, ptr %131, i64 -1
+  %131 = getelementptr i8, ptr %128, i64 %129
+  %.012.i.i36 = getelementptr i8, ptr %131, i64 -1
   br label %.lr.ph.i.i38
 
 .lr.ph.i.i38:                                     ; preds = %.lr.ph.i.i38.preheader, %.lr.ph.i.i38

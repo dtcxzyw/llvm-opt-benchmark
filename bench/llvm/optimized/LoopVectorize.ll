@@ -48263,9 +48263,9 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_.exit: ; preds =
   %587 = load i32, ptr %586, align 8, !tbaa !26
   %588 = zext i32 %587 to i64
   %.idx713 = shl nuw nsw i64 %588, 3
-  %589 = getelementptr i8, ptr %585, i64 %.idx713
-  %590 = getelementptr i8, ptr %589, i64 -8
-  %.not143687 = icmp eq i32 %587, 1
+  %589 = add nsw i64 %.idx713, -8
+  %590 = getelementptr i8, ptr %585, i64 %589
+  %.not143687 = icmp eq i64 %589, 0
   br i1 %.not143687, label %._crit_edge691, label %.lr.ph690.preheader
 
 .lr.ph690.preheader:                              ; preds = %.lr.ph695

@@ -4706,8 +4706,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %.lr.ph, %3
   %.pre = load ptr, ptr %2, align 8, !tbaa !25
   %49 = zext i32 %44 to i64
   %.idx = shl nuw nsw i64 %49, 3
-  %50 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %50, i64 -8
+  %50 = getelementptr i8, ptr %.pre, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %50, i64 -8
   br label %.lr.ph.i.i7
 
 .lr.ph.i.i7:                                      ; preds = %.lr.ph.i.i7.preheader, %.lr.ph.i.i7

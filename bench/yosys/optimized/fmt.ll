@@ -11772,8 +11772,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit344: ; preds = %_Z
 
 .lr.ph.i.i.preheader:                             ; preds = %.loopexit
   %744 = load ptr, ptr %7, align 8, !tbaa !47
-  %745 = getelementptr inbounds nuw i8, ptr %744, i64 %742
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %745, i64 -1
+  %745 = getelementptr i8, ptr %744, i64 %742
+  %.sroa.0.08.i.i = getelementptr i8, ptr %745, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

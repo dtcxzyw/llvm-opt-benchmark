@@ -17786,8 +17786,8 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit:           ; preds = %_ZN11mpz_managerILb
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge
   %.pre = load ptr, ptr %52, align 8, !tbaa !58
-  %1462 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.pre972
-  %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %1462, i64 -1
+  %1462 = getelementptr i8, ptr %.pre, i64 %.pre972
+  %.sroa.0.010.i.i = getelementptr i8, ptr %1462, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -18119,8 +18119,8 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %._ZN11mpz_managerIL
 
 .lr.ph.i.i870.preheader:                          ; preds = %._crit_edge971
   %1587 = load ptr, ptr %52, align 8, !tbaa !58
-  %1588 = getelementptr inbounds nuw i8, ptr %1587, i64 %1586
-  %.sroa.0.010.i.i867 = getelementptr inbounds i8, ptr %1588, i64 -1
+  %1588 = getelementptr i8, ptr %1587, i64 %1586
+  %.sroa.0.010.i.i867 = getelementptr i8, ptr %1588, i64 -1
   br label %.lr.ph.i.i870
 
 .lr.ph.i.i870:                                    ; preds = %.lr.ph.i.i870.preheader, %.lr.ph.i.i870

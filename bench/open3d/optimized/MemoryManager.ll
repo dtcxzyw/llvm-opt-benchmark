@@ -30782,8 +30782,8 @@ define linkonce_odr void @_ZN3fmt3v106detail18for_each_codepointIZNS1_11find_esc
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %8 = getelementptr inbounds i8, ptr %7, i64 -3
+  %7 = getelementptr i8, ptr %0, i64 %1
+  %8 = getelementptr i8, ptr %7, i64 -3
   %.not3668 = icmp sgt i64 %1, 3
   br i1 %.not3668, label %.lr.ph, label %.loopexit
 

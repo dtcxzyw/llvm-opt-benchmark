@@ -15446,8 +15446,8 @@ _ZN4llvm5APIntD2Ev.exit200:                       ; preds = %_ZN4llvm23SmallVect
   %330 = load ptr, ptr %31, align 8, !tbaa !25
   %331 = zext i32 %328 to i64
   %.idx300 = shl nuw nsw i64 %331, 4
-  %332 = getelementptr inbounds nuw i8, ptr %330, i64 %.idx300
-  %.012.i.i = getelementptr inbounds i8, ptr %332, i64 -16
+  %332 = getelementptr i8, ptr %330, i64 %.idx300
+  %.012.i.i = getelementptr i8, ptr %332, i64 -16
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

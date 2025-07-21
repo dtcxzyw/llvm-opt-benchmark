@@ -7577,8 +7577,8 @@ st_mult.exit.i:                                   ; preds = %311
   br i1 %319, label %.lr.ph.i, label %._crit_edge.i61
 
 .lr.ph.i:                                         ; preds = %st_mult.exit.i
-  %320 = getelementptr inbounds nuw i8, ptr %.049.i, i64 %304
-  %.14860.i = getelementptr inbounds i8, ptr %320, i64 -1
+  %320 = getelementptr i8, ptr %.049.i, i64 %304
+  %.14860.i = getelementptr i8, ptr %320, i64 -1
   %321 = ptrtoint ptr %.049.i to i64
   br label %322
 

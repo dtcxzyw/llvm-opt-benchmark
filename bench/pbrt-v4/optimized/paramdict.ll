@@ -496,8 +496,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = select i1 %.not.i4, ptr %30, ptr %29
   %.idx = shl nuw nsw i64 %24, 3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %32, i64 -8
+  %32 = getelementptr i8, ptr %31, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %32, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

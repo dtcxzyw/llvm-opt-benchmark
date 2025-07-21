@@ -1687,14 +1687,14 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %1
-  %24 = getelementptr inbounds i8, ptr %23, i64 -1
+  %23 = add nsw i64 %1, -1
+  %24 = getelementptr inbounds i8, ptr %18, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !3
   %.not = icmp sgt i8 %25, -1
   br i1 %.not, label %.thread, label %.preheader170
 
 .preheader170:                                    ; preds = %22
-  %.not128191 = icmp eq i64 %1, 1
+  %.not128191 = icmp eq i64 %23, 0
   br i1 %.not128191, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader170

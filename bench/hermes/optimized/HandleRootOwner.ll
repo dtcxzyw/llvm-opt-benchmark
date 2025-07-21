@@ -31,35 +31,35 @@ for.body:                                         ; preds = %entry, %_ZN6hermes2
   %1 = load i32, ptr %curChunkIndex_.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.idx.i = shl nuw nsw i64 %idx.ext.i, 3
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.idx.i
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.idx.i
   %curChunkEnd_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 200
   %next_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 192
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc8.i, %for.body
   %it.011.i = phi ptr [ %0, %for.body ], [ %incdec.ptr9.i, %for.inc8.i ]
-  %2 = load ptr, ptr %it.011.i, align 8
-  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %3 = load ptr, ptr %curChunkEnd_.i, align 8
-  %cmp4.i = icmp eq ptr %3, %add.ptr3.i
-  %4 = load ptr, ptr %next_.i, align 8
-  %last.0.i = select i1 %cmp4.i, ptr %4, ptr %add.ptr3.i
-  %cmp6.not8.i = icmp eq ptr %2, %last.0.i
+  %3 = load ptr, ptr %it.011.i, align 8
+  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %4 = load ptr, ptr %curChunkEnd_.i, align 8
+  %cmp4.i = icmp eq ptr %4, %add.ptr3.i
+  %5 = load ptr, ptr %next_.i, align 8
+  %last.0.i = select i1 %cmp4.i, ptr %5, ptr %add.ptr3.i
+  %cmp6.not8.i = icmp eq ptr %3, %last.0.i
   br i1 %cmp6.not8.i, label %for.inc8.i, label %for.body7.i
 
 for.body7.i:                                      ; preds = %for.body.i, %for.body7.i
-  %first.09.i = phi ptr [ %incdec.ptr.i, %for.body7.i ], [ %2, %for.body.i ]
+  %first.09.i = phi ptr [ %incdec.ptr.i, %for.body7.i ], [ %3, %for.body.i ]
   %vtable.i = load ptr, ptr %acceptor, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 48
-  %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09.i) #3
+  %6 = load ptr, ptr %vfn.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09.i) #3
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %first.09.i, i64 8
   %cmp6.not.i = icmp eq ptr %incdec.ptr.i, %last.0.i
   br i1 %cmp6.not.i, label %for.inc8.i, label %for.body7.i, !llvm.loop !4
 
 for.inc8.i:                                       ; preds = %for.body7.i, %for.body.i
   %incdec.ptr9.i = getelementptr inbounds nuw i8, ptr %it.011.i, i64 8
-  %cmp.not.i = icmp eq ptr %it.011.i, %add.ptr.i
+  %cmp.not.i = icmp eq ptr %it.011.i, %2
   br i1 %cmp.not.i, label %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit: ; preds = %for.inc8.i
@@ -81,35 +81,35 @@ for.body.lr.ph:
   %1 = load i32, ptr %curChunkIndex_, align 8
   %idx.ext = zext i32 %1 to i64
   %add.ptr.idx = shl nuw nsw i64 %idx.ext, 3
-  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.idx
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.idx
   %curChunkEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc8
   %it.011 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr9, %for.inc8 ]
-  %2 = load ptr, ptr %it.011, align 8
-  %add.ptr3 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %3 = load ptr, ptr %curChunkEnd_, align 8
-  %cmp4 = icmp eq ptr %3, %add.ptr3
-  %4 = load ptr, ptr %next_, align 8
-  %last.0 = select i1 %cmp4, ptr %4, ptr %add.ptr3
-  %cmp6.not8 = icmp eq ptr %2, %last.0
+  %3 = load ptr, ptr %it.011, align 8
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %4 = load ptr, ptr %curChunkEnd_, align 8
+  %cmp4 = icmp eq ptr %4, %add.ptr3
+  %5 = load ptr, ptr %next_, align 8
+  %last.0 = select i1 %cmp4, ptr %5, ptr %add.ptr3
+  %cmp6.not8 = icmp eq ptr %3, %last.0
   br i1 %cmp6.not8, label %for.inc8, label %for.body7
 
 for.body7:                                        ; preds = %for.body, %for.body7
-  %first.09 = phi ptr [ %incdec.ptr, %for.body7 ], [ %2, %for.body ]
+  %first.09 = phi ptr [ %incdec.ptr, %for.body7 ], [ %3, %for.body ]
   %vtable = load ptr, ptr %acceptor, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
-  %5 = load ptr, ptr %vfn, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09) #3
+  %6 = load ptr, ptr %vfn, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09) #3
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %first.09, i64 8
   %cmp6.not = icmp eq ptr %incdec.ptr, %last.0
   br i1 %cmp6.not, label %for.inc8, label %for.body7, !llvm.loop !4
 
 for.inc8:                                         ; preds = %for.body7, %for.body
   %incdec.ptr9 = getelementptr inbounds nuw i8, ptr %it.011, i64 8
-  %cmp.not = icmp eq ptr %it.011, %add.ptr
+  %cmp.not = icmp eq ptr %it.011, %2
   br i1 %cmp.not, label %for.end10, label %for.body, !llvm.loop !6
 
 for.end10:                                        ; preds = %for.inc8

@@ -1511,8 +1511,8 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %26
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %4, align 8, !tbaa !97
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %42
-  %47 = getelementptr inbounds i8, ptr %46, i64 -3
+  %46 = getelementptr i8, ptr %45, i64 %42
+  %47 = getelementptr i8, ptr %46, i64 -3
   %.not.i18 = icmp slt i64 %42, 3
   br i1 %.not.i18, label %php_dom_follow_spec_doc_ref.exit.thread, label %.lr.ph
 

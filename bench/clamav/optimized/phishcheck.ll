@@ -2890,8 +2890,8 @@ string_free.exit.i:                               ; preds = %.preheader.i63, %44
   br label %string_assign_null.exit68
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds nuw i8, ptr %16, i64 %24
-  %49 = getelementptr inbounds i8, ptr %48, i64 -1
+  %48 = getelementptr i8, ptr %16, i64 %24
+  %49 = getelementptr i8, ptr %48, i64 -1
   store ptr %49, ptr %5, align 8, !tbaa !50
   %.not49 = icmp sgt i64 %24, 1
   br i1 %.not49, label %.preheader144, label %.preheader.i70

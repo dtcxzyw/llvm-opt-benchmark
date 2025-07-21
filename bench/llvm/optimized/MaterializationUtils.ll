@@ -2415,15 +2415,15 @@ _ZN4llvm3isaINS_18AnyCoroSuspendInstEPNS_11InstructionEEEbRKT0_.exit.thread.i: ;
   %.pn9.i = phi i64 [ 0, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.sroa.4.0.i.i.i, %_ZN4llvm3isaINS_18AnyCoroSuspendInstEPNS_11InstructionEEEbRKT0_.exit.i ], [ %.sroa.4.0.i.i.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %.sroa.4.0.i.i.i, %_ZN4llvm25ReversePostOrderTraversalIPN12_GLOBAL__N_110RematGraphENS_11GraphTraitsIS3_EEEC2ERKS3_.exit.i ], [ %.sroa.4.0.i.i.i, %858 ], [ %.sroa.4.0.i.i.i, %855 ], [ %.sroa.4.0.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.6.1.i = or disjoint i64 %.pn9.i, %.sroa.6.8.insert.mask52.i
   %.val89.i = load i32, ptr %328, align 8, !tbaa !21
-  %.not1024.i = icmp eq i32 %.val89.i, 1
+  %883 = zext i32 %.val89.i to i64
+  %.idx42.i = shl nuw nsw i64 %883, 3
+  %884 = add nsw i64 %.idx42.i, -8
+  %.not1024.i = icmp eq i64 %884, 0
   br i1 %.not1024.i, label %._crit_edge29.i, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %_ZN4llvm3isaINS_18AnyCoroSuspendInstEPNS_11InstructionEEEbRKT0_.exit.thread.i
   %.val88.i = load ptr, ptr %34, align 8, !tbaa !19
-  %883 = zext i32 %.val89.i to i64
-  %.idx42.i = shl nuw nsw i64 %883, 3
-  %884 = getelementptr inbounds nuw i8, ptr %.val88.i, i64 %.idx42.i
-  %885 = getelementptr inbounds i8, ptr %884, i64 -8
+  %885 = getelementptr inbounds i8, ptr %.val88.i, i64 %884
   %886 = extractvalue { ptr, i64 } %.fca.0.insert.i.pn.i, 0
   %887 = getelementptr inbounds nuw i8, ptr %428, i64 4
   %888 = getelementptr inbounds i8, ptr %428, i64 -8

@@ -1565,14 +1565,14 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   br i1 %21, label %22, label %.loopexit127
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %2
-  %24 = getelementptr inbounds i8, ptr %23, i64 -1
+  %23 = add nsw i64 %2, -1
+  %24 = getelementptr inbounds i8, ptr %18, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !43
   %.not121 = icmp sgt i8 %25, -1
   br i1 %.not121, label %.loopexit127, label %.preheader128
 
 .preheader128:                                    ; preds = %22
-  %.not122136 = icmp ne i64 %2, 1
+  %.not122136 = icmp ne i64 %23, 0
   %.not123203 = icmp slt i8 %25, -64
   %or.cond213 = and i1 %.not122136, %.not123203
   br i1 %or.cond213, label %.lr.ph206, label %._crit_edge

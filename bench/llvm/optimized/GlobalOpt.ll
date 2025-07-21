@@ -17621,9 +17621,8 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit: ; preds = %135, %141
 
 .lr.ph125.preheader:                              ; preds = %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit
   %145 = zext i32 %144 to i64
-  %.idx = sub nsw i64 0, %145
-  %146 = getelementptr inbounds i8, ptr %19, i64 %.idx
-  %.070122 = getelementptr inbounds nuw i8, ptr %146, i64 32
+  %146 = sub nsw i64 32, %145
+  %.070122 = getelementptr inbounds i8, ptr %19, i64 %146
   br label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit

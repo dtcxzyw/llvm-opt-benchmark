@@ -7253,8 +7253,8 @@ _ZN4llvm8TGParser14ParseRangeListERNS_15SmallVectorImplIjEE.exit: ; preds = %.pr
 .lr.ph.i.i.preheader:                             ; preds = %79
   %81 = zext i32 %.pr to i64
   %.idx = shl nuw nsw i64 %81, 2
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %82, i64 -4
+  %82 = getelementptr i8, ptr %80, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %82, i64 -4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -21017,8 +21017,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 .lr.ph.i.i.preheader:                             ; preds = %.critedge
   %.idx = shl nuw nsw i64 %419, 3
-  %421 = getelementptr inbounds nuw i8, ptr %.pre413, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %421, i64 -8
+  %421 = getelementptr i8, ptr %.pre413, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %421, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -23572,8 +23572,8 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit: ; preds = %23
   %66 = load ptr, ptr %7, align 8, !tbaa !51
   %67 = zext i32 %64 to i64
   %.idx = shl nuw nsw i64 %67, 2
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %68, i64 -4
+  %68 = getelementptr i8, ptr %66, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %68, i64 -4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -28140,8 +28140,8 @@ _ZN4llvm15SmallVectorImplINS_9LetRecordEE5clearEv.exit15: ; preds = %_ZN4llvm9Le
   %70 = load ptr, ptr %8, align 8, !tbaa !51
   %71 = zext i32 %68 to i64
   %.idx = shl nuw nsw i64 %71, 2
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %72, i64 -4
+  %72 = getelementptr i8, ptr %70, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %72, i64 -4
   br label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %.lr.ph.i.i16.preheader, %.lr.ph.i.i16

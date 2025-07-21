@@ -68,9 +68,9 @@ define i32 @ff_vorbis_comment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %or.cond, label %145, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %19
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 %19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %24, align 1, !tbaa !19
   %27 = add nuw nsw i64 %19, 8
   %gepdiff = sub nsw i64 %12, %27

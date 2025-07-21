@@ -165235,8 +165235,8 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends13cpp_dec_flo
   %22 = add i32 %21, -8
   store i32 %22, ptr %6, align 4, !tbaa !1564
   %.idx.i = shl nuw nsw i64 %18, 2
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %23, i64 -4
+  %23 = getelementptr i8, ptr %5, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %23, i64 -4
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -165311,8 +165311,8 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE23from_unsigned_long_l
   %46 = add i32 %45, -8
   store i32 %46, ptr %6, align 4, !tbaa !1564
   %.idx.i14 = shl nuw nsw i64 %42, 2
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i14
-  %.012.i.i.i15 = getelementptr inbounds i8, ptr %47, i64 -4
+  %47 = getelementptr i8, ptr %4, i64 %.idx.i14
+  %.012.i.i.i15 = getelementptr i8, ptr %47, i64 -4
   br label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %.lr.ph.i.i.i16, %.lr.ph.i.i.preheader.i12

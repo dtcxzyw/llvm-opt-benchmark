@@ -53264,82 +53264,81 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules11pep8_naming7helpers13i
   store i32 95, ptr %3, align 4
   %6 = call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h86acae139f0bc211E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %.neg = zext i1 %6 to i64
   %7 = sext i1 %6 to i64
-  %spec.select11 = getelementptr inbounds nuw i8, ptr %0, i64 %.neg
-  %8 = getelementptr i8, ptr %spec.select11, i64 %1
-  %9 = getelementptr i8, ptr %8, i64 %7
-  %10 = icmp eq i64 %1, %.neg
-  br i1 %10, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit", label %11
+  %spec.select11.idx = zext i1 %6 to i64
+  %spec.select11 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select11.idx
+  %8 = add i64 %1, %7
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit", label %10
 
-11:                                               ; preds = %5
-  %12 = load i8, ptr %spec.select11, align 1, !noalias !3967, !noundef !4
-  %13 = icmp sgt i8 %12, -1
-  br i1 %13, label %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i"
+10:                                               ; preds = %5
+  %11 = load i8, ptr %spec.select11, align 1, !noalias !3967, !noundef !4
+  %12 = icmp sgt i8 %11, -1
+  br i1 %12, label %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i": ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %spec.select11, i64 1
-  %15 = and i8 %12, 31
-  %16 = zext nneg i8 %15 to i32
-  %17 = icmp ne ptr %14, %9
-  call void @llvm.assume(i1 %17)
-  %18 = load i8, ptr %14, align 1, !noalias !3967, !noundef !4
-  %19 = shl nuw nsw i32 %16, 6
-  %20 = and i8 %18, 63
-  %21 = zext nneg i8 %20 to i32
-  %22 = or disjoint i32 %19, %21
-  %23 = icmp samesign ugt i8 %12, -33
-  br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i", label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i": ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %spec.select11, i64 1
+  %14 = and i8 %11, 31
+  %15 = zext nneg i8 %14 to i32
+  %16 = icmp ne i64 %8, 1
+  call void @llvm.assume(i1 %16)
+  %17 = load i8, ptr %13, align 1, !noalias !3967, !noundef !4
+  %18 = shl nuw nsw i32 %15, 6
+  %19 = and i8 %17, 63
+  %20 = zext nneg i8 %19 to i32
+  %21 = or disjoint i32 %18, %20
+  %22 = icmp samesign ugt i8 %11, -33
+  br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i", label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
 
-24:                                               ; preds = %11
-  %25 = zext nneg i8 %12 to i32
+23:                                               ; preds = %10
+  %24 = zext nneg i8 %11 to i32
   br label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i"
-  %26 = getelementptr inbounds nuw i8, ptr %spec.select11, i64 2
-  %27 = icmp ne ptr %26, %9
-  call void @llvm.assume(i1 %27)
-  %28 = load i8, ptr %26, align 1, !noalias !3967, !noundef !4
-  %29 = shl nuw nsw i32 %21, 6
-  %30 = and i8 %28, 63
-  %31 = zext nneg i8 %30 to i32
-  %32 = or disjoint i32 %29, %31
-  %33 = shl nuw nsw i32 %16, 12
-  %34 = or disjoint i32 %32, %33
-  %35 = icmp samesign ugt i8 %12, -17
-  br i1 %35, label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit, label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select11, i64 2
+  %26 = icmp ne i64 %8, 2
+  call void @llvm.assume(i1 %26)
+  %27 = load i8, ptr %25, align 1, !noalias !3967, !noundef !4
+  %28 = shl nuw nsw i32 %20, 6
+  %29 = and i8 %27, 63
+  %30 = zext nneg i8 %29 to i32
+  %31 = or disjoint i32 %28, %30
+  %32 = shl nuw nsw i32 %15, 12
+  %33 = or disjoint i32 %31, %32
+  %34 = icmp samesign ugt i8 %11, -17
+  br i1 %34, label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit, label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
 
 _ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i"
-  %36 = getelementptr inbounds nuw i8, ptr %spec.select11, i64 3
-  %37 = icmp ne ptr %36, %9
-  call void @llvm.assume(i1 %37)
-  %38 = load i8, ptr %36, align 1, !noalias !3967, !noundef !4
-  %39 = shl nuw nsw i32 %16, 18
-  %40 = and i32 %39, 1835008
-  %41 = shl nuw nsw i32 %32, 6
-  %42 = and i8 %38, 63
-  %43 = zext nneg i8 %42 to i32
-  %44 = or disjoint i32 %41, %43
-  %45 = or disjoint i32 %44, %40
-  %.not.i = icmp eq i32 %45, 1114112
+  %35 = getelementptr inbounds nuw i8, ptr %spec.select11, i64 3
+  %36 = icmp ne i64 %8, 3
+  call void @llvm.assume(i1 %36)
+  %37 = load i8, ptr %35, align 1, !noalias !3967, !noundef !4
+  %38 = shl nuw nsw i32 %15, 18
+  %39 = and i32 %38, 1835008
+  %40 = shl nuw nsw i32 %31, 6
+  %41 = and i8 %37, 63
+  %42 = zext nneg i8 %41 to i32
+  %43 = or disjoint i32 %40, %42
+  %44 = or disjoint i32 %43, %39
+  %.not.i = icmp eq i32 %44, 1114112
   br i1 %.not.i, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit", label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
 
-_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i", %24, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit
-  %.sroa.4.0.i20 = phi i32 [ %45, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i" ], [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i" ], [ %25, %24 ]
-  %46 = add nsw i32 %.sroa.4.0.i20, -97
-  %or.cond.i.i.i = icmp ult i32 %46, 26
-  br i1 %or.cond.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit", label %47
+_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i", %23, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit
+  %.sroa.4.0.i20 = phi i32 [ %44, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit ], [ %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i" ], [ %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i" ], [ %24, %23 ]
+  %45 = add nsw i32 %.sroa.4.0.i20, -97
+  %or.cond.i.i.i = icmp ult i32 %45, 26
+  br i1 %or.cond.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit", label %46
 
-47:                                               ; preds = %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
-  %48 = icmp samesign ugt i32 %.sroa.4.0.i20, 127
-  br i1 %48, label %49, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit"
+46:                                               ; preds = %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
+  %47 = icmp samesign ugt i32 %.sroa.4.0.i20, 127
+  br i1 %47, label %48, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit"
 
-49:                                               ; preds = %47
-  %50 = call noundef zeroext i1 @_ZN4core7unicode12unicode_data9lowercase6lookup17h903a56b371aab1a4E(i32 noundef range(i32 0, 1114112) %.sroa.4.0.i20)
+48:                                               ; preds = %46
+  %49 = call noundef zeroext i1 @_ZN4core7unicode12unicode_data9lowercase6lookup17h903a56b371aab1a4E(i32 noundef range(i32 0, 1114112) %.sroa.4.0.i20)
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit": ; preds = %5, %49, %47, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit, %2
-  %.sroa.05.0 = phi i1 [ false, %2 ], [ %50, %49 ], [ true, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread ], [ false, %47 ], [ false, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit ], [ false, %5 ]
+"_ZN4core6option15Option$LT$T$GT$11map_or_else17h67df1196d6b63a8dE.exit": ; preds = %5, %48, %46, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit, %2
+  %.sroa.05.0 = phi i1 [ false, %2 ], [ %49, %48 ], [ true, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread ], [ false, %46 ], [ false, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit ], [ false, %5 ]
   ret i1 %.sroa.05.0
 }
 
@@ -53973,8 +53972,8 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules21mixed_spaces_and_
   br i1 %6, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val5
-  %9 = getelementptr inbounds i8, ptr %8, i64 -1
+  %8 = add nsw i64 %.val5, -1
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %8
   %10 = load i8, ptr %9, align 1, !noundef !4
   switch i8 %10, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit [
     i8 10, label %11
@@ -53982,11 +53981,11 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules21mixed_spaces_and_
   ]
 
 11:                                               ; preds = %7
-  %12 = icmp eq i64 %.val5, 1
+  %12 = icmp eq i64 %8, 0
   br i1 %12, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i", label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %8, i64 -2
+  %14 = getelementptr inbounds i8, ptr %9, i64 -1
   %15 = load i8, ptr %14, align 1, !noundef !4
   %16 = icmp eq i8 %15, 13
   %spec.select.i.i = select i1 %16, i8 2, i8 0
@@ -54151,8 +54150,8 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle8overlong8Overlong13try_f
   br i1 %46, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %.val69, i64 %.val70
-  %49 = getelementptr inbounds i8, ptr %48, i64 -1
+  %48 = add nsw i64 %.val70, -1
+  %49 = getelementptr inbounds i8, ptr %.val69, i64 %48
   %50 = load i8, ptr %49, align 1, !noundef !4
   switch i8 %50, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit [
     i8 10, label %51
@@ -54160,11 +54159,11 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle8overlong8Overlong13try_f
   ]
 
 51:                                               ; preds = %47
-  %52 = icmp eq i64 %.val70, 1
+  %52 = icmp eq i64 %48, 0
   br i1 %52, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i", label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %48, i64 -2
+  %54 = getelementptr inbounds i8, ptr %49, i64 -1
   %55 = load i8, ptr %54, align 1, !noundef !4
   %56 = icmp eq i8 %55, 13
   %spec.select.i.i = select i1 %56, i8 2, i8 0
@@ -54223,8 +54222,8 @@ _ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit: ; preds = %
   br i1 %46, label %_ZN16ruff_source_file8newlines4Line3end17hafc80ec87d8cf243E.exit.i, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %.val69, i64 %.val70
-  %77 = getelementptr inbounds i8, ptr %76, i64 -1
+  %76 = add nsw i64 %.val70, -1
+  %77 = getelementptr inbounds i8, ptr %.val69, i64 %76
   %78 = load i8, ptr %77, align 1, !noalias !4006, !noundef !4
   switch i8 %78, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i.i [
     i8 10, label %79
@@ -54232,11 +54231,11 @@ _ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit: ; preds = %
   ]
 
 79:                                               ; preds = %75
-  %80 = icmp eq i64 %.val70, 1
+  %80 = icmp eq i64 %76, 0
   br i1 %80, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %76, i64 -2
+  %82 = getelementptr inbounds i8, ptr %77, i64 -1
   %83 = load i8, ptr %82, align 1, !noalias !4006, !noundef !4
   %84 = icmp eq i8 %83, 13
   %spec.select.i.i.i.i = select i1 %84, i8 2, i8 0
@@ -54314,8 +54313,8 @@ _ZN16ruff_source_file8newlines4Line3end17hafc80ec87d8cf243E.exit.i: ; preds = %_
   br i1 %46, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i, label %117
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds nuw i8, ptr %.val69, i64 %.val70
-  %119 = getelementptr inbounds i8, ptr %118, i64 -1
+  %118 = add nsw i64 %.val70, -1
+  %119 = getelementptr inbounds i8, ptr %.val69, i64 %118
   %120 = load i8, ptr %119, align 1, !noalias !4013, !noundef !4
   switch i8 %120, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i [
     i8 10, label %121
@@ -54323,11 +54322,11 @@ _ZN16ruff_source_file8newlines4Line3end17hafc80ec87d8cf243E.exit.i: ; preds = %_
   ]
 
 121:                                              ; preds = %117
-  %122 = icmp eq i64 %.val70, 1
+  %122 = icmp eq i64 %118, 0
   br i1 %122, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i", label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %118, i64 -2
+  %124 = getelementptr inbounds i8, ptr %119, i64 -1
   %125 = load i8, ptr %124, align 1, !noalias !4013, !noundef !4
   %126 = icmp eq i8 %125, 13
   %spec.select.i.i.i = select i1 %126, i8 2, i8 0
@@ -54432,8 +54431,8 @@ _ZN14ruff_text_size5range9TextRange11checked_sub17hc12dd86e654d9be9E.exit.i: ; p
   br i1 %46, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit28.i, label %167
 
 167:                                              ; preds = %166
-  %168 = getelementptr inbounds nuw i8, ptr %.val69, i64 %.val70
-  %169 = getelementptr inbounds i8, ptr %168, i64 -1
+  %168 = add nsw i64 %.val70, -1
+  %169 = getelementptr inbounds i8, ptr %.val69, i64 %168
   %170 = load i8, ptr %169, align 1, !noalias !4013, !noundef !4
   switch i8 %170, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit28.i [
     i8 10, label %171
@@ -54441,11 +54440,11 @@ _ZN14ruff_text_size5range9TextRange11checked_sub17hc12dd86e654d9be9E.exit.i: ; p
   ]
 
 171:                                              ; preds = %167
-  %172 = icmp eq i64 %.val70, 1
+  %172 = icmp eq i64 %168, 0
   br i1 %172, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i24.i", label %173
 
 173:                                              ; preds = %171
-  %174 = getelementptr inbounds i8, ptr %168, i64 -2
+  %174 = getelementptr inbounds i8, ptr %169, i64 -1
   %175 = load i8, ptr %174, align 1, !noalias !4013, !noundef !4
   %176 = icmp eq i8 %175, 13
   %spec.select.i.i27.i = select i1 %176, i8 2, i8 0
@@ -54536,8 +54535,8 @@ _ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit28.i: ; preds
   br i1 %46, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit37.i, label %215
 
 215:                                              ; preds = %214
-  %216 = getelementptr inbounds nuw i8, ptr %.val69, i64 %.val70
-  %217 = getelementptr inbounds i8, ptr %216, i64 -1
+  %216 = add nsw i64 %.val70, -1
+  %217 = getelementptr inbounds i8, ptr %.val69, i64 %216
   %218 = load i8, ptr %217, align 1, !noalias !4013, !noundef !4
   switch i8 %218, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit37.i [
     i8 10, label %219
@@ -54545,11 +54544,11 @@ _ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit28.i: ; preds
   ]
 
 219:                                              ; preds = %215
-  %220 = icmp eq i64 %.val70, 1
+  %220 = icmp eq i64 %216, 0
   br i1 %220, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i33.i", label %221
 
 221:                                              ; preds = %219
-  %222 = getelementptr inbounds i8, ptr %216, i64 -2
+  %222 = getelementptr inbounds i8, ptr %217, i64 -1
   %223 = load i8, ptr %222, align 1, !noalias !4013, !noundef !4
   %224 = icmp eq i8 %223, 13
   %spec.select.i.i36.i = select i1 %224, i8 2, i8 0
@@ -54645,8 +54644,8 @@ _ZN11ruff_linter5rules11pycodestyle8overlong12StrippedLine9from_line17hb61916830
   br i1 %256, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit75, label %257
 
 257:                                              ; preds = %254
-  %258 = getelementptr inbounds nuw i8, ptr %.pr, i64 %.val68
-  %259 = getelementptr inbounds i8, ptr %258, i64 -1
+  %258 = add nsw i64 %.val68, -1
+  %259 = getelementptr inbounds i8, ptr %.pr, i64 %258
   %260 = load i8, ptr %259, align 1, !noundef !4
   switch i8 %260, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit75 [
     i8 10, label %261
@@ -54654,11 +54653,11 @@ _ZN11ruff_linter5rules11pycodestyle8overlong12StrippedLine9from_line17hb61916830
   ]
 
 261:                                              ; preds = %257
-  %262 = icmp eq i64 %.val68, 1
+  %262 = icmp eq i64 %258, 0
   br i1 %262, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i71", label %263
 
 263:                                              ; preds = %261
-  %264 = getelementptr inbounds i8, ptr %258, i64 -2
+  %264 = getelementptr inbounds i8, ptr %259, i64 -1
   %265 = load i8, ptr %264, align 1, !noundef !4
   %266 = icmp eq i8 %265, 13
   %spec.select.i.i74 = select i1 %266, i8 2, i8 0
@@ -54926,8 +54925,8 @@ _ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread: ; pr
   br i1 %376, label %_ZN16ruff_source_file8newlines4Line3end17hafc80ec87d8cf243E.exit, label %377
 
 377:                                              ; preds = %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
-  %378 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val3.i
-  %379 = getelementptr inbounds i8, ptr %378, i64 -1
+  %378 = add nsw i64 %.val3.i, -1
+  %379 = getelementptr inbounds i8, ptr %.val.i, i64 %378
   %380 = load i8, ptr %379, align 1, !noalias !4076, !noundef !4
   switch i8 %380, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i88 [
     i8 10, label %381
@@ -54935,11 +54934,11 @@ _ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread: ; pr
   ]
 
 381:                                              ; preds = %377
-  %382 = icmp eq i64 %.val3.i, 1
+  %382 = icmp eq i64 %378, 0
   br i1 %382, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i85", label %383
 
 383:                                              ; preds = %381
-  %384 = getelementptr inbounds i8, ptr %378, i64 -2
+  %384 = getelementptr inbounds i8, ptr %379, i64 -1
   %385 = load i8, ptr %384, align 1, !noalias !4076, !noundef !4
   %386 = icmp eq i8 %385, 13
   %spec.select.i.i.i89 = select i1 %386, i8 2, i8 0
@@ -66368,8 +66367,8 @@ define internal fastcc void @_ZN11ruff_linter5rules10pydocstyle5rules8sections20
   br i1 %374, label %397, label %375
 
 375:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h9441cd49c84c0406E.exit31.thread.i.i"
-  %376 = getelementptr inbounds nuw i8, ptr %.val26.i.i, i64 %.val27.i.i
-  %377 = getelementptr inbounds i8, ptr %376, i64 -1
+  %376 = add nsw i64 %.val27.i.i, -1
+  %377 = getelementptr inbounds i8, ptr %.val26.i.i, i64 %376
   %378 = load i8, ptr %377, align 1, !noundef !4
   switch i8 %378, label %397 [
     i8 10, label %379
@@ -66377,11 +66376,11 @@ define internal fastcc void @_ZN11ruff_linter5rules10pydocstyle5rules8sections20
   ]
 
 379:                                              ; preds = %375
-  %380 = icmp eq i64 %.val27.i.i, 1
+  %380 = icmp eq i64 %376, 0
   br i1 %380, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %381
 
 381:                                              ; preds = %379
-  %382 = getelementptr inbounds i8, ptr %376, i64 -2
+  %382 = getelementptr inbounds i8, ptr %377, i64 -1
   %383 = load i8, ptr %382, align 1, !noundef !4
   %384 = icmp eq i8 %383, 13
   %spec.select.i.i.i.i = select i1 %384, i8 2, i8 0
@@ -66595,8 +66594,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i30: ; preds = %.
   br i1 %464, label %510, label %465
 
 465:                                              ; preds = %463
-  %466 = getelementptr inbounds nuw i8, ptr %.val24.i.i, i64 %.val25.i.i
-  %467 = getelementptr inbounds i8, ptr %466, i64 -1
+  %466 = add nsw i64 %.val25.i.i, -1
+  %467 = getelementptr inbounds i8, ptr %.val24.i.i, i64 %466
   %468 = load i8, ptr %467, align 1, !noundef !4
   switch i8 %468, label %510 [
     i8 10, label %469
@@ -66604,11 +66603,11 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i30: ; preds = %.
   ]
 
 469:                                              ; preds = %465
-  %470 = icmp eq i64 %.val25.i.i, 1
+  %470 = icmp eq i64 %466, 0
   br i1 %470, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i35.i.i", label %471
 
 471:                                              ; preds = %469
-  %472 = getelementptr inbounds i8, ptr %466, i64 -2
+  %472 = getelementptr inbounds i8, ptr %467, i64 -1
   %473 = load i8, ptr %472, align 1, !noundef !4
   %474 = icmp eq i8 %473, 13
   %spec.select.i.i38.i.i = select i1 %474, i8 2, i8 0
@@ -66649,8 +66648,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i30: ; preds = %.
   br i1 %485, label %520, label %486
 
 486:                                              ; preds = %.loopexit189
-  %487 = getelementptr inbounds nuw i8, ptr %.val24.i.i163, i64 %.val25.i.i164
-  %488 = getelementptr inbounds i8, ptr %487, i64 -1
+  %487 = add nsw i64 %.val25.i.i164, -1
+  %488 = getelementptr inbounds i8, ptr %.val24.i.i163, i64 %487
   %489 = load i8, ptr %488, align 1, !noundef !4
   switch i8 %489, label %520 [
     i8 10, label %490
@@ -66658,11 +66657,11 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i30: ; preds = %.
   ]
 
 490:                                              ; preds = %486
-  %491 = icmp eq i64 %.val25.i.i164, 1
+  %491 = icmp eq i64 %487, 0
   br i1 %491, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i42.i.i", label %492
 
 492:                                              ; preds = %490
-  %493 = getelementptr inbounds i8, ptr %487, i64 -2
+  %493 = getelementptr inbounds i8, ptr %488, i64 -1
   %494 = load i8, ptr %493, align 1, !noundef !4
   %495 = icmp eq i8 %494, 13
   %spec.select.i.i45.i.i = select i1 %495, i8 2, i8 0
@@ -67504,8 +67503,8 @@ _ZN11ruff_linter5rules10pydocstyle5rules8sections14google_section17h9671795ea2f8
   br i1 %178, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i, label %179
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.087.0123.i, i64 %.sroa.7.0118124.i
-  %181 = getelementptr inbounds i8, ptr %180, i64 -1
+  %180 = add nsw i64 %.sroa.7.0118124.i, -1
+  %181 = getelementptr inbounds i8, ptr %.sroa.087.0123.i, i64 %180
   %182 = load i8, ptr %181, align 1, !noalias !5505, !noundef !4
   switch i8 %182, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i [
     i8 10, label %183
@@ -67513,11 +67512,11 @@ _ZN11ruff_linter5rules10pydocstyle5rules8sections14google_section17h9671795ea2f8
   ]
 
 183:                                              ; preds = %179
-  %184 = icmp eq i64 %.sroa.7.0118124.i, 1
+  %184 = icmp eq i64 %180, 0
   br i1 %184, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i", label %185
 
 185:                                              ; preds = %183
-  %186 = getelementptr inbounds i8, ptr %180, i64 -2
+  %186 = getelementptr inbounds i8, ptr %181, i64 -1
   %187 = load i8, ptr %186, align 1, !noalias !5505, !noundef !4
   %188 = icmp eq i8 %187, 13
   %spec.select.i.i.i = select i1 %188, i8 2, i8 0

@@ -5047,9 +5047,8 @@ _ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_120AggLoadStoreRew
 
 .lr.ph.preheader.i8.i.i.i:                        ; preds = %_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_120AggLoadStoreRewriter12unfoldGEPPhiERNS_17GetElementPtrInstEEUlPNS_5ValueEE_EEbOT_T0_.exit.thread.i.i.i.i
   %729 = zext i32 %728 to i64
-  %.idx193.i.i.i.i = sub nsw i64 0, %729
-  %730 = getelementptr inbounds i8, ptr %222, i64 %.idx193.i.i.i.i
-  %.047186.i.i.i.i = getelementptr inbounds nuw i8, ptr %730, i64 32
+  %730 = sub nsw i64 32, %729
+  %.047186.i.i.i.i = getelementptr inbounds i8, ptr %222, i64 %730
   br label %.lr.ph.i9.i.i.i
 
 .lr.ph.i9.i.i.i:                                  ; preds = %.thread139.i.i.i.i, %.lr.ph.preheader.i8.i.i.i

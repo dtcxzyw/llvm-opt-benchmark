@@ -3117,8 +3117,8 @@ smart_str_alloc.exit1246:                         ; preds = %1251, %1257
 
 1362:                                             ; preds = %1360
   %1363 = load i64, ptr %25, align 8, !tbaa !73
-  %1364 = getelementptr inbounds nuw i8, ptr %1359, i64 %1363
-  %.0772141 = getelementptr inbounds i8, ptr %1364, i64 -1
+  %1364 = getelementptr i8, ptr %1359, i64 %1363
+  %.0772141 = getelementptr i8, ptr %1364, i64 -1
   %.not986142 = icmp slt i64 %1363, 1
   br i1 %.not986142, label %.critedge63, label %.lr.ph145
 

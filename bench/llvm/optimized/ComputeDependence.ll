@@ -3001,9 +3001,9 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %9 = load i64, ptr %0, align 8
   %10 = lshr i64 %9, 29
   %.idx.i = and i64 %10, 524280
-  %11 = getelementptr i8, ptr %8, i64 %.idx.i
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %.not12 = icmp eq i64 %.idx.i, 8
+  %11 = add nsw i64 %.idx.i, -8
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %.not12 = icmp eq i64 %11, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

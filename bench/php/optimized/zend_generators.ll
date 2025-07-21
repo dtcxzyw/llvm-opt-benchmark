@@ -226,21 +226,19 @@ define dso_local ptr @zend_generator_freeze_call_stack(ptr noundef captures(none
   br label %16
 
 16:                                               ; preds = %zend_vm_stack_free_call_frame_ex.exit, %12
-  %.062 = phi ptr [ null, %12 ], [ %22, %zend_vm_stack_free_call_frame_ex.exit ]
+  %.062 = phi ptr [ null, %12 ], [ %23, %zend_vm_stack_free_call_frame_ex.exit ]
   %.161 = phi ptr [ %15, %12 ], [ %27, %zend_vm_stack_free_call_frame_ex.exit ]
-  %.1 = phi i64 [ %9, %12 ], [ %24, %zend_vm_stack_free_call_frame_ex.exit ]
+  %.1 = phi i64 [ %9, %12 ], [ %21, %zend_vm_stack_free_call_frame_ex.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %.161, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !24
   %19 = add i32 %18, 5
   %20 = zext i32 %19 to i64
-  %.idx = shl nuw nsw i64 %.1, 4
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
-  %.neg = mul nsw i64 %20, -16
-  %22 = getelementptr inbounds i8, ptr %21, i64 %.neg
-  %23 = shl nuw nsw i64 %20, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %.161, i64 %23, i1 false)
-  %24 = sub i64 %.1, %20
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %21 = sub i64 %.1, %20
+  %22 = shl i64 %21, 4
+  %23 = getelementptr inbounds i8, ptr %14, i64 %22
+  %24 = shl nuw nsw i64 %20, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %.161, i64 %24, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %.062, ptr %25, align 8, !tbaa !55
   %26 = getelementptr inbounds nuw i8, ptr %.161, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !55
@@ -276,10 +274,9 @@ zend_vm_stack_free_call_frame_ex.exit:            ; preds = %31, %40
 
 41:                                               ; preds = %zend_vm_stack_free_call_frame_ex.exit
   store ptr null, ptr %2, align 8, !tbaa !57
-  %42 = sub nsw i64 0, %.neg
-  %43 = icmp eq i64 %.idx, %42
-  tail call void @llvm.assume(i1 %43)
-  ret ptr %22
+  %42 = icmp eq i64 %22, 0
+  tail call void @llvm.assume(i1 %42)
+  ret ptr %23
 }
 
 declare noalias ptr @_emalloc_56() local_unnamed_addr #3

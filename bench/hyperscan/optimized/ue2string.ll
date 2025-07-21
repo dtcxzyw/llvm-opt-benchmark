@@ -1721,8 +1721,8 @@ define hidden void @_ZN3ue211ue2_literal7reverseEv(ptr noundef nonnull readonly 
 
 .lr.ph.i.i.preheader:                             ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %3
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %6, i64 -1
+  %6 = getelementptr i8, ptr %5, i64 %3
+  %.sroa.0.08.i.i = getelementptr i8, ptr %6, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -1807,8 +1807,8 @@ define hidden void @_ZN3ue215reverse_literalERKNS_11ue2_literalE(ptr dead_on_unw
 
 .lr.ph.i.i.preheader.i:                           ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %4
-  %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %7, i64 -1
+  %7 = getelementptr i8, ptr %6, i64 %4
+  %.sroa.0.08.i.i.i = getelementptr i8, ptr %7, i64 -1
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

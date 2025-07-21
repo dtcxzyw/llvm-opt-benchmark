@@ -13186,8 +13186,8 @@ _ZN4lean10object_refD2Ev.exit45:                  ; preds = %_ZNSt13unordered_se
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge
   %.idx = shl nuw nsw i64 %205, 3
-  %207 = getelementptr inbounds nuw i8, ptr %204, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %207, i64 -8
+  %207 = getelementptr i8, ptr %204, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %207, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

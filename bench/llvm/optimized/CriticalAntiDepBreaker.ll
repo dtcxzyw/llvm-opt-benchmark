@@ -856,9 +856,9 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
   %104 = extractvalue { ptr, i64 } %103, 0
   %105 = extractvalue { ptr, i64 } %103, 1
   %.idx = shl nuw nsw i64 %105, 1
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx
-  %spec.select.i = getelementptr inbounds i8, ptr %106, i64 -2
-  %.not139146 = icmp eq i64 %105, 1
+  %106 = add nsw i64 %.idx, -2
+  %spec.select.i = getelementptr inbounds i8, ptr %104, i64 %106
+  %.not139146 = icmp eq i64 %106, 0
   %.pre172 = load ptr, ptr %41, align 8, !tbaa !179
   br i1 %.not139146, label %._crit_edge, label %.lr.ph
 

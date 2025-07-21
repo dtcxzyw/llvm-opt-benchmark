@@ -3084,8 +3084,8 @@ _ZN10aiVector3tIdE9NormalizeEv.exit:              ; preds = %_ZN10aiVector3tIdEd
 .lr.ph.i.i270.preheader:                          ; preds = %.lr.ph.i.i267
   %627 = getelementptr inbounds i64, ptr %.sroa.0493.0, i64 %581
   %.idx567 = shl nuw nsw i64 %586, 3
-  %628 = getelementptr inbounds nuw i8, ptr %627, i64 %.idx567
-  %.sroa.0.08.i.i268 = getelementptr inbounds i8, ptr %628, i64 -8
+  %628 = getelementptr i8, ptr %627, i64 %.idx567
+  %.sroa.0.08.i.i268 = getelementptr i8, ptr %628, i64 -8
   br label %.lr.ph.i.i270
 
 .lr.ph.i.i270:                                    ; preds = %.lr.ph.i.i270.preheader, %.lr.ph.i.i270
@@ -3441,8 +3441,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit287:       ; preds = %_ZNKSt6vectorImSaIm
 .lr.ph.i.i302.preheader:                          ; preds = %.lr.ph.i.i295
   %831 = getelementptr inbounds i64, ptr %.sroa.0493.0, i64 %677
   %.idx572 = shl nuw nsw i64 %681, 3
-  %832 = getelementptr inbounds nuw i8, ptr %831, i64 %.idx572
-  %.sroa.0.08.i.i300 = getelementptr inbounds i8, ptr %832, i64 -8
+  %832 = getelementptr i8, ptr %831, i64 %.idx572
+  %.sroa.0.08.i.i300 = getelementptr i8, ptr %832, i64 -8
   br label %.lr.ph.i.i302
 
 .lr.ph.i.i302:                                    ; preds = %.lr.ph.i.i302.preheader, %.lr.ph.i.i302

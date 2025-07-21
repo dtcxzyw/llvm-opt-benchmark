@@ -1830,8 +1830,8 @@ define i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2, double n
   store ptr %0, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %10 = getelementptr inbounds i8, ptr %9, i64 -1
+  %9 = getelementptr i8, ptr %0, i64 %1
+  %10 = getelementptr i8, ptr %9, i64 -1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24

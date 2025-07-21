@@ -6788,8 +6788,8 @@ Abc_TtNot.exit.i:                                 ; preds = %.lr.ph.i.i, %81, %7
   %107 = select i1 %90, i32 15, i32 %106
   %108 = zext nneg i32 %105 to i64
   %.idx.i.i = shl nuw nsw i64 %108, 3
-  %109 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i.i
-  %.01925.i.i = getelementptr inbounds i8, ptr %109, i64 -8
+  %109 = getelementptr i8, ptr %80, i64 %.idx.i.i
+  %.01925.i.i = getelementptr i8, ptr %109, i64 -8
   %110 = zext nneg i32 %107 to i64
   br label %.lr.ph.us.i.i
 

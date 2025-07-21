@@ -1171,8 +1171,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit.i: ; pr
   %27 = load ptr, ptr %0, align 8, !tbaa !26, !alias.scope !23
   %28 = zext i32 %25 to i64
   %.idx.i = shl nuw nsw i64 %28, 3
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %29, i64 -8
+  %29 = getelementptr i8, ptr %27, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %29, i64 -8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -1287,8 +1287,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit.i40: ; 
   %75 = load ptr, ptr %0, align 8, !tbaa !26, !alias.scope !47
   %76 = zext i32 %73 to i64
   %.idx.i42 = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx.i42
-  %.012.i.i.i43 = getelementptr inbounds i8, ptr %77, i64 -8
+  %77 = getelementptr i8, ptr %75, i64 %.idx.i42
+  %.012.i.i.i43 = getelementptr i8, ptr %77, i64 -8
   br label %.lr.ph.i.i.i44
 
 .lr.ph.i.i.i44:                                   ; preds = %.lr.ph.i.i.i44, %.lr.ph.i.i.preheader.i41
@@ -1402,8 +1402,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit.i69: ; 
   %122 = load ptr, ptr %0, align 8, !tbaa !26, !alias.scope !54
   %123 = zext i32 %120 to i64
   %.idx.i71 = shl nuw nsw i64 %123, 3
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx.i71
-  %.012.i.i.i72 = getelementptr inbounds i8, ptr %124, i64 -8
+  %124 = getelementptr i8, ptr %122, i64 %.idx.i71
+  %.012.i.i.i72 = getelementptr i8, ptr %124, i64 -8
   br label %.lr.ph.i.i.i73
 
 .lr.ph.i.i.i73:                                   ; preds = %.lr.ph.i.i.i73, %.lr.ph.i.i.preheader.i70
@@ -23948,8 +23948,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit.i: ; pr
   %39 = load ptr, ptr %5, align 8, !tbaa !26, !alias.scope !2553
   %40 = zext i32 %37 to i64
   %.idx.i = shl nuw nsw i64 %40, 3
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %41, i64 -8
+  %41 = getelementptr i8, ptr %39, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %41, i64 -8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

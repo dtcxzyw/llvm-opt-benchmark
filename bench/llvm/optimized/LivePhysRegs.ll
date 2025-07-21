@@ -1974,9 +1974,9 @@ _ZNK4llvm9SparseSetItNS_8identityItEEhE5countERKt.exit.thread: ; preds = %14, %3
   %33 = extractvalue { ptr, i64 } %32, 0
   %34 = extractvalue { ptr, i64 } %32, 1
   %.idx = shl nuw nsw i64 %34, 1
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
-  %spec.select.i = getelementptr inbounds i8, ptr %35, i64 -2
-  %.not3439 = icmp eq i64 %34, 1
+  %35 = add nsw i64 %.idx, -2
+  %spec.select.i = getelementptr inbounds i8, ptr %33, i64 %35
+  %.not3439 = icmp eq i64 %35, 0
   br i1 %.not3439, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
@@ -3686,9 +3686,9 @@ _ZNK4llvm9SparseSetItNS_8identityItEEhE5countERKt.exit.thread.i: ; preds = %158,
   %175 = extractvalue { ptr, i64 } %174, 0
   %176 = extractvalue { ptr, i64 } %174, 1
   %.idx.i = shl nuw nsw i64 %176, 1
-  %177 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx.i
-  %spec.select.i.i = getelementptr inbounds i8, ptr %177, i64 -2
-  %.not3439.i = icmp eq i64 %176, 1
+  %177 = add nsw i64 %.idx.i, -2
+  %spec.select.i.i = getelementptr inbounds i8, ptr %175, i64 %177
+  %.not3439.i = icmp eq i64 %177, 0
   br i1 %.not3439.i, label %_ZNK4llvm12LivePhysRegs9availableERKNS_19MachineRegisterInfoEt.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %172
@@ -3964,9 +3964,9 @@ _ZNK4llvm9SparseSetItNS_8identityItEEhE5countERKt.exit.thread.i47: ; preds = %28
   %298 = extractvalue { ptr, i64 } %297, 0
   %299 = extractvalue { ptr, i64 } %297, 1
   %.idx.i50 = shl nuw nsw i64 %299, 1
-  %300 = getelementptr inbounds nuw i8, ptr %298, i64 %.idx.i50
-  %spec.select.i.i51 = getelementptr inbounds i8, ptr %300, i64 -2
-  %.not3439.i52 = icmp eq i64 %299, 1
+  %300 = add nsw i64 %.idx.i50, -2
+  %spec.select.i.i51 = getelementptr inbounds i8, ptr %298, i64 %300
+  %.not3439.i52 = icmp eq i64 %300, 0
   br i1 %.not3439.i52, label %_ZNK4llvm12LivePhysRegs9availableERKNS_19MachineRegisterInfoEt.exit71.thread, label %.lr.ph.i53
 
 .lr.ph.i53:                                       ; preds = %295

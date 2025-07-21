@@ -30800,8 +30800,8 @@ define linkonce_odr hidden void @_ZN3fmt3v106detail18for_each_codepointIZNS1_11f
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %8 = getelementptr inbounds i8, ptr %7, i64 -3
+  %7 = getelementptr i8, ptr %0, i64 %1
+  %8 = getelementptr i8, ptr %7, i64 -3
   %.not3668 = icmp sgt i64 %1, 3
   br i1 %.not3668, label %.lr.ph, label %.loopexit
 
@@ -43348,8 +43348,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 .lr.ph.i.i.preheader:                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit
   %94 = getelementptr inbounds i8, ptr %90, i64 -32
   %95 = load ptr, ptr %94, align 8, !tbaa !250
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %92
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %96, i64 -1
+  %96 = getelementptr i8, ptr %95, i64 %92
+  %.sroa.0.08.i.i = getelementptr i8, ptr %96, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -43476,8 +43476,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit73: ; preds = 
 
 .lr.ph.i.i76.preheader:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit73
   %141 = load ptr, ptr %11, align 8, !tbaa !250
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %139
-  %.sroa.0.08.i.i74 = getelementptr inbounds i8, ptr %142, i64 -1
+  %142 = getelementptr i8, ptr %141, i64 %139
+  %.sroa.0.08.i.i74 = getelementptr i8, ptr %142, i64 -1
   br label %.lr.ph.i.i76
 
 .lr.ph.i.i76:                                     ; preds = %.lr.ph.i.i76.preheader, %.lr.ph.i.i76
@@ -43499,8 +43499,8 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 .lr.ph.i.i83.preheader:                           ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit80
   %149 = load ptr, ptr %12, align 8, !tbaa !250
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %147
-  %.sroa.0.08.i.i81 = getelementptr inbounds i8, ptr %150, i64 -1
+  %150 = getelementptr i8, ptr %149, i64 %147
+  %.sroa.0.08.i.i81 = getelementptr i8, ptr %150, i64 -1
   br label %.lr.ph.i.i83
 
 .lr.ph.i.i83:                                     ; preds = %.lr.ph.i.i83.preheader, %.lr.ph.i.i83
@@ -43707,8 +43707,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
 
 .lr.ph.i.i97.preheader:                           ; preds = %.lr.ph135
   %231 = load ptr, ptr %.sroa.0115.0134, align 8, !tbaa !250
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %229
-  %.sroa.0.08.i.i95 = getelementptr inbounds i8, ptr %232, i64 -1
+  %232 = getelementptr i8, ptr %231, i64 %229
+  %.sroa.0.08.i.i95 = getelementptr i8, ptr %232, i64 -1
   br label %.lr.ph.i.i97
 
 .lr.ph.i.i97:                                     ; preds = %.lr.ph.i.i97.preheader, %.lr.ph.i.i97
@@ -49509,8 +49509,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 .lr.ph.i.i.preheader:                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit
   %94 = getelementptr inbounds i8, ptr %90, i64 -32
   %95 = load ptr, ptr %94, align 8, !tbaa !250
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %92
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %96, i64 -1
+  %96 = getelementptr i8, ptr %95, i64 %92
+  %.sroa.0.08.i.i = getelementptr i8, ptr %96, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -49637,8 +49637,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit73: ; preds = 
 
 .lr.ph.i.i76.preheader:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit73
   %141 = load ptr, ptr %11, align 8, !tbaa !250
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %139
-  %.sroa.0.08.i.i74 = getelementptr inbounds i8, ptr %142, i64 -1
+  %142 = getelementptr i8, ptr %141, i64 %139
+  %.sroa.0.08.i.i74 = getelementptr i8, ptr %142, i64 -1
   br label %.lr.ph.i.i76
 
 .lr.ph.i.i76:                                     ; preds = %.lr.ph.i.i76.preheader, %.lr.ph.i.i76
@@ -49660,8 +49660,8 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 .lr.ph.i.i83.preheader:                           ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit80
   %149 = load ptr, ptr %12, align 8, !tbaa !250
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %147
-  %.sroa.0.08.i.i81 = getelementptr inbounds i8, ptr %150, i64 -1
+  %150 = getelementptr i8, ptr %149, i64 %147
+  %.sroa.0.08.i.i81 = getelementptr i8, ptr %150, i64 -1
   br label %.lr.ph.i.i83
 
 .lr.ph.i.i83:                                     ; preds = %.lr.ph.i.i83.preheader, %.lr.ph.i.i83
@@ -49868,8 +49868,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
 
 .lr.ph.i.i97.preheader:                           ; preds = %.lr.ph135
   %231 = load ptr, ptr %.sroa.0115.0134, align 8, !tbaa !250
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %229
-  %.sroa.0.08.i.i95 = getelementptr inbounds i8, ptr %232, i64 -1
+  %232 = getelementptr i8, ptr %231, i64 %229
+  %.sroa.0.08.i.i95 = getelementptr i8, ptr %232, i64 -1
   br label %.lr.ph.i.i97
 
 .lr.ph.i.i97:                                     ; preds = %.lr.ph.i.i97.preheader, %.lr.ph.i.i97

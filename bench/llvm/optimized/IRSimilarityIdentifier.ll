@@ -2112,13 +2112,11 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41: ; preds = %36
 
 .lr.ph.i.preheader.i.i.i.i47:                     ; preds = %78
   %87 = zext i32 %84 to i64
-  %.idx83 = sub nsw i64 0, %87
-  %88 = getelementptr inbounds i8, ptr %13, i64 %.idx83
-  %scevgep21.sink.i.i.i.i = getelementptr i8, ptr %88, i64 64
+  %88 = sub nsw i64 64, %87
+  %scevgep21.sink.i.i.i.i = getelementptr i8, ptr %13, i64 %88
   %89 = zext i32 %81 to i64
-  %.idx = sub nsw i64 0, %89
-  %90 = getelementptr inbounds i8, ptr %11, i64 %.idx
-  %.in.i.i = getelementptr i8, ptr %90, i64 64
+  %90 = sub nsw i64 64, %89
+  %.in.i.i = getelementptr i8, ptr %11, i64 %90
   %.val.val.i.i5.i.i.i.i48 = load ptr, ptr %scevgep21.sink.i.i.i.i, align 8, !tbaa !97, !noalias !195
   %.val1.val.i.i6.i.i.i.i49 = load ptr, ptr %.in.i.i, align 8, !tbaa !97, !noalias !195
   %.not.i7.i.i.i.i50 = icmp eq ptr %.val1.val.i.i6.i.i.i.i49, %.val.val.i.i5.i.i.i.i48
@@ -2184,8 +2182,8 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41: ; preds = %36
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %115
   %bcmp.i.i = tail call i32 @bcmp(ptr %108, ptr %112, i64 %110)
-  %.not84 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not84, label %.thread82, label %.thread71
+  %.not83 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not83, label %.thread82, label %.thread71
 
 117:                                              ; preds = %.thread
   %118 = load i8, ptr %13, align 8, !tbaa !90

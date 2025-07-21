@@ -12154,8 +12154,8 @@ define void @_ZNK13sentencepiece22SentencePieceProcessor17ApplyExtraOptionsERKSt
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %26
   %27 = zext nneg i32 %23 to i64
   %.idx = shl nuw nsw i64 %27, 3
-  %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.idx
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %28, i64 -8
+  %28 = getelementptr i8, ptr %spec.select.i.i, i64 %.idx
+  %.sroa.0.08.i.i = getelementptr i8, ptr %28, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZSt9iter_swapIN6google8protobuf8internal19RepeatedPtrIteratorIN13sentencepiece31SentencePieceText_SentencePieceEEES6_EvT_T0_.exit.i.i

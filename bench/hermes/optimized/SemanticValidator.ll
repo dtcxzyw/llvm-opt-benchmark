@@ -2935,17 +2935,17 @@ while.body.i.i.preheader.i:                       ; preds = %while.end.i
   %.pre.i = load ptr, ptr %list, align 8, !alias.scope !56
   %conv.i.i = zext i32 %.pre23.i to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %add.ptr.i.idx.i
-  %__last.addr.08.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
+  %15 = getelementptr i8, ptr %.pre.i, i64 %add.ptr.i.idx.i
+  %__last.addr.08.i.i.i = getelementptr i8, ptr %15, i64 -8
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.i.i.preheader.i
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %while.body.i.i.preheader.i ]
   %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %.pre.i, %while.body.i.i.preheader.i ]
-  %15 = load ptr, ptr %__first.addr.010.i.i.i, align 8
-  %16 = load ptr, ptr %__last.addr.011.i.i.i, align 8
-  store ptr %16, ptr %__first.addr.010.i.i.i, align 8
-  store ptr %15, ptr %__last.addr.011.i.i.i, align 8
+  %16 = load ptr, ptr %__first.addr.010.i.i.i, align 8
+  %17 = load ptr, ptr %__last.addr.011.i.i.i, align 8
+  store ptr %17, ptr %__first.addr.010.i.i.i, align 8
+  store ptr %16, ptr %__last.addr.011.i.i.i, align 8
   %incdec.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i.i, i64 8
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -8
   %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
@@ -2953,13 +2953,13 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 _ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit: ; preds = %while.body.i.i.i
   %.pre = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %17 = icmp ugt i32 %.pre, 30000
-  br i1 %17, label %if.then7, label %if.end
+  %18 = icmp ugt i32 %.pre, 30000
+  br i1 %18, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %sm_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %18 = load ptr, ptr %sm_.i, align 8
+  %19 = load ptr, ptr %sm_.i, align 8
   %End.i.i = getelementptr inbounds nuw i8, ptr %bin, i64 32
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %End.i.i, align 8
   %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
@@ -2967,50 +2967,50 @@ if.then7:                                         ; preds = %_ZN6hermes6ESTreeL1
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.64, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %18, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #21
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %19, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %cleanup
 
 if.end:                                           ; preds = %while.end.i, %if.then, %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit
-  %19 = load ptr, ptr %list, align 8
-  %20 = load ptr, ptr %19, align 8
-  %_left = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %21 = load ptr, ptr %_left, align 8
-  %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %21, ptr noundef %20)
-  %22 = load ptr, ptr %list, align 8
-  %23 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i15 = zext i32 %23 to i64
+  %20 = load ptr, ptr %list, align 8
+  %21 = load ptr, ptr %20, align 8
+  %_left = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %22 = load ptr, ptr %_left, align 8
+  %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %22, ptr noundef %21)
+  %23 = load ptr, ptr %list, align 8
+  %24 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i15 = zext i32 %24 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i15, 3
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %add.ptr.i.idx
-  %cmp12.not20 = icmp eq i32 %23, 0
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %23, i64 %add.ptr.i.idx
+  %cmp12.not20 = icmp eq i32 %24, 0
   br i1 %cmp12.not20, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
-  %__begin3.021 = phi ptr [ %incdec.ptr, %for.body ], [ %22, %if.end ]
-  %24 = load ptr, ptr %__begin3.021, align 8
-  %_right = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %25 = load ptr, ptr %_right, align 8
-  %call.i16 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %25, ptr noundef %24)
+  %__begin3.021 = phi ptr [ %incdec.ptr, %for.body ], [ %23, %if.end ]
+  %25 = load ptr, ptr %__begin3.021, align 8
+  %_right = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %26 = load ptr, ptr %_right, align 8
+  %call.i16 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %26, ptr noundef %25)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.021, i64 8
   %cmp12.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp12.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.body, %if.end, %if.then7
-  %26 = load ptr, ptr %list, align 8
-  %cmp.i.i.i = icmp eq ptr %26, %add.ptr.i.i.i.i.i.i
+  %27 = load ptr, ptr %list, align 8
+  %cmp.i.i.i = icmp eq ptr %27, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @free(ptr noundef %26) #21
+  call void @free(ptr noundef %27) #21
   br label %return
 
 if.end13:                                         ; preds = %entry
   %_left.i17 = getelementptr inbounds nuw i8, ptr %bin, i64 48
-  %27 = load ptr, ptr %_left.i17, align 8
-  %call.i18 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %27, ptr noundef nonnull %bin)
+  %28 = load ptr, ptr %_left.i17, align 8
+  %call.i18 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %28, ptr noundef nonnull %bin)
   %_right.i = getelementptr inbounds nuw i8, ptr %bin, i64 56
-  %28 = load ptr, ptr %_right.i, align 8
-  %call1.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %28, ptr noundef nonnull %bin)
+  %29 = load ptr, ptr %_right.i, align 8
+  %call1.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %29, ptr noundef nonnull %bin)
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %cleanup, %if.end13

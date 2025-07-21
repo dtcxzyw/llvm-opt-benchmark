@@ -980,8 +980,8 @@ u_strlen_77.exit:                                 ; preds = %.preheader79
 21:                                               ; preds = %19
   %22 = sext i32 %.054 to i64
   %.idx = shl nsw i64 %22, 1
-  %23 = getelementptr inbounds i8, ptr %2, i64 %.idx
-  %24 = getelementptr inbounds i8, ptr %23, i64 -2
+  %23 = add nsw i64 %.idx, -2
+  %24 = getelementptr inbounds i8, ptr %2, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !3
   %26 = add nsw i32 %.054, -1
   %27 = icmp ne i32 %26, 0
@@ -1058,7 +1058,7 @@ u_strlen_77.exit69:                               ; preds = %.preheader74
 .lr.ph.preheader:                                 ; preds = %55
   %60 = and i16 %25, -1024
   %61 = icmp ne i16 %60, -10240
-  %62 = icmp eq i32 %.054, 1
+  %62 = icmp eq i64 %23, 0
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread

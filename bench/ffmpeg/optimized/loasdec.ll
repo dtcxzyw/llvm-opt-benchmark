@@ -17,8 +17,8 @@ define internal range(i32 0, 52) i32 @loas_probe(ptr noundef readonly captures(n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !11
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 -3
+  %7 = getelementptr i8, ptr %3, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -3
   %9 = icmp sgt i32 %5, 3
   br i1 %9, label %.preheader.lr.ph, label %.thread61
 

@@ -2990,8 +2990,8 @@ _ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit135.thread: ; preds = %
 .lr.ph.preheader:                                 ; preds = %287
   %292 = zext i32 %291 to i64
   %.idx = shl nuw nsw i64 %292, 3
-  %293 = getelementptr inbounds nuw i8, ptr %289, i64 %.idx
-  %.0102211 = getelementptr inbounds i8, ptr %293, i64 -8
+  %293 = getelementptr i8, ptr %289, i64 %.idx
+  %.0102211 = getelementptr i8, ptr %293, i64 -8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit164
@@ -3491,8 +3491,8 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit177: ; preds = %_ZN9VectorSet
 .lr.ph223:                                        ; preds = %.loopexit
   %570 = zext i32 %567 to i64
   %.idx226 = shl nuw nsw i64 %570, 3
-  %571 = getelementptr inbounds nuw i8, ptr %569, i64 %.idx226
-  %.099219 = getelementptr inbounds i8, ptr %571, i64 -8
+  %571 = getelementptr i8, ptr %569, i64 %.idx226
+  %.099219 = getelementptr i8, ptr %571, i64 -8
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5234,8 +5234,8 @@ _ZNK10Node_ArrayixEj.exit.thread:                 ; preds = %68, %_ZNK10Node_Arr
 .lr.ph244:                                        ; preds = %91
   %97 = zext i32 %96 to i64
   %.idx = shl nuw nsw i64 %97, 3
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx
-  %.0130237 = getelementptr inbounds i8, ptr %98, i64 -8
+  %98 = getelementptr i8, ptr %94, i64 %.idx
+  %.0130237 = getelementptr i8, ptr %98, i64 -8
   %.not8.i = icmp eq ptr %92, null
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 32
@@ -5839,8 +5839,8 @@ _ZN4Node7set_reqEjPS_.exit191:                    ; preds = %_ZN14PhaseIdealLoop
 .lr.ph253.preheader:                              ; preds = %418
   %423 = zext i32 %422 to i64
   %.idx259 = shl nuw nsw i64 %423, 3
-  %424 = getelementptr inbounds nuw i8, ptr %420, i64 %.idx259
-  %.0119249 = getelementptr inbounds i8, ptr %424, i64 -8
+  %424 = getelementptr i8, ptr %420, i64 %.idx259
+  %.0119249 = getelementptr i8, ptr %424, i64 -8
   br label %.lr.ph253
 
 .lr.ph253:                                        ; preds = %.lr.ph253.preheader, %_ZN14PhaseIdealLoop10handle_useEP4NodeS1_P11small_cacheS1_S1_S1_S1_S1_.exit

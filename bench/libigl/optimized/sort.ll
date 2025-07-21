@@ -15678,8 +15678,8 @@ _ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1E
 
 .lr.ph.i.i.preheader:                             ; preds = %43
   %.idx71 = shl nsw i64 %44, 2
-  %46 = getelementptr inbounds nuw i8, ptr %.pre85, i64 %.idx71
-  %.012.i.i = getelementptr inbounds i8, ptr %46, i64 -4
+  %46 = getelementptr i8, ptr %.pre85, i64 %.idx71
+  %.012.i.i = getelementptr i8, ptr %46, i64 -4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

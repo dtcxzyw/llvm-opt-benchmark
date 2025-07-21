@@ -7456,8 +7456,8 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit181:   ; preds = %485, %476, %478
   %486 = load ptr, ptr %256, align 8, !tbaa !259
   %487 = zext i32 %452 to i64
   %.idx = shl nuw nsw i64 %487, 3
-  %488 = getelementptr inbounds nuw i8, ptr %486, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %488, i64 -8
+  %488 = getelementptr i8, ptr %486, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %488, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -8907,8 +8907,8 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit181:   ; preds = %485, %476, %478
   %486 = load ptr, ptr %256, align 8, !tbaa !259
   %487 = zext i32 %452 to i64
   %.idx = shl nuw nsw i64 %487, 3
-  %488 = getelementptr inbounds nuw i8, ptr %486, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %488, i64 -8
+  %488 = getelementptr i8, ptr %486, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %488, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

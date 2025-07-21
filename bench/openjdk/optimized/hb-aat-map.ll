@@ -2024,27 +2024,27 @@ _ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_co
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 7
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = getelementptr inbounds nuw i8, ptr %50, i64 3
+  %66 = or disjoint i64 %58, %54
+  %67 = or disjoint i64 %66, %62
+  %68 = or disjoint i64 %67, %65
+  %69 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
-  %72 = shl nuw nsw i32 %68, 10
-  %73 = shl nuw nsw i32 %71, 2
-  %74 = or disjoint i32 %73, %72
-  %75 = or disjoint i64 %58, %54
-  %76 = or disjoint i64 %75, %62
-  %77 = or disjoint i64 %76, %65
-  %.not.i.i.i.i.i.i.i = icmp samesign ugt i64 %77, %11
-  %78 = trunc nuw i64 %77 to i32
+  %72 = getelementptr inbounds nuw i8, ptr %50, i64 3
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = shl nuw nsw i32 %71, 10
+  %76 = shl nuw nsw i32 %74, 2
+  %77 = or disjoint i32 %76, %75
+  %.not.i.i.i.i.i.i.i = icmp samesign ugt i64 %68, %11
+  %78 = trunc nuw i64 %68 to i32
   %79 = sub i32 %10, %78
-  %.not16.i.i.i.i.i.i.i = icmp ugt i32 %74, %79
+  %.not16.i.i.i.i.i.i.i = icmp ugt i32 %77, %79
   %or.cond.i = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %.not16.i.i.i.i.i.i.i
   br i1 %or.cond.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i
 
 _ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i: ; preds = %49
-  %80 = sub i32 %48, %74
+  %80 = sub i32 %48, %77
   store i32 %80, ptr %18, align 4
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %47, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit

@@ -3605,8 +3605,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit356: ; preds = %._cr
   br i1 %.not273566, label %.loopexit498, label %.lr.ph571.preheader
 
 .lr.ph571.preheader:                              ; preds = %632
-  %634 = getelementptr inbounds nuw i8, ptr %.2226, i64 %633
-  %.0565 = getelementptr inbounds i8, ptr %634, i64 -1
+  %634 = getelementptr i8, ptr %.2226, i64 %633
+  %.0565 = getelementptr i8, ptr %634, i64 -1
   br label %.lr.ph571
 
 .lr.ph571:                                        ; preds = %.lr.ph571.preheader, %_ZN8V3Number6setBitEic.exit381

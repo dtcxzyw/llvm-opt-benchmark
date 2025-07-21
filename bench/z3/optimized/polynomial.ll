@@ -75005,8 +75005,8 @@ _ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7ma
 .lr.ph.i.i53.preheader:                           ; preds = %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit
   %171 = zext i32 %168 to i64
   %172 = shl nuw nsw i64 %171, 3
-  %173 = getelementptr inbounds nuw i8, ptr %169, i64 %172
-  %.012.i.i = getelementptr inbounds i8, ptr %173, i64 -8
+  %173 = getelementptr i8, ptr %169, i64 %172
+  %.012.i.i = getelementptr i8, ptr %173, i64 -8
   br label %.lr.ph.i.i53
 
 .lr.ph.i.i53:                                     ; preds = %.lr.ph.i.i53.preheader, %.lr.ph.i.i53

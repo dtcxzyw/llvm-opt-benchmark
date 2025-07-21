@@ -25273,8 +25273,8 @@ _ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i: ; preds = %
   %39 = load ptr, ptr %11, align 8
   %40 = zext nneg i32 %37 to i64
   %.idx.i.i = shl nuw nsw i64 %40, 3
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i
-  %.012.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 -8
+  %41 = getelementptr i8, ptr %39, i64 %.idx.i.i
+  %.012.i.i.i.i = getelementptr i8, ptr %41, i64 -8
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
@@ -28862,8 +28862,8 @@ define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN5$_1228__invo
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %6 to i64
   %.idx.i = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %11, i64 -8
+  %11 = getelementptr i8, ptr %9, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %11, i64 -8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

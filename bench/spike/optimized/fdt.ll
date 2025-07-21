@@ -1075,28 +1075,27 @@ fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offs
 define ptr @fdt_find_string_(ptr noundef readonly captures(address, ret: address, provenance) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  %7 = shl i64 %4, 32
-  %sext = add i64 %7, 4294967296
-  %8 = ashr exact i64 %sext, 32
-  %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i8, ptr %6, i64 %9
-  %.not13 = icmp sgt i64 %8, %5
+  %6 = shl i64 %4, 32
+  %sext = add i64 %6, 4294967296
+  %7 = ashr exact i64 %sext, 32
+  %8 = sub nsw i64 %5, %7
+  %9 = getelementptr inbounds i8, ptr %0, i64 %8
+  %.not13 = icmp slt i64 %8, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %12
-  %.014 = phi ptr [ %13, %12 ], [ %0, %3 ]
-  %bcmp = tail call i32 @bcmp(ptr %.014, ptr nonnull %2, i64 %8)
-  %11 = icmp eq i32 %bcmp, 0
-  br i1 %11, label %._crit_edge, label %12
+.lr.ph:                                           ; preds = %3, %11
+  %.014 = phi ptr [ %12, %11 ], [ %0, %3 ]
+  %bcmp = tail call i32 @bcmp(ptr %.014, ptr nonnull %2, i64 %7)
+  %10 = icmp eq i32 %bcmp, 0
+  br i1 %10, label %._crit_edge, label %11
 
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.014, i64 1
-  %.not = icmp ugt ptr %13, %10
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 1
+  %.not = icmp ugt ptr %12, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph, %12, %3
-  %.012 = phi ptr [ null, %3 ], [ null, %12 ], [ %.014, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %11, %3
+  %.012 = phi ptr [ null, %3 ], [ null, %11 ], [ %.014, %.lr.ph ]
   ret ptr %.012
 }
 

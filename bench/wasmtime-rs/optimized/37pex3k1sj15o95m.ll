@@ -9284,9 +9284,9 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$craneli
   %.not357.i.i = icmp eq i64 %700, 8388604
   %.sroa.2.0.extract.shift.mask.i.i.i.i = and i64 %698, -4294967296
   %.not358.i.i = icmp eq i64 %.sroa.2.0.extract.shift.mask.i.i.i.i, 36028779839094784
+  %.idx356.i.i = select i1 %.not358.i.i, i64 0, i64 4
   %.idx355.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not357.i.i, i64 0, i64 4
   %.idx355.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %78, i64 %.idx355.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  %.idx356.i.i = select i1 %.not358.i.i, i64 0, i64 4
   %701 = getelementptr inbounds nuw i8, ptr %.idx355.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.idx356.i.i
   %702 = icmp eq i64 %698, 36028779847483388
   br i1 %702, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -11661,9 +11661,9 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.e
   %.not1632 = icmp eq i64 %1574, 8388604
   %.sroa.2.0.extract.shift.mask.i.i = and i64 %.sroa.083.0.copyload, -4294967296
   %.not1633 = icmp eq i64 %.sroa.2.0.extract.shift.mask.i.i, 36028779839094784
+  %.idx1631 = select i1 %.not1633, i64 0, i64 4
   %.idx1630.sroa.sel.idx.sroa.sel.idx = select i1 %.not1632, i64 0, i64 4
   %.idx1630.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %101, i64 %.idx1630.sroa.sel.idx.sroa.sel.idx
-  %.idx1631 = select i1 %.not1633, i64 0, i64 4
   %1575 = getelementptr inbounds nuw i8, ptr %.idx1630.sroa.sel.idx.sroa.sel, i64 %.idx1631
   %1576 = icmp eq i64 %.sroa.083.0.copyload, 36028779847483388
   br i1 %1576, label %._crit_edge, label %.lr.ph

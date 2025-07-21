@@ -22735,9 +22735,8 @@ _ZN4llvm8DebugLocD2Ev.exit1616:                   ; preds = %_ZN4llvm8DebugLocC2
 
 .lr.ph2829.preheader:                             ; preds = %1495
   %1504 = zext i32 %1503 to i64
-  %.idx2855 = sub nsw i64 0, %1504
-  %1505 = getelementptr inbounds i8, ptr %1500, i64 %.idx2855
-  %1506 = getelementptr inbounds nuw i8, ptr %1505, i64 64
+  %1505 = sub nsw i64 64, %1504
+  %1506 = getelementptr inbounds i8, ptr %1500, i64 %1505
   %1507 = extractvalue { ptr, i64 } %1499, 1
   %1508 = extractvalue { ptr, i64 } %1499, 0
   br label %.lr.ph2829

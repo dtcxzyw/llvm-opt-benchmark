@@ -6159,18 +6159,16 @@ _ZN4llvh11SmallVectorIjLj5EED2Ev.exit:            ; preds = %_ZNSt6vectorISt10un
   %33 = load ptr, ptr %1, align 8
   %add.ptr.i43 = getelementptr inbounds ptr, ptr %33, i64 %idx.0176
   store ptr %32, ptr %add.ptr.i43, align 8
-  %34 = load ptr, ptr %1, align 8
   %.idx = shl i64 %idx.0176, 3
-  %35 = getelementptr i8, ptr %34, i64 %.idx
-  %add.ptr.i44 = getelementptr i8, ptr %35, i64 8
+  %34 = add i64 %.idx, 8
   %add.ptr.i45.idx = shl nsw i64 %idx.1.lcssa, 3
-  %add.ptr.i45 = getelementptr inbounds i8, ptr %34, i64 %add.ptr.i45.idx
-  %cmp.not3.i.i.i.i = icmp eq ptr %add.ptr.i44, %add.ptr.i45
+  %cmp.not3.i.i.i.i = icmp eq i64 %34, %add.ptr.i45.idx
   br i1 %cmp.not3.i.i.i.i, label %if.end, label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %_ZN4llvh11SmallVectorIjLj5EED2Ev.exit
-  %reass.sub = sub i64 %add.ptr.i45.idx, %.idx
-  %gepdiff = add i64 %reass.sub, -8
+  %35 = load ptr, ptr %1, align 8
+  %add.ptr.i44 = getelementptr i8, ptr %35, i64 %34
+  %gepdiff = sub i64 %add.ptr.i45.idx, %34
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i44, i8 0, i64 %gepdiff, i1 false)
   br label %if.end
 
@@ -6855,17 +6853,17 @@ while.body.i.i.preheader:                         ; preds = %entry
   %1 = load ptr, ptr %chars_, align 8
   %conv.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
-  %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
+  %2 = getelementptr i8, ptr %1, i64 %add.ptr.i.idx
+  %__last.addr.08.i.i = getelementptr i8, ptr %2, i64 -4
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %while.body.i.i.preheader ]
   %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %1, %while.body.i.i.preheader ]
-  %2 = load i32, ptr %__first.addr.010.i.i, align 4
-  %3 = load i32, ptr %__last.addr.011.i.i, align 4
-  store i32 %3, ptr %__first.addr.010.i.i, align 4
-  store i32 %2, ptr %__last.addr.011.i.i, align 4
+  %3 = load i32, ptr %__first.addr.010.i.i, align 4
+  %4 = load i32, ptr %__last.addr.011.i.i, align 4
+  store i32 %4, ptr %__first.addr.010.i.i, align 4
+  store i32 %3, ptr %__last.addr.011.i.i, align 4
   %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i, i64 4
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -4
   %cmp1.i.i = icmp ult ptr %incdec.ptr2.i.i, %__last.addr.0.i.i

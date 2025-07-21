@@ -5844,103 +5844,102 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #13 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !37
-  %5 = sext i32 %4 to i64
-  %.idx = shl nsw i64 %5, 2
-  %.add55 = add nsw i64 %.idx, 20
-  %.ptr58 = getelementptr inbounds i8, ptr %0, i64 %.add55
-  %6 = load i32, ptr %.ptr58, align 4, !tbaa !20
-  %.not.i = icmp ult i32 %6, 65536
-  %7 = shl nuw i32 %6, 16
-  %spec.select.i = select i1 %.not.i, i32 %7, i32 %6
+define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly captures(address) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #13 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %5 = load i32, ptr %4, align 4, !tbaa !37
+  %6 = sext i32 %5 to i64
+  %.idx = shl nsw i64 %6, 2
+  %7 = getelementptr i8, ptr %3, i64 %.idx
+  %8 = getelementptr i8, ptr %7, i64 -4
+  %9 = load i32, ptr %8, align 4, !tbaa !20
+  %.not.i = icmp ult i32 %9, 65536
+  %10 = shl nuw i32 %9, 16
+  %spec.select.i = select i1 %.not.i, i32 %10, i32 %9
   %spec.select26.i = select i1 %.not.i, i32 16, i32 0
   %.not21.i = icmp ult i32 %spec.select.i, 16777216
-  %8 = or disjoint i32 %spec.select26.i, 8
-  %9 = shl nuw i32 %spec.select.i, 8
-  %.117.i = select i1 %.not21.i, i32 %9, i32 %spec.select.i
-  %.1.i = select i1 %.not21.i, i32 %8, i32 %spec.select26.i
+  %11 = or disjoint i32 %spec.select26.i, 8
+  %12 = shl nuw i32 %spec.select.i, 8
+  %.117.i = select i1 %.not21.i, i32 %12, i32 %spec.select.i
+  %.1.i = select i1 %.not21.i, i32 %11, i32 %spec.select26.i
   %.not22.i = icmp ult i32 %.117.i, 268435456
-  %10 = or disjoint i32 %.1.i, 4
-  %11 = shl nuw i32 %.117.i, 4
-  %.218.i = select i1 %.not22.i, i32 %11, i32 %.117.i
-  %.2.i = select i1 %.not22.i, i32 %10, i32 %.1.i
+  %13 = or disjoint i32 %.1.i, 4
+  %14 = shl nuw i32 %.117.i, 4
+  %.218.i = select i1 %.not22.i, i32 %14, i32 %.117.i
+  %.2.i = select i1 %.not22.i, i32 %13, i32 %.1.i
   %.not23.i = icmp ult i32 %.218.i, 1073741824
-  %12 = or disjoint i32 %.2.i, 2
-  %13 = shl nuw i32 %.218.i, 2
-  %.319.i = select i1 %.not23.i, i32 %13, i32 %.218.i
-  %.3.i = select i1 %.not23.i, i32 %12, i32 %.2.i
-  %14 = add nuw nsw i32 %.3.i, 1
+  %15 = or disjoint i32 %.2.i, 2
+  %16 = shl nuw i32 %.218.i, 2
+  %.319.i = select i1 %.not23.i, i32 %16, i32 %.218.i
+  %.3.i = select i1 %.not23.i, i32 %15, i32 %.2.i
+  %17 = add nuw nsw i32 %.3.i, 1
   %.not25.i = icmp ult i32 %.319.i, 1073741824
-  %spec.select27.i = select i1 %.not25.i, i32 32, i32 %14
+  %spec.select27.i = select i1 %.not25.i, i32 32, i32 %17
   %.not2428.i = icmp slt i32 %.319.i, 0
   %.020.i = select i1 %.not2428.i, i32 %.3.i, i32 %spec.select27.i
-  %15 = sub nuw nsw i32 32, %.020.i
-  store i32 %15, ptr %1, align 4, !tbaa !20
-  %16 = icmp samesign ult i32 %.020.i, 11
-  br i1 %16, label %17, label %30
+  %18 = sub nuw nsw i32 32, %.020.i
+  store i32 %18, ptr %1, align 4, !tbaa !20
+  %19 = icmp samesign ult i32 %.020.i, 11
+  br i1 %19, label %20, label %33
 
-17:                                               ; preds = %2
-  %18 = sub nuw nsw i32 11, %.020.i
-  %19 = lshr i32 %6, %18
-  %20 = icmp sgt i32 %4, 1
-  br i1 %20, label %21, label %24
+20:                                               ; preds = %2
+  %21 = sub nuw nsw i32 11, %.020.i
+  %22 = lshr i32 %9, %21
+  %23 = icmp ugt ptr %8, %3
+  br i1 %23, label %24, label %27
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %.ptr58, i64 -4
-  %23 = load i32, ptr %22, align 4, !tbaa !20
-  br label %24
+24:                                               ; preds = %20
+  %25 = getelementptr i8, ptr %7, i64 -8
+  %26 = load i32, ptr %25, align 4, !tbaa !20
+  br label %27
 
-24:                                               ; preds = %17, %21
-  %25 = phi i32 [ %23, %21 ], [ 0, %17 ]
-  %26 = add nuw nsw i32 %.020.i, 21
-  %27 = shl i32 %6, %26
-  %28 = lshr i32 %25, %18
-  %29 = or i32 %28, %27
-  br label %51
+27:                                               ; preds = %20, %24
+  %28 = phi i32 [ %26, %24 ], [ 0, %20 ]
+  %29 = add nuw nsw i32 %.020.i, 21
+  %30 = shl i32 %9, %29
+  %31 = lshr i32 %28, %21
+  %32 = or i32 %31, %30
+  br label %55
 
-30:                                               ; preds = %2
-  %31 = icmp sgt i32 %4, 1
-  br i1 %31, label %32, label %34
+33:                                               ; preds = %2
+  %34 = icmp sgt i32 %5, 1
+  br i1 %34, label %35, label %38
 
-32:                                               ; preds = %30
-  %.add56 = add nuw nsw i64 %.idx, 16
-  %.ptr59 = getelementptr inbounds nuw i8, ptr %0, i64 %.add56
-  %33 = load i32, ptr %.ptr59, align 4, !tbaa !20
-  br label %34
+35:                                               ; preds = %33
+  %36 = getelementptr i8, ptr %7, i64 -8
+  %37 = load i32, ptr %36, align 4, !tbaa !20
+  br label %38
 
-34:                                               ; preds = %30, %32
-  %.0.idx = phi i64 [ %.add56, %32 ], [ %.add55, %30 ]
-  %35 = phi i32 [ %33, %32 ], [ 0, %30 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.0.idx
-  %36 = add nsw i32 %.020.i, -11
-  %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %51, label %37
+38:                                               ; preds = %33, %35
+  %.0 = phi ptr [ %36, %35 ], [ %8, %33 ]
+  %39 = phi i32 [ %37, %35 ], [ 0, %33 ]
+  %40 = add nsw i32 %.020.i, -11
+  %.not = icmp eq i32 %40, 0
+  br i1 %.not, label %55, label %41
 
-37:                                               ; preds = %34
-  %38 = shl i32 %6, %36
-  %39 = sub nuw nsw i32 43, %.020.i
-  %40 = lshr i32 %35, %39
-  %41 = or i32 %38, %40
-  %42 = icmp sgt i64 %.0.idx, 24
-  br i1 %42, label %43, label %46
+41:                                               ; preds = %38
+  %42 = shl i32 %9, %40
+  %43 = sub nuw nsw i32 43, %.020.i
+  %44 = lshr i32 %39, %43
+  %45 = or i32 %42, %44
+  %46 = icmp ugt ptr %.0, %3
+  br i1 %46, label %47, label %50
 
-43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %.0.ptr, i64 -4
-  %45 = load i32, ptr %44, align 4, !tbaa !20
-  br label %46
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds i8, ptr %.0, i64 -4
+  %49 = load i32, ptr %48, align 4, !tbaa !20
+  br label %50
 
-46:                                               ; preds = %37, %43
-  %47 = phi i32 [ %45, %43 ], [ 0, %37 ]
-  %48 = shl i32 %35, %36
-  %49 = lshr i32 %47, %39
-  %50 = or i32 %49, %48
-  br label %51
+50:                                               ; preds = %41, %47
+  %51 = phi i32 [ %49, %47 ], [ 0, %41 ]
+  %52 = shl i32 %39, %40
+  %53 = lshr i32 %51, %43
+  %54 = or i32 %53, %52
+  br label %55
 
-51:                                               ; preds = %34, %46, %24
-  %.sink = phi i32 [ %50, %46 ], [ %29, %24 ], [ %35, %34 ]
-  %.sroa.0.4.insert.shift11.sink.in.in.in = phi i32 [ %41, %46 ], [ %19, %24 ], [ %6, %34 ]
+55:                                               ; preds = %38, %50, %27
+  %.sink = phi i32 [ %54, %50 ], [ %32, %27 ], [ %39, %38 ]
+  %.sroa.0.4.insert.shift11.sink.in.in.in = phi i32 [ %45, %50 ], [ %22, %27 ], [ %9, %38 ]
   %.sroa.0.4.insert.shift11.sink.in.in = or i32 %.sroa.0.4.insert.shift11.sink.in.in.in, 1072693248
   %.sroa.0.4.insert.shift11.sink.in = zext i32 %.sroa.0.4.insert.shift11.sink.in.in to i64
   %.sroa.0.4.insert.shift11.sink = shl nuw i64 %.sroa.0.4.insert.shift11.sink.in, 32

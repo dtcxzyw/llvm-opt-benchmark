@@ -170,8 +170,8 @@ scalarproduct.exit.i:                             ; preds = %52, %31
 61:                                               ; preds = %scalarproduct.exit.i
   %62 = shl nuw i32 %59, 1
   %.idx1.i = zext i32 %62 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx1.i
-  %64 = getelementptr inbounds i8, ptr %63, i64 -64
+  %63 = getelementptr i8, ptr %37, i64 %.idx1.i
+  %64 = getelementptr i8, ptr %63, i64 -64
   %.not.i = icmp eq i32 %59, 32
   br i1 %.not.i, label %scalarproduct.exit41.i, label %.preheader.i33.i
 
@@ -275,8 +275,8 @@ scalarproduct.exit.i40:                           ; preds = %105, %convolve.exit
 114:                                              ; preds = %scalarproduct.exit.i40
   %115 = shl nuw i32 %112, 1
   %.idx1.i42 = zext i32 %115 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx1.i42
-  %117 = getelementptr inbounds i8, ptr %116, i64 -64
+  %116 = getelementptr i8, ptr %89, i64 %.idx1.i42
+  %117 = getelementptr i8, ptr %116, i64 -64
   %.not.i43 = icmp eq i32 %112, 32
   br i1 %.not.i43, label %scalarproduct.exit41.i52, label %.preheader.i33.i44
 
@@ -379,8 +379,8 @@ scalarproduct.exit.i64:                           ; preds = %157, %convolve.exit
 166:                                              ; preds = %scalarproduct.exit.i64
   %167 = shl nuw i32 %164, 1
   %.idx1.i66 = zext i32 %167 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx1.i66
-  %169 = getelementptr inbounds i8, ptr %168, i64 -64
+  %168 = getelementptr i8, ptr %142, i64 %.idx1.i66
+  %169 = getelementptr i8, ptr %168, i64 -64
   %.not.i67 = icmp eq i32 %164, 32
   br i1 %.not.i67, label %scalarproduct.exit41.i76, label %.preheader.i33.i68
 
@@ -484,8 +484,8 @@ scalarproduct.exit.i88:                           ; preds = %210, %convolve.exit
 219:                                              ; preds = %scalarproduct.exit.i88
   %220 = shl nuw i32 %217, 1
   %.idx1.i90 = zext i32 %220 to i64
-  %221 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx1.i90
-  %222 = getelementptr inbounds i8, ptr %221, i64 -64
+  %221 = getelementptr i8, ptr %194, i64 %.idx1.i90
+  %222 = getelementptr i8, ptr %221, i64 -64
   %.not.i91 = icmp eq i32 %217, 32
   br i1 %.not.i91, label %scalarproduct.exit41.i100, label %.preheader.i33.i92
 

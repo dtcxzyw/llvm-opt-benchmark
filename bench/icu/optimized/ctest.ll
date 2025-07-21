@@ -2247,8 +2247,8 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
   %.013.lcssa = phi ptr [ %0, %.preheader ], [ %19, %18 ], [ %.01323, %12 ]
   %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @XML_PREFIX, ptr noundef nonnull dereferenceable(1) %.013.lcssa) #23
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @XML_PREFIX) #25
-  %23 = getelementptr inbounds nuw i8, ptr @XML_PREFIX, i64 %22
-  %.026 = getelementptr inbounds i8, ptr %23, i64 -1
+  %23 = getelementptr i8, ptr @XML_PREFIX, i64 %22
+  %.026 = getelementptr i8, ptr %23, i64 -1
   %24 = load i8, ptr %.026, align 1, !tbaa !11
   %25 = icmp ne i8 %24, 0
   %26 = icmp sgt i64 %22, 1

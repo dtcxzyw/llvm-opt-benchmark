@@ -2133,9 +2133,9 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
 
 159:                                              ; preds = %157, %153
   store i32 %1, ptr %10, align 8, !tbaa !51
-  %160 = add nuw nsw i64 %53, 30
-  %161 = add nuw nsw i64 %160, %119
-  %162 = trunc nuw nsw i64 %161 to i32
+  %160 = add nuw nsw i64 %119, %53
+  %161 = trunc nuw nsw i64 %160 to i32
+  %162 = add nuw nsw i32 %161, 30
   %163 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %162, ptr %163, align 4, !tbaa !47
   %164 = getelementptr inbounds nuw i8, ptr %10, i64 8

@@ -3615,35 +3615,35 @@ _ZSt10accumulateIPimET0_T_S2_S1_.exit:            ; preds = %.lr.ph.i, %4
 define linkonce_odr void @_ZN6open3d1t8geometry15RaycastingScene7CPUImpl15ArrayPartialSumEPiS4_m(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #4 comdat align 2 {
   store i32 0, ptr %2, align 4, !tbaa !28
   %.idx = shl nuw nsw i64 %3, 2
-  %.add = add nsw i64 %.idx, -4
-  %.ptr4 = getelementptr inbounds i8, ptr %1, i64 %.add
-  %5 = icmp eq i64 %3, 1
-  br i1 %5, label %_ZSt11partial_sumIPiS0_ET0_T_S2_S1_.exit, label %6
+  %5 = add nsw i64 %.idx, -4
+  %6 = getelementptr inbounds i8, ptr %1, i64 %5
+  %7 = icmp eq i64 %5, 0
+  br i1 %7, label %_ZSt11partial_sumIPiS0_ET0_T_S2_S1_.exit, label %8
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %8 = load i32, ptr %1, align 4, !tbaa !28
-  store i32 %8, ptr %7, align 4, !tbaa !28
-  %.not19.i = icmp eq i64 %.add, 4
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %10 = load i32, ptr %1, align 4, !tbaa !28
+  store i32 %10, ptr %9, align 4, !tbaa !28
+  %.not19.i = icmp eq i64 %5, 4
   br i1 %.not19.i, label %_ZSt11partial_sumIPiS0_ET0_T_S2_S1_.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+.lr.ph.i.preheader:                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %10 = phi ptr [ %14, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
-  %.021.i = phi i32 [ %12, %.lr.ph.i ], [ %8, %.lr.ph.i.preheader ]
-  %.01320.i = phi ptr [ %13, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
-  %11 = load i32, ptr %10, align 4, !tbaa !28
-  %12 = add nsw i32 %11, %.021.i
-  %13 = getelementptr inbounds nuw i8, ptr %.01320.i, i64 4
-  store i32 %12, ptr %13, align 4, !tbaa !28
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.not.i = icmp eq ptr %14, %.ptr4
+  %12 = phi ptr [ %16, %.lr.ph.i ], [ %11, %.lr.ph.i.preheader ]
+  %.021.i = phi i32 [ %14, %.lr.ph.i ], [ %10, %.lr.ph.i.preheader ]
+  %.01320.i = phi ptr [ %15, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
+  %13 = load i32, ptr %12, align 4, !tbaa !28
+  %14 = add nsw i32 %13, %.021.i
+  %15 = getelementptr inbounds nuw i8, ptr %.01320.i, i64 4
+  store i32 %14, ptr %15, align 4, !tbaa !28
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %.not.i = icmp eq ptr %16, %6
   br i1 %.not.i, label %_ZSt11partial_sumIPiS0_ET0_T_S2_S1_.exit, label %.lr.ph.i, !llvm.loop !203
 
-_ZSt11partial_sumIPiS0_ET0_T_S2_S1_.exit:         ; preds = %.lr.ph.i, %6, %4
+_ZSt11partial_sumIPiS0_ET0_T_S2_S1_.exit:         ; preds = %.lr.ph.i, %8, %4
   ret void
 }
 
@@ -37474,8 +37474,8 @@ define linkonce_odr void @_ZN3fmt3v106detail18for_each_codepointIZNS1_11find_esc
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %8 = getelementptr inbounds i8, ptr %7, i64 -3
+  %7 = getelementptr i8, ptr %0, i64 %1
+  %8 = getelementptr i8, ptr %7, i64 -3
   %.not3668 = icmp sgt i64 %1, 3
   br i1 %.not3668, label %.lr.ph, label %.loopexit
 

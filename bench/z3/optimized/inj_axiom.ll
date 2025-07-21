@@ -656,8 +656,8 @@ _ZN11ast_manager5mk_eqEP4exprS1_.exit:            ; preds = %300
 .lr.ph.i.i.preheader:                             ; preds = %303
   %307 = zext i32 %305 to i64
   %.idx = shl nuw nsw i64 %307, 3
-  %308 = getelementptr inbounds nuw i8, ptr %304, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %308, i64 -8
+  %308 = getelementptr i8, ptr %304, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %308, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

@@ -159392,12 +159392,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i: ; preds
   %329 = uitofp i32 %328 to double
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %.idx.i.i.i = shl i64 %321, 2
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -8
+  %331 = add i64 %.idx.i.i.i, -8
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv double %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 8
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h4b495a0d50095172E.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc103.i
@@ -160627,10 +160627,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i34: ; pre
   %728 = uitofp i32 %727 to double
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 4
   %.idx.i.i.i41 = shl i64 %721, 2
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i41
-  %731 = getelementptr i8, ptr %730, i64 -8
+  %730 = add i64 %.idx.i.i.i41, -8
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv double %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i41, 8
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17he31ac835ceafd658E.exit_crit_edge.i", label %.lr.ph.i.i.i42
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17he31ac835ceafd658E.exit_crit_edge.i": ; preds = %720
@@ -162068,12 +162068,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i: ; preds
   %329 = fptrunc double %328 to float
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %.idx.i.i.i = shl i64 %321, 3
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -16
+  %331 = add i64 %.idx.i.i.i, -16
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv float %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 16
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h443227d8bf47b2a6E.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -163303,10 +163303,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i33: ; pre
   %728 = fptrunc double %727 to float
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %.idx.i.i.i39 = shl i64 %721, 3
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i39
-  %731 = getelementptr i8, ptr %730, i64 -16
+  %730 = add i64 %.idx.i.i.i39, -16
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv float %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i39, 16
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h1f0e18d12ec0843cE.exit_crit_edge.i", label %.lr.ph.i.i.i40
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h1f0e18d12ec0843cE.exit_crit_edge.i": ; preds = %720
@@ -164744,12 +164744,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i: ; preds
   %329 = uitofp i64 %328 to double
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %.idx.i.i.i = shl i64 %321, 3
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -16
+  %331 = add i64 %.idx.i.i.i, -16
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv double %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 16
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hf9803fcc299723e0E.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -165979,10 +165979,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i33: ; pre
   %728 = uitofp i64 %727 to double
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %.idx.i.i.i39 = shl i64 %721, 3
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i39
-  %731 = getelementptr i8, ptr %730, i64 -16
+  %730 = add i64 %.idx.i.i.i39, -16
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv double %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i39, 16
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hecf4061810190165E.exit_crit_edge.i", label %.lr.ph.i.i.i40
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hecf4061810190165E.exit_crit_edge.i": ; preds = %720
@@ -167420,12 +167420,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i: ; preds
   %329 = uitofp i32 %328 to float
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %.idx.i.i.i = shl i64 %321, 2
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -8
+  %331 = add i64 %.idx.i.i.i, -8
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv float %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 8
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hc8fc5084d86f140fE.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc103.i
@@ -168655,10 +168655,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i34: ; pre
   %728 = uitofp i32 %727 to float
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 4
   %.idx.i.i.i41 = shl i64 %721, 2
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i41
-  %731 = getelementptr i8, ptr %730, i64 -8
+  %730 = add i64 %.idx.i.i.i41, -8
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv float %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i41, 8
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h5a2a45758f56474aE.exit_crit_edge.i", label %.lr.ph.i.i.i42
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h5a2a45758f56474aE.exit_crit_edge.i": ; preds = %720
@@ -170095,12 +170095,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i: ; preds
   %328 = fsub double %326, %327
   %329 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %.idx.i.i.i = shl i64 %321, 3
-  %330 = getelementptr i8, ptr %329, i64 %.idx.i.i.i
-  %331 = getelementptr i8, ptr %330, i64 -16
+  %330 = add i64 %.idx.i.i.i, -16
+  %331 = getelementptr i8, ptr %329, i64 %330
   %332 = fdiv double %324, %328
   %333 = icmp ne ptr %331, null
   call void @llvm.assume(i1 %333)
-  %334 = icmp eq i64 %.idx.i.i.i, 16
+  %334 = icmp eq i64 %330, 0
   br i1 %334, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h9cd44caa988fd747E.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -171328,10 +171328,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i33: ; pre
   %725 = fsub double %723, %724
   %726 = getelementptr inbounds nuw i8, ptr %720, i64 8
   %.idx.i.i.i39 = shl i64 %719, 3
-  %727 = getelementptr i8, ptr %726, i64 %.idx.i.i.i39
-  %728 = getelementptr i8, ptr %727, i64 -16
+  %727 = add i64 %.idx.i.i.i39, -16
+  %728 = getelementptr i8, ptr %726, i64 %727
   %729 = fdiv double %721, %725
-  %730 = icmp eq i64 %.idx.i.i.i39, 16
+  %730 = icmp eq i64 %727, 0
   br i1 %730, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hd5adbc503f1ebf98E.exit_crit_edge.i", label %.lr.ph.i.i.i40
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hd5adbc503f1ebf98E.exit_crit_edge.i": ; preds = %718
@@ -172768,12 +172768,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i: ; preds
   %329 = sitofp i32 %328 to float
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %.idx.i.i.i = shl i64 %321, 2
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -8
+  %331 = add i64 %.idx.i.i.i, -8
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv float %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 8
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h86bcc275c02a5f5cE.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -174003,10 +174003,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i33: ; pre
   %728 = sitofp i32 %727 to float
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 4
   %.idx.i.i.i39 = shl i64 %721, 2
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i39
-  %731 = getelementptr i8, ptr %730, i64 -8
+  %730 = add i64 %.idx.i.i.i39, -8
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv float %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i39, 8
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hc541baef3e49c472E.exit_crit_edge.i", label %.lr.ph.i.i.i40
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hc541baef3e49c472E.exit_crit_edge.i": ; preds = %720
@@ -175443,12 +175443,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i: ; preds
   %328 = fsub float %326, %327
   %329 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %.idx.i.i.i = shl i64 %321, 2
-  %330 = getelementptr i8, ptr %329, i64 %.idx.i.i.i
-  %331 = getelementptr i8, ptr %330, i64 -8
+  %330 = add i64 %.idx.i.i.i, -8
+  %331 = getelementptr i8, ptr %329, i64 %330
   %332 = fdiv float %324, %328
   %333 = icmp ne ptr %331, null
   call void @llvm.assume(i1 %333)
-  %334 = icmp eq i64 %.idx.i.i.i, 8
+  %334 = icmp eq i64 %330, 0
   br i1 %334, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h05eaee5284081b8dE.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -176676,10 +176676,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i33: ; pre
   %725 = fsub float %723, %724
   %726 = getelementptr inbounds nuw i8, ptr %720, i64 4
   %.idx.i.i.i39 = shl i64 %719, 2
-  %727 = getelementptr i8, ptr %726, i64 %.idx.i.i.i39
-  %728 = getelementptr i8, ptr %727, i64 -8
+  %727 = add i64 %.idx.i.i.i39, -8
+  %728 = getelementptr i8, ptr %726, i64 %727
   %729 = fdiv float %721, %725
-  %730 = icmp eq i64 %.idx.i.i.i39, 8
+  %730 = icmp eq i64 %727, 0
   br i1 %730, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h8f85fbd1b5dd0d28E.exit_crit_edge.i", label %.lr.ph.i.i.i40
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h8f85fbd1b5dd0d28E.exit_crit_edge.i": ; preds = %718
@@ -178116,12 +178116,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i: ; preds
   %329 = sitofp i64 %328 to double
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %.idx.i.i.i = shl i64 %321, 3
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -16
+  %331 = add i64 %.idx.i.i.i, -16
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv double %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 16
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h7ba08eb5516055adE.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -179351,10 +179351,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i34: ; pre
   %728 = sitofp i64 %727 to double
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %.idx.i.i.i40 = shl i64 %721, 3
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i40
-  %731 = getelementptr i8, ptr %730, i64 -16
+  %730 = add i64 %.idx.i.i.i40, -16
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv double %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i40, 16
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hf8ddf244fd5010cdE.exit_crit_edge.i", label %.lr.ph.i.i.i41
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hf8ddf244fd5010cdE.exit_crit_edge.i": ; preds = %720
@@ -180792,12 +180792,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i: ; preds
   %329 = sitofp i32 %328 to double
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %.idx.i.i.i = shl i64 %321, 2
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -8
+  %331 = add i64 %.idx.i.i.i, -8
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv double %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 8
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hf74bd7babc820756E.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -182027,10 +182027,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i33: ; pre
   %728 = sitofp i32 %727 to double
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 4
   %.idx.i.i.i39 = shl i64 %721, 2
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i39
-  %731 = getelementptr i8, ptr %730, i64 -8
+  %730 = add i64 %.idx.i.i.i39, -8
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv double %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i39, 8
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h96824588eb00bc72E.exit_crit_edge.i", label %.lr.ph.i.i.i40
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h96824588eb00bc72E.exit_crit_edge.i": ; preds = %720
@@ -183468,12 +183468,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i: ; preds
   %329 = fpext float %328 to double
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %.idx.i.i.i = shl i64 %321, 2
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -8
+  %331 = add i64 %.idx.i.i.i, -8
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv double %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 8
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h78bb4ec5a81c8d88E.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -184703,10 +184703,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h20afe39aa4f31f52E.exit.i.i33: ; pre
   %728 = fpext float %727 to double
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 4
   %.idx.i.i.i39 = shl i64 %721, 2
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i39
-  %731 = getelementptr i8, ptr %730, i64 -8
+  %730 = add i64 %.idx.i.i.i39, -8
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv double %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i39, 8
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h3cef94856831e6caE.exit_crit_edge.i", label %.lr.ph.i.i.i40
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h3cef94856831e6caE.exit_crit_edge.i": ; preds = %720
@@ -186144,12 +186144,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i: ; preds
   %329 = sitofp i64 %328 to float
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %.idx.i.i.i = shl i64 %321, 3
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -16
+  %331 = add i64 %.idx.i.i.i, -16
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv float %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 16
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h62020577afe5bf3eE.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -187379,10 +187379,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i34: ; pre
   %728 = sitofp i64 %727 to float
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %.idx.i.i.i40 = shl i64 %721, 3
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i40
-  %731 = getelementptr i8, ptr %730, i64 -16
+  %730 = add i64 %.idx.i.i.i40, -16
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv float %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i40, 16
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h1de8b23c0acc1105E.exit_crit_edge.i", label %.lr.ph.i.i.i41
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h1de8b23c0acc1105E.exit_crit_edge.i": ; preds = %720
@@ -188820,12 +188820,12 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i: ; preds
   %329 = uitofp i64 %328 to float
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %.idx.i.i.i = shl i64 %321, 3
-  %331 = getelementptr i8, ptr %330, i64 %.idx.i.i.i
-  %332 = getelementptr i8, ptr %331, i64 -16
+  %331 = add i64 %.idx.i.i.i, -16
+  %332 = getelementptr i8, ptr %330, i64 %331
   %333 = fdiv float %324, %329
   %334 = icmp ne ptr %332, null
   call void @llvm.assume(i1 %334)
-  %335 = icmp eq i64 %.idx.i.i.i, 16
+  %335 = icmp eq i64 %331, 0
   br i1 %335, label %"_ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17hc2009f432e94b5f1E.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320, %.noexc102.i
@@ -190055,10 +190055,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h22f3e8d0b41e22d2E.exit.i.i33: ; pre
   %728 = uitofp i64 %727 to float
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %.idx.i.i.i39 = shl i64 %721, 3
-  %730 = getelementptr i8, ptr %729, i64 %.idx.i.i.i39
-  %731 = getelementptr i8, ptr %730, i64 -16
+  %730 = add i64 %.idx.i.i.i39, -16
+  %731 = getelementptr i8, ptr %729, i64 %730
   %732 = fdiv float %723, %728
-  %733 = icmp eq i64 %.idx.i.i.i39, 16
+  %733 = icmp eq i64 %730, 0
   br i1 %733, label %"._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h48d02f2e19e085c3E.exit_crit_edge.i", label %.lr.ph.i.i.i40
 
 "._ZN10polars_ops6series3ops13interpolation14interpolate_by14interpolate_by4func28_$u7b$$u7b$closure$u7d$$u7d$17h48d02f2e19e085c3E.exit_crit_edge.i": ; preds = %720

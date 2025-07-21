@@ -148,8 +148,8 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
 .lr.ph269:                                        ; preds = %._crit_edge265
   %63 = shl nuw nsw i32 %61, 1
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %35, i64 %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 -2
+  %65 = getelementptr i8, ptr %35, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 -2
   %67 = load i8, ptr %.1, align 1
   br label %68
 

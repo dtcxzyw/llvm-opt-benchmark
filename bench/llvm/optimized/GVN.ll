@@ -12351,9 +12351,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm7GVNPass19processNonLocalLoadEPNS_8
 
 .lr.ph.preheader:                                 ; preds = %37
   %41 = zext i32 %40 to i64
-  %.idx = sub nsw i64 0, %41
-  %42 = getelementptr inbounds i8, ptr %35, i64 %.idx
-  %.04269 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %42 = sub nsw i64 32, %41
+  %.04269 = getelementptr inbounds i8, ptr %35, i64 %42
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %49

@@ -615,8 +615,8 @@ define void @Rtm_ObjRetimeFwd(ptr noundef captures(none) %0, ptr noundef capture
   %26 = lshr i32 %25, 2
   %27 = and i32 %26, 2044
   %.idx.i.i = zext nneg i32 %27 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
-  %.01.i.i = getelementptr inbounds i8, ptr %28, i64 -4
+  %28 = getelementptr i8, ptr %22, i64 %.idx.i.i
+  %.01.i.i = getelementptr i8, ptr %28, i64 -4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i

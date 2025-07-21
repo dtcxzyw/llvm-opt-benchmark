@@ -378,8 +378,8 @@ _line_is_space.exit:                              ; preds = %39
   br i1 %.not10.i, label %_strip_cr_nl.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_line_is_space.exit
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %48
-  %.09.i = getelementptr inbounds i8, ptr %49, i64 -1
+  %49 = getelementptr i8, ptr %46, i64 %48
+  %.09.i = getelementptr i8, ptr %49, i64 -1
   br label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %51, %.lr.ph.preheader.i
@@ -649,8 +649,8 @@ _strip_comments.exit.i:                           ; preds = %84, %82, %_compute_
 
 .lr.ph.i27.preheader.i:                           ; preds = %90
   %sext.i = and i64 %87, 2147483647
-  %91 = getelementptr inbounds nuw i8, ptr %.01940.i, i64 %sext.i
-  %.01924.i.i = getelementptr inbounds i8, ptr %91, i64 -1
+  %91 = getelementptr i8, ptr %.01940.i, i64 %sext.i
+  %.01924.i.i = getelementptr i8, ptr %91, i64 -1
   br label %.lr.ph.i27.i
 
 .lr.ph.i27.i:                                     ; preds = %105, %.lr.ph.i27.preheader.i
@@ -1018,8 +1018,8 @@ _line_is_space.exit:                              ; preds = %239
   br i1 %.not10.i, label %_strip_cr_nl.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_line_is_space.exit
-  %249 = getelementptr inbounds nuw i8, ptr %246, i64 %248
-  %.09.i = getelementptr inbounds i8, ptr %249, i64 -1
+  %249 = getelementptr i8, ptr %246, i64 %248
+  %.09.i = getelementptr i8, ptr %249, i64 -1
   br label %.lr.ph.i57
 
 .lr.ph.i57:                                       ; preds = %251, %.lr.ph.preheader.i

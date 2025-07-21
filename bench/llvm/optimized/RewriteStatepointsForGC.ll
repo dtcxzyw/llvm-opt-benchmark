@@ -1814,10 +1814,10 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i: ; preds = %203, %_ZNK4llvm8C
 _ZN4llvm8CallBase7arg_endEv.exit.i:               ; preds = %212, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i
   %228 = phi i32 [ %.pre.i, %212 ], [ %.pre50.i, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i ]
   %.0.i.i.neg.i = phi i64 [ %.neg.i, %212 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i ]
-  %229 = shl i32 %228, 5
-  %230 = zext i32 %229 to i64
-  %231 = add nsw i64 %.0.i.i.neg.i, %.0.i.i.i.neg.i
-  %gepdiff.i = add nsw i64 %231, %230
+  %229 = add nsw i64 %.0.i.i.neg.i, %.0.i.i.i.neg.i
+  %230 = shl i32 %228, 5
+  %231 = zext i32 %230 to i64
+  %gepdiff.i = add nsw i64 %229, %231
   %232 = and i64 %gepdiff.i, 137438953440
   %.not4569.i.i = icmp eq i64 %232, 0
   br i1 %.not4569.i.i, label %._crit_edge.i10.i, label %.lr.ph.i9.i

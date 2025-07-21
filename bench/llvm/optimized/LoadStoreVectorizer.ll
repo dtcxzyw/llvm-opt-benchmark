@@ -967,9 +967,9 @@ _ZN4llvm15SmallVectorImplINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_opt
   %184 = load ptr, ptr %28, align 8, !tbaa !123
   %185 = zext i32 %183 to i64
   %.idx = shl nuw nsw i64 %185, 4
-  %186 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx
-  %187 = getelementptr inbounds i8, ptr %186, i64 -16
-  %.not158 = icmp eq i32 %183, 1
+  %186 = add nsw i64 %.idx, -16
+  %187 = getelementptr inbounds i8, ptr %184, i64 %186
+  %.not158 = icmp eq i64 %186, 0
   br i1 %.not158, label %._crit_edge162, label %.lr.ph161
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEE12emplace_backIJS7_EEERS7_DpOT_.exit, %_ZN4llvm15SmallVectorImplINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEE12emplace_backIJS7_EEERS7_DpOT_.exit65

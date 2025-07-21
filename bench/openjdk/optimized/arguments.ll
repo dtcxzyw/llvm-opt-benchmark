@@ -7421,8 +7421,8 @@ define hidden void @_ZN9Arguments16fix_appclasspathEv() local_unnamed_addr #0 al
   br i1 %.not20, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
-  %.019 = getelementptr inbounds i8, ptr %17, i64 -1
+  %17 = getelementptr i8, ptr %15, i64 %16
+  %.019 = getelementptr i8, ptr %17, i64 -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20

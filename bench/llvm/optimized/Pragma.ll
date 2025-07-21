@@ -1520,7 +1520,7 @@ thread-pre-split:                                 ; preds = %_ZN4llvm15SmallVect
   %25 = phi i8 [ %.pr, %thread-pre-split ], [ %3, %1 ]
   %26 = phi ptr [ %.ph, %thread-pre-split ], [ %2, %1 ]
   %27 = icmp eq i8 %25, 82
-  br i1 %27, label %.preheader, label %48
+  br i1 %27, label %.preheader, label %47
 
 .preheader:                                       ; preds = %24, %.preheader
   %.0 = phi i32 [ %32, %.preheader ], [ 0, %24 ]
@@ -1533,108 +1533,106 @@ thread-pre-split:                                 ; preds = %_ZN4llvm15SmallVect
   br i1 %.not50, label %33, label %.preheader, !llvm.loop !334
 
 33:                                               ; preds = %.preheader
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 2
-  %35 = zext i32 %.0 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !328
-  %39 = getelementptr inbounds nuw i8, ptr %26, i64 %38
-  %reass.sub = sub i64 %38, %35
-  %gepdiff63 = add i64 %reass.sub, -2
-  %.not.i.i.i.i.i.i53 = icmp eq ptr %39, %36
-  br i1 %.not.i.i.i.i.i.i53, label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58, label %40
+  %34 = zext i32 %.0 to i64
+  %35 = add nuw nsw i64 %34, 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !328
+  %gepdiff63 = sub nsw i64 %37, %35
+  %.not.i.i.i.i.i.i53 = icmp samesign eq i64 %37, %35
+  br i1 %.not.i.i.i.i.i.i53, label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58, label %38
 
-40:                                               ; preds = %33
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %36, i64 %gepdiff63, i1 false)
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 %35
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %39, i64 %gepdiff63, i1 false)
   %.pre.i54 = load ptr, ptr %0, align 8, !tbaa !326
   br label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58
 
-_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58: ; preds = %40, %33
-  %41 = phi ptr [ %26, %33 ], [ %.pre.i54, %40 ]
-  %42 = getelementptr inbounds i8, ptr %26, i64 %gepdiff63
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %41 to i64
-  %45 = xor i64 %35, -1
-  %46 = add i64 %43, %45
-  %47 = sub i64 %46, %44
-  store i64 %47, ptr %37, align 8, !tbaa !328
-  br label %80
+_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58: ; preds = %38, %33
+  %40 = phi ptr [ %26, %33 ], [ %.pre.i54, %38 ]
+  %41 = getelementptr inbounds i8, ptr %26, i64 %gepdiff63
+  %42 = ptrtoint ptr %41 to i64
+  %43 = ptrtoint ptr %40 to i64
+  %44 = xor i64 %34, -1
+  %45 = add i64 %42, %44
+  %46 = sub i64 %45, %43
+  store i64 %46, ptr %36, align 8, !tbaa !328
+  br label %79
 
-48:                                               ; preds = %24
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !328
-  %51 = add i64 %50, -1
-  %.not4966 = icmp eq i64 %51, 1
-  br i1 %.not4966, label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61, label %.lr.ph
+47:                                               ; preds = %24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !328
+  %50 = add i64 %49, -1
+  %.not4964 = icmp eq i64 %50, 1
+  br i1 %.not4964, label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61, label %.lr.ph
 
-_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit: ; preds = %74
-  %.pre70 = load ptr, ptr %0, align 8, !tbaa !326
-  %.pre71 = load i64, ptr %49, align 8, !tbaa !328
-  %52 = zext i32 %76 to i64
+_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit: ; preds = %73
+  %.pre68 = load ptr, ptr %0, align 8, !tbaa !326
+  %.pre69 = load i64, ptr %48, align 8, !tbaa !328
+  %51 = zext i32 %75 to i64
   br label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61
 
-_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61: ; preds = %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit, %48
-  %53 = phi i64 [ 2, %48 ], [ %.pre71, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit ]
-  %54 = phi ptr [ %26, %48 ], [ %.pre70, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit ]
-  %.046.lcssa = phi i64 [ 1, %48 ], [ %52, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit ]
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.046.lcssa
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %53
-  %57 = getelementptr inbounds i8, ptr %56, i64 -1
-  %58 = load i8, ptr %57, align 1
-  store i8 %58, ptr %55, align 1
+_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61: ; preds = %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit, %47
+  %52 = phi i64 [ 2, %47 ], [ %.pre69, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit ]
+  %53 = phi ptr [ %26, %47 ], [ %.pre68, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit ]
+  %.046.lcssa = phi i64 [ 1, %47 ], [ %51, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit ]
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.046.lcssa
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %52
+  %56 = getelementptr inbounds i8, ptr %55, i64 -1
+  %57 = load i8, ptr %56, align 1
+  store i8 %57, ptr %54, align 1
   %.pre.i60 = load ptr, ptr %0, align 8, !tbaa !326
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  %60 = ptrtoint ptr %59 to i64
-  %61 = ptrtoint ptr %.pre.i60 to i64
-  %62 = sub i64 %60, %61
-  store i64 %62, ptr %49, align 8, !tbaa !328
-  br label %80
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  %59 = ptrtoint ptr %58 to i64
+  %60 = ptrtoint ptr %.pre.i60 to i64
+  %61 = sub i64 %59, %60
+  store i64 %61, ptr %48, align 8, !tbaa !328
+  br label %79
 
-.lr.ph:                                           ; preds = %48, %74
-  %.04568 = phi i64 [ %79, %74 ], [ 1, %48 ]
-  %.04667 = phi i32 [ %76, %74 ], [ 1, %48 ]
-  %63 = load ptr, ptr %0, align 8, !tbaa !326
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.04568
-  %65 = load i8, ptr %64, align 1, !tbaa !15
-  %66 = icmp eq i8 %65, 92
-  br i1 %66, label %67, label %74
+.lr.ph:                                           ; preds = %47, %73
+  %.04566 = phi i64 [ %78, %73 ], [ 1, %47 ]
+  %.04665 = phi i32 [ %75, %73 ], [ 1, %47 ]
+  %62 = load ptr, ptr %0, align 8, !tbaa !326
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.04566
+  %64 = load i8, ptr %63, align 1, !tbaa !15
+  %65 = icmp eq i8 %64, 92
+  br i1 %65, label %66, label %73
 
-67:                                               ; preds = %.lr.ph
-  %68 = add i64 %.04568, 1
-  %69 = icmp ult i64 %68, %51
-  br i1 %69, label %70, label %74
+66:                                               ; preds = %.lr.ph
+  %67 = add i64 %.04566, 1
+  %68 = icmp ult i64 %67, %50
+  br i1 %68, label %69, label %73
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %63, i64 %68
-  %72 = load i8, ptr %71, align 1, !tbaa !15
-  switch i8 %72, label %74 [
-    i8 92, label %73
-    i8 34, label %73
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 %67
+  %71 = load i8, ptr %70, align 1, !tbaa !15
+  switch i8 %71, label %73 [
+    i8 92, label %72
+    i8 34, label %72
   ]
 
-73:                                               ; preds = %70, %70
-  br label %74
+72:                                               ; preds = %69, %69
+  br label %73
 
-74:                                               ; preds = %70, %73, %67, %.lr.ph
-  %75 = phi i8 [ %72, %73 ], [ 92, %67 ], [ %65, %.lr.ph ], [ 92, %70 ]
-  %.1 = phi i64 [ %68, %73 ], [ %.04568, %67 ], [ %.04568, %.lr.ph ], [ %.04568, %70 ]
-  %76 = add i32 %.04667, 1
-  %77 = zext i32 %.04667 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %63, i64 %77
-  store i8 %75, ptr %78, align 1, !tbaa !15
-  %79 = add i64 %.1, 1
-  %.not49 = icmp eq i64 %79, %51
+73:                                               ; preds = %69, %72, %66, %.lr.ph
+  %74 = phi i8 [ %71, %72 ], [ 92, %66 ], [ %64, %.lr.ph ], [ 92, %69 ]
+  %.1 = phi i64 [ %67, %72 ], [ %.04566, %66 ], [ %.04566, %.lr.ph ], [ %.04566, %69 ]
+  %75 = add i32 %.04665, 1
+  %76 = zext i32 %.04665 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 %76
+  store i8 %74, ptr %77, align 1, !tbaa !15
+  %78 = add i64 %.1, 1
+  %.not49 = icmp eq i64 %78, %50
   br i1 %.not49, label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61.loopexit, label %.lr.ph, !llvm.loop !335
 
-80:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58
-  %81 = phi ptr [ %.pre.i60, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61 ], [ %41, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58 ]
-  store i8 32, ptr %81, align 1, !tbaa !15
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load i64, ptr %82, align 8, !tbaa !328
-  %84 = load ptr, ptr %0, align 8, !tbaa !326
-  %85 = getelementptr i8, ptr %84, i64 %83
-  %86 = getelementptr i8, ptr %85, i64 -1
-  store i8 10, ptr %86, align 1, !tbaa !15
+79:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58
+  %80 = phi ptr [ %.pre.i60, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit61 ], [ %40, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit58 ]
+  store i8 32, ptr %80, align 1, !tbaa !15
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %82 = load i64, ptr %81, align 8, !tbaa !328
+  %83 = load ptr, ptr %0, align 8, !tbaa !326
+  %84 = getelementptr i8, ptr %83, i64 %82
+  %85 = getelementptr i8, ptr %84, i64 -1
+  store i8 10, ptr %85, align 1, !tbaa !15
   ret void
 }
 

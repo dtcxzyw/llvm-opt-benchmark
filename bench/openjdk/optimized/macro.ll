@@ -4613,8 +4613,8 @@ define hidden void @_ZN16PhaseMacroExpand27process_users_of_allocationEP8CallNod
 .lr.ph112:                                        ; preds = %5
   %10 = zext i32 %9 to i64
   %.idx = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %12 = getelementptr inbounds i8, ptr %11, i64 -8
+  %11 = getelementptr i8, ptr %7, i64 %.idx
+  %12 = getelementptr i8, ptr %11, i64 -8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4644,8 +4644,8 @@ define hidden void @_ZN16PhaseMacroExpand27process_users_of_allocationEP8CallNod
 .lr.ph.preheader:                                 ; preds = %26
   %31 = zext i32 %30 to i64
   %.idx123 = shl nuw nsw i64 %31, 3
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx123
-  %33 = getelementptr inbounds i8, ptr %32, i64 -8
+  %32 = getelementptr i8, ptr %28, i64 %.idx123
+  %33 = getelementptr i8, ptr %32, i64 -8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
@@ -5007,8 +5007,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 .lr.ph122:                                        ; preds = %._crit_edge118
   %248 = zext i32 %.pre128 to i64
   %.idx125 = shl nuw nsw i64 %248, 3
-  %249 = getelementptr inbounds nuw i8, ptr %.pre126, i64 %.idx125
-  %250 = getelementptr inbounds i8, ptr %249, i64 -8
+  %249 = getelementptr i8, ptr %.pre126, i64 %.idx125
+  %250 = getelementptr i8, ptr %249, i64 -8
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %252
 
@@ -12780,8 +12780,8 @@ define hidden void @_ZN16PhaseMacroExpand24expand_subtypecheck_nodeEP16SubTypeCh
 .lr.ph:                                           ; preds = %2
   %17 = zext i32 %16 to i64
   %.idx = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
-  %.036 = getelementptr inbounds i8, ptr %18, i64 -8
+  %18 = getelementptr i8, ptr %14, i64 %.idx
+  %.036 = getelementptr i8, ptr %18, i64 -8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

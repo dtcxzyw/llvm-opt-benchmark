@@ -22113,8 +22113,8 @@ define dso_local void @_ZN4llvm10AsmPrinter18emitXXStructorListERKNS_10DataLayou
   %17 = load ptr, ptr %6, align 8, !tbaa !25
   %18 = zext i32 %10 to i64
   %.idx = mul nuw nsw i64 %18, 24
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %19, i64 -24
+  %19 = getelementptr i8, ptr %17, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %19, i64 -24
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

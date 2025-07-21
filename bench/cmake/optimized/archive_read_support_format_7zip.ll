@@ -4118,8 +4118,8 @@ decompress.exit.thread131.thread:                 ; preds = %145
 285:                                              ; preds = %283
   %286 = load i64, ptr %126, align 8, !tbaa !222
   %287 = load i32, ptr %127, align 8, !tbaa !223
-  %288 = getelementptr inbounds nuw i8, ptr %135, i64 %279
-  %289 = getelementptr inbounds i8, ptr %288, i64 -4
+  %288 = getelementptr i8, ptr %135, i64 %279
+  %289 = getelementptr i8, ptr %288, i64 -4
   %290 = icmp sgt i64 %279, 4
   br i1 %290, label %.lr.ph.lr.ph.i.i, label %.._crit_edge_crit_edge.i.i
 

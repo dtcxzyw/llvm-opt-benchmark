@@ -19377,8 +19377,8 @@ define linkonce_odr dso_local void @_ZZN4mold25fixup_ctors_in_init_arrayINS_6X86
 .lr.ph.i.i.preheader:                             ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !360
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %5
-  %.012.i.i = getelementptr inbounds i8, ptr %15, i64 -8
+  %15 = getelementptr i8, ptr %14, i64 %5
+  %.012.i.i = getelementptr i8, ptr %15, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

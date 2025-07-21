@@ -28156,8 +28156,8 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit67: ; preds = %106, %109, %11
   br i1 %.not4895, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %162 = getelementptr inbounds nuw i8, ptr %6, i64 %.036.ph
-  %163 = getelementptr inbounds i8, ptr %162, i64 -1
+  %162 = getelementptr i8, ptr %6, i64 %.036.ph
+  %163 = getelementptr i8, ptr %162, i64 -1
   br label %.lr.ph
 
 164:                                              ; preds = %160

@@ -4571,8 +4571,8 @@ _ZN4llvm12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS2_EEED2Ev.exit27: ; preds
   %242 = load ptr, ptr %7, align 8, !tbaa !25
   %243 = zext i32 %240 to i64
   %.idx = shl nuw nsw i64 %243, 3
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %244, i64 -8
+  %244 = getelementptr i8, ptr %242, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %244, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

@@ -173,8 +173,8 @@ fd_write.exit:                                    ; preds = %2, %10, %bio_fd_sho
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @fd_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 -1
+  %5 = getelementptr i8, ptr %1, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 -1
   %7 = icmp slt i32 %2, 1
   br i1 %7, label %27, label %.preheader
 

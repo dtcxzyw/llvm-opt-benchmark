@@ -24981,8 +24981,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br i1 %exitcond.not, label %84, label %86, !llvm.loop !306
 
 .lr.ph.i.i.preheader:                             ; preds = %84
-  %110 = getelementptr inbounds nuw i8, ptr %.pre402, i64 %.pre400
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %110, i64 -1
+  %110 = getelementptr i8, ptr %.pre402, i64 %.pre400
+  %.sroa.0.08.i.i = getelementptr i8, ptr %110, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

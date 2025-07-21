@@ -605,8 +605,8 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %331 = shl nuw i8 %323, 1
   %332 = zext i8 %331 to i64
   %.idx = shl nuw nsw i64 %332, 1
-  %333 = getelementptr inbounds nuw i8, ptr %329, i64 %.idx
-  %334 = getelementptr inbounds i8, ptr %333, i64 -4
+  %333 = getelementptr i8, ptr %329, i64 %.idx
+  %334 = getelementptr i8, ptr %333, i64 -4
   br label %.lr.ph13207
 
 .lr.ph13207:                                      ; preds = %.lr.ph13207.preheader, %369
@@ -755,8 +755,8 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
 .lr.ph13215.preheader:                            ; preds = %406
   %411 = shl nuw nsw i32 %409, 2
   %.idx13218 = zext nneg i32 %411 to i64
-  %412 = getelementptr inbounds nuw i8, ptr %.01858, i64 %.idx13218
-  %413 = getelementptr inbounds i8, ptr %412, i64 -4
+  %412 = getelementptr i8, ptr %.01858, i64 %.idx13218
+  %413 = getelementptr i8, ptr %412, i64 -4
   br label %.lr.ph13215
 
 .lr.ph13215:                                      ; preds = %.lr.ph13215.preheader, %436

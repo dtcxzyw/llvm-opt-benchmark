@@ -30,8 +30,8 @@ target triple = "x86_64-pc-linux-gnu"
 define internal ptr @H5O__cont_decode(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr %5, ptr %7, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %4
-  %9 = getelementptr inbounds i8, ptr %8, i64 -1
+  %8 = getelementptr i8, ptr %5, i64 %4
+  %9 = getelementptr i8, ptr %8, i64 -1
   %10 = load i8, ptr @H5O_init_g, align 1, !tbaa !8, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   %12 = load i8, ptr @H5_libterm_g, align 1, !range !10

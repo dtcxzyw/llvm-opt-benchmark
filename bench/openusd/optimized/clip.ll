@@ -20630,7 +20630,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetB
   %14 = or disjoint i64 %spec.select, 1
   %15 = getelementptr inbounds nuw [5 x double], ptr %6, i64 0, i64 %14
   %.not = icmp eq ptr %11, %13
-  %.02967.i.i.i.i.lcssa68.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.02967.i.i.i.i.lcssa67.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17__normal_iteratorIPKNS_8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEEEEbT_SB_dPdSC_.exit, label %16
 
 16:                                               ; preds = %5
@@ -20707,57 +20707,56 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17_
   %42 = getelementptr inbounds nuw [5 x double], ptr %6, i64 0, i64 %.1
   store double %41, ptr %42, align 8
   %.idx50 = shl nuw nsw i64 %.1, 3
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx50
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %43 = or disjoint i64 %.idx50, 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %43
   %45 = ptrtoint ptr %6 to i64
-  %46 = or disjoint i64 %.idx50, 8
   %.not49 = icmp samesign ult i64 %.1, 4
   br i1 %.not49, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17__normal_iteratorIPKNS_8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEEEEbT_SB_dPdSC_.exit
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %50 = and i64 %.idx50, 32
-  %scevgep.i.i.i.i = getelementptr i8, ptr %6, i64 %50
-  %51 = load double, ptr %49, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %47 = load double, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %49 = and i64 %.idx50, 32
+  %scevgep.i.i.i.i = getelementptr i8, ptr %6, i64 %49
+  %50 = load double, ptr %48, align 8
   %.029.val39.i.i.i.i = load double, ptr %6, align 8
-  %52 = fcmp uge double %.029.val39.i.i.i.i, %48
-  %53 = fcmp ult double %.029.val39.i.i.i.i, %51
-  %or.cond64 = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond64, label %54, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
+  %51 = fcmp uge double %.029.val39.i.i.i.i, %47
+  %52 = fcmp ult double %.029.val39.i.i.i.i, %50
+  %or.cond63 = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond63, label %53, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
 
-54:                                               ; preds = %.lr.ph.i.i.i.i
+53:                                               ; preds = %.lr.ph.i.i.i.i
   %.val37.i.i.i.i = load double, ptr %7, align 8
-  %55 = fcmp uge double %.val37.i.i.i.i, %48
-  %56 = fcmp ult double %.val37.i.i.i.i, %51
-  %or.cond.i.i.i = and i1 %55, %56
-  br i1 %or.cond.i.i.i, label %57, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
+  %54 = fcmp uge double %.val37.i.i.i.i, %47
+  %55 = fcmp ult double %.val37.i.i.i.i, %50
+  %or.cond.i.i.i = and i1 %54, %55
+  br i1 %or.cond.i.i.i, label %56, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   %.val35.i.i.i.i = load double, ptr %.sroa.gep, align 8
-  %58 = fcmp uge double %.val35.i.i.i.i, %48
-  %59 = fcmp ult double %.val35.i.i.i.i, %51
-  %or.cond2.i.i.i = and i1 %58, %59
-  br i1 %or.cond2.i.i.i, label %60, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
+  %57 = fcmp uge double %.val35.i.i.i.i, %47
+  %58 = fcmp ult double %.val35.i.i.i.i, %50
+  %or.cond2.i.i.i = and i1 %57, %58
+  br i1 %or.cond2.i.i.i, label %59, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
 
-60:                                               ; preds = %57
-  %.val33.i.i.i.i = load double, ptr %.02967.i.i.i.i.lcssa68.sroa.gep, align 8
-  %61 = fcmp uge double %.val33.i.i.i.i, %48
-  %62 = fcmp ult double %.val33.i.i.i.i, %51
-  %or.cond3.i.i.i = and i1 %61, %62
+59:                                               ; preds = %56
+  %.val33.i.i.i.i = load double, ptr %.02967.i.i.i.i.lcssa67.sroa.gep, align 8
+  %60 = fcmp uge double %.val33.i.i.i.i, %47
+  %61 = fcmp ult double %.val33.i.i.i.i, %50
+  %or.cond3.i.i.i = and i1 %60, %61
   br i1 %or.cond3.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %60
-  %gepdiff = sub nsw i64 %46, %50
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %59
+  %gepdiff = sub nsw i64 %43, %49
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17__normal_iteratorIPKNS_8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEEEEbT_SB_dPdSC_.exit
-  %.pre-phi81.i.i.i.i = phi i64 [ %gepdiff, %._crit_edge.loopexit.i.i.i.i ], [ %46, %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17__normal_iteratorIPKNS_8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEEEEbT_SB_dPdSC_.exit ]
+  %.pre-phi81.i.i.i.i = phi i64 [ %gepdiff, %._crit_edge.loopexit.i.i.i.i ], [ %43, %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17__normal_iteratorIPKNS_8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEEEEbT_SB_dPdSC_.exit ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17__normal_iteratorIPKNS_8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEEEEbT_SB_dPdSC_.exit ]
-  %63 = ashr exact i64 %.pre-phi81.i.i.i.i, 3
-  switch i64 %63, label %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit" [
-    i64 3, label %64
+  %62 = ashr exact i64 %.pre-phi81.i.i.i.i, 3
+  switch i64 %62, label %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit" [
+    i64 3, label %63
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge76.i.i.i.i
   ]
@@ -20765,217 +20764,220 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17_
 ._crit_edge._crit_edge76.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i
   %.phi.trans.insert77.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.pre78.i.i.i.i = load double, ptr %.phi.trans.insert77.i.i.i.i, align 8
-  %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.pre72 = load double, ptr %.phi.trans.insert71, align 8
-  br label %80
+  %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.pre71 = load double, ptr %.phi.trans.insert70, align 8
+  br label %79
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.pre.i.i.i.i = load double, ptr %.phi.trans.insert.i.i.i.i, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.pre = load double, ptr %.phi.trans.insert, align 8
-  br label %73
+  br label %72
 
-64:                                               ; preds = %._crit_edge.i.i.i.i
+63:                                               ; preds = %._crit_edge.i.i.i.i
   %.029.val.i.i.i.i = load double, ptr %.029.lcssa.i.i.i.i, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %66 = load double, ptr %65, align 8
-  %67 = fcmp uge double %.029.val.i.i.i.i, %66
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %69 = load double, ptr %68, align 8
-  %70 = fcmp ult double %.029.val.i.i.i.i, %69
-  %or.cond = select i1 %67, i1 %70, i1 false
-  br i1 %or.cond, label %71, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %65 = load double, ptr %64, align 8
+  %66 = fcmp uge double %.029.val.i.i.i.i, %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %68 = load double, ptr %67, align 8
+  %69 = fcmp ult double %.029.val.i.i.i.i, %68
+  %or.cond = select i1 %66, i1 %69, i1 false
+  br i1 %or.cond, label %70, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
-  br label %73
+70:                                               ; preds = %63
+  %71 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
+  br label %72
 
-73:                                               ; preds = %71, %._crit_edge._crit_edge.i.i.i.i
-  %74 = phi double [ %69, %71 ], [ %.pre, %._crit_edge._crit_edge.i.i.i.i ]
-  %75 = phi double [ %66, %71 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
-  %.1.i.i.i.i28 = phi ptr [ %72, %71 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+72:                                               ; preds = %70, %._crit_edge._crit_edge.i.i.i.i
+  %73 = phi double [ %68, %70 ], [ %.pre, %._crit_edge._crit_edge.i.i.i.i ]
+  %74 = phi double [ %65, %70 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i28 = phi ptr [ %71, %70 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load double, ptr %.1.i.i.i.i28, align 8
-  %76 = fcmp uge double %.1.val.i.i.i.i, %75
-  %77 = fcmp ult double %.1.val.i.i.i.i, %74
-  %or.cond43 = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond43, label %78, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
+  %75 = fcmp uge double %.1.val.i.i.i.i, %74
+  %76 = fcmp ult double %.1.val.i.i.i.i, %73
+  %or.cond43 = select i1 %75, i1 %76, i1 false
+  br i1 %or.cond43, label %77, label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i28, i64 8
-  br label %80
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i28, i64 8
+  br label %79
 
-80:                                               ; preds = %78, %._crit_edge._crit_edge76.i.i.i.i
-  %81 = phi double [ %74, %78 ], [ %.pre72, %._crit_edge._crit_edge76.i.i.i.i ]
-  %82 = phi double [ %75, %78 ], [ %.pre78.i.i.i.i, %._crit_edge._crit_edge76.i.i.i.i ]
-  %.2.i.i.i.i = phi ptr [ %79, %78 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge76.i.i.i.i ]
+79:                                               ; preds = %77, %._crit_edge._crit_edge76.i.i.i.i
+  %80 = phi double [ %73, %77 ], [ %.pre71, %._crit_edge._crit_edge76.i.i.i.i ]
+  %81 = phi double [ %74, %77 ], [ %.pre78.i.i.i.i, %._crit_edge._crit_edge76.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %78, %77 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge76.i.i.i.i ]
   %.2.val.i.i.i.i = load double, ptr %.2.i.i.i.i, align 8
-  %83 = fcmp uge double %.2.val.i.i.i.i, %82
-  %84 = fcmp ult double %.2.val.i.i.i.i, %81
-  %or.cond46 = select i1 %83, i1 %84, i1 false
+  %82 = fcmp uge double %.2.val.i.i.i.i, %81
+  %83 = fcmp ult double %.2.val.i.i.i.i, %80
+  %or.cond46 = select i1 %82, i1 %83, i1 false
   br i1 %or.cond46, label %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit", label %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
 
-"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i, %60, %57, %54, %80, %73, %64
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %64 ], [ %.1.i.i.i.i28, %73 ], [ %.2.i.i.i.i, %80 ], [ %7, %54 ], [ %.sroa.gep, %57 ], [ %.02967.i.i.i.i.lcssa68.sroa.gep, %60 ], [ %6, %.lr.ph.i.i.i.i ]
-  %85 = icmp eq ptr %.028.i.i.i.i, %44
-  %.not33.i.i = icmp eq ptr %.028.i.i.i.i, %43
-  %or.cond52 = or i1 %85, %.not33.i.i
-  br i1 %or.cond52, label %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit", label %.lr.ph.i.i
+"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i, %59, %56, %53, %79, %72, %63
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %63 ], [ %.1.i.i.i.i28, %72 ], [ %.2.i.i.i.i, %79 ], [ %7, %53 ], [ %.sroa.gep, %56 ], [ %.02967.i.i.i.i.lcssa67.sroa.gep, %59 ], [ %6, %.lr.ph.i.i.i.i ]
+  %84 = icmp eq ptr %.028.i.i.i.i, %44
+  br i1 %84, label %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit", label %.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %88
+.preheader.i.i:                                   ; preds = %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
+  %.01732.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i, i64 8
+  %.not33.i.i = icmp eq ptr %.01732.i.i, %44
+  br i1 %.not33.i.i, label %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit", label %.lr.ph.i.i
 
-88:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i", %.lr.ph.i.i
-  %.028.i.i.i.i.pn = phi ptr [ %.028.i.i.i.i, %.lr.ph.i.i ], [ %.01735.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i" ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br label %87
+
+87:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i", %.lr.ph.i.i
+  %.01735.i.i = phi ptr [ %.01732.i.i, %.lr.ph.i.i ], [ %.017.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i" ]
   %.034.i.i = phi ptr [ %.028.i.i.i.i, %.lr.ph.i.i ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i" ]
-  %.01735.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.pn, i64 8
   %.017.val.i.i = load double, ptr %.01735.i.i, align 8
-  %89 = load double, ptr %86, align 8
-  %90 = fcmp uge double %.017.val.i.i, %89
-  %91 = load double, ptr %87, align 8
-  %92 = fcmp ult double %.017.val.i.i, %91
-  %or.cond48 = select i1 %90, i1 %92, i1 false
-  br i1 %or.cond48, label %93, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i"
+  %88 = load double, ptr %85, align 8
+  %89 = fcmp uge double %.017.val.i.i, %88
+  %90 = load double, ptr %86, align 8
+  %91 = fcmp ult double %.017.val.i.i, %90
+  %or.cond48 = select i1 %89, i1 %91, i1 false
+  br i1 %or.cond48, label %92, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i"
 
-93:                                               ; preds = %88
+92:                                               ; preds = %87
   store double %.017.val.i.i, ptr %.034.i.i, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %.034.i.i, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.034.i.i, i64 8
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i": ; preds = %93, %88
-  %.1.i.i = phi ptr [ %94, %93 ], [ %.034.i.i, %88 ]
-  %.not.i.i = icmp eq ptr %.01735.i.i, %43
-  br i1 %.not.i.i, label %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit", label %88, !llvm.loop !36
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i": ; preds = %92, %87
+  %.1.i.i = phi ptr [ %93, %92 ], [ %.034.i.i, %87 ]
+  %.017.i.i = getelementptr inbounds nuw i8, ptr %.01735.i.i, i64 8
+  %.not.i.i = icmp eq ptr %.017.i.i, %44
+  br i1 %.not.i.i, label %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit", label %87, !llvm.loop !36
 
-"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i", %80, %._crit_edge.i.i.i.i, %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i"
-  %.016.i.i = phi ptr [ %.028.i.i.i.i, %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i" ], [ %44, %._crit_edge.i.i.i.i ], [ %44, %80 ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i" ]
-  %95 = ptrtoint ptr %.016.i.i to i64
-  %96 = sub i64 %95, %45
-  %97 = ashr exact i64 %96, 3
-  switch i64 %97, label %100 [
+"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i", %79, %._crit_edge.i.i.i.i, %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i", %.preheader.i.i
+  %.016.i.i = phi ptr [ %44, %"_ZSt9__find_ifIPdN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS4_7SdfPathEdS0_S0_E3$_0EEET_SB_SB_T0_.exit.i.i" ], [ %44, %._crit_edge.i.i.i.i ], [ %.028.i.i.i.i, %.preheader.i.i ], [ %44, %79 ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS2_7SdfPathEdPdS7_E3$_0EclIS7_EEbT_.exit.thread.i.i" ]
+  %94 = ptrtoint ptr %.016.i.i to i64
+  %95 = sub i64 %94, %45
+  %96 = ashr exact i64 %95, 3
+  switch i64 %96, label %99 [
     i64 0, label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit
-    i64 1, label %98
+    i64 1, label %97
   ]
 
-98:                                               ; preds = %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit"
-  %99 = load double, ptr %6, align 8
-  store double %99, ptr %4, align 8
+97:                                               ; preds = %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit"
+  %98 = load double, ptr %6, align 8
+  store double %98, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit.sink.split
 
-100:                                              ; preds = %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit"
-  %101 = getelementptr inbounds i8, ptr %6, i64 %96
-  call void @_ZSt6__sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef nonnull %6, ptr noundef nonnull %101)
-  %102 = icmp eq ptr %6, %.016.i.i
-  br i1 %102, label %_ZSt6uniqueIPdET_S1_S1_.exit, label %.preheader.i.i.i
+99:                                               ; preds = %"_ZSt9remove_ifIPdZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS1_7SdfPathEdS0_S0_E3$_0ET_S7_S7_T0_.exit"
+  %100 = getelementptr inbounds i8, ptr %6, i64 %95
+  call void @_ZSt6__sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef nonnull %6, ptr noundef nonnull %100)
+  %101 = icmp eq ptr %6, %.016.i.i
+  br i1 %101, label %_ZSt6uniqueIPdET_S1_S1_.exit, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %100, %104
-  %.0.i.i.i = phi ptr [ %103, %104 ], [ %6, %100 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %103, %.016.i.i
-  br i1 %.not.i.i.i, label %_ZSt6uniqueIPdET_S1_S1_.exit, label %104
+.preheader.i.i.i:                                 ; preds = %99, %103
+  %.0.i.i.i = phi ptr [ %102, %103 ], [ %6, %99 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %102, %.016.i.i
+  br i1 %.not.i.i.i, label %_ZSt6uniqueIPdET_S1_S1_.exit, label %103
 
-104:                                              ; preds = %.preheader.i.i.i
-  %105 = load double, ptr %.0.i.i.i, align 8
-  %106 = load double, ptr %103, align 8
-  %107 = fcmp oeq double %105, %106
-  br i1 %107, label %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i, label %.preheader.i.i.i, !llvm.loop !37
+103:                                              ; preds = %.preheader.i.i.i
+  %104 = load double, ptr %.0.i.i.i, align 8
+  %105 = load double, ptr %102, align 8
+  %106 = fcmp oeq double %104, %105
+  br i1 %106, label %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i, label %.preheader.i.i.i, !llvm.loop !37
 
-_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i: ; preds = %104
-  %108 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  %.not23.i.i = icmp eq ptr %108, %.016.i.i
+_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i: ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
+  %.not23.i.i = icmp eq ptr %107, %.016.i.i
   br i1 %.not23.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i29
 
-.lr.ph.i.i29:                                     ; preds = %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i, %115
-  %109 = phi double [ %116, %115 ], [ %105, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i ]
-  %110 = phi ptr [ %117, %115 ], [ %108, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i ]
-  %.024.i.i = phi ptr [ %.1.i.i30, %115 ], [ %.0.i.i.i, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i ]
-  %111 = load double, ptr %110, align 8
-  %112 = fcmp oeq double %109, %111
-  br i1 %112, label %115, label %113
+.lr.ph.i.i29:                                     ; preds = %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i, %114
+  %108 = phi double [ %115, %114 ], [ %104, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i ]
+  %109 = phi ptr [ %116, %114 ], [ %107, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i ]
+  %.024.i.i = phi ptr [ %.1.i.i30, %114 ], [ %.0.i.i.i, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i ]
+  %110 = load double, ptr %109, align 8
+  %111 = fcmp oeq double %108, %110
+  br i1 %111, label %114, label %112
 
-113:                                              ; preds = %.lr.ph.i.i29
-  %114 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 8
-  store double %111, ptr %114, align 8
-  br label %115
+112:                                              ; preds = %.lr.ph.i.i29
+  %113 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 8
+  store double %110, ptr %113, align 8
+  br label %114
 
-115:                                              ; preds = %113, %.lr.ph.i.i29
-  %116 = phi double [ %109, %.lr.ph.i.i29 ], [ %111, %113 ]
-  %.1.i.i30 = phi ptr [ %.024.i.i, %.lr.ph.i.i29 ], [ %114, %113 ]
-  %117 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %.not.i.i31 = icmp eq ptr %117, %.016.i.i
+114:                                              ; preds = %112, %.lr.ph.i.i29
+  %115 = phi double [ %108, %.lr.ph.i.i29 ], [ %110, %112 ]
+  %.1.i.i30 = phi ptr [ %.024.i.i, %.lr.ph.i.i29 ], [ %113, %112 ]
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %.not.i.i31 = icmp eq ptr %116, %.016.i.i
   br i1 %.not.i.i31, label %._crit_edge.i.i, label %.lr.ph.i.i29, !llvm.loop !38
 
-._crit_edge.i.i:                                  ; preds = %115, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i
-  %.0.lcssa.i.i = phi ptr [ %.0.i.i.i, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i ], [ %.1.i.i30, %115 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
+._crit_edge.i.i:                                  ; preds = %114, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i
+  %.0.lcssa.i.i = phi ptr [ %.0.i.i.i, %_ZSt15__adjacent_findIPdN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit.i.i ], [ %.1.i.i30, %114 ]
+  %117 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
   br label %_ZSt6uniqueIPdET_S1_S1_.exit
 
-_ZSt6uniqueIPdET_S1_S1_.exit:                     ; preds = %.preheader.i.i.i, %100, %._crit_edge.i.i
-  %.015.i.i = phi ptr [ %118, %._crit_edge.i.i ], [ %101, %100 ], [ %101, %.preheader.i.i.i ]
+_ZSt6uniqueIPdET_S1_S1_.exit:                     ; preds = %.preheader.i.i.i, %99, %._crit_edge.i.i
+  %.015.i.i = phi ptr [ %117, %._crit_edge.i.i ], [ %100, %99 ], [ %100, %.preheader.i.i.i ]
   %.not51 = icmp eq ptr %6, %.015.i.i
-  br i1 %.not51, label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit, label %119
+  br i1 %.not51, label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit, label %118
 
-119:                                              ; preds = %_ZSt6uniqueIPdET_S1_S1_.exit
-  %120 = load double, ptr %6, align 8
-  %121 = fcmp ugt double %2, %120
-  br i1 %121, label %123, label %122
+118:                                              ; preds = %_ZSt6uniqueIPdET_S1_S1_.exit
+  %119 = load double, ptr %6, align 8
+  %120 = fcmp ugt double %2, %119
+  br i1 %120, label %122, label %121
 
-122:                                              ; preds = %119
-  store double %120, ptr %4, align 8
+121:                                              ; preds = %118
+  store double %119, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit.sink.split
 
-123:                                              ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %.015.i.i, i64 -8
-  %125 = load double, ptr %124, align 8
-  %126 = fcmp ult double %2, %125
-  br i1 %126, label %128, label %127
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds i8, ptr %.015.i.i, i64 -8
+  %124 = load double, ptr %123, align 8
+  %125 = fcmp ult double %2, %124
+  br i1 %125, label %127, label %126
 
-127:                                              ; preds = %123
-  store double %125, ptr %4, align 8
+126:                                              ; preds = %122
+  store double %124, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit.sink.split
 
-128:                                              ; preds = %123
-  %129 = ptrtoint ptr %.015.i.i to i64
-  %130 = sub i64 %129, %45
-  %131 = ashr exact i64 %130, 3
-  %132 = icmp sgt i64 %131, 0
-  br i1 %132, label %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i
+127:                                              ; preds = %122
+  %128 = ptrtoint ptr %.015.i.i to i64
+  %129 = sub i64 %128, %45
+  %130 = ashr exact i64 %129, 3
+  %131 = icmp sgt i64 %130, 0
+  br i1 %131, label %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i
 
-_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i:            ; preds = %128, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i35, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i ], [ %6, %128 ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i ], [ %131, %128 ]
-  %133 = lshr i64 %.01116.i.i.i.i, 1
-  %134 = getelementptr inbounds nuw double, ptr %.017.i.i.i.i, i64 %133
-  %135 = load double, ptr %134, align 8
-  %136 = fcmp olt double %135, %2
-  %.sroa.gep38 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %137 = xor i64 %133, -1
-  %138 = add nsw i64 %.01116.i.i.i.i, %137
-  %.112.i.i.i.i = select i1 %136, i64 %138, i64 %133
-  %.1.i.i.i.i35 = select i1 %136, ptr %.sroa.gep38, ptr %.017.i.i.i.i
-  %139 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %139, label %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i, !llvm.loop !39
+_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i:            ; preds = %127, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i35, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i ], [ %6, %127 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i ], [ %130, %127 ]
+  %132 = lshr i64 %.01116.i.i.i.i, 1
+  %133 = getelementptr inbounds nuw double, ptr %.017.i.i.i.i, i64 %132
+  %134 = load double, ptr %133, align 8
+  %135 = fcmp olt double %134, %2
+  %.sroa.gep38 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %136 = xor i64 %132, -1
+  %137 = add nsw i64 %.01116.i.i.i.i, %136
+  %.112.i.i.i.i = select i1 %135, i64 %137, i64 %132
+  %.1.i.i.i.i35 = select i1 %135, ptr %.sroa.gep38, ptr %.017.i.i.i.i
+  %138 = icmp sgt i64 %.112.i.i.i.i, 0
+  br i1 %138, label %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i, !llvm.loop !39
 
 _ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i: ; preds = %_ZSt7advanceIPdlEvRT_T0_.exit.i.i.i.i
   %.pre.i = load double, ptr %.1.i.i.i.i35, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i, %128
-  %140 = phi double [ %120, %128 ], [ %.pre.i, %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i ]
-  %.0.lcssa.i.i.i.i = phi ptr [ %6, %128 ], [ %.1.i.i.i.i35, %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i ]
-  %141 = fcmp oeq double %140, %2
-  store double %140, ptr %4, align 8
-  br i1 %141, label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit.sink.split, label %142
+_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i, %127
+  %139 = phi double [ %119, %127 ], [ %.pre.i, %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i ]
+  %.0.lcssa.i.i.i.i = phi ptr [ %6, %127 ], [ %.1.i.i.i.i35, %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.loopexit.i ]
+  %140 = fcmp oeq double %139, %2
+  store double %139, ptr %4, align 8
+  br i1 %140, label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit.sink.split, label %141
 
-142:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i
-  %143 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 -8
-  %144 = load double, ptr %143, align 8
+141:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i
+  %142 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 -8
+  %143 = load double, ptr %142, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit.sink.split
 
-_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit.sink.split: ; preds = %122, %127, %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i, %142, %98
-  %.sink.i.sink = phi double [ %99, %98 ], [ %120, %122 ], [ %144, %142 ], [ %125, %127 ], [ %140, %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit.sink.split: ; preds = %121, %126, %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i, %141, %97
+  %.sink.i.sink = phi double [ %98, %97 ], [ %119, %121 ], [ %143, %141 ], [ %124, %126 ], [ %139, %_ZN32pxrInternal_v0_24__pxrReserved__L14_GetLowerBoundIPdEET_S2_S2_d.exit.i ]
   store double %.sink.i.sink, ptr %3, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIPdEEbT_S2_dS1_S1_.exit
 

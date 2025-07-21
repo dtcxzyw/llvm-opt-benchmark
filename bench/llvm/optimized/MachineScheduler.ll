@@ -19325,8 +19325,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_111SchedRegionELb1EE9push_backER
   %.val.i = load ptr, ptr %6, align 8, !tbaa !25
   %149 = zext i32 %.val28.pre73 to i64
   %.idx.i = mul nuw nsw i64 %149, 24
-  %150 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %150, i64 -24
+  %150 = getelementptr i8, ptr %.val.i, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %150, i64 -24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

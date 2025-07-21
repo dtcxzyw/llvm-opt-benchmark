@@ -611,8 +611,8 @@ _ZL11appendDigitRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i: ;
 
 .lr.ph.i.i.preheader:                             ; preds = %143
   %146 = load ptr, ptr %14, align 8, !tbaa !26
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 %144
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %147, i64 -1
+  %147 = getelementptr i8, ptr %146, i64 %144
+  %.sroa.0.08.i.i = getelementptr i8, ptr %147, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

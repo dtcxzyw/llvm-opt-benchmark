@@ -48350,34 +48350,30 @@ invoke.cont20:                                    ; preds = %.noexc
   %cmp.not.i.i.i = icmp ne i32 %5, 0
   %6 = load ptr, ptr %values_, align 8
   %add.ptr.i.i.i.idx = shl nuw nsw i64 %conv.i.i.i, 5
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %add.ptr.i.i.i.idx
-  %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -32
+  %7 = add nsw i64 %add.ptr.i.i.i.idx, -32
+  %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %6, i64 %7
   call void @llvm.assume(i1 %cmp.not.i.i.i)
-  %cmp.i714.i.i = icmp eq i32 %5, 1
-  br i1 %cmp.i714.i.i, label %invoke.cont22, label %while.body.i.i.preheader
+  %cmp.i714.i.i = icmp eq i64 %7, 0
+  br i1 %cmp.i714.i.i, label %invoke.cont22, label %while.body.i.i
 
-while.body.i.i.preheader:                         ; preds = %invoke.cont20
-  %incdec.ptr.i15.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -64
-  br label %while.body.i.i
-
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i
-  %storemerge.i21.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i ], [ %incdec.ptr.i15.i.i, %while.body.i.i.preheader ]
-  %retval.sroa.0.118.i.i = phi ptr [ %retval.sroa.0.2.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i ], [ %add.ptr2.i.i.i, %while.body.i.i.preheader ]
+while.body.i.i:                                   ; preds = %invoke.cont20, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i
+  %storemerge.i21.i.i.pn = phi ptr [ %storemerge.i21.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i ], [ %add.ptr2.i.i.i, %invoke.cont20 ]
+  %retval.sroa.0.118.i.i = phi ptr [ %retval.sroa.0.2.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i ], [ %add.ptr2.i.i.i, %invoke.cont20 ]
+  %storemerge.i21.i.i = getelementptr inbounds i8, ptr %storemerge.i21.i.i.pn, i64 -32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %storemerge.i21.i.i, ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.118.i.i)
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %while.body.i.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #37
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #37
   unreachable
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i: ; preds = %while.body.i.i
   %cmp.i.i8.i.i = icmp slt i32 %call.i.i.i.i, 0
   %retval.sroa.0.2.i.i = select i1 %cmp.i.i8.i.i, ptr %storemerge.i21.i.i, ptr %retval.sroa.0.118.i.i
   %cmp.i7.i.i = icmp eq ptr %storemerge.i21.i.i, %6
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %storemerge.i21.i.i, i64 -32
   br i1 %cmp.i7.i.i, label %invoke.cont22, label %while.body.i.i, !llvm.loop !473
 
 invoke.cont22:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i, %invoke.cont20
@@ -48386,39 +48382,35 @@ invoke.cont22:                                    ; preds = %_ZNK9__gnu_cxx5__op
           to label %invoke.cont36 unwind label %lpad.loopexit.split-lp
 
 invoke.cont36:                                    ; preds = %invoke.cont22
-  %9 = load i32, ptr %sizeAndPackedBegin_.i.i.i.i, align 4
-  %conv.i.i.i14 = zext i32 %9 to i64
-  %cmp.not.i.i.i15 = icmp ne i32 %9, 0
-  %10 = load ptr, ptr %values_, align 8
+  %10 = load i32, ptr %sizeAndPackedBegin_.i.i.i.i, align 4
+  %conv.i.i.i14 = zext i32 %10 to i64
+  %cmp.not.i.i.i15 = icmp ne i32 %10, 0
+  %11 = load ptr, ptr %values_, align 8
   %add.ptr.i.i.i16.idx = shl nuw nsw i64 %conv.i.i.i14, 5
-  %add.ptr.i.i.i16 = getelementptr inbounds nuw i8, ptr %10, i64 %add.ptr.i.i.i16.idx
-  %add.ptr2.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i.i16, i64 -32
+  %12 = add nsw i64 %add.ptr.i.i.i16.idx, -32
+  %add.ptr2.i.i.i17 = getelementptr inbounds i8, ptr %11, i64 %12
   call void @llvm.assume(i1 %cmp.not.i.i.i15)
-  %cmp.i714.i.i23 = icmp eq i32 %9, 1
-  br i1 %cmp.i714.i.i23, label %invoke.cont38, label %while.body.i.i27.preheader
+  %cmp.i714.i.i23 = icmp eq i64 %12, 0
+  br i1 %cmp.i714.i.i23, label %invoke.cont38, label %while.body.i.i27
 
-while.body.i.i27.preheader:                       ; preds = %invoke.cont36
-  %incdec.ptr.i15.i.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i.i16, i64 -64
-  br label %while.body.i.i27
-
-while.body.i.i27:                                 ; preds = %while.body.i.i27.preheader, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34
-  %storemerge.i21.i.i28 = phi ptr [ %incdec.ptr.i.i.i39, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 ], [ %incdec.ptr.i15.i.i24, %while.body.i.i27.preheader ]
-  %retval.sroa.0.118.i.i31 = phi ptr [ %retval.sroa.0.2.i.i36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 ], [ %add.ptr2.i.i.i17, %while.body.i.i27.preheader ]
+while.body.i.i27:                                 ; preds = %invoke.cont36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34
+  %storemerge.i21.i.i28.pn = phi ptr [ %storemerge.i21.i.i28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 ], [ %add.ptr2.i.i.i17, %invoke.cont36 ]
+  %retval.sroa.0.118.i.i31 = phi ptr [ %retval.sroa.0.2.i.i36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 ], [ %add.ptr2.i.i.i17, %invoke.cont36 ]
+  %storemerge.i21.i.i28 = getelementptr inbounds i8, ptr %storemerge.i21.i.i28.pn, i64 -32
   %call.i.i.i.i32 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.118.i.i31, ptr noundef nonnull align 8 dereferenceable(32) %storemerge.i21.i.i28)
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 unwind label %terminate.lpad.i.i.i.i33
 
 terminate.lpad.i.i.i.i33:                         ; preds = %while.body.i.i27
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #37
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #37
   unreachable
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34: ; preds = %while.body.i.i27
   %cmp.i.i8.i.i35 = icmp slt i32 %call.i.i.i.i32, 0
   %retval.sroa.0.2.i.i36 = select i1 %cmp.i.i8.i.i35, ptr %storemerge.i21.i.i28, ptr %retval.sroa.0.118.i.i31
-  %cmp.i7.i.i38 = icmp eq ptr %storemerge.i21.i.i28, %10
-  %incdec.ptr.i.i.i39 = getelementptr inbounds i8, ptr %storemerge.i21.i.i28, i64 -32
+  %cmp.i7.i.i38 = icmp eq ptr %storemerge.i21.i.i28, %11
   br i1 %cmp.i7.i.i38, label %invoke.cont38, label %while.body.i.i27, !llvm.loop !474
 
 invoke.cont38:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34, %invoke.cont36

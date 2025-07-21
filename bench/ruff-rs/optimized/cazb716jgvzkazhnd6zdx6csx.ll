@@ -27089,8 +27089,8 @@ define internal fastcc void @"_ZN4core4iter8adapters6filter15filter_try_fold28_$
   br i1 %26, label %"_ZN11ruff_linter5rules10pydocstyle5rules8sections12args_section28_$u7b$$u7b$closure$u7d$$u7d$17h83e6918ec05ebf34E.exit.i", label %27
 
 27:                                               ; preds = %"_ZN11ruff_linter5rules10pydocstyle5rules8sections12args_section28_$u7b$$u7b$closure$u7d$$u7d$17h1c3cb0ee92fee171E.exit.thread"
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload, i64 %.sroa.46.0.copyload
-  %29 = getelementptr inbounds i8, ptr %28, i64 -1
+  %28 = add nsw i64 %.sroa.46.0.copyload, -1
+  %29 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %28
   %30 = load i8, ptr %29, align 1, !noalias !4495, !noundef !3
   switch i8 %30, label %"_ZN11ruff_linter5rules10pydocstyle5rules8sections12args_section28_$u7b$$u7b$closure$u7d$$u7d$17h83e6918ec05ebf34E.exit.i" [
     i8 10, label %31
@@ -27098,11 +27098,11 @@ define internal fastcc void @"_ZN4core4iter8adapters6filter15filter_try_fold28_$
   ]
 
 31:                                               ; preds = %27
-  %32 = icmp eq i64 %.sroa.46.0.copyload, 1
+  %32 = icmp eq i64 %28, 0
   br i1 %32, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %28, i64 -2
+  %34 = getelementptr inbounds i8, ptr %29, i64 -1
   %35 = load i8, ptr %34, align 1, !noalias !4495, !noundef !3
   %36 = icmp eq i8 %35, 13
   %spec.select.i.i.i.i = select i1 %36, i8 2, i8 0
@@ -42241,8 +42241,8 @@ define hidden void @_ZN9itertools9Itertools4join17hdd2edc9588710a5fE(ptr dead_on
   br i1 %53, label %"_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line28_$u7b$$u7b$closure$u7d$$u7d$17h8d62a6f97bf92997E.exit.i.i.i.i", label %54
 
 54:                                               ; preds = %.noexc20
-  %55 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %.val1.i.i.i.i.i
-  %56 = getelementptr inbounds i8, ptr %55, i64 -1
+  %55 = add nsw i64 %.val1.i.i.i.i.i, -1
+  %56 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 %55
   %57 = load i8, ptr %56, align 1, !noalias !7627, !noundef !3
   switch i8 %57, label %"_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line28_$u7b$$u7b$closure$u7d$$u7d$17h8d62a6f97bf92997E.exit.i.i.i.i" [
     i8 10, label %58
@@ -42250,11 +42250,11 @@ define hidden void @_ZN9itertools9Itertools4join17hdd2edc9588710a5fE(ptr dead_on
   ]
 
 58:                                               ; preds = %54
-  %59 = icmp eq i64 %.val1.i.i.i.i.i, 1
+  %59 = icmp eq i64 %55, 0
   br i1 %59, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i.i.i.i", label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %55, i64 -2
+  %61 = getelementptr inbounds i8, ptr %56, i64 -1
   %62 = load i8, ptr %61, align 1, !noalias !7627, !noundef !3
   %63 = icmp eq i8 %62, 13
   %spec.select.i.i.i.i.i.i.i = select i1 %63, i8 2, i8 0

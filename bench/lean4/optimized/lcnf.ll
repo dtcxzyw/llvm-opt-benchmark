@@ -11976,8 +11976,8 @@ _ZN4lean15constructor_valC2ERKS0_.exit:           ; preds = %._ZN4lean15construc
 
 .lr.ph.i.i.preheader:                             ; preds = %89
   %.idx = shl nuw nsw i64 %92, 3
-  %94 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %94, i64 -8
+  %94 = getelementptr i8, ptr %90, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %94, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

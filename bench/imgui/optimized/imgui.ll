@@ -4942,8 +4942,8 @@ define noundef i32 @_Z17ImTextStrFromUtf8PtiPKcS1_PS1_(ptr noundef %0, i32 nound
   %6 = alloca i32, align 4
   %7 = sext i32 %1 to i64
   %.idx = shl nsw i64 %7, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %9 = getelementptr inbounds i8, ptr %8, i64 -2
+  %8 = getelementptr i8, ptr %0, i64 %.idx
+  %9 = getelementptr i8, ptr %8, i64 -2
   %10 = icmp sgt i32 %1, 1
   br i1 %10, label %.lr.ph, label %.critedge
 

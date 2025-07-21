@@ -7659,9 +7659,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_123ModuleSanitizerCoverage17InjectT
 
 .lr.ph.preheader:                                 ; preds = %24
   %30 = zext i32 %29 to i64
-  %.idx12 = sub nsw i64 0, %30
-  %31 = getelementptr inbounds i8, ptr %25, i64 %.idx12
-  %.0204 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %31 = sub nsw i64 32, %30
+  %.0204 = getelementptr inbounds i8, ptr %25, i64 %31
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %79, %24

@@ -20461,8 +20461,8 @@ define dso_local void @_ZN5clang11DeclContext18collectAllContextsERN4llvm15Small
   %15 = load ptr, ptr %1, align 8, !tbaa !671
   %16 = zext i32 %13 to i64
   %.idx.i = shl nuw nsw i64 %16, 3
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %17, i64 -8
+  %17 = getelementptr i8, ptr %15, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %17, i64 -8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -20539,8 +20539,8 @@ _ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i: ; 
   %47 = load ptr, ptr %1, align 8, !tbaa !671
   %48 = zext i32 %45 to i64
   %.idx.i17 = shl nuw nsw i64 %48, 3
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i17
-  %.012.i.i.i18 = getelementptr inbounds i8, ptr %49, i64 -8
+  %49 = getelementptr i8, ptr %47, i64 %.idx.i17
+  %.012.i.i.i18 = getelementptr i8, ptr %49, i64 -8
   br label %.lr.ph.i.i.i19
 
 .lr.ph.i.i.i19:                                   ; preds = %.lr.ph.i.i.i19, %.lr.ph.i.i.preheader.i16

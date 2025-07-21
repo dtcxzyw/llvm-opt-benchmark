@@ -12938,8 +12938,8 @@ _ZN4lean10object_refD2Ev.exit56:                  ; preds = %97, %104, %106, %10
 .lr.ph.i.i.preheader:                             ; preds = %_ZN4lean10object_refD2Ev.exit56
   %113 = load ptr, ptr %5, align 8, !tbaa !63
   %.idx = shl nuw nsw i64 %111, 3
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %114, i64 -8
+  %114 = getelementptr i8, ptr %113, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %114, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

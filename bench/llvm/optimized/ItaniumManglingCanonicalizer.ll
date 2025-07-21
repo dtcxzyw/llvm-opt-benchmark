@@ -15776,10 +15776,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %32
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 10
   store ptr %35, ptr %0, align 8, !tbaa !109
-  %36 = getelementptr i8, ptr %35, i64 %25
-  %37 = getelementptr i8, ptr %36, i64 -9
+  %36 = add i64 %25, -9
+  %37 = getelementptr i8, ptr %35, i64 %36
   store ptr %37, ptr %9, align 8, !tbaa !109
-  %.not.i.not.i.i12 = icmp eq i64 %25, 9
+  %.not.i.not.i.i12 = icmp eq i64 %36, 0
   br i1 %.not.i.not.i.i12, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseBareSourceNameEv.exit27.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i13
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i13: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit

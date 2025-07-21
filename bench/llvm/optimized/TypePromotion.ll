@@ -4988,17 +4988,17 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i.i: ; preds = %1527, %_ZNK4llv
 _ZN4llvm8CallBase7arg_endEv.exit.i.i:             ; preds = %1536, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i.i
   %1552 = phi i32 [ %.pre225.i.i, %1536 ], [ %.pre226.i.i, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i.i ]
   %.0.i.i.neg.i.i = phi i64 [ %.neg.i.i, %1536 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i.i ]
-  %1553 = shl i32 %1552, 5
-  %1554 = zext i32 %1553 to i64
-  %1555 = add nsw i64 %.0.i.i.neg.i.i, %.0.i.i.i.neg.i.i
-  %gepdiff.i.i = add nsw i64 %1555, %1554
+  %1553 = add nsw i64 %.0.i.i.neg.i.i, %.0.i.i.i.neg.i.i
+  %1554 = shl i32 %1552, 5
+  %1555 = zext i32 %1554 to i64
+  %gepdiff.i.i = add nsw i64 %1553, %1555
   %1556 = lshr exact i64 %gepdiff.i.i, 5
   %1557 = and i64 %1556, 4294967295
   %1558 = icmp samesign ult i64 %indvars.iv.i125.i, %1557
   br i1 %1558, label %1559, label %.loopexit.i126.i
 
 1559:                                             ; preds = %_ZN4llvm8CallBase7arg_endEv.exit.i.i
-  %.idx178.i.i = sub nsw i64 0, %1554
+  %.idx178.i.i = sub nsw i64 0, %1555
   %1560 = getelementptr inbounds i8, ptr %1503, i64 %.idx178.i.i
   %1561 = getelementptr inbounds nuw %"class.llvm::Use", ptr %1560, i64 %indvars.iv.i125.i
   %1562 = load ptr, ptr %1561, align 8, !tbaa !107

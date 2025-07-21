@@ -1638,9 +1638,9 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %sext = shl i64 %5, 32
   %6 = ashr exact i64 %sext, 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 -2
-  %.not47 = icmp eq i64 %sext, 8589934592
+  %7 = add nsw i64 %6, -2
+  %8 = getelementptr inbounds i8, ptr %1, i64 %7
+  %.not47 = icmp eq i64 %7, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %10

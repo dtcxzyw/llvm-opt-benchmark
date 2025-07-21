@@ -346,7 +346,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %85
   %sext.i = add i64 %95, -4294967296
   %96 = ashr exact i64 %sext.i, 31
   %.idx.i149.i = and i64 %96, -2
-  %97 = getelementptr inbounds i8, ptr %94, i64 %.idx.i149.i
+  %97 = getelementptr i8, ptr %94, i64 %.idx.i149.i
   %98 = sitofp i32 %.033154.i to double
   %99 = fadd double %98, 5.000000e-01
   %100 = fptosi double %99 to i32
@@ -361,7 +361,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %85
   %101 = phi ptr [ %86, %.lr.ph.preheader.i.i.preheader.lr.ph.i ], [ %320, %_ZN5ZXing11PatternView8skipPairEv.exit.i ]
   %.pn.i = phi ptr [ %97, %.lr.ph.preheader.i.i.preheader.lr.ph.i ], [ %326, %_ZN5ZXing11PatternView8skipPairEv.exit.i ]
   %.sroa.082.0151.i = phi ptr [ %94, %.lr.ph.preheader.i.i.preheader.lr.ph.i ], [ %137, %_ZN5ZXing11PatternView8skipPairEv.exit.i ]
-  %102 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
+  %102 = getelementptr i8, ptr %.pn.i, i64 -16
   br label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, %.lr.ph.preheader.i.i.preheader.i
@@ -913,7 +913,7 @@ _ZN5ZXing11PatternView8skipPairEv.exit.i:         ; preds = %159, %_ZN5ZXing5Azt
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %324, i32 0)
   %325 = shl nuw i32 %.sroa.speculated.i.i, 1
   %.idx.i.i = zext i32 %325 to i64
-  %326 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx.i.i
+  %326 = getelementptr i8, ptr %137, i64 %.idx.i.i
   %.not8.i.i = icmp sgt i32 %324, 8
   br i1 %.not8.i.i, label %.lr.ph.preheader.i.i.preheader.i, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread.i, !llvm.loop !83
 

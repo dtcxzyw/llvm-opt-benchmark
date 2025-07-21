@@ -40549,10 +40549,10 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
 29:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 10
   store ptr %30, ptr %0, align 16, !tbaa !219
-  %31 = getelementptr i8, ptr %30, i64 %19
-  %32 = getelementptr i8, ptr %31, i64 -9
+  %31 = add i64 %19, -9
+  %32 = getelementptr i8, ptr %30, i64 %31
   store ptr %32, ptr %3, align 8, !tbaa !219
-  %.not.i.not.i.i23 = icmp eq i64 %19, 9
+  %.not.i.not.i.i23 = icmp eq i64 %31, 0
   br i1 %.not.i.not.i.i23, label %.thread, label %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit.i.i24
 
 _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit.i.i24: ; preds = %29

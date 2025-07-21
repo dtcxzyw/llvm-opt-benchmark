@@ -1357,10 +1357,10 @@ define dso_local void @_ZN5clang12Preprocessor26ReplacePreviousCachedTokenEN4llv
   %12 = load ptr, ptr %4, align 8, !tbaa !21
   %13 = load i64, ptr %6, align 8, !tbaa !267
   %.idx4 = mul nuw nsw i64 %13, 24
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx4
-  %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %.idx5 = mul nuw nsw i64 %2, 24
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx5
+  %14 = getelementptr i8, ptr %12, i64 %.idx4
+  %15 = getelementptr i8, ptr %14, i64 -24
+  %16 = getelementptr i8, ptr %15, i64 %.idx5
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %19 = load i32, ptr %18, align 8, !tbaa !14

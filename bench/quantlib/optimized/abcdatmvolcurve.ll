@@ -8781,15 +8781,14 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %add.i.i.i21 = add nsw i64 %__n, %conv3.i.i.i.i.i.i
   %div.i.i.i22 = sdiv i64 %add.i.i.i21, 64
   %add.ptr.i.i.i23.idx = shl nsw i64 %div.i.i.i22, 3
-  %add.ptr.i.i.i23 = getelementptr inbounds i8, ptr %__position.coerce0, i64 %add.ptr.i.i.i23.idx
   %9 = and i64 %add.i.i.i21, -9223372036854775745
   %cmp.i.i.i24 = icmp ugt i64 %9, -9223372036854775808
-  %storemerge.idx.i.i.i25.neg = select i1 %cmp.i.i.i24, i64 8, i64 0
   %storemerge.idx.i.i.i25 = select i1 %cmp.i.i.i24, i64 -8, i64 0
-  %storemerge.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i.i.i23, i64 %storemerge.idx.i.i.i25
-  %10 = trunc i64 %add.i.i.i21 to i32
-  %conv4.i.i.i27 = and i32 %10, 63
-  %cmp.not.i.i.i = icmp eq i64 %add.ptr.i.i.i23.idx, %storemerge.idx.i.i.i25.neg
+  %10 = add nsw i64 %storemerge.idx.i.i.i25, %add.ptr.i.i.i23.idx
+  %storemerge.i.i.i26 = getelementptr inbounds i8, ptr %__position.coerce0, i64 %10
+  %11 = trunc i64 %add.i.i.i21 to i32
+  %conv4.i.i.i27 = and i32 %11, 63
+  %cmp.not.i.i.i = icmp eq i64 %10, 0
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -8802,14 +8801,14 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   br i1 %__x, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i.i
-  %11 = load i64, ptr %__position.coerce0, align 8, !tbaa !109
-  %or.i.i.i.i = or i64 %11, %shl.i.i.i.i
+  %12 = load i64, ptr %__position.coerce0, align 8, !tbaa !109
+  %or.i.i.i.i = or i64 %12, %shl.i.i.i.i
   br label %_ZSt14__fill_bvectorPmjjb.exit.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then4.i.i.i
   %not.i.i.i.i = xor i64 %shl.i.i.i.i, -1
-  %12 = load i64, ptr %__position.coerce0, align 8, !tbaa !109
-  %and2.i.i.i.i = and i64 %12, %not.i.i.i.i
+  %13 = load i64, ptr %__position.coerce0, align 8, !tbaa !109
+  %and2.i.i.i.i = and i64 %13, %not.i.i.i.i
   br label %_ZSt14__fill_bvectorPmjjb.exit.i.i.i
 
 _ZSt14__fill_bvectorPmjjb.exit.i.i.i:             ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -8834,14 +8833,14 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
   br i1 %__x, label %if.then.i20.i.i.i, label %if.else.i16.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %if.then10.i.i.i
-  %13 = load i64, ptr %storemerge.i.i.i26, align 8, !tbaa !109
-  %or.i21.i.i.i = or i64 %13, %shr.i.i.i.i
+  %14 = load i64, ptr %storemerge.i.i.i26, align 8, !tbaa !109
+  %or.i21.i.i.i = or i64 %14, %shr.i.i.i.i
   br label %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i
 
 if.else.i16.i.i.i:                                ; preds = %if.then10.i.i.i
   %not.i17.i.i.i = xor i64 %shr.i.i.i.i, -1
-  %14 = load i64, ptr %storemerge.i.i.i26, align 8, !tbaa !109
-  %and2.i18.i.i.i = and i64 %14, %not.i17.i.i.i
+  %15 = load i64, ptr %storemerge.i.i.i26, align 8, !tbaa !109
+  %and2.i18.i.i.i = and i64 %15, %not.i17.i.i.i
   br label %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i
 
 _ZSt14__fill_bvectorPmjjb.exit22.i.i.i:           ; preds = %if.else.i16.i.i.i, %if.then.i20.i.i.i
@@ -8862,14 +8861,14 @@ if.then18.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %__x, label %if.then.i32.i.i.i, label %if.else.i28.i.i.i
 
 if.then.i32.i.i.i:                                ; preds = %if.then18.i.i.i
-  %15 = load i64, ptr %__position.coerce0, align 8, !tbaa !109
-  %or.i33.i.i.i = or i64 %15, %and.i.i.i.i
+  %16 = load i64, ptr %__position.coerce0, align 8, !tbaa !109
+  %or.i33.i.i.i = or i64 %16, %and.i.i.i.i
   br label %_ZSt14__fill_bvectorPmjjb.exit34.i.i.i
 
 if.else.i28.i.i.i:                                ; preds = %if.then18.i.i.i
   %not.i29.i.i.i = xor i64 %and.i.i.i.i, -1
-  %16 = load i64, ptr %__position.coerce0, align 8, !tbaa !109
-  %and2.i30.i.i.i = and i64 %16, %not.i29.i.i.i
+  %17 = load i64, ptr %__position.coerce0, align 8, !tbaa !109
+  %and2.i30.i.i.i = and i64 %17, %not.i29.i.i.i
   br label %_ZSt14__fill_bvectorPmjjb.exit34.i.i.i
 
 _ZSt14__fill_bvectorPmjjb.exit34.i.i.i:           ; preds = %if.else.i28.i.i.i, %if.then.i32.i.i.i
@@ -8878,19 +8877,19 @@ _ZSt14__fill_bvectorPmjjb.exit34.i.i.i:           ; preds = %if.else.i28.i.i.i, 
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %if.end.i.i.i, %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i, %if.else.i.i.i, %_ZSt14__fill_bvectorPmjjb.exit34.i.i.i
-  %17 = load i32, ptr %_M_offset.i.i.i, align 8, !tbaa !107
-  %conv.i.i30 = zext i32 %17 to i64
+  %18 = load i32, ptr %_M_offset.i.i.i, align 8, !tbaa !107
+  %conv.i.i30 = zext i32 %18 to i64
   %add.i.i31 = add nsw i64 %__n, %conv.i.i30
   %div.i.i = sdiv i64 %add.i.i31, 64
-  %18 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !106
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %18, i64 %div.i.i
-  %19 = and i64 %add.i.i31, -9223372036854775745
-  %cmp.i.i = icmp ugt i64 %19, -9223372036854775808
+  %19 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !106
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %19, i64 %div.i.i
+  %20 = and i64 %add.i.i31, -9223372036854775745
+  %cmp.i.i = icmp ugt i64 %20, -9223372036854775808
   %storemerge.idx.i.i = select i1 %cmp.i.i, i64 -8, i64 0
   %storemerge.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %storemerge.idx.i.i
   store ptr %storemerge.i.i, ptr %_M_finish.i.i, align 8, !tbaa !106
-  %20 = trunc i64 %add.i.i31 to i32
-  %conv4.i.i = and i32 %20, 63
+  %21 = trunc i64 %add.i.i31 to i32
+  %conv4.i.i = and i32 %21, 63
   br label %if.end45.sink.split
 
 if.else:                                          ; preds = %if.end
@@ -8906,11 +8905,11 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %add.i.i, i64 %__n)
   %add.i = add i64 %.sroa.speculated.i, %add.i.i
   %cmp7.i = icmp ult i64 %add.i, %add.i.i
-  %21 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775744)
-  %22 = add nuw nsw i64 %21, 63
-  %sub.i.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %22
-  %23 = lshr i64 %sub.i.i, 3
-  %mul.i.i.i37 = and i64 %23, 1152921504606846968
+  %22 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775744)
+  %23 = add nuw nsw i64 %22, 63
+  %sub.i.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %23
+  %24 = lshr i64 %sub.i.i, 3
+  %mul.i.i.i37 = and i64 %24, 1152921504606846968
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i37) #31
   %sub.ptr.lhs.cast.i.i.i.i.i.i45 = ptrtoint ptr %__position.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i45, %sub.ptr.rhs.cast.i.i
@@ -8938,22 +8937,22 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt14_Bit_referen
   %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %24 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8, !tbaa !109
-  %and.i.i.i.i.i.i.i.i = and i64 %24, %shl.i.i.i.i.i.i.i
+  %25 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8, !tbaa !109
+  %and.i.i.i.i.i.i.i.i = and i64 %25, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i49, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %25 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8, !tbaa !109
-  %or.i.i.i.i.i.i.i48 = or i64 %25, %shl.i5.i.i.i.i.i.i
+  %26 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8, !tbaa !109
+  %or.i.i.i.i.i.i.i48 = or i64 %26, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i49:                          ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i50 = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %26 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8, !tbaa !109
-  %and.i.i.i.i.i.i.i51 = and i64 %26, %not.i.i.i.i.i.i.i50
+  %27 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8, !tbaa !109
+  %and.i.i.i.i.i.i.i51 = and i64 %27, %not.i.i.i.i.i.i.i50
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i49, %if.then.i.i.i.i.i.i.i
@@ -8980,15 +8979,14 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %add.i.i.i56 = add nsw i64 %__n, %conv.i.i.i55
   %div.i.i.i57 = sdiv i64 %add.i.i.i56, 64
   %add.ptr.i.i.i58.idx = shl nsw i64 %div.i.i.i57, 3
-  %add.ptr.i.i.i58 = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %add.ptr.i.i.i58.idx
-  %27 = and i64 %add.i.i.i56, -9223372036854775745
-  %cmp.i.i.i59 = icmp ugt i64 %27, -9223372036854775808
-  %storemerge.idx.i.i.i60.neg = select i1 %cmp.i.i.i59, i64 8, i64 0
+  %28 = and i64 %add.i.i.i56, -9223372036854775745
+  %cmp.i.i.i59 = icmp ugt i64 %28, -9223372036854775808
   %storemerge.idx.i.i.i60 = select i1 %cmp.i.i.i59, i64 -8, i64 0
-  %storemerge.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr.i.i.i58, i64 %storemerge.idx.i.i.i60
-  %28 = trunc i64 %add.i.i.i56 to i32
-  %conv4.i.i.i62 = and i32 %28, 63
-  %cmp.not.i.i.i65 = icmp eq i64 %add.ptr.i.i.i58.idx, %storemerge.idx.i.i.i60.neg
+  %29 = add nsw i64 %storemerge.idx.i.i.i60, %add.ptr.i.i.i58.idx
+  %storemerge.i.i.i61 = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %29
+  %30 = trunc i64 %add.i.i.i56 to i32
+  %conv4.i.i.i62 = and i32 %30, 63
+  %cmp.not.i.i.i65 = icmp eq i64 %29, 0
   br i1 %cmp.not.i.i.i65, label %if.else.i.i.i99, label %if.then.i.i.i66
 
 if.then.i.i.i66:                                  ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
@@ -9001,14 +8999,14 @@ if.then4.i.i.i69:                                 ; preds = %if.then.i.i.i66
   br i1 %__x, label %if.then.i.i.i.i97, label %if.else.i.i.i.i74
 
 if.then.i.i.i.i97:                                ; preds = %if.then4.i.i.i69
-  %29 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !109
-  %or.i.i.i.i98 = or i64 %29, %shl.i.i.i.i73
+  %31 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !109
+  %or.i.i.i.i98 = or i64 %31, %shl.i.i.i.i73
   br label %_ZSt14__fill_bvectorPmjjb.exit.i.i.i77
 
 if.else.i.i.i.i74:                                ; preds = %if.then4.i.i.i69
   %not.i.i.i.i75 = xor i64 %shl.i.i.i.i73, -1
-  %30 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !109
-  %and2.i.i.i.i76 = and i64 %30, %not.i.i.i.i75
+  %32 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !109
+  %and2.i.i.i.i76 = and i64 %32, %not.i.i.i.i75
   br label %_ZSt14__fill_bvectorPmjjb.exit.i.i.i77
 
 _ZSt14__fill_bvectorPmjjb.exit.i.i.i77:           ; preds = %if.else.i.i.i.i74, %if.then.i.i.i.i97
@@ -9032,14 +9030,14 @@ if.then10.i.i.i85:                                ; preds = %if.end.i.i.i79
   br i1 %__x, label %if.then.i20.i.i.i95, label %if.else.i16.i.i.i90
 
 if.then.i20.i.i.i95:                              ; preds = %if.then10.i.i.i85
-  %31 = load i64, ptr %storemerge.i.i.i61, align 8, !tbaa !109
-  %or.i21.i.i.i96 = or i64 %31, %shr.i.i.i.i89
+  %33 = load i64, ptr %storemerge.i.i.i61, align 8, !tbaa !109
+  %or.i21.i.i.i96 = or i64 %33, %shr.i.i.i.i89
   br label %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i93
 
 if.else.i16.i.i.i90:                              ; preds = %if.then10.i.i.i85
   %not.i17.i.i.i91 = xor i64 %shr.i.i.i.i89, -1
-  %32 = load i64, ptr %storemerge.i.i.i61, align 8, !tbaa !109
-  %and2.i18.i.i.i92 = and i64 %32, %not.i17.i.i.i91
+  %34 = load i64, ptr %storemerge.i.i.i61, align 8, !tbaa !109
+  %and2.i18.i.i.i92 = and i64 %34, %not.i17.i.i.i91
   br label %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i93
 
 _ZSt14__fill_bvectorPmjjb.exit22.i.i.i93:         ; preds = %if.else.i16.i.i.i90, %if.then.i20.i.i.i95
@@ -9060,14 +9058,14 @@ if.then18.i.i.i101:                               ; preds = %if.else.i.i.i99
   br i1 %__x, label %if.then.i32.i.i.i114, label %if.else.i28.i.i.i109
 
 if.then.i32.i.i.i114:                             ; preds = %if.then18.i.i.i101
-  %33 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !109
-  %or.i33.i.i.i115 = or i64 %33, %and.i.i.i.i108
+  %35 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !109
+  %or.i33.i.i.i115 = or i64 %35, %and.i.i.i.i108
   br label %_ZSt14__fill_bvectorPmjjb.exit34.i.i.i112
 
 if.else.i28.i.i.i109:                             ; preds = %if.then18.i.i.i101
   %not.i29.i.i.i110 = xor i64 %and.i.i.i.i108, -1
-  %34 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !109
-  %and2.i30.i.i.i111 = and i64 %34, %not.i29.i.i.i110
+  %36 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !109
+  %and2.i30.i.i.i111 = and i64 %36, %not.i29.i.i.i110
   br label %_ZSt14__fill_bvectorPmjjb.exit34.i.i.i112
 
 _ZSt14__fill_bvectorPmjjb.exit34.i.i.i112:        ; preds = %if.else.i28.i.i.i109, %if.then.i32.i.i.i114
@@ -9098,20 +9096,20 @@ for.body.i.i.i.i.i149:                            ; preds = %_ZSt4fillISt13_Bit_
   %shl.i.i.i.i.i.i154 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i153
   %sh_prom.i4.i.i.i.i.i = zext nneg i32 %__result.sroa.5.026.i.i.i.i.i151 to i64
   %shl.i5.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i
-  %35 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8, !tbaa !109
-  %and.i.i.i.i.i.i.i155 = and i64 %35, %shl.i.i.i.i.i.i154
+  %37 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8, !tbaa !109
+  %and.i.i.i.i.i.i.i155 = and i64 %37, %shl.i.i.i.i.i.i154
   %tobool.i.not.i.i.i.i.i.i156 = icmp eq i64 %and.i.i.i.i.i.i.i155, 0
   br i1 %tobool.i.not.i.i.i.i.i.i156, label %if.else.i.i.i.i.i.i.i170, label %if.then.i.i.i.i.i.i.i157
 
 if.then.i.i.i.i.i.i.i157:                         ; preds = %for.body.i.i.i.i.i149
-  %36 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i152, align 8, !tbaa !109
-  %or.i.i.i.i.i.i.i158 = or i64 %36, %shl.i5.i.i.i.i.i
+  %38 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i152, align 8, !tbaa !109
+  %or.i.i.i.i.i.i.i158 = or i64 %38, %shl.i5.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i159
 
 if.else.i.i.i.i.i.i.i170:                         ; preds = %for.body.i.i.i.i.i149
   %not.i.i.i.i.i.i.i171 = xor i64 %shl.i5.i.i.i.i.i, -1
-  %37 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i152, align 8, !tbaa !109
-  %and.i2.i.i.i.i.i.i172 = and i64 %37, %not.i.i.i.i.i.i.i171
+  %39 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i152, align 8, !tbaa !109
+  %and.i2.i.i.i.i.i.i172 = and i64 %39, %not.i.i.i.i.i.i.i171
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i159
 
 _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i159:   ; preds = %if.else.i.i.i.i.i.i.i170, %if.then.i.i.i.i.i.i.i157
@@ -9134,18 +9132,18 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i159:   ; preds = %if.else.i.i.i.i.i.i
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i159, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit116
   %__result.sroa.0.0.lcssa.i.i.i.i.i145 = phi ptr [ %storemerge.i.i.i61, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit116 ], [ %__result.sroa.0.1.i.i.i.i.i166, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i159 ]
   %__result.sroa.5.0.lcssa.i.i.i.i.i146 = phi i32 [ %conv4.i.i.i62, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit116 ], [ %__result.sroa.5.1.i.i.i.i.i167, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i159 ]
-  %38 = load ptr, ptr %this, align 8, !tbaa !106
-  %tobool.not.i = icmp eq ptr %38, null
+  %40 = load ptr, ptr %this, align 8, !tbaa !106
+  %tobool.not.i = icmp eq ptr %40, null
   br i1 %tobool.not.i, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %if.then.i173
 
 if.then.i173:                                     ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %39 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !128
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %39 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %38 to i64
+  %41 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !128
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %41 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %39, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds i64, ptr %41, i64 %idx.neg.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i, i64 noundef %sub.ptr.sub.i) #32
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 

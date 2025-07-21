@@ -9714,8 +9714,8 @@ _ZNK9parameter7get_intEv.exit:                    ; preds = %56
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge
   %84 = zext i32 %82 to i64
   %.idx = shl nuw nsw i64 %84, 3
-  %85 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %85, i64 -8
+  %85 = getelementptr i8, ptr %81, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %85, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

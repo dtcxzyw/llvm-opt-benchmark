@@ -18245,11 +18245,11 @@ _ZL11setBitRangeRN4llvm15SmallVectorImplImEEiii.exit.i: ; preds = %132, %._crit_
   %.idx.i = shl nuw nsw i64 %142, 3
   %143 = icmp ugt i32 %94, 1
   %or.cond.i = and i1 %143, %102
-  %144 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
+  %144 = getelementptr i8, ptr %.val.i, i64 %.idx.i
   br i1 %or.cond.i, label %.lr.ph.i.i.preheader.i, label %_ZSt7reverseIPmEvT_S1_.exit.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZL11setBitRangeRN4llvm15SmallVectorImplImEEiii.exit.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %144, i64 -8
+  %.012.i.i.i = getelementptr i8, ptr %144, i64 -8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -22868,8 +22868,8 @@ _ZSt7reverseIPN5clang7CodeGen7CallArgEEvT_S4_.exit: ; preds = %.lr.ph.i.i, %362
   %376 = load ptr, ptr %375, align 8, !tbaa !38
   %377 = zext i32 %373 to i64
   %.idx.i = mul nuw nsw i64 %377, 208
-  %378 = getelementptr inbounds nuw i8, ptr %376, i64 %.idx.i
-  %.012.i.i.i = getelementptr inbounds i8, ptr %378, i64 -208
+  %378 = getelementptr i8, ptr %376, i64 %.idx.i
+  %.012.i.i.i = getelementptr i8, ptr %378, i64 -208
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

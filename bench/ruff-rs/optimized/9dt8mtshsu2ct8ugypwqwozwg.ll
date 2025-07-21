@@ -417,8 +417,8 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val1
-  %6 = getelementptr inbounds i8, ptr %5, i64 -1
+  %5 = add nsw i64 %.val1, -1
+  %6 = getelementptr inbounds i8, ptr %.val, i64 %5
   %7 = load i8, ptr %6, align 1, !noundef !25
   switch i8 %7, label %14 [
     i8 10, label %8
@@ -426,11 +426,11 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
   ]
 
 8:                                                ; preds = %4
-  %9 = icmp eq i64 %.val1, 1
+  %9 = icmp eq i64 %5, 0
   br i1 %9, label %.thread.i, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %5, i64 -2
+  %11 = getelementptr inbounds i8, ptr %6, i64 -1
   %12 = load i8, ptr %11, align 1, !noundef !25
   %13 = icmp eq i8 %12, 13
   br i1 %13, label %14, label %.thread.i
@@ -477,8 +477,8 @@ define noundef zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u2
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val1
-  %7 = getelementptr inbounds i8, ptr %6, i64 -1
+  %6 = add nsw i64 %.val1, -1
+  %7 = getelementptr inbounds i8, ptr %.val, i64 %6
   %8 = load i8, ptr %7, align 1, !noundef !25
   switch i8 %8, label %15 [
     i8 10, label %9
@@ -486,11 +486,11 @@ define noundef zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u2
   ]
 
 9:                                                ; preds = %5
-  %10 = icmp eq i64 %.val1, 1
+  %10 = icmp eq i64 %6, 0
   br i1 %10, label %.thread.i, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 -2
+  %12 = getelementptr inbounds i8, ptr %7, i64 -1
   %13 = load i8, ptr %12, align 1, !noundef !25
   %14 = icmp eq i8 %13, 13
   br i1 %14, label %15, label %.thread.i
@@ -539,8 +539,8 @@ define noundef zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val1
-  %7 = getelementptr inbounds i8, ptr %6, i64 -1
+  %6 = add nsw i64 %.val1, -1
+  %7 = getelementptr inbounds i8, ptr %.val, i64 %6
   %8 = load i8, ptr %7, align 1, !noundef !25
   switch i8 %8, label %15 [
     i8 10, label %9
@@ -548,11 +548,11 @@ define noundef zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..
   ]
 
 9:                                                ; preds = %5
-  %10 = icmp eq i64 %.val1, 1
+  %10 = icmp eq i64 %6, 0
   br i1 %10, label %.thread.i, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 -2
+  %12 = getelementptr inbounds i8, ptr %7, i64 -1
   %13 = load i8, ptr %12, align 1, !noundef !25
   %14 = icmp eq i8 %13, 13
   br i1 %14, label %15, label %.thread.i

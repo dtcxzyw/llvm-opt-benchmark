@@ -17603,8 +17603,8 @@ _ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit173: ; preds = %4
   %.val135 = load ptr, ptr %4, align 8, !tbaa !25
   %419 = zext i32 %.val137 to i64
   %.idx = shl nuw nsw i64 %419, 5
-  %420 = getelementptr inbounds nuw i8, ptr %.val135, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %420, i64 -32
+  %420 = getelementptr i8, ptr %.val135, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %420, i64 -32
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

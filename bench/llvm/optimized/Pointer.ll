@@ -2643,8 +2643,8 @@ _ZNK5clang6interp7Pointer14isArrayElementEv.exit: ; preds = %.backedge, %247, %2
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZNK5clang6interp7Pointer14isArrayElementEv.exit
   %.idx = shl nuw nsw i64 %893, 3
-  %895 = getelementptr inbounds nuw i8, ptr %891, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %895, i64 -8
+  %895 = getelementptr i8, ptr %891, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %895, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

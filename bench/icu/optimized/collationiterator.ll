@@ -4475,8 +4475,8 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread
 .lr.ph.preheader:                                 ; preds = %.loopexit99
   %325 = load ptr, ptr %5, align 8, !tbaa !3
   %326 = zext nneg i32 %323 to i64
-  %327 = getelementptr inbounds nuw i8, ptr %325, i64 %326
-  %.050107 = getelementptr inbounds i8, ptr %327, i64 -1
+  %327 = getelementptr i8, ptr %325, i64 %326
+  %.050107 = getelementptr i8, ptr %327, i64 -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

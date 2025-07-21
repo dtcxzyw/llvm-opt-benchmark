@@ -7644,8 +7644,8 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_
   %74 = load ptr, ptr %6, align 8, !tbaa !215
   %75 = zext i32 %72 to i64
   %.idx = shl nuw nsw i64 %75, 4
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %76, i64 -16
+  %76 = getelementptr i8, ptr %74, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %76, i64 -16
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

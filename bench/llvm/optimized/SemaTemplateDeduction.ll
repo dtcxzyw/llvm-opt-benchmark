@@ -19860,8 +19860,8 @@ _ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6resizeEm.exit251: ; preds = %_ZN4ll
 .lr.ph.i.i.preheader:                             ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6resizeEm.exit251
   %221 = zext i32 %219 to i64
   %.idx = shl nuw nsw i64 %221, 3
-  %222 = getelementptr inbounds nuw i8, ptr %.pre421, i64 %.idx
-  %.012.i.i = getelementptr inbounds i8, ptr %222, i64 -8
+  %222 = getelementptr i8, ptr %.pre421, i64 %.idx
+  %.012.i.i = getelementptr i8, ptr %222, i64 -8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -64636,9 +64636,9 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_130Substitute
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.idx = shl nuw nsw i64 %30, 3
-  %32 = getelementptr i8, ptr %31, i64 %.idx
-  %33 = getelementptr i8, ptr %32, i64 -8
-  %.not72 = icmp eq i32 %29, 1
+  %32 = add nsw i64 %.idx, -8
+  %33 = getelementptr i8, ptr %31, i64 %32
+  %.not72 = icmp eq i64 %32, 0
   br i1 %.not72, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %57

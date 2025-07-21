@@ -1628,8 +1628,8 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %31
 .lr.ph.i.i.preheader:                             ; preds = %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit
   %37 = zext i32 %35 to i64
   %38 = shl nuw nsw i64 %37, 2
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 %38
-  %.012.i.i = getelementptr inbounds i8, ptr %39, i64 -4
+  %39 = getelementptr i8, ptr %32, i64 %38
+  %.012.i.i = getelementptr i8, ptr %39, i64 -4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i

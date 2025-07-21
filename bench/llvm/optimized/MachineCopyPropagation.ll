@@ -5056,9 +5056,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrENS_11SmallVectorIS3_Lj6EE
   %1045 = load i32, ptr %1044, align 8, !tbaa !33
   %1046 = zext i32 %1045 to i64
   %.idx37.i.i = shl nuw nsw i64 %1046, 3
-  %1047 = getelementptr inbounds nuw i8, ptr %1043, i64 %.idx37.i.i
-  %1048 = getelementptr inbounds i8, ptr %1047, i64 -8
-  %.not4430.i.i = icmp eq i32 %1045, 1
+  %1047 = add nsw i64 %.idx37.i.i, -8
+  %1048 = getelementptr inbounds i8, ptr %1043, i64 %1047
+  %.not4430.i.i = icmp eq i64 %1047, 0
   br i1 %.not4430.i.i, label %._crit_edge34.i.i, label %.lr.ph33.split.i.i
 
 ._crit_edge.i195.thread.i:                        ; preds = %.lr.ph.i192.i

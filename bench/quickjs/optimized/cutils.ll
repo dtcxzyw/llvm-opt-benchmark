@@ -17,8 +17,8 @@ define dso_local void @pstrcpy(ptr noundef writeonly captures(address) %0, i32 n
 
 .preheader:                                       ; preds = %3
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 -1
+  %6 = getelementptr i8, ptr %0, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -1
   %8 = load i8, ptr %2, align 1, !tbaa !7
   %9 = icmp ne i8 %8, 0
   %.not12 = icmp ne i32 %1, 1
@@ -70,8 +70,8 @@ define dso_local noundef ptr @pstrcat(ptr noundef returned captures(address, ret
   %10 = ashr exact i64 %sext, 32
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = zext nneg i32 %8 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 -1
+  %13 = getelementptr i8, ptr %11, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -1
   %15 = load i8, ptr %2, align 1, !tbaa !7
   %16 = icmp ne i8 %15, 0
   %.not12.i = icmp ne i32 %8, 1
