@@ -10253,7 +10253,7 @@ define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoI
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !tbaa !592
-  br label %45
+  br label %41
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10277,59 +10277,53 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeS
   store i32 32, ptr %15, align 4, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val.i = load i64, ptr %16, align 8, !tbaa !510
-  %17 = trunc i64 %.val.i to i32
-  store i32 %17, ptr %13, align 8
+  store i64 %.val.i, ptr %13, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !86
-  %18 = lshr i64 %.val.i, 32
-  %19 = trunc nuw i64 %18 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %19, ptr %20, align 4
-  %21 = ptrtoint ptr %.pre to i64
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %21, ptr %22, align 8
+  %17 = ptrtoint ptr %.pre to i64
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %17, ptr %18, align 8
   store i32 4, ptr %14, align 8, !tbaa !9
-  %.0.copyload.i.i30.i = load i64, ptr %13, align 8
-  %23 = add i64 %21, 16
-  %24 = call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 48)
-  %25 = xor i64 %.0.copyload.i.i30.i, %24
-  %26 = xor i64 %25, -49064778989728563
+  %19 = add i64 %17, 16
+  %20 = call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 48)
+  %21 = xor i64 %.val.i, %20
+  %22 = xor i64 %21, -49064778989728563
+  %23 = mul i64 %22, -7070675565921424023
+  %24 = lshr i64 %23, 47
+  %25 = xor i64 %20, %24
+  %26 = xor i64 %25, %23
   %27 = mul i64 %26, -7070675565921424023
   %28 = lshr i64 %27, 47
-  %29 = xor i64 %24, %28
-  %30 = xor i64 %29, %27
-  %31 = mul i64 %30, -7070675565921424023
-  %32 = lshr i64 %31, 47
-  %33 = xor i64 %32, %31
-  %34 = mul i64 %33, 3946327401
-  %35 = xor i64 %34, %21
-  %36 = trunc i64 %35 to i32
-  %37 = add i32 %.0.i, %36
+  %29 = xor i64 %28, %27
+  %30 = mul i64 %29, 3946327401
+  %31 = xor i64 %30, %17
+  %32 = trunc i64 %31 to i32
+  %33 = add i32 %.0.i, %32
   %.not10.i = icmp eq ptr %.val3, null
   br i1 %.not10.i, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEPS8_S9_RKSt4pairIS3_S6_E.exit
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEPS8_S9_RKSt4pairIS3_S6_E.exit: ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S5_E.exit
-  %38 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
-  %39 = add i32 %38, %37
+  %34 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
+  %35 = add i32 %34, %33
   %.pre8 = load ptr, ptr %2, align 8, !tbaa !3
-  %40 = icmp eq ptr %.pre8, %13
-  br i1 %40, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %41
+  %36 = icmp eq ptr %.pre8, %13
+  br i1 %36, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %37
 
-41:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEPS8_S9_RKSt4pairIS3_S6_E.exit
+37:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEPS8_S9_RKSt4pairIS3_S6_E.exit
   call void @free(ptr noundef %.pre8) #25
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S5_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEPS8_S9_RKSt4pairIS3_S6_E.exit, %41
-  %.1.i10 = phi i32 [ %39, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEPS8_S9_RKSt4pairIS3_S6_E.exit ], [ %39, %41 ], [ %37, %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S5_E.exit ]
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S5_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEPS8_S9_RKSt4pairIS3_S6_E.exit, %37
+  %.1.i10 = phi i32 [ %35, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13computeDigestEPS8_S9_RKSt4pairIS3_S6_E.exit ], [ %35, %37 ], [ %33, %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S5_E.exit ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #25
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %.1.i10, ptr %42, align 8, !tbaa !592
-  %43 = load i32, ptr %3, align 8
-  %44 = or i32 %43, 536870912
-  store i32 %44, ptr %3, align 8
-  br label %45
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %.1.i10, ptr %38, align 8, !tbaa !592
+  %39 = load i32, ptr %3, align 8
+  %40 = or i32 %39, 536870912
+  store i32 %40, ptr %3, align 8
+  br label %41
 
-45:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
+41:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
   %.0 = phi i32 [ %7, %5 ], [ %.1.i10, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }
@@ -10892,7 +10886,7 @@ define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoI
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !tbaa !620
-  br label %45
+  br label %41
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10916,59 +10910,53 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIP
   store i32 32, ptr %15, align 4, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val.i = load i64, ptr %16, align 8, !tbaa !510
-  %17 = trunc i64 %.val.i to i32
-  store i32 %17, ptr %13, align 8
+  store i64 %.val.i, ptr %13, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !483
-  %18 = lshr i64 %.val.i, 32
-  %19 = trunc nuw i64 %18 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %19, ptr %20, align 4
-  %21 = ptrtoint ptr %.pre to i64
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %21, ptr %22, align 8
+  %17 = ptrtoint ptr %.pre to i64
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %17, ptr %18, align 8
   store i32 4, ptr %14, align 8, !tbaa !9
-  %.0.copyload.i.i30.i = load i64, ptr %13, align 8
-  %23 = add i64 %21, 16
-  %24 = call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 48)
-  %25 = xor i64 %.0.copyload.i.i30.i, %24
-  %26 = xor i64 %25, -49064778989728563
+  %19 = add i64 %17, 16
+  %20 = call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 48)
+  %21 = xor i64 %.val.i, %20
+  %22 = xor i64 %21, -49064778989728563
+  %23 = mul i64 %22, -7070675565921424023
+  %24 = lshr i64 %23, 47
+  %25 = xor i64 %20, %24
+  %26 = xor i64 %25, %23
   %27 = mul i64 %26, -7070675565921424023
   %28 = lshr i64 %27, 47
-  %29 = xor i64 %24, %28
-  %30 = xor i64 %29, %27
-  %31 = mul i64 %30, -7070675565921424023
-  %32 = lshr i64 %31, 47
-  %33 = xor i64 %32, %31
-  %34 = mul i64 %33, 3946327401
-  %35 = xor i64 %34, %21
-  %36 = trunc i64 %35 to i32
-  %37 = add i32 %.0.i, %36
+  %29 = xor i64 %28, %27
+  %30 = mul i64 %29, 3946327401
+  %31 = xor i64 %30, %17
+  %32 = trunc i64 %31 to i32
+  %33 = add i32 %.0.i, %32
   %.not10.i = icmp eq ptr %.val3, null
   br i1 %.not10.i, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEPSE_SF_RKSt4pairIS3_SC_E.exit
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEPSE_SF_RKSt4pairIS3_SC_E.exit: ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_SB_E.exit
-  %38 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
-  %39 = add i32 %38, %37
+  %34 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
+  %35 = add i32 %34, %33
   %.pre8 = load ptr, ptr %2, align 8, !tbaa !3
-  %40 = icmp eq ptr %.pre8, %13
-  br i1 %40, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %41
+  %36 = icmp eq ptr %.pre8, %13
+  br i1 %36, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %37
 
-41:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEPSE_SF_RKSt4pairIS3_SC_E.exit
+37:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEPSE_SF_RKSt4pairIS3_SC_E.exit
   call void @free(ptr noundef %.pre8) #25
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_SB_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEPSE_SF_RKSt4pairIS3_SC_E.exit, %41
-  %.1.i10 = phi i32 [ %39, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEPSE_SF_RKSt4pairIS3_SC_E.exit ], [ %39, %41 ], [ %37, %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_SB_E.exit ]
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_SB_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEPSE_SF_RKSt4pairIS3_SC_E.exit, %37
+  %.1.i10 = phi i32 [ %35, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13computeDigestEPSE_SF_RKSt4pairIS3_SC_E.exit ], [ %35, %37 ], [ %33, %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_SB_E.exit ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #25
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %.1.i10, ptr %42, align 8, !tbaa !620
-  %43 = load i32, ptr %3, align 8
-  %44 = or i32 %43, 536870912
-  store i32 %44, ptr %3, align 8
-  br label %45
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %.1.i10, ptr %38, align 8, !tbaa !620
+  %39 = load i32, ptr %3, align 8
+  %40 = or i32 %39, 536870912
+  store i32 %40, ptr %3, align 8
+  br label %41
 
-45:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
+41:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
   %.0 = phi i32 [ %7, %5 ], [ %.1.i10, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }
@@ -21991,7 +21979,7 @@ define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoI
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !tbaa !923
-  br label %46
+  br label %42
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22016,58 +22004,52 @@ _ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceCl
   store i32 32, ptr %16, align 4, !tbaa !10
   %17 = load ptr, ptr %11, align 8, !tbaa !924
   %18 = ptrtoint ptr %17 to i64
-  %19 = trunc i64 %18 to i32
-  store i32 %19, ptr %14, align 8
+  store i64 %18, ptr %14, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val.i.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !510
-  %20 = lshr i64 %18, 32
-  %21 = trunc nuw i64 %20 to i32
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %.val.i.pre, ptr %23, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %.val.i.pre, ptr %19, align 8
   store i32 4, ptr %15, align 8, !tbaa !9
-  %.0.copyload.i.i30.i = load i64, ptr %14, align 8
-  %24 = add i64 %.val.i.pre, 16
-  %25 = call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 48)
-  %26 = xor i64 %.0.copyload.i.i30.i, %25
-  %27 = xor i64 %26, -49064778989728563
+  %20 = add i64 %.val.i.pre, 16
+  %21 = call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 48)
+  %22 = xor i64 %21, %18
+  %23 = xor i64 %22, -49064778989728563
+  %24 = mul i64 %23, -7070675565921424023
+  %25 = lshr i64 %24, 47
+  %26 = xor i64 %21, %25
+  %27 = xor i64 %26, %24
   %28 = mul i64 %27, -7070675565921424023
   %29 = lshr i64 %28, 47
-  %30 = xor i64 %25, %29
-  %31 = xor i64 %30, %28
-  %32 = mul i64 %31, -7070675565921424023
-  %33 = lshr i64 %32, 47
-  %34 = xor i64 %33, %32
-  %35 = mul i64 %34, 3946327401
-  %36 = xor i64 %35, %.val.i.pre
-  %37 = trunc i64 %36 to i32
-  %38 = add i32 %.0.i, %37
+  %30 = xor i64 %29, %28
+  %31 = mul i64 %30, 3946327401
+  %32 = xor i64 %31, %.val.i.pre
+  %33 = trunc i64 %32 to i32
+  %34 = add i32 %.0.i, %33
   %.not10.i = icmp eq ptr %.val3, null
   br i1 %.not10.i, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit: ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit
-  %39 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
-  %40 = add i32 %39, %38
+  %35 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
+  %36 = add i32 %35, %34
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
-  %41 = icmp eq ptr %.pre, %14
-  br i1 %41, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %42
+  %37 = icmp eq ptr %.pre, %14
+  br i1 %37, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %38
 
-42:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit
+38:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit
   call void @free(ptr noundef %.pre) #25
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit, %42
-  %.1.i10 = phi i32 [ %40, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %40, %42 ], [ %38, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit, %38
+  %.1.i10 = phi i32 [ %36, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %36, %38 ], [ %34, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #25
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %.1.i10, ptr %43, align 8, !tbaa !923
-  %44 = load i32, ptr %3, align 8
-  %45 = or i32 %44, 536870912
-  store i32 %45, ptr %3, align 8
-  br label %46
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %.1.i10, ptr %39, align 8, !tbaa !923
+  %40 = load i32, ptr %3, align 8
+  %41 = or i32 %40, 536870912
+  store i32 %41, ptr %3, align 8
+  br label %42
 
-46:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
+42:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
   %.0 = phi i32 [ %7, %5 ], [ %.1.i10, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }
@@ -26917,7 +26899,7 @@ define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoI
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !tbaa !1067
-  br label %45
+  br label %41
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26941,59 +26923,53 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS
   store i32 32, ptr %15, align 4, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val.i = load i64, ptr %16, align 8, !tbaa !510
-  %17 = trunc i64 %.val.i to i32
-  store i32 %17, ptr %13, align 8
+  store i64 %.val.i, ptr %13, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val4.i.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !850
-  %18 = lshr i64 %.val.i, 32
-  %19 = trunc nuw i64 %18 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %19, ptr %20, align 4
-  %21 = ptrtoint ptr %.val4.i.pre to i64
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %21, ptr %22, align 8
+  %17 = ptrtoint ptr %.val4.i.pre to i64
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %17, ptr %18, align 8
   store i32 4, ptr %14, align 8, !tbaa !9
-  %.0.copyload.i.i30.i = load i64, ptr %13, align 8
-  %23 = add i64 %21, 16
-  %24 = call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 48)
-  %25 = xor i64 %.0.copyload.i.i30.i, %24
-  %26 = xor i64 %25, -49064778989728563
+  %19 = add i64 %17, 16
+  %20 = call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 48)
+  %21 = xor i64 %.val.i, %20
+  %22 = xor i64 %21, -49064778989728563
+  %23 = mul i64 %22, -7070675565921424023
+  %24 = lshr i64 %23, 47
+  %25 = xor i64 %20, %24
+  %26 = xor i64 %25, %23
   %27 = mul i64 %26, -7070675565921424023
   %28 = lshr i64 %27, 47
-  %29 = xor i64 %24, %28
-  %30 = xor i64 %29, %27
-  %31 = mul i64 %30, -7070675565921424023
-  %32 = lshr i64 %31, 47
-  %33 = xor i64 %32, %31
-  %34 = mul i64 %33, 3946327401
-  %35 = xor i64 %34, %21
-  %36 = trunc i64 %35 to i32
-  %37 = add i32 %.0.i, %36
+  %29 = xor i64 %28, %27
+  %30 = mul i64 %29, 3946327401
+  %31 = xor i64 %30, %17
+  %32 = trunc i64 %31 to i32
+  %33 = add i32 %.0.i, %32
   %.not10.i = icmp eq ptr %.val3, null
   br i1 %.not10.i, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEPS9_SA_RKSt4pairIS3_S7_E.exit
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEPS9_SA_RKSt4pairIS3_S7_E.exit: ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S6_E.exit
-  %38 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
-  %39 = add i32 %38, %37
+  %34 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
+  %35 = add i32 %34, %33
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
-  %40 = icmp eq ptr %.pre, %13
-  br i1 %40, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %41
+  %36 = icmp eq ptr %.pre, %13
+  br i1 %36, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %37
 
-41:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEPS9_SA_RKSt4pairIS3_S7_E.exit
+37:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEPS9_SA_RKSt4pairIS3_S7_E.exit
   call void @free(ptr noundef %.pre) #25
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S6_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEPS9_SA_RKSt4pairIS3_S7_E.exit, %41
-  %.1.i10 = phi i32 [ %39, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEPS9_SA_RKSt4pairIS3_S7_E.exit ], [ %39, %41 ], [ %37, %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S6_E.exit ]
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S6_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEPS9_SA_RKSt4pairIS3_S7_E.exit, %37
+  %.1.i10 = phi i32 [ %35, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13computeDigestEPS9_SA_RKSt4pairIS3_S7_E.exit ], [ %35, %37 ], [ %33, %_ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS2_S6_E.exit ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #25
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %.1.i10, ptr %42, align 8, !tbaa !1067
-  %43 = load i32, ptr %3, align 8
-  %44 = or i32 %43, 536870912
-  store i32 %44, ptr %3, align 8
-  br label %45
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %.1.i10, ptr %38, align 8, !tbaa !1067
+  %39 = load i32, ptr %3, align 8
+  %40 = or i32 %39, 536870912
+  store i32 %40, ptr %3, align 8
+  br label %41
 
-45:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
+41:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
   %.0 = phi i32 [ %7, %5 ], [ %.1.i10, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }

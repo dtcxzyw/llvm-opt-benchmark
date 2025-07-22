@@ -26671,7 +26671,7 @@ define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoI
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !tbaa !1503
-  br label %56
+  br label %53
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26696,75 +26696,70 @@ _ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEE
   store i32 32, ptr %16, align 4, !tbaa !285
   %17 = load ptr, ptr %11, align 8, !tbaa !1470
   %18 = ptrtoint ptr %17 to i64
-  %19 = trunc i64 %18 to i32
-  store i32 %19, ptr %14, align 8
+  store i64 %18, ptr %14, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !1504
-  %20 = lshr i64 %18, 32
-  %21 = trunc nuw i64 %20 to i32
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre5 = load ptr, ptr %23, align 8, !tbaa !1505
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %.pre, ptr %24, align 8
-  %25 = ptrtoint ptr %.pre5 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i64 %25, ptr %26, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.pre5 = load ptr, ptr %19, align 8, !tbaa !1505
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %.pre, ptr %20, align 8
+  %21 = ptrtoint ptr %.pre5 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i64 %21, ptr %22, align 4
   store i32 5, ptr %15, align 8, !tbaa !283
-  %.0.copyload.i.i31.i = load i64, ptr %14, align 8
-  %27 = mul i64 %.0.copyload.i.i31.i, -5435081209227447693
-  %.0.copyload.i15.i.i = load i64, ptr %24, align 8
-  %28 = mul i64 %25, -7286425919675154353
-  %.0.copyload.i17.i.i = load i64, ptr %22, align 4
-  %29 = mul i64 %.0.copyload.i17.i.i, -4348849565147123417
-  %30 = sub i64 %27, %.0.copyload.i15.i.i
-  %.0.i.i.i = call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 21)
-  %31 = xor i64 %28, -49064778989728563
-  %.0.i18.i.i = call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 34)
-  %32 = add i64 %29, %.0.i.i.i
-  %33 = add i64 %32, %.0.i18.i.i
-  %34 = xor i64 %.0.copyload.i15.i.i, -3942382747735136937
-  %.0.i19.i.i = call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 44)
-  %35 = add i64 %27, -49064778989728543
-  %36 = add i64 %35, %.0.i19.i.i
-  %37 = sub i64 %36, %28
-  %38 = xor i64 %33, %37
-  %39 = mul i64 %38, -7070675565921424023
-  %40 = lshr i64 %39, 47
-  %41 = xor i64 %37, %40
-  %42 = xor i64 %41, %39
-  %43 = mul i64 %42, -7070675565921424023
-  %44 = lshr i64 %43, 47
-  %45 = xor i64 %44, %43
-  %46 = trunc i64 %45 to i32
-  %47 = mul i32 %46, -348639895
-  %48 = add i32 %47, %.0.i
+  %23 = mul i64 %18, -5435081209227447693
+  %.0.copyload.i15.i.i = load i64, ptr %20, align 8
+  %24 = mul i64 %21, -7286425919675154353
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.0.copyload.i17.i.i = load i64, ptr %25, align 4
+  %26 = mul i64 %.0.copyload.i17.i.i, -4348849565147123417
+  %27 = sub i64 %23, %.0.copyload.i15.i.i
+  %.0.i.i.i = call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 21)
+  %28 = xor i64 %24, -49064778989728563
+  %.0.i18.i.i = call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 34)
+  %29 = add i64 %26, %.0.i.i.i
+  %30 = add i64 %29, %.0.i18.i.i
+  %31 = xor i64 %.0.copyload.i15.i.i, -3942382747735136937
+  %.0.i19.i.i = call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 44)
+  %32 = add i64 %23, -49064778989728543
+  %33 = add i64 %32, %.0.i19.i.i
+  %34 = sub i64 %33, %24
+  %35 = xor i64 %30, %34
+  %36 = mul i64 %35, -7070675565921424023
+  %37 = lshr i64 %36, 47
+  %38 = xor i64 %34, %37
+  %39 = xor i64 %38, %36
+  %40 = mul i64 %39, -7070675565921424023
+  %41 = lshr i64 %40, 47
+  %42 = xor i64 %41, %40
+  %43 = trunc i64 %42 to i32
+  %44 = mul i32 %43, -348639895
+  %45 = add i32 %44, %.0.i
   %.not10.i = icmp eq ptr %.val3, null
   br i1 %.not10.i, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit: ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit
-  %49 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
-  %50 = add i32 %49, %48
+  %46 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
+  %47 = add i32 %46, %45
   %.pre9 = load ptr, ptr %2, align 8, !tbaa !287
-  %51 = icmp eq ptr %.pre9, %14
-  br i1 %51, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %52
+  %48 = icmp eq ptr %.pre9, %14
+  br i1 %48, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %49
 
-52:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit
+49:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit
   call void @free(ptr noundef %.pre9) #28
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit, %52
-  %.1.i11 = phi i32 [ %50, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %50, %52 ], [ %48, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit, %49
+  %.1.i11 = phi i32 [ %47, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %47, %49 ], [ %45, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #28
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %.1.i11, ptr %53, align 8, !tbaa !1503
-  %54 = load i32, ptr %3, align 8
-  %55 = or i32 %54, 536870912
-  store i32 %55, ptr %3, align 8
-  br label %56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %.1.i11, ptr %50, align 8, !tbaa !1503
+  %51 = load i32, ptr %3, align 8
+  %52 = or i32 %51, 536870912
+  store i32 %52, ptr %3, align 8
+  br label %53
 
-56:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
+53:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
   %.0 = phi i32 [ %7, %5 ], [ %.1.i11, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }
