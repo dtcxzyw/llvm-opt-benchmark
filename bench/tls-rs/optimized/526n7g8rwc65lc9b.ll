@@ -4679,55 +4679,49 @@ _ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit: ; preds = %2
   store ptr %15, ptr %1, align 8, !alias.scope !959
   store i64 %16, ptr %5, align 8, !alias.scope !959
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !959
-  %.sroa.034.0.extract.trunc = trunc i64 %9 to i16
-  %.sroa.435.0.extract.shift = lshr i64 %9, 16
-  %.sroa.6.0.extract.shift = lshr i64 %9, 32
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i8
-  %.sroa.737.0.extract.shift = lshr i64 %9, 40
-  %.sroa.737.0.extract.trunc = trunc i64 %.sroa.737.0.extract.shift to i8
   %.sroa.838.0.extract.shift = lshr i64 %9, 48
-  %17 = icmp eq i16 %.sroa.034.0.extract.trunc, 10
-  br i1 %17, label %20, label %18
+  %17 = and i64 %9, 65535
+  %18 = icmp eq i64 %17, 10
+  br i1 %18, label %21, label %19
 
-18:                                               ; preds = %_ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit
-  %19 = icmp ult i64 %16, %.sroa.838.0.extract.shift
-  br i1 %19, label %26, label %22
+19:                                               ; preds = %_ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit
+  %20 = icmp ult i64 %16, %.sroa.838.0.extract.shift
+  br i1 %20, label %30, label %23
 
-20:                                               ; preds = %_ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit
+21:                                               ; preds = %_ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit
+  %.sroa.435.0.extract.shift = lshr i64 %9, 16
   %.sroa.7.sroa.0.0 = trunc i64 %.sroa.435.0.extract.shift to i8
   store i8 %.sroa.7.sroa.0.0, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 10, ptr %21, align 2
-  br label %28
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 10, ptr %22, align 2
+  br label %32
 
-22:                                               ; preds = %18
-  %tr.sh.diff = trunc i64 %.sroa.435.0.extract.shift to i16
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.838.0.extract.shift
-  %24 = sub nuw i64 %16, %.sroa.838.0.extract.shift
-  %25 = add i64 %13, %.sroa.838.0.extract.shift
-  store i64 %25, ptr %11, align 8, !alias.scope !966, !noalias !971
-  store ptr %23, ptr %1, align 8, !alias.scope !966, !noalias !971
-  store i64 %24, ptr %5, align 8, !alias.scope !966, !noalias !971
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.838.0.extract.shift
+  %25 = sub nuw i64 %16, %.sroa.838.0.extract.shift
+  %26 = add i64 %13, %.sroa.838.0.extract.shift
+  store i64 %26, ptr %11, align 8, !alias.scope !966, !noalias !971
+  store ptr %24, ptr %1, align 8, !alias.scope !966, !noalias !971
+  store i64 %25, ptr %5, align 8, !alias.scope !966, !noalias !971
   store ptr %15, ptr %0, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.838.0.extract.shift, ptr %.sroa.419.0..sroa_idx, align 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.6.0.extract.trunc, ptr %.sroa.520.0..sroa_idx, align 8
-  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 %.sroa.737.0.extract.trunc, ptr %.sroa.621.0..sroa_idx, align 1
+  %27 = lshr i64 %9, 32
+  %28 = trunc i64 %27 to i16
+  store i16 %28, ptr %.sroa.520.0..sroa_idx, align 8
   %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.034.0.extract.trunc, ptr %.sroa.722.0..sroa_idx, align 2
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %tr.sh.diff, ptr %.sroa.8.0..sroa_idx, align 4
-  br label %28
+  %29 = trunc i64 %9 to i32
+  store i32 %29, ptr %.sroa.722.0..sroa_idx, align 2
+  br label %32
 
-26:                                               ; preds = %18
+30:                                               ; preds = %19
   store i8 1, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 10, ptr %27, align 2
-  br label %28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 10, ptr %31, align 2
+  br label %32
 
-28:                                               ; preds = %26, %22, %20
+32:                                               ; preds = %30, %23, %21
   ret void
 }
 

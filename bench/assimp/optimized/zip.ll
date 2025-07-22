@@ -18659,62 +18659,56 @@ mz_zip_set_error.exit83:                          ; preds = %72
   store i8 6, ptr %90, align 1
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %spec.select96 = call i32 @llvm.umin.i32(i32 %87, i32 65535)
-  %92 = trunc i32 %spec.select96 to i8
-  store i8 %92, ptr %91, align 8
-  %93 = lshr i32 %spec.select96, 8
-  %94 = trunc nuw i32 %93 to i8
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  store i8 %94, ptr %95, align 1
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %92, ptr %96, align 2
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  store i8 %94, ptr %97, align 1
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %99 = call i64 @llvm.umin.i64(i64 %.062, i64 4294967295)
-  %100 = trunc nuw i64 %99 to i32
-  store i32 %100, ptr %98, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %102 = call i64 @llvm.umin.i64(i64 %.063, i64 4294967295)
-  %103 = trunc nuw i64 %102 to i32
-  store i32 %103, ptr %101, align 16
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %107 = load ptr, ptr %106, align 8
-  %108 = call i64 %105(ptr noundef %107, i64 noundef %86, ptr noundef nonnull %2, i64 noundef 22) #35
-  %.not78 = icmp eq i64 %108, 22
-  br i1 %.not78, label %110, label %mz_zip_set_error.exit81
+  %92 = trunc nuw i32 %spec.select96 to i16
+  store i16 %92, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  store i16 %92, ptr %93, align 2
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %95 = call i64 @llvm.umin.i64(i64 %.062, i64 4294967295)
+  %96 = trunc nuw i64 %95 to i32
+  store i32 %96, ptr %94, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %98 = call i64 @llvm.umin.i64(i64 %.063, i64 4294967295)
+  %99 = trunc nuw i64 %98 to i32
+  store i32 %99, ptr %97, align 16
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %103 = load ptr, ptr %102, align 8
+  %104 = call i64 %101(ptr noundef %103, i64 noundef %86, ptr noundef nonnull %2, i64 noundef 22) #35
+  %.not78 = icmp eq i64 %104, 22
+  br i1 %.not78, label %106, label %mz_zip_set_error.exit81
 
 mz_zip_set_error.exit81:                          ; preds = %85
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %109, align 4
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %105, align 4
   br label %.critedge
 
-110:                                              ; preds = %85
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %112 = load ptr, ptr %111, align 8
-  %.not79 = icmp eq ptr %112, null
-  br i1 %.not79, label %117, label %113
+106:                                              ; preds = %85
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %108 = load ptr, ptr %107, align 8
+  %.not79 = icmp eq ptr %108, null
+  br i1 %.not79, label %113, label %109
 
-113:                                              ; preds = %110
-  %114 = call i32 @fflush(ptr noundef nonnull %112)
-  %115 = icmp eq i32 %114, -1
-  br i1 %115, label %mz_zip_set_error.exit, label %117
+109:                                              ; preds = %106
+  %110 = call i32 @fflush(ptr noundef nonnull %108)
+  %111 = icmp eq i32 %110, -1
+  br i1 %111, label %mz_zip_set_error.exit, label %113
 
-mz_zip_set_error.exit:                            ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 21, ptr %116, align 4
+mz_zip_set_error.exit:                            ; preds = %109
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 21, ptr %112, align 4
   br label %.critedge
 
-117:                                              ; preds = %113, %110
-  %118 = load i64, ptr %0, align 8
-  %119 = add i64 %118, 22
-  store i64 %119, ptr %0, align 8
+113:                                              ; preds = %109, %106
+  %114 = load i64, ptr %0, align 8
+  %115 = add i64 %114, 22
+  store i64 %115, ptr %0, align 8
   store i32 3, ptr %7, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %9, %1, %mz_zip_set_error.exit85, %mz_zip_set_error.exit83, %117, %mz_zip_set_error.exit, %mz_zip_set_error.exit81, %mz_zip_set_error.exit87, %mz_zip_set_error.exit89, %mz_zip_set_error.exit91
-  %.0 = phi i32 [ 0, %mz_zip_set_error.exit91 ], [ 0, %mz_zip_set_error.exit87 ], [ 0, %mz_zip_set_error.exit81 ], [ 0, %mz_zip_set_error.exit ], [ 1, %117 ], [ 0, %mz_zip_set_error.exit89 ], [ 0, %mz_zip_set_error.exit83 ], [ 0, %mz_zip_set_error.exit85 ], [ 0, %1 ], [ 0, %9 ]
+.critedge:                                        ; preds = %9, %1, %mz_zip_set_error.exit85, %mz_zip_set_error.exit83, %113, %mz_zip_set_error.exit, %mz_zip_set_error.exit81, %mz_zip_set_error.exit87, %mz_zip_set_error.exit89, %mz_zip_set_error.exit91
+  %.0 = phi i32 [ 0, %mz_zip_set_error.exit91 ], [ 0, %mz_zip_set_error.exit87 ], [ 0, %mz_zip_set_error.exit81 ], [ 0, %mz_zip_set_error.exit ], [ 1, %113 ], [ 0, %mz_zip_set_error.exit89 ], [ 0, %mz_zip_set_error.exit83 ], [ 0, %mz_zip_set_error.exit85 ], [ 0, %1 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #35
   ret i32 %.0
 }

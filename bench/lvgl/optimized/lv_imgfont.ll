@@ -68,7 +68,7 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %41, label %14
+  br i1 %13, label %39, label %14
 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
@@ -77,13 +77,13 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = call ptr %12(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %5, ptr noundef %16) #4
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %40, label %19
+  br i1 %18, label %38, label %19
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #4
   %20 = call i32 @lv_image_decoder_get_info(ptr noundef nonnull %17, ptr noundef nonnull %6) #4
   %.not24 = icmp eq i32 %20, 1
-  br i1 %.not24, label %21, label %39
+  br i1 %.not24, label %21, label %37
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -96,41 +96,38 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %27, ptr %28, align 8, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i16 %27, ptr %29, align 2, !tbaa !24
-  %30 = lshr i64 %25, 48
-  %31 = trunc nuw i64 %30 to i16
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i16 %31, ptr %32, align 4, !tbaa !25
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i16 0, ptr %33, align 2, !tbaa !26
-  %34 = load i32, ptr %5, align 4, !tbaa !19
-  %35 = trunc i32 %34 to i16
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 %35, ptr %36, align 8, !tbaa !27
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 25, ptr %37, align 4, !tbaa !28
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %17, ptr %38, align 8, !tbaa !29
+  %30 = trunc nuw i64 %26 to i32
+  store i32 %30, ptr %29, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  store i16 0, ptr %31, align 2, !tbaa !24
+  %32 = load i32, ptr %5, align 4, !tbaa !19
+  %33 = trunc i32 %32 to i16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i16 %33, ptr %34, align 8, !tbaa !25
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 25, ptr %35, align 4, !tbaa !26
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %17, ptr %36, align 8, !tbaa !27
+  br label %37
+
+37:                                               ; preds = %19, %21
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #4
+  br label %38
+
+38:                                               ; preds = %14, %37
+  %.1 = phi i1 [ %.not24, %37 ], [ false, %14 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   br label %39
 
-39:                                               ; preds = %19, %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #4
-  br label %40
-
-40:                                               ; preds = %14, %39
-  %.1 = phi i1 [ %.not24, %39 ], [ false, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  br label %41
-
-41:                                               ; preds = %10, %40
-  %.0 = phi i1 [ %.1, %40 ], [ false, %10 ]
+39:                                               ; preds = %10, %38
+  %.0 = phi i1 [ %.1, %38 ], [ false, %10 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal ptr @imgfont_get_glyph_bitmap(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !27
   ret ptr %4
 }
 
@@ -188,9 +185,7 @@ attributes #4 = { nounwind }
 !21 = !{!"", !10, i64 0, !22, i64 8, !22, i64 10, !22, i64 12, !22, i64 14, !22, i64 16, !9, i64 20, !7, i64 24, !7, i64 24, !7, i64 32, !23, i64 40}
 !22 = !{!"short", !7, i64 0}
 !23 = !{!"p1 _ZTS17_lv_cache_entry_t", !6, i64 0}
-!24 = !{!21, !22, i64 10}
-!25 = !{!21, !22, i64 12}
-!26 = !{!21, !22, i64 14}
-!27 = !{!21, !22, i64 16}
-!28 = !{!21, !9, i64 20}
-!29 = !{!7, !7, i64 0}
+!24 = !{!21, !22, i64 14}
+!25 = !{!21, !22, i64 16}
+!26 = !{!21, !9, i64 20}
+!27 = !{!7, !7, i64 0}

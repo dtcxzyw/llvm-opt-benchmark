@@ -109,34 +109,30 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  br label %15
+  br label %14
 
-._crit_edge:                                      ; preds = %15, %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8
-  %.not = icmp eq i32 %14, 0
+._crit_edge:                                      ; preds = %14, %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 8
+  %.not = icmp eq i32 %13, 0
   br i1 %.not, label %23, label %20
 
-15:                                               ; preds = %.lr.ph, %15
-  %16 = phi i64 [ %9, %.lr.ph ], [ %18, %15 ]
-  %.sroa.4.0.extract.shift = lshr i64 %16, 32
+14:                                               ; preds = %.lr.ph, %14
+  %15 = phi i64 [ %9, %.lr.ph ], [ %18, %14 ]
+  %.sroa.4.0.extract.shift = lshr i64 %15, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %.sroa.24.0.extract.shift = lshr i64 %16, 8
-  %.sroa.24.0.extract.trunc = trunc i64 %.sroa.24.0.extract.shift to i8
-  %.sroa.03.0.extract.trunc = trunc i64 %16 to i8
-  store i8 %.sroa.03.0.extract.trunc, ptr %11, align 4
-  store i8 %.sroa.24.0.extract.trunc, ptr %12, align 1
+  %16 = trunc i64 %15 to i16
+  store i16 %16, ptr %11, align 4
   store i32 %.sroa.4.0.extract.trunc, ptr %4, align 4
   %17 = call align 8 ptr @_ZN4core3fmt8builders8DebugSet5entry17h97cee4100b5a60bdE(ptr nonnull align 8 %6, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.4)
   %18 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %5)
   %19 = icmp ult i64 %18, 4294967296
-  br i1 %19, label %._crit_edge, label %15
+  br i1 %19, label %._crit_edge, label %14
 
 20:                                               ; preds = %._crit_edge
   store i32 95, ptr %3, align 4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %14, ptr %21, align 4
+  store i32 %13, ptr %21, align 4
   %22 = call align 8 ptr @_ZN4core3fmt8builders8DebugSet5entry17h97cee4100b5a60bdE(ptr nonnull align 8 %6, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.3)
   br label %23
 
