@@ -655,9 +655,9 @@ define i32 @Extra_TruthCanonN(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 .lr.ph:                                           ; preds = %2
   %4 = icmp sgt i32 %1, 0
   %wide.trip.count.i = zext nneg i32 %1 to i64
-  br i1 %4, label %.lr.ph.preheader.i.us.preheader, label %._crit_edge
+  br i1 %4, label %.lr.ph.preheader.i.us, label %._crit_edge
 
-.lr.ph.preheader.i.us.preheader:                  ; preds = %.lr.ph
+.lr.ph.preheader.i.us:                            ; preds = %.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   br label %.lr.ph.preheader.i.us
 
@@ -695,11 +695,11 @@ define i32 @Extra_TruthCanonN(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 Extra_TruthPolarize.exit.loopexit.us:             ; preds = %17
   %spec.select.us = tail call i32 @llvm.umin.i32(i32 %.01113.us, i32 %.1.i.us)
   %18 = add nuw nsw i32 %.014.us, 1
-  %exitcond.not = icmp eq i32 %18, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !29
+  %exitcond17.not = icmp eq i32 %18, %smax
+  br i1 %exitcond17.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %Extra_TruthPolarize.exit.loopexit.us, %.lr.ph, %2
-  %.011.lcssa = phi i32 [ -1, %2 ], [ %0, %.lr.ph ], [ %spec.select.us, %Extra_TruthPolarize.exit.loopexit.us ]
+Extra_TruthPolarize.exit:                         ; preds = %Extra_TruthPolarize.exit.loopexit.us, %.lr.ph, %2
+  %.014 = phi i32 [ -1, %2 ], [ %0, %.lr.ph ], [ %spec.select.us, %Extra_TruthPolarize.exit.loopexit.us ]
   ret i32 %.011.lcssa
 }
 
