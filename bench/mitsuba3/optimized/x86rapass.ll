@@ -5256,9 +5256,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %38 = zext i32 %34 to i64
   br label %39
 
-39:                                               ; preds = %.loopexit, %36
-  %40 = phi i64 [ 0, %36 ], [ %75, %.loopexit ]
-  %41 = phi i32 [ 0, %36 ], [ %74, %.loopexit ]
+39:                                               ; preds = %73, %36
+  %40 = phi i64 [ 0, %36 ], [ %75, %73 ]
+  %41 = phi i32 [ 0, %36 ], [ %74, %73 ]
   %42 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %32, i64 %40
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 4, !tbaa !108
@@ -5266,51 +5266,55 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %46 = load i8, ptr %45, align 2, !tbaa !11
   %47 = zext i8 %46 to i32
   %48 = icmp eq i32 %44, 0
-  br i1 %48, label %.loopexit13, label %.preheader12
+  br i1 %48, label %57, label %.preheader12
 
 .preheader12:                                     ; preds = %39, %.preheader12
-  %49 = phi i32 [ %51, %.preheader12 ], [ %41, %39 ]
-  %50 = phi i32 [ %54, %.preheader12 ], [ %44, %39 ]
-  %51 = call noundef i32 @llvm.umax.i32(i32 %49, i32 %47)
-  %52 = call noundef i32 @llvm.cttz.i32(i32 %50, i1 true), !range !117
-  %53 = add i32 %50, -1
-  %54 = and i32 %53, %50
-  %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %37, i64 %55
-  store i32 %47, ptr %56, align 4, !tbaa !85
-  %57 = icmp eq i32 %54, 0
-  br i1 %57, label %.loopexit13, label %.preheader12, !llvm.loop !272
+  %49 = phi i32 [ %52, %.preheader12 ], [ %44, %39 ]
+  %50 = call noundef i32 @llvm.cttz.i32(i32 %49, i1 true), !range !117
+  %51 = add i32 %49, -1
+  %52 = and i32 %51, %49
+  %53 = zext nneg i32 %50 to i64
+  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %53
+  store i32 %47, ptr %54, align 4, !tbaa !85
+  %55 = icmp eq i32 %52, 0
+  br i1 %55, label %.loopexit13, label %.preheader12, !llvm.loop !272
 
-.loopexit13:                                      ; preds = %.preheader12, %39
-  %58 = phi i32 [ %41, %39 ], [ %51, %.preheader12 ]
+.loopexit13:                                      ; preds = %.preheader12
+  %56 = call i32 @llvm.umax.i32(i32 %41, i32 %47)
+  br label %57
+
+57:                                               ; preds = %.loopexit13, %39
+  %58 = phi i32 [ %41, %39 ], [ %56, %.loopexit13 ]
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %60 = load i32, ptr %59, align 4, !tbaa !109
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 15
   %62 = load i8, ptr %61, align 1, !tbaa !11
   %63 = zext i8 %62 to i32
   %64 = icmp eq i32 %60, 0
-  br i1 %64, label %.loopexit, label %.preheader
+  br i1 %64, label %73, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit13, %.preheader
-  %65 = phi i32 [ %67, %.preheader ], [ %58, %.loopexit13 ]
-  %66 = phi i32 [ %70, %.preheader ], [ %60, %.loopexit13 ]
-  %67 = call noundef i32 @llvm.umax.i32(i32 %65, i32 %63)
-  %68 = call noundef i32 @llvm.cttz.i32(i32 %66, i1 true), !range !117
-  %69 = add i32 %66, -1
-  %70 = and i32 %69, %66
-  %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %37, i64 %71
-  store i32 %63, ptr %72, align 4, !tbaa !85
-  %73 = icmp eq i32 %70, 0
-  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !273
+.preheader:                                       ; preds = %57, %.preheader
+  %65 = phi i32 [ %68, %.preheader ], [ %60, %57 ]
+  %66 = call noundef i32 @llvm.cttz.i32(i32 %65, i1 true), !range !117
+  %67 = add i32 %65, -1
+  %68 = and i32 %67, %65
+  %69 = zext nneg i32 %66 to i64
+  %70 = getelementptr inbounds nuw i32, ptr %37, i64 %69
+  store i32 %63, ptr %70, align 4, !tbaa !85
+  %71 = icmp eq i32 %68, 0
+  br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !273
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit13
-  %74 = phi i32 [ %58, %.loopexit13 ], [ %67, %.preheader ]
+.loopexit:                                        ; preds = %.preheader
+  %72 = call i32 @llvm.umax.i32(i32 %58, i32 %63)
+  br label %73
+
+73:                                               ; preds = %.loopexit, %57
+  %74 = phi i32 [ %58, %57 ], [ %72, %.loopexit ]
   %75 = add nuw nsw i64 %40, 1
   %76 = icmp eq i64 %75, %38
   br i1 %76, label %77, label %39, !llvm.loop !274
 
-77:                                               ; preds = %.loopexit
+77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %79 = load i32, ptr %78, align 4, !tbaa !275
   %80 = icmp slt i32 %79, 0

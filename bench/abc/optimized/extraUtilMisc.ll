@@ -648,19 +648,22 @@ define i32 @Extra_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define i32 @Extra_TruthCanonN(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+  %3 = shl nuw i32 1, %1
   %.not = icmp eq i32 %1, 31
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = shl nuw i32 1, %1
   %4 = icmp sgt i32 %1, 0
   %wide.trip.count.i = zext nneg i32 %1 to i64
-  %smax16 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
-  br i1 %4, label %.lr.ph.preheader.i.us, label %Extra_TruthPolarize.exit
+  br i1 %4, label %.lr.ph.preheader.i.us.preheader, label %._crit_edge
 
-.lr.ph.preheader.i.us:                            ; preds = %.lr.ph, %Extra_TruthPolarize.exit.loopexit.us
-  %.014.us = phi i32 [ %18, %Extra_TruthPolarize.exit.loopexit.us ], [ 0, %.lr.ph ]
-  %.01113.us = phi i32 [ %spec.select.us, %Extra_TruthPolarize.exit.loopexit.us ], [ -1, %.lr.ph ]
+.lr.ph.preheader.i.us.preheader:                  ; preds = %.lr.ph
+  %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
+  br label %.lr.ph.preheader.i.us
+
+.lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %Extra_TruthPolarize.exit.loopexit.us
+  %.014.us = phi i32 [ %18, %Extra_TruthPolarize.exit.loopexit.us ], [ 0, %.lr.ph.preheader.i.us.preheader ]
+  %.01113.us = phi i32 [ %spec.select.us, %Extra_TruthPolarize.exit.loopexit.us ], [ -1, %.lr.ph.preheader.i.us.preheader ]
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %17, %.lr.ph.preheader.i.us
@@ -692,19 +695,11 @@ define i32 @Extra_TruthCanonN(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 Extra_TruthPolarize.exit.loopexit.us:             ; preds = %17
   %spec.select.us = tail call i32 @llvm.umin.i32(i32 %.01113.us, i32 %.1.i.us)
   %18 = add nuw nsw i32 %.014.us, 1
-  %exitcond17.not = icmp eq i32 %18, %smax16
-  br i1 %exitcond17.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !29
+  %exitcond.not = icmp eq i32 %18, %smax
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !29
 
-Extra_TruthPolarize.exit:                         ; preds = %.lr.ph, %Extra_TruthPolarize.exit
-  %.014 = phi i32 [ %19, %Extra_TruthPolarize.exit ], [ 0, %.lr.ph ]
-  %.01113 = phi i32 [ %spec.select, %Extra_TruthPolarize.exit ], [ -1, %.lr.ph ]
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %.01113, i32 %0)
-  %19 = add nuw nsw i32 %.014, 1
-  %exitcond.not = icmp eq i32 %19, %smax16
-  br i1 %exitcond.not, label %._crit_edge, label %Extra_TruthPolarize.exit, !llvm.loop !29
-
-._crit_edge:                                      ; preds = %Extra_TruthPolarize.exit, %Extra_TruthPolarize.exit.loopexit.us, %2
-  %.011.lcssa = phi i32 [ -1, %2 ], [ %spec.select.us, %Extra_TruthPolarize.exit.loopexit.us ], [ %spec.select, %Extra_TruthPolarize.exit ]
+._crit_edge:                                      ; preds = %Extra_TruthPolarize.exit.loopexit.us, %.lr.ph, %2
+  %.011.lcssa = phi i32 [ -1, %2 ], [ %0, %.lr.ph ], [ %spec.select.us, %Extra_TruthPolarize.exit.loopexit.us ]
   ret i32 %.011.lcssa
 }
 
