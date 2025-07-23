@@ -239,13 +239,12 @@ if.end:                                           ; preds = %entry
   %or.i.i.i.i.i = or i64 %2, -281474976710656
   store i64 %or.i.i.i.i.i, ptr %0, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 28
-  %add.ptr.i.i.i39.ptr = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %add.ptr.i.i.i39 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %numDescriptors_ = getelementptr inbounds nuw i8, ptr %1, i64 12
   %3 = load atomic i32, ptr %numDescriptors_ monotonic, align 4
   %idx.ext = zext i32 %3 to i64
   %add.ptr.idx = mul nuw nsw i64 %idx.ext, 12
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.idx
-  %add.ptr.ptr = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %add.ptr = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i39, i64 %add.ptr.idx
   %cmp.not50 = icmp eq i32 %3, 0
   br i1 %cmp.not50, label %for.end, label %for.body.lr.ph
 
@@ -257,28 +256,28 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %dst.053 = phi ptr [ %add.ptr.i.i.i, %for.body.lr.ph ], [ %dst.1, %for.inc ]
   %count.052 = phi i32 [ 0, %for.body.lr.ph ], [ %count.1, %for.inc ]
-  %src.051 = phi ptr [ %add.ptr.i.i.i39.ptr, %for.body.lr.ph ], [ %incdec.ptr24, %for.inc ]
-  %5 = load i32, ptr %src.051, align 4
-  %cmp.i40 = icmp ugt i32 %5, 536870909
+  %src.051 = phi ptr [ %add.ptr.i.i.i39, %for.body.lr.ph ], [ %incdec.ptr24, %for.inc ]
+  %4 = load i32, ptr %src.051, align 4
+  %cmp.i40 = icmp ugt i32 %4, 536870909
   br i1 %cmp.i40, label %for.inc, label %if.end12
 
 if.end12:                                         ; preds = %for.body
-  store i32 %5, ptr %dst.053, align 4
+  store i32 %4, ptr %dst.053, align 4
   %second = getelementptr inbounds nuw i8, ptr %src.051, i64 4
   %second16 = getelementptr inbounds nuw i8, ptr %dst.053, i64 4
-  %6 = load i64, ptr %second, align 4
-  store i64 %6, ptr %second16, align 4
-  %7 = load i32, ptr %hashCapacity_.i, align 4
-  %sub.i = add i32 %7, -1
-  %8 = load i32, ptr %descriptorCapacity_.i.i.i.i.i.i, align 4
-  %conv.i.i.i.i.i.i = zext i32 %8 to i64
+  %5 = load i64, ptr %second, align 4
+  store i64 %5, ptr %second16, align 4
+  %6 = load i32, ptr %hashCapacity_.i, align 4
+  %sub.i = add i32 %6, -1
+  %7 = load i32, ptr %descriptorCapacity_.i.i.i.i.i.i, align 4
+  %conv.i.i.i.i.i.i = zext i32 %7 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %add.ptr.i.i.i, i64 %conv.i.i.i.i.i.i
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end17.i, %if.end12
   %deleted.0.i = phi ptr [ null, %if.end12 ], [ %deleted.1.i, %if.end17.i ]
   %step.0.i = phi i32 [ 1, %if.end12 ], [ %inc.i, %if.end17.i ]
-  %call2.pn.i = phi i32 [ %5, %if.end12 ], [ %add.i, %if.end17.i ]
+  %call2.pn.i = phi i32 [ %4, %if.end12 ], [ %add.i, %if.end17.i ]
   %index.0.i = and i32 %call2.pn.i, %sub.i
   %idx.ext.i = zext i32 %index.0.i to i64
   %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::detail::DPMHashPair", ptr %add.ptr.i.i.i.i, i64 %idx.ext.i
@@ -287,17 +286,17 @@ for.cond.i:                                       ; preds = %if.end17.i, %if.end
   br i1 %cmp.i.i41, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.cond.i
-  %9 = xor i32 %bf.load.i.i, %5
-  %10 = and i32 %9, 255
-  %cmp.i.i.i = icmp eq i32 %10, 0
+  %8 = xor i32 %bf.load.i.i, %4
+  %9 = and i32 %8, 255
+  %cmp.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.i.i.i, label %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i, label %if.end17.i
 
 _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i: ; preds = %if.then.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i, 8
-  %11 = zext nneg i32 %bf.lshr.i.i.i to i64
-  %gep.i = getelementptr %"struct.std::pair", ptr %descriptorCapacity_.i.i.i.i.i.i, i64 %11
-  %12 = load i32, ptr %gep.i, align 4
-  %cmp.i4.i.i = icmp eq i32 %12, %5
+  %10 = zext nneg i32 %bf.lshr.i.i.i to i64
+  %gep.i = getelementptr %"struct.std::pair", ptr %descriptorCapacity_.i.i.i.i.i.i, i64 %10
+  %11 = load i32, ptr %gep.i, align 4
+  %cmp.i4.i.i = icmp eq i32 %11, %4
   br i1 %cmp.i4.i.i, label %_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit, label %if.end17.i
 
 if.else.i:                                        ; preds = %for.cond.i
@@ -316,8 +315,8 @@ _ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit: ; preds 
   %retval.sroa.3.0.i = phi ptr [ %.sroa.speculated.i, %if.else.i ], [ %add.ptr.i, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i ]
   %add.i44 = shl i32 %count.052, 8
   %bf.value.i = add i32 %add.i44, 512
-  %13 = and i32 %5, 255
-  %bf.set7.i = or disjoint i32 %13, %bf.value.i
+  %12 = and i32 %4, 255
+  %bf.set7.i = or disjoint i32 %12, %bf.value.i
   store i32 %bf.set7.i, ptr %retval.sroa.3.0.i, align 4
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %dst.053, i64 12
   %inc = add i32 %count.052, 1
@@ -327,7 +326,7 @@ for.inc:                                          ; preds = %for.body, %_ZN6herm
   %count.1 = phi i32 [ %count.052, %for.body ], [ %inc, %_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit ]
   %dst.1 = phi ptr [ %dst.053, %for.body ], [ %incdec.ptr, %_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit ]
   %incdec.ptr24 = getelementptr inbounds nuw i8, ptr %src.051, i64 12
-  %cmp.not = icmp eq ptr %incdec.ptr24, %add.ptr.ptr
+  %cmp.not = icmp eq ptr %incdec.ptr24, %add.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %if.end
@@ -336,33 +335,33 @@ for.end:                                          ; preds = %for.inc, %if.end
   %numProperties_ = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 %count.0.lcssa, ptr %numProperties_, align 4
   %deletedListHead_ = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %14 = load i32, ptr %deletedListHead_, align 4
-  %cmp25.not = icmp eq i32 %14, -1
+  %13 = load i32, ptr %deletedListHead_, align 4
+  %cmp25.not = icmp eq i32 %13, -1
   br i1 %cmp25.not, label %if.end46, label %if.then26
 
 if.then26:                                        ; preds = %for.end
   %deletedListHead_27 = getelementptr inbounds nuw i8, ptr %call, i64 20
   store i32 %count.0.lcssa, ptr %deletedListHead_27, align 4
   %deletedListSize_ = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i32, ptr %deletedListSize_, align 4
+  %14 = load i32, ptr %deletedListSize_, align 4
   %deletedListSize_28 = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store i32 %15, ptr %deletedListSize_28, align 4
+  store i32 %14, ptr %deletedListSize_28, align 4
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then26
   %count.3 = phi i32 [ %count.0.lcssa, %if.then26 ], [ %add, %do.body ]
   %dst.2 = phi ptr [ %dst.0.lcssa, %if.then26 ], [ %incdec.ptr43, %do.body ]
-  %deletedIndex.0 = phi i32 [ %14, %if.then26 ], [ %17, %do.body ]
+  %deletedIndex.0 = phi i32 [ %13, %if.then26 ], [ %16, %do.body ]
   %idx.ext31 = zext i32 %deletedIndex.0 to i64
-  %add.ptr32 = getelementptr inbounds nuw %"struct.std::pair", ptr %add.ptr.i.i.i39.ptr, i64 %idx.ext31
+  %add.ptr32 = getelementptr inbounds nuw %"struct.std::pair", ptr %add.ptr.i.i.i39, i64 %idx.ext31
   store i32 536870910, ptr %dst.2, align 4
   %slot = getelementptr inbounds nuw i8, ptr %add.ptr32, i64 8
-  %16 = load i32, ptr %slot, align 4
+  %15 = load i32, ptr %slot, align 4
   %slot40 = getelementptr inbounds nuw i8, ptr %dst.2, i64 8
-  store i32 %16, ptr %slot40, align 4
+  store i32 %15, ptr %slot40, align 4
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr32, i64 4
-  %17 = load i32, ptr %second.i, align 4
-  %cmp42.not = icmp eq i32 %17, -1
+  %16 = load i32, ptr %second.i, align 4
+  %cmp42.not = icmp eq i32 %16, -1
   %add = add i32 %count.3, 1
   %cond = select i1 %cmp42.not, i32 -1, i32 %add
   %second.i46 = getelementptr inbounds nuw i8, ptr %dst.2, i64 4

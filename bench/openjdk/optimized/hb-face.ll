@@ -1787,54 +1787,53 @@ _ZNK16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE
   %.not.i.i.i2 = icmp eq ptr %26, null
   %spec.select.i.i.i = select i1 %.not.i.i.i2, ptr @_hb_NullPool, ptr %26
   %27 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 6
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 7
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 9
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i64
-  %.idx.i.i = mul nuw nsw i64 %32, 720896
-  %.idx10.i.i = mul nuw nsw i64 %29, 184549376
-  %.idx11.i.i = mul nuw nsw i64 %35, 2816
-  %.idx16.i.i = mul nuw nsw i64 %38, 11
-  %.add.i.i = or disjoint i64 %.idx10.i.i, 10
-  %.add14.i.i = add nuw nsw i64 %.add.i.i, %.idx.i.i
-  %.add15.i.i = add nuw nsw i64 %.add14.i.i, %.idx11.i.i
-  %.add17.i.i = add nuw nsw i64 %.add15.i.i, %.idx16.i.i
-  %.ptr21.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %.add17.i.i
-  %.not12.i.i = icmp eq i64 %.add17.i.i, 10
+  %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 10
+  %29 = load i8, ptr %27, align 1
+  %30 = zext i8 %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 7
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 9
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i64
+  %.idx.i.i = mul nuw nsw i64 %33, 720896
+  %.idx10.i.i = mul nuw nsw i64 %30, 184549376
+  %40 = add nuw nsw i64 %.idx.i.i, %.idx10.i.i
+  %.idx11.i.i = mul nuw nsw i64 %36, 2816
+  %41 = add nuw nsw i64 %40, %.idx11.i.i
+  %.idx14.i.i = mul nuw nsw i64 %39, 11
+  %42 = add nuw nsw i64 %41, %.idx14.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 %42
+  %.not12.i.i = icmp samesign eq i64 %42, 0
   br i1 %.not12.i.i, label %_ZNK2OT4cmap13accelerator_t27collect_variation_selectorsEP8hb_set_t.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_EptEv.exit
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 10
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %40
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %45
 
-40:                                               ; preds = %40, %.lr.ph.i.i
-  %.013.i.i = phi ptr [ %.ptr.i.i, %.lr.ph.i.i ], [ %53, %40 ]
-  %41 = load i8, ptr %.013.i.i, align 1
-  %42 = zext i8 %41 to i32
-  %43 = shl nuw nsw i32 %42, 16
-  %44 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 1
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw nsw i32 %46, 8
-  %48 = or disjoint i32 %47, %43
-  %49 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 2
+45:                                               ; preds = %45, %.lr.ph.i.i
+  %.013.i.i = phi ptr [ %28, %.lr.ph.i.i ], [ %58, %45 ]
+  %46 = load i8, ptr %.013.i.i, align 1
+  %47 = zext i8 %46 to i32
+  %48 = shl nuw nsw i32 %47, 16
+  %49 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
-  %52 = or disjoint i32 %48, %51
-  tail call void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %39, i32 noundef %52)
-  %53 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 11
-  %.not.i.i = icmp eq ptr %53, %.ptr21.i.i
-  br i1 %.not.i.i, label %_ZNK2OT4cmap13accelerator_t27collect_variation_selectorsEP8hb_set_t.exit, label %40
+  %52 = shl nuw nsw i32 %51, 8
+  %53 = or disjoint i32 %52, %48
+  %54 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 2
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = or disjoint i32 %53, %56
+  tail call void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %44, i32 noundef %57)
+  %58 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 11
+  %.not.i.i = icmp eq ptr %58, %43
+  br i1 %.not.i.i, label %_ZNK2OT4cmap13accelerator_t27collect_variation_selectorsEP8hb_set_t.exit, label %45
 
-_ZNK2OT4cmap13accelerator_t27collect_variation_selectorsEP8hb_set_t.exit: ; preds = %40, %_ZNK16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_EptEv.exit
+_ZNK2OT4cmap13accelerator_t27collect_variation_selectorsEP8hb_set_t.exit: ; preds = %45, %_ZNK16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_EptEv.exit
   ret void
 }
 
@@ -7540,54 +7539,53 @@ _ZNK2OT10DefaultUVS16collect_unicodesEP8hb_set_t.exit: ; preds = %_ZN14hb_sparse
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 %87
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %88
   %.0.i.i3 = select i1 %81, ptr @_hb_NullPool, ptr %92
-  %93 = load i8, ptr %.0.i.i3, align 1
-  %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 1
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 2
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 3
-  %102 = load i8, ptr %101, align 1
-  %103 = zext i8 %102 to i64
-  %.idx.i = mul nuw nsw i64 %97, 327680
-  %.idx10.i = mul nuw nsw i64 %94, 83886080
-  %.idx11.i = mul nuw nsw i64 %100, 1280
-  %.idx16.i = mul nuw nsw i64 %103, 5
-  %.add.i = or disjoint i64 %.idx10.i, 4
-  %.add14.i = add nuw nsw i64 %.add.i, %.idx.i
-  %.add15.i = add nuw nsw i64 %.add14.i, %.idx11.i
-  %.add17.i = add nuw nsw i64 %.add15.i, %.idx16.i
-  %.ptr21.i = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 %.add17.i
-  %.not12.i = icmp eq i64 %.add17.i, 4
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 4
+  %94 = load i8, ptr %.0.i.i3, align 1
+  %95 = zext i8 %94 to i64
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 1
+  %97 = load i8, ptr %96, align 1
+  %98 = zext i8 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 2
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i64
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 3
+  %103 = load i8, ptr %102, align 1
+  %104 = zext i8 %103 to i64
+  %.idx.i = mul nuw nsw i64 %98, 327680
+  %.idx10.i = mul nuw nsw i64 %95, 83886080
+  %105 = add nuw nsw i64 %.idx.i, %.idx10.i
+  %.idx11.i = mul nuw nsw i64 %101, 1280
+  %106 = add nuw nsw i64 %105, %.idx11.i
+  %.idx14.i = mul nuw nsw i64 %104, 5
+  %107 = add nuw nsw i64 %106, %.idx14.i
+  %108 = getelementptr inbounds nuw i8, ptr %93, i64 %107
+  %.not12.i = icmp samesign eq i64 %107, 0
   br i1 %.not12.i, label %_ZNK2OT13NonDefaultUVS16collect_unicodesEP8hb_set_t.exit, label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %_ZNK2OT10DefaultUVS16collect_unicodesEP8hb_set_t.exit
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 4
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %105
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %110
 
-105:                                              ; preds = %105, %.lr.ph.i4
-  %.013.i = phi ptr [ %.ptr.i, %.lr.ph.i4 ], [ %118, %105 ]
-  %106 = load i8, ptr %.013.i, align 1
-  %107 = zext i8 %106 to i32
-  %108 = shl nuw nsw i32 %107, 16
-  %109 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %112 = shl nuw nsw i32 %111, 8
-  %113 = or disjoint i32 %112, %108
-  %114 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
+110:                                              ; preds = %110, %.lr.ph.i4
+  %.013.i = phi ptr [ %93, %.lr.ph.i4 ], [ %123, %110 ]
+  %111 = load i8, ptr %.013.i, align 1
+  %112 = zext i8 %111 to i32
+  %113 = shl nuw nsw i32 %112, 16
+  %114 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
-  %117 = or disjoint i32 %113, %116
-  tail call void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %104, i32 noundef %117)
-  %118 = getelementptr inbounds nuw i8, ptr %.013.i, i64 5
-  %.not.i5 = icmp eq ptr %118, %.ptr21.i
-  br i1 %.not.i5, label %_ZNK2OT13NonDefaultUVS16collect_unicodesEP8hb_set_t.exit, label %105
+  %117 = shl nuw nsw i32 %116, 8
+  %118 = or disjoint i32 %117, %113
+  %119 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i32
+  %122 = or disjoint i32 %118, %121
+  tail call void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %109, i32 noundef %122)
+  %123 = getelementptr inbounds nuw i8, ptr %.013.i, i64 5
+  %.not.i5 = icmp eq ptr %123, %108
+  br i1 %.not.i5, label %_ZNK2OT13NonDefaultUVS16collect_unicodesEP8hb_set_t.exit, label %110
 
-_ZNK2OT13NonDefaultUVS16collect_unicodesEP8hb_set_t.exit: ; preds = %105, %_ZNK2OT10DefaultUVS16collect_unicodesEP8hb_set_t.exit
+_ZNK2OT13NonDefaultUVS16collect_unicodesEP8hb_set_t.exit: ; preds = %110, %_ZNK2OT10DefaultUVS16collect_unicodesEP8hb_set_t.exit
   ret void
 }
 

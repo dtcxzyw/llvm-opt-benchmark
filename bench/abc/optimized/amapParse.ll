@@ -1769,13 +1769,13 @@ define range(i32 0, 2) i32 @Amap_LibParseEquations(ptr noundef %0, i32 noundef %
   %.not = icmp eq i32 %1, 0
   br label %24
 
-24:                                               ; preds = %.lr.ph71, %124
-  %.promoted66 = phi i32 [ 100, %.lr.ph71 ], [ %.promoted6687, %124 ]
-  %indvars.iv82 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next83, %124 ]
-  %25 = phi ptr [ %20, %.lr.ph71 ], [ %125, %124 ]
+24:                                               ; preds = %.lr.ph71, %125
+  %.promoted66 = phi i32 [ 100, %.lr.ph71 ], [ %.promoted6686, %125 ]
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next82, %125 ]
+  %25 = phi ptr [ %20, %.lr.ph71 ], [ %126, %125 ]
   %26 = getelementptr i8, ptr %25, i64 8
   %.val57 = load ptr, ptr %26, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv82
+  %27 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv81
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load i32, ptr %29, align 8
@@ -1795,7 +1795,7 @@ define range(i32 0, 2) i32 @Amap_LibParseEquations(ptr noundef %0, i32 noundef %
 
 40:                                               ; preds = %32
   store i32 0, ptr %34, align 4, !tbaa !30
-  br label %124
+  br label %125
 
 41:                                               ; preds = %32
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(7) @.str.15) #17
@@ -1804,10 +1804,10 @@ define range(i32 0, 2) i32 @Amap_LibParseEquations(ptr noundef %0, i32 noundef %
 
 44:                                               ; preds = %41
   store i32 -1, ptr %34, align 4, !tbaa !30
-  br label %124
+  br label %125
 
 45:                                               ; preds = %41
-  %46 = trunc nuw nsw i64 %indvars.iv82 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv81 to i32
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !47
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef nonnull %37, ptr noundef %48)
@@ -1815,178 +1815,178 @@ define range(i32 0, 2) i32 @Amap_LibParseEquations(ptr noundef %0, i32 noundef %
 
 50:                                               ; preds = %24
   %51 = icmp ugt i32 %30, 268435455
-  br i1 %51, label %124, label %.lr.ph
+  br i1 %51, label %125, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50
-  %.ptr = getelementptr inbounds nuw i8, ptr %28, i64 64
-  br label %52
+  %52 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  br label %53
 
-52:                                               ; preds = %.lr.ph, %Vec_PtrPush.exit
+53:                                               ; preds = %.lr.ph, %Vec_PtrPush.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_PtrPush.exit ]
-  %53 = phi i32 [ %.promoted66, %.lr.ph ], [ %75, %Vec_PtrPush.exit ]
-  %.064 = phi ptr [ %.ptr, %.lr.ph ], [ %78, %Vec_PtrPush.exit ]
-  %54 = load ptr, ptr %.064, align 8, !tbaa !48
-  %55 = trunc nsw i64 %indvars.iv to i32
-  %56 = icmp eq i32 %53, %55
-  br i1 %56, label %57, label %.Vec_PtrGrow.exit11_crit_edge.i
+  %54 = phi i32 [ %.promoted66, %.lr.ph ], [ %76, %Vec_PtrPush.exit ]
+  %.064 = phi ptr [ %52, %.lr.ph ], [ %79, %Vec_PtrPush.exit ]
+  %55 = load ptr, ptr %.064, align 8, !tbaa !48
+  %56 = trunc nsw i64 %indvars.iv to i32
+  %57 = icmp eq i32 %54, %56
+  br i1 %57, label %58, label %.Vec_PtrGrow.exit11_crit_edge.i
 
-.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %52
+.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %53
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !3
   br label %Vec_PtrPush.exit
 
-57:                                               ; preds = %52
-  %58 = icmp samesign ult i64 %indvars.iv, 16
-  %59 = load ptr, ptr %15, align 8, !tbaa !3
-  %.not9.i.i = icmp eq ptr %59, null
-  br i1 %58, label %60, label %66
+58:                                               ; preds = %53
+  %59 = icmp samesign ult i64 %indvars.iv, 16
+  %60 = load ptr, ptr %15, align 8, !tbaa !3
+  %.not9.i.i = icmp eq ptr %60, null
+  br i1 %59, label %61, label %67
 
-60:                                               ; preds = %57
-  br i1 %.not9.i.i, label %63, label %61
+61:                                               ; preds = %58
+  br i1 %.not9.i.i, label %64, label %62
 
-61:                                               ; preds = %60
-  %62 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %59, i64 noundef 128) #15
+62:                                               ; preds = %61
+  %63 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %60, i64 noundef 128) #15
   br label %Vec_PtrGrow.exit.i
 
-63:                                               ; preds = %60
-  %64 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+64:                                               ; preds = %61
+  %65 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
   br label %Vec_PtrGrow.exit.i
 
-Vec_PtrGrow.exit.i:                               ; preds = %63, %61
-  %65 = phi ptr [ %62, %61 ], [ %64, %63 ]
-  store ptr %65, ptr %15, align 8, !tbaa !3
+Vec_PtrGrow.exit.i:                               ; preds = %64, %62
+  %66 = phi ptr [ %63, %62 ], [ %65, %64 ]
+  store ptr %66, ptr %15, align 8, !tbaa !3
   br label %Vec_PtrPush.exit
 
-66:                                               ; preds = %57
-  %67 = shl nuw nsw i64 %indvars.iv, 4
-  br i1 %.not9.i.i, label %70, label %68
+67:                                               ; preds = %58
+  %68 = shl nuw nsw i64 %indvars.iv, 4
+  br i1 %.not9.i.i, label %71, label %69
 
-68:                                               ; preds = %66
-  %69 = tail call ptr @realloc(ptr noundef nonnull %59, i64 noundef %67) #15
-  br label %72
+69:                                               ; preds = %67
+  %70 = tail call ptr @realloc(ptr noundef nonnull %60, i64 noundef %68) #15
+  br label %73
 
-70:                                               ; preds = %66
-  %71 = tail call noalias ptr @malloc(i64 noundef %67) #16
-  br label %72
+71:                                               ; preds = %67
+  %72 = tail call noalias ptr @malloc(i64 noundef %68) #16
+  br label %73
 
-72:                                               ; preds = %70, %68
-  %73 = phi ptr [ %69, %68 ], [ %71, %70 ]
-  store ptr %73, ptr %15, align 8, !tbaa !3
+73:                                               ; preds = %71, %69
+  %74 = phi ptr [ %70, %69 ], [ %72, %71 ]
+  store ptr %74, ptr %15, align 8, !tbaa !3
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %74 = shl i32 %indvars.iv.tr, 1
+  %75 = shl i32 %indvars.iv.tr, 1
   br label %Vec_PtrPush.exit
 
-Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %72
-  %75 = phi i32 [ %53, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %74, %72 ], [ 16, %Vec_PtrGrow.exit.i ]
-  %76 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %73, %72 ], [ %65, %Vec_PtrGrow.exit.i ]
+Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %73
+  %76 = phi i32 [ %54, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %75, %73 ], [ 16, %Vec_PtrGrow.exit.i ]
+  %77 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %74, %73 ], [ %66, %Vec_PtrGrow.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
-  store ptr %54, ptr %77, align 8, !tbaa !10
-  %78 = getelementptr inbounds nuw i8, ptr %.064, i64 72
-  %79 = load i32, ptr %29, align 8
-  %80 = lshr i32 %79, 24
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw %struct.Amap_Pin_t_, ptr %.ptr, i64 %81
-  %83 = icmp ult ptr %78, %82
-  br i1 %83, label %52, label %84, !llvm.loop !50
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  store ptr %55, ptr %78, align 8, !tbaa !10
+  %79 = getelementptr inbounds nuw i8, ptr %.064, i64 72
+  %80 = load i32, ptr %29, align 8
+  %81 = lshr i32 %80, 24
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr inbounds nuw %struct.Amap_Pin_t_, ptr %52, i64 %82
+  %84 = icmp ult ptr %79, %83
+  br i1 %84, label %53, label %85, !llvm.loop !50
 
-84:                                               ; preds = %Vec_PtrPush.exit
-  %85 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %85, ptr %13, align 4, !tbaa !9
-  store i32 %75, ptr %12, align 8
-  %86 = load ptr, ptr @stdout, align 8, !tbaa !51
-  %87 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %88 = load ptr, ptr %87, align 8, !tbaa !46
-  %89 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !47
-  %91 = tail call ptr @Amap_ParseFormula(ptr noundef %86, ptr noundef %88, ptr noundef nonnull %12, ptr noundef %16, ptr noundef %90)
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %.critedge.loopexit.loopexit, label %93
+85:                                               ; preds = %Vec_PtrPush.exit
+  %86 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %86, ptr %13, align 4, !tbaa !9
+  store i32 %76, ptr %12, align 8
+  %87 = load ptr, ptr @stdout, align 8, !tbaa !51
+  %88 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %89 = load ptr, ptr %88, align 8, !tbaa !46
+  %90 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %91 = load ptr, ptr %90, align 8, !tbaa !47
+  %92 = tail call ptr @Amap_ParseFormula(ptr noundef %87, ptr noundef %89, ptr noundef nonnull %12, ptr noundef %16, ptr noundef %91)
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %.critedge.loopexit.loopexit, label %94
 
-93:                                               ; preds = %84
-  %94 = load i32, ptr %29, align 8
-  %95 = lshr i32 %94, 24
-  %96 = tail call ptr @Hop_ManConvertAigToTruth(ptr noundef %16, ptr noundef nonnull %91, i32 noundef %95, ptr noundef nonnull %8, i32 noundef 0) #14
-  %97 = load i32, ptr %29, align 8
-  %98 = lshr i32 %97, 24
-  %99 = tail call i32 @Kit_TruthSupportSize(ptr noundef %96, i32 noundef %98) #14
-  %100 = load i32, ptr %29, align 8
-  %101 = lshr i32 %100, 24
-  %102 = icmp slt i32 %99, %101
-  br i1 %102, label %103, label %108
+94:                                               ; preds = %85
+  %95 = load i32, ptr %29, align 8
+  %96 = lshr i32 %95, 24
+  %97 = tail call ptr @Hop_ManConvertAigToTruth(ptr noundef %16, ptr noundef nonnull %92, i32 noundef %96, ptr noundef nonnull %8, i32 noundef 0) #14
+  %98 = load i32, ptr %29, align 8
+  %99 = lshr i32 %98, 24
+  %100 = tail call i32 @Kit_TruthSupportSize(ptr noundef %97, i32 noundef %99) #14
+  %101 = load i32, ptr %29, align 8
+  %102 = lshr i32 %101, 24
+  %103 = icmp slt i32 %100, %102
+  br i1 %103, label %104, label %109
 
-103:                                              ; preds = %93
-  br i1 %.not, label %124, label %104
+104:                                              ; preds = %94
+  br i1 %.not, label %125, label %105
 
-104:                                              ; preds = %103
-  %105 = load ptr, ptr %89, align 8, !tbaa !47
-  %106 = load ptr, ptr %87, align 8, !tbaa !46
-  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %105, ptr noundef %106)
-  br label %124
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %90, align 8, !tbaa !47
+  %107 = load ptr, ptr %88, align 8, !tbaa !46
+  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %106, ptr noundef %107)
+  br label %125
 
-108:                                              ; preds = %93
-  %109 = load ptr, ptr %23, align 8, !tbaa !41
-  %110 = icmp ult i32 %100, 100663296
-  %111 = add nsw i32 %101, -5
-  %112 = shl i32 4, %111
-  %113 = select i1 %110, i32 4, i32 %112
-  %114 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %109, i32 noundef %113) #14
-  %115 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store ptr %114, ptr %115, align 8, !tbaa !42
-  %116 = load i32, ptr %29, align 8
-  %117 = lshr i32 %116, 24
-  %118 = icmp ult i32 %116, 100663296
-  %119 = add nsw i32 %117, -5
-  %120 = shl nuw i32 1, %119
-  %121 = select i1 %118, i32 1, i32 %120
-  %122 = sext i32 %121 to i64
-  %123 = shl nsw i64 %122, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %114, ptr noundef nonnull align 4 dereferenceable(1) %96, i64 %123, i1 false)
-  br label %124
+109:                                              ; preds = %94
+  %110 = load ptr, ptr %23, align 8, !tbaa !41
+  %111 = icmp ult i32 %101, 100663296
+  %112 = add nsw i32 %102, -5
+  %113 = shl i32 4, %112
+  %114 = select i1 %111, i32 4, i32 %113
+  %115 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %110, i32 noundef %114) #14
+  %116 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store ptr %115, ptr %116, align 8, !tbaa !42
+  %117 = load i32, ptr %29, align 8
+  %118 = lshr i32 %117, 24
+  %119 = icmp ult i32 %117, 100663296
+  %120 = add nsw i32 %118, -5
+  %121 = shl nuw i32 1, %120
+  %122 = select i1 %119, i32 1, i32 %121
+  %123 = sext i32 %122 to i64
+  %124 = shl nsw i64 %123, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(1) %97, i64 %124, i1 false)
+  br label %125
 
-124:                                              ; preds = %103, %104, %50, %40, %44, %108
-  %.promoted6687 = phi i32 [ %75, %103 ], [ %75, %104 ], [ %.promoted66, %50 ], [ %.promoted66, %40 ], [ %.promoted66, %44 ], [ %75, %108 ]
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %125 = load ptr, ptr %19, align 8, !tbaa !34
-  %126 = getelementptr i8, ptr %125, i64 4
-  %.val56 = load i32, ptr %126, align 4, !tbaa !9
-  %127 = sext i32 %.val56 to i64
-  %128 = icmp slt i64 %indvars.iv.next83, %127
-  br i1 %128, label %24, label %.critedge.loopexit.loopexit, !llvm.loop !53
+125:                                              ; preds = %104, %105, %50, %40, %44, %109
+  %.promoted6686 = phi i32 [ %76, %104 ], [ %76, %105 ], [ %.promoted66, %50 ], [ %.promoted66, %40 ], [ %.promoted66, %44 ], [ %76, %109 ]
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %126 = load ptr, ptr %19, align 8, !tbaa !34
+  %127 = getelementptr i8, ptr %126, i64 4
+  %.val56 = load i32, ptr %127, align 4, !tbaa !9
+  %128 = sext i32 %.val56 to i64
+  %129 = icmp slt i64 %indvars.iv.next82, %128
+  br i1 %129, label %24, label %.critedge.loopexit.loopexit, !llvm.loop !53
 
-.critedge.loopexit.loopexit:                      ; preds = %84, %124
-  %.052.lcssa.ph.in = phi i64 [ %indvars.iv.next83, %124 ], [ %indvars.iv82, %84 ]
+.critedge.loopexit.loopexit:                      ; preds = %85, %125
+  %.052.lcssa.ph.in = phi i64 [ %indvars.iv.next82, %125 ], [ %indvars.iv81, %85 ]
   %.052.lcssa.ph = trunc i64 %.052.lcssa.ph.in to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %.critedge.loopexit.loopexit, %45
   %.05261 = phi i32 [ %46, %45 ], [ 0, %7 ], [ %.052.lcssa.ph, %.critedge.loopexit.loopexit ]
-  %129 = load ptr, ptr %15, align 8, !tbaa !3
-  %.not.i = icmp eq ptr %129, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %130
+  %130 = load ptr, ptr %15, align 8, !tbaa !3
+  %.not.i = icmp eq ptr %130, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %131
 
-130:                                              ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %129) #14
+131:                                              ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %130) #14
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge, %130
+Vec_PtrFree.exit:                                 ; preds = %.critedge, %131
   tail call void @free(ptr noundef nonnull %12) #14
-  %131 = load ptr, ptr %11, align 8, !tbaa !21
-  %.not.i58 = icmp eq ptr %131, null
-  br i1 %.not.i58, label %Vec_IntFree.exit, label %132
+  %132 = load ptr, ptr %11, align 8, !tbaa !21
+  %.not.i58 = icmp eq ptr %132, null
+  br i1 %.not.i58, label %Vec_IntFree.exit, label %133
 
-132:                                              ; preds = %Vec_PtrFree.exit
-  tail call void @free(ptr noundef nonnull %131) #14
+133:                                              ; preds = %Vec_PtrFree.exit
+  tail call void @free(ptr noundef nonnull %132) #14
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %132
+Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %133
   tail call void @free(ptr noundef nonnull %8) #14
   tail call void @Hop_ManStop(ptr noundef %16) #14
-  %133 = load ptr, ptr %19, align 8, !tbaa !34
-  %134 = getelementptr i8, ptr %133, i64 4
-  %.val = load i32, ptr %134, align 4, !tbaa !9
-  %135 = icmp eq i32 %.05261, %.val
-  %136 = zext i1 %135 to i32
-  ret i32 %136
+  %134 = load ptr, ptr %19, align 8, !tbaa !34
+  %135 = getelementptr i8, ptr %134, i64 4
+  %.val = load i32, ptr %135, align 4, !tbaa !9
+  %136 = icmp eq i32 %.05261, %.val
+  %137 = zext i1 %136 to i32
+  ret i32 %137
 }
 
 declare i32 @Amap_LibNumPinsMax(ptr noundef) local_unnamed_addr #2

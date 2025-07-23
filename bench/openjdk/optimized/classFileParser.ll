@@ -2418,88 +2418,85 @@ define hidden void @_ZNK15ClassFileParser23verify_legal_class_nameEPK6SymbolP10J
 
 .lr.ph.i:                                         ; preds = %28
   %33 = zext i16 %12 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %.ptr, i64 %33
-  %35 = add nuw nsw i64 %33, 5
+  %invariant.op = add nuw nsw i64 %33, 5
   br label %.lr.ph.split.split.i
 
-.lr.ph.split.split.i:                             ; preds = %44, %.lr.ph.i
-  %.021.i.idx = phi i64 [ %.021.i.add, %44 ], [ 6, %.lr.ph.i ]
+.lr.ph.split.split.i:                             ; preds = %41, %.lr.ph.i
+  %.021.i.idx = phi i64 [ %.021.i.add, %41 ], [ 6, %.lr.ph.i ]
   %.021.i.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.021.i.idx
-  %36 = load i8, ptr %.021.i.ptr, align 1
-  switch i8 %36, label %44 [
+  %34 = load i8, ptr %.021.i.ptr, align 1
+  switch i8 %34, label %41 [
     i8 46, label %.critedge
     i8 59, label %.critedge
     i8 91, label %.critedge
-    i8 47, label %37
+    i8 47, label %35
   ]
 
-37:                                               ; preds = %.lr.ph.split.split.i
-  %38 = icmp eq i64 %.021.i.idx, 6
-  br i1 %38, label %.critedge, label %39
+35:                                               ; preds = %.lr.ph.split.split.i
+  %36 = icmp ne i64 %.021.i.idx, 6
+  %.not19.i = icmp samesign ult i64 %.021.i.idx, %invariant.op
+  %or.cond44 = select i1 %36, i1 %.not19.i, i1 false
+  br i1 %or.cond44, label %37, label %.critedge
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %.021.i.ptr, i64 1
-  %.not19.i = icmp ult ptr %40, %34
-  br i1 %.not19.i, label %41, label %.critedge
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %.021.i.ptr, i64 1
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %39, 47
+  br i1 %40, label %.critedge, label %41
 
-41:                                               ; preds = %39
-  %42 = load i8, ptr %40, align 1
-  %43 = icmp eq i8 %42, 47
-  br i1 %43, label %.critedge, label %44
-
-44:                                               ; preds = %41, %.lr.ph.split.split.i
+41:                                               ; preds = %37, %.lr.ph.split.split.i
   %.021.i.add = add nuw nsw i64 %.021.i.idx, 1
-  %exitcond = icmp eq i64 %.021.i.idx, %35
-  br i1 %exitcond, label %_ZN12ResourceMarkD2Ev.exit, label %.lr.ph.split.split.i, !llvm.loop !11
+  %.not.i = icmp eq i64 %.021.i.idx, %invariant.op
+  br i1 %.not.i, label %_ZN12ResourceMarkD2Ev.exit, label %.lr.ph.split.split.i, !llvm.loop !11
 
 _ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit: ; preds = %32
-  %45 = tail call fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef nonnull %.ptr, i1 noundef zeroext true, i32 noundef %13)
-  %.not31 = icmp ne ptr %45, null
-  %46 = ptrtoint ptr %45 to i64
-  %47 = ptrtoint ptr %.ptr to i64
-  %48 = sub i64 %46, %47
-  %49 = zext i16 %12 to i64
-  %50 = icmp eq i64 %48, %49
-  %51 = select i1 %.not31, i1 %50, i1 false
-  br i1 %51, label %_ZN12ResourceMarkD2Ev.exit, label %.critedge
+  %42 = tail call fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef nonnull %.ptr, i1 noundef zeroext true, i32 noundef %13)
+  %.not31 = icmp ne ptr %42, null
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %.ptr to i64
+  %45 = sub i64 %43, %44
+  %46 = zext i16 %12 to i64
+  %47 = icmp eq i64 %45, %46
+  %48 = select i1 %.not31, i1 %47, i1 false
+  br i1 %48, label %_ZN12ResourceMarkD2Ev.exit, label %.critedge
 
-.critedge:                                        ; preds = %37, %39, %41, %.lr.ph.split.split.i, %.lr.ph.split.split.i, %.lr.ph.split.split.i, %21, %32, %10, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 800
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %61 = load i64, ptr %60, align 8
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %64) #23
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef 4908, ptr noundef %62, ptr noundef nonnull @.str.178, i32 noundef %13, ptr noundef nonnull %.ptr, ptr noundef %65) #23
-  %66 = load ptr, ptr %55, align 8
-  %.not.i.i.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i.i.i, label %68, label %67
+.critedge:                                        ; preds = %35, %37, %.lr.ph.split.split.i, %.lr.ph.split.split.i, %.lr.ph.split.split.i, %21, %32, %10, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 800
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %61) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef 4908, ptr noundef %59, ptr noundef nonnull @.str.178, i32 noundef %13, ptr noundef nonnull %.ptr, ptr noundef %62) #23
+  %63 = load ptr, ptr %52, align 8
+  %.not.i.i.i.i = icmp eq ptr %63, null
+  br i1 %.not.i.i.i.i, label %65, label %64
 
-67:                                               ; preds = %.critedge
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %53, i64 noundef %61) #23
-  tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %55) #23
-  br label %68
+64:                                               ; preds = %.critedge
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %50, i64 noundef %58) #23
+  tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %52) #23
+  br label %65
 
-68:                                               ; preds = %67, %.critedge
-  %69 = load ptr, ptr %56, align 8
-  %.not8.i.i.i.i = icmp eq ptr %69, %57
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %70
+65:                                               ; preds = %64, %.critedge
+  %66 = load ptr, ptr %53, align 8
+  %.not8.i.i.i.i = icmp eq ptr %66, %54
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %67
 
-70:                                               ; preds = %68
-  store ptr %55, ptr %54, align 8
-  store ptr %57, ptr %56, align 8
-  store ptr %59, ptr %58, align 8
+67:                                               ; preds = %65
+  store ptr %52, ptr %51, align 8
+  store ptr %54, ptr %53, align 8
+  store ptr %56, ptr %55, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %70, %68, %21, %17, %3, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %41, %67, %65, %21, %17, %3, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit
   ret void
 }
 
@@ -14896,66 +14893,66 @@ switch.hole_check:                                ; preds = %.lr.ph.split.us.spl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK15ClassFileParser25skip_over_field_signatureEPKcbjP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
-  %.not58 = icmp eq i32 %3, 0
-  br i1 %.not58, label %.loopexit43, label %.lr.ph
+  %.not59 = icmp eq i32 %3, 0
+  br i1 %.not59, label %.loopexit44, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %49
-  %.02962 = phi ptr [ %51, %49 ], [ %1, %5 ]
-  %.03061 = phi i1 [ false, %49 ], [ %2, %5 ]
-  %.03160 = phi i32 [ %52, %49 ], [ %3, %5 ]
-  %.03259 = phi i32 [ %50, %49 ], [ 0, %5 ]
-  %6 = load i8, ptr %.02962, align 1
-  switch i8 %6, label %.loopexit43 [
+.lr.ph:                                           ; preds = %5, %47
+  %.02963 = phi ptr [ %49, %47 ], [ %1, %5 ]
+  %.03062 = phi i1 [ false, %47 ], [ %2, %5 ]
+  %.03161 = phi i32 [ %50, %47 ], [ %3, %5 ]
+  %.03260 = phi i32 [ %48, %47 ], [ 0, %5 ]
+  %6 = load i8, ptr %.02963, align 1
+  switch i8 %6, label %.loopexit44 [
     i8 86, label %7
-    i8 90, label %.loopexit44
-    i8 66, label %.loopexit44
-    i8 67, label %.loopexit44
-    i8 83, label %.loopexit44
-    i8 73, label %.loopexit44
-    i8 70, label %.loopexit44
-    i8 74, label %.loopexit44
-    i8 68, label %.loopexit44
+    i8 90, label %.loopexit45
+    i8 66, label %.loopexit45
+    i8 67, label %.loopexit45
+    i8 83, label %.loopexit45
+    i8 73, label %.loopexit45
+    i8 70, label %.loopexit45
+    i8 74, label %.loopexit45
+    i8 68, label %.loopexit45
     i8 76, label %9
-    i8 91, label %47
+    i8 91, label %45
   ]
 
 7:                                                ; preds = %.lr.ph
-  br i1 %.03061, label %.loopexit44, label %.loopexit43
+  br i1 %.03062, label %.loopexit45, label %.loopexit44
 
-.loopexit44:                                      ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %7
-  %8 = getelementptr inbounds nuw i8, ptr %.02962, i64 1
-  br label %.loopexit43
+.loopexit45:                                      ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %7
+  %8 = getelementptr inbounds nuw i8, ptr %.02963, i64 1
+  br label %.loopexit44
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %11 = load i16, ptr %10, align 4
   %12 = icmp ult i16 %11, 49
-  %13 = getelementptr inbounds nuw i8, ptr %.02962, i64 1
-  %14 = add i32 %.03160, -1
+  %13 = getelementptr inbounds nuw i8, ptr %.02963, i64 1
+  %14 = add i32 %.03161, -1
   br i1 %12, label %15, label %25
 
 15:                                               ; preds = %9
   %16 = tail call fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef nonnull %13, i1 noundef zeroext true, i32 noundef %14)
   %.not37 = icmp ne ptr %16, null
   %17 = ptrtoint ptr %16 to i64
-  %18 = ptrtoint ptr %.02962 to i64
+  %18 = ptrtoint ptr %.02963 to i64
   %19 = sub i64 %17, %18
   %20 = icmp sgt i64 %19, 1
   %or.cond = and i1 %.not37, %20
-  br i1 %or.cond, label %21, label %.loopexit43
+  br i1 %or.cond, label %21, label %.loopexit44
 
 21:                                               ; preds = %15
   %22 = load i8, ptr %16, align 1
   %23 = icmp eq i8 %22, 59
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %spec.select = select i1 %23, ptr %24, ptr null
-  br label %.loopexit43
+  br label %.loopexit44
 
 25:                                               ; preds = %9
   %26 = zext i32 %14 to i64
   %27 = tail call noundef ptr @memchr(ptr noundef nonnull %13, i32 noundef 59, i64 noundef %26) #25
   %.not36 = icmp eq ptr %27, null
-  br i1 %.not36, label %.loopexit43, label %28
+  br i1 %.not36, label %.loopexit44, label %28
 
 28:                                               ; preds = %25
   %29 = ptrtoint ptr %27 to i64
@@ -14963,71 +14960,64 @@ define hidden noundef ptr @_ZNK15ClassFileParser25skip_over_field_signatureEPKcb
   %31 = sub i64 %29, %30
   %32 = and i64 %31, 4294967295
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.loopexit, label %.lr.ph.i
+  br i1 %33, label %.loopexit, label %.lr.ph.split.split.i
 
-.lr.ph.i:                                         ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %13, i64 %32
-  br label %.lr.ph.split.split.i
-
-.lr.ph.split.split.i:                             ; preds = %43, %.lr.ph.i
-  %.021.i.idx = phi i64 [ %.021.i.add, %43 ], [ 1, %.lr.ph.i ]
-  %.021.i.ptr = getelementptr inbounds nuw i8, ptr %.02962, i64 %.021.i.idx
-  %35 = load i8, ptr %.021.i.ptr, align 1
-  switch i8 %35, label %43 [
+.lr.ph.split.split.i:                             ; preds = %28, %41
+  %.021.i.idx = phi i64 [ %.021.i.add, %41 ], [ 1, %28 ]
+  %.021.i.ptr = getelementptr inbounds nuw i8, ptr %.02963, i64 %.021.i.idx
+  %34 = load i8, ptr %.021.i.ptr, align 1
+  switch i8 %34, label %41 [
     i8 46, label %.loopexit
     i8 59, label %.loopexit
     i8 91, label %.loopexit
-    i8 47, label %36
+    i8 47, label %35
   ]
 
-36:                                               ; preds = %.lr.ph.split.split.i
-  %37 = icmp eq i64 %.021.i.idx, 1
-  br i1 %37, label %.loopexit, label %38
+35:                                               ; preds = %.lr.ph.split.split.i
+  %36 = icmp ne i64 %.021.i.idx, 1
+  %.not19.i = icmp samesign ult i64 %.021.i.idx, %32
+  %or.cond43 = select i1 %36, i1 %.not19.i, i1 false
+  br i1 %or.cond43, label %37, label %.loopexit
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %.021.i.ptr, i64 1
-  %.not19.i = icmp ult ptr %39, %34
-  br i1 %.not19.i, label %40, label %.loopexit
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %.021.i.ptr, i64 1
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %39, 47
+  br i1 %40, label %.loopexit, label %41
 
-40:                                               ; preds = %38
-  %41 = load i8, ptr %39, align 1
-  %42 = icmp eq i8 %41, 47
-  br i1 %42, label %.loopexit, label %43
-
-43:                                               ; preds = %40, %.lr.ph.split.split.i
+41:                                               ; preds = %37, %.lr.ph.split.split.i
   %.021.i.add = add nuw nsw i64 %.021.i.idx, 1
-  %.ptr42 = getelementptr inbounds nuw i8, ptr %.02962, i64 %.021.i.add
-  %.not.i = icmp eq ptr %.ptr42, %34
+  %.not.i = icmp eq i64 %.021.i.idx, %32
   br i1 %.not.i, label %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit, label %.lr.ph.split.split.i, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.i, %.lr.ph.split.split.i, %40, %38, %36, %28
+.loopexit:                                        ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.i, %.lr.ph.split.split.i, %37, %35, %28
   tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKcP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.176, ptr noundef %4) #23
-  br label %.loopexit43
+  br label %.loopexit44
 
-_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit: ; preds = %43
+_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit: ; preds = %41
   %sext = shl i64 %31, 32
-  %44 = ashr exact i64 %sext, 32
-  %45 = getelementptr inbounds i8, ptr %13, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  br label %.loopexit43
+  %42 = ashr exact i64 %sext, 32
+  %43 = getelementptr inbounds i8, ptr %13, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  br label %.loopexit44
 
-47:                                               ; preds = %.lr.ph
-  %exitcond = icmp eq i32 %.03259, 255
-  br i1 %exitcond, label %48, label %49
+45:                                               ; preds = %.lr.ph
+  %exitcond = icmp eq i32 %.03260, 255
+  br i1 %exitcond, label %46, label %47
 
-48:                                               ; preds = %47
+46:                                               ; preds = %45
   tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKcP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.177, ptr noundef %4) #23
-  br label %.loopexit43
+  br label %.loopexit44
 
-49:                                               ; preds = %47
-  %50 = add nuw nsw i32 %.03259, 1
-  %51 = getelementptr inbounds nuw i8, ptr %.02962, i64 1
-  %52 = add i32 %.03160, -1
-  %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %.loopexit43, label %.lr.ph, !llvm.loop !64
+47:                                               ; preds = %45
+  %48 = add nuw nsw i32 %.03260, 1
+  %49 = getelementptr inbounds nuw i8, ptr %.02963, i64 1
+  %50 = add i32 %.03161, -1
+  %.not = icmp eq i32 %50, 0
+  br i1 %.not, label %.loopexit44, label %.lr.ph, !llvm.loop !64
 
-.loopexit43:                                      ; preds = %.lr.ph, %49, %5, %21, %15, %25, %7, %48, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit, %.loopexit, %.loopexit44
-  %.0 = phi ptr [ %8, %.loopexit44 ], [ %46, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit ], [ null, %.loopexit ], [ null, %48 ], [ null, %7 ], [ null, %25 ], [ null, %15 ], [ %spec.select, %21 ], [ null, %5 ], [ null, %49 ], [ null, %.lr.ph ]
+.loopexit44:                                      ; preds = %.lr.ph, %47, %5, %21, %15, %25, %7, %46, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit, %.loopexit, %.loopexit45
+  %.0 = phi ptr [ %8, %.loopexit45 ], [ %44, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit ], [ null, %.loopexit ], [ null, %46 ], [ null, %7 ], [ null, %25 ], [ null, %15 ], [ %spec.select, %21 ], [ null, %5 ], [ null, %47 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 

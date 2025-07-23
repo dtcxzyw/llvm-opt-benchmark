@@ -74248,8 +74248,8 @@ if.then3.i:                                       ; preds = %if.then.i
   %6 = select i1 %3, i64 -1, i64 %5
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #24
   store i64 %mul.i, ptr %call.i, align 16
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr.i, i8 0, i64 %4, i1 false)
+  %.ptr.i = getelementptr i8, ptr %call.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.ptr.i, i8 0, i64 %4, i1 false)
   %mAuxBufferPtrs.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %7 = load ptr, ptr %mAuxBufferPtrs.i, align 8
   store ptr %.ptr.i, ptr %mAuxBufferPtrs.i, align 8

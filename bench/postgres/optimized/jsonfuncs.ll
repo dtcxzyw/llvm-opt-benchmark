@@ -9459,19 +9459,19 @@ define internal fastcc ptr @populate_record(ptr noundef %0, ptr noundef captures
   store i32 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 %10, ptr %37, align 8
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %38 = ptrtoint ptr %.ptr.i to i64
-  %39 = and i64 %38, 7
-  %40 = icmp eq i64 %39, 0
-  %41 = icmp ult i64 %32, 1025
-  %or.cond.i = and i1 %41, %40
-  br i1 %or.cond.i, label %42, label %allocate_record_info.exit.sink.split
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %39 = ptrtoint ptr %38 to i64
+  %40 = and i64 %39, 7
+  %41 = icmp eq i64 %40, 0
+  %42 = icmp ult i64 %32, 1025
+  %or.cond.i = and i1 %42, %41
+  br i1 %or.cond.i, label %43, label %allocate_record_info.exit.sink.split
 
-42:                                               ; preds = %30
-  %43 = icmp sgt i32 %10, 0
-  br i1 %43, label %.lr.ph.preheader.i, label %allocate_record_info.exit
+43:                                               ; preds = %30
+  %.not.i = icmp eq i32 %10, 0
+  br i1 %.not.i, label %allocate_record_info.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %42
+.lr.ph.preheader.i:                               ; preds = %43
   %44 = add i64 %33, %35
   %45 = add i64 %35, 24
   %umax.i = tail call i64 @llvm.umax.i64(i64 %44, i64 %45)
@@ -9483,10 +9483,10 @@ define internal fastcc ptr @populate_record(ptr noundef %0, ptr noundef captures
 
 allocate_record_info.exit.sink.split:             ; preds = %30, %.lr.ph.preheader.i
   %.sink = phi i64 [ %48, %.lr.ph.preheader.i ], [ %32, %30 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr.i, i8 0, i64 %.sink, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %38, i8 0, i64 %.sink, i1 false)
   br label %allocate_record_info.exit
 
-allocate_record_info.exit:                        ; preds = %allocate_record_info.exit.sink.split, %42
+allocate_record_info.exit:                        ; preds = %allocate_record_info.exit.sink.split, %43
   store ptr %34, ptr %1, align 8
   br label %49
 
@@ -9504,9 +9504,9 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i32, ptr %56, align 8
   %.not103 = icmp eq i32 %55, %57
-  br i1 %.not103, label %._crit_edge117, label %58
+  br i1 %.not103, label %._crit_edge118, label %58
 
-._crit_edge117:                                   ; preds = %53
+._crit_edge118:                                   ; preds = %53
   %.pre = sext i32 %10 to i64
   br label %80
 
@@ -9522,8 +9522,8 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   br i1 %or.cond, label %66, label %74
 
 66:                                               ; preds = %58
-  %.not110 = icmp eq i64 %61, 0
-  br i1 %.not110, label %.loopexit104, label %.lr.ph.preheader
+  %.not111 = icmp eq i64 %61, 0
+  br i1 %.not111, label %.loopexit105, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %66
   %67 = add i64 %60, %62
@@ -9535,13 +9535,13 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   %72 = and i64 %71, -8
   %73 = add i64 %72, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.093, i8 0, i64 %73, i1 false)
-  br label %.loopexit104
+  br label %.loopexit105
 
 74:                                               ; preds = %58
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.093, i8 0, i64 %61, i1 false)
-  br label %.loopexit104
+  br label %.loopexit105
 
-.loopexit104:                                     ; preds = %.lr.ph.preheader, %66, %74
+.loopexit105:                                     ; preds = %.lr.ph.preheader, %66, %74
   %75 = load i32, ptr %51, align 4
   store i32 %75, ptr %.093, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9552,8 +9552,8 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   store i32 %10, ptr %79, align 8
   br label %80
 
-80:                                               ; preds = %._crit_edge117, %.loopexit104
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge117 ], [ %59, %.loopexit104 ]
+80:                                               ; preds = %._crit_edge118, %.loopexit105
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge118 ], [ %59, %.loopexit105 ]
   %81 = shl nsw i64 %.pre-phi, 3
   %82 = tail call ptr @palloc(i64 noundef %81) #15
   %83 = tail call ptr @palloc(i64 noundef %.pre-phi) #15
@@ -9561,21 +9561,21 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
 
 .preheader:                                       ; preds = %80
   %84 = icmp sgt i32 %10, 0
-  br i1 %84, label %.lr.ph107.preheader, label %._crit_edge
+  br i1 %84, label %.lr.ph108.preheader, label %._crit_edge
 
-.lr.ph107.preheader:                              ; preds = %.preheader
+.lr.ph108.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %10 to i64
-  br label %.lr.ph107
+  br label %.lr.ph108
 
-.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
-  %indvars.iv = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next, %.lr.ph107 ]
+.lr.ph108:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
+  %indvars.iv = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next, %.lr.ph108 ]
   %85 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv
   store i64 0, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv
   store i8 1, ptr %86, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph109, label %.lr.ph107, !llvm.loop !38
+  br i1 %exitcond.not, label %.lr.ph110, label %.lr.ph108, !llvm.loop !38
 
 .loopexit:                                        ; preds = %80
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
@@ -9595,25 +9595,25 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   call void @heap_deform_tuple(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef %82, ptr noundef %83) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
   %93 = icmp sgt i32 %10, 0
-  br i1 %93, label %.lr.ph109, label %._crit_edge
+  br i1 %93, label %.lr.ph110, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.lr.ph107, %.loopexit
-  %invariant.gep119 = getelementptr i8, ptr %0, i64 24
+.lr.ph110:                                        ; preds = %.lr.ph108, %.loopexit
+  %invariant.gep120 = getelementptr i8, ptr %0, i64 24
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %.093, i64 16
-  %wide.trip.count115 = zext nneg i32 %10 to i64
+  %wide.trip.count116 = zext nneg i32 %10 to i64
   br label %99
 
-99:                                               ; preds = %.lr.ph109, %151
-  %indvars.iv112 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next113, %151 ]
+99:                                               ; preds = %.lr.ph110, %151
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next114, %151 ]
   %100 = load i32, ptr %0, align 8
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 4
-  %gep = getelementptr i8, ptr %invariant.gep119, i64 %102
-  %103 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv112
+  %gep = getelementptr i8, ptr %invariant.gep120, i64 %102
+  %103 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv113
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -9623,7 +9623,7 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %99
-  %109 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv112
+  %109 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv113
   store i8 1, ptr %109, align 1
   br label %151
 
@@ -9664,8 +9664,8 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   br label %JsObjectGetField.exit
 
 127:                                              ; preds = %110
-  %.not.i = icmp eq ptr %113, null
-  br i1 %.not.i, label %132, label %128
+  %.not.i104 = icmp eq ptr %113, null
+  br i1 %.not.i104, label %132, label %128
 
 128:                                              ; preds = %127
   %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #18
@@ -9685,33 +9685,33 @@ JsObjectGetField.exit:                            ; preds = %124, %132
   br i1 %or.cond5, label %135, label %151
 
 135:                                              ; preds = %JsObjectGetField.exit
-  %136 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %98, i64 0, i64 %indvars.iv112
+  %136 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %98, i64 0, i64 %indvars.iv113
   %137 = getelementptr inbounds nuw i8, ptr %103, i64 68
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr inbounds nuw i8, ptr %103, i64 76
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv112
+  %141 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv113
   %142 = load i8, ptr %141, align 1, !range !4, !noundef !5
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %147, label %144
 
 144:                                              ; preds = %135
-  %145 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv112
+  %145 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv113
   %146 = load i64, ptr %145, align 8
   br label %147
 
 147:                                              ; preds = %135, %144
   %148 = phi i64 [ %146, %144 ], [ 0, %135 ]
   %149 = call fastcc i64 @populate_record_field(ptr noundef nonnull %136, i32 noundef %138, i32 noundef %140, ptr noundef nonnull %104, ptr noundef %3, i64 noundef %148, ptr noundef %8, ptr noundef nonnull %141, ptr noundef %5, i1 noundef zeroext false)
-  %150 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv112
+  %150 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv113
   store i64 %149, ptr %150, align 8
   br label %151
 
 151:                                              ; preds = %JsObjectGetField.exit, %147, %108
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %._crit_edge, label %99, !llvm.loop !39
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
+  br i1 %exitcond117.not, label %._crit_edge, label %99, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %151, %.preheader, %.loopexit
   %152 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef %82, ptr noundef %83) #15

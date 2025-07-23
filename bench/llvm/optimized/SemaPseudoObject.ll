@@ -1242,9 +1242,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i:
   %.not36.i = icmp eq i16 %26, 51
   br i1 %.not36.i, label %.lr.ph.i, label %_ZN12_GLOBAL__N_119MSPropertyOpBuilder17getBaseMSPropertyEPN5clang23MSPropertySubscriptExprE.exit
 
-.lr.ph.i:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i, %55
-  %27 = phi i32 [ %56, %55 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i ]
-  %.0837.i = phi ptr [ %59, %55 ], [ %24, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i ]
+.lr.ph.i:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i, %56
+  %27 = phi i32 [ %57, %56 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i ]
+  %.0837.i = phi ptr [ %60, %56 ], [ %24, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i ]
   %28 = load ptr, ptr %15, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %.0837.i, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !39
@@ -1273,7 +1273,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i27.i
   %39 = load i32, ptr %17, align 8, !tbaa !24
   %40 = add i32 %39, 1
   store i32 %40, ptr %17, align 8, !tbaa !24
-  br label %55
+  br label %56
 
 41:                                               ; preds = %.lr.ph.i
   %.not.i.i.not.i.i10.i = icmp ult i32 %27, %33
@@ -1296,39 +1296,39 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddr
   %47 = getelementptr inbounds i8, ptr %46, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !56
   store ptr %48, ptr %46, align 8, !tbaa !56
-  %.not.i.i.i.i.i.i.i17.i = icmp eq i64 %.pre-phi16.i.i15.i, 1
-  br i1 %.not.i.i.i.i.i.i.i17.i, label %_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i, label %49
+  %49 = add nsw i64 %.idx.i.i16.i, -8
+  %.not.i.i.i.i.i.i.i17.i = icmp eq i64 %49, 0
+  br i1 %.not.i.i.i.i.i.i.i17.i, label %_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i, label %50
 
-49:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i14.i
-  %gepdiff.i.i19.i = add nsw i64 %.idx.i.i16.i, -8
-  %50 = ashr exact i64 %gepdiff.i.i19.i, 3
-  %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds ptr, ptr %46, i64 %51
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %45, i64 %gepdiff.i.i19.i, i1 false)
+50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i14.i
+  %51 = ashr exact i64 %49, 3
+  %52 = sub nsw i64 0, %51
+  %53 = getelementptr inbounds ptr, ptr %46, i64 %52
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %45, i64 %49, i1 false)
   %.pre12.i.i20.i = load i32, ptr %17, align 8, !tbaa !24
   br label %_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i
 
-_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i: ; preds = %49, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i14.i
-  %53 = phi i32 [ %44, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i14.i ], [ %.pre12.i.i20.i, %49 ]
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %17, align 8, !tbaa !24
+_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i: ; preds = %50, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i14.i
+  %54 = phi i32 [ %44, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i14.i ], [ %.pre12.i.i20.i, %50 ]
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %17, align 8, !tbaa !24
   store ptr %30, ptr %45, align 8, !tbaa !56
-  br label %55
+  br label %56
 
-55:                                               ; preds = %_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i27.i
-  %56 = phi i32 [ %54, %_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i ], [ %40, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i27.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.0837.i, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !39
-  %59 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #21
-  %60 = load i16, ptr %59, align 8
-  %61 = and i16 %60, 511
-  %.not.i = icmp eq i16 %61, 51
+56:                                               ; preds = %_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i27.i
+  %57 = phi i32 [ %55, %_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i21.i ], [ %40, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i27.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %.0837.i, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !39
+  %60 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #21
+  %61 = load i16, ptr %60, align 8
+  %62 = and i16 %61, 511
+  %.not.i = icmp eq i16 %62, 51
   br i1 %.not.i, label %.lr.ph.i, label %_ZN12_GLOBAL__N_119MSPropertyOpBuilder17getBaseMSPropertyEPN5clang23MSPropertySubscriptExprE.exit
 
-_ZN12_GLOBAL__N_119MSPropertyOpBuilder17getBaseMSPropertyEPN5clang23MSPropertySubscriptExprE.exit: ; preds = %55, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i
-  %.08.lcssa.i = phi ptr [ %24, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i ], [ %59, %55 ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %.08.lcssa.i, ptr %62, align 8, !tbaa !71
+_ZN12_GLOBAL__N_119MSPropertyOpBuilder17getBaseMSPropertyEPN5clang23MSPropertySubscriptExprE.exit: ; preds = %56, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i
+  %.08.lcssa.i = phi ptr [ %24, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i.i.i ], [ %60, %56 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %.08.lcssa.i, ptr %63, align 8, !tbaa !71
   ret void
 }
 

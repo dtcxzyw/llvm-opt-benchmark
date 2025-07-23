@@ -142,11 +142,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.240 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion" = type { %union.anon.233 }
 %union.anon.233 = type { ptr }
-%"class.openvdb::v11_0::tree::LeafBuffer" = type <{ %union.anon.83, %"struct.std::atomic.84", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.83 = type { ptr }
-%"class.tbb::detail::d1::spin_mutex" = type { %"struct.std::atomic.86" }
-%"struct.std::atomic.86" = type { %"struct.std::__atomic_base.87" }
-%"struct.std::__atomic_base.87" = type { i8 }
 %"class.tbb::detail::d1::small_object_allocator" = type { ptr }
 %"struct.tbb::detail::d1::wait_node" = type { %"struct.tbb::detail::d1::node.base", %"class.tbb::detail::d1::wait_context" }
 %"struct.tbb::detail::d1::node.base" = type <{ ptr, %"struct.std::atomic.252" }>
@@ -161,6 +156,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
+%"class.openvdb::v11_0::tree::LeafBuffer" = type <{ %union.anon.83, %"struct.std::atomic.84", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.83 = type { ptr }
+%"class.tbb::detail::d1::spin_mutex" = type { %"struct.std::atomic.86" }
+%"struct.std::atomic.86" = type { %"struct.std::__atomic_base.87" }
+%"struct.std::__atomic_base.87" = type { i8 }
 %"class.tbb::detail::d1::range_vector.274" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.275" }
 %"class.tbb::detail::d0::aligned_space.275" = type { [256 x i8] }
 %"class.tbb::detail::d1::invoke_root_task" = type { ptr }
@@ -206,9 +206,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.380 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.375" = type { %union.anon.376 }
 %union.anon.376 = type { ptr }
+%"class.std::function.150" = type { %"class.std::_Function_base", ptr }
 %"class.openvdb::v11_0::tree::LeafBuffer.182" = type <{ %union.anon.183, %"struct.std::atomic.84", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
 %union.anon.183 = type { ptr }
-%"class.std::function.150" = type { %"class.std::_Function_base", ptr }
 %"class.tbb::detail::d1::range_vector.411" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.412" }
 %"class.tbb::detail::d0::aligned_space.412" = type { [256 x i8] }
 %"struct.tbb::detail::d1::function_invoker.415" = type { %"class.tbb::detail::d1::task", ptr, ptr, [48 x i8] }
@@ -11140,7 +11140,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #29
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -11156,17 +11155,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIfLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #19
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -11181,14 +11180,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #26
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIfLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8
@@ -22438,7 +22437,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #29
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.182", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -22454,17 +22452,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIdLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #19
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -22479,14 +22477,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #26
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIdLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8

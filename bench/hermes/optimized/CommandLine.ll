@@ -4169,7 +4169,7 @@ for.body.lr.ph.lr.ph:                             ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %for.body.lr.ph.lr.ph, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit
   %conv2433 = phi i64 [ 0, %for.body.lr.ph.lr.ph ], [ %conv24, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit ]
-  %1 = phi i32 [ %0, %for.body.lr.ph.lr.ph ], [ %12, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit ]
+  %1 = phi i32 [ %0, %for.body.lr.ph.lr.ph ], [ %13, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit ]
   %I.0.ph32 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %I.1, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit ]
   %AllExpanded.0.ph31 = phi i1 [ true, %for.body.lr.ph.lr.ph ], [ %AllExpanded.1, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit ]
   %RspFiles.0.ph30 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %inc10, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit ]
@@ -4214,53 +4214,52 @@ if.then16:                                        ; preds = %if.end13
   br label %cleanup, !llvm.loop !73
 
 if.end18:                                         ; preds = %if.end13
-  %5 = load ptr, ptr %Argv, align 8
   %add.ptr20.idx = shl nuw nsw i64 %conv27, 3
-  %add.ptr20 = getelementptr inbounds nuw i8, ptr %5, i64 %add.ptr20.idx
-  %add.ptr.i16 = getelementptr inbounds nuw i8, ptr %add.ptr20, i64 8
-  %6 = load i32, ptr %Size.i, align 8
-  %conv.i.i = zext i32 %6 to i64
+  %5 = load i32, ptr %Size.i, align 8
+  %conv.i.i = zext i32 %5 to i64
   %add.ptr.i.i.idx = shl nuw nsw i64 %conv.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %add.ptr.i.i.idx
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i, %add.ptr.i16
+  %6 = add nuw nsw i64 %add.ptr20.idx, 8
+  %tobool.not.i.i.i.i.i.i = icmp samesign eq i64 %add.ptr.i.i.idx, %6
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIPKcE5eraseEPKS2_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end18
+  %7 = load ptr, ptr %Argv, align 8
+  %add.ptr20 = getelementptr inbounds nuw i8, ptr %7, i64 %add.ptr20.idx
+  %add.ptr.i16 = getelementptr inbounds nuw i8, ptr %add.ptr20, i64 8
   %reass.sub = sub nsw i64 %add.ptr.i.i.idx, %add.ptr20.idx
   %gepdiff = add nsw i64 %reass.sub, -8
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr20, ptr nonnull align 8 %add.ptr.i16, i64 %gepdiff, i1 false)
   %.pre.i = load i32, ptr %Size.i, align 8
-  %.pre = load ptr, ptr %Argv, align 8
   br label %_ZN4llvh15SmallVectorImplIPKcE5eraseEPKS2_.exit
 
 _ZN4llvh15SmallVectorImplIPKcE5eraseEPKS2_.exit:  ; preds = %if.end18, %if.then.i.i.i.i.i.i
-  %7 = phi ptr [ %5, %if.end18 ], [ %.pre, %if.then.i.i.i.i.i.i ]
-  %8 = phi i32 [ %6, %if.end18 ], [ %.pre.i, %if.then.i.i.i.i.i.i ]
+  %8 = phi i32 [ %5, %if.end18 ], [ %.pre.i, %if.then.i.i.i.i.i.i ]
   %sub.i.i = add i32 %8, -1
   store i32 %sub.i.i, ptr %Size.i, align 8
-  %add.ptr24 = getelementptr inbounds nuw ptr, ptr %7, i64 %conv27
-  %9 = load ptr, ptr %ExpandedArgv, align 8
-  %10 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i18 = zext i32 %10 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %9, i64 %conv.i18
-  %call27 = call noundef ptr @_ZN4llvh15SmallVectorImplIPKcE6insertIPS2_vEES5_S5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %Argv, ptr noundef %add.ptr24, ptr noundef %9, ptr noundef %add.ptr.i)
+  %9 = load ptr, ptr %Argv, align 8
+  %add.ptr24 = getelementptr inbounds nuw ptr, ptr %9, i64 %conv27
+  %10 = load ptr, ptr %ExpandedArgv, align 8
+  %11 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %conv.i18 = zext i32 %11 to i64
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i18
+  %call27 = call noundef ptr @_ZN4llvh15SmallVectorImplIPKcE6insertIPS2_vEES5_S5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %Argv, ptr noundef %add.ptr24, ptr noundef %10, ptr noundef %add.ptr.i)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh15SmallVectorImplIPKcE5eraseEPKS2_.exit, %if.then16
   %AllExpanded.1 = phi i1 [ %AllExpanded.0.ph31, %_ZN4llvh15SmallVectorImplIPKcE5eraseEPKS2_.exit ], [ false, %if.then16 ]
   %I.1 = phi i32 [ %I.026, %_ZN4llvh15SmallVectorImplIPKcE5eraseEPKS2_.exit ], [ %inc17, %if.then16 ]
-  %11 = load ptr, ptr %ExpandedArgv, align 8
-  %cmp.i.i.i = icmp eq ptr %11, %add.ptr.i.i.i.i.i
+  %12 = load ptr, ptr %ExpandedArgv, align 8
+  %cmp.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @free(ptr noundef %11) #28
+  call void @free(ptr noundef %12) #28
   br label %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit:          ; preds = %cleanup, %if.then.i.i
-  %12 = load i32, ptr %Size.i, align 8
+  %13 = load i32, ptr %Size.i, align 8
   %conv24 = zext i32 %I.1 to i64
-  %cmp.not25 = icmp eq i32 %12, %I.1
+  %cmp.not25 = icmp eq i32 %13, %I.1
   br i1 %cmp.not25, label %return, label %for.body.lr.ph
 
 return:                                           ; preds = %if.end9, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit, %for.cond.backedge, %entry
@@ -4677,12 +4676,13 @@ _ZN4llvh15SmallVectorImplIPKcE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit: ; p
   %12 = trunc i64 %sub.ptr.div.i.i to i32
   %conv.i10.i = add i32 %11, %12
   store i32 %conv.i10.i, ptr %Size.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr17, %add.ptr7
+  %13 = sub i64 %add.ptr.i74.idx, %sub.ptr.sub.i.i.i
+  %tobool.not.i.i.i.i.i = icmp eq i64 %13, %sub.ptr.sub
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPPKcS2_ET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh15SmallVectorImplIPKcE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
-  %13 = add i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
-  %gepdiff77 = sub i64 %add.ptr.i74.idx, %13
+  %14 = add i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
+  %gepdiff77 = sub i64 %add.ptr.i74.idx, %14
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %gepdiff77, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i50, i64 %idx.neg.i.i.i.i.i
@@ -4697,8 +4697,8 @@ if.then.i.i.i.i.i60:                              ; preds = %_ZSt13move_backward
   br label %return
 
 if.end25:                                         ; preds = %_ZN4llvh15SmallVectorImplIPKcE7reserveEm.exit
-  %14 = trunc i64 %sub.ptr.div.i.i to i32
-  %conv.i66 = add i32 %7, %14
+  %15 = trunc i64 %sub.ptr.div.i.i to i32
+  %conv.i66 = add i32 %7, %15
   store i32 %conv.i66, ptr %Size.i, align 8
   %cmp.not.i.i69 = icmp eq i64 %sub.ptr.sub, %add.ptr.i74.idx
   br i1 %cmp.not.i.i69, label %for.end, label %for.body.preheader
@@ -4716,8 +4716,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %J.082 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr7, %for.body.preheader ]
   %NumOverwritten.081 = phi i64 [ %dec, %for.body ], [ %sub.ptr.div33, %for.body.preheader ]
   %From.addr.080 = phi ptr [ %incdec.ptr38, %for.body ], [ %From, %for.body.preheader ]
-  %15 = load ptr, ptr %From.addr.080, align 8
-  store ptr %15, ptr %J.082, align 8
+  %16 = load ptr, ptr %From.addr.080, align 8
+  store ptr %16, ptr %J.082, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %J.082, i64 8
   %incdec.ptr38 = getelementptr inbounds nuw i8, ptr %From.addr.080, i64 8
   %dec = add i64 %NumOverwritten.081, -1

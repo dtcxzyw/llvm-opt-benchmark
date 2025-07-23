@@ -553,7 +553,7 @@ define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %getv4.exit
   %11 = phi i8 [ %103, %getv4.exit ], [ %.ph, %.lr.ph.preheader ]
   %.pn = phi ptr [ %12, %getv4.exit ], [ %.075210.ph, %.lr.ph.preheader ]
-  %.081.ptr.ptr.ptr214 = phi ptr [ %.081.ptr.ptr.ptr, %getv4.exit ], [ %4, %.lr.ph.preheader ]
+  %.081.ptr.ptr214 = phi ptr [ %.081.ptr.ptr, %getv4.exit ], [ %4, %.lr.ph.preheader ]
   %.066213 = phi i32 [ %.167, %getv4.exit ], [ 0, %.lr.ph.preheader ]
   %.068212 = phi i32 [ %.2, %getv4.exit ], [ 0, %.lr.ph.preheader ]
   %.070211 = phi i32 [ %.272, %getv4.exit ], [ 0, %.lr.ph.preheader ]
@@ -602,15 +602,15 @@ define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr 
 27:                                               ; preds = %25
   %28 = load i8, ptr %12, align 1
   %29 = icmp eq i8 %28, 0
-  %30 = icmp sgt i64 %.081.idx208, 14
+  %30 = icmp ugt i64 %.081.idx208, 14
   %or.cond = select i1 %29, i1 true, i1 %30
   br i1 %or.cond, label %getv4.exit.thread125, label %31
 
 31:                                               ; preds = %27
   %32 = lshr i32 %.068212, 8
   %33 = trunc i32 %32 to i8
-  %.ptr96 = getelementptr inbounds nuw i8, ptr %.081.ptr.ptr.ptr214, i64 1
-  store i8 %33, ptr %.081.ptr.ptr.ptr214, align 1
+  %.ptr96 = getelementptr inbounds nuw i8, ptr %.081.ptr.ptr214, i64 1
+  store i8 %33, ptr %.081.ptr.ptr214, align 1
   %34 = trunc i32 %.068212 to i8
   %.add = add nuw nsw i64 %.081.idx208, 2
   store i8 %34, ptr %.ptr96, align 1
@@ -622,11 +622,11 @@ define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr 
   br i1 %.not94, label %getv4.exit.thread125, label %36
 
 36:                                               ; preds = %35
-  %37 = ptrtoint ptr %.081.ptr.ptr.ptr214 to i64
+  %37 = ptrtoint ptr %.081.ptr.ptr214 to i64
   br label %getbits.exit.outer.i
 
 getbits.exit.outer.i:                             ; preds = %58, %36
-  %.035.ph.i = phi ptr [ %61, %58 ], [ %.081.ptr.ptr.ptr214, %36 ]
+  %.035.ph.i = phi ptr [ %61, %58 ], [ %.081.ptr.ptr214, %36 ]
   %.030.ph.i = phi ptr [ %38, %58 ], [ %.075210, %36 ]
   br label %getbits.exit.i
 
@@ -762,12 +762,12 @@ getbits.exit.i:                                   ; preds = %45, %getbits.exit.o
 
 getv4.exit:                                       ; preds = %26, %.thread, %31
   %.283.idx = phi i64 [ %.add, %31 ], [ %.081.idx208, %.thread ], [ %.081.idx208, %26 ]
-  %.280 = phi ptr [ %.078209, %31 ], [ %.078209, %.thread ], [ %.081.ptr.ptr.ptr214, %26 ]
+  %.280 = phi ptr [ %.078209, %31 ], [ %.078209, %.thread ], [ %.081.ptr.ptr214, %26 ]
   %.176 = phi ptr [ %12, %31 ], [ %.075210, %.thread ], [ %12, %26 ]
   %.272 = phi i32 [ 0, %31 ], [ 1, %.thread ], [ 0, %26 ]
   %.2 = phi i32 [ 0, %31 ], [ %21, %.thread ], [ %.068212, %26 ]
   %.167 = phi i32 [ 0, %31 ], [ %22, %.thread ], [ %.066213, %26 ]
-  %.081.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.283.idx
+  %.081.ptr.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.283.idx
   %103 = load i8, ptr %12, align 1
   %.not91 = icmp eq i8 %103, 0
   br i1 %.not91, label %getv4.exit.thread135, label %.lr.ph

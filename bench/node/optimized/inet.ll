@@ -533,7 +533,7 @@ while.cond.outer.i.preheader:                     ; preds = %if.then.i23, %if.en
   br label %while.cond.outer.i
 
 while.cond.outer.i:                               ; preds = %while.cond.outer.i.preheader, %if.then29.i
-  %colonp.0.ph.i = phi ptr [ %tp.0.ptr.ptr.ptr.le.i, %if.then29.i ], [ null, %while.cond.outer.i.preheader ]
+  %colonp.0.ph.i = phi ptr [ %tp.0.ptr.ptr.le.i, %if.then29.i ], [ null, %while.cond.outer.i.preheader ]
   %curtok.0.ph.i = phi ptr [ %incdec.ptr7.i, %if.then29.i ], [ %curtok.0.ph.i.ph, %while.cond.outer.i.preheader ]
   %tp.0.idx.ph.i = phi i64 [ %tp.0.idx.ph63.i, %if.then29.i ], [ 0, %while.cond.outer.i.preheader ]
   %val.0.ph.i = phi i32 [ %val.0.i, %if.then29.i ], [ 0, %while.cond.outer.i.preheader ]
@@ -579,7 +579,7 @@ if.then18.i:                                      ; preds = %if.end15.i, %while.
   br i1 %exitcond.i, label %inet_pton6.exit, label %while.cond.i
 
 if.end25.i:                                       ; preds = %if.end15.i
-  %tp.0.ptr.ptr.ptr.le.i = getelementptr inbounds nuw i8, ptr %tmp.i13, i64 %tp.0.idx.ph63.i
+  %tp.0.ptr.ptr.le.i = getelementptr inbounds nuw i8, ptr %tmp.i13, i64 %tp.0.idx.ph63.i
   switch i8 %11, label %inet_pton6.exit [
     i8 58, label %if.then28.i
     i8 46, label %land.lhs.true.i
@@ -596,15 +596,15 @@ if.then29.i:                                      ; preds = %if.then28.i
 if.else.i21:                                      ; preds = %if.then28.i
   %13 = load i8, ptr %incdec.ptr7.i, align 1
   %cmp34.i = icmp eq i8 %13, 0
-  %cmp40.i = icmp sgt i64 %tp.0.idx.ph63.i, 14
+  %cmp40.i = icmp ugt i64 %tp.0.idx.ph63.i, 14
   %or.cond.i = select i1 %cmp34.i, i1 true, i1 %cmp40.i
   br i1 %or.cond.i, label %inet_pton6.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.else.i21
   %shr.i = lshr i32 %val.0.i, 8
   %conv44.i = trunc i32 %shr.i to i8
-  %incdec.ptr47.ptr.i = getelementptr inbounds nuw i8, ptr %tp.0.ptr.ptr.ptr.le.i, i64 1
-  store i8 %conv44.i, ptr %tp.0.ptr.ptr.ptr.le.i, align 1
+  %incdec.ptr47.ptr.i = getelementptr inbounds nuw i8, ptr %tp.0.ptr.ptr.le.i, i64 1
+  store i8 %conv44.i, ptr %tp.0.ptr.ptr.le.i, align 1
   %conv48.i = trunc i32 %val.0.i to i8
   %incdec.ptr47.add.i = add nuw nsw i64 %tp.0.idx.ph63.i, 2
   store i8 %conv48.i, ptr %incdec.ptr47.ptr.i, align 1
@@ -694,7 +694,7 @@ inet_pton4.exit.thread.i:                         ; preds = %if.else.i.i, %if.th
 
 while.end.thread.i:                               ; preds = %while.end.i.i
   %22 = load i32, ptr %tmp.i.i, align 4
-  store i32 %22, ptr %tp.0.ptr.ptr.ptr.le.i, align 1
+  store i32 %22, ptr %tp.0.ptr.ptr.le.i, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
   br label %if.end85.i
 

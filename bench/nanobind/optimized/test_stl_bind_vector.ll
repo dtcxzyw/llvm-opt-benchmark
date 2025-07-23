@@ -7556,11 +7556,13 @@ thread-pre-split.i:                               ; preds = %45, %40
 
 51:                                               ; preds = %thread-pre-split.i
   %52 = load ptr, ptr %24, align 8, !tbaa !107
-  %53 = getelementptr inbounds i32, ptr %52, i64 %47
-  %54 = getelementptr inbounds i32, ptr %52, i64 %48
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %.idx.i = shl nsw i64 %47, 2
+  %53 = getelementptr inbounds i8, ptr %52, i64 %.idx.i
+  %.idx40.i = shl nsw i64 %48, 2
+  %54 = add nsw i64 %.idx40.i, 4
+  %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = ptrtoint ptr %55 to i64
-  %.not.i.i.i = icmp eq ptr %53, %55
+  %.not.i.i.i = icmp eq i64 %.idx.i, %54
   br i1 %.not.i.i.i, label %.loopexit, label %57
 
 57:                                               ; preds = %51
@@ -7593,7 +7595,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.ex
   %66 = phi i64 [ %77, %_ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i ], [ %49, %.lr.ph.preheader.i ]
   %67 = phi ptr [ %79, %_ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i ], [ %.pre.i, %.lr.ph.preheader.i ]
   %68 = phi i64 [ %80, %_ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i ], [ %48, %.lr.ph.preheader.i ]
-  %.040.i = phi i64 [ %81, %_ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i ], [ 0, %.lr.ph.preheader.i ]
+  %.041.i = phi i64 [ %81, %_ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i ], [ 0, %.lr.ph.preheader.i ]
   %69 = load ptr, ptr %24, align 8, !tbaa !107
   %70 = getelementptr inbounds i32, ptr %69, i64 %68
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -7606,21 +7608,21 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.ex
   %74 = sub i64 %72, %73
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %70, ptr nonnull align 4 %71, i64 %74, i1 false)
   %.pre.i.i30.i = load ptr, ptr %25, align 8, !tbaa !105
-  %.pre41.i = load i64, ptr %33, align 8, !tbaa !131
-  %.pre42.i = load i64, ptr %35, align 8, !tbaa !131
-  %.pre43.i = load i64, ptr %9, align 8, !tbaa !131
+  %.pre42.i = load i64, ptr %33, align 8, !tbaa !131
+  %.pre43.i = load i64, ptr %35, align 8, !tbaa !131
+  %.pre44.i = load i64, ptr %9, align 8, !tbaa !131
   br label %_ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i
 
 _ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i29.i, %.lr.ph.i
-  %75 = phi i64 [ %.pre43.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i29.i ], [ %65, %.lr.ph.i ]
-  %76 = phi i64 [ %.pre42.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i29.i ], [ %68, %.lr.ph.i ]
-  %77 = phi i64 [ %.pre41.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i29.i ], [ %66, %.lr.ph.i ]
+  %75 = phi i64 [ %.pre44.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i29.i ], [ %65, %.lr.ph.i ]
+  %76 = phi i64 [ %.pre43.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i29.i ], [ %68, %.lr.ph.i ]
+  %77 = phi i64 [ %.pre42.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i29.i ], [ %66, %.lr.ph.i ]
   %78 = phi ptr [ %.pre.i.i30.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i29.i ], [ %67, %.lr.ph.i ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -4
   store ptr %79, ptr %25, align 8, !tbaa !105
   %80 = sub nsw i64 %76, %77
   store i64 %80, ptr %35, align 8, !tbaa !131
-  %81 = add nuw i64 %.040.i, 1
+  %81 = add nuw i64 %.041.i, 1
   %82 = icmp ult i64 %81, %75
   br i1 %82, label %.lr.ph.i, label %.loopexit, !llvm.loop !168
 
@@ -13743,11 +13745,13 @@ thread-pre-split.i:                               ; preds = %42, %37
 
 48:                                               ; preds = %thread-pre-split.i
   %.val31.i = load ptr, ptr %24, align 8, !tbaa !245
-  %49 = getelementptr inbounds %struct.El, ptr %.val31.i, i64 %44
-  %50 = getelementptr inbounds %struct.El, ptr %.val31.i, i64 %45
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %.idx.i = shl nsw i64 %44, 2
+  %49 = getelementptr inbounds i8, ptr %.val31.i, i64 %.idx.i
+  %.idx10.i = shl nsw i64 %45, 2
+  %50 = add nsw i64 %.idx10.i, 4
+  %51 = getelementptr inbounds i8, ptr %.val31.i, i64 %50
   %52 = ptrtoint ptr %51 to i64
-  %.not.i.i.i = icmp eq ptr %49, %51
+  %.not.i.i.i = icmp eq i64 %.idx.i, %50
   br i1 %.not.i.i.i, label %.loopexit, label %53
 
 53:                                               ; preds = %48
@@ -13780,7 +13784,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector
   %60 = phi i64 [ %69, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ %46, %.lr.ph.preheader.i ]
   %.val9.i.i.i = phi ptr [ %71, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ %.val9.i.i.pre.i, %.lr.ph.preheader.i ]
   %61 = phi i64 [ %72, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ %45, %.lr.ph.preheader.i ]
-  %.010.i = phi i64 [ %73, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ 0, %.lr.ph.preheader.i ]
+  %.011.i = phi i64 [ %73, %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ 0, %.lr.ph.preheader.i ]
   %.val29.i = load ptr, ptr %24, align 8, !tbaa !245
   %62 = getelementptr inbounds %struct.El, ptr %.val29.i, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
@@ -13794,20 +13798,20 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %62, ptr nonnull align 4 %63, i64 %66, i1 false)
   %.pre.i.i.i = load ptr, ptr %25, align 8, !tbaa !243
   %.pre.i = load i64, ptr %30, align 8, !tbaa !131
-  %.pre12.i = load i64, ptr %32, align 8, !tbaa !131
-  %.pre13.i = load i64, ptr %9, align 8, !tbaa !131
+  %.pre13.i = load i64, ptr %32, align 8, !tbaa !131
+  %.pre14.i = load i64, ptr %9, align 8, !tbaa !131
   br label %_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i
 
 _ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i41.i, %.lr.ph.i
-  %67 = phi i64 [ %.pre13.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i41.i ], [ %59, %.lr.ph.i ]
-  %68 = phi i64 [ %.pre12.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i41.i ], [ %61, %.lr.ph.i ]
+  %67 = phi i64 [ %.pre14.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i41.i ], [ %59, %.lr.ph.i ]
+  %68 = phi i64 [ %.pre13.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i41.i ], [ %61, %.lr.ph.i ]
   %69 = phi i64 [ %.pre.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i41.i ], [ %60, %.lr.ph.i ]
   %70 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i41.i ], [ %.val9.i.i.i, %.lr.ph.i ]
   %71 = getelementptr inbounds i8, ptr %70, i64 -4
   store ptr %71, ptr %25, align 8, !tbaa !243
   %72 = sub nsw i64 %68, %69
   store i64 %72, ptr %32, align 8, !tbaa !131
-  %73 = add nuw i64 %.010.i, 1
+  %73 = add nuw i64 %.011.i, 1
   %74 = icmp ult i64 %73, %67
   br i1 %74, label %.lr.ph.i, label %.loopexit, !llvm.loop !321
 
@@ -16473,11 +16477,13 @@ thread-pre-split.i:                               ; preds = %42, %37
 
 48:                                               ; preds = %thread-pre-split.i
   %.val31.i = load ptr, ptr %24, align 8, !tbaa !327
-  %49 = getelementptr inbounds %"class.std::vector.435", ptr %.val31.i, i64 %44
-  %50 = getelementptr inbounds %"class.std::vector.435", ptr %.val31.i, i64 %45
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %.idx.i = mul nsw i64 %44, 24
+  %49 = getelementptr inbounds i8, ptr %.val31.i, i64 %.idx.i
+  %.idx10.i = mul nsw i64 %45, 24
+  %50 = add nsw i64 %.idx10.i, 24
+  %51 = getelementptr inbounds i8, ptr %.val31.i, i64 %50
   %52 = ptrtoint ptr %51 to i64
-  %.not.i.i.i = icmp eq ptr %49, %51
+  %.not.i.i.i = icmp eq i64 %.idx.i, %50
   br i1 %.not.i.i.i, label %.loopexit, label %53
 
 53:                                               ; preds = %48
@@ -16520,7 +16526,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIZL38nanobind_init_test_stl_b
 
 .lr.ph.i:                                         ; preds = %thread-pre-split.i, %.lr.ph.i
   %66 = phi i64 [ %70, %.lr.ph.i ], [ %45, %thread-pre-split.i ]
-  %.010.i = phi i64 [ %71, %.lr.ph.i ], [ 0, %thread-pre-split.i ]
+  %.011.i = phi i64 [ %71, %.lr.ph.i ], [ 0, %thread-pre-split.i ]
   %.val29.i = load ptr, ptr %24, align 8, !tbaa !327
   %67 = getelementptr inbounds %"class.std::vector.435", ptr %.val29.i, i64 %66
   call fastcc void @_ZNSt6vectorIS_IZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr %67) #25
@@ -16528,7 +16534,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIZL38nanobind_init_test_stl_b
   %69 = load i64, ptr %32, align 8, !tbaa !131
   %70 = sub nsw i64 %69, %68
   store i64 %70, ptr %32, align 8, !tbaa !131
-  %71 = add nuw i64 %.010.i, 1
+  %71 = add nuw i64 %.011.i, 1
   %72 = load i64, ptr %9, align 8, !tbaa !131
   %73 = icmp ult i64 %71, %72
   br i1 %73, label %.lr.ph.i, label %.loopexit, !llvm.loop !420
@@ -19542,11 +19548,13 @@ thread-pre-split.i:                               ; preds = %43, %38
 
 49:                                               ; preds = %thread-pre-split.i
   %.val31.i = load ptr, ptr %25, align 8, !tbaa !427
-  %50 = getelementptr inbounds %"class.std::shared_ptr", ptr %.val31.i, i64 %45
-  %51 = getelementptr inbounds %"class.std::shared_ptr", ptr %.val31.i, i64 %46
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %.idx.i = shl nsw i64 %45, 4
+  %50 = getelementptr inbounds i8, ptr %.val31.i, i64 %.idx.i
+  %.idx10.i = shl nsw i64 %46, 4
+  %51 = add nsw i64 %.idx10.i, 16
+  %52 = getelementptr inbounds i8, ptr %.val31.i, i64 %51
   %53 = ptrtoint ptr %52 to i64
-  %.not.i.i.i = icmp eq ptr %50, %52
+  %.not.i.i.i = icmp eq i64 %.idx.i, %51
   br i1 %.not.i.i.i, label %.loopexit, label %54
 
 54:                                               ; preds = %49
@@ -19616,7 +19624,7 @@ _ZSt8_DestroyIPSt10shared_ptrIZL38nanobind_init_test_stl_bind_vector_extRN8nanob
 
 .lr.ph.i:                                         ; preds = %thread-pre-split.i, %.lr.ph.i
   %76 = phi i64 [ %80, %.lr.ph.i ], [ %46, %thread-pre-split.i ]
-  %.010.i = phi i64 [ %81, %.lr.ph.i ], [ 0, %thread-pre-split.i ]
+  %.011.i = phi i64 [ %81, %.lr.ph.i ], [ 0, %thread-pre-split.i ]
   %.val29.i = load ptr, ptr %25, align 8, !tbaa !427
   %77 = getelementptr inbounds %"class.std::shared_ptr", ptr %.val29.i, i64 %76
   call fastcc void @_ZNSt6vectorISt10shared_ptrIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr %77) #25
@@ -19624,7 +19632,7 @@ _ZSt8_DestroyIPSt10shared_ptrIZL38nanobind_init_test_stl_bind_vector_extRN8nanob
   %79 = load i64, ptr %33, align 8, !tbaa !131
   %80 = sub nsw i64 %79, %78
   store i64 %80, ptr %33, align 8, !tbaa !131
-  %81 = add nuw i64 %.010.i, 1
+  %81 = add nuw i64 %.011.i, 1
   %82 = load i64, ptr %10, align 8, !tbaa !131
   %83 = icmp ult i64 %81, %82
   br i1 %83, label %.lr.ph.i, label %.loopexit, !llvm.loop !547

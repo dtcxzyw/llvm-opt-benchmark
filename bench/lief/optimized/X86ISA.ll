@@ -3844,23 +3844,22 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE(i32 noundef %0) local_unnamed_addr #3 {
   %.not.i.i.i.i.i.i.i = icmp sgt i32 %0, 1
-  %.add.i.i.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
-  %.add.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.enums2str, i64 %.add.i.i.sroa.sel.v
-  %2 = load i32, ptr %.add.i.i.sroa.sel, align 8, !tbaa !301
+  %.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
+  %.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.enums2str, i64 %.sroa.sel.v
+  %2 = load i32, ptr %.sroa.sel, align 8, !tbaa !301
   %.not.i.i.i.i.i.i.i.i = icmp slt i32 %2, %0
   %.not.i.i = and i1 %.not.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF6X86ISA4FLAGEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %4 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.enums2str, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx
-  %.ptr14.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.add.i.i.sroa.sel.v
-  %5 = load i32, ptr %.ptr14.i.i.ptr, align 8, !tbaa !301
-  %.not15.i.i = icmp slt i32 %0, %5
-  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF6X86ISA4FLAGEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
+  %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.sel, i64 %.idx.i.i.i.i.i.i.i.i
+  %5 = load i32, ptr %4, align 8, !tbaa !301
+  %.not12.i.i = icmp slt i32 %0, %5
+  br i1 %.not12.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF6X86ISA4FLAGEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.ptr, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !302
   br label %_ZNK6frozen3mapIN4LIEF3ELF6X86ISA4FLAGEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -4673,23 +4672,22 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF3ELF6X86ISA4FLAGEcv
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8
   %5 = load i32, ptr %1, align 4, !tbaa !301
   %.not.i.i.i.i.i.i.i.i = icmp sgt i32 %5, 1
-  %.add.i.i.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 40, i64 8
-  %.add.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.enums2str, i64 %.add.i.i.sroa.sel.v.i
-  %6 = load i32, ptr %.add.i.i.sroa.sel.i, align 8, !tbaa !301
+  %.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 40, i64 8
+  %.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.enums2str, i64 %.sroa.sel.v.i
+  %6 = load i32, ptr %.sroa.sel.i, align 8, !tbaa !301
   %.not.i.i.i.i.i.i.i.i.i = icmp slt i32 %6, %5
   %.not.i.i.i = and i1 %.not.i.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %7
 
 7:                                                ; preds = %3
-  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %8 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.enums2str, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.i
-  %.ptr14.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %.add.i.i.sroa.sel.v.i
-  %9 = load i32, ptr %.ptr14.i.i.ptr.i, align 8, !tbaa !301
-  %.not15.i.i.i = icmp slt i32 %5, %9
-  br i1 %.not15.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.exit
+  %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.sel.i, i64 %.idx.i.i.i.i.i.i.i.i.i
+  %9 = load i32, ptr %8, align 8, !tbaa !301
+  %.not12.i.i.i = icmp slt i32 %5, %9
+  br i1 %.not12.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.exit
 
 _ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.exit:    ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.ptr.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !302
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit

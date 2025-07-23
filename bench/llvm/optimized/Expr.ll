@@ -20209,17 +20209,17 @@ tailrecurse.us:                                   ; preds = %3, %tailrecurse.us.
     i16 55, label %.split249.us
     i16 120, label %.split252.us
     i16 4, label %.split255.us
-    i16 71, label %.critedge145.loopexit680
-    i16 97, label %.critedge145.loopexit680
-    i16 111, label %.critedge145.loopexit680
-    i16 26, label %.critedge145.loopexit680
-    i16 25, label %.critedge145.loopexit680
-    i16 24, label %.critedge145.loopexit680
-    i16 8, label %.critedge145.loopexit680
-    i16 61, label %.critedge145.loopexit680
-    i16 6, label %.critedge145.loopexit680
-    i16 18, label %.critedge145.loopexit680
-    i16 110, label %.critedge145.loopexit680
+    i16 71, label %.critedge145.loopexit677
+    i16 97, label %.critedge145.loopexit677
+    i16 111, label %.critedge145.loopexit677
+    i16 26, label %.critedge145.loopexit677
+    i16 25, label %.critedge145.loopexit677
+    i16 24, label %.critedge145.loopexit677
+    i16 8, label %.critedge145.loopexit677
+    i16 61, label %.critedge145.loopexit677
+    i16 6, label %.critedge145.loopexit677
+    i16 18, label %.critedge145.loopexit677
+    i16 110, label %.critedge145.loopexit677
     i16 73, label %.critedge145
     i16 36, label %.critedge145
     i16 20, label %.critedge145
@@ -20235,17 +20235,17 @@ tailrecurse.us:                                   ; preds = %3, %tailrecurse.us.
     i16 129, label %.critedge145
     i16 62, label %.split260.us
     i16 11, label %.split263.us
-    i16 74, label %.critedge145.loopexit680
-    i16 72, label %.critedge145.loopexit680
-    i16 75, label %.critedge145.loopexit680
-    i16 112, label %.critedge145.loopexit680
-    i16 108, label %.critedge145.loopexit680
-    i16 99, label %.critedge145.loopexit680
-    i16 122, label %.critedge145.loopexit680
-    i16 3, label %.critedge145.loopexit680
-    i16 121, label %.critedge145.loopexit680
-    i16 51, label %.critedge145.loopexit680
-    i16 52, label %.critedge145.loopexit680
+    i16 74, label %.critedge145.loopexit677
+    i16 72, label %.critedge145.loopexit677
+    i16 75, label %.critedge145.loopexit677
+    i16 112, label %.critedge145.loopexit677
+    i16 108, label %.critedge145.loopexit677
+    i16 99, label %.critedge145.loopexit677
+    i16 122, label %.critedge145.loopexit677
+    i16 3, label %.critedge145.loopexit677
+    i16 121, label %.critedge145.loopexit677
+    i16 51, label %.critedge145.loopexit677
+    i16 52, label %.critedge145.loopexit677
     i16 118, label %.split268.us
     i16 119, label %.split268.us
     i16 92, label %.split271.us
@@ -20364,30 +20364,30 @@ tailrecurse.us.backedge:                          ; preds = %32, %23, %12, %9
     i16 55, label %.split249.us
     i16 120, label %.split252.us
     i16 4, label %.split255.us
-    i16 71, label %.critedge145.loopexit712
-    i16 97, label %.critedge145.loopexit712
-    i16 111, label %.critedge145.loopexit712
-    i16 26, label %.critedge145.loopexit712
-    i16 25, label %.critedge145.loopexit712
-    i16 24, label %.critedge145.loopexit712
-    i16 8, label %.critedge145.loopexit712
-    i16 61, label %.critedge145.loopexit712
-    i16 6, label %.critedge145.loopexit712
-    i16 18, label %.critedge145.loopexit712
-    i16 110, label %.critedge145.loopexit712
-    i16 73, label %.critedge145.loopexit712
-    i16 36, label %.critedge145.loopexit712
-    i16 20, label %.critedge145.loopexit712
-    i16 54, label %.critedge145.loopexit712
-    i16 65, label %.critedge145.loopexit712
-    i16 64, label %.critedge145.loopexit712
-    i16 57, label %.critedge145.loopexit712
-    i16 10, label %.critedge145.loopexit712
-    i16 80, label %.critedge145.loopexit712
-    i16 29, label %.critedge145.loopexit712
-    i16 56, label %.critedge145.loopexit712
-    i16 5, label %.critedge145.loopexit712
-    i16 129, label %.critedge145.loopexit712
+    i16 71, label %.critedge145.loopexit709
+    i16 97, label %.critedge145.loopexit709
+    i16 111, label %.critedge145.loopexit709
+    i16 26, label %.critedge145.loopexit709
+    i16 25, label %.critedge145.loopexit709
+    i16 24, label %.critedge145.loopexit709
+    i16 8, label %.critedge145.loopexit709
+    i16 61, label %.critedge145.loopexit709
+    i16 6, label %.critedge145.loopexit709
+    i16 18, label %.critedge145.loopexit709
+    i16 110, label %.critedge145.loopexit709
+    i16 73, label %.critedge145.loopexit709
+    i16 36, label %.critedge145.loopexit709
+    i16 20, label %.critedge145.loopexit709
+    i16 54, label %.critedge145.loopexit709
+    i16 65, label %.critedge145.loopexit709
+    i16 64, label %.critedge145.loopexit709
+    i16 57, label %.critedge145.loopexit709
+    i16 10, label %.critedge145.loopexit709
+    i16 80, label %.critedge145.loopexit709
+    i16 29, label %.critedge145.loopexit709
+    i16 56, label %.critedge145.loopexit709
+    i16 5, label %.critedge145.loopexit709
+    i16 129, label %.critedge145.loopexit709
     i16 62, label %.split260.us
     i16 11, label %.split263.us
     i16 74, label %.critedge145
@@ -20409,33 +20409,33 @@ tailrecurse.us.backedge:                          ; preds = %32, %23, %12, %9
     i16 93, label %.split271.us
     i16 91, label %.split271.us
     i16 63, label %38
-    i16 16, label %.critedge145.loopexit712
-    i16 27, label %.critedge145.loopexit712
-    i16 58, label %.critedge145.loopexit712
-    i16 23, label %.critedge145.loopexit712
-    i16 15, label %.critedge145.loopexit712
-    i16 17, label %.critedge145.loopexit712
-    i16 77, label %.critedge145.loopexit712
-    i16 68, label %.critedge145.loopexit712
-    i16 12, label %.critedge145.loopexit712
-    i16 28, label %.critedge145.loopexit712
-    i16 96, label %.critedge145.loopexit712
-    i16 43, label %.critedge145.loopexit712
-    i16 42, label %.critedge145.loopexit712
-    i16 39, label %.critedge145.loopexit712
-    i16 31, label %.critedge145.loopexit712
-    i16 13, label %.critedge145.loopexit712
-    i16 107, label %.critedge145.loopexit712
-    i16 67, label %.critedge145.loopexit712
-    i16 124, label %.critedge145.loopexit712
-    i16 7, label %.critedge145.loopexit712
-    i16 102, label %.critedge145.loopexit712
-    i16 100, label %.critedge145.loopexit712
-    i16 106, label %.critedge145.loopexit712
-    i16 117, label %.critedge145.loopexit712
-    i16 47, label %.critedge145.loopexit712
-    i16 128, label %.critedge145.loopexit712
-    i16 60, label %.critedge145.loopexit712
+    i16 16, label %.critedge145.loopexit709
+    i16 27, label %.critedge145.loopexit709
+    i16 58, label %.critedge145.loopexit709
+    i16 23, label %.critedge145.loopexit709
+    i16 15, label %.critedge145.loopexit709
+    i16 17, label %.critedge145.loopexit709
+    i16 77, label %.critedge145.loopexit709
+    i16 68, label %.critedge145.loopexit709
+    i16 12, label %.critedge145.loopexit709
+    i16 28, label %.critedge145.loopexit709
+    i16 96, label %.critedge145.loopexit709
+    i16 43, label %.critedge145.loopexit709
+    i16 42, label %.critedge145.loopexit709
+    i16 39, label %.critedge145.loopexit709
+    i16 31, label %.critedge145.loopexit709
+    i16 13, label %.critedge145.loopexit709
+    i16 107, label %.critedge145.loopexit709
+    i16 67, label %.critedge145.loopexit709
+    i16 124, label %.critedge145.loopexit709
+    i16 7, label %.critedge145.loopexit709
+    i16 102, label %.critedge145.loopexit709
+    i16 100, label %.critedge145.loopexit709
+    i16 106, label %.critedge145.loopexit709
+    i16 117, label %.critedge145.loopexit709
+    i16 47, label %.critedge145.loopexit709
+    i16 128, label %.critedge145.loopexit709
+    i16 60, label %.critedge145.loopexit709
   ]
 
 38:                                               ; preds = %.critedge
@@ -20447,7 +20447,7 @@ tailrecurse.backedge:                             ; preds = %38, %101, %112, %12
   %.tr.be = phi ptr [ %40, %38 ], [ %111, %101 ], [ %120, %112 ], [ %122, %121 ]
   %41 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr.be) #31
   %42 = icmp slt i32 %41, 0
-  br i1 %42, label %.critedge145.loopexit712, label %.critedge
+  br i1 %42, label %.critedge145.loopexit709, label %.critedge
 
 .split271.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
   %.us-phi272 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ]
@@ -20493,8 +20493,8 @@ _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit:  ; preds = %.lr.ph.i.i.i.i.i
 _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158: ; preds = %59, %48, %44, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit
   %61 = load i32, ptr %45, align 4
   %62 = and i32 %61, 256
-  %.not.i439 = icmp eq i32 %62, 0
-  br i1 %.not.i439, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %63
+  %.not.i436 = icmp eq i32 %62, 0
+  br i1 %.not.i436, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %63
 
 63:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158
   %64 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %43) #32
@@ -20502,26 +20502,26 @@ _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158: ; preds = %59, %48, %
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !51
   %68 = zext i32 %67 to i64
-  %.idx.i.i440 = shl nuw nsw i64 %68, 3
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i440
-  %.not.i.i441 = icmp eq i32 %67, 0
-  br i1 %.not.i.i441, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %.lr.ph.i.i.i.i.i442
+  %.idx.i.i437 = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i437
+  %.not.i.i438 = icmp eq i32 %67, 0
+  br i1 %.not.i.i438, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %.lr.ph.i.i.i.i.i439
 
-.lr.ph.i.i.i.i.i442:                              ; preds = %63, %74
-  %.sroa.07.1.i.i.i.i443 = phi ptr [ %75, %74 ], [ %65, %63 ]
-  %70 = load ptr, ptr %.sroa.07.1.i.i.i.i443, align 8, !tbaa !208
+.lr.ph.i.i.i.i.i439:                              ; preds = %63, %74
+  %.sroa.07.1.i.i.i.i440 = phi ptr [ %75, %74 ], [ %65, %63 ]
+  %70 = load ptr, ptr %.sroa.07.1.i.i.i.i440, align 8, !tbaa !208
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load i16, ptr %71, align 8
   %73 = icmp eq i16 %72, 329
   br i1 %73, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %74
 
-74:                                               ; preds = %.lr.ph.i.i.i.i.i442
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i443, i64 8
-  %.not.i.i.i.i.i444 = icmp eq ptr %75, %69
-  br i1 %.not.i.i.i.i.i444, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i442, !llvm.loop !895
+74:                                               ; preds = %.lr.ph.i.i.i.i.i439
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i440, i64 8
+  %.not.i.i.i.i.i441 = icmp eq ptr %75, %69
+  br i1 %.not.i.i.i.i.i441, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i439, !llvm.loop !895
 
-_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %74, %.lr.ph.i.i.i.i.i442
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i443, %.lr.ph.i.i.i.i.i442 ], [ %69, %74 ]
+_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %74, %.lr.ph.i.i.i.i.i439
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i440, %.lr.ph.i.i.i.i.i439 ], [ %69, %74 ]
   %76 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %69
   br label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit
 
@@ -20728,68 +20728,64 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %149
 
 .split230.us:                                     ; preds = %.critedge, %tailrecurse.us
   %.us-phi231 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %172 = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 4
-  %173 = load i16, ptr %172, align 4
-  %174 = zext i16 %173 to i64
-  %.idx = shl nuw nsw i64 %174, 3
-  %175 = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 %.idx
-  %.ptr312 = getelementptr inbounds nuw i8, ptr %175, i64 32
-  %.not127.not295 = icmp eq i16 %173, 0
-  br i1 %.not127.not295, label %.critedge145, label %.lr.ph.preheader
+  %172 = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 4
+  %174 = load i16, ptr %173, align 4
+  %175 = zext i16 %174 to i64
+  %.idx = shl nuw nsw i64 %175, 3
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 %.idx
+  %.not127.not295 = icmp eq i16 %174, 0
+  br i1 %.not127.not295, label %.critedge145, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.split230.us
-  %.ptr = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 32
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %.split230.us, %.critedge141
+  %.0115296 = phi ptr [ %180, %.critedge141 ], [ %172, %.split230.us ]
+  %177 = load ptr, ptr %.0115296, align 8, !tbaa !146
+  %.not128 = icmp eq ptr %177, null
+  br i1 %.not128, label %.critedge141, label %178
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge141
-  %.0115296 = phi ptr [ %179, %.critedge141 ], [ %.ptr, %.lr.ph.preheader ]
-  %176 = load ptr, ptr %.0115296, align 8, !tbaa !146
-  %.not128 = icmp eq ptr %176, null
-  br i1 %.not128, label %.critedge141, label %177
+178:                                              ; preds = %.lr.ph
+  %179 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
+  br i1 %179, label %.critedge145, label %.critedge141
 
-177:                                              ; preds = %.lr.ph
-  %178 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %176, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br i1 %178, label %.critedge145, label %.critedge141
-
-.critedge141:                                     ; preds = %177, %.lr.ph
-  %179 = getelementptr inbounds nuw i8, ptr %.0115296, i64 8
-  %.not127.not = icmp eq ptr %179, %.ptr312
+.critedge141:                                     ; preds = %178, %.lr.ph
+  %180 = getelementptr inbounds nuw i8, ptr %.0115296, i64 8
+  %.not127.not = icmp eq ptr %180, %176
   br i1 %.not127.not, label %.critedge145, label %.lr.ph
 
 .split227.us:                                     ; preds = %.critedge, %tailrecurse.us
   %.us-phi228 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %180 = load i64, ptr %.us-phi228, align 8
-  %181 = lshr i64 %180, 29
-  %.idx313 = and i64 %181, 524280
-  %.add = add nuw nsw i64 %.idx313, 16
-  %.ptr315 = getelementptr inbounds nuw i8, ptr %.us-phi228, i64 %.add
-  %.not129.not300 = icmp eq i64 %.add, 24
+  %181 = load i64, ptr %.us-phi228, align 8
+  %182 = lshr i64 %181, 29
+  %.idx312 = and i64 %182, 524280
+  %183 = add nuw nsw i64 %.idx312, 16
+  %184 = getelementptr inbounds nuw i8, ptr %.us-phi228, i64 %183
+  %.not129.not300 = icmp samesign eq i64 %183, 24
   br i1 %.not129.not300, label %.critedge145, label %.lr.ph302.preheader
 
 .lr.ph302.preheader:                              ; preds = %.split227.us
-  %182 = getelementptr inbounds nuw i8, ptr %.us-phi228, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %.us-phi228, i64 24
   br label %.lr.ph302
 
-.lr.ph302:                                        ; preds = %189, %.lr.ph302.preheader
-  %.0117301 = phi ptr [ %182, %.lr.ph302.preheader ], [ %191, %189 ]
-  %183 = load ptr, ptr %.0117301, align 8, !tbaa !146
-  %184 = load i16, ptr %183, align 8
-  %185 = and i16 %184, 511
-  %.not189 = icmp eq i16 %185, 28
-  br i1 %.not189, label %186, label %189
+.lr.ph302:                                        ; preds = %192, %.lr.ph302.preheader
+  %.0117301 = phi ptr [ %185, %.lr.ph302.preheader ], [ %194, %192 ]
+  %186 = load ptr, ptr %.0117301, align 8, !tbaa !146
+  %187 = load i16, ptr %186, align 8
+  %188 = and i16 %187, 511
+  %.not189 = icmp eq i16 %188, 28
+  br i1 %.not189, label %189, label %192
 
-186:                                              ; preds = %.lr.ph302
-  %187 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %188 = load ptr, ptr %187, align 8, !tbaa !88
-  br label %189
+189:                                              ; preds = %.lr.ph302
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %191 = load ptr, ptr %190, align 8, !tbaa !88
+  br label %192
 
-189:                                              ; preds = %186, %.lr.ph302
-  %.0116 = phi ptr [ %188, %186 ], [ %183, %.lr.ph302 ]
-  %190 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.0116, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  %191 = getelementptr inbounds nuw i8, ptr %.0117301, i64 8
-  %.not129.not = icmp eq ptr %191, %.ptr315
-  %or.cond677 = select i1 %190, i1 true, i1 %.not129.not
-  br i1 %or.cond677, label %.critedge145, label %.lr.ph302, !llvm.loop !927
+192:                                              ; preds = %189, %.lr.ph302
+  %.0116 = phi ptr [ %191, %189 ], [ %186, %.lr.ph302 ]
+  %193 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.0116, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
+  %194 = getelementptr inbounds nuw i8, ptr %.0117301, i64 8
+  %.not129.not = icmp eq ptr %194, %184
+  %or.cond674 = select i1 %193, i1 true, i1 %.not129.not
+  br i1 %or.cond674, label %.critedge145, label %.lr.ph302, !llvm.loop !927
 
 .split224.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
   %.us-phi225 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ]
@@ -20801,85 +20797,85 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %149
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.874") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %.tr221) #32, !noalias !928
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %192 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.4152.24.copyload = load ptr, ptr %192, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.4152.24.copyload = load ptr, ptr %195, align 8
   %.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #32, !noalias !928
-  %193 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %194 = load ptr, ptr %6, align 8, !tbaa !25
-  %195 = icmp ne ptr %194, %.sroa.4152.24.copyload
-  %196 = load i64, ptr %193, align 8
-  %197 = icmp ne i64 %196, %.sroa.6.24.copyload
-  %.not3.i.not.not306 = select i1 %195, i1 true, i1 %197
+  %196 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %197 = load ptr, ptr %6, align 8, !tbaa !25
+  %198 = icmp ne ptr %197, %.sroa.4152.24.copyload
+  %199 = load i64, ptr %196, align 8
+  %200 = icmp ne i64 %199, %.sroa.6.24.copyload
+  %.not3.i.not.not306 = select i1 %198, i1 true, i1 %200
   br i1 %.not3.i.not.not306, label %.lr.ph308, label %._crit_edge
 
 .lr.ph308:                                        ; preds = %.thread, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
-  %198 = phi i64 [ %219, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %196, %.thread ]
-  %199 = phi ptr [ %217, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %194, %.thread ]
-  %200 = and i64 %198, 3
-  %201 = icmp eq i64 %200, 0
-  br i1 %201, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %202
+  %201 = phi i64 [ %222, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %199, %.thread ]
+  %202 = phi ptr [ %220, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %197, %.thread ]
+  %203 = and i64 %201, 3
+  %204 = icmp eq i64 %203, 0
+  br i1 %204, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %205
 
-202:                                              ; preds = %.lr.ph308
-  %203 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
+205:                                              ; preds = %.lr.ph308
+  %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph308, %202
-  %.in.i = phi ptr [ %203, %202 ], [ %199, %.lr.ph308 ]
-  %204 = load ptr, ptr %.in.i, align 8, !tbaa !3
-  %.not131 = icmp eq ptr %204, null
-  br i1 %.not131, label %207, label %205
+_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph308, %205
+  %.in.i = phi ptr [ %206, %205 ], [ %202, %.lr.ph308 ]
+  %207 = load ptr, ptr %.in.i, align 8, !tbaa !3
+  %.not131 = icmp eq ptr %207, null
+  br i1 %.not131, label %210, label %208
 
-205:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %206 = call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %204, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br i1 %206, label %._crit_edge, label %207
+208:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %209 = call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %207, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
+  br i1 %209, label %._crit_edge, label %210
 
-207:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %205
-  %208 = load i64, ptr %193, align 8, !tbaa !931
-  %209 = and i64 %208, 3
-  %210 = icmp eq i64 %209, 0
-  br i1 %210, label %211, label %214
+210:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %208
+  %211 = load i64, ptr %196, align 8, !tbaa !931
+  %212 = and i64 %211, 3
+  %213 = icmp eq i64 %212, 0
+  br i1 %213, label %214, label %217
 
-211:                                              ; preds = %207
-  %212 = load ptr, ptr %6, align 8, !tbaa !25
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  store ptr %213, ptr %6, align 8, !tbaa !25
+214:                                              ; preds = %210
+  %215 = load ptr, ptr %6, align 8, !tbaa !25
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  store ptr %216, ptr %6, align 8, !tbaa !25
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-214:                                              ; preds = %207
-  %.not.i150 = icmp ult i64 %208, 4
-  br i1 %.not.i150, label %216, label %215
+217:                                              ; preds = %210
+  %.not.i150 = icmp ult i64 %211, 4
+  br i1 %.not.i150, label %219, label %218
 
-215:                                              ; preds = %214
+218:                                              ; preds = %217
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-216:                                              ; preds = %214
+219:                                              ; preds = %217
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext true) #32
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %211, %215, %216
-  %217 = load ptr, ptr %6, align 8, !tbaa !25
-  %218 = icmp ne ptr %217, %.sroa.4152.24.copyload
-  %219 = load i64, ptr %193, align 8
-  %220 = icmp ne i64 %219, %.sroa.6.24.copyload
-  %.not3.i.not.not = select i1 %218, i1 true, i1 %220
+_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %214, %218, %219
+  %220 = load ptr, ptr %6, align 8, !tbaa !25
+  %221 = icmp ne ptr %220, %.sroa.4152.24.copyload
+  %222 = load i64, ptr %196, align 8
+  %223 = icmp ne i64 %222, %.sroa.6.24.copyload
+  %.not3.i.not.not = select i1 %221, i1 true, i1 %223
   br i1 %.not3.i.not.not, label %.lr.ph308, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %205, %.thread
-  %.not3.i.not.not.lcssa = phi i1 [ false, %.thread ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ true, %205 ]
+._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %208, %.thread
+  %.not3.i.not.not.lcssa = phi i1 [ false, %.thread ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ true, %208 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
   br label %.critedge145
 
-.critedge145.loopexit680:                         ; preds = %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
+.critedge145.loopexit677:                         ; preds = %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
   br label %.critedge145
 
-.critedge145.loopexit712:                         ; preds = %tailrecurse.backedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
+.critedge145.loopexit709:                         ; preds = %tailrecurse.backedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   br label %.critedge145
 
-.critedge145:                                     ; preds = %177, %.critedge141, %189, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.critedge145.loopexit712, %.critedge145.loopexit680, %.split, %.split230.us, %.split227.us, %160, %.split239.us, %149, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %141, %98, %._crit_edge, %.split233.us, %.split236.us, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split224.us, %.split252.us, %.split255.us, %83, %.split268.us, %128, %.split263.us
-  %.0 = phi i1 [ true, %.split233.us ], [ true, %.split236.us ], [ %spec.select, %128 ], [ %82, %.split263.us ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.split268.us ], [ true, %83 ], [ true, %.split255.us ], [ true, %.split252.us ], [ true, %.split224.us ], [ %.not3.i.not.not.lcssa, %._crit_edge ], [ true, %98 ], [ true, %141 ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ true, %149 ], [ true, %160 ], [ false, %.split239.us ], [ false, %.split227.us ], [ false, %.split230.us ], [ false, %.split ], [ true, %.critedge145.loopexit680 ], [ false, %.critedge145.loopexit712 ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ %190, %189 ], [ false, %.critedge141 ], [ true, %177 ]
+.critedge145:                                     ; preds = %178, %.critedge141, %192, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.critedge145.loopexit709, %.critedge145.loopexit677, %.split, %.split230.us, %.split227.us, %160, %.split239.us, %149, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %141, %98, %._crit_edge, %.split233.us, %.split236.us, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split224.us, %.split252.us, %.split255.us, %83, %.split268.us, %128, %.split263.us
+  %.0 = phi i1 [ true, %.split233.us ], [ true, %.split236.us ], [ %spec.select, %128 ], [ %82, %.split263.us ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.split268.us ], [ true, %83 ], [ true, %.split255.us ], [ true, %.split252.us ], [ true, %.split224.us ], [ %.not3.i.not.not.lcssa, %._crit_edge ], [ true, %98 ], [ true, %141 ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ true, %149 ], [ true, %160 ], [ false, %.split239.us ], [ false, %.split227.us ], [ false, %.split230.us ], [ false, %.split ], [ true, %.critedge145.loopexit677 ], [ false, %.critedge145.loopexit709 ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ %193, %192 ], [ false, %.critedge141 ], [ true, %178 ]
   ret i1 %.0
 }
 
@@ -30446,28 +30442,28 @@ define dso_local void @_ZN5clang18DesignatedInitExpr16ExpandDesignatorERKNS_10AS
   ]
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !139
-  %14 = zext i32 %2 to i64
-  %.idx28 = mul nuw nsw i64 %14, 24
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx28
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %18 = load i32, ptr %17, align 4
-  %19 = lshr i32 %18, 1
-  %20 = and i32 %19, 32767
-  %narrow = mul nuw nsw i32 %20, 24
+  %12 = zext i32 %2 to i64
+  %.idx28 = mul nuw nsw i64 %12, 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %14 = load i32, ptr %13, align 4
+  %15 = lshr i32 %14, 1
+  %16 = and i32 %15, 32767
+  %narrow = mul nuw nsw i32 %16, 24
   %.idx = zext nneg i32 %narrow to i64
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
-  %.not.i.i.i.i.i = icmp eq ptr %21, %16
-  br i1 %.not.i.i.i.i.i, label %_ZSt13copy_backwardIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit, label %22
+  %17 = add nuw nsw i64 %.idx28, 24
+  %.not.i.i.i.i.i = icmp samesign eq i64 %17, %.idx
+  br i1 %.not.i.i.i.i.i, label %_ZSt13copy_backwardIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit, label %18
 
-22:                                               ; preds = %11
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !139
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx28
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %reass.sub = sub nsw i64 %.idx, %.idx28
   %gepdiff = add nsw i64 %reass.sub, -24
   %.neg.i.i.i.i.i = sdiv exact i64 %gepdiff, -24
-  %23 = getelementptr inbounds %"class.clang::DesignatedInitExpr::Designator", ptr %15, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %16, i64 %gepdiff, i1 false)
+  %23 = getelementptr inbounds %"class.clang::DesignatedInitExpr::Designator", ptr %21, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %22, i64 %gepdiff, i1 false)
   br label %_ZSt13copy_backwardIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit
 
 24:                                               ; preds = %5
@@ -30570,7 +30566,7 @@ _ZSt4copyIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit27: ; pre
   store i32 %78, ptr %30, align 4
   br label %_ZSt13copy_backwardIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit
 
-_ZSt13copy_backwardIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit: ; preds = %22, %11, %_ZSt4copyIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit27, %24
+_ZSt13copy_backwardIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit: ; preds = %18, %11, %_ZSt4copyIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit27, %24
   ret void
 }
 
@@ -35644,35 +35640,31 @@ _ZSt18uninitialized_copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i16, ptr %3, align 4
-  %5 = zext i16 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not10 = icmp eq i16 %4, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i16, ptr %4, align 4
+  %6 = zext i16 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not10 = icmp eq i16 %5, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %9, %2
+._crit_edge:                                      ; preds = %10, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %.011 = phi ptr [ %10, %9 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.011, align 8, !tbaa !146
-  %.not9 = icmp eq ptr %7, null
-  br i1 %.not9, label %9, label %8
+.lr.ph:                                           ; preds = %2, %10
+  %.011 = phi ptr [ %11, %10 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.011, align 8, !tbaa !146
+  %.not9 = icmp eq ptr %8, null
+  br i1 %.not9, label %10, label %9
 
-8:                                                ; preds = %.lr.ph
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7)
-  br label %9
+9:                                                ; preds = %.lr.ph
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %8)
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %8
-  %10 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %.not = icmp eq ptr %10, %.ptr12
+10:                                               ; preds = %.lr.ph, %9
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %.not = icmp eq ptr %11, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1183
 }
 
@@ -35963,35 +35955,31 @@ declare void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i16, ptr %3, align 4
-  %5 = zext i16 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not10 = icmp eq i16 %4, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i16, ptr %4, align 4
+  %6 = zext i16 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not10 = icmp eq i16 %5, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %9, %2
+._crit_edge:                                      ; preds = %10, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %.011 = phi ptr [ %10, %9 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.011, align 8, !tbaa !146
-  %.not9 = icmp eq ptr %7, null
-  br i1 %.not9, label %9, label %8
+.lr.ph:                                           ; preds = %2, %10
+  %.011 = phi ptr [ %11, %10 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.011, align 8, !tbaa !146
+  %.not9 = icmp eq ptr %8, null
+  br i1 %.not9, label %10, label %9
 
-8:                                                ; preds = %.lr.ph
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7)
-  br label %9
+9:                                                ; preds = %.lr.ph
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %8)
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %8
-  %10 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %.not = icmp eq ptr %10, %.ptr12
+10:                                               ; preds = %.lr.ph, %9
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %.not = icmp eq ptr %11, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1191
 }
 

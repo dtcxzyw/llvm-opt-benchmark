@@ -47178,14 +47178,14 @@ _ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i: ;
   br label %_ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i
 
 _ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i
-  %.idx3.i.i.i.pre-phi = phi i64 [ %.pre24, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %.idx11, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
+  %.idx4.i.i.i.pre-phi = phi i64 [ %.pre24, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %.idx11, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
   %61 = phi i64 [ %.pre, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %6, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
   %62 = phi ptr [ %.pre.i.i, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %4, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
   %63 = getelementptr i8, ptr %62, i64 %56
   %64 = getelementptr i8, ptr %63, i64 8
   %65 = icmp ne ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %4
-  %66 = getelementptr i8, ptr %62, i64 %.idx3.i.i.i.pre-phi
-  %.not.i.i.i.i = icmp eq ptr %64, %66
+  %66 = sub i64 %57, %8
+  %.not.i.i.i.i = icmp eq i64 %66, %.idx4.i.i.i.pre-phi
   %or.cond.i.i.i.i = select i1 %65, i1 true, i1 %.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %._crit_edge.i.i.i.i, label %67
 
@@ -47197,8 +47197,7 @@ _ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i: ; preds = %_ZN
   br i1 %.not.i.i.i.i, label %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit, label %68
 
 68:                                               ; preds = %._crit_edge.i.i.i.i
-  %.neg.i.i = sub i64 %8, %57
-  %gepdiff.i.i.i = add i64 %.neg.i.i, %.idx3.i.i.i.pre-phi
+  %gepdiff.i.i.i = sub i64 %.idx4.i.i.i.pre-phi, %66
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %64, i64 noundef %gepdiff.i.i.i, i1 noundef false) #26
   %.pre12.i.i.i.i = load i64, ptr %5, align 8
   br label %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit
@@ -50130,9 +50129,9 @@ _ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i: ; preds = %_ZNK1
   %95 = getelementptr i8, ptr %94, i64 %84
   %96 = icmp ne ptr %.sroa.038.0.lcssa, %81
   %97 = load i64, ptr %5, align 8
-  %.idx3.i.i = shl i64 %97, 3
-  %98 = getelementptr i8, ptr %93, i64 %.idx3.i.i
-  %.not.i.i.i = icmp eq ptr %95, %98
+  %.idx4.i.i = shl i64 %97, 3
+  %98 = sub i64 %82, %86
+  %.not.i.i.i = icmp eq i64 %98, %.idx4.i.i
   %or.cond.i.i.i34 = select i1 %96, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i34, label %._crit_edge.i.i.i35, label %99
 
@@ -50144,8 +50143,7 @@ _ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i: ; preds = %_ZNK1
   br i1 %.not.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i, label %100
 
 100:                                              ; preds = %._crit_edge.i.i.i35
-  %.neg.i = sub i64 %86, %82
-  %gepdiff.i.i = add i64 %.neg.i, %.idx3.i.i
+  %gepdiff.i.i = sub i64 %.idx4.i.i, %98
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %94, ptr noundef align 1 %95, i64 noundef %gepdiff.i.i, i1 noundef false) #26
   %.pre12.i.i.i = load i64, ptr %5, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i

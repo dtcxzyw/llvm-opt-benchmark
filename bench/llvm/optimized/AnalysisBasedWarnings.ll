@@ -35192,35 +35192,31 @@ declare noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117ContainsReferenceEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i16, ptr %3, align 4
-  %5 = zext i16 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not10 = icmp eq i16 %4, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i16, ptr %4, align 4
+  %6 = zext i16 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not10 = icmp eq i16 %5, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %9, %2
+._crit_edge:                                      ; preds = %10, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %.011 = phi ptr [ %10, %9 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.011, align 8, !tbaa !1670
-  %.not9 = icmp eq ptr %7, null
-  br i1 %.not9, label %9, label %8
+.lr.ph:                                           ; preds = %2, %10
+  %.011 = phi ptr [ %11, %10 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.011, align 8, !tbaa !1670
+  %.not9 = icmp eq ptr %8, null
+  br i1 %.not9, label %10, label %9
 
-8:                                                ; preds = %.lr.ph
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117ContainsReferenceEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7)
-  br label %9
+9:                                                ; preds = %.lr.ph
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117ContainsReferenceEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %8)
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %8
-  %10 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %.not = icmp eq ptr %10, %.ptr12
+10:                                               ; preds = %.lr.ph, %9
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %.not = icmp eq ptr %11, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1671
 }
 
@@ -40884,37 +40880,33 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117FallthroughMapper18Traver
   %3 = tail call { ptr, ptr } @_ZNK5clang10LambdaExpr8capturesEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i16, ptr %6, align 4
-  %8 = zext i16 %7 to i64
-  %.idx = shl nuw nsw i64 %8, 3
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr22 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %10 = icmp ne ptr %4, %5
-  %11 = icmp ne i16 %7, 0
-  %.not3.i19 = select i1 %10, i1 %11, i1 false
-  br i1 %.not3.i19, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = load i16, ptr %7, align 4
+  %9 = zext i16 %8 to i64
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %11 = icmp ne ptr %4, %5
+  %12 = icmp ne i16 %8, 0
+  %.not3.i19 = select i1 %11, i1 %12, i1 false
+  br i1 %.not3.i19, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret i1 true
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.7.021 = phi ptr [ %17, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.sroa.08.020 = phi ptr [ %18, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %12 = load ptr, ptr %.sroa.08.020, align 8, !tbaa !1670
-  %13 = load ptr, ptr %0, align 8, !tbaa !704
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sroa.7.021, ptr noundef %12) #24
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.7.021, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.08.020, i64 8
-  %19 = icmp ne ptr %17, %5
-  %20 = icmp ne ptr %18, %.ptr22
-  %.not3.i = select i1 %19, i1 %20, i1 false
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.sroa.7.021 = phi ptr [ %18, %.lr.ph ], [ %4, %2 ]
+  %.sroa.08.020 = phi ptr [ %19, %.lr.ph ], [ %6, %2 ]
+  %13 = load ptr, ptr %.sroa.08.020, align 8, !tbaa !1670
+  %14 = load ptr, ptr %0, align 8, !tbaa !704
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sroa.7.021, ptr noundef %13) #24
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.7.021, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.020, i64 8
+  %20 = icmp ne ptr %18, %5
+  %21 = icmp ne ptr %19, %10
+  %.not3.i = select i1 %20, i1 %21, i1 false
   br i1 %.not3.i, label %.lr.ph, label %._crit_edge
 }
 

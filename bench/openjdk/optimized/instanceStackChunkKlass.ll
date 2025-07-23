@@ -3967,12 +3967,12 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %76, %_ZN12OopMapStr
   %81 = lshr i32 %.sroa.0.0.copyload.i, 2
   %82 = and i32 %81, 16383
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %83
   %85 = ptrtoint ptr %84 to i64
   %86 = trunc i64 %85 to i32
   %87 = sub i32 %86, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %88 = icmp ne i32 %87, -1
-  %.not.i.i9 = icmp ult ptr %84, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i9 = icmp samesign ult i32 %82, 616
   %89 = select i1 %88, i1 %.not.i.i9, i1 false
   br i1 %89, label %90, label %105
 
@@ -4247,12 +4247,12 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %75, %_ZN12OopMapStr
   %80 = lshr i32 %.sroa.0.0.copyload.i, 2
   %81 = and i32 %80, 16383
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %82
   %84 = ptrtoint ptr %83 to i64
   %85 = trunc i64 %84 to i32
   %86 = sub i32 %85, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %87 = icmp ne i32 %86, -1
-  %.not.i.i9 = icmp ult ptr %83, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i9 = icmp samesign ult i32 %81, 616
   %88 = select i1 %87, i1 %.not.i.i9, i1 false
   br i1 %88, label %89, label %92
 
@@ -4397,12 +4397,12 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %45, %_ZN12OopMapStr
   %50 = lshr i32 %.sroa.0.0.copyload.i, 2
   %51 = and i32 %50, 16383
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %52
   %54 = ptrtoint ptr %53 to i64
   %55 = trunc i64 %54 to i32
   %56 = sub i32 %55, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %57 = icmp ne i32 %56, -1
-  %.not.i.i = icmp ult ptr %53, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i = icmp samesign ult i32 %51, 616
   %58 = select i1 %57, i1 %.not.i.i, i1 false
   br i1 %58, label %59, label %74
 
@@ -4563,12 +4563,12 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %44, %_ZN12OopMapStr
   %49 = lshr i32 %.sroa.0.0.copyload.i, 2
   %50 = and i32 %49, 16383
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %51
   %53 = ptrtoint ptr %52 to i64
   %54 = trunc i64 %53 to i32
   %55 = sub i32 %54, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %56 = icmp ne i32 %55, -1
-  %.not.i.i = icmp ult ptr %52, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i = icmp samesign ult i32 %50, 616
   %57 = select i1 %56, i1 %.not.i.i, i1 false
   %58 = load ptr, ptr %39, align 8
   %59 = sub i32 %54, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)

@@ -75741,7 +75741,7 @@ _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit: ; preds = %39, 
   %gepdiff = sub nsw i64 %.idx, %10
   %52 = ashr exact i64 %gepdiff, 3
   %.not = icmp ult i64 %52, %40
-  br i1 %.not, label %79, label %53
+  br i1 %.not, label %80, label %53
 
 53:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit
   %54 = getelementptr inbounds i8, ptr %51, i64 %.idx58
@@ -75775,83 +75775,84 @@ _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendISt13move_iteratorIPS3_Ev
   %66 = trunc i64 %40 to i32
   %67 = add i32 %65, %66
   store i32 %67, ptr %11, align 8, !tbaa !47
-  %.not.i.i.i.i.i = icmp eq ptr %54, %50
-  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit, label %68
+  %68 = sub i64 %.idx, %18
+  %.not.i.i.i.i.i = icmp eq i64 %68, %10
+  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit, label %69
 
-68:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit
-  %69 = add i64 %10, %18
-  %gepdiff59 = sub i64 %.idx, %69
-  %70 = ashr exact i64 %gepdiff59, 3
-  %71 = sub nsw i64 0, %70
-  %72 = getelementptr inbounds ptr, ptr %51, i64 %71
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %72, ptr align 8 %50, i64 %gepdiff59, i1 false)
+69:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit
+  %70 = add i64 %10, %18
+  %gepdiff59 = sub i64 %.idx, %70
+  %71 = ashr exact i64 %gepdiff59, 3
+  %72 = sub nsw i64 0, %71
+  %73 = getelementptr inbounds ptr, ptr %51, i64 %72
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %73, ptr align 8 %50, i64 %gepdiff59, i1 false)
   br label %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit
 
-_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %68
-  %73 = icmp sgt i64 %40, 0
-  br i1 %73, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit
+_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %69
+  %74 = icmp sgt i64 %40, 0
+  br i1 %74, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %77, %.lr.ph.i.i.i.i.i ], [ %40, %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit ]
-  %.049.i.i.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i.i.i ], [ %50, %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit ]
-  %.sroa.05.08.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit ]
-  %74 = load ptr, ptr %.sroa.05.08.i.i.i.i.i, align 8, !tbaa !1328
-  store ptr %74, ptr %.049.i.i.i.i.i, align 8, !tbaa !1328
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i.i.i.i, i64 8
-  %76 = getelementptr inbounds nuw i8, ptr %.049.i.i.i.i.i, i64 8
-  %77 = add nsw i64 %.010.i.i.i.i.i, -1
-  %78 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %78, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit, !llvm.loop !2099
+  %.010.i.i.i.i.i = phi i64 [ %78, %.lr.ph.i.i.i.i.i ], [ %40, %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit ]
+  %.049.i.i.i.i.i = phi ptr [ %77, %.lr.ph.i.i.i.i.i ], [ %50, %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit ]
+  %.sroa.05.08.i.i.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit ]
+  %75 = load ptr, ptr %.sroa.05.08.i.i.i.i.i, align 8, !tbaa !1328
+  store ptr %75, ptr %.049.i.i.i.i.i, align 8, !tbaa !1328
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i.i.i.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.049.i.i.i.i.i, i64 8
+  %78 = add nsw i64 %.010.i.i.i.i.i, -1
+  %79 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
+  br i1 %79, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit, !llvm.loop !2099
 
-79:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit
-  %80 = trunc i64 %40 to i32
-  %81 = add i32 %48, %80
-  store i32 %81, ptr %11, align 8, !tbaa !47
+80:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit
+  %81 = trunc i64 %40 to i32
+  %82 = add i32 %48, %81
+  store i32 %82, ptr %11, align 8, !tbaa !47
   %.not.i.i = icmp eq i64 %10, %.idx
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %79
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %49, i64 %82
-  %84 = sub nsw i64 0, %52
-  %85 = getelementptr inbounds ptr, ptr %83, i64 %84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr align 8 %50, i64 %gepdiff, i1 false)
+.lr.ph.preheader:                                 ; preds = %80
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw ptr, ptr %49, i64 %83
+  %85 = sub nsw i64 0, %52
+  %86 = getelementptr inbounds ptr, ptr %84, i64 %85
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 8 %50, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre71 = ptrtoint ptr %94 to i64
+  %.pre71 = ptrtoint ptr %95 to i64
   %.pre73 = sub i64 %16, %.pre71
   %.pre75 = ashr exact i64 %.pre73, 3
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %79, %._crit_edge.loopexit
-  %.pre-phi76 = phi i64 [ %.pre75, %._crit_edge.loopexit ], [ %40, %79 ]
-  %.sroa.054.0.lcssa = phi ptr [ %94, %._crit_edge.loopexit ], [ %2, %79 ]
-  %86 = icmp sgt i64 %.pre-phi76, 0
-  br i1 %86, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit
+._crit_edge:                                      ; preds = %80, %._crit_edge.loopexit
+  %.pre-phi76 = phi i64 [ %.pre75, %._crit_edge.loopexit ], [ %40, %80 ]
+  %.sroa.054.0.lcssa = phi ptr [ %95, %._crit_edge.loopexit ], [ %2, %80 ]
+  %87 = icmp sgt i64 %.pre-phi76, 0
+  br i1 %87, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge, %.lr.ph.i.i.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i.i.i = phi i64 [ %90, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.pre-phi76, %._crit_edge ]
-  %.049.i.i.i.i.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i.i.i ], [ %51, %._crit_edge ]
-  %.sroa.05.08.i.i.i.i.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.sroa.054.0.lcssa, %._crit_edge ]
-  %87 = load ptr, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, align 8, !tbaa !1328
-  store ptr %87, ptr %.049.i.i.i.i.i.i.i.i, align 8, !tbaa !1328
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
-  %90 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %91 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
-  br i1 %91, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit, !llvm.loop !2099
+  %.010.i.i.i.i.i.i.i.i = phi i64 [ %91, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.pre-phi76, %._crit_edge ]
+  %.049.i.i.i.i.i.i.i.i = phi ptr [ %90, %.lr.ph.i.i.i.i.i.i.i.i ], [ %51, %._crit_edge ]
+  %.sroa.05.08.i.i.i.i.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.sroa.054.0.lcssa, %._crit_edge ]
+  %88 = load ptr, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, align 8, !tbaa !1328
+  store ptr %88, ptr %.049.i.i.i.i.i.i.i.i, align 8, !tbaa !1328
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
+  %91 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
+  %92 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  br i1 %92, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit, !llvm.loop !2099
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04765 = phi i64 [ %95, %.lr.ph ], [ %52, %.lr.ph.preheader ]
-  %.04864 = phi ptr [ %93, %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.sroa.054.063 = phi ptr [ %94, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %92 = load ptr, ptr %.sroa.054.063, align 8, !tbaa !1328
-  store ptr %92, ptr %.04864, align 8, !tbaa !1328
-  %93 = getelementptr inbounds nuw i8, ptr %.04864, i64 8
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.054.063, i64 8
-  %95 = add i64 %.04765, -1
-  %.not50 = icmp eq i64 %95, 0
+  %.04765 = phi i64 [ %96, %.lr.ph ], [ %52, %.lr.ph.preheader ]
+  %.04864 = phi ptr [ %94, %.lr.ph ], [ %50, %.lr.ph.preheader ]
+  %.sroa.054.063 = phi ptr [ %95, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %93 = load ptr, ptr %.sroa.054.063, align 8, !tbaa !1328
+  store ptr %93, ptr %.04864, align 8, !tbaa !1328
+  %94 = getelementptr inbounds nuw i8, ptr %.04864, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.054.063, i64 8
+  %96 = add i64 %.04765, -1
+  %.not50 = icmp eq i64 %96, 0
   br i1 %.not50, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !2100
 
 _ZSt4copyIN4llvm16pointer_iteratorIN5clang20ParsedAttributesView8iteratorEPNS2_10ParsedAttrEEEPS6_ET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendINS_16pointer_iteratorINS1_20ParsedAttributesView8iteratorES3_EEvEEvT_SA_.exit

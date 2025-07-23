@@ -1274,23 +1274,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8635optimizeShiftRotateWithImmedi
 
 263:                                              ; preds = %260
   store i32 %.09, ptr %0, align 8, !tbaa !3
-  %264 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %265 = zext i32 %252 to i64
-  %.idx = shl nuw nsw i64 %265, 4
-  %266 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %266, %264
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, label %267
+  %264 = zext i32 %252 to i64
+  %.idx = shl nuw nsw i64 %264, 4
+  %265 = add nuw nsw i64 %.idx10, 16
+  %.not.i.i.i.i.i.i.i = icmp samesign eq i64 %.idx, %265
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, label %266
 
-267:                                              ; preds = %263
+266:                                              ; preds = %263
+  %267 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %.neg = add nsw i64 %.idx, -16
   %gepdiff = sub nsw i64 %.neg, %.idx10
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %257, ptr nonnull align 8 %264, i64 %gepdiff, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %257, ptr nonnull align 8 %267, i64 %gepdiff, i1 false)
   %.pre.i.i = load i32, ptr %251, align 8, !tbaa !27
   %.pre = add i32 %.pre.i.i, -1
   br label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit
 
-_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %263, %267
-  %.pre-phi = phi i32 [ %253, %263 ], [ %.pre, %267 ]
+_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %263, %266
+  %.pre-phi = phi i32 [ %253, %263 ], [ %.pre, %266 ]
   store i32 %.pre-phi, ptr %251, align 8, !tbaa !27
   br label %268
 
@@ -1566,23 +1566,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8634optimizeVPCMPWithImmediateOne
 73:                                               ; preds = %62, %72
   %.0 = phi i32 [ %.014, %72 ], [ %.013, %62 ]
   store i32 %.0, ptr %0, align 8, !tbaa !3
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %75 = zext i32 %64 to i64
-  %.idx = shl nuw nsw i64 %75, 4
-  %76 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %76, %74
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, label %77
+  %74 = zext i32 %64 to i64
+  %.idx = shl nuw nsw i64 %74, 4
+  %75 = add nuw nsw i64 %.idx16, 16
+  %.not.i.i.i.i.i.i.i = icmp samesign eq i64 %.idx, %75
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, label %76
 
-77:                                               ; preds = %73
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %.neg = add nsw i64 %.idx, -16
   %gepdiff = sub nsw i64 %.neg, %.idx16
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %74, i64 %gepdiff, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %77, i64 %gepdiff, i1 false)
   %.pre.i.i = load i32, ptr %63, align 8, !tbaa !27
   %.pre = add i32 %.pre.i.i, -1
   br label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit
 
-_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %73, %77
-  %.pre-phi = phi i32 [ %65, %73 ], [ %.pre, %77 ]
+_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %73, %76
+  %.pre-phi = phi i32 [ %65, %73 ], [ %.pre, %76 ]
   store i32 %.pre-phi, ptr %63, align 8, !tbaa !27
   br label %78
 

@@ -9270,7 +9270,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
-  %5 = phi i64 [ %3, %while.body.lr.ph ], [ %74, %while.end ]
+  %5 = phi i64 [ %3, %while.body.lr.ph ], [ %75, %while.end ]
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %it2e) #31
   %6 = load ptr, ptr %it1e, align 8, !tbaa !278, !noalias !279
   call void @_ZNK5boost7numeric5ublas13matrix_binaryINS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS6_IdSaIdEEEEESB_NS1_11scalar_plusIddEEE5find2Eimm(ptr dead_on_unwind nonnull writable sret(%"class.boost::numeric::ublas::matrix_binary<boost::numeric::ublas::compressed_matrix<double>, boost::numeric::ublas::compressed_matrix<double>, boost::numeric::ublas::scalar_plus<double, double>>::const_iterator2") align 8 %it2e, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 1, i64 noundef %5, i64 noundef 0)
@@ -9399,12 +9399,12 @@ _ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit.i:     ; preds = %if.then.i.i.i.i.i.i
   %add.ptr41.i = getelementptr inbounds i8, ptr %28, i64 %sub.ptr.sub.i
   %29 = load i64, ptr %filled2_.i, align 8, !tbaa !266
   %add.ptr45.idx.i = shl nuw nsw i64 %29, 3
-  %add.ptr45.i = getelementptr inbounds nuw i8, ptr %28, i64 %add.ptr45.idx.i
-  %add.ptr46.i = getelementptr inbounds i8, ptr %add.ptr45.i, i64 -8
-  %tobool.not.i.i.i.i.i29.i = icmp eq ptr %add.ptr46.i, %add.ptr41.i
+  %30 = add nsw i64 %add.ptr45.idx.i, -8
+  %tobool.not.i.i.i.i.i29.i = icmp eq i64 %30, %sub.ptr.sub.i
   br i1 %tobool.not.i.i.i.i.i29.i, label %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i30.i
 
 if.then.i.i.i.i.i30.i:                            ; preds = %_ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit.i
+  %add.ptr45.i = getelementptr inbounds nuw i8, ptr %28, i64 %add.ptr45.idx.i
   %reass.sub.i = sub i64 %add.ptr45.idx.i, %sub.ptr.sub.i
   %gepdiff41.i = add i64 %reass.sub.i, -8
   %sub.ptr.div.i.i.i.i.i34.i = ashr exact i64 %gepdiff41.i, 3
@@ -9415,70 +9415,70 @@ if.then.i.i.i.i.i30.i:                            ; preds = %_ZSt13copy_backward
 
 _ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit.i:     ; preds = %if.then.i.i.i.i.i30.i, %_ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit.i
   store double %call.i10, ptr %add.ptr41.i, align 8, !tbaa !109
-  %30 = load i64, ptr %filled1_.i, align 8, !tbaa !265
-  %cmp5544.i = icmp ult i64 %add.i, %30
+  %31 = load i64, ptr %filled1_.i, align 8, !tbaa !265
+  %cmp5544.i = icmp ult i64 %add.i, %31
   br i1 %cmp5544.i, label %while.body56.lr.ph.i, label %if.end
 
 while.body56.lr.ph.i:                             ; preds = %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit.i
-  %31 = load ptr, ptr %data_.i.i, align 8, !tbaa !224
+  %32 = load ptr, ptr %data_.i.i, align 8, !tbaa !224
   br label %while.body56.i
 
 while.body56.i:                                   ; preds = %while.body56.i, %while.body56.lr.ph.i
   %add5345.i = phi i64 [ %add.i, %while.body56.lr.ph.i ], [ %add53.i, %while.body56.i ]
-  %arrayidx.i40.i = getelementptr inbounds nuw i64, ptr %31, i64 %add5345.i
-  %32 = load i64, ptr %arrayidx.i40.i, align 8, !tbaa !34
-  %inc60.i = add i64 %32, 1
+  %arrayidx.i40.i = getelementptr inbounds nuw i64, ptr %32, i64 %add5345.i
+  %33 = load i64, ptr %arrayidx.i40.i, align 8, !tbaa !34
+  %inc60.i = add i64 %33, 1
   store i64 %inc60.i, ptr %arrayidx.i40.i, align 8, !tbaa !34
   %add53.i = add nuw i64 %add5345.i, 1
-  %33 = load i64, ptr %filled1_.i, align 8, !tbaa !265
-  %cmp55.i = icmp ult i64 %add53.i, %33
+  %34 = load i64, ptr %filled1_.i, align 8, !tbaa !265
+  %cmp55.i = icmp ult i64 %add53.i, %34
   br i1 %cmp55.i, label %while.body56.i, label %if.end, !llvm.loop !291
 
 if.end:                                           ; preds = %while.body56.i, %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit.i, %while.body14
-  %34 = load ptr, ptr %it2e, align 8, !tbaa !278
-  %35 = load ptr, ptr %34, align 8, !tbaa !267
-  %size2_.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %36 = load i64, ptr %size2_.i.i.i.i16, align 8, !tbaa !263
-  %37 = load i32, ptr %rank_.i.i.i, align 8, !tbaa !292
-  %cmp.i.i.i17 = icmp eq i32 %37, 1
-  %38 = load i32, ptr %rank_2.i.i.i, align 8
-  %cmp3.i.i.i = icmp eq i32 %38, 1
+  %35 = load ptr, ptr %it2e, align 8, !tbaa !278
+  %36 = load ptr, ptr %35, align 8, !tbaa !267
+  %size2_.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %37 = load i64, ptr %size2_.i.i.i.i16, align 8, !tbaa !263
+  %38 = load i32, ptr %rank_.i.i.i, align 8, !tbaa !292
+  %cmp.i.i.i17 = icmp eq i32 %38, 1
+  %39 = load i32, ptr %rank_2.i.i.i, align 8
+  %cmp3.i.i.i = icmp eq i32 %39, 1
   %or.cond.i.i.i = select i1 %cmp.i.i.i17, i1 true, i1 %cmp3.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %39 = load ptr, ptr %it_.i.i.i, align 8, !tbaa !293
-  %40 = load ptr, ptr %it_4.i.i.i, align 8, !tbaa !293
-  %cmp5.i.i.i = icmp eq ptr %39, %40
+  %40 = load ptr, ptr %it_.i.i.i, align 8, !tbaa !293
+  %41 = load ptr, ptr %it_4.i.i.i, align 8, !tbaa !293
+  %cmp5.i.i.i = icmp eq ptr %40, %41
   br i1 %cmp5.i.i.i, label %if.end16.i, label %if.then.i20
 
 _ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i: ; preds = %if.end
-  %41 = load i64, ptr %i_.i.i.i18, align 8, !tbaa !294
-  %42 = load i64, ptr %i_6.i.i.i, align 8, !tbaa !294
-  %cmp7.i.i.i = icmp eq i64 %41, %42
-  %43 = load i64, ptr %j_.i.i.i19, align 8
-  %44 = load i64, ptr %j_8.i.i.i, align 8
-  %cmp9.i.i.i = icmp eq i64 %43, %44
-  %45 = select i1 %cmp7.i.i.i, i1 %cmp9.i.i.i, i1 false
-  br i1 %45, label %if.end16.i, label %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i.if.then.i20_crit_edge
+  %42 = load i64, ptr %i_.i.i.i18, align 8, !tbaa !294
+  %43 = load i64, ptr %i_6.i.i.i, align 8, !tbaa !294
+  %cmp7.i.i.i = icmp eq i64 %42, %43
+  %44 = load i64, ptr %j_.i.i.i19, align 8
+  %45 = load i64, ptr %j_8.i.i.i, align 8
+  %cmp9.i.i.i = icmp eq i64 %44, %45
+  %46 = select i1 %cmp7.i.i.i, i1 %cmp9.i.i.i, i1 false
+  br i1 %46, label %if.end16.i, label %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i.if.then.i20_crit_edge
 
 _ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i.if.then.i20_crit_edge: ; preds = %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i
   %.pre = load ptr, ptr %it_.i.i.i, align 8
   br label %if.then.i20
 
 if.then.i20:                                      ; preds = %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i.if.then.i20_crit_edge, %if.then.i.i.i
-  %46 = phi ptr [ %.pre, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i.if.then.i20_crit_edge ], [ %39, %if.then.i.i.i ]
-  %retval.0.in.i.i = select i1 %cmp.i.i.i17, ptr %46, ptr %j_.i.i.i19
+  %47 = phi ptr [ %.pre, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i.if.then.i20_crit_edge ], [ %40, %if.then.i.i.i ]
+  %retval.0.in.i.i = select i1 %cmp.i.i.i17, ptr %47, ptr %j_.i.i.i19
   %retval.0.i.i21 = load i64, ptr %retval.0.in.i.i, align 8, !tbaa !34
-  %47 = load i64, ptr %j_.i.i.i, align 8, !tbaa !285
-  %cmp.not.i23 = icmp ugt i64 %retval.0.i.i21, %47
+  %48 = load i64, ptr %j_.i.i.i, align 8, !tbaa !285
+  %cmp.not.i23 = icmp ugt i64 %retval.0.i.i21, %48
   br i1 %cmp.not.i23, label %if.end.i24, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i20
   br i1 %cmp.i.i.i17, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %incdec.ptr.i.i, ptr %it_.i.i.i, align 8, !tbaa !293
   br label %if.end.i24
 
@@ -9489,71 +9489,71 @@ if.else.i.i:                                      ; preds = %if.then6.i
   br label %if.end.i24
 
 if.end.i24:                                       ; preds = %if.else.i.i, %if.then.i.i, %if.then.i20
-  %48 = phi ptr [ %46, %if.else.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %46, %if.then.i20 ]
+  %49 = phi ptr [ %47, %if.else.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %47, %if.then.i20 ]
   br i1 %or.cond.i.i.i, label %if.then.i.i20.i, label %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit24.i
 
 if.then.i.i20.i:                                  ; preds = %if.end.i24
-  %49 = load ptr, ptr %it_4.i.i.i, align 8, !tbaa !293
-  %cmp5.i.i23.i = icmp eq ptr %48, %49
+  %50 = load ptr, ptr %it_4.i.i.i, align 8, !tbaa !293
+  %cmp5.i.i23.i = icmp eq ptr %49, %50
   br i1 %cmp5.i.i23.i, label %if.end16.i, label %if.then12.i
 
 _ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit24.i: ; preds = %if.end.i24
-  %50 = load i64, ptr %i_.i.i.i18, align 8, !tbaa !294
-  %51 = load i64, ptr %i_6.i.i.i, align 8, !tbaa !294
-  %cmp7.i.i14.i = icmp eq i64 %50, %51
-  %52 = load i64, ptr %j_.i.i.i19, align 8
-  %53 = load i64, ptr %j_8.i.i.i, align 8
-  %cmp9.i.i17.i = icmp eq i64 %52, %53
-  %54 = select i1 %cmp7.i.i14.i, i1 %cmp9.i.i17.i, i1 false
-  br i1 %54, label %if.end16.i, label %if.then12.i
+  %51 = load i64, ptr %i_.i.i.i18, align 8, !tbaa !294
+  %52 = load i64, ptr %i_6.i.i.i, align 8, !tbaa !294
+  %cmp7.i.i14.i = icmp eq i64 %51, %52
+  %53 = load i64, ptr %j_.i.i.i19, align 8
+  %54 = load i64, ptr %j_8.i.i.i, align 8
+  %cmp9.i.i17.i = icmp eq i64 %53, %54
+  %55 = select i1 %cmp7.i.i14.i, i1 %cmp9.i.i17.i, i1 false
+  br i1 %55, label %if.end16.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit24.i, %if.then.i.i20.i
-  %retval.0.in.i29.i = select i1 %cmp.i.i.i17, ptr %48, ptr %j_.i.i.i19
+  %retval.0.in.i29.i = select i1 %cmp.i.i.i17, ptr %49, ptr %j_.i.i.i19
   %retval.0.i30.i = load i64, ptr %retval.0.in.i29.i, align 8, !tbaa !34
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then12.i, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit24.i, %if.then.i.i20.i, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i, %if.then.i.i.i
-  %index1.0.i = phi i64 [ %retval.0.i30.i, %if.then12.i ], [ %36, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit24.i ], [ %36, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i ], [ %36, %if.then.i.i.i ], [ %36, %if.then.i.i20.i ]
-  %55 = load i32, ptr %rank_.i.i32.i, align 8, !tbaa !292
-  %cmp.i.i33.i = icmp eq i32 %55, 1
-  %56 = load i32, ptr %rank_2.i.i34.i, align 8
-  %cmp3.i.i35.i = icmp eq i32 %56, 1
+  %index1.0.i = phi i64 [ %retval.0.i30.i, %if.then12.i ], [ %37, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit24.i ], [ %37, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit.i ], [ %37, %if.then.i.i.i ], [ %37, %if.then.i.i20.i ]
+  %56 = load i32, ptr %rank_.i.i32.i, align 8, !tbaa !292
+  %cmp.i.i33.i = icmp eq i32 %56, 1
+  %57 = load i32, ptr %rank_2.i.i34.i, align 8
+  %cmp3.i.i35.i = icmp eq i32 %57, 1
   %or.cond.i.i36.i = select i1 %cmp.i.i33.i, i1 true, i1 %cmp3.i.i35.i
   br i1 %or.cond.i.i36.i, label %if.then.i.i46.i, label %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i
 
 if.then.i.i46.i:                                  ; preds = %if.end16.i
-  %57 = load ptr, ptr %it_.i.i47.i, align 8, !tbaa !293
-  %58 = load ptr, ptr %it_4.i.i48.i, align 8, !tbaa !293
-  %cmp5.i.i49.i = icmp eq ptr %57, %58
+  %58 = load ptr, ptr %it_.i.i47.i, align 8, !tbaa !293
+  %59 = load ptr, ptr %it_4.i.i48.i, align 8, !tbaa !293
+  %cmp5.i.i49.i = icmp eq ptr %58, %59
   br i1 %cmp5.i.i49.i, label %invoke.cont24, label %if.then20.i
 
 _ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i: ; preds = %if.end16.i
-  %59 = load i64, ptr %i_.i.i38.i, align 8, !tbaa !294
-  %60 = load i64, ptr %i_6.i.i39.i, align 8, !tbaa !294
-  %cmp7.i.i40.i = icmp eq i64 %59, %60
-  %61 = load i64, ptr %j_.i.i41.i, align 8
-  %62 = load i64, ptr %j_8.i.i42.i, align 8
-  %cmp9.i.i43.i = icmp eq i64 %61, %62
-  %63 = select i1 %cmp7.i.i40.i, i1 %cmp9.i.i43.i, i1 false
-  br i1 %63, label %invoke.cont24, label %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i.if.then20.i_crit_edge
+  %60 = load i64, ptr %i_.i.i38.i, align 8, !tbaa !294
+  %61 = load i64, ptr %i_6.i.i39.i, align 8, !tbaa !294
+  %cmp7.i.i40.i = icmp eq i64 %60, %61
+  %62 = load i64, ptr %j_.i.i41.i, align 8
+  %63 = load i64, ptr %j_8.i.i42.i, align 8
+  %cmp9.i.i43.i = icmp eq i64 %62, %63
+  %64 = select i1 %cmp7.i.i40.i, i1 %cmp9.i.i43.i, i1 false
+  br i1 %64, label %invoke.cont24, label %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i.if.then20.i_crit_edge
 
 _ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i.if.then20.i_crit_edge: ; preds = %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i
   %.pre27 = load ptr, ptr %it_.i.i47.i, align 8
   br label %if.then20.i
 
 if.then20.i:                                      ; preds = %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i.if.then20.i_crit_edge, %if.then.i.i46.i
-  %64 = phi ptr [ %.pre27, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i.if.then20.i_crit_edge ], [ %57, %if.then.i.i46.i ]
-  %retval.0.in.i55.i = select i1 %cmp.i.i33.i, ptr %64, ptr %j_.i.i41.i
+  %65 = phi ptr [ %.pre27, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i.if.then20.i_crit_edge ], [ %58, %if.then.i.i46.i ]
+  %retval.0.in.i55.i = select i1 %cmp.i.i33.i, ptr %65, ptr %j_.i.i41.i
   %retval.0.i56.i = load i64, ptr %retval.0.in.i55.i, align 8, !tbaa !34
-  %65 = load i64, ptr %j_.i.i.i, align 8, !tbaa !285
-  %cmp24.not.i = icmp ugt i64 %retval.0.i56.i, %65
+  %66 = load i64, ptr %j_.i.i.i, align 8, !tbaa !285
+  %cmp24.not.i = icmp ugt i64 %retval.0.i56.i, %66
   br i1 %cmp24.not.i, label %if.end28.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then20.i
   br i1 %cmp.i.i33.i, label %if.end28.thread.i, label %if.else.i59.i
 
 if.end28.thread.i:                                ; preds = %if.then25.i
-  %incdec.ptr.i65.i = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %incdec.ptr.i65.i = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %incdec.ptr.i65.i, ptr %it_.i.i47.i, align 8, !tbaa !293
   br label %if.then.i.i81.i
 
@@ -9567,24 +9567,24 @@ if.end28.i:                                       ; preds = %if.else.i59.i, %if.
   br i1 %or.cond.i.i36.i, label %if.then.i.i81.i, label %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit85.i
 
 if.then.i.i81.i:                                  ; preds = %if.end28.i, %if.end28.thread.i
-  %66 = phi ptr [ %incdec.ptr.i65.i, %if.end28.thread.i ], [ %64, %if.end28.i ]
-  %67 = load ptr, ptr %it_4.i.i48.i, align 8, !tbaa !293
-  %cmp5.i.i84.i = icmp eq ptr %66, %67
+  %67 = phi ptr [ %incdec.ptr.i65.i, %if.end28.thread.i ], [ %65, %if.end28.i ]
+  %68 = load ptr, ptr %it_4.i.i48.i, align 8, !tbaa !293
+  %cmp5.i.i84.i = icmp eq ptr %67, %68
   br i1 %cmp5.i.i84.i, label %invoke.cont24, label %if.then.i.i81.i.if.then32.i_crit_edge
 
 if.then.i.i81.i.if.then32.i_crit_edge:            ; preds = %if.then.i.i81.i
-  %.pre28 = select i1 %cmp.i.i33.i, ptr %66, ptr %j_.i.i41.i
+  %.pre28 = select i1 %cmp.i.i33.i, ptr %67, ptr %j_.i.i41.i
   br label %if.then32.i
 
 _ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit85.i: ; preds = %if.end28.i
-  %68 = load i64, ptr %i_.i.i38.i, align 8, !tbaa !294
-  %69 = load i64, ptr %i_6.i.i39.i, align 8, !tbaa !294
-  %cmp7.i.i75.i = icmp eq i64 %68, %69
-  %70 = load i64, ptr %j_.i.i41.i, align 8
-  %71 = load i64, ptr %j_8.i.i42.i, align 8
-  %cmp9.i.i78.i = icmp eq i64 %70, %71
-  %72 = select i1 %cmp7.i.i75.i, i1 %cmp9.i.i78.i, i1 false
-  br i1 %72, label %invoke.cont24, label %if.then32.i
+  %69 = load i64, ptr %i_.i.i38.i, align 8, !tbaa !294
+  %70 = load i64, ptr %i_6.i.i39.i, align 8, !tbaa !294
+  %cmp7.i.i75.i = icmp eq i64 %69, %70
+  %71 = load i64, ptr %j_.i.i41.i, align 8
+  %72 = load i64, ptr %j_8.i.i42.i, align 8
+  %cmp9.i.i78.i = icmp eq i64 %71, %72
+  %73 = select i1 %cmp7.i.i75.i, i1 %cmp9.i.i78.i, i1 false
+  br i1 %73, label %invoke.cont24, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.then.i.i81.i.if.then32.i_crit_edge, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit85.i
   %retval.0.in.i90.i.pre-phi = phi ptr [ %.pre28, %if.then.i.i81.i.if.then32.i_crit_edge ], [ %retval.0.in.i55.i, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit85.i ]
@@ -9592,20 +9592,20 @@ if.then32.i:                                      ; preds = %if.then.i.i81.i.if.
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.then.i.i46.i, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i, %if.then.i.i81.i, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit85.i, %if.then32.i
-  %index2.0.i = phi i64 [ %retval.0.i91.i, %if.then32.i ], [ %36, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit85.i ], [ %36, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i ], [ %36, %if.then.i.i46.i ], [ %36, %if.then.i.i81.i ]
+  %index2.0.i = phi i64 [ %retval.0.i91.i, %if.then32.i ], [ %37, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit85.i ], [ %37, %_ZNK5boost7numeric5ublas27bidirectional_iterator_baseINS1_33sparse_bidirectional_iterator_tagENS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS7_IdSaIdEEEE15const_iterator2EdEneERKSD_.exit50.i ], [ %37, %if.then.i.i46.i ], [ %37, %if.then.i.i81.i ]
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %index2.0.i, i64 %index1.0.i)
   store i64 %.sroa.speculated.i, ptr %j_.i.i.i, align 8, !tbaa !285
-  %73 = load i64, ptr %j_.i1.i.i, align 8, !tbaa !285
-  %cmp.i.i9.not = icmp eq i64 %.sroa.speculated.i, %73
+  %74 = load i64, ptr %j_.i1.i.i, align 8, !tbaa !285
+  %cmp.i.i9.not = icmp eq i64 %.sroa.speculated.i, %74
   br i1 %cmp.i.i9.not, label %while.end, label %while.body14, !llvm.loop !296
 
 while.end:                                        ; preds = %invoke.cont24, %while.body
   call void @_ZN5boost7numeric5ublas13matrix_binaryINS1_17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS6_IdSaIdEEEEESB_NS1_11scalar_plusIddEEE15const_iterator19incrementENS1_33sparse_bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(216) %it1e)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %it2e_end) #31
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %it2e) #31
-  %74 = load i64, ptr %i_.i.i.i, align 8, !tbaa !273
-  %75 = load i64, ptr %i_.i1.i.i, align 8, !tbaa !273
-  %cmp.i.i.not = icmp eq i64 %74, %75
+  %75 = load i64, ptr %i_.i.i.i, align 8, !tbaa !273
+  %76 = load i64, ptr %i_.i1.i.i, align 8, !tbaa !273
+  %cmp.i.i.not = icmp eq i64 %75, %76
   br i1 %cmp.i.i.not, label %while.end31, label %while.body, !llvm.loop !297
 
 while.end31:                                      ; preds = %while.end, %entry

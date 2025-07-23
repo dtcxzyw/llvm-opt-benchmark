@@ -1651,7 +1651,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
 54:                                               ; preds = %._crit_edge, %41
   %55 = phi i32 [ 0, %41 ], [ %.pre, %._crit_edge ]
   %.0174 = phi ptr [ %52, %41 ], [ %36, %._crit_edge ]
-  %.0174266 = ptrtoint ptr %.0174 to i64
+  %.0174265 = ptrtoint ptr %.0174 to i64
   %56 = getelementptr inbounds nuw i8, ptr %.0174, i64 4
   %.not190 = icmp eq i32 %55, %.val206
   br i1 %.not190, label %57, label %66
@@ -1675,37 +1675,37 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   br i1 %.not193, label %86, label %66
 
 66:                                               ; preds = %54, %57, %60, %63
-  %.ptr = getelementptr inbounds nuw i8, ptr %.0174, i64 24
-  %67 = sext i32 %33 to i64
-  %68 = shl nsw i64 %67, 3
-  %69 = ptrtoint ptr %.ptr to i64
-  %70 = and i64 %69, 7
-  %71 = icmp eq i64 %70, 0
-  %72 = icmp ult i64 %68, 1025
-  %or.cond = select i1 %71, i1 %72, i1 false
-  br i1 %or.cond, label %73, label %82
+  %67 = getelementptr inbounds nuw i8, ptr %.0174, i64 24
+  %68 = sext i32 %33 to i64
+  %69 = shl nsw i64 %68, 3
+  %70 = ptrtoint ptr %67 to i64
+  %71 = and i64 %70, 7
+  %72 = icmp eq i64 %71, 0
+  %73 = icmp ult i64 %69, 1025
+  %or.cond = select i1 %72, i1 %73, i1 false
+  br i1 %or.cond, label %74, label %82
 
-73:                                               ; preds = %66
-  %74 = icmp sgt i32 %33, 0
-  br i1 %74, label %.lr.ph.preheader, label %.loopexit223
+74:                                               ; preds = %66
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %.loopexit223, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %73
-  %75 = add i64 %68, %.0174266
+.lr.ph.preheader:                                 ; preds = %74
+  %75 = add i64 %69, %.0174265
   %76 = add i64 %75, 24
-  %77 = add i64 %.0174266, 32
+  %77 = add i64 %.0174265, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %76, i64 %77)
   %78 = add i64 %umax, -25
-  %79 = sub i64 %78, %.0174266
+  %79 = sub i64 %78, %.0174265
   %80 = and i64 %79, -8
   %81 = add i64 %80, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %67, i8 0, i64 %81, i1 false)
   br label %.loopexit223
 
 82:                                               ; preds = %66
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr, i8 0, i64 %68, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %69, i1 false)
   br label %.loopexit223
 
-.loopexit223:                                     ; preds = %.lr.ph.preheader, %73, %82
+.loopexit223:                                     ; preds = %.lr.ph.preheader, %74, %82
   store i32 %.val206, ptr %56, align 4
   %83 = getelementptr inbounds nuw i8, ptr %.0174, i64 8
   store i32 %.val208, ptr %83, align 8
@@ -1875,10 +1875,10 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   br i1 %179, label %183, label %184
 
 183:                                              ; preds = %176
-  br i1 %182, label %196, label %.loopexit.thread275
+  br i1 %182, label %196, label %.loopexit.thread274
 
 184:                                              ; preds = %176
-  br i1 %182, label %.loopexit.thread275, label %185
+  br i1 %182, label %.loopexit.thread274, label %185
 
 185:                                              ; preds = %184
   %186 = getelementptr inbounds nuw i8, ptr %.0173, i64 72
@@ -1901,7 +1901,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %194 = load i8, ptr %101, align 4, !range !6, !noundef !7
   %195 = trunc nuw i8 %194 to i1
   %or.cond5.not = select i1 %195, i1 true, i1 %193
-  br i1 %or.cond5.not, label %.loopexit.thread275, label %196
+  br i1 %or.cond5.not, label %.loopexit.thread274, label %196
 
 196:                                              ; preds = %185, %183
   %197 = add nsw i32 %.0175249, 1
@@ -1919,7 +1919,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %203 = select i1 %201, i1 true, i1 %202
   br i1 %203, label %107, label %.loopexit.thread
 
-.loopexit.thread275:                              ; preds = %185, %184, %183
+.loopexit.thread274:                              ; preds = %185, %184, %183
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #12
   br label %208
 
@@ -1928,10 +1928,10 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %200, %86, %.loopexit
-  %.0175231271 = phi i32 [ %.0175249, %.loopexit ], [ 0, %86 ], [ %.2177, %200 ]
-  %.0178235270 = phi i32 [ %.0178248, %.loopexit ], [ 0, %86 ], [ %.2180, %200 ]
-  %.not200 = icmp eq i32 %.0175231271, %16
-  %.not201 = icmp eq i32 %.0178235270, %20
+  %.0175231270 = phi i32 [ %.0175249, %.loopexit ], [ 0, %86 ], [ %.2177, %200 ]
+  %.0178235269 = phi i32 [ %.0178248, %.loopexit ], [ 0, %86 ], [ %.2180, %200 ]
+  %.not200 = icmp eq i32 %.0175231270, %16
+  %.not201 = icmp eq i32 %.0178235269, %20
   %or.cond205 = select i1 %.not200, i1 %.not201, i1 false
   br i1 %or.cond205, label %208, label %204
 
@@ -1943,8 +1943,8 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1265, ptr noundef nonnull @__func__.record_eq) #12
   unreachable
 
-208:                                              ; preds = %.loopexit.thread275, %.loopexit.thread
-  %.1272 = phi i64 [ 1, %.loopexit.thread ], [ 0, %.loopexit.thread275 ]
+208:                                              ; preds = %.loopexit.thread274, %.loopexit.thread
+  %.1271 = phi i64 [ 1, %.loopexit.thread ], [ 0, %.loopexit.thread274 ]
   call void @pfree(ptr noundef %89) #12
   call void @pfree(ptr noundef %90) #12
   call void @pfree(ptr noundef %93) #12
@@ -1991,7 +1991,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
 226:                                              ; preds = %225, %222
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
-  ret i64 %.1272
+  ret i64 %.1271
 }
 
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
@@ -2129,22 +2129,22 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   br i1 %.not193, label %86, label %66
 
 66:                                               ; preds = %54, %57, %60, %63
-  %.ptr = getelementptr inbounds nuw i8, ptr %.0171, i64 24
-  %67 = sext i32 %33 to i64
-  %68 = shl nsw i64 %67, 3
-  %69 = ptrtoint ptr %.ptr to i64
-  %70 = and i64 %69, 7
-  %71 = icmp eq i64 %70, 0
-  %72 = icmp ult i64 %68, 1025
-  %or.cond = select i1 %71, i1 %72, i1 false
-  br i1 %or.cond, label %73, label %82
+  %67 = getelementptr inbounds nuw i8, ptr %.0171, i64 24
+  %68 = sext i32 %33 to i64
+  %69 = shl nsw i64 %68, 3
+  %70 = ptrtoint ptr %67 to i64
+  %71 = and i64 %70, 7
+  %72 = icmp eq i64 %71, 0
+  %73 = icmp ult i64 %69, 1025
+  %or.cond = select i1 %72, i1 %73, i1 false
+  br i1 %or.cond, label %74, label %82
 
-73:                                               ; preds = %66
-  %74 = icmp sgt i32 %33, 0
-  br i1 %74, label %.lr.ph.preheader, label %.loopexit
+74:                                               ; preds = %66
+  %.not250 = icmp eq i32 %33, 0
+  br i1 %.not250, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %73
-  %75 = add i64 %68, %.0171260
+.lr.ph.preheader:                                 ; preds = %74
+  %75 = add i64 %69, %.0171260
   %76 = add i64 %75, 24
   %77 = add i64 %.0171260, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %76, i64 %77)
@@ -2152,14 +2152,14 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %79 = sub i64 %78, %.0171260
   %80 = and i64 %79, -8
   %81 = add i64 %80, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %67, i8 0, i64 %81, i1 false)
   br label %.loopexit
 
 82:                                               ; preds = %66
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr, i8 0, i64 %68, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %69, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %73, %82
+.loopexit:                                        ; preds = %.lr.ph.preheader, %74, %82
   store i32 %.val208, ptr %56, align 4
   %83 = getelementptr inbounds nuw i8, ptr %.0171, i64 8
   store i32 %.val210, ptr %83, align 8
@@ -2616,22 +2616,22 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   br i1 %.not160, label %85, label %65
 
 65:                                               ; preds = %53, %56, %59, %62
-  %.ptr = getelementptr inbounds nuw i8, ptr %.0144, i64 24
-  %66 = sext i32 %32 to i64
-  %67 = shl nsw i64 %66, 3
-  %68 = ptrtoint ptr %.ptr to i64
-  %69 = and i64 %68, 7
-  %70 = icmp eq i64 %69, 0
-  %71 = icmp ult i64 %67, 1025
-  %or.cond = select i1 %70, i1 %71, i1 false
-  br i1 %or.cond, label %72, label %81
+  %66 = getelementptr inbounds nuw i8, ptr %.0144, i64 24
+  %67 = sext i32 %32 to i64
+  %68 = shl nsw i64 %67, 3
+  %69 = ptrtoint ptr %66 to i64
+  %70 = and i64 %69, 7
+  %71 = icmp eq i64 %70, 0
+  %72 = icmp ult i64 %68, 1025
+  %or.cond = select i1 %71, i1 %72, i1 false
+  br i1 %or.cond, label %73, label %81
 
-72:                                               ; preds = %65
-  %73 = icmp sgt i32 %32, 0
-  br i1 %73, label %.lr.ph.preheader, label %.loopexit
+73:                                               ; preds = %65
+  %.not217 = icmp eq i32 %32, 0
+  br i1 %.not217, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %72
-  %74 = add i64 %67, %.0144223
+.lr.ph.preheader:                                 ; preds = %73
+  %74 = add i64 %68, %.0144223
   %75 = add i64 %74, 24
   %76 = add i64 %.0144223, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %75, i64 %76)
@@ -2639,14 +2639,14 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   %78 = sub i64 %77, %.0144223
   %79 = and i64 %78, -8
   %80 = add i64 %79, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %66, i8 0, i64 %80, i1 false)
   br label %.loopexit
 
 81:                                               ; preds = %65
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr, i8 0, i64 %67, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %66, i8 0, i64 %68, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %72, %81
+.loopexit:                                        ; preds = %.lr.ph.preheader, %73, %81
   store i32 %.val170, ptr %55, align 4
   %82 = getelementptr inbounds nuw i8, ptr %.0144, i64 8
   store i32 %.val172, ptr %82, align 8
@@ -2995,22 +2995,22 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   br i1 %.not214, label %85, label %65
 
 65:                                               ; preds = %53, %56, %59, %62
-  %.ptr = getelementptr inbounds nuw i8, ptr %.0187, i64 24
-  %66 = sext i32 %32 to i64
-  %67 = shl nsw i64 %66, 3
-  %68 = ptrtoint ptr %.ptr to i64
-  %69 = and i64 %68, 7
-  %70 = icmp eq i64 %69, 0
-  %71 = icmp ult i64 %67, 1025
-  %or.cond = select i1 %70, i1 %71, i1 false
-  br i1 %or.cond, label %72, label %81
+  %66 = getelementptr inbounds nuw i8, ptr %.0187, i64 24
+  %67 = sext i32 %32 to i64
+  %68 = shl nsw i64 %67, 3
+  %69 = ptrtoint ptr %66 to i64
+  %70 = and i64 %69, 7
+  %71 = icmp eq i64 %70, 0
+  %72 = icmp ult i64 %68, 1025
+  %or.cond = select i1 %71, i1 %72, i1 false
+  br i1 %or.cond, label %73, label %81
 
-72:                                               ; preds = %65
-  %73 = icmp sgt i32 %32, 0
-  br i1 %73, label %.lr.ph.preheader, label %.loopexit
+73:                                               ; preds = %65
+  %.not306 = icmp eq i32 %32, 0
+  br i1 %.not306, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %72
-  %74 = add i64 %67, %.0187322
+.lr.ph.preheader:                                 ; preds = %73
+  %74 = add i64 %68, %.0187322
   %75 = add i64 %74, 24
   %76 = add i64 %.0187322, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %75, i64 %76)
@@ -3018,14 +3018,14 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   %78 = sub i64 %77, %.0187322
   %79 = and i64 %78, -8
   %80 = add i64 %79, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %66, i8 0, i64 %80, i1 false)
   br label %.loopexit
 
 81:                                               ; preds = %65
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr, i8 0, i64 %67, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %66, i8 0, i64 %68, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %72, %81
+.loopexit:                                        ; preds = %.lr.ph.preheader, %73, %81
   store i32 %.val233, ptr %55, align 4
   %82 = getelementptr inbounds nuw i8, ptr %.0187, i64 8
   store i32 %.val235, ptr %82, align 8
@@ -3451,22 +3451,22 @@ define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr noundef readonly 
   br label %63
 
 45:                                               ; preds = %39, %42
-  %.ptr = getelementptr inbounds nuw i8, ptr %.096, i64 24
-  %46 = sext i32 %11 to i64
-  %47 = shl nsw i64 %46, 3
-  %48 = ptrtoint ptr %.ptr to i64
-  %49 = and i64 %48, 7
-  %50 = icmp eq i64 %49, 0
-  %51 = icmp ult i64 %47, 1025
-  %or.cond = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond, label %52, label %61
+  %46 = getelementptr inbounds nuw i8, ptr %.096, i64 24
+  %47 = sext i32 %11 to i64
+  %48 = shl nsw i64 %47, 3
+  %49 = ptrtoint ptr %46 to i64
+  %50 = and i64 %49, 7
+  %51 = icmp eq i64 %50, 0
+  %52 = icmp ult i64 %48, 1025
+  %or.cond = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond, label %53, label %61
 
-52:                                               ; preds = %45
-  %53 = icmp sgt i32 %11, 0
-  br i1 %53, label %.lr.ph.preheader, label %.loopexit
+53:                                               ; preds = %45
+  %.not114 = icmp eq i32 %11, 0
+  br i1 %.not114, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %52
-  %54 = add i64 %47, %.096115
+.lr.ph.preheader:                                 ; preds = %53
+  %54 = add i64 %48, %.096115
   %55 = add i64 %54, 24
   %56 = add i64 %.096115, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %55, i64 %56)
@@ -3474,22 +3474,22 @@ define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr noundef readonly 
   %58 = sub i64 %57, %.096115
   %59 = and i64 %58, -8
   %60 = add i64 %59, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %46, i8 0, i64 %60, i1 false)
   br label %.loopexit
 
 61:                                               ; preds = %45
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr, i8 0, i64 %47, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %46, i8 0, i64 %48, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %52, %61
+.loopexit:                                        ; preds = %.lr.ph.preheader, %53, %61
   store i32 %.val, ptr %41, align 4
   %62 = getelementptr inbounds nuw i8, ptr %.096, i64 8
   store i32 %.val107, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %._crit_edge121, %.loopexit
-  %.pre-phi124 = phi i64 [ %.pre123, %._crit_edge121 ], [ %47, %.loopexit ]
-  %.pre-phi = phi i64 [ %.pre122, %._crit_edge121 ], [ %46, %.loopexit ]
+  %.pre-phi124 = phi i64 [ %.pre123, %._crit_edge121 ], [ %48, %.loopexit ]
+  %.pre-phi = phi i64 [ %.pre122, %._crit_edge121 ], [ %47, %.loopexit ]
   %64 = tail call ptr @palloc(i64 noundef %.pre-phi124) #12
   %65 = tail call ptr @palloc(i64 noundef %.pre-phi) #12
   call void @heap_deform_tuple(ptr noundef nonnull %2, ptr noundef nonnull %10, ptr noundef %64, ptr noundef %65) #12
@@ -3719,22 +3719,22 @@ define dso_local i64 @hash_record_extended(ptr noundef readonly captures(none) %
   br label %65
 
 47:                                               ; preds = %41, %44
-  %.ptr = getelementptr inbounds nuw i8, ptr %.0100, i64 24
-  %48 = sext i32 %13 to i64
-  %49 = shl nsw i64 %48, 3
-  %50 = ptrtoint ptr %.ptr to i64
-  %51 = and i64 %50, 7
-  %52 = icmp eq i64 %51, 0
-  %53 = icmp ult i64 %49, 1025
-  %or.cond = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond, label %54, label %63
+  %48 = getelementptr inbounds nuw i8, ptr %.0100, i64 24
+  %49 = sext i32 %13 to i64
+  %50 = shl nsw i64 %49, 3
+  %51 = ptrtoint ptr %48 to i64
+  %52 = and i64 %51, 7
+  %53 = icmp eq i64 %52, 0
+  %54 = icmp ult i64 %50, 1025
+  %or.cond = select i1 %53, i1 %54, i1 false
+  br i1 %or.cond, label %55, label %63
 
-54:                                               ; preds = %47
-  %55 = icmp sgt i32 %13, 0
-  br i1 %55, label %.lr.ph.preheader, label %.loopexit
+55:                                               ; preds = %47
+  %.not118 = icmp eq i32 %13, 0
+  br i1 %.not118, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %54
-  %56 = add i64 %49, %.0100119
+.lr.ph.preheader:                                 ; preds = %55
+  %56 = add i64 %50, %.0100119
   %57 = add i64 %56, 24
   %58 = add i64 %.0100119, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %57, i64 %58)
@@ -3742,22 +3742,22 @@ define dso_local i64 @hash_record_extended(ptr noundef readonly captures(none) %
   %60 = sub i64 %59, %.0100119
   %61 = and i64 %60, -8
   %62 = add i64 %61, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %62, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %48, i8 0, i64 %62, i1 false)
   br label %.loopexit
 
 63:                                               ; preds = %47
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr, i8 0, i64 %49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %48, i8 0, i64 %50, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %54, %63
+.loopexit:                                        ; preds = %.lr.ph.preheader, %55, %63
   store i32 %.val, ptr %43, align 4
   %64 = getelementptr inbounds nuw i8, ptr %.0100, i64 8
   store i32 %.val111, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %._crit_edge125, %.loopexit
-  %.pre-phi128 = phi i64 [ %.pre127, %._crit_edge125 ], [ %49, %.loopexit ]
-  %.pre-phi = phi i64 [ %.pre126, %._crit_edge125 ], [ %48, %.loopexit ]
+  %.pre-phi128 = phi i64 [ %.pre127, %._crit_edge125 ], [ %50, %.loopexit ]
+  %.pre-phi = phi i64 [ %.pre126, %._crit_edge125 ], [ %49, %.loopexit ]
   %66 = tail call ptr @palloc(i64 noundef %.pre-phi128) #12
   %67 = tail call ptr @palloc(i64 noundef %.pre-phi) #12
   call void @heap_deform_tuple(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef %66, ptr noundef %67) #12

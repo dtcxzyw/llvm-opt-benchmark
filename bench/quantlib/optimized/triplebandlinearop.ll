@@ -4518,12 +4518,12 @@ _ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN5boost7numeric5u
   %add.ptr41 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub
   %14 = load i64, ptr %filled2_, align 8, !tbaa !94
   %add.ptr45.idx = shl nuw nsw i64 %14, 3
-  %add.ptr45 = getelementptr inbounds nuw i8, ptr %13, i64 %add.ptr45.idx
-  %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr45, i64 -8
-  %tobool.not.i.i.i.i.i29 = icmp eq ptr %add.ptr46, %add.ptr41
+  %15 = add nsw i64 %add.ptr45.idx, -8
+  %tobool.not.i.i.i.i.i29 = icmp eq i64 %15, %sub.ptr.sub
   br i1 %tobool.not.i.i.i.i.i29, label %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i30
 
 if.then.i.i.i.i.i30:                              ; preds = %_ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit
+  %add.ptr45 = getelementptr inbounds nuw i8, ptr %13, i64 %add.ptr45.idx
   %reass.sub = sub i64 %add.ptr45.idx, %sub.ptr.sub
   %gepdiff41 = add i64 %reass.sub, -8
   %sub.ptr.div.i.i.i.i.i34 = ashr exact i64 %gepdiff41, 3
@@ -4533,25 +4533,25 @@ if.then.i.i.i.i.i30:                              ; preds = %_ZSt13copy_backward
   br label %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i30
-  %15 = load double, ptr %t, align 8, !tbaa !53
-  store double %15, ptr %add.ptr41, align 8, !tbaa !53
-  %16 = load i64, ptr %filled1_, align 8, !tbaa !93
-  %cmp5544 = icmp ult i64 %add, %16
+  %16 = load double, ptr %t, align 8, !tbaa !53
+  store double %16, ptr %add.ptr41, align 8, !tbaa !53
+  %17 = load i64, ptr %filled1_, align 8, !tbaa !93
+  %cmp5544 = icmp ult i64 %add, %17
   br i1 %cmp5544, label %while.body56.lr.ph, label %while.end62
 
 while.body56.lr.ph:                               ; preds = %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit
-  %17 = load ptr, ptr %data_.i14, align 8, !tbaa !97
+  %18 = load ptr, ptr %data_.i14, align 8, !tbaa !97
   br label %while.body56
 
 while.body56:                                     ; preds = %while.body56.lr.ph, %while.body56
   %add5345 = phi i64 [ %add, %while.body56.lr.ph ], [ %add53, %while.body56 ]
-  %arrayidx.i40 = getelementptr inbounds nuw i64, ptr %17, i64 %add5345
-  %18 = load i64, ptr %arrayidx.i40, align 8, !tbaa !40
-  %inc60 = add i64 %18, 1
+  %arrayidx.i40 = getelementptr inbounds nuw i64, ptr %18, i64 %add5345
+  %19 = load i64, ptr %arrayidx.i40, align 8, !tbaa !40
+  %inc60 = add i64 %19, 1
   store i64 %inc60, ptr %arrayidx.i40, align 8, !tbaa !40
   %add53 = add nuw i64 %add5345, 1
-  %19 = load i64, ptr %filled1_, align 8, !tbaa !93
-  %cmp55 = icmp ult i64 %add53, %19
+  %20 = load i64, ptr %filled1_, align 8, !tbaa !93
+  %cmp55 = icmp ult i64 %add53, %20
   br i1 %cmp55, label %while.body56, label %while.end62, !llvm.loop !106
 
 while.end62:                                      ; preds = %while.body56, %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit

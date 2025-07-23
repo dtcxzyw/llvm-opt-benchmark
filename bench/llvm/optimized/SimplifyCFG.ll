@@ -13143,7 +13143,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %_ZN4llvm12PredItera
 
 ._crit_edge.i.i.i.i.i.i.i.thread.lr.ph.i.i:       ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
-  %73 = getelementptr i8, ptr %.0.i.i, i64 -32
+  %73 = getelementptr inbounds i8, ptr %.0.i.i, i64 -32
   %74 = getelementptr i8, ptr %.0.i.i, i64 -96
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
@@ -13216,21 +13216,21 @@ _ZNK4llvm8CallBase11cannotMergeEv.exit.i.i43.i.i.i.i.i.i.i.i.i: ; preds = %86
   br i1 %97, label %._crit_edge.i.i.i.i.i.i122.i.thread.i.i, label %_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.thread.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %102
-  %.065257.i.i.i = phi ptr [ %.267.i.i.i, %102 ], [ null, %.lr.ph.i.i.i.preheader ]
-  %.068256.i.idx.i.i = phi i64 [ %.068256.i.add.i.i, %102 ], [ 0, %.lr.ph.i.i.i.preheader ]
-  %.068256.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.068256.i.idx.i.i
-  %99 = load ptr, ptr %.068256.i.ptr.i.i, align 8, !tbaa !453
+  %.065261.i.i.i = phi ptr [ %.267.i.i.i, %102 ], [ null, %.lr.ph.i.i.i.preheader ]
+  %.068260.i.idx.i.i = phi i64 [ %.068260.i.add.i.i, %102 ], [ 0, %.lr.ph.i.i.i.preheader ]
+  %.068260.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.068260.i.idx.i.i
+  %99 = load ptr, ptr %.068260.i.ptr.i.i, align 8, !tbaa !453
   %100 = getelementptr inbounds i8, ptr %99, i64 -32
   %101 = load ptr, ptr %100, align 8, !tbaa !102
-  %.not74.i.i.i = icmp eq ptr %.065257.i.i.i, null
-  %.not75.i.i.i = icmp eq ptr %.065257.i.i.i, %101
+  %.not74.i.i.i = icmp eq ptr %.065261.i.i.i, null
+  %.not75.i.i.i = icmp eq ptr %.065261.i.i.i, %101
   %cond8.i.i.i = select i1 %.not74.i.i.i, i1 true, i1 %.not75.i.i.i
   br i1 %cond8.i.i.i, label %102, label %_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.thread.i.i
 
 102:                                              ; preds = %.lr.ph.i.i.i
-  %.267.i.i.i = select i1 %.not74.i.i.i, ptr %101, ptr %.065257.i.i.i
-  %.068256.i.add.i.i = add nuw nsw i64 %.068256.i.idx.i.i, 8
-  %.not.i.i.i = icmp eq i64 %.068256.i.add.i.i, 16
+  %.267.i.i.i = select i1 %.not74.i.i.i, ptr %101, ptr %.065261.i.i.i
+  %.068260.i.add.i.i = add nuw nsw i64 %.068260.i.idx.i.i, 8
+  %.not.i.i.i = icmp eq i64 %.068260.i.add.i.i, 16
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i.i.i.i122.i.thread.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i.i.i.i122.i.thread.i.i:          ; preds = %102, %98, %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_10InvokeInstEEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetES4_E3$_1EEbOT_T0_.exit.i.thread74.i.i"
@@ -13268,25 +13268,25 @@ _ZNK4llvm8CallBase11cannotMergeEv.exit.i.i43.i.i.i.i.i.i.i.i.i: ; preds = %86
   %116 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i43.i.i.i.i.i.i.i.i, i64 -24
   %117 = load i8, ptr %116, align 8, !tbaa !107
   %.not.i44.i.i.i.i.i.i.i.i = icmp eq i8 %117, 36
-  br i1 %.not.i44.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.thread.i.i, label %.lr.ph277.i.i.i
+  br i1 %.not.i44.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.thread.i.i, label %.lr.ph281.i.i.i
 
-.lr.ph277.i.i.i:                                  ; preds = %114, %121
-  %.069276.i.i.i = phi ptr [ %.372.i.i.i, %121 ], [ null, %114 ]
-  %.073275.i.idx.i.i = phi i64 [ %.073275.i.add.i.i, %121 ], [ 0, %114 ]
-  %.073275.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.073275.i.idx.i.i
-  %118 = load ptr, ptr %.073275.i.ptr.i.i, align 8, !tbaa !453
+.lr.ph281.i.i.i:                                  ; preds = %114, %121
+  %.069280.i.i.i = phi ptr [ %.372.i.i.i, %121 ], [ null, %114 ]
+  %.073279.i.idx.i.i = phi i64 [ %.073279.i.add.i.i, %121 ], [ 0, %114 ]
+  %.073279.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.073279.i.idx.i.i
+  %118 = load ptr, ptr %.073279.i.ptr.i.i, align 8, !tbaa !453
   %119 = getelementptr inbounds i8, ptr %118, i64 -96
   %120 = load ptr, ptr %119, align 8, !tbaa !102
-  %.not77.i.i.i = icmp eq ptr %.069276.i.i.i, null
-  %.not78.i.i.i = icmp eq ptr %.069276.i.i.i, %120
+  %.not77.i.i.i = icmp eq ptr %.069280.i.i.i, null
+  %.not78.i.i.i = icmp eq ptr %.069280.i.i.i, %120
   %cond6.i.i.i = select i1 %.not77.i.i.i, i1 true, i1 %.not78.i.i.i
   br i1 %cond6.i.i.i, label %121, label %_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.thread.i.i
 
-121:                                              ; preds = %.lr.ph277.i.i.i
-  %.372.i.i.i = select i1 %.not77.i.i.i, ptr %120, ptr %.069276.i.i.i
-  %.073275.i.add.i.i = add nuw nsw i64 %.073275.i.idx.i.i, 8
-  %.not76.i.i.i = icmp eq i64 %.073275.i.add.i.i, 16
-  br i1 %.not76.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph277.i.i.i
+121:                                              ; preds = %.lr.ph281.i.i.i
+  %.372.i.i.i = select i1 %.not77.i.i.i, ptr %120, ptr %.069280.i.i.i
+  %.073279.i.add.i.i = add nuw nsw i64 %.073279.i.idx.i.i, 8
+  %.not76.i.i.i = icmp eq i64 %.073279.i.add.i.i, 16
+  br i1 %.not76.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph281.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %121
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %12) #27
@@ -13617,7 +13617,7 @@ _ZL27incomingValuesAreCompatiblePN4llvm10BasicBlockENS_8ArrayRefIS1_EEPNS_15Smal
   %249 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %250 = load i32, ptr %249, align 4
   %251 = load i8, ptr %78, align 8, !tbaa !107
-  switch i8 %251, label %256 [
+  switch i8 %251, label %258 [
     i8 85, label %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
     i8 34, label %252
     i8 40, label %253
@@ -13629,60 +13629,61 @@ _ZL27incomingValuesAreCompatiblePN4llvm10BasicBlockENS_8ArrayRefIS1_EEPNS_15Smal
 253:                                              ; preds = %.critedge83.i.i.i
   %254 = call noundef i32 @_ZNK4llvm8CallBase34getNumSubclassExtraOperandsDynamicEv(ptr noundef nonnull align 8 dereferenceable(88) %78) #27
   %255 = zext i32 %254 to i64
+  %256 = shl nuw nsw i64 %255, 5
+  %257 = sub nuw nsw i64 -32, %256
   br label %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
 
-256:                                              ; preds = %.critedge83.i.i.i
+258:                                              ; preds = %.critedge83.i.i.i
   unreachable
 
 _ZN4llvm8CallBase8data_opsEv.exit.i.i.i:          ; preds = %253, %252, %.critedge83.i.i.i
-  %.0.i.i.i.i.i.i = phi i64 [ 2, %252 ], [ %255, %253 ], [ 0, %.critedge83.i.i.i ]
-  %257 = and i32 %250, 134217727
-  %258 = zext nneg i32 %257 to i64
-  %259 = sub nsw i64 0, %258
-  %260 = getelementptr inbounds %"class.llvm::Use", ptr %78, i64 %259
-  %261 = sub nsw i64 0, %.0.i.i.i.i.i.i
-  %262 = getelementptr inbounds %"class.llvm::Use", ptr %78, i64 %261
-  %263 = getelementptr inbounds i8, ptr %262, i64 -32
-  %264 = load i32, ptr %76, align 4
-  %265 = load i8, ptr %.0.i.i, align 8, !tbaa !107
-  switch i8 %265, label %270 [
+  %.0.i.i.i.neg.i.i.i = phi i64 [ -96, %252 ], [ %257, %253 ], [ -32, %.critedge83.i.i.i ]
+  %259 = shl i32 %250, 5
+  %260 = zext i32 %259 to i64
+  %.idx197.i.i.i = sub nsw i64 0, %260
+  %261 = getelementptr inbounds i8, ptr %78, i64 %.idx197.i.i.i
+  %262 = getelementptr inbounds i8, ptr %78, i64 %.0.i.i.i.neg.i.i.i
+  %263 = load i32, ptr %76, align 4
+  %264 = load i8, ptr %.0.i.i, align 8, !tbaa !107
+  switch i8 %264, label %271 [
     i8 85, label %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i
-    i8 34, label %266
-    i8 40, label %267
+    i8 34, label %265
+    i8 40, label %266
   ]
 
+265:                                              ; preds = %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
+  br label %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i
+
 266:                                              ; preds = %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
+  %267 = call noundef i32 @_ZNK4llvm8CallBase34getNumSubclassExtraOperandsDynamicEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i) #27
+  %268 = zext i32 %267 to i64
+  %269 = shl nuw nsw i64 %268, 5
+  %270 = sub nuw nsw i64 -32, %269
   br label %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i
 
-267:                                              ; preds = %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
-  %268 = call noundef i32 @_ZNK4llvm8CallBase34getNumSubclassExtraOperandsDynamicEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i) #27
-  %269 = zext i32 %268 to i64
-  br label %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i
-
-270:                                              ; preds = %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
+271:                                              ; preds = %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
   unreachable
 
-_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i:       ; preds = %267, %266, %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
-  %.0.i.i.i150.i.i.i = phi i64 [ 2, %266 ], [ %269, %267 ], [ 0, %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i ]
-  %271 = and i32 %264, 134217727
-  %272 = zext nneg i32 %271 to i64
-  %273 = sub nsw i64 0, %272
-  %274 = getelementptr inbounds %"class.llvm::Use", ptr %.0.i.i, i64 %273
-  %275 = sub nsw i64 0, %.0.i.i.i150.i.i.i
-  %gep.i.i = getelementptr %"class.llvm::Use", ptr %73, i64 %275
-  %276 = icmp ne ptr %260, %263
-  %277 = icmp ne ptr %274, %gep.i.i
+_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i:       ; preds = %266, %265, %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i
+  %.0.i.i.i150.neg.i.i.i = phi i64 [ -96, %265 ], [ %270, %266 ], [ -32, %_ZN4llvm8CallBase8data_opsEv.exit.i.i.i ]
+  %272 = shl i32 %263, 5
+  %273 = zext i32 %272 to i64
+  %.idx199.i.i.i = sub nsw i64 0, %273
+  %274 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.idx199.i.i.i
+  %275 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.0.i.i.i150.neg.i.i.i
+  %276 = icmp ne i64 %.0.i.i.i.neg.i.i.i, %.idx197.i.i.i
+  %277 = icmp ne i64 %.0.i.i.i150.neg.i.i.i, %.idx199.i.i.i
   %.not3.i4.i.i.i.i.i.i.i.i.i = select i1 %276, i1 %277, i1 false
   br i1 %.not3.i4.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.preheader.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.i.i
 
 .lr.ph.i.i.i.preheader.i.i.i.i.i.i:               ; preds = %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i
-  %278 = ptrtoint ptr %260 to i64
+  %278 = ptrtoint ptr %261 to i64
   %279 = ptrtoint ptr %274 to i64
   br label %.lr.ph.i.i.i.i.i.i154.i.i.i
 
 .lr.ph.i.i.i.i.i.i154.i.i.i:                      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.thread2.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.preheader.i.i.i.i.i.i
   %.sroa.03.0.i.i.i.i.i.i.i.i = phi ptr [ %294, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.thread2.i.i.i.i.i.i.i.i.i" ], [ %274, %.lr.ph.i.i.i.preheader.i.i.i.i.i.i ]
-  %.sroa.5.0.i.i.i.i.i.i.i.i = phi ptr [ %293, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.thread2.i.i.i.i.i.i.i.i.i" ], [ %260, %.lr.ph.i.i.i.preheader.i.i.i.i.i.i ]
+  %.sroa.5.0.i.i.i.i.i.i.i.i = phi ptr [ %293, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.thread2.i.i.i.i.i.i.i.i.i" ], [ %261, %.lr.ph.i.i.i.preheader.i.i.i.i.i.i ]
   %.pre1016.i.i.i.i.i.i.i.i.i = phi i64 [ %298, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.thread2.i.i.i.i.i.i.i.i.i" ], [ %278, %.lr.ph.i.i.i.preheader.i.i.i.i.i.i ]
   %.pre913.i.i.i.i.i.i.i.i.i = phi i64 [ %297, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.thread2.i.i.i.i.i.i.i.i.i" ], [ %279, %.lr.ph.i.i.i.preheader.i.i.i.i.i.i ]
   %.val.val.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.03.0.i.i.i.i.i.i.i.i, align 8, !tbaa !102, !noalias !459
@@ -13709,8 +13710,8 @@ _ZN4llvm8CallBase8data_opsEv.exit153.i.i.i:       ; preds = %267, %266, %_ZN4llv
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.thread2.i.i.i.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i154.i.i.i
   %293 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i.i.i.i.i.i.i.i, i64 32
   %294 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i.i.i.i.i.i.i.i, i64 32
-  %295 = icmp ne ptr %293, %263
-  %296 = icmp ne ptr %294, %gep.i.i
+  %295 = icmp ne ptr %293, %262
+  %296 = icmp ne ptr %294, %275
   %.not3.i.i.i.i.i.i.i.i.i.i = select i1 %295, i1 %296, i1 false
   %297 = ptrtoint ptr %294 to i64
   %298 = ptrtoint ptr %293 to i64
@@ -13723,15 +13724,15 @@ _ZN4llvm8CallBase8data_opsEv.exit153.i.i.i:       ; preds = %267, %266, %_ZN4llv
   %300 = inttoptr i64 %.ph.i.i.i.i.i.i to ptr
   br label %_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.i.i
 
-_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.thread.i.i: ; preds = %.lr.ph.i.i.i, %.lr.ph277.i.i.i, %_ZL27incomingValuesAreCompatiblePN4llvm10BasicBlockENS_8ArrayRefIS1_EEPNS_15SmallPtrSetImplIPNS_5ValueEEE.exit.thread.i.i.i, %_ZL27incomingValuesAreCompatiblePN4llvm10BasicBlockENS_8ArrayRefIS1_EEPNS_15SmallPtrSetImplIPNS_5ValueEEE.exit.i.i.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i, %114, %._crit_edge.i.i.i.i.i139.i.thread.i.i, %98, %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_10InvokeInstEEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetES4_E3$_1EEbOT_T0_.exit.i.thread.i.i", %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_10InvokeInstEEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetES4_E3$_1EEbOT_T0_.exit.i.thread74.i.i", %._crit_edge.i.i.i.i.i.i.thread.thread.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_0EclIPKS7_EEbT_.exit44.i.i.i.i.i.i.i.i.i", %_ZNK4llvm8CallBase11cannotMergeEv.exit.i.i43.i.i.i.i.i.i.i.i.i, %86, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_0EclIPKS7_EEbT_.exit42.i.i.i.i.i.i.i.i.i", %_ZNK4llvm8CallBase11cannotMergeEv.exit.i.i41.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.thread.i.i
+_ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.thread.i.i: ; preds = %.lr.ph.i.i.i, %.lr.ph281.i.i.i, %_ZL27incomingValuesAreCompatiblePN4llvm10BasicBlockENS_8ArrayRefIS1_EEPNS_15SmallPtrSetImplIPNS_5ValueEEE.exit.thread.i.i.i, %_ZL27incomingValuesAreCompatiblePN4llvm10BasicBlockENS_8ArrayRefIS1_EEPNS_15SmallPtrSetImplIPNS_5ValueEEE.exit.i.i.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i.i, %114, %._crit_edge.i.i.i.i.i139.i.thread.i.i, %98, %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_10InvokeInstEEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetES4_E3$_1EEbOT_T0_.exit.i.thread.i.i", %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_10InvokeInstEEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetES4_E3$_1EEbOT_T0_.exit.i.thread74.i.i", %._crit_edge.i.i.i.i.i.i.thread.thread.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_0EclIPKS7_EEbT_.exit44.i.i.i.i.i.i.i.i.i", %_ZNK4llvm8CallBase11cannotMergeEv.exit.i.i43.i.i.i.i.i.i.i.i.i, %86, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_0EclIPKS7_EEbT_.exit42.i.i.i.i.i.i.i.i.i", %_ZNK4llvm8CallBase11cannotMergeEv.exit.i.i41.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.thread.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #27
   br label %305
 
 _ZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS1_10InvokeInstEEE.exit.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.i.i.i.i.i.i.i.i.i", %"_ZSt7find_ifIN4llvm6detail12zip_shortestIJPNS0_3UseES4_EEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetENS0_8ArrayRefIPNS0_10InvokeInstEEEE3$_3ET_SD_SD_T0_.exit.loopexit.i.i.i.i.i.i", %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i
-  %301 = phi ptr [ %260, %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i ], [ %300, %"_ZSt7find_ifIN4llvm6detail12zip_shortestIJPNS0_3UseES4_EEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetENS0_8ArrayRefIPNS0_10InvokeInstEEEE3$_3ET_SD_SD_T0_.exit.loopexit.i.i.i.i.i.i" ], [ %.sroa.5.0.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.i.i.i.i.i.i.i.i.i" ]
+  %301 = phi ptr [ %261, %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i ], [ %300, %"_ZSt7find_ifIN4llvm6detail12zip_shortestIJPNS0_3UseES4_EEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetENS0_8ArrayRefIPNS0_10InvokeInstEEEE3$_3ET_SD_SD_T0_.exit.loopexit.i.i.i.i.i.i" ], [ %.sroa.5.0.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.i.i.i.i.i.i.i.i.i" ]
   %302 = phi ptr [ %274, %_ZN4llvm8CallBase8data_opsEv.exit153.i.i.i ], [ %299, %"_ZSt7find_ifIN4llvm6detail12zip_shortestIJPNS0_3UseES4_EEEZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetENS0_8ArrayRefIPNS0_10InvokeInstEEEE3$_3ET_SD_SD_T0_.exit.loopexit.i.i.i.i.i.i" ], [ %.sroa.03.0.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114CompatibleSets21shouldBelongToSameSetEN4llvm8ArrayRefIPNS4_10InvokeInstEEEE3$_3EclINS4_6detail12zip_shortestIJPNS4_3UseESF_EEEEEbT_.exit.i.i.i.i.i.i.i.i.i" ]
-  %303 = icmp eq ptr %263, %301
-  %304 = icmp eq ptr %gep.i.i, %302
+  %303 = icmp eq ptr %262, %301
+  %304 = icmp eq ptr %275, %302
   %.not3.i.i.not.i.i.i = select i1 %303, i1 true, i1 %304
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #27
   br i1 %.not3.i.i.not.i.i.i, label %_ZN12_GLOBAL__N_114CompatibleSets16getCompatibleSetEPN4llvm10InvokeInstE.exit.i, label %305

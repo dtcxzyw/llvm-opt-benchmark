@@ -5213,55 +5213,50 @@ Balloc.exit:                                      ; preds = %if.then.i, %if.end.
   store i32 0, ptr %wds.i, align 4
   %sign.i = getelementptr inbounds nuw i8, ptr %rv.0.i, i64 16
   store i32 0, ptr %sign.i, align 8
-  %x8.ptr = getelementptr i8, ptr %rv.0.i, i64 24
+  %x8 = getelementptr i8, ptr %rv.0.i, i64 24
   %idx.ext = sext i32 %add to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %10 = getelementptr i8, ptr %rv.0.i, i64 %add.ptr.idx
-  %add.ptr.ptr = getelementptr i8, ptr %10, i64 24
+  %add.ptr = getelementptr inbounds i8, ptr %x8, i64 %add.ptr.idx
   %cmp939 = icmp sgt i32 %add, 0
   br i1 %cmp939, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %Balloc.exit
   %rv.0.i48 = ptrtoint ptr %rv.0.i to i64
-  %11 = add i64 %add.ptr.idx, %rv.0.i48
-  %12 = add i64 %11, 24
-  %13 = add i64 %rv.0.i48, 28
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 %13)
-  %14 = add i64 %umax, -25
-  %15 = sub i64 %14, %rv.0.i48
-  %16 = and i64 %15, -4
-  %17 = add i64 %16, 4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %x8.ptr, i8 0, i64 %17, i1 false)
+  %10 = add i64 %add.ptr.idx, %rv.0.i48
+  %11 = add i64 %10, 24
+  %12 = add i64 %rv.0.i48, 28
+  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 %12)
+  %13 = add i64 %umax, -25
+  %14 = sub i64 %13, %rv.0.i48
+  %15 = and i64 %14, -4
+  %16 = add i64 %15, 4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %x8, i8 0, i64 %16, i1 false)
   br label %for.end
 
 for.end:                                          ; preds = %for.body.preheader, %Balloc.exit
   %x10 = getelementptr inbounds nuw i8, ptr %spec.select38, i64 24
   %idx.ext12 = sext i32 %3 to i64
   %add.ptr13 = getelementptr inbounds i32, ptr %x10, i64 %idx.ext12
+  %x14 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %idx.ext16 = sext i32 %4 to i64
   %add.ptr17.idx = shl nsw i64 %idx.ext16, 2
-  %18 = getelementptr i8, ptr %spec.select, i64 %add.ptr17.idx
-  %add.ptr17.ptr = getelementptr i8, ptr %18, i64 24
+  %add.ptr17 = getelementptr inbounds i8, ptr %x14, i64 %add.ptr17.idx
   %cmp2141 = icmp sgt i32 %4, 0
-  br i1 %cmp2141, label %for.body22.preheader, label %for.cond43.preheader
-
-for.body22.preheader:                             ; preds = %for.end
-  %x14.ptr = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
-  br label %for.body22
+  br i1 %cmp2141, label %for.body22, label %for.cond43.preheader
 
 for.cond43.preheader:                             ; preds = %for.inc36, %for.end
   br i1 %cmp939, label %land.rhs, label %for.end50
 
-for.body22:                                       ; preds = %for.body22.preheader, %for.inc36
-  %xc0.043 = phi ptr [ %incdec.ptr37, %for.inc36 ], [ %x8.ptr, %for.body22.preheader ]
-  %xb.042 = phi ptr [ %incdec.ptr23, %for.inc36 ], [ %x14.ptr, %for.body22.preheader ]
+for.body22:                                       ; preds = %for.end, %for.inc36
+  %xc0.043 = phi ptr [ %incdec.ptr37, %for.inc36 ], [ %x8, %for.end ]
+  %xb.042 = phi ptr [ %incdec.ptr23, %for.inc36 ], [ %x14, %for.end ]
   %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %xb.042, i64 4
-  %19 = load i32, ptr %xb.042, align 4
-  %tobool.not = icmp eq i32 %19, 0
+  %17 = load i32, ptr %xb.042, align 4
+  %tobool.not = icmp eq i32 %17, 0
   br i1 %tobool.not, label %for.inc36, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %for.body22
-  %conv26 = zext i32 %19 to i64
+  %conv26 = zext i32 %17 to i64
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
@@ -5269,11 +5264,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %xc.0 = phi ptr [ %incdec.ptr31, %do.body ], [ %xc0.043, %do.body.preheader ]
   %carry.0 = phi i64 [ %shr, %do.body ], [ 0, %do.body.preheader ]
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %x.1, i64 4
-  %20 = load i32, ptr %x.1, align 4
-  %conv = zext i32 %20 to i64
+  %18 = load i32, ptr %x.1, align 4
+  %conv = zext i32 %18 to i64
   %mul = mul nuw i64 %conv, %conv26
-  %21 = load i32, ptr %xc.0, align 4
-  %conv27 = zext i32 %21 to i64
+  %19 = load i32, ptr %xc.0, align 4
+  %conv27 = zext i32 %19 to i64
   %add28 = add nuw nsw i64 %carry.0, %conv27
   %add29 = add nuw i64 %add28, %mul
   %shr = lshr i64 %add29, 32
@@ -5290,15 +5285,15 @@ do.end:                                           ; preds = %do.body
 
 for.inc36:                                        ; preds = %for.body22, %do.end
   %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %xc0.043, i64 4
-  %cmp21 = icmp ult ptr %incdec.ptr23, %add.ptr17.ptr
+  %cmp21 = icmp ult ptr %incdec.ptr23, %add.ptr17
   br i1 %cmp21, label %for.body22, label %for.cond43.preheader, !llvm.loop !33
 
 land.rhs:                                         ; preds = %for.cond43.preheader, %for.inc49
-  %xc.146 = phi ptr [ %incdec.ptr46, %for.inc49 ], [ %add.ptr.ptr, %for.cond43.preheader ]
+  %xc.146 = phi ptr [ %incdec.ptr46, %for.inc49 ], [ %add.ptr, %for.cond43.preheader ]
   %wc.045 = phi i32 [ %dec, %for.inc49 ], [ %add, %for.cond43.preheader ]
   %incdec.ptr46 = getelementptr inbounds i8, ptr %xc.146, i64 -4
-  %22 = load i32, ptr %incdec.ptr46, align 4
-  %tobool47.not = icmp eq i32 %22, 0
+  %20 = load i32, ptr %incdec.ptr46, align 4
+  %tobool47.not = icmp eq i32 %20, 0
   br i1 %tobool47.not, label %for.inc49, label %for.end50
 
 for.inc49:                                        ; preds = %land.rhs

@@ -55,107 +55,107 @@ define void @_ZN7rocksdb9LogBuffer14AddLogToBufferEmPKcP13__va_list_tag(ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = getelementptr i8, ptr %17, i64 %1
-  %.ptr25 = getelementptr i8, ptr %19, i64 -1
-  %20 = tail call i32 @gettimeofday(ptr noundef nonnull %17, ptr noundef null) #13
-  %21 = icmp sgt i64 %1, 17
-  br i1 %21, label %22, label %27
+  %20 = getelementptr i8, ptr %19, i64 -1
+  %21 = tail call i32 @gettimeofday(ptr noundef nonnull %17, ptr noundef null) #13
+  %22 = icmp sgt i64 %1, 17
+  br i1 %22, label %23, label %28
 
-22:                                               ; preds = %15
+23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %3)
   %gepdiff = add nsw i64 %1, -17
-  %23 = call i32 @vsnprintf(ptr noundef nonnull %18, i64 noundef %gepdiff, ptr noundef %2, ptr noundef nonnull %5) #13
-  %24 = icmp sgt i32 %23, 0
-  %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %25
-  %.1 = select i1 %24, ptr %26, ptr %.ptr25
+  %24 = call i32 @vsnprintf(ptr noundef nonnull %18, i64 noundef %gepdiff, ptr noundef %2, ptr noundef nonnull %5) #13
+  %25 = icmp sgt i32 %24, 0
+  %26 = zext nneg i32 %24 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 %26
+  %.1 = select i1 %25, ptr %27, ptr %20
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
-  br label %27
+  br label %28
 
-27:                                               ; preds = %22, %15
-  %.0 = phi ptr [ %.1, %22 ], [ %18, %15 ]
-  %28 = icmp ugt ptr %.0, %.ptr25
-  %spec.select = select i1 %28, ptr %.ptr25, ptr %.0
+28:                                               ; preds = %23, %15
+  %.0 = phi ptr [ %.1, %23 ], [ %18, %15 ]
+  %29 = icmp ugt ptr %.0, %20
+  %spec.select = select i1 %29, ptr %20, ptr %.0
   store i8 0, ptr %spec.select, align 1, !tbaa !42
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %30 = load i64, ptr %29, align 16, !tbaa !38
-  %31 = icmp ult i64 %30, 8
-  br i1 %31, label %32, label %37
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  %31 = load i64, ptr %30, align 16, !tbaa !38
+  %32 = icmp ult i64 %31, 8
+  br i1 %32, label %33, label %38
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2376
-  %34 = load ptr, ptr %33, align 8, !tbaa !39
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %30
-  %36 = add nuw nsw i64 %30, 1
-  store i64 %36, ptr %29, align 16, !tbaa !38
-  store ptr %17, ptr %35, align 8, !tbaa !43
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2376
+  %35 = load ptr, ptr %34, align 8, !tbaa !39
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %37 = add nuw nsw i64 %31, 1
+  store i64 %37, ptr %30, align 16, !tbaa !38
+  store ptr %17, ptr %36, align 8, !tbaa !43
   br label %_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_.exit
 
-37:                                               ; preds = %27
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2384
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2392
-  %40 = load ptr, ptr %39, align 8, !tbaa !45
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2400
-  %42 = load ptr, ptr %41, align 16, !tbaa !46
-  %.not.i.i = icmp eq ptr %40, %42
-  br i1 %.not.i.i, label %45, label %43
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2384
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %41 = load ptr, ptr %40, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  %43 = load ptr, ptr %42, align 16, !tbaa !46
+  %.not.i.i = icmp eq ptr %41, %43
+  br i1 %.not.i.i, label %46, label %44
 
-43:                                               ; preds = %37
-  store ptr %17, ptr %40, align 8, !tbaa !43
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %44, ptr %39, align 8, !tbaa !45
+44:                                               ; preds = %38
+  store ptr %17, ptr %41, align 8, !tbaa !43
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %45, ptr %40, align 8, !tbaa !45
   br label %_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_.exit
 
-45:                                               ; preds = %37
-  %46 = load ptr, ptr %38, align 16, !tbaa !47
-  %47 = ptrtoint ptr %40 to i64
-  %48 = ptrtoint ptr %46 to i64
-  %49 = sub i64 %47, %48
-  %50 = icmp eq i64 %49, 9223372036854775800
-  br i1 %50, label %51, label %_ZNKSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %39, align 16, !tbaa !47
+  %48 = ptrtoint ptr %41 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %51 = icmp eq i64 %50, 9223372036854775800
+  br i1 %51, label %52, label %_ZNKSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
-51:                                               ; preds = %45
+52:                                               ; preds = %46
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
   unreachable
 
-_ZNKSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %45
-  %52 = ashr exact i64 %49, 3
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %52, i64 1)
-  %53 = add nsw i64 %.sroa.speculated.i.i.i.i, %52
-  %54 = icmp ult i64 %53, %52
-  %55 = call i64 @llvm.umin.i64(i64 %53, i64 1152921504606846975)
-  %56 = select i1 %54, i64 1152921504606846975, i64 %55
-  %.not.i.i.i.i = icmp ne i64 %56, 0
+_ZNKSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %46
+  %53 = ashr exact i64 %50, 3
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %53, i64 1)
+  %54 = add nsw i64 %.sroa.speculated.i.i.i.i, %53
+  %55 = icmp ult i64 %54, %53
+  %56 = call i64 @llvm.umin.i64(i64 %54, i64 1152921504606846975)
+  %57 = select i1 %55, i64 1152921504606846975, i64 %56
+  %.not.i.i.i.i = icmp ne i64 %57, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
-  %57 = shl nuw nsw i64 %56, 3
-  %58 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #15
-  %59 = getelementptr inbounds i8, ptr %58, i64 %49
-  store ptr %17, ptr %59, align 8, !tbaa !43
-  %60 = icmp sgt i64 %49, 0
-  br i1 %60, label %61, label %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
+  %58 = shl nuw nsw i64 %57, 3
+  %59 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #15
+  %60 = getelementptr inbounds i8, ptr %59, i64 %50
+  store ptr %17, ptr %60, align 8, !tbaa !43
+  %61 = icmp sgt i64 %50, 0
+  br i1 %61, label %62, label %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
 
-61:                                               ; preds = %_ZNKSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %58, ptr align 8 %46, i64 %49, i1 false)
+62:                                               ; preds = %_ZNKSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr align 8 %47, i64 %50, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
 
-_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i: ; preds = %61, %_ZNKSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %63
+_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i: ; preds = %62, %_ZNKSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %64
 
-63:                                               ; preds = %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %49) #16
+64:                                               ; preds = %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %50) #16
   br label %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  store ptr %58, ptr %38, align 16, !tbaa !47
-  store ptr %62, ptr %39, align 8, !tbaa !45
-  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
-  store ptr %64, ptr %41, align 16, !tbaa !46
+_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
+  store ptr %59, ptr %39, align 16, !tbaa !47
+  store ptr %63, ptr %40, align 8, !tbaa !45
+  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  store ptr %65, ptr %42, align 16, !tbaa !46
   br label %_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_.exit
 
-_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %43, %32, %4, %8
+_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %44, %33, %4, %8
   ret void
 }
 

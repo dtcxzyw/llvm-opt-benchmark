@@ -7490,7 +7490,7 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
 45:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %203
 
 47:                                               ; preds = %38
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -7512,7 +7512,7 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %203
 
 55:                                               ; preds = %47
   %56 = load i32, ptr %39, align 8
@@ -7533,7 +7533,7 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %203
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1020
@@ -7542,7 +7542,7 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
   %66 = getelementptr inbounds [421 x i8], ptr %63, i64 0, i64 %65
   store i8 0, ptr %66, align 1
   store i32 2, ptr %48, align 8
-  br label %.loopexit64
+  br label %.loopexit62
 
 67:                                               ; preds = %34
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7566,7 +7566,7 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %203
 
 77:                                               ; preds = %67
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -7588,7 +7588,7 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %203
 
 85:                                               ; preds = %77
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1020
@@ -7597,14 +7597,14 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
   %89 = getelementptr inbounds [421 x i8], ptr %86, i64 0, i64 %88
   store i8 0, ptr %89, align 1
   store i32 4, ptr %78, align 8
-  br label %.loopexit64
+  br label %.loopexit62
 
 90:                                               ; preds = %2
   %91 = load i32, ptr %33, align 4
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %33, align 4
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  switch i32 %91, label %.loopexit64 [
+  switch i32 %91, label %.loopexit62 [
     i32 3, label %94
     i32 2, label %97
   ]
@@ -7615,13 +7615,13 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1020
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(421) %96, i8 0, i64 421, i1 false)
   store i8 1, ptr %96, align 4
-  br label %.loopexit64
+  br label %.loopexit62
 
 97:                                               ; preds = %90
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %99 = load i32, ptr %98, align 8
   %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %101, label %.loopexit64
+  br i1 %100, label %101, label %.loopexit62
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 1020
@@ -7653,7 +7653,7 @@ define void @_ZN10open_spiel6bridge11BridgeState18ApplyBiddingActionEi(ptr nound
 115:                                              ; preds = %113
   %116 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %203
 
 _ZN4absl7debian28optionalI14ddTableResultsEptEv.exit: ; preds = %109
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -7670,13 +7670,13 @@ _ZN4absl7debian28optionalI14ddTableResultsEptEv.exit: ; preds = %109
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %126, ptr %127, align 8
   tail call void @_ZN10open_spiel6bridge11BridgeState7ScoreUpEv(ptr noundef nonnull align 8 dereferenceable(3128) %0)
-  br label %.loopexit64
+  br label %.loopexit62
 
 128:                                              ; preds = %101
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 2, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  br label %.loopexit64
+  br label %.loopexit62
 
 131:                                              ; preds = %34
   %132 = add nsw i32 %1, -3
@@ -7689,7 +7689,7 @@ _ZN4absl7debian28optionalI14ddTableResultsEptEv.exit: ; preds = %109
   br i1 %.not60, label %138, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %131
-  %.pre74 = srem i32 %132, 5
+  %.pre72 = srem i32 %132, 5
   br label %.critedge
 
 138:                                              ; preds = %131
@@ -7712,23 +7712,23 @@ _ZN4absl7debian28optionalI14ddTableResultsEptEv.exit: ; preds = %109
 143:                                              ; preds = %.critedge50
   %144 = landingpad { ptr, i32 }
           cleanup
-  br label %202
+  br label %203
 
 .critedge:                                        ; preds = %138, %..critedge_crit_edge
-  %.pre-phi75 = phi i32 [ %.pre74, %..critedge_crit_edge ], [ %134, %138 ]
+  %.pre-phi73 = phi i32 [ %.pre72, %..critedge_crit_edge ], [ %134, %138 ]
   store i32 %135, ptr %136, align 8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %.pre-phi75, ptr %145, align 4
+  store i32 %.pre-phi73, ptr %145, align 4
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %148 = zext nneg i32 %37 to i64
   %149 = getelementptr inbounds nuw [2 x %"struct.std::array.9"], ptr %147, i64 0, i64 %148
-  %150 = zext i32 %.pre-phi75 to i64
+  %150 = zext i32 %.pre-phi73 to i64
   %151 = getelementptr inbounds nuw [5 x %"class.absl::debian2::optional"], ptr %149, i64 0, i64 %150
   %152 = load i8, ptr %151, align 8
   %153 = trunc i8 %152 to i1
-  br i1 %153, label %.loopexit66, label %154
+  br i1 %153, label %.loopexit64, label %154
 
 154:                                              ; preds = %.critedge
   %.sroa.256.0.insert.ext = zext i32 %36 to i64
@@ -7740,7 +7740,7 @@ _ZN4absl7debian28optionalI14ddTableResultsEptEv.exit: ; preds = %109
   br i1 %156, label %.lr.ph, label %_ZNR4absl7debian28optionalIiE5valueEv.exit
 
 .lr.ph:                                           ; preds = %154
-  %.04068 = add nsw i32 %133, 2
+  %.04066 = add nsw i32 %133, 2
   %157 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %158 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1020
@@ -7749,23 +7749,23 @@ _ZN4absl7debian28optionalI14ddTableResultsEptEv.exit: ; preds = %109
   %162 = getelementptr inbounds nuw i8, ptr %28, i64 12
   br label %164
 
-.loopexit65:                                      ; preds = %165
-  %.040 = add nsw i32 %.04069, 1
-  %163 = icmp slt i32 %.04069, 7
-  br i1 %163, label %164, label %.loopexit66.loopexit, !llvm.loop !69
+.loopexit63:                                      ; preds = %165
+  %.040 = add nsw i32 %.04067, 1
+  %163 = icmp slt i32 %.04067, 7
+  br i1 %163, label %164, label %.loopexit64.loopexit, !llvm.loop !69
 
-164:                                              ; preds = %.lr.ph, %.loopexit65
-  %.04069 = phi i32 [ %.04068, %.lr.ph ], [ %.040, %.loopexit65 ]
+164:                                              ; preds = %.lr.ph, %.loopexit63
+  %.04067 = phi i32 [ %.04066, %.lr.ph ], [ %.040, %.loopexit63 ]
   store i32 1, ptr %27, align 4
   store i32 2, ptr %157, align 4
   store i32 4, ptr %158, align 4
   br label %165
 
 165:                                              ; preds = %164, %165
-  %.042.idx67 = phi i64 [ 0, %164 ], [ %.042.add, %165 ]
-  %.042.ptr = getelementptr inbounds nuw i8, ptr %27, i64 %.042.idx67
+  %.042.idx65 = phi i64 [ 0, %164 ], [ %.042.add, %165 ]
+  %.042.ptr = getelementptr inbounds nuw i8, ptr %27, i64 %.042.idx65
   %166 = load i32, ptr %.042.ptr, align 4
-  store i32 %.04069, ptr %28, align 4
+  store i32 %.04067, ptr %28, align 4
   %167 = load i32, ptr %145, align 4
   store i32 %167, ptr %160, align 4
   store i32 %166, ptr %161, align 4
@@ -7774,106 +7774,106 @@ _ZN4absl7debian28optionalI14ddTableResultsEptEv.exit: ; preds = %109
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds [421 x i8], ptr %159, i64 0, i64 %169
   store i8 0, ptr %170, align 1
-  %.042.add = add nuw nsw i64 %.042.idx67, 4
+  %.042.add = add nuw nsw i64 %.042.idx65, 4
   %.not = icmp eq i64 %.042.add, 12
-  br i1 %.not, label %.loopexit65, label %165
+  br i1 %.not, label %.loopexit63, label %165
 
-.loopexit66.loopexit:                             ; preds = %.loopexit65
+.loopexit64.loopexit:                             ; preds = %.loopexit63
   %.pre = load i32, ptr %145, align 4
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert72 = getelementptr inbounds nuw [5 x %"class.absl::debian2::optional"], ptr %149, i64 0, i64 %.phi.trans.insert
-  %.pre73 = load i8, ptr %.phi.trans.insert72, align 8
-  br label %.loopexit66
+  %.phi.trans.insert70 = getelementptr inbounds nuw [5 x %"class.absl::debian2::optional"], ptr %149, i64 0, i64 %.phi.trans.insert
+  %.pre71 = load i8, ptr %.phi.trans.insert70, align 8
+  br label %.loopexit64
 
-.loopexit66:                                      ; preds = %.loopexit66.loopexit, %.critedge
-  %.pre-phi = phi i64 [ %.phi.trans.insert, %.loopexit66.loopexit ], [ %150, %.critedge ]
-  %171 = phi i8 [ %.pre73, %.loopexit66.loopexit ], [ %152, %.critedge ]
-  %172 = phi i32 [ %.pre, %.loopexit66.loopexit ], [ %.pre-phi75, %.critedge ]
+.loopexit64:                                      ; preds = %.loopexit64.loopexit, %.critedge
+  %.pre-phi = phi i64 [ %.phi.trans.insert, %.loopexit64.loopexit ], [ %150, %.critedge ]
+  %171 = phi i8 [ %.pre71, %.loopexit64.loopexit ], [ %152, %.critedge ]
+  %172 = phi i32 [ %.pre, %.loopexit64.loopexit ], [ %.pre-phi73, %.critedge ]
   %173 = trunc i8 %171 to i1
   br i1 %173, label %_ZNR4absl7debian28optionalIiE5valueEv.exit, label %174
 
-174:                                              ; preds = %.loopexit66
+174:                                              ; preds = %.loopexit64
   call void @_ZN4absl7debian217optional_internal25throw_bad_optional_accessEv() #27
   unreachable
 
-_ZNR4absl7debian28optionalIiE5valueEv.exit:       ; preds = %154, %.loopexit66
-  %175 = phi i32 [ %172, %.loopexit66 ], [ %.pre-phi75, %154 ]
-  %.pre-phi77 = phi i64 [ %.pre-phi, %.loopexit66 ], [ %150, %154 ]
-  %176 = getelementptr inbounds nuw [5 x %"class.absl::debian2::optional"], ptr %149, i64 0, i64 %.pre-phi77, i32 0, i32 0, i32 0, i32 1
+_ZNR4absl7debian28optionalIiE5valueEv.exit:       ; preds = %154, %.loopexit64
+  %175 = phi i32 [ %172, %.loopexit64 ], [ %.pre-phi73, %154 ]
+  %.pre-phi75 = phi i64 [ %.pre-phi, %.loopexit64 ], [ %150, %154 ]
+  %176 = getelementptr inbounds nuw [5 x %"class.absl::debian2::optional"], ptr %149, i64 0, i64 %.pre-phi75, i32 0, i32 0, i32 0, i32 1
   %177 = load i32, ptr %176, align 4
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %177, ptr %178, align 4
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 1020
-  %179 = load i32, ptr %136, align 8
-  store i32 %179, ptr %29, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 %175, ptr %180, align 4
-  %181 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 1, ptr %181, align 4
-  %182 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  store i32 0, ptr %182, align 4
-  %183 = call noundef i32 @_ZNK10open_spiel6bridge8Contract5IndexEv(ptr noundef nonnull align 4 dereferenceable(16) %29)
-  %.not5.i.i.i = icmp eq i32 %183, 0
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 1020
+  %180 = load i32, ptr %136, align 8
+  store i32 %180, ptr %29, align 4
+  %181 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i32 %175, ptr %181, align 4
+  %182 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 1, ptr %182, align 4
+  %183 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i32 0, ptr %183, align 4
+  %184 = call noundef i32 @_ZNK10open_spiel6bridge8Contract5IndexEv(ptr noundef nonnull align 4 dereferenceable(16) %29)
+  %.not5.i.i.i = icmp eq i32 %184, 0
   br i1 %.not5.i.i.i, label %_ZSt4fillIPbbEvT_S1_RKT0_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNR4absl7debian28optionalIiE5valueEv.exit
-  %184 = sext i32 %183 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.ptr, i8 0, i64 %184, i1 false)
+  %185 = sext i32 %184 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %179, i8 0, i64 %185, i1 false)
   br label %_ZSt4fillIPbbEvT_S1_RKT0_.exit
 
 _ZSt4fillIPbbEvT_S1_RKT0_.exit:                   ; preds = %_ZNR4absl7debian28optionalIiE5valueEv.exit, %.lr.ph.preheader.i.i.i
-  %185 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %186 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %187 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %188 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %189 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  br label %190
+  %186 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %187 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  br label %191
 
-190:                                              ; preds = %_ZSt4fillIPbbEvT_S1_RKT0_.exit, %.loopexit
-  %.04171 = phi i32 [ 0, %_ZSt4fillIPbbEvT_S1_RKT0_.exit ], [ %200, %.loopexit ]
-  %191 = load i32, ptr %35, align 8
-  %.not45 = icmp eq i32 %.04171, %191
-  br i1 %.not45, label %.loopexit, label %192
+191:                                              ; preds = %_ZSt4fillIPbbEvT_S1_RKT0_.exit, %.loopexit
+  %.04169 = phi i32 [ 0, %_ZSt4fillIPbbEvT_S1_RKT0_.exit ], [ %201, %.loopexit ]
+  %192 = load i32, ptr %35, align 8
+  %.not45 = icmp eq i32 %.04169, %192
+  br i1 %.not45, label %.loopexit, label %193
 
-192:                                              ; preds = %190
+193:                                              ; preds = %191
   store i32 1, ptr %30, align 4
-  store i32 2, ptr %185, align 4
-  store i32 4, ptr %186, align 4
-  br label %193
+  store i32 2, ptr %186, align 4
+  store i32 4, ptr %187, align 4
+  br label %194
 
-193:                                              ; preds = %192, %193
-  %.039.idx70 = phi i64 [ 0, %192 ], [ %.039.add, %193 ]
-  %.039.ptr = getelementptr inbounds nuw i8, ptr %30, i64 %.039.idx70
-  %194 = load i32, ptr %.039.ptr, align 4
-  %195 = load i32, ptr %136, align 8
-  store i32 %195, ptr %31, align 4
-  %196 = load i32, ptr %145, align 4
-  store i32 %196, ptr %187, align 4
-  store i32 %194, ptr %188, align 4
-  store i32 %.04171, ptr %189, align 4
-  %197 = call noundef i32 @_ZNK10open_spiel6bridge8Contract5IndexEv(ptr noundef nonnull align 4 dereferenceable(16) %31)
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds [421 x i8], ptr %.ptr, i64 0, i64 %198
-  store i8 0, ptr %199, align 1
-  %.039.add = add nuw nsw i64 %.039.idx70, 4
+194:                                              ; preds = %193, %194
+  %.039.idx68 = phi i64 [ 0, %193 ], [ %.039.add, %194 ]
+  %.039.ptr = getelementptr inbounds nuw i8, ptr %30, i64 %.039.idx68
+  %195 = load i32, ptr %.039.ptr, align 4
+  %196 = load i32, ptr %136, align 8
+  store i32 %196, ptr %31, align 4
+  %197 = load i32, ptr %145, align 4
+  store i32 %197, ptr %188, align 4
+  store i32 %195, ptr %189, align 4
+  store i32 %.04169, ptr %190, align 4
+  %198 = call noundef i32 @_ZNK10open_spiel6bridge8Contract5IndexEv(ptr noundef nonnull align 4 dereferenceable(16) %31)
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds [421 x i8], ptr %179, i64 0, i64 %199
+  store i8 0, ptr %200, align 1
+  %.039.add = add nuw nsw i64 %.039.idx68, 4
   %.not46 = icmp eq i64 %.039.add, 12
-  br i1 %.not46, label %.loopexit, label %193
+  br i1 %.not46, label %.loopexit, label %194
 
-.loopexit:                                        ; preds = %193, %190
-  %200 = add nuw nsw i32 %.04171, 1
-  %exitcond.not = icmp eq i32 %200, 4
-  br i1 %exitcond.not, label %.loopexit64, label %190, !llvm.loop !70
+.loopexit:                                        ; preds = %194, %191
+  %201 = add nuw nsw i32 %.04169, 1
+  %exitcond.not = icmp eq i32 %201, 4
+  br i1 %exitcond.not, label %.loopexit62, label %191, !llvm.loop !70
 
-.loopexit64:                                      ; preds = %.loopexit, %62, %97, %_ZN4absl7debian28optionalI14ddTableResultsEptEv.exit, %94, %85, %90, %128
-  %201 = phi ptr [ %93, %128 ], [ %93, %90 ], [ %35, %85 ], [ %93, %94 ], [ %93, %_ZN4absl7debian28optionalI14ddTableResultsEptEv.exit ], [ %93, %97 ], [ %35, %62 ], [ %35, %.loopexit ]
+.loopexit62:                                      ; preds = %.loopexit, %62, %97, %_ZN4absl7debian28optionalI14ddTableResultsEptEv.exit, %94, %85, %90, %128
+  %202 = phi ptr [ %93, %128 ], [ %93, %90 ], [ %35, %85 ], [ %93, %94 ], [ %93, %_ZN4absl7debian28optionalI14ddTableResultsEptEv.exit ], [ %93, %97 ], [ %35, %62 ], [ %35, %.loopexit ]
   %storemerge.in.in.in = phi ptr [ %130, %128 ], [ %93, %90 ], [ %35, %85 ], [ %93, %94 ], [ %93, %_ZN4absl7debian28optionalI14ddTableResultsEptEv.exit ], [ %93, %97 ], [ %35, %62 ], [ %35, %.loopexit ]
   %storemerge.in.in = load i32, ptr %storemerge.in.in.in, align 4
   %storemerge.in = add nsw i32 %storemerge.in.in, 1
   %storemerge = srem i32 %storemerge.in, 4
-  store i32 %storemerge, ptr %201, align 8
+  store i32 %storemerge, ptr %202, align 8
   ret void
 
-202:                                              ; preds = %143, %115, %83, %75, %60, %53, %45
+203:                                              ; preds = %143, %115, %83, %75, %60, %53, %45
   %.sink = phi ptr [ %25, %143 ], [ %23, %115 ], [ %21, %83 ], [ %17, %75 ], [ %13, %60 ], [ %9, %53 ], [ %5, %45 ]
   %.pn = phi { ptr, i32 } [ %144, %143 ], [ %116, %115 ], [ %84, %83 ], [ %76, %75 ], [ %61, %60 ], [ %54, %53 ], [ %46, %45 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #28

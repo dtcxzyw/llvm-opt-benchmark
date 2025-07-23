@@ -243,15 +243,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.193 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion" = type { %union.anon.185 }
 %union.anon.185 = type { ptr }
+%"class.openvdb::v11_0::tree::NodeUnion.201" = type { %union.anon.202 }
+%union.anon.202 = type { ptr }
+%"class.tbb::detail::d1::range_vector" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space" }
+%"class.tbb::detail::d0::aligned_space" = type { [192 x i8] }
 %"class.openvdb::v11_0::tree::LeafBuffer" = type <{ %union.anon.187, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
 %union.anon.187 = type { ptr }
 %"class.tbb::detail::d1::spin_mutex" = type { %"struct.std::atomic.190" }
 %"struct.std::atomic.190" = type { %"struct.std::__atomic_base.191" }
 %"struct.std::__atomic_base.191" = type { i8 }
-%"class.openvdb::v11_0::tree::NodeUnion.201" = type { %union.anon.202 }
-%union.anon.202 = type { ptr }
-%"class.tbb::detail::d1::range_vector" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space" }
-%"class.tbb::detail::d0::aligned_space" = type { [192 x i8] }
 %"class.tbb::detail::d1::range_vector.239" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.240" }
 %"class.tbb::detail::d0::aligned_space.240" = type { [256 x i8] }
 %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>>>::LeafRange" = type { i64, i64, i64, ptr }
@@ -277,10 +277,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.341 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.332" = type { %union.anon.333 }
 %union.anon.333 = type { ptr }
-%"class.openvdb::v11_0::tree::LeafBuffer.338" = type <{ %union.anon.339, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.339 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.349" = type { %union.anon.350 }
 %union.anon.350 = type { ptr }
+%"class.openvdb::v11_0::tree::LeafBuffer.338" = type <{ %union.anon.339, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.339 = type { ptr }
 %"class.tbb::detail::d1::range_vector.370" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.371" }
 %"class.tbb::detail::d0::aligned_space.371" = type { [256 x i8] }
 %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>>>::LeafRange" = type { i64, i64, i64, ptr }
@@ -304,10 +304,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.472 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.463" = type { %union.anon.464 }
 %union.anon.464 = type { ptr }
-%"class.openvdb::v11_0::tree::LeafBuffer.469" = type <{ %union.anon.470, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.470 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.480" = type { %union.anon.481 }
 %union.anon.481 = type { ptr }
+%"class.openvdb::v11_0::tree::LeafBuffer.469" = type <{ %union.anon.470, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.470 = type { ptr }
 %"class.tbb::detail::d1::range_vector.501" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.502" }
 %"class.tbb::detail::d0::aligned_space.502" = type { [256 x i8] }
 %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>>::LeafRange" = type { i64, i64, i64, ptr }
@@ -332,10 +332,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.608 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.599" = type { %union.anon.600 }
 %union.anon.600 = type { ptr }
-%"class.openvdb::v11_0::tree::LeafBuffer.605" = type <{ %union.anon.606, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.606 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.616" = type { %union.anon.617 }
 %union.anon.617 = type { ptr }
+%"class.openvdb::v11_0::tree::LeafBuffer.605" = type <{ %union.anon.606, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.606 = type { ptr }
 %"class.tbb::detail::d1::range_vector.637" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.638" }
 %"class.tbb::detail::d0::aligned_space.638" = type { [256 x i8] }
 %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>>>::LeafRange" = type { i64, i64, i64, ptr }
@@ -359,10 +359,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.741 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.732" = type { %union.anon.733 }
 %union.anon.733 = type <{ ptr, [8 x i8] }>
-%"class.openvdb::v11_0::tree::LeafBuffer.738" = type <{ %union.anon.739, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.739 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.749" = type { %union.anon.750 }
 %union.anon.750 = type <{ ptr, [8 x i8] }>
+%"class.openvdb::v11_0::tree::LeafBuffer.738" = type <{ %union.anon.739, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.739 = type { ptr }
 %"class.tbb::detail::d1::range_vector.771" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.772" }
 %"class.tbb::detail::d0::aligned_space.772" = type { [256 x i8] }
 %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>>>::LeafRange" = type { i64, i64, i64, ptr }
@@ -386,10 +386,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.876 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.866" = type { %union.anon.867 }
 %union.anon.867 = type <{ ptr, [8 x i8] }>
-%"class.openvdb::v11_0::tree::LeafBuffer.873" = type <{ %union.anon.874, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.874 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.884" = type { %union.anon.885 }
 %union.anon.885 = type <{ ptr, [8 x i8] }>
+%"class.openvdb::v11_0::tree::LeafBuffer.873" = type <{ %union.anon.874, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.874 = type { ptr }
 %"class.tbb::detail::d1::range_vector.906" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.907" }
 %"class.tbb::detail::d0::aligned_space.907" = type { [256 x i8] }
 %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>>>::LeafRange" = type { i64, i64, i64, ptr }
@@ -415,10 +415,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.1015 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.1006" = type { %union.anon.1007 }
 %union.anon.1007 = type { %"class.openvdb::v11_0::math::Vec3" }
-%"class.openvdb::v11_0::tree::LeafBuffer.1012" = type <{ %union.anon.1013, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.1013 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.1023" = type { %union.anon.1024 }
 %union.anon.1024 = type { %"class.openvdb::v11_0::math::Vec3" }
+%"class.openvdb::v11_0::tree::LeafBuffer.1012" = type <{ %union.anon.1013, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.1013 = type { ptr }
 %"class.tbb::detail::d1::range_vector.1044" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.1045" }
 %"class.tbb::detail::d0::aligned_space.1045" = type { [256 x i8] }
 %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>>>::LeafRange" = type { i64, i64, i64, ptr }
@@ -20665,7 +20665,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #38
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -20681,17 +20680,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIiLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #26
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -20706,14 +20705,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #39
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIiLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8
@@ -28307,7 +28306,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #38
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.338", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -28323,17 +28321,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIlLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #26
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -28348,14 +28346,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #39
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIlLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8
@@ -35757,7 +35755,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #38
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.469", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -35773,17 +35770,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIfLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #26
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -35798,14 +35795,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #39
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIfLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8
@@ -43513,7 +43510,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #38
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.605", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -43529,17 +43525,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIdLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #26
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -43554,14 +43550,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #39
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIdLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8
@@ -51269,7 +51265,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #38
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.738", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -51285,17 +51280,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IiEELj3EEESt14default_deleteIA_S7_EE5resetEPS7_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #26
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -51310,14 +51305,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #39
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IiEELj3EEESt14default_deleteIA_S7_EE5resetEPS7_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8
@@ -58893,7 +58888,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #38
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.873", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -58909,17 +58903,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IfEELj3EEESt14default_deleteIA_S7_EE5resetEPS7_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #26
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -58934,14 +58928,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #39
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IfEELj3EEESt14default_deleteIA_S7_EE5resetEPS7_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8
@@ -67112,7 +67106,6 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #38
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %arrayctor.end = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.1012", ptr %.ptr, i64 %mul
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -67128,17 +67121,17 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
+  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
+  %arrayctor.done = icmp eq i64 %7, %4
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IdEELj3EEESt14default_deleteIA_S7_EE5resetEPS7_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #26
-  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -67153,14 +67146,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #39
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IdEELj3EEESt14default_deleteIA_S7_EE5resetEPS7_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8

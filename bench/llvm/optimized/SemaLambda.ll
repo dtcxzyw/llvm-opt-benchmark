@@ -7691,7 +7691,7 @@ _ZN4llvm15SmallVectorImplIPN5clang11ParmVarDeclEE7reserveEm.exit: ; preds = %_ZN
 
 231:                                              ; preds = %222
   call void @_ZN5clang11ParmVarDecl22setParameterIndexLargeEj(ptr noundef nonnull align 8 dereferenceable(104) %226, i32 noundef %223) #18
-  %.pre249 = load i32, ptr %32, align 8, !tbaa !818
+  %.pre248 = load i32, ptr %32, align 8, !tbaa !818
   br label %_ZN5clang11ParmVarDecl12setScopeInfoEjj.exit
 
 232:                                              ; preds = %222
@@ -7702,7 +7702,7 @@ _ZN4llvm15SmallVectorImplIPN5clang11ParmVarDeclEE7reserveEm.exit: ; preds = %_ZN
   br label %_ZN5clang11ParmVarDecl12setScopeInfoEjj.exit
 
 _ZN5clang11ParmVarDecl12setScopeInfoEjj.exit:     ; preds = %231, %232
-  %236 = phi i32 [ %.pre249, %231 ], [ %223, %232 ]
+  %236 = phi i32 [ %.pre248, %231 ], [ %223, %232 ]
   %237 = load i32, ptr %33, align 4, !tbaa !942
   %.not.i.i.not.i = icmp ult i32 %236, %237
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11ParmVarDeclELb1EE9push_backES3_.exit, label %238, !prof !162
@@ -7791,11 +7791,11 @@ _ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread: ; preds = %166, %166
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %286 = load ptr, ptr %285, align 8, !tbaa !1600
   call void @_ZN5clang8SemaCUDA14SetLambdaAttrsEPNS_13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(76) %286, ptr noundef %157) #18
-  %.pre250 = load ptr, ptr %279, align 8, !tbaa !992
+  %.pre249 = load ptr, ptr %279, align 8, !tbaa !992
   br label %287
 
 287:                                              ; preds = %284, %278
-  %288 = phi ptr [ %.pre250, %284 ], [ %280, %278 ]
+  %288 = phi ptr [ %.pre249, %284 ], [ %280, %278 ]
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 64
   %290 = load i64, ptr %289, align 8
   %291 = and i64 %290, 4294967295
@@ -8291,18 +8291,16 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i20.i: ; preds = %5
 
 _ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit.thread197: ; preds = %._crit_edge225, %_ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit
   %520 = phi ptr [ %344, %_ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit ], [ %331, %._crit_edge225 ]
-  %521 = getelementptr inbounds nuw i8, ptr %520, i64 20
-  %522 = load i32, ptr %521, align 4
-  %523 = and i32 %522, 536870911
-  %524 = shl i32 %522, 3
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 24
+  %522 = getelementptr inbounds nuw i8, ptr %520, i64 20
+  %523 = load i32, ptr %522, align 4
+  %524 = shl i32 %523, 3
   %.idx235 = zext i32 %524 to i64
-  %525 = getelementptr inbounds nuw i8, ptr %520, i64 %.idx235
-  %.ptr236 = getelementptr inbounds nuw i8, ptr %525, i64 24
-  %.not120230 = icmp eq i32 %523, 0
+  %525 = getelementptr inbounds nuw i8, ptr %521, i64 %.idx235
+  %.not120230 = icmp eq i32 %524, 0
   br i1 %.not120230, label %_ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit.thread, label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %_ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit.thread197
-  %.ptr = getelementptr inbounds nuw i8, ptr %520, i64 24
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %527 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %528 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8315,7 +8313,7 @@ _ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4Se
   br label %535
 
 535:                                              ; preds = %.lr.ph232, %.loopexit
-  %.0110231 = phi ptr [ %.ptr, %.lr.ph232 ], [ %636, %.loopexit ]
+  %.0110231 = phi ptr [ %521, %.lr.ph232 ], [ %636, %.loopexit ]
   %536 = load ptr, ptr %.0110231, align 8, !tbaa !1602
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 40
   %538 = load i64, ptr %537, align 8, !tbaa !1203
@@ -8329,8 +8327,8 @@ _ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4Se
   %542 = load ptr, ptr %526, align 8, !tbaa !819
   %543 = load i32, ptr %527, align 8, !tbaa !818
   %544 = zext i32 %543 to i64
-  %.idx237 = mul nuw nsw i64 %544, 48
-  %545 = getelementptr inbounds nuw i8, ptr %542, i64 %.idx237
+  %.idx236 = mul nuw nsw i64 %544, 48
+  %545 = getelementptr inbounds nuw i8, ptr %542, i64 %.idx236
   %.not125226 = icmp eq i32 %543, 0
   br i1 %.not125226, label %.loopexit, label %.lr.ph229
 
@@ -8525,7 +8523,7 @@ _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_
 
 .loopexit:                                        ; preds = %634, %541, %535
   %636 = getelementptr inbounds nuw i8, ptr %.0110231, i64 8
-  %.not120 = icmp eq ptr %636, %.ptr236
+  %.not120 = icmp eq ptr %636, %525
   br i1 %.not120, label %_ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit.thread, label %535
 
 _ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit.thread: ; preds = %.loopexit, %_ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit.thread197, %332, %_ZL37getGenericLambdaTemplateParameterListPN5clang4sema15LambdaScopeInfoERNS_4SemaE.exit
@@ -8590,14 +8588,14 @@ _ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %_
 672:                                              ; preds = %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread
   %673 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl21isImmediateEscalatingEv(ptr noundef nonnull align 8 dereferenceable(168) %656) #18
   %674 = zext i1 %673 to i8
-  %.pre251 = load ptr, ptr %661, align 8, !tbaa !819
-  %.pre252 = load i32, ptr %663, align 8, !tbaa !818
-  %.pre253 = zext i32 %.pre252 to i64
+  %.pre250 = load ptr, ptr %661, align 8, !tbaa !819
+  %.pre251 = load i32, ptr %663, align 8, !tbaa !818
+  %.pre252 = zext i32 %.pre251 to i64
   br label %675
 
 675:                                              ; preds = %672, %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread
-  %.pre-phi = phi i64 [ %.pre253, %672 ], [ %665, %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread ]
-  %676 = phi ptr [ %.pre251, %672 ], [ %662, %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread ]
+  %.pre-phi = phi i64 [ %.pre252, %672 ], [ %665, %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread ]
+  %676 = phi ptr [ %.pre250, %672 ], [ %662, %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread ]
   %677 = phi i8 [ %674, %672 ], [ 0, %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread ]
   %678 = getelementptr inbounds nuw %"struct.clang::Sema::ExpressionEvaluationContextRecord", ptr %676, i64 %.pre-phi
   %679 = getelementptr inbounds i8, ptr %678, i64 -42
@@ -10010,16 +10008,19 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i: ; preds = %229, %2
 
 _ZSt15__adjacent_findIPN5clang11CallingConvEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S6_S6_T0_.exit.i.i.i.i: ; preds = %258
   %.0.i.i.i.ptr.ptr.i.i.le = getelementptr inbounds nuw i8, ptr %10, i64 %.0.i.i.i.idx.i.i
-  %.0.i.i.i.ptr.add.i.i = add nuw nsw i64 %.0.i.i.i.idx.i.i, 8
-  %.not23.i.i.i.i = icmp eq i64 %.0.i.i.i.ptr.add.i.i, 28
-  br i1 %.not23.i.i.i.i, label %_ZSt6uniqueIPN5clang11CallingConvEET_S3_S3_.exit.i.i, label %.lr.ph.i.i.i.i
+  %.not23.i.i.i.i = icmp eq i64 %.0.i.i.i.idx.i.i, 20
+  br i1 %.not23.i.i.i.i, label %_ZSt6uniqueIPN5clang11CallingConvEET_S3_S3_.exit.i.i, label %.lr.ph.i.i.preheader.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZSt15__adjacent_findIPN5clang11CallingConvEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S6_S6_T0_.exit.i.i.i.i, %267
-  %262 = phi i32 [ %263, %267 ], [ %259, %_ZSt15__adjacent_findIPN5clang11CallingConvEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S6_S6_T0_.exit.i.i.i.i ]
-  %.idx.i.i = phi i64 [ %.add.i.i, %267 ], [ %.0.i.i.i.ptr.add.i.i, %_ZSt15__adjacent_findIPN5clang11CallingConvEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S6_S6_T0_.exit.i.i.i.i ]
-  %.024.i.i.i.i = phi ptr [ %.1.i.i.i.i, %267 ], [ %.0.i.i.i.ptr.ptr.i.i.le, %_ZSt15__adjacent_findIPN5clang11CallingConvEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S6_S6_T0_.exit.i.i.i.i ]
-  %.ptr30.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
-  %263 = load i32, ptr %.ptr30.i.i, align 4, !tbaa !1634
+.lr.ph.i.i.preheader.i.i:                         ; preds = %_ZSt15__adjacent_findIPN5clang11CallingConvEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S6_S6_T0_.exit.i.i.i.i
+  %.0.i.i.i.ptr.add.i.i = add nuw nsw i64 %.0.i.i.i.idx.i.i, 8
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %267, %.lr.ph.i.i.preheader.i.i
+  %262 = phi i32 [ %263, %267 ], [ %259, %.lr.ph.i.i.preheader.i.i ]
+  %.idx.i.i = phi i64 [ %.add.i.i, %267 ], [ %.0.i.i.i.ptr.add.i.i, %.lr.ph.i.i.preheader.i.i ]
+  %.024.i.i.i.i = phi ptr [ %.1.i.i.i.i, %267 ], [ %.0.i.i.i.ptr.ptr.i.i.le, %.lr.ph.i.i.preheader.i.i ]
+  %.ptr29.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %263 = load i32, ptr %.ptr29.i.i, align 4, !tbaa !1634
   %264 = icmp eq i32 %262, %263
   br i1 %264, label %267, label %265
 

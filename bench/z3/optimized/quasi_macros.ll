@@ -1066,100 +1066,99 @@ define hidden noundef zeroext i1 @_ZNK12quasi_macros16fully_depends_onEP3appP10q
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !92
   invoke void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %6, i1 noundef zeroext false)
-          to label %7 unwind label %15
+          to label %7 unwind label %16
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !81
-  %10 = zext i32 %9 to i64
-  %.idx = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr32 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.not24 = icmp eq i32 %9, 0
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = load i32, ptr %9, align 8, !tbaa !81
+  %11 = zext i32 %10 to i64
+  %.idx = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
+  %.not24 = icmp eq i32 %10, 0
   br i1 %.not24, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = load ptr, ptr %12, align 8
-  br label %17
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = load ptr, ptr %13, align 8
+  br label %18
 
-.preheader:                                       ; preds = %33, %7
-  %14 = load i32, ptr %4, align 8, !tbaa !53
-  %.not2126 = icmp eq i32 %14, 0
+.preheader:                                       ; preds = %34, %7
+  %15 = load i32, ptr %4, align 8, !tbaa !53
+  %.not2126 = icmp eq i32 %15, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !33
   br i1 %.not2126, label %.critedge, label %.lr.ph29
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10bit_vectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %17
 
-17:                                               ; preds = %.lr.ph, %33
-  %.01925 = phi ptr [ %.ptr, %.lr.ph ], [ %34, %33 ]
-  %18 = load ptr, ptr %.01925, align 8, !tbaa !44
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 65535
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %33
+18:                                               ; preds = %.lr.ph, %34
+  %.01925 = phi ptr [ %8, %.lr.ph ], [ %35, %34 ]
+  %19 = load ptr, ptr %.01925, align 8, !tbaa !44
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 65535
+  %23 = icmp eq i32 %22, 1
+  br i1 %23, label %24, label %34
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !93
-  %26 = lshr i32 %25, 5
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %13, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !36
-  %30 = and i32 %25, 31
-  %31 = shl nuw i32 1, %30
-  %32 = or i32 %29, %31
-  store i32 %32, ptr %28, align 4, !tbaa !36
-  br label %33
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %26 = load i32, ptr %25, align 8, !tbaa !93
+  %27 = lshr i32 %26, 5
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw i32, ptr %14, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !36
+  %31 = and i32 %26, 31
+  %32 = shl nuw i32 1, %31
+  %33 = or i32 %30, %32
+  store i32 %33, ptr %29, align 4, !tbaa !36
+  br label %34
 
-33:                                               ; preds = %23, %17
-  %34 = getelementptr inbounds nuw i8, ptr %.01925, i64 8
-  %.not = icmp eq ptr %34, %.ptr32
-  br i1 %.not, label %.preheader, label %17
+34:                                               ; preds = %24, %18
+  %35 = getelementptr inbounds nuw i8, ptr %.01925, i64 8
+  %.not = icmp eq ptr %35, %12
+  br i1 %.not, label %.preheader, label %18
 
 .lr.ph29:                                         ; preds = %.preheader, %.lr.ph29
-  %.01627 = phi i32 [ %42, %.lr.ph29 ], [ 0, %.preheader ]
-  %35 = lshr i32 %.01627, 5
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %.pre, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !36
-  %39 = and i32 %.01627, 31
-  %40 = shl nuw i32 1, %39
-  %41 = and i32 %38, %40
-  %.not23.not = icmp ne i32 %41, 0
-  %42 = add nuw i32 %.01627, 1
-  %exitcond.not = icmp ne i32 %42, %14
+  %.01627 = phi i32 [ %43, %.lr.ph29 ], [ 0, %.preheader ]
+  %36 = lshr i32 %.01627, 5
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw i32, ptr %.pre, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !36
+  %40 = and i32 %.01627, 31
+  %41 = shl nuw i32 1, %40
+  %42 = and i32 %39, %41
+  %.not23.not = icmp ne i32 %42, 0
+  %43 = add nuw i32 %.01627, 1
+  %exitcond.not = icmp ne i32 %43, %15
   %or.cond.not = select i1 %.not23.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph29, label %.critedge.thread, !llvm.loop !95
 
 .critedge:                                        ; preds = %.preheader
-  %43 = icmp eq ptr %.pre, null
-  br i1 %43, label %_ZN10bit_vectorD2Ev.exit, label %.critedge.thread
+  %44 = icmp eq ptr %.pre, null
+  br i1 %44, label %_ZN10bit_vectorD2Ev.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph29, %.critedge
-  %.not21.lcssa34 = phi i1 [ true, %.critedge ], [ %.not23.not, %.lr.ph29 ]
+  %.not21.lcssa33 = phi i1 [ true, %.critedge ], [ %.not23.not, %.lr.ph29 ]
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pre)
-          to label %_ZN10bit_vectorD2Ev.exit unwind label %44
+          to label %_ZN10bit_vectorD2Ev.exit unwind label %45
 
-44:                                               ; preds = %.critedge.thread
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %.critedge.thread
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #23
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
 _ZN10bit_vectorD2Ev.exit:                         ; preds = %.critedge, %.critedge.thread
-  %.not21.lcssa35 = phi i1 [ true, %.critedge ], [ %.not21.lcssa34, %.critedge.thread ]
+  %.not21.lcssa34 = phi i1 [ true, %.critedge ], [ %.not21.lcssa33, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
-  ret i1 %.not21.lcssa35
+  ret i1 %.not21.lcssa34
 }
 
 declare void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i1 noundef zeroext) local_unnamed_addr #0

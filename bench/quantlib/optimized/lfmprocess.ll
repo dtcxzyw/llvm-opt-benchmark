@@ -3670,10 +3670,11 @@ invoke.cont29:                                    ; preds = %invoke.cont29.lr.ph
   %mul = fmul double %18, %19
   %20 = call double @llvm.fmuladd.f64(double %18, double %19, double 1.000000e+00)
   %div = fdiv double %mul, %20
-  %arrayidx.i24 = getelementptr inbounds nuw double, ptr %15, i64 %k.039
+  %arrayidx.i24.idx = shl nuw nsw i64 %k.039, 3
+  %arrayidx.i24 = getelementptr inbounds nuw i8, ptr %15, i64 %arrayidx.i24.idx
   store double %div, ptr %arrayidx.i24, align 8, !tbaa !78
-  %add.ptr25 = getelementptr inbounds nuw i8, ptr %arrayidx.i24, i64 8
-  %cmp.not5.i = icmp eq ptr %add.ptr, %add.ptr25
+  %21 = add nuw nsw i64 %arrayidx.i24.idx, 8
+  %cmp.not5.i = icmp samesign eq i64 %sub.ptr.sub.i.i, %21
   br i1 %cmp.not5.i, label %invoke.cont33, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %invoke.cont29
@@ -3681,26 +3682,26 @@ for.body.i.preheader:                             ; preds = %invoke.cont29
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %__init.addr.08.i = phi double [ %23, %for.body.i ], [ 0.000000e+00, %for.body.i.preheader ]
+  %__init.addr.08.i = phi double [ %24, %for.body.i ], [ 0.000000e+00, %for.body.i.preheader ]
   %__first1.addr.07.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr, %for.body.i.preheader ]
   %__first2.sroa.0.06.i = phi ptr [ %add.ptr.i.i29, %for.body.i ], [ %gep, %for.body.i.preheader ]
-  %21 = load double, ptr %__first1.addr.07.i, align 8, !tbaa !78
-  %22 = load double, ptr %__first2.sroa.0.06.i, align 8, !tbaa !78
-  %23 = call double @llvm.fmuladd.f64(double %21, double %22, double %__init.addr.08.i)
+  %22 = load double, ptr %__first1.addr.07.i, align 8, !tbaa !78
+  %23 = load double, ptr %__first2.sroa.0.06.i, align 8, !tbaa !78
+  %24 = call double @llvm.fmuladd.f64(double %22, double %23, double %__init.addr.08.i)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first1.addr.07.i, i64 8
   %add.ptr.i.i29 = getelementptr inbounds double, ptr %__first2.sroa.0.06.i, i64 %16
   %cmp.not.i30 = icmp eq ptr %__first1.addr.07.i, %arrayidx.i24
   br i1 %cmp.not.i30, label %invoke.cont33, label %for.body.i, !llvm.loop !145
 
 invoke.cont33:                                    ; preds = %for.body.i, %invoke.cont29
-  %__init.addr.0.lcssa.i = phi double [ 0.000000e+00, %invoke.cont29 ], [ %23, %for.body.i ]
+  %__init.addr.0.lcssa.i = phi double [ 0.000000e+00, %invoke.cont29 ], [ %24, %for.body.i ]
   %mul.i.i = mul i64 %16, %k.039
   %add.ptr.i.i31 = getelementptr inbounds nuw double, ptr %.pre, i64 %mul.i.i
   %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i31, i64 %k.039
-  %24 = load double, ptr %arrayidx, align 8, !tbaa !78
-  %25 = call double @llvm.fmuladd.f64(double %24, double -5.000000e-01, double %__init.addr.0.lcssa.i)
+  %25 = load double, ptr %arrayidx, align 8, !tbaa !78
+  %26 = call double @llvm.fmuladd.f64(double %25, double -5.000000e-01, double %__init.addr.0.lcssa.i)
   %arrayidx.i32 = getelementptr inbounds nuw double, ptr %4, i64 %k.039
-  store double %25, ptr %arrayidx.i32, align 8, !tbaa !78
+  store double %26, ptr %arrayidx.i32, align 8, !tbaa !78
   %inc = add nuw i64 %k.039, 1
   %exitcond.not = icmp eq i64 %inc, %12
   br i1 %exitcond.not, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, label %invoke.cont29, !llvm.loop !146
@@ -4056,33 +4057,34 @@ invoke.cont30:                                    ; preds = %invoke.cont30.lr.ph
   %mul = fmul double %29, %30
   %add = fadd double %mul, 1.000000e+00
   %div = fdiv double %mul, %add
-  %arrayidx.i50 = getelementptr inbounds nuw double, ptr %19, i64 %k.0105
+  %arrayidx.i50.idx = shl nuw nsw i64 %k.0105, 3
+  %arrayidx.i50 = getelementptr inbounds nuw i8, ptr %19, i64 %arrayidx.i50.idx
   store double %div, ptr %arrayidx.i50, align 8, !tbaa !78
-  %add.ptr26 = getelementptr inbounds nuw i8, ptr %arrayidx.i50, i64 8
   %gep = getelementptr double, ptr %invariant.gep, i64 %k.0105
-  %cmp.not5.i = icmp eq ptr %add.ptr, %add.ptr26
+  %31 = add nuw nsw i64 %arrayidx.i50.idx, 8
+  %cmp.not5.i = icmp samesign eq i64 %sub.ptr.sub.i.i, %31
   br i1 %cmp.not5.i, label %invoke.cont34, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont30, %for.body.i
-  %__init.addr.08.i = phi double [ %33, %for.body.i ], [ 0.000000e+00, %invoke.cont30 ]
+  %__init.addr.08.i = phi double [ %34, %for.body.i ], [ 0.000000e+00, %invoke.cont30 ]
   %__first1.addr.07.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr, %invoke.cont30 ]
   %__first2.sroa.0.06.i = phi ptr [ %add.ptr.i.i, %for.body.i ], [ %gep, %invoke.cont30 ]
-  %31 = load double, ptr %__first1.addr.07.i, align 8, !tbaa !78
-  %32 = load double, ptr %__first2.sroa.0.06.i, align 8, !tbaa !78
-  %33 = call double @llvm.fmuladd.f64(double %31, double %32, double %__init.addr.08.i)
+  %32 = load double, ptr %__first1.addr.07.i, align 8, !tbaa !78
+  %33 = load double, ptr %__first2.sroa.0.06.i, align 8, !tbaa !78
+  %34 = call double @llvm.fmuladd.f64(double %32, double %33, double %__init.addr.08.i)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first1.addr.07.i, i64 8
   %add.ptr.i.i = getelementptr inbounds double, ptr %__first2.sroa.0.06.i, i64 %20
   %cmp.not.i55 = icmp eq ptr %__first1.addr.07.i, %arrayidx.i50
   br i1 %cmp.not.i55, label %invoke.cont34, label %for.body.i, !llvm.loop !145
 
 invoke.cont34:                                    ; preds = %for.body.i, %invoke.cont30
-  %__init.addr.0.lcssa.i = phi double [ 0.000000e+00, %invoke.cont30 ], [ %33, %for.body.i ]
+  %__init.addr.0.lcssa.i = phi double [ 0.000000e+00, %invoke.cont30 ], [ %34, %for.body.i ]
   %mul.i.i = mul i64 %20, %k.0105
   %add.ptr.i.i56 = getelementptr inbounds nuw double, ptr %.pre, i64 %mul.i.i
   %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i56, i64 %k.0105
-  %34 = load double, ptr %arrayidx, align 8, !tbaa !78
-  %35 = call double @llvm.fmuladd.f64(double %34, double -5.000000e-01, double %__init.addr.0.lcssa.i)
-  %mul37 = fmul double %dt, %35
+  %35 = load double, ptr %arrayidx, align 8, !tbaa !78
+  %36 = call double @llvm.fmuladd.f64(double %35, double -5.000000e-01, double %__init.addr.0.lcssa.i)
+  %mul37 = fmul double %dt, %36
   %mul.i58 = mul i64 %22, %k.0105
   %add.i = add nuw i64 %k.0105, 1
   %mul.i61 = mul i64 %22, %add.i
@@ -4095,52 +4097,50 @@ for.body.i64.preheader:                           ; preds = %invoke.cont34
   br label %for.body.i64
 
 for.body.i64:                                     ; preds = %for.body.i64.preheader, %for.body.i64
-  %__init.addr.08.i65 = phi double [ %38, %for.body.i64 ], [ 0.000000e+00, %for.body.i64.preheader ]
+  %__init.addr.08.i65 = phi double [ %39, %for.body.i64 ], [ 0.000000e+00, %for.body.i64.preheader ]
   %__first2.addr.07.i = phi ptr [ %incdec.ptr1.i, %for.body.i64 ], [ %23, %for.body.i64.preheader ]
   %__first1.addr.06.i = phi ptr [ %incdec.ptr.i66, %for.body.i64 ], [ %add.ptr.i59, %for.body.i64.preheader ]
-  %36 = load double, ptr %__first1.addr.06.i, align 8, !tbaa !78
-  %37 = load double, ptr %__first2.addr.07.i, align 8, !tbaa !78
-  %38 = call double @llvm.fmuladd.f64(double %36, double %37, double %__init.addr.08.i65)
+  %37 = load double, ptr %__first1.addr.06.i, align 8, !tbaa !78
+  %38 = load double, ptr %__first2.addr.07.i, align 8, !tbaa !78
+  %39 = call double @llvm.fmuladd.f64(double %37, double %38, double %__init.addr.08.i65)
   %incdec.ptr.i66 = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i, i64 8
   %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i, i64 8
   %cmp.not.i67 = icmp eq ptr %incdec.ptr.i66, %add.ptr.i62
   br i1 %cmp.not.i67, label %invoke.cont72, label %for.body.i64, !llvm.loop !154
 
 invoke.cont72:                                    ; preds = %for.body.i64, %invoke.cont34
-  %__init.addr.0.lcssa.i68 = phi double [ 0.000000e+00, %invoke.cont34 ], [ %38, %for.body.i64 ]
+  %__init.addr.0.lcssa.i68 = phi double [ 0.000000e+00, %invoke.cont34 ], [ %39, %for.body.i64 ]
   %mul47 = fmul double %call2, %__init.addr.0.lcssa.i68
   %add48 = fadd double %mul37, %mul47
   %call49 = call double @exp(double noundef %add48) #29, !tbaa !152
   %mul50 = fmul double %mul, %call49
   %add51 = fadd double %mul50, 1.000000e+00
   %div52 = fdiv double %mul50, %add51
-  %arrayidx.i69 = getelementptr inbounds nuw double, ptr %24, i64 %k.0105
+  %arrayidx.i69 = getelementptr inbounds nuw i8, ptr %24, i64 %arrayidx.i50.idx
   store double %div52, ptr %arrayidx.i69, align 8, !tbaa !78
-  %39 = load double, ptr %arrayidx.i, align 8, !tbaa !78
-  %add.ptr66 = getelementptr inbounds nuw i8, ptr %arrayidx.i69, i64 8
-  %cmp.not5.i80 = icmp eq ptr %add.ptr61, %add.ptr66
-  br i1 %cmp.not5.i80, label %invoke.cont76, label %for.body.i81
+  %40 = load double, ptr %arrayidx.i, align 8, !tbaa !78
+  br i1 %cmp.not5.i, label %invoke.cont76, label %for.body.i81
 
 for.body.i81:                                     ; preds = %invoke.cont72, %for.body.i81
-  %__init.addr.08.i82 = phi double [ %42, %for.body.i81 ], [ 0.000000e+00, %invoke.cont72 ]
+  %__init.addr.08.i82 = phi double [ %43, %for.body.i81 ], [ 0.000000e+00, %invoke.cont72 ]
   %__first1.addr.07.i83 = phi ptr [ %incdec.ptr.i85, %for.body.i81 ], [ %add.ptr61, %invoke.cont72 ]
   %__first2.sroa.0.06.i84 = phi ptr [ %add.ptr.i.i86, %for.body.i81 ], [ %gep, %invoke.cont72 ]
-  %40 = load double, ptr %__first1.addr.07.i83, align 8, !tbaa !78
-  %41 = load double, ptr %__first2.sroa.0.06.i84, align 8, !tbaa !78
-  %42 = call double @llvm.fmuladd.f64(double %40, double %41, double %__init.addr.08.i82)
+  %41 = load double, ptr %__first1.addr.07.i83, align 8, !tbaa !78
+  %42 = load double, ptr %__first2.sroa.0.06.i84, align 8, !tbaa !78
+  %43 = call double @llvm.fmuladd.f64(double %41, double %42, double %__init.addr.08.i82)
   %incdec.ptr.i85 = getelementptr inbounds nuw i8, ptr %__first1.addr.07.i83, i64 8
   %add.ptr.i.i86 = getelementptr inbounds double, ptr %__first2.sroa.0.06.i84, i64 %20
   %cmp.not.i87 = icmp eq ptr %__first1.addr.07.i83, %arrayidx.i69
   br i1 %cmp.not.i87, label %invoke.cont76, label %for.body.i81, !llvm.loop !145
 
 invoke.cont76:                                    ; preds = %for.body.i81, %invoke.cont72
-  %__init.addr.0.lcssa.i88 = phi double [ 0.000000e+00, %invoke.cont72 ], [ %42, %for.body.i81 ]
-  %43 = load double, ptr %arrayidx, align 8, !tbaa !78
-  %44 = call double @llvm.fmuladd.f64(double %43, double -5.000000e-01, double %__init.addr.0.lcssa.i88)
-  %45 = call double @llvm.fmuladd.f64(double %44, double %dt, double %mul37)
-  %46 = call double @llvm.fmuladd.f64(double %45, double 5.000000e-01, double %mul47)
-  %call82 = call double @exp(double noundef %46) #29, !tbaa !152
-  %mul83 = fmul double %39, %call82
+  %__init.addr.0.lcssa.i88 = phi double [ 0.000000e+00, %invoke.cont72 ], [ %43, %for.body.i81 ]
+  %44 = load double, ptr %arrayidx, align 8, !tbaa !78
+  %45 = call double @llvm.fmuladd.f64(double %44, double -5.000000e-01, double %__init.addr.0.lcssa.i88)
+  %46 = call double @llvm.fmuladd.f64(double %45, double %dt, double %mul37)
+  %47 = call double @llvm.fmuladd.f64(double %46, double 5.000000e-01, double %mul47)
+  %call82 = call double @exp(double noundef %47) #29, !tbaa !152
+  %mul83 = fmul double %40, %call82
   %arrayidx.i93 = getelementptr inbounds nuw double, ptr %9, i64 %k.0105
   store double %mul83, ptr %arrayidx.i93, align 8, !tbaa !78
   %exitcond.not = icmp eq i64 %add.i, %16

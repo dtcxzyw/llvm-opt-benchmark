@@ -34,23 +34,22 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_19DYLD_CHAINED_FORMATE(i32 noundef %0) local_unnamed_addr #0 {
   %.not.i.i.i.i.i.i.i = icmp sgt i32 %0, 2
-  %.add.i.i.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
-  %.add.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_19DYLD_CHAINED_FORMATE.enums2str, i64 %.add.i.i.sroa.sel.v
-  %2 = load i32, ptr %.add.i.i.sroa.sel, align 8, !tbaa !3
+  %.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
+  %.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_19DYLD_CHAINED_FORMATE.enums2str, i64 %.sroa.sel.v
+  %2 = load i32, ptr %.sroa.sel, align 8, !tbaa !3
   %.not.i.i.i.i.i.i.i.i = icmp slt i32 %2, %0
   %.not.i.i = and i1 %.not.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO19DYLD_CHAINED_FORMATEPKcLm3ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %4 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_19DYLD_CHAINED_FORMATE.enums2str, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx
-  %.ptr14.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.add.i.i.sroa.sel.v
-  %5 = load i32, ptr %.ptr14.i.i.ptr, align 8, !tbaa !3
-  %.not15.i.i = icmp slt i32 %0, %5
-  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO19DYLD_CHAINED_FORMATEPKcLm3ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %6
+  %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.sel, i64 %.idx.i.i.i.i.i.i.i.i
+  %5 = load i32, ptr %4, align 8, !tbaa !3
+  %.not12.i.i = icmp slt i32 %0, %5
+  br i1 %.not12.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO19DYLD_CHAINED_FORMATEPKcLm3ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.ptr, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   br label %_ZNK6frozen3mapIN4LIEF5MachO19DYLD_CHAINED_FORMATEPKcLm3ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread
 

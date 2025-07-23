@@ -3129,16 +3129,16 @@ define void @_ZN5folly11IPAddressV619fromInverseArpaNameERKNSt7__cxx1112basic_st
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !20
   %.not.i.i = icmp ult i64 %13, 9
-  br i1 %.not.i.i, label %.noexc37, label %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit.i
+  br i1 %.not.i.i, label %.noexc37, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i.i
 
-_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit.i:      ; preds = %2
+_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i.i:       ; preds = %2
   %14 = getelementptr i8, ptr %10, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -9
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %15, ptr noundef nonnull dereferenceable(9) @.str.10, i64 9)
   %16 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %16, label %36, label %.noexc37
 
-.noexc37:                                         ; preds = %2, %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit.i
+.noexc37:                                         ; preds = %2, %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i.i
   %17 = tail call ptr @__cxa_allocate_exception(i64 16) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #37, !noalias !92
@@ -3196,7 +3196,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25
   call void @__cxa_free_exception(ptr %17) #37
   br label %97
 
-36:                                               ; preds = %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit.i
+36:                                               ; preds = %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i.i
   store ptr %15, ptr %11, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)

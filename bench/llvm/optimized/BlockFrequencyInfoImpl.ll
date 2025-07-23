@@ -8131,7 +8131,7 @@ _ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.
   %gepdiff = sub nsw i64 %.idx, %8
   %47 = ashr exact i64 %gepdiff, 2
   %.not = icmp ult i64 %47, %35
-  br i1 %.not, label %71, label %48
+  br i1 %.not, label %72, label %48
 
 48:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.exit
   %49 = getelementptr inbounds i8, ptr %46, i64 %.idx53
@@ -8178,65 +8178,66 @@ _ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendISt1
   %63 = trunc i64 %35 to i32
   %64 = add i32 %62, %63
   store i32 %64, ptr %9, align 8, !tbaa !26
-  %.not.i.i.i.i.i47 = icmp eq ptr %49, %45
-  br i1 %.not.i.i.i.i.i47, label %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %65
+  %65 = sub i64 %.idx, %16
+  %.not.i.i.i.i.i47 = icmp eq i64 %65, %8
+  br i1 %.not.i.i.i.i.i47, label %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %66
 
-65:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
-  %66 = add i64 %8, %16
-  %gepdiff54 = sub i64 %.idx, %66
-  %67 = ashr exact i64 %gepdiff54, 2
-  %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %46, i64 %68
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %69, ptr align 4 %45, i64 %gepdiff54, i1 false)
+66:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
+  %67 = add i64 %8, %16
+  %gepdiff54 = sub i64 %.idx, %67
+  %68 = ashr exact i64 %gepdiff54, 2
+  %69 = sub nsw i64 0, %68
+  %70 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %46, i64 %69
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %70, ptr align 4 %45, i64 %gepdiff54, i1 false)
   br label %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
 
-_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %65
-  br i1 %.not7.i.i.i.i.i, label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %70
+_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %66
+  br i1 %.not7.i.i.i.i.i, label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %71
 
-70:                                               ; preds = %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
+71:                                               ; preds = %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %45, ptr align 4 %2, i64 %16, i1 false)
   br label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
 
-71:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.exit
-  %72 = trunc i64 %35 to i32
-  %73 = add i32 %43, %72
-  store i32 %73, ptr %9, align 8, !tbaa !26
+72:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.exit
+  %73 = trunc i64 %35 to i32
+  %74 = add i32 %43, %73
+  store i32 %74, ptr %9, align 8, !tbaa !26
   %.not.i.i49 = icmp eq i64 %8, %.idx
   br i1 %.not.i.i49, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %71
-  %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %44, i64 %74
-  %76 = sub nsw i64 0, %47
-  %77 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %75, i64 %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 4 %45, i64 %gepdiff, i1 false)
+.lr.ph.preheader:                                 ; preds = %72
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %44, i64 %75
+  %77 = sub nsw i64 0, %47
+  %78 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %76, i64 %77
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 4 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %71
-  %.042.lcssa = phi ptr [ %2, %71 ], [ %83, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %72
+  %.042.lcssa = phi ptr [ %2, %72 ], [ %84, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %78
+  br i1 %.not.i, label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %79
 
-78:                                               ; preds = %._crit_edge
-  %79 = ptrtoint ptr %.042.lcssa to i64
-  %80 = sub i64 %14, %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 4 %.042.lcssa, i64 %80, i1 false)
+79:                                               ; preds = %._crit_edge
+  %80 = ptrtoint ptr %.042.lcssa to i64
+  %81 = sub i64 %14, %80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 4 %.042.lcssa, i64 %81, i1 false)
   br label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.059 = phi ptr [ %82, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.04058 = phi i64 [ %84, %.lr.ph ], [ %47, %.lr.ph.preheader ]
-  %.04257 = phi ptr [ %83, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %81 = load i32, ptr %.04257, align 4, !tbaa !66
-  store i32 %81, ptr %.059, align 4, !tbaa !66
-  %82 = getelementptr inbounds nuw i8, ptr %.059, i64 4
-  %83 = getelementptr inbounds nuw i8, ptr %.04257, i64 4
-  %84 = add i64 %.04058, -1
-  %.not44 = icmp eq i64 %84, 0
+  %.059 = phi ptr [ %83, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.04058 = phi i64 [ %85, %.lr.ph ], [ %47, %.lr.ph.preheader ]
+  %.04257 = phi ptr [ %84, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %82 = load i32, ptr %.04257, align 4, !tbaa !66
+  store i32 %82, ptr %.059, align 4, !tbaa !66
+  %83 = getelementptr inbounds nuw i8, ptr %.059, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.04257, i64 4
+  %85 = add i64 %.04058, -1
+  %.not44 = icmp eq i64 %85, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !389
 
-_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit: ; preds = %78, %._crit_edge, %70, %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendIPS2_vEEvT_S6_.exit
-  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendIPS2_vEEvT_S6_.exit ], [ %45, %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit ], [ %45, %70 ], [ %45, %._crit_edge ], [ %45, %78 ]
+_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit: ; preds = %79, %._crit_edge, %71, %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendIPS2_vEEvT_S6_.exit
+  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE6appendIPS2_vEEvT_S6_.exit ], [ %45, %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit ], [ %45, %71 ], [ %45, %._crit_edge ], [ %45, %79 ]
   ret ptr %.041
 }
 

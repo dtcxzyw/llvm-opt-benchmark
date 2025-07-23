@@ -7907,45 +7907,45 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_14StatisticsImpl14Stati
 _ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit: ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i64 %10, ptr %17, align 8
-  %.ptr7 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %18 = getelementptr inbounds %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %.ptr7, i64 %10
-  br label %19
+  %.idx1314 = shl i64 62720, %9
+  br label %18
 
-19:                                               ; preds = %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit, %_ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit
+18:                                               ; preds = %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit, %_ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit
   %.idx = phi i64 [ 64, %_ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit ], [ %.add, %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(62720) %.ptr.ptr, i8 0, i64 1720, i1 false)
   br label %.preheader16.i
 
-.preheader16.i:                                   ; preds = %.noexc13, %19
-  %.idx6.i = phi i64 [ %.add7.i, %.noexc13 ], [ 1720, %19 ]
+.preheader16.i:                                   ; preds = %.noexc15, %18
+  %.idx6.i = phi i64 [ %.add7.i, %.noexc15 ], [ 1720, %18 ]
   %.ptr8.ptr.i = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 %.idx6.i
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN7rocksdb13HistogramImplE, i64 16), ptr %.ptr8.ptr.i, align 8, !tbaa !53
-  %20 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr.i, i64 8
-  invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %20)
+  %19 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr.i, i64 8
+  invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %19)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.preheader16.i
-  %21 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr.i, i64 928
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
-  %22 = load ptr, ptr %.ptr8.ptr.i, align 8, !tbaa !53
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8
-  invoke void %24(ptr noundef nonnull align 8 dereferenceable(968) %.ptr8.ptr.i)
-          to label %.noexc13 unwind label %.loopexit
+  %20 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr.i, i64 928
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
+  %21 = load ptr, ptr %.ptr8.ptr.i, align 8, !tbaa !53
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(968) %.ptr8.ptr.i)
+          to label %.noexc15 unwind label %.loopexit
 
-.noexc13:                                         ; preds = %.noexc
+.noexc15:                                         ; preds = %.noexc
   %.add7.i = add nuw nsw i64 %.idx6.i, 968
-  %25 = icmp samesign eq i64 %.add7.i, 62704
-  br i1 %25, label %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit, label %.preheader16.i
+  %24 = icmp samesign eq i64 %.add7.i, 62704
+  br i1 %24, label %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit, label %.preheader16.i
 
-_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit: ; preds = %.noexc13
+_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit: ; preds = %.noexc15
   %.add = add nuw nsw i64 %.idx, 62720
-  %.ptr6 = getelementptr inbounds nuw i8, ptr %16, i64 %.add
-  %26 = icmp eq ptr %.ptr6, %18
-  br i1 %26, label %27, label %19
+  %25 = add nuw nsw i64 %.idx, 62656
+  %26 = icmp eq i64 %25, %.idx1314
+  br i1 %26, label %27, label %18
 
 27:                                               ; preds = %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit
+  %.ptr7 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %28 = load ptr, ptr %0, align 8, !tbaa !156
   store ptr %.ptr7, ptr %0, align 8, !tbaa !156
   %.not.i.i = icmp eq ptr %28, null

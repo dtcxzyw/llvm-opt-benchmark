@@ -19801,23 +19801,26 @@ if.end71.loopexit222:                             ; preds = %if.then.i.i120, %_Z
 if.end71:                                         ; preds = %_ZNK4llvh5APInt12getBoolValueEv.exit183, %if.then.i.i181, %if.end71.loopexit222
   %91 = phi i32 [ %57, %if.end71.loopexit222 ], [ %78, %if.then.i.i181 ], [ %78, %_ZNK4llvh5APInt12getBoolValueEv.exit183 ]
   %92 = phi i32 [ %.pre232, %if.end71.loopexit222 ], [ %77, %if.then.i.i181 ], [ %77, %_ZNK4llvh5APInt12getBoolValueEv.exit183 ]
-  %93 = load ptr, ptr %Str, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %93, i64 %conv.i
   %conv.i196 = zext i32 %92 to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %93, i64 %conv.i196
   %cmp.i.i197 = icmp ne i32 %56, %92
-  %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -1
-  %cmp19.i.i = icmp ult ptr %add.ptr, %__last.addr.08.i.i
+  %93 = add nsw i64 %conv.i196, -1
+  %cmp19.i.i = icmp sgt i64 %93, %conv.i
   %or.cond.i.i = select i1 %cmp.i.i197, i1 %cmp19.i.i, i1 false
-  br i1 %or.cond.i.i, label %while.body.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
+  br i1 %or.cond.i.i, label %while.body.i.i.preheader, label %_ZSt7reverseIPcEvT_S1_.exit
 
-while.body.i.i:                                   ; preds = %if.end71, %while.body.i.i
-  %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %if.end71 ]
-  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %add.ptr, %if.end71 ]
-  %94 = load i8, ptr %__first.addr.010.i.i, align 1
-  %95 = load i8, ptr %__last.addr.011.i.i, align 1
-  store i8 %95, ptr %__first.addr.010.i.i, align 1
-  store i8 %94, ptr %__last.addr.011.i.i, align 1
+while.body.i.i.preheader:                         ; preds = %if.end71
+  %94 = load ptr, ptr %Str, align 8
+  %__last.addr.08.i.i = getelementptr inbounds i8, ptr %94, i64 %93
+  %add.ptr = getelementptr inbounds nuw i8, ptr %94, i64 %conv.i
+  br label %while.body.i.i
+
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
+  %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %while.body.i.i.preheader ]
+  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %add.ptr, %while.body.i.i.preheader ]
+  %95 = load i8, ptr %__first.addr.010.i.i, align 1
+  %96 = load i8, ptr %__last.addr.011.i.i, align 1
+  store i8 %96, ptr %__first.addr.010.i.i, align 1
+  store i8 %95, ptr %__last.addr.011.i.i, align 1
   %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i, i64 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
   %cmp1.i.i = icmp ult ptr %incdec.ptr2.i.i, %__last.addr.0.i.i
@@ -19828,17 +19831,17 @@ _ZSt7reverseIPcEvT_S1_.exit.loopexit:             ; preds = %while.body.i.i
   br label %_ZSt7reverseIPcEvT_S1_.exit
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %_ZSt7reverseIPcEvT_S1_.exit.loopexit, %if.end71
-  %96 = phi i32 [ %.pre233, %_ZSt7reverseIPcEvT_S1_.exit.loopexit ], [ %91, %if.end71 ]
-  %cmp.i.i.i199 = icmp ugt i32 %96, 64
+  %97 = phi i32 [ %.pre233, %_ZSt7reverseIPcEvT_S1_.exit.loopexit ], [ %91, %if.end71 ]
+  %cmp.i.i.i199 = icmp ugt i32 %97, 64
   br i1 %cmp.i.i.i199, label %if.then.i201, label %return
 
 if.then.i201:                                     ; preds = %_ZSt7reverseIPcEvT_S1_.exit
-  %97 = load ptr, ptr %Tmp, align 8
-  %isnull.i = icmp eq ptr %97, null
+  %98 = load ptr, ptr %Tmp, align 8
+  %isnull.i = icmp eq ptr %98, null
   br i1 %isnull.i, label %return, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i201
-  call void @_ZdaPv(ptr noundef nonnull %97) #25
+  call void @_ZdaPv(ptr noundef nonnull %98) #25
   br label %return
 
 return:                                           ; preds = %delete.notnull.i, %if.then.i201, %_ZSt7reverseIPcEvT_S1_.exit, %_ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit46

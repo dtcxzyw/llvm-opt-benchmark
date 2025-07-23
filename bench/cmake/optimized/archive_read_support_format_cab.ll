@@ -145,8 +145,8 @@ define internal range(i32 -1, 65) i32 @archive_read_format_cab_bid(ptr noundef %
   %24 = getelementptr inbounds i8, ptr %18, i64 %.02948
   %25 = load i64, ptr %3, align 8, !tbaa !7
   %26 = getelementptr inbounds i8, ptr %18, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = icmp ult ptr %27, %26
+  %27 = add nsw i64 %.02948, 8
+  %28 = icmp slt i64 %27, %25
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %23, %find_cab_magic.exit

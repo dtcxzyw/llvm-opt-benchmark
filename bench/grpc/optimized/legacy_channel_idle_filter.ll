@@ -4825,52 +4825,48 @@ define linkonce_odr void @_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15
   %16 = select i1 %14, i64 -1, i64 %15
   %17 = call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #36
   store i64 %8, ptr %17, align 16
-  %.ptr5 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = icmp eq i64 %8, 0
-  br i1 %18, label %.loopexit11, label %19
+  br i1 %18, label %.loopexit12, label %.preheader
 
-19:                                               ; preds = %3
-  %20 = getelementptr inbounds %struct.BitGen, ptr %.ptr5, i64 %8
-  br label %21
-
-21:                                               ; preds = %28, %19
-  %.idx = phi i64 [ 8, %19 ], [ %.add, %28 ]
+.preheader:                                       ; preds = %3, %25
+  %.idx = phi i64 [ %.add, %25 ], [ 8, %3 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   store i64 0, ptr %.ptr.ptr, align 8, !tbaa !276
   call void @llvm.experimental.noalias.scope.decl(metadata !277)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #34, !noalias !277
-  %22 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 280
-  invoke void @_ZN4absl12lts_2024072215random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %22)
+  %19 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 280
+  invoke void @_ZN4absl12lts_2024072215random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %19)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 272
-  store i64 32, ptr %24, align 8, !tbaa !280, !alias.scope !277
-  %25 = ptrtoint ptr %23 to i64
-  %26 = and i64 %25, 8
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %27, i8 0, i64 256, i1 false), !alias.scope !277
-  invoke void @_ZN4absl12lts_2024072215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %23, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %28 unwind label %.loopexit
+.noexc:                                           ; preds = %.preheader
+  %20 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 272
+  store i64 32, ptr %21, align 8, !tbaa !280, !alias.scope !277
+  %22 = ptrtoint ptr %20 to i64
+  %23 = and i64 %22, 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %24, i8 0, i64 256, i1 false), !alias.scope !277
+  invoke void @_ZN4absl12lts_2024072215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %20, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %25 unwind label %.loopexit
 
-28:                                               ; preds = %.noexc
+25:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #34, !noalias !277
   %.add = add nuw nsw i64 %.idx, 296
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %17, i64 %.add
-  %29 = icmp eq ptr %.ptr4, %20
-  br i1 %29, label %.loopexit11, label %21
+  %26 = add nuw nsw i64 %.idx, 288
+  %27 = icmp eq i64 %26, %11
+  br i1 %27, label %.loopexit12, label %.preheader
 
-.loopexit11:                                      ; preds = %28, %3
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.ptr5, ptr %30, align 8, !tbaa !275
+.loopexit12:                                      ; preds = %25, %3
+  %.ptr5 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.ptr5, ptr %28, align 8, !tbaa !275
   ret void
 
-.loopexit:                                        ; preds = %.noexc, %21
-  %31 = landingpad { ptr, i32 }
+.loopexit:                                        ; preds = %.noexc, %.preheader
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPvm(ptr noundef nonnull %17, i64 noundef %16) #37
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %29
 }
 
 declare noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

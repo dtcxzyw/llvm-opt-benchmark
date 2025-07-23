@@ -35458,22 +35458,20 @@ define internal fastcc void @_ZN3vim3Vim15select_register17h2be7c486ffc03428E(pt
 20:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hba4dc8e5560cbe6bE.exit"
   %21 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
   %22 = load i64, ptr %6, align 8, !noundef !5
-  %23 = getelementptr i8, ptr %21, i64 %22
-  %.ptr14 = getelementptr i8, ptr %23, i64 16
-  %24 = icmp eq i64 %22, 0
-  br i1 %24, label %60, label %25
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %60, label %24
 
-25:                                               ; preds = %20
-  %.ptr = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %26 = load i8, ptr %.ptr, align 1, !noalias !6842, !noundef !5
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %26 = load i8, ptr %25, align 1, !noalias !6842, !noundef !5
   %27 = icmp sgt i8 %26, -1
   br i1 %27, label %38, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i": ; preds = %25
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i": ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 17
   %29 = and i8 %26, 31
   %30 = zext nneg i8 %29 to i32
-  %31 = icmp ne ptr %28, %.ptr14
+  %31 = icmp ne i64 %22, 1
   tail call void @llvm.assume(i1 %31)
   %32 = load i8, ptr %28, align 1, !noalias !6842, !noundef !5
   %33 = shl nuw nsw i32 %30, 6
@@ -35483,13 +35481,13 @@ define internal fastcc void @_ZN3vim3Vim15select_register17h2be7c486ffc03428E(pt
   %37 = icmp samesign ugt i8 %26, -33
   br i1 %37, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i", label %61
 
-38:                                               ; preds = %25
+38:                                               ; preds = %24
   %39 = zext nneg i8 %26 to i32
   br label %61
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i"
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 18
-  %41 = icmp ne ptr %40, %.ptr14
+  %41 = icmp ne i64 %22, 2
   tail call void @llvm.assume(i1 %41)
   %42 = load i8, ptr %40, align 1, !noalias !6842, !noundef !5
   %43 = shl nuw nsw i32 %35, 6
@@ -35503,7 +35501,7 @@ define internal fastcc void @_ZN3vim3Vim15select_register17h2be7c486ffc03428E(pt
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit16.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i"
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 19
-  %51 = icmp ne ptr %50, %.ptr14
+  %51 = icmp ne i64 %22, 3
   tail call void @llvm.assume(i1 %51)
   %52 = load i8, ptr %50, align 1, !noalias !6842, !noundef !5
   %53 = shl nuw nsw i32 %30, 18
@@ -36811,22 +36809,20 @@ define hidden void @_ZN3vim3Vim13input_ignored17h503bb231589e529bE(ptr noalias n
   %60 = load i8, ptr %59, align 1, !range !36, !noundef !5
   %61 = load ptr, ptr %35, align 8, !nonnull !5, !noundef !5
   %62 = load i64, ptr %36, align 8, !noundef !5
-  %63 = getelementptr i8, ptr %61, i64 %62
-  %.ptr218 = getelementptr i8, ptr %63, i64 16
-  %64 = icmp eq i64 %62, 0
-  br i1 %64, label %.thread204.invoke, label %65
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %.thread204.invoke, label %64
 
-65:                                               ; preds = %58
-  %.ptr217 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %66 = load i8, ptr %.ptr217, align 1, !noalias !6991, !noundef !5
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %66 = load i8, ptr %65, align 1, !noalias !6991, !noundef !5
   %67 = icmp sgt i8 %66, -1
   br i1 %67, label %78, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i": ; preds = %65
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i": ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 17
   %69 = and i8 %66, 31
   %70 = zext nneg i8 %69 to i32
-  %71 = icmp ne ptr %68, %.ptr218
+  %71 = icmp ne i64 %62, 1
   tail call void @llvm.assume(i1 %71)
   %72 = load i8, ptr %68, align 1, !noalias !6991, !noundef !5
   %73 = shl nuw nsw i32 %70, 6
@@ -36836,13 +36832,13 @@ define hidden void @_ZN3vim3Vim13input_ignored17h503bb231589e529bE(ptr noalias n
   %77 = icmp samesign ugt i8 %66, -33
   br i1 %77, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i", label %.thread146
 
-78:                                               ; preds = %65
+78:                                               ; preds = %64
   %79 = zext nneg i8 %66 to i32
   br label %.thread146
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i"
   %80 = getelementptr inbounds nuw i8, ptr %61, i64 18
-  %81 = icmp ne ptr %80, %.ptr218
+  %81 = icmp ne i64 %62, 2
   tail call void @llvm.assume(i1 %81)
   %82 = load i8, ptr %80, align 1, !noalias !6991, !noundef !5
   %83 = shl nuw nsw i32 %75, 6
@@ -36859,22 +36855,20 @@ define hidden void @_ZN3vim3Vim13input_ignored17h503bb231589e529bE(ptr noalias n
   %92 = load i8, ptr %91, align 1, !range !36, !noundef !5
   %93 = load ptr, ptr %35, align 8, !nonnull !5, !noundef !5
   %94 = load i64, ptr %36, align 8, !noundef !5
-  %95 = getelementptr i8, ptr %93, i64 %94
-  %.ptr216 = getelementptr i8, ptr %95, i64 16
-  %96 = icmp eq i64 %94, 0
-  br i1 %96, label %.thread204.invoke, label %97
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %.thread204.invoke, label %96
 
-97:                                               ; preds = %90
-  %.ptr215 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %98 = load i8, ptr %.ptr215, align 1, !noalias !6994, !noundef !5
+96:                                               ; preds = %90
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %98 = load i8, ptr %97, align 1, !noalias !6994, !noundef !5
   %99 = icmp sgt i8 %98, -1
   br i1 %99, label %110, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i82"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i82": ; preds = %97
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i82": ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 17
   %101 = and i8 %98, 31
   %102 = zext nneg i8 %101 to i32
-  %103 = icmp ne ptr %100, %.ptr216
+  %103 = icmp ne i64 %94, 1
   tail call void @llvm.assume(i1 %103)
   %104 = load i8, ptr %100, align 1, !noalias !6994, !noundef !5
   %105 = shl nuw nsw i32 %102, 6
@@ -36884,13 +36878,13 @@ define hidden void @_ZN3vim3Vim13input_ignored17h503bb231589e529bE(ptr noalias n
   %109 = icmp samesign ugt i8 %98, -33
   br i1 %109, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i85", label %.thread168
 
-110:                                              ; preds = %97
+110:                                              ; preds = %96
   %111 = zext nneg i8 %98 to i32
   br label %.thread168
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i85": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i82"
   %112 = getelementptr inbounds nuw i8, ptr %93, i64 18
-  %113 = icmp ne ptr %112, %.ptr216
+  %113 = icmp ne i64 %94, 2
   tail call void @llvm.assume(i1 %113)
   %114 = load i8, ptr %112, align 1, !noalias !6994, !noundef !5
   %115 = shl nuw nsw i32 %107, 6
@@ -37323,22 +37317,20 @@ thread-pre-split.i:                               ; preds = %159
 282:                                              ; preds = %48
   %283 = load ptr, ptr %35, align 8, !nonnull !5, !noundef !5
   %284 = load i64, ptr %36, align 8, !noundef !5
-  %285 = getelementptr i8, ptr %283, i64 %284
-  %.ptr211 = getelementptr i8, ptr %285, i64 16
-  %286 = icmp eq i64 %284, 0
-  br i1 %286, label %.thread204.invoke, label %287
+  %285 = icmp eq i64 %284, 0
+  br i1 %285, label %.thread204.invoke, label %286
 
-287:                                              ; preds = %282
-  %.ptr210 = getelementptr inbounds nuw i8, ptr %283, i64 16
-  %288 = load i8, ptr %.ptr210, align 1, !noalias !7118, !noundef !5
+286:                                              ; preds = %282
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 16
+  %288 = load i8, ptr %287, align 1, !noalias !7118, !noundef !5
   %289 = icmp sgt i8 %288, -1
   br i1 %289, label %300, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i88"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i88": ; preds = %287
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i88": ; preds = %286
   %290 = getelementptr inbounds nuw i8, ptr %283, i64 17
   %291 = and i8 %288, 31
   %292 = zext nneg i8 %291 to i32
-  %293 = icmp ne ptr %290, %.ptr211
+  %293 = icmp ne i64 %284, 1
   tail call void @llvm.assume(i1 %293)
   %294 = load i8, ptr %290, align 1, !noalias !7118, !noundef !5
   %295 = shl nuw nsw i32 %292, 6
@@ -37348,13 +37340,13 @@ thread-pre-split.i:                               ; preds = %159
   %299 = icmp samesign ugt i8 %288, -33
   br i1 %299, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i91", label %.thread196
 
-300:                                              ; preds = %287
+300:                                              ; preds = %286
   %301 = zext nneg i8 %288 to i32
   br label %.thread196
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i91": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i88"
   %302 = getelementptr inbounds nuw i8, ptr %283, i64 18
-  %303 = icmp ne ptr %302, %.ptr211
+  %303 = icmp ne i64 %284, 2
   tail call void @llvm.assume(i1 %303)
   %304 = load i8, ptr %302, align 1, !noalias !7118, !noundef !5
   %305 = shl nuw nsw i32 %297, 6
@@ -37369,22 +37361,20 @@ thread-pre-split.i:                               ; preds = %159
 312:                                              ; preds = %48
   %313 = load ptr, ptr %35, align 8, !nonnull !5, !noundef !5
   %314 = load i64, ptr %36, align 8, !noundef !5
-  %315 = getelementptr i8, ptr %313, i64 %314
-  %.ptr209 = getelementptr i8, ptr %315, i64 16
-  %316 = icmp eq i64 %314, 0
-  br i1 %316, label %.thread204.invoke, label %317
+  %315 = icmp eq i64 %314, 0
+  br i1 %315, label %.thread204.invoke, label %316
 
-317:                                              ; preds = %312
-  %.ptr = getelementptr inbounds nuw i8, ptr %313, i64 16
-  %318 = load i8, ptr %.ptr, align 1, !noalias !7121, !noundef !5
+316:                                              ; preds = %312
+  %317 = getelementptr inbounds nuw i8, ptr %313, i64 16
+  %318 = load i8, ptr %317, align 1, !noalias !7121, !noundef !5
   %319 = icmp sgt i8 %318, -1
   br i1 %319, label %330, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i94"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i94": ; preds = %317
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i94": ; preds = %316
   %320 = getelementptr inbounds nuw i8, ptr %313, i64 17
   %321 = and i8 %318, 31
   %322 = zext nneg i8 %321 to i32
-  %323 = icmp ne ptr %320, %.ptr209
+  %323 = icmp ne i64 %314, 1
   tail call void @llvm.assume(i1 %323)
   %324 = load i8, ptr %320, align 1, !noalias !7121, !noundef !5
   %325 = shl nuw nsw i32 %322, 6
@@ -37394,13 +37384,13 @@ thread-pre-split.i:                               ; preds = %159
   %329 = icmp samesign ugt i8 %318, -33
   br i1 %329, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i97", label %.thread206
 
-330:                                              ; preds = %317
+330:                                              ; preds = %316
   %331 = zext nneg i8 %318 to i32
   br label %.thread206
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i97": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i94"
   %332 = getelementptr inbounds nuw i8, ptr %313, i64 18
-  %333 = icmp ne ptr %332, %.ptr209
+  %333 = icmp ne i64 %314, 2
   tail call void @llvm.assume(i1 %333)
   %334 = load i8, ptr %332, align 1, !noalias !7121, !noundef !5
   %335 = shl nuw nsw i32 %327, 6
@@ -37432,23 +37422,23 @@ thread-pre-split.i:                               ; preds = %159
   %.not = icmp eq i8 %348, 65
   br i1 %.not, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16422900337870965792.exit", label %579
 
-349:                                              ; preds = %.invoke226, %.invoke, %.thread204.invoke, %576, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$vim..state..ReplayableAction$GT$$GT$$GT$17h4ac3aa1dc0fcd0b2E.exit.i", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d43be64dc1b7b41E.llvm.3606735345375397770.exit.i.i", %.noexc115, %.noexc114, %.thread196, %509, %471, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hdadbd3d06582ab31E.llvm.16422900337870965792.exit38.sink.split.i", %.thread206, %514, %512, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit", %493, %502, %479, %476, %428, %426, %422, %420, %418, %.thread168, %376, %374, %370, %368, %366, %.thread146, %345, %342, %135
-  %.sroa.026.2 = phi i8 [ 0, %342 ], [ 0, %345 ], [ 1, %376 ], [ 1, %374 ], [ 1, %370 ], [ 1, %368 ], [ 1, %366 ], [ 1, %.thread146 ], [ 1, %428 ], [ 1, %426 ], [ 1, %422 ], [ 1, %420 ], [ 1, %418 ], [ 1, %.thread168 ], [ 0, %476 ], [ 0, %479 ], [ 0, %135 ], [ 1, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit" ], [ 1, %493 ], [ 1, %502 ], [ 1, %512 ], [ 0, %514 ], [ 1, %.thread206 ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hdadbd3d06582ab31E.llvm.16422900337870965792.exit38.sink.split.i" ], [ %.sroa.026.8, %471 ], [ 1, %509 ], [ 1, %.thread196 ], [ 1, %.noexc114 ], [ 1, %.noexc115 ], [ 1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d43be64dc1b7b41E.llvm.3606735345375397770.exit.i.i" ], [ 1, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$vim..state..ReplayableAction$GT$$GT$$GT$17h4ac3aa1dc0fcd0b2E.exit.i" ], [ 0, %576 ], [ 1, %.thread204.invoke ], [ 1, %.invoke ], [ 0, %.invoke226 ]
-  %.sroa.024.0 = phi i1 [ true, %342 ], [ true, %345 ], [ true, %376 ], [ true, %374 ], [ true, %370 ], [ true, %368 ], [ true, %366 ], [ true, %.thread146 ], [ true, %428 ], [ true, %426 ], [ true, %422 ], [ true, %420 ], [ true, %418 ], [ true, %.thread168 ], [ true, %476 ], [ true, %479 ], [ true, %135 ], [ true, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit" ], [ true, %493 ], [ true, %502 ], [ true, %512 ], [ true, %514 ], [ true, %.thread206 ], [ true, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hdadbd3d06582ab31E.llvm.16422900337870965792.exit38.sink.split.i" ], [ false, %471 ], [ true, %509 ], [ true, %.thread196 ], [ true, %.noexc114 ], [ true, %.noexc115 ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d43be64dc1b7b41E.llvm.3606735345375397770.exit.i.i" ], [ true, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$vim..state..ReplayableAction$GT$$GT$$GT$17h4ac3aa1dc0fcd0b2E.exit.i" ], [ true, %576 ], [ true, %.thread204.invoke ], [ true, %.invoke ], [ true, %.invoke226 ]
+349:                                              ; preds = %.invoke219, %.invoke, %.thread204.invoke, %576, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$vim..state..ReplayableAction$GT$$GT$$GT$17h4ac3aa1dc0fcd0b2E.exit.i", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d43be64dc1b7b41E.llvm.3606735345375397770.exit.i.i", %.noexc115, %.noexc114, %.thread196, %509, %471, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hdadbd3d06582ab31E.llvm.16422900337870965792.exit38.sink.split.i", %.thread206, %514, %512, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit", %493, %502, %479, %476, %428, %426, %422, %420, %418, %.thread168, %376, %374, %370, %368, %366, %.thread146, %345, %342, %135
+  %.sroa.026.2 = phi i8 [ 0, %342 ], [ 0, %345 ], [ 1, %376 ], [ 1, %374 ], [ 1, %370 ], [ 1, %368 ], [ 1, %366 ], [ 1, %.thread146 ], [ 1, %428 ], [ 1, %426 ], [ 1, %422 ], [ 1, %420 ], [ 1, %418 ], [ 1, %.thread168 ], [ 0, %476 ], [ 0, %479 ], [ 0, %135 ], [ 1, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit" ], [ 1, %493 ], [ 1, %502 ], [ 1, %512 ], [ 0, %514 ], [ 1, %.thread206 ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hdadbd3d06582ab31E.llvm.16422900337870965792.exit38.sink.split.i" ], [ %.sroa.026.8, %471 ], [ 1, %509 ], [ 1, %.thread196 ], [ 1, %.noexc114 ], [ 1, %.noexc115 ], [ 1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d43be64dc1b7b41E.llvm.3606735345375397770.exit.i.i" ], [ 1, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$vim..state..ReplayableAction$GT$$GT$$GT$17h4ac3aa1dc0fcd0b2E.exit.i" ], [ 0, %576 ], [ 1, %.thread204.invoke ], [ 1, %.invoke ], [ 0, %.invoke219 ]
+  %.sroa.024.0 = phi i1 [ true, %342 ], [ true, %345 ], [ true, %376 ], [ true, %374 ], [ true, %370 ], [ true, %368 ], [ true, %366 ], [ true, %.thread146 ], [ true, %428 ], [ true, %426 ], [ true, %422 ], [ true, %420 ], [ true, %418 ], [ true, %.thread168 ], [ true, %476 ], [ true, %479 ], [ true, %135 ], [ true, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit" ], [ true, %493 ], [ true, %502 ], [ true, %512 ], [ true, %514 ], [ true, %.thread206 ], [ true, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hdadbd3d06582ab31E.llvm.16422900337870965792.exit38.sink.split.i" ], [ false, %471 ], [ true, %509 ], [ true, %.thread196 ], [ true, %.noexc114 ], [ true, %.noexc115 ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d43be64dc1b7b41E.llvm.3606735345375397770.exit.i.i" ], [ true, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$vim..state..ReplayableAction$GT$$GT$$GT$17h4ac3aa1dc0fcd0b2E.exit.i" ], [ true, %576 ], [ true, %.thread204.invoke ], [ true, %.invoke ], [ true, %.invoke219 ]
   %350 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit": ; preds = %464, %467, %472, %471, %469, %456, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit107", %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit", %.invoke226, %.invoke, %.thread206, %"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$13multi_replace17he952c01b402b7175E.exit", %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$4jump17hc96669b1c2e164f5E.exit", %503, %511, %474, %51, %514, %135, %345, %342, %549
-  %.sroa.026.4 = phi i8 [ 0, %"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$13multi_replace17he952c01b402b7175E.exit" ], [ 1, %51 ], [ 0, %342 ], [ 0, %345 ], [ 0, %135 ], [ 0, %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$4jump17hc96669b1c2e164f5E.exit" ], [ 0, %514 ], [ 1, %549 ], [ 1, %474 ], [ 1, %511 ], [ 1, %503 ], [ 1, %.thread206 ], [ 1, %.invoke ], [ 0, %.invoke226 ], [ 1, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit" ], [ 1, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit107" ], [ 1, %472 ], [ 0, %464 ], [ 0, %467 ], [ %.sroa.026.8, %471 ], [ %.sroa.026.8, %469 ], [ 1, %456 ]
-  %.sroa.024.2 = phi i1 [ true, %"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$13multi_replace17he952c01b402b7175E.exit" ], [ true, %51 ], [ true, %342 ], [ true, %345 ], [ true, %135 ], [ true, %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$4jump17hc96669b1c2e164f5E.exit" ], [ true, %514 ], [ true, %549 ], [ true, %474 ], [ true, %511 ], [ true, %503 ], [ true, %.thread206 ], [ true, %.invoke ], [ true, %.invoke226 ], [ true, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit" ], [ true, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit107" ], [ false, %456 ], [ false, %469 ], [ false, %471 ], [ false, %472 ], [ false, %467 ], [ false, %464 ]
+"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit": ; preds = %464, %467, %472, %471, %469, %456, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit107", %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit", %.invoke219, %.invoke, %.thread206, %"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$13multi_replace17he952c01b402b7175E.exit", %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$4jump17hc96669b1c2e164f5E.exit", %503, %511, %474, %51, %514, %135, %345, %342, %549
+  %.sroa.026.4 = phi i8 [ 0, %"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$13multi_replace17he952c01b402b7175E.exit" ], [ 1, %51 ], [ 0, %342 ], [ 0, %345 ], [ 0, %135 ], [ 0, %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$4jump17hc96669b1c2e164f5E.exit" ], [ 0, %514 ], [ 1, %549 ], [ 1, %474 ], [ 1, %511 ], [ 1, %503 ], [ 1, %.thread206 ], [ 1, %.invoke ], [ 0, %.invoke219 ], [ 1, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit" ], [ 1, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit107" ], [ 1, %472 ], [ 0, %464 ], [ 0, %467 ], [ %.sroa.026.8, %471 ], [ %.sroa.026.8, %469 ], [ 1, %456 ]
+  %.sroa.024.2 = phi i1 [ true, %"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$13multi_replace17he952c01b402b7175E.exit" ], [ true, %51 ], [ true, %342 ], [ true, %345 ], [ true, %135 ], [ true, %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$4jump17hc96669b1c2e164f5E.exit" ], [ true, %514 ], [ true, %549 ], [ true, %474 ], [ true, %511 ], [ true, %503 ], [ true, %.thread206 ], [ true, %.invoke ], [ true, %.invoke219 ], [ true, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit" ], [ true, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$vim..motion..Motion$GT$$GT$17h1bff7686f2c78816E.exit107" ], [ false, %456 ], [ false, %469 ], [ false, %471 ], [ false, %472 ], [ false, %467 ], [ false, %464 ]
   %351 = load i8, ptr %34, align 8, !range !836, !noundef !5
   %352 = icmp eq i8 %351, 65
   br i1 %352, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16422900337870965792.exit131", label %586
 
 353:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i"
   %354 = getelementptr inbounds nuw i8, ptr %61, i64 19
-  %355 = icmp ne ptr %354, %.ptr218
+  %355 = icmp ne i64 %62, 3
   tail call void @llvm.assume(i1 %355)
   %356 = load i8, ptr %354, align 1, !noalias !6991, !noundef !5
   %357 = shl nuw nsw i32 %70, 18
@@ -37575,7 +37565,7 @@ thread-pre-split.i:                               ; preds = %159
 
 405:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i85"
   %406 = getelementptr inbounds nuw i8, ptr %93, i64 19
-  %407 = icmp ne ptr %406, %.ptr216
+  %407 = icmp ne i64 %94, 3
   tail call void @llvm.assume(i1 %407)
   %408 = load i8, ptr %406, align 1, !noalias !6994, !noundef !5
   %409 = shl nuw nsw i32 %102, 18
@@ -37718,8 +37708,8 @@ thread-pre-split.i:                               ; preds = %159
           to label %467 unwind label %.thread184
 
 464:                                              ; preds = %468
-  %.not212.not = icmp eq i8 %.sroa.0.0.copyload, 41
-  br i1 %.not212.not, label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit", label %469
+  %.not209.not = icmp eq i8 %.sroa.0.0.copyload, 41
+  br i1 %.not209.not, label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit", label %469
 
 .thread184:                                       ; preds = %467, %461
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -37752,8 +37742,8 @@ thread-pre-split.i:                               ; preds = %159
           to label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit" unwind label %349
 
 472:                                              ; preds = %455
-  %.not214.not = icmp eq i8 %.sroa.0.0.copyload, 41
-  br i1 %.not214.not, label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit", label %469
+  %.not211.not = icmp eq i8 %.sroa.0.0.copyload, 41
+  br i1 %.not211.not, label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit", label %469
 
 473:                                              ; preds = %465
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %34)
@@ -37767,15 +37757,15 @@ thread-pre-split.i:                               ; preds = %159
   %477 = load ptr, ptr %35, align 8, !nonnull !5, !noundef !5
   %478 = load i64, ptr %36, align 8, !noundef !5
   invoke fastcc void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$16change_surrounds17h8dc5e5baf9179139E"(ptr noalias noundef align 8 dereferenceable(536) %0, ptr noundef nonnull %477, i64 noundef %478, i8 noundef %127, ptr noalias noundef align 8 dereferenceable(24) %3)
-          to label %.invoke226 unwind label %349
+          to label %.invoke219 unwind label %349
 
 479:                                              ; preds = %131
   %480 = load ptr, ptr %35, align 8, !nonnull !5, !noundef !5
   %481 = load i64, ptr %36, align 8, !noundef !5
   invoke fastcc void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$16delete_surrounds17h749e93547b648b97E"(ptr noalias noundef align 8 dereferenceable(536) %0, ptr noundef nonnull %480, i64 noundef %481, ptr noalias noundef align 8 dereferenceable(24) %3)
-          to label %.invoke226 unwind label %349
+          to label %.invoke219 unwind label %349
 
-.invoke226:                                       ; preds = %479, %476
+.invoke219:                                       ; preds = %479, %476
   invoke void @_ZN3vim3Vim14clear_operator17hba1ad319f81c7089E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit" unwind label %349
 
@@ -37866,7 +37856,7 @@ thread-pre-split.i:                               ; preds = %159
 
 517:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i91"
   %518 = getelementptr inbounds nuw i8, ptr %283, i64 19
-  %519 = icmp ne ptr %518, %.ptr211
+  %519 = icmp ne i64 %284, 3
   tail call void @llvm.assume(i1 %519)
   %520 = load i8, ptr %518, align 1, !noalias !7118, !noundef !5
   %521 = shl nuw nsw i32 %292, 18
@@ -37957,7 +37947,7 @@ thread-pre-split.i:                               ; preds = %159
 
 550:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i97"
   %551 = getelementptr inbounds nuw i8, ptr %313, i64 19
-  %552 = icmp ne ptr %551, %.ptr209
+  %552 = icmp ne i64 %314, 3
   tail call void @llvm.assume(i1 %552)
   %553 = load i8, ptr %551, align 1, !noalias !7121, !noundef !5
   %554 = shl nuw nsw i32 %322, 18
@@ -38032,8 +38022,8 @@ thread-pre-split.i:                               ; preds = %159
   %583 = or i1 %581, %582
   %or.cond3 = and i1 %.sroa.024.1, %583
   %584 = icmp samesign ult i8 %348, 39
-  %or.cond219 = select i1 %or.cond3, i1 %584, i1 false
-  br i1 %or.cond219, label %585, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16422900337870965792.exit"
+  %or.cond212 = select i1 %or.cond3, i1 %584, i1 false
+  br i1 %or.cond212, label %585, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16422900337870965792.exit"
 
 585:                                              ; preds = %579
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %34)
@@ -38046,8 +38036,8 @@ thread-pre-split.i:                               ; preds = %159
   %590 = or i1 %588, %589
   %or.cond5 = and i1 %.sroa.024.2, %590
   %591 = icmp samesign ult i8 %351, 39
-  %or.cond220 = select i1 %or.cond5, i1 %591, i1 false
-  br i1 %or.cond220, label %593, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16422900337870965792.exit131"
+  %or.cond213 = select i1 %or.cond5, i1 %591, i1 false
+  br i1 %or.cond213, label %593, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16422900337870965792.exit131"
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$vim..surrounds..SurroundsType$GT$$GT$17hbcebe2ff45e928e4E.llvm.16422900337870965792.exit131": ; preds = %593, %"_ZN4core3ptr50drop_in_place$LT$vim..surrounds..SurroundsType$GT$17h51e1a7b4f27f9dd9E.llvm.16422900337870965792.exit", %586
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %34)

@@ -2345,124 +2345,122 @@ define hidden noundef zeroext i1 @_ZN3smt12theory_array16internalize_atomEP3appb
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3smt12theory_array21internalize_term_coreEP3app(ptr noundef nonnull align 8 dereferenceable(444) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !623
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr39 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not32 = icmp eq i32 %4, 0
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !tbaa !623
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not32 = icmp eq i32 %5, 0
   br i1 %.not32, label %._crit_edge38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %13
 
-._crit_edge:                                      ; preds = %12
-  %.pre = load i32, ptr %3, align 8, !tbaa !623
-  %8 = zext i32 %.pre to i64
-  %.idx40 = shl nuw nsw i64 %8, 3
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx40
-  %.ptr41 = getelementptr inbounds nuw i8, ptr %9, i64 32
+._crit_edge:                                      ; preds = %13
+  %.pre = load i32, ptr %4, align 8, !tbaa !623
+  %9 = zext i32 %.pre to i64
+  %.idx39 = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx39
   %.not2834 = icmp eq i32 %.pre, 0
   br i1 %.not2834, label %._crit_edge38, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %._crit_edge
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %27
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %28
 
-12:                                               ; preds = %.lr.ph, %12
-  %.02633 = phi ptr [ %.ptr.ptr, %.lr.ph ], [ %15, %12 ]
-  %13 = load ptr, ptr %.02633, align 8, !tbaa !624
-  %14 = load ptr, ptr %7, align 8, !tbaa !612
-  tail call void @_ZN3smt7context11internalizeEP4exprb(ptr noundef nonnull align 8 dereferenceable(10544) %14, ptr noundef %13, i1 noundef zeroext false)
-  %15 = getelementptr inbounds nuw i8, ptr %.02633, i64 8
-  %.not = icmp eq ptr %15, %.ptr39
-  br i1 %.not, label %._crit_edge, label %12
+13:                                               ; preds = %.lr.ph, %13
+  %.02633 = phi ptr [ %3, %.lr.ph ], [ %16, %13 ]
+  %14 = load ptr, ptr %.02633, align 8, !tbaa !624
+  %15 = load ptr, ptr %8, align 8, !tbaa !612
+  tail call void @_ZN3smt7context11internalizeEP4exprb(ptr noundef nonnull align 8 dereferenceable(10544) %15, ptr noundef %14, i1 noundef zeroext false)
+  %16 = getelementptr inbounds nuw i8, ptr %.02633, i64 8
+  %.not = icmp eq ptr %16, %7
+  br i1 %.not, label %._crit_edge, label %13
 
-._crit_edge38:                                    ; preds = %33, %2, %._crit_edge
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !612
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8656
-  %19 = load ptr, ptr %18, align 8, !tbaa !550
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i
+._crit_edge38:                                    ; preds = %34, %2, %._crit_edge
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !612
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8656
+  %20 = load ptr, ptr %19, align 8, !tbaa !550
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i:  ; preds = %._crit_edge38
-  %21 = load i32, ptr %1, align 4, !tbaa !625
-  %22 = getelementptr inbounds i8, ptr %19, i64 -4
-  %23 = load i32, ptr %22, align 4, !tbaa !560
-  %.fr.i.i = freeze i32 %23
-  %24 = icmp ult i32 %21, %.fr.i.i
-  br i1 %24, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread
+  %22 = load i32, ptr %1, align 4, !tbaa !625
+  %23 = getelementptr inbounds i8, ptr %20, i64 -4
+  %24 = load i32, ptr %23, align 4, !tbaa !560
+  %.fr.i.i = freeze i32 %24
+  %25 = icmp ult i32 %22, %.fr.i.i
+  br i1 %25, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i
-  %25 = zext i32 %21 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %25
-  %.pre.i.then.val = load ptr, ptr %26, align 8, !tbaa !570
+  %26 = zext i32 %22 to i64
+  %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %26
+  %.pre.i.then.val = load ptr, ptr %27, align 8, !tbaa !570
   %.not31 = icmp eq ptr %.pre.i.then.val, null
-  br i1 %.not31, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, label %58
+  br i1 %.not31, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, label %59
 
-27:                                               ; preds = %.lr.ph37, %33
-  %.02735 = phi ptr [ %.ptr.ptr, %.lr.ph37 ], [ %34, %33 ]
-  %28 = load ptr, ptr %.02735, align 8, !tbaa !624
-  %29 = load ptr, ptr %10, align 8, !tbaa !626
-  %30 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %29, ptr noundef %28)
-  br i1 %30, label %31, label %33
+28:                                               ; preds = %.lr.ph37, %34
+  %.02735 = phi ptr [ %3, %.lr.ph37 ], [ %35, %34 ]
+  %29 = load ptr, ptr %.02735, align 8, !tbaa !624
+  %30 = load ptr, ptr %11, align 8, !tbaa !626
+  %31 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %30, ptr noundef %29)
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %11, align 8, !tbaa !612
-  tail call void @_ZN3smt7context11internalizeEP4exprb(ptr noundef nonnull align 8 dereferenceable(10544) %32, ptr noundef %28, i1 noundef zeroext false)
-  br label %33
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %12, align 8, !tbaa !612
+  tail call void @_ZN3smt7context11internalizeEP4exprb(ptr noundef nonnull align 8 dereferenceable(10544) %33, ptr noundef %29, i1 noundef zeroext false)
+  br label %34
 
-33:                                               ; preds = %31, %27
-  %34 = getelementptr inbounds nuw i8, ptr %.02735, i64 8
-  %.not28 = icmp eq ptr %34, %.ptr41
-  br i1 %.not28, label %._crit_edge38, label %27
+34:                                               ; preds = %32, %28
+  %35 = getelementptr inbounds nuw i8, ptr %.02735, i64 8
+  %.not28 = icmp eq ptr %35, %10
+  br i1 %.not28, label %._crit_edge38, label %28
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit.thread: ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i, %._crit_edge38, %_ZNK3smt7context14e_internalizedEPK4expr.exit
-  %35 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(10544) %17, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !600
-  %38 = tail call noundef i32 @_ZNK3smt5enode10get_th_varEi(ptr noundef nonnull align 8 dereferenceable(112) %35, i32 noundef %37)
-  %.not.i = icmp eq i32 %38, -1
+  %36 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(10544) %18, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = load i32, ptr %37, align 8, !tbaa !600
+  %39 = tail call noundef i32 @_ZNK3smt5enode10get_th_varEi(ptr noundef nonnull align 8 dereferenceable(112) %36, i32 noundef %38)
+  %.not.i = icmp eq i32 %39, -1
   br i1 %.not.i, label %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit.thread, label %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit
 
 _ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !550
-  %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !570
-  %44 = icmp eq ptr %43, %35
-  br i1 %44, label %48, label %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit.thread
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !550
+  %42 = zext i32 %39 to i64
+  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %44 = load ptr, ptr %43, align 8, !tbaa !570
+  %45 = icmp eq ptr %44, %36
+  br i1 %45, label %49, label %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit.thread
 
 _ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit.thread: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit
-  %45 = load ptr, ptr %0, align 8, !tbaa !3
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(444) %0, ptr noundef nonnull %35)
-  br label %48
+  %46 = load ptr, ptr %0, align 8, !tbaa !3
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(444) %0, ptr noundef nonnull %36)
+  br label %49
 
-48:                                               ; preds = %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit.thread, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !626
-  %51 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %50, ptr noundef nonnull %1)
-  br i1 %51, label %52, label %58
+49:                                               ; preds = %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit.thread, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !626
+  %52 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %51, ptr noundef nonnull %1)
+  br i1 %52, label %53, label %59
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %16, align 8, !tbaa !612
-  %54 = tail call noundef i32 @_ZN3smt7context11mk_bool_varEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %53, ptr noundef nonnull %1)
-  %55 = load ptr, ptr %16, align 8, !tbaa !612
-  %56 = load i32, ptr %36, align 8, !tbaa !600
-  tail call void @_ZN3smt7context14set_var_theoryEji(ptr noundef nonnull align 8 dereferenceable(10544) %55, i32 noundef %54, i32 noundef %56)
-  %57 = load ptr, ptr %16, align 8, !tbaa !612
-  tail call void @_ZN3smt7context14set_enode_flagEjb(ptr noundef nonnull align 8 dereferenceable(10544) %57, i32 noundef %54, i1 noundef zeroext true)
-  br label %58
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %17, align 8, !tbaa !612
+  %55 = tail call noundef i32 @_ZN3smt7context11mk_bool_varEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %54, ptr noundef nonnull %1)
+  %56 = load ptr, ptr %17, align 8, !tbaa !612
+  %57 = load i32, ptr %37, align 8, !tbaa !600
+  tail call void @_ZN3smt7context14set_var_theoryEji(ptr noundef nonnull align 8 dereferenceable(10544) %56, i32 noundef %55, i32 noundef %57)
+  %58 = load ptr, ptr %17, align 8, !tbaa !612
+  tail call void @_ZN3smt7context14set_enode_flagEjb(ptr noundef nonnull align 8 dereferenceable(10544) %58, i32 noundef %55, i1 noundef zeroext true)
+  br label %59
 
-58:                                               ; preds = %48, %52, %_ZNK3smt7context14e_internalizedEPK4expr.exit
-  %.0 = phi i1 [ true, %48 ], [ true, %52 ], [ false, %_ZNK3smt7context14e_internalizedEPK4expr.exit ]
+59:                                               ; preds = %49, %53, %_ZNK3smt7context14e_internalizedEPK4expr.exit
+  %.0 = phi i1 [ true, %49 ], [ true, %53 ], [ false, %_ZNK3smt7context14e_internalizedEPK4expr.exit ]
   ret i1 %.0
 }
 

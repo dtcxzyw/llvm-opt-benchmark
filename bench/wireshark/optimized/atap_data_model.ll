@@ -12745,8 +12745,8 @@ _ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i: ; preds = %_ZNK17QArrayDataP
   %16 = icmp ne ptr %.sroa.01.0.copyload.i, %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr i8, ptr %13, i64 %18
-  %.not.i.i.i.i.i = icmp eq ptr %15, %19
+  %19 = sub i64 %9, %7
+  %.not.i.i.i.i.i = icmp eq i64 %19, %18
   %or.cond.i.i.i.i.i = select i1 %16, i1 true, i1 %.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %20
 
@@ -12758,8 +12758,7 @@ _ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i: ; preds = %_ZNK17QArrayDataP
   br i1 %.not.i.i.i.i.i, label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENKUlS5_S7_E_clES5_S7_.exit, label %21
 
 21:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %.neg.i.i.i = sub i64 %7, %9
-  %gepdiff.i.i.i.i = add i64 %.neg.i.i.i, %18
+  %gepdiff.i.i.i.i = sub i64 %18, %19
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %14, ptr noundef align 1 %15, i64 noundef %gepdiff.i.i.i.i, i1 noundef false) #29
   %.pre12.i.i.i.i.i = load i64, ptr %17, align 8
   br label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENKUlS5_S7_E_clES5_S7_.exit
@@ -12807,8 +12806,8 @@ _ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPoi
   %19 = icmp ne ptr %.sroa.02.0.copyload.i, %5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr i8, ptr %16, i64 %21
-  %.not.i.i.i.i = icmp eq ptr %18, %22
+  %22 = sub i64 %9, %7
+  %.not.i.i.i.i = icmp eq i64 %22, %21
   %or.cond.i.i.i.i = select i1 %19, i1 true, i1 %.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %._crit_edge.i.i.i.i, label %23
 
@@ -12820,8 +12819,7 @@ _ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPoi
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIhE5eraseEPhx.exit.i.i.i, label %24
 
 24:                                               ; preds = %._crit_edge.i.i.i.i
-  %.neg.i.i = sub i64 %7, %9
-  %gepdiff.i.i.i = add i64 %.neg.i.i, %21
+  %gepdiff.i.i.i = sub i64 %21, %22
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %17, ptr noundef align 1 %18, i64 noundef %gepdiff.i.i.i, i1 noundef false) #29
   %.pre12.i.i.i.i = load i64, ptr %20, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIhE5eraseEPhx.exit.i.i.i

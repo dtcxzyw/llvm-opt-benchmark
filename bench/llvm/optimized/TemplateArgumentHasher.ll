@@ -1503,94 +1503,92 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %2, %16
   %24 = load i32, ptr %12, align 8, !tbaa !19
   %25 = add i32 %24, 1
   store i32 %25, ptr %12, align 8, !tbaa !19
-  %26 = load i64, ptr %6, align 16
-  %27 = lshr i64 %26, 38
-  %.idx.i = and i64 %27, 65535
-  %.idx = shl nuw nsw i64 %.idx.i, 3
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr17 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %.not15 = icmp eq i64 %.idx.i, 0
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %27 = load i64, ptr %6, align 16
+  %28 = lshr i64 %27, 35
+  %.idx = and i64 %28, 524280
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
+  %.not15 = icmp samesign eq i64 %.idx, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %30
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %31
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit
   tail call fastcc void @_ZN12_GLOBAL__N_117TypeVisitorHelper17VisitFunctionTypeEPKN5clang12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   ret void
 
-30:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
-  %.016 = phi ptr [ %.ptr, %.lr.ph ], [ %60, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit ]
+31:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
+  %.016 = phi ptr [ %26, %.lr.ph ], [ %61, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit ]
   %.sroa.01.0.copyload = load i64, ptr %.016, align 8, !tbaa !22
-  %31 = load ptr, ptr %4, align 8, !tbaa !69
+  %32 = load ptr, ptr %4, align 8, !tbaa !69
   %.not.i.i.i = icmp ult i64 %.sroa.01.0.copyload, 16
-  br i1 %.not.i.i.i, label %32, label %33
+  br i1 %.not.i.i.i, label %33, label %34
 
-32:                                               ; preds = %30
-  store i8 1, ptr %31, align 8, !tbaa !3
+33:                                               ; preds = %31
+  store i8 1, ptr %32, align 8, !tbaa !3
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
-33:                                               ; preds = %30
-  %34 = and i64 %.sroa.01.0.copyload, 8
-  %.not.i.i = icmp eq i64 %34, 0
-  %35 = and i64 %.sroa.01.0.copyload, -16
-  %36 = inttoptr i64 %35 to ptr
-  br i1 %.not.i.i, label %37, label %39
+34:                                               ; preds = %31
+  %35 = and i64 %.sroa.01.0.copyload, 8
+  %.not.i.i = icmp eq i64 %35, 0
+  %36 = and i64 %.sroa.01.0.copyload, -16
+  %37 = inttoptr i64 %36 to ptr
+  br i1 %.not.i.i, label %38, label %40
 
-37:                                               ; preds = %33
-  %38 = and i64 %.sroa.01.0.copyload, 7
+38:                                               ; preds = %34
+  %39 = and i64 %.sroa.01.0.copyload, 7
   br label %_ZNK5clang8QualType5splitEv.exit.i
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %40, align 8, !tbaa !23
-  %41 = and i64 %.sroa.01.0.copyload, 7
-  %42 = or i64 %.sroa.0.0.copyload.i.i.i, %41
-  %43 = load ptr, ptr %36, align 16, !tbaa !25
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %41, align 8, !tbaa !23
+  %42 = and i64 %.sroa.01.0.copyload, 7
+  %43 = or i64 %.sroa.0.0.copyload.i.i.i, %42
+  %44 = load ptr, ptr %37, align 16, !tbaa !25
   br label %_ZNK5clang8QualType5splitEv.exit.i
 
-_ZNK5clang8QualType5splitEv.exit.i:               ; preds = %39, %37
-  %.sroa.09.0.i.i = phi ptr [ %43, %39 ], [ %36, %37 ]
-  %.sroa.3.0.i.i = phi i64 [ %42, %39 ], [ %38, %37 ]
-  %44 = trunc i64 %.sroa.3.0.i.i to i32
-  %45 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !19
-  %48 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  %49 = load i32, ptr %48, align 4, !tbaa !18
-  %.not.i.i.not.i.i.i.i = icmp ult i32 %47, %49
-  br i1 %.not.i.i.not.i.i.i.i, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i, label %50, !prof !21
+_ZNK5clang8QualType5splitEv.exit.i:               ; preds = %40, %38
+  %.sroa.09.0.i.i = phi ptr [ %44, %40 ], [ %37, %38 ]
+  %.sroa.3.0.i.i = phi i64 [ %43, %40 ], [ %39, %38 ]
+  %45 = trunc i64 %.sroa.3.0.i.i to i32
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %48 = load i32, ptr %47, align 8, !tbaa !19
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 20
+  %50 = load i32, ptr %49, align 4, !tbaa !18
+  %.not.i.i.not.i.i.i.i = icmp ult i32 %48, %50
+  br i1 %.not.i.i.not.i.i.i.i, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i, label %51, !prof !21
 
-50:                                               ; preds = %_ZNK5clang8QualType5splitEv.exit.i
-  %51 = zext i32 %47 to i64
-  %52 = add nuw nsw i64 %51, 1
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %45, ptr noundef nonnull %53, i64 noundef %52, i64 noundef 4) #8
-  %.pre.i.i.i.i = load i32, ptr %46, align 8, !tbaa !19
+51:                                               ; preds = %_ZNK5clang8QualType5splitEv.exit.i
+  %52 = zext i32 %48 to i64
+  %53 = add nuw nsw i64 %52, 1
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %46, ptr noundef nonnull %54, i64 noundef %53, i64 noundef 4) #8
+  %.pre.i.i.i.i = load i32, ptr %47, align 8, !tbaa !19
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
 
-_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %50, %_ZNK5clang8QualType5splitEv.exit.i
-  %54 = phi i32 [ %47, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %50 ]
-  %55 = load ptr, ptr %45, align 8, !tbaa !17
-  %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
-  store i32 %44, ptr %57, align 1
-  %58 = load i32, ptr %46, align 8, !tbaa !19
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %46, align 8, !tbaa !19
+_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %51, %_ZNK5clang8QualType5splitEv.exit.i
+  %55 = phi i32 [ %48, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %51 ]
+  %56 = load ptr, ptr %46, align 8, !tbaa !17
+  %57 = zext i32 %55 to i64
+  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  store i32 %45, ptr %58, align 1
+  %59 = load i32, ptr %47, align 8, !tbaa !19
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %47, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  store ptr %45, ptr %3, align 8, !tbaa !31
-  store ptr %31, ptr %29, align 8, !tbaa !33
+  store ptr %46, ptr %3, align 8, !tbaa !31
+  store ptr %32, ptr %30, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
-_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ; preds = %32, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
-  %60 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %.not = icmp eq ptr %60, %.ptr17
-  br i1 %.not, label %._crit_edge, label %30
+_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ; preds = %33, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
+  %61 = getelementptr inbounds nuw i8, ptr %.016, i64 8
+  %.not = icmp eq ptr %61, %29
+  br i1 %.not, label %._crit_edge, label %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1913,55 +1911,54 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ;
 define internal fastcc void @_ZN12_GLOBAL__N_117TypeVisitorHelper31VisitTemplateSpecializationTypeEPKN5clang26TemplateSpecializationTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !69
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !22
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !19
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !18
-  %.not.i.i.not.i.i.i = icmp ult i32 %9, %11
-  br i1 %.not.i.i.not.i.i.i, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, label %12, !prof !21
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %7 = load i32, ptr %6, align 4, !tbaa !22
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %10 = load i32, ptr %9, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !18
+  %.not.i.i.not.i.i.i = icmp ult i32 %10, %12
+  br i1 %.not.i.i.not.i.i.i, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, label %13, !prof !21
 
-12:                                               ; preds = %2
-  %13 = zext i32 %9 to i64
-  %14 = add nuw nsw i64 %13, 1
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 4) #8
-  %.pre.i.i.i = load i32, ptr %8, align 8, !tbaa !19
+13:                                               ; preds = %2
+  %14 = zext i32 %10 to i64
+  %15 = add nuw nsw i64 %14, 1
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %16, i64 noundef %15, i64 noundef 4) #8
+  %.pre.i.i.i = load i32, ptr %9, align 8, !tbaa !19
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit
 
-_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %2, %12
-  %16 = phi i32 [ %9, %2 ], [ %.pre.i.i.i, %12 ]
-  %17 = load ptr, ptr %7, align 8, !tbaa !17
-  %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
-  store i32 %6, ptr %19, align 1
-  %20 = load i32, ptr %8, align 8, !tbaa !19
-  %21 = add i32 %20, 1
-  store i32 %21, ptr %8, align 8, !tbaa !19
-  %22 = load i32, ptr %5, align 4, !tbaa !22
-  %23 = zext i32 %22 to i64
-  %.idx = mul nuw nsw i64 %23, 24
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr17 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %.not15 = icmp eq i32 %22, 0
+_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %2, %13
+  %17 = phi i32 [ %10, %2 ], [ %.pre.i.i.i, %13 ]
+  %18 = load ptr, ptr %8, align 8, !tbaa !17
+  %19 = zext i32 %17 to i64
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  store i32 %7, ptr %20, align 1
+  %21 = load i32, ptr %9, align 8, !tbaa !19
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %9, align 8, !tbaa !19
+  %23 = load i32, ptr %6, align 4, !tbaa !22
+  %24 = zext i32 %23 to i64
+  %.idx = mul nuw nsw i64 %24, 24
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %.not15 = icmp eq i32 %23, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit
-  %25 = load ptr, ptr %3, align 8, !tbaa !69
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i = load i64, ptr %26, align 16
-  tail call fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher15AddTemplateNameEN5clang12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(152) %25, i64 %.sroa.0.0.copyload.i)
+  %26 = load ptr, ptr %3, align 8, !tbaa !69
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i = load i64, ptr %27, align 16
+  tail call fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher15AddTemplateNameEN5clang12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(152) %26, i64 %.sroa.0.0.copyload.i)
   ret void
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, %.lr.ph
-  %.016 = phi ptr [ %28, %.lr.ph ], [ %.ptr, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit ]
-  %27 = load ptr, ptr %3, align 8, !tbaa !69
-  tail call fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher19AddTemplateArgumentEN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(152) %27, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %.016)
-  %28 = getelementptr inbounds nuw i8, ptr %.016, i64 24
-  %.not = icmp eq ptr %28, %.ptr17
+  %.016 = phi ptr [ %29, %.lr.ph ], [ %5, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit ]
+  %28 = load ptr, ptr %3, align 8, !tbaa !69
+  tail call fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher19AddTemplateArgumentEN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(152) %28, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %.016)
+  %29 = getelementptr inbounds nuw i8, ptr %.016, i64 24
+  %.not = icmp eq ptr %29, %25
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

@@ -1053,15 +1053,14 @@ define void @_ZN3nix8Bindings4sortEv(ptr noundef nonnull align 8 dereferenceable
 
 4:                                                ; preds = %1
   %5 = zext i32 %3 to i64
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.idx = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr1 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
-  %8 = shl nuw nsw i64 %7, 1
-  %9 = xor i64 %8, 126
-  tail call void @_ZSt16__introsort_loopIPN3nix4AttrElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr noundef nonnull %.ptr, ptr noundef nonnull %.ptr1, i64 noundef %9)
-  tail call void @_ZSt22__final_insertion_sortIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %.ptr, ptr noundef nonnull %.ptr1)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
+  %9 = shl nuw nsw i64 %8, 1
+  %10 = xor i64 %9, 126
+  tail call void @_ZSt16__introsort_loopIPN3nix4AttrElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %10)
+  tail call void @_ZSt22__final_insertion_sortIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %6, ptr noundef nonnull %7)
   br label %_ZSt4sortIPN3nix4AttrEEvT_S3_.exit
 
 _ZSt4sortIPN3nix4AttrEEvT_S3_.exit:               ; preds = %4, %1
@@ -1078,25 +1077,24 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3nix5Value7mkAttrsERN
 
 6:                                                ; preds = %2
   %7 = zext i32 %5 to i64
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
-  %.ptr1.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
-  %10 = shl nuw nsw i64 %9, 1
-  %11 = xor i64 %10, 126
-  tail call void @_ZSt16__introsort_loopIPN3nix4AttrElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr noundef nonnull %.ptr.i.i, ptr noundef nonnull %.ptr1.i.i, i64 noundef %11)
-  tail call void @_ZSt22__final_insertion_sortIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %.ptr.i.i, ptr noundef nonnull %.ptr1.i.i)
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
+  %11 = shl nuw nsw i64 %10, 1
+  %12 = xor i64 %11, 126
+  tail call void @_ZSt16__introsort_loopIPN3nix4AttrElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %12)
+  tail call void @_ZSt22__final_insertion_sortIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.pre.i = load ptr, ptr %1, align 8
   br label %_ZN3nix15BindingsBuilder6finishEv.exit
 
 _ZN3nix15BindingsBuilder6finishEv.exit:           ; preds = %2, %6
-  %12 = phi ptr [ %3, %2 ], [ %.pre.i, %6 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %14, align 8
+  %13 = phi ptr [ %3, %2 ], [ %.pre.i, %6 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %15, align 8
   store i32 6, ptr %0, align 8
-  store ptr %12, ptr %13, align 8
+  store ptr %13, ptr %14, align 8
   ret ptr %0
 }
 

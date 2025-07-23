@@ -9774,12 +9774,13 @@ _ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit: ; preds
   %12 = trunc i64 %sub.ptr.sub.i.i.i to i32
   %conv.i10.i = add i32 %11, %12
   store i32 %conv.i10.i, ptr %Size.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr16, %add.ptr7
+  %13 = sub i64 %conv.i38.pre-phi, %sub.ptr.sub.i.i.i
+  %tobool.not.i.i.i.i.i = icmp eq i64 %13, %sub.ptr.sub
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit
-  %13 = add i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
-  %gepdiff77 = sub i64 %conv.i38.pre-phi, %13
+  %14 = add i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
+  %gepdiff77 = sub i64 %conv.i38.pre-phi, %14
   %idx.neg.i.i.i.i.i = sub i64 0, %gepdiff77
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i48, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr7, i64 %gepdiff77, i1 false)
@@ -9793,8 +9794,8 @@ if.then.i.i.i.i.i60:                              ; preds = %_ZSt13move_backward
   br label %return
 
 if.end24:                                         ; preds = %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
-  %14 = trunc i64 %sub.ptr.sub.i.i.i to i32
-  %conv.i66 = add i32 %7, %14
+  %15 = trunc i64 %sub.ptr.sub.i.i.i to i32
+  %conv.i66 = add i32 %7, %15
   store i32 %conv.i66, ptr %Size.i, align 8
   %cmp.not.i.i69 = icmp eq i64 %sub.ptr.sub, %conv.i38.pre-phi
   br i1 %cmp.not.i.i69, label %for.end, label %for.body.preheader
@@ -9811,8 +9812,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %J.082 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr7, %for.body.preheader ]
   %NumOverwritten.081 = phi i64 [ %dec, %for.body ], [ %gepdiff, %for.body.preheader ]
   %From.addr.080 = phi ptr [ %incdec.ptr36, %for.body ], [ %From, %for.body.preheader ]
-  %15 = load i8, ptr %From.addr.080, align 1
-  store i8 %15, ptr %J.082, align 1
+  %16 = load i8, ptr %From.addr.080, align 1
+  store i8 %16, ptr %J.082, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %J.082, i64 1
   %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %From.addr.080, i64 1
   %dec = add i64 %NumOverwritten.081, -1

@@ -1354,38 +1354,37 @@ define dso_local void @_ZN5clang12Preprocessor26ReplacePreviousCachedTokenEN4llv
   %9 = getelementptr inbounds i8, ptr %8, i64 -24
   %10 = getelementptr inbounds nuw %"class.clang::Token", ptr %1, i64 %2
   %11 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang5TokenEE6insertIPKS2_vEEPS2_S7_T_S8_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %10)
-  %12 = load ptr, ptr %4, align 8, !tbaa !21
-  %13 = load i64, ptr %6, align 8, !tbaa !267
-  %.idx4 = mul nuw nsw i64 %13, 24
+  %12 = load i64, ptr %6, align 8, !tbaa !267
+  %.idx4 = mul nuw nsw i64 %12, 24
   %.idx5 = mul nuw nsw i64 %2, 24
-  %14 = getelementptr i8, ptr %12, i64 %.idx4
-  %15 = getelementptr i8, ptr %14, i64 -24
-  %16 = getelementptr i8, ptr %15, i64 %.idx5
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  %19 = load i32, ptr %18, align 8, !tbaa !14
-  %20 = zext i32 %19 to i64
-  %.idx = mul nuw nsw i64 %20, 24
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
-  %.not.i.i.i.i.i.i = icmp eq ptr %21, %17
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit, label %22
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2896
+  %14 = load i32, ptr %13, align 8, !tbaa !14
+  %15 = zext i32 %14 to i64
+  %.idx = mul nuw nsw i64 %15, 24
+  %16 = add nuw i64 %.idx4, %.idx5
+  %.not.i.i.i.i.i.i = icmp eq i64 %.idx, %16
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit, label %17
 
-22:                                               ; preds = %3
-  %23 = add nuw i64 %.idx4, %.idx5
-  %gepdiff = sub i64 %.idx, %23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %17, i64 %gepdiff, i1 false)
-  %.pre.i = load i32, ptr %18, align 8, !tbaa !14
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8, !tbaa !21
+  %19 = getelementptr i8, ptr %18, i64 %.idx4
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = getelementptr i8, ptr %20, i64 %.idx5
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %gepdiff = sub i64 %.idx, %16
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 8 %22, i64 %gepdiff, i1 false)
+  %.pre.i = load i32, ptr %13, align 8, !tbaa !14
   %.pre = load i64, ptr %6, align 8, !tbaa !267
   br label %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit
 
-_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit: ; preds = %3, %22
-  %24 = phi i64 [ %13, %3 ], [ %.pre, %22 ]
-  %25 = phi i32 [ %19, %3 ], [ %.pre.i, %22 ]
-  %26 = add i32 %25, -1
-  store i32 %26, ptr %18, align 8, !tbaa !14
-  %27 = add i64 %2, -1
-  %28 = add i64 %27, %24
-  store i64 %28, ptr %6, align 8, !tbaa !267
+_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit: ; preds = %3, %17
+  %23 = phi i64 [ %12, %3 ], [ %.pre, %17 ]
+  %24 = phi i32 [ %14, %3 ], [ %.pre.i, %17 ]
+  %25 = add i32 %24, -1
+  store i32 %25, ptr %13, align 8, !tbaa !14
+  %26 = add i64 %2, -1
+  %27 = add i64 %26, %23
+  store i64 %27, ptr %6, align 8, !tbaa !267
   ret void
 }
 
@@ -1472,7 +1471,7 @@ _ZN4llvm15SmallVectorImplIN5clang5TokenEE7reserveEm.exit: ; preds = %34, %41
   %gepdiff = sub nsw i64 %.idx, %8
   %47 = sdiv exact i64 %gepdiff, 24
   %.not = icmp ult i64 %47, %35
-  br i1 %.not, label %67, label %48
+  br i1 %.not, label %68, label %48
 
 48:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE7reserveEm.exit
   %49 = getelementptr inbounds i8, ptr %46, i64 %.idx52
@@ -1506,63 +1505,64 @@ _ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendISt13move_iteratorIPS2_EvEEvT_S8
   %61 = trunc i64 %35 to i32
   %62 = add i32 %60, %61
   store i32 %62, ptr %9, align 8, !tbaa !14
-  %.not.i.i.i.i.i = icmp eq ptr %49, %45
-  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit, label %63
+  %63 = sub i64 %.idx, %16
+  %.not.i.i.i.i.i = icmp eq i64 %63, %8
+  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit, label %64
 
-63:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
-  %64 = add i64 %8, %16
-  %gepdiff53 = sub i64 %.idx, %64
+64:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
+  %65 = add i64 %8, %16
+  %gepdiff53 = sub i64 %.idx, %65
   %.neg.i.i.i.i.i = sdiv exact i64 %gepdiff53, -24
-  %65 = getelementptr inbounds %"class.clang::Token", ptr %46, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %65, ptr align 8 %45, i64 %gepdiff53, i1 false)
+  %66 = getelementptr inbounds %"class.clang::Token", ptr %46, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %66, ptr align 8 %45, i64 %gepdiff53, i1 false)
   br label %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %63
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt4copyIPKN5clang5TokenEPS1_ET0_T_S6_S5_.exit, label %66
+_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %64
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt4copyIPKN5clang5TokenEPS1_ET0_T_S6_S5_.exit, label %67
 
-66:                                               ; preds = %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit
+67:                                               ; preds = %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %45, ptr align 8 %2, i64 %16, i1 false)
   br label %_ZSt4copyIPKN5clang5TokenEPS1_ET0_T_S6_S5_.exit
 
-67:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE7reserveEm.exit
-  %68 = trunc i64 %35 to i32
-  %69 = add i32 %43, %68
-  store i32 %69, ptr %9, align 8, !tbaa !14
+68:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE7reserveEm.exit
+  %69 = trunc i64 %35 to i32
+  %70 = add i32 %43, %69
+  store i32 %70, ptr %9, align 8, !tbaa !14
   %.not.i.i48 = icmp eq i64 %8, %.idx
   br i1 %.not.i.i48, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %67
-  %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.clang::Token", ptr %44, i64 %70
-  %72 = sub nsw i64 0, %47
-  %73 = getelementptr inbounds %"class.clang::Token", ptr %71, i64 %72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 8 %45, i64 %gepdiff, i1 false)
+.lr.ph.preheader:                                 ; preds = %68
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw %"class.clang::Token", ptr %44, i64 %71
+  %73 = sub nsw i64 0, %47
+  %74 = getelementptr inbounds %"class.clang::Token", ptr %72, i64 %73
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 8 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %67
-  %.042.lcssa = phi ptr [ %2, %67 ], [ %78, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %68
+  %.042.lcssa = phi ptr [ %2, %68 ], [ %79, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPKN5clang5TokenEPS1_ET0_T_S6_S5_.exit, label %74
+  br i1 %.not.i, label %_ZSt4copyIPKN5clang5TokenEPS1_ET0_T_S6_S5_.exit, label %75
 
-74:                                               ; preds = %._crit_edge
-  %75 = ptrtoint ptr %.042.lcssa to i64
-  %76 = sub i64 %14, %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 8 %.042.lcssa, i64 %76, i1 false)
+75:                                               ; preds = %._crit_edge
+  %76 = ptrtoint ptr %.042.lcssa to i64
+  %77 = sub i64 %14, %76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 8 %.042.lcssa, i64 %77, i1 false)
   br label %_ZSt4copyIPKN5clang5TokenEPS1_ET0_T_S6_S5_.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.058 = phi ptr [ %77, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.04057 = phi i64 [ %79, %.lr.ph ], [ %47, %.lr.ph.preheader ]
-  %.04256 = phi ptr [ %78, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.058 = phi ptr [ %78, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.04057 = phi i64 [ %80, %.lr.ph ], [ %47, %.lr.ph.preheader ]
+  %.04256 = phi ptr [ %79, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.058, ptr noundef nonnull align 8 dereferenceable(20) %.04256, i64 20, i1 false), !tbaa.struct !268
-  %77 = getelementptr inbounds nuw i8, ptr %.058, i64 24
-  %78 = getelementptr inbounds nuw i8, ptr %.04256, i64 24
-  %79 = add i64 %.04057, -1
-  %.not44 = icmp eq i64 %79, 0
+  %78 = getelementptr inbounds nuw i8, ptr %.058, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.04256, i64 24
+  %80 = add i64 %.04057, -1
+  %.not44 = icmp eq i64 %80, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !365
 
-_ZSt4copyIPKN5clang5TokenEPS1_ET0_T_S6_S5_.exit:  ; preds = %74, %._crit_edge, %66, %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendIPKS2_vEEvT_S7_.exit
-  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendIPKS2_vEEvT_S7_.exit ], [ %45, %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit ], [ %45, %66 ], [ %45, %._crit_edge ], [ %45, %74 ]
+_ZSt4copyIPKN5clang5TokenEPS1_ET0_T_S6_S5_.exit:  ; preds = %75, %._crit_edge, %67, %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendIPKS2_vEEvT_S7_.exit
+  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendIPKS2_vEEvT_S7_.exit ], [ %45, %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit ], [ %45, %67 ], [ %45, %._crit_edge ], [ %45, %75 ]
   ret ptr %.041
 }
 

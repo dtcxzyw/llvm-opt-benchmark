@@ -5765,9 +5765,9 @@ _ZN17QArrayDataPointerIP12FunnelActionE6detachEPS2_.exit.i.i.i: ; preds = %.noex
   %264 = icmp ne ptr %.sroa.077.0, %253
   %265 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QList<FunnelAction *>>>::Entry", ptr %207, i64 %210, i32 0, i32 0, i64 24
   %266 = load i64, ptr %265, align 8
-  %.idx3.i.i.i = shl i64 %266, 3
-  %267 = getelementptr i8, ptr %261, i64 %.idx3.i.i.i
-  %.not.i.i.i.i47 = icmp eq ptr %263, %267
+  %.idx4.i.i.i = shl i64 %266, 3
+  %267 = sub i64 %257, %255
+  %.not.i.i.i.i47 = icmp eq i64 %267, %.idx4.i.i.i
   %or.cond.i.i.i.i = select i1 %264, i1 true, i1 %.not.i.i.i.i47
   br i1 %or.cond.i.i.i.i, label %._crit_edge.i.i.i.i, label %268
 
@@ -5779,19 +5779,18 @@ _ZN17QArrayDataPointerIP12FunnelActionE6detachEPS2_.exit.i.i.i: ; preds = %.noex
   br i1 %.not.i.i.i.i47, label %270, label %269
 
 269:                                              ; preds = %._crit_edge.i.i.i.i
-  %.neg.i.i = sub i64 %255, %257
-  %gepdiff.i.i.i = add i64 %.neg.i.i, %.idx3.i.i.i
+  %gepdiff.i.i.i = sub i64 %.idx4.i.i.i, %267
   call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %262, ptr noundef align 1 %263, i64 noundef %gepdiff.i.i.i, i1 noundef false) #29
   %.pre12.i.i.i.i = load i64, ptr %265, align 8
-  %.pre9.pre.i.i = load ptr, ptr %252, align 8
+  %.pre8.pre.i.i = load ptr, ptr %252, align 8
   br label %270
 
 270:                                              ; preds = %269, %._crit_edge.i.i.i.i, %268
-  %.pre9.i.i = phi ptr [ %261, %._crit_edge.i.i.i.i ], [ %.pre9.pre.i.i, %269 ], [ %263, %268 ]
+  %.pre8.i.i = phi ptr [ %261, %._crit_edge.i.i.i.i ], [ %.pre8.pre.i.i, %269 ], [ %263, %268 ]
   %271 = phi i64 [ %266, %._crit_edge.i.i.i.i ], [ %.pre12.i.i.i.i, %269 ], [ %266, %268 ]
   %272 = add i64 %271, -1
   store i64 %272, ptr %265, align 8
-  %273 = getelementptr i8, ptr %.pre9.i.i, i64 %256
+  %273 = getelementptr i8, ptr %.pre8.i.i, i64 %256
   br label %.backedge
 
 .loopexit:                                        ; preds = %_ZNK17QArrayDataPointerIP12FunnelActionE11needsDetachEv.exit.thread.i.i.i26

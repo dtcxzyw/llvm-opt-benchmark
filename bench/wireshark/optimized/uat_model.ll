@@ -4717,15 +4717,15 @@ define noundef zeroext i1 @_ZN8UatModel10removeRowsEiiRK11QModelIndex(ptr nounde
   %15 = call noundef i32 %14(ptr noundef align 8 dereferenceable_or_null(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %16 = icmp sgt i32 %9, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  br i1 %16, label %54, label %17
+  br i1 %16, label %53, label %17
 
 .critedge:                                        ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  br label %54
+  br label %53
 
 17:                                               ; preds = %8
   %18 = icmp eq i32 %2, 0
-  br i1 %18, label %54, label %19
+  br i1 %18, label %53, label %19
 
 19:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
@@ -4783,8 +4783,8 @@ _ZN17QArrayDataPointerIbE6detachEPS0_.exit.i:     ; preds = %_ZNK17QArrayDataPoi
   %43 = icmp ne i32 %1, 0
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr i8, ptr %40, i64 %45
-  %.not.i.i = icmp eq ptr %42, %46
+  %46 = add nuw nsw i64 %27, %26
+  %.not.i.i = icmp eq i64 %46, %45
   %or.cond.i.i = select i1 %43, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %._crit_edge.i.i, label %47
 
@@ -4796,23 +4796,22 @@ _ZN17QArrayDataPointerIbE6detachEPS0_.exit.i:     ; preds = %_ZNK17QArrayDataPoi
   br i1 %.not.i.i, label %_ZN5QListIbE6removeExx.exit, label %48
 
 48:                                               ; preds = %._crit_edge.i.i
-  %49 = add nuw nsw i64 %27, %26
-  %gepdiff.i = sub i64 %45, %49
+  %gepdiff.i = sub i64 %45, %46
   call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %41, ptr noundef align 1 %42, i64 noundef %gepdiff.i, i1 noundef false) #24
   %.pre12.i.i = load i64, ptr %44, align 8
   br label %_ZN5QListIbE6removeExx.exit
 
 _ZN5QListIbE6removeExx.exit:                      ; preds = %47, %._crit_edge.i.i, %48
-  %50 = phi i64 [ %45, %._crit_edge.i.i ], [ %.pre12.i.i, %48 ], [ %45, %47 ]
-  %51 = sub i64 %50, %27
-  store i64 %51, ptr %44, align 8
-  %52 = load ptr, ptr %23, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 152
-  store i8 1, ptr %53, align 8
+  %49 = phi i64 [ %45, %._crit_edge.i.i ], [ %.pre12.i.i, %48 ], [ %45, %47 ]
+  %50 = sub i64 %49, %27
+  store i64 %50, ptr %44, align 8
+  %51 = load ptr, ptr %23, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 152
+  store i8 1, ptr %52, align 8
   call void @_ZN18QAbstractItemModel13endRemoveRowsEv(ptr noundef align 8 dereferenceable_or_null(16) %0)
-  br label %54
+  br label %53
 
-54:                                               ; preds = %17, %8, %.critedge, %_ZN5QListIbE6removeExx.exit
+53:                                               ; preds = %17, %8, %.critedge, %_ZN5QListIbE6removeExx.exit
   %.0 = phi i1 [ true, %_ZN5QListIbE6removeExx.exit ], [ false, %.critedge ], [ false, %8 ], [ true, %17 ]
   ret i1 %.0
 }

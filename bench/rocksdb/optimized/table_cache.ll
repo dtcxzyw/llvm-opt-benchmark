@@ -2639,20 +2639,19 @@ define void @_ZN7rocksdb10TableCacheC2ERKNS_16ImmutableOptionsEPKNS_11FileOption
 .noexc:                                           ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store i64 128, ptr %19, align 8
-  %.ptr7.i = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1, !tbaa !193, !range !194, !noundef !195
   %21 = trunc nuw i8 %20 to i1
   br label %22
 
 22:                                               ; preds = %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i, %.noexc
-  %.idx.i = phi i64 [ 64, %.noexc ], [ %.add.i, %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i ]
+  %.idx.i = phi i64 [ %.add.i, %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i ], [ 64, %.noexc ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
   invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 64 dereferenceable(40) %.ptr.ptr.i, i1 noundef zeroext %21)
           to label %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i unwind label %24
 
 _ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i: ; preds = %22
   %.add.i = add nuw nsw i64 %.idx.i, 64
-  %23 = icmp samesign eq i64 %.add.i, 8256
+  %23 = icmp eq i64 %.idx.i, 8192
   br i1 %23, label %28, label %22
 
 24:                                               ; preds = %22
@@ -2674,6 +2673,7 @@ _ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i: ; preds = %22
   br label %.body
 
 28:                                               ; preds = %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i
+  %.ptr7.i = getelementptr inbounds nuw i8, ptr %18, i64 64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.ptr7.i, ptr %29, align 8, !tbaa !284
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96

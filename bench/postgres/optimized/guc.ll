@@ -10503,25 +10503,24 @@ can_skip_gucvar.exit.thread:                      ; preds = %.lr.ph, %can_skip_g
 
 select.unfold._crit_edge:                         ; preds = %can_skip_gucvar.exit.thread, %1
   %.0.copyload = load i64, ptr %0, align 1
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.copyload
-  %.ptr158 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @guc_restore_error_context_callback, ptr %77, align 8
-  %78 = load ptr, ptr @error_context_stack, align 8
-  store ptr %78, ptr %2, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr null, ptr %79, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.0.copyload
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @guc_restore_error_context_callback, ptr %78, align 8
+  %79 = load ptr, ptr @error_context_stack, align 8
+  store ptr %79, ptr %2, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr null, ptr %80, align 8
   store ptr %2, ptr @error_context_stack, align 8
-  %80 = icmp sgt i64 %.0.copyload, 0
-  br i1 %80, label %.lr.ph157, label %._crit_edge
+  %.not158 = icmp eq i64 %.0.copyload, 0
+  br i1 %.not158, label %._crit_edge, label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %select.unfold._crit_edge
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %82
 
 82:                                               ; preds = %.lr.ph157, %140
-  %.0156 = phi ptr [ %.ptr, %.lr.ph157 ], [ %124, %140 ]
+  %.0156 = phi ptr [ %76, %.lr.ph157 ], [ %124, %140 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
   br label %.preheader.i
 
@@ -10533,7 +10532,7 @@ select.unfold._crit_edge:                         ; preds = %can_skip_gucvar.exi
   br i1 %.not15.i, label %read_gucstate.exit, label %85
 
 85:                                               ; preds = %.preheader.i
-  %exitcond.not.i = icmp eq ptr %84, %.ptr158
+  %exitcond.not.i = icmp eq ptr %84, %77
   br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !58
 
 .critedge.i:                                      ; preds = %85
@@ -10544,7 +10543,7 @@ select.unfold._crit_edge:                         ; preds = %can_skip_gucvar.exi
   unreachable
 
 read_gucstate.exit:                               ; preds = %.preheader.i
-  %.not.i105 = icmp ult ptr %84, %.ptr158
+  %.not.i105 = icmp ult ptr %84, %77
   br i1 %.not.i105, label %.preheader.i106, label %88
 
 88:                                               ; preds = %read_gucstate.exit
@@ -10562,7 +10561,7 @@ read_gucstate.exit:                               ; preds = %.preheader.i
   br i1 %.not15.i108, label %read_gucstate.exit111, label %93
 
 93:                                               ; preds = %.preheader.i106
-  %exitcond.not.i109 = icmp eq ptr %92, %.ptr158
+  %exitcond.not.i109 = icmp eq ptr %92, %77
   br i1 %exitcond.not.i109, label %.critedge.i110, label %.preheader.i106, !llvm.loop !58
 
 .critedge.i110:                                   ; preds = %93
@@ -10573,7 +10572,7 @@ read_gucstate.exit:                               ; preds = %.preheader.i
   unreachable
 
 read_gucstate.exit111:                            ; preds = %.preheader.i106
-  %.not.i112 = icmp ult ptr %92, %.ptr158
+  %.not.i112 = icmp ult ptr %92, %77
   br i1 %.not.i112, label %.preheader.i113, label %96
 
 96:                                               ; preds = %read_gucstate.exit111
@@ -10591,7 +10590,7 @@ read_gucstate.exit111:                            ; preds = %.preheader.i106
   br i1 %.not15.i115, label %read_gucstate.exit118, label %101
 
 101:                                              ; preds = %.preheader.i113
-  %exitcond.not.i116 = icmp eq ptr %100, %.ptr158
+  %exitcond.not.i116 = icmp eq ptr %100, %77
   br i1 %exitcond.not.i116, label %.critedge.i117, label %.preheader.i113, !llvm.loop !58
 
 .critedge.i117:                                   ; preds = %101
@@ -10608,7 +10607,7 @@ read_gucstate.exit118:                            ; preds = %.preheader.i113
 
 105:                                              ; preds = %read_gucstate.exit118
   %106 = getelementptr inbounds nuw i8, ptr %.018.i114, i64 5
-  %107 = icmp ugt ptr %106, %.ptr158
+  %107 = icmp ugt ptr %106, %77
   br i1 %107, label %108, label %read_gucstate_binary.exit
 
 108:                                              ; preds = %105
@@ -10626,7 +10625,7 @@ read_gucstate_binary.exit:                        ; preds = %105
   %.0137 = phi i32 [ %111, %read_gucstate_binary.exit ], [ 0, %read_gucstate.exit118 ]
   %.1 = phi ptr [ %106, %read_gucstate_binary.exit ], [ %100, %read_gucstate.exit118 ]
   %113 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %114 = icmp ugt ptr %113, %.ptr158
+  %114 = icmp ugt ptr %113, %77
   br i1 %114, label %115, label %read_gucstate_binary.exit119
 
 115:                                              ; preds = %112
@@ -10639,7 +10638,7 @@ read_gucstate_binary.exit:                        ; preds = %105
 read_gucstate_binary.exit119:                     ; preds = %112
   %118 = load i32, ptr %.1, align 1
   %119 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %120 = icmp ugt ptr %.1, %76
+  %120 = icmp ugt ptr %119, %77
   br i1 %120, label %121, label %read_gucstate_binary.exit120
 
 121:                                              ; preds = %read_gucstate_binary.exit119
@@ -10651,7 +10650,7 @@ read_gucstate_binary.exit119:                     ; preds = %112
 
 read_gucstate_binary.exit120:                     ; preds = %read_gucstate_binary.exit119
   %124 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %125 = icmp ugt ptr %124, %.ptr158
+  %125 = icmp ugt ptr %124, %77
   br i1 %125, label %126, label %read_gucstate_binary.exit121
 
 126:                                              ; preds = %read_gucstate_binary.exit120
@@ -10666,7 +10665,7 @@ read_gucstate_binary.exit121:                     ; preds = %read_gucstate_binar
   %130 = load i32, ptr %119, align 1
   store ptr %.0156, ptr %3, align 16
   store ptr %84, ptr %81, align 8
-  store ptr %3, ptr %79, align 8
+  store ptr %3, ptr %80, align 8
   %131 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull %.0156, ptr noundef null, ptr noundef nonnull %84, i32 noundef %129, i32 noundef %118, i32 noundef %130, i32 noundef 0, i1 noundef zeroext true, i32 noundef 21, i1 noundef zeroext true)
   %132 = icmp slt i32 %131, 1
   br i1 %132, label %133, label %137
@@ -10689,9 +10688,9 @@ read_gucstate_binary.exit121:                     ; preds = %read_gucstate_binar
   br label %140
 
 140:                                              ; preds = %139, %137
-  store ptr null, ptr %79, align 8
+  store ptr null, ptr %80, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
-  %141 = icmp ult ptr %124, %.ptr158
+  %141 = icmp ult ptr %124, %77
   br i1 %141, label %82, label %._crit_edge.loopexit, !llvm.loop !59
 
 ._crit_edge.loopexit:                             ; preds = %140
@@ -10699,7 +10698,7 @@ read_gucstate_binary.exit121:                     ; preds = %read_gucstate_binar
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %select.unfold._crit_edge
-  %142 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %78, %select.unfold._crit_edge ]
+  %142 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %79, %select.unfold._crit_edge ]
   store ptr %142, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #29
   ret void

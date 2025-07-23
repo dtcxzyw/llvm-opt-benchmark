@@ -1886,23 +1886,23 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
   %217 = load i32, ptr %113, align 8, !tbaa !12
   %218 = zext i32 %217 to i64
   %.idx.i.i = shl nuw nsw i64 %218, 2
-  %219 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i.i
-  %220 = getelementptr inbounds i8, ptr %219, i64 -4
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %220, %213
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i.i, label %221
+  %219 = add nsw i64 %.idx.i.i, -4
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %219, %208
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i.i, label %220
 
-221:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i
+220:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i
+  %221 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i.i
   %reass.sub.i.i = sub i64 %.idx.i.i, %208
   %gepdiff.i.i = add i64 %reass.sub.i.i, -4
   %222 = ashr exact i64 %gepdiff.i.i, 2
   %223 = sub nsw i64 0, %222
-  %224 = getelementptr inbounds i32, ptr %219, i64 %223
+  %224 = getelementptr inbounds i32, ptr %221, i64 %223
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %224, ptr nonnull align 4 %213, i64 %gepdiff.i.i, i1 false)
   %.pre12.i.i = load i32, ptr %113, align 8, !tbaa !12
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i.i
 
-_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i.i:   ; preds = %221, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i
-  %225 = phi i32 [ %217, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i ], [ %.pre12.i.i, %221 ]
+_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i.i:   ; preds = %220, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i
+  %225 = phi i32 [ %217, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i ], [ %.pre12.i.i, %220 ]
   %226 = add i32 %225, 1
   store i32 %226, ptr %113, align 8, !tbaa !12
   store i32 %129, ptr %213, align 4, !tbaa !164

@@ -3803,79 +3803,78 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4mold9InputFileINS_4M68KEE8get_da
   %5 = alloca %"class.mold::Fatal", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !416
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !417
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = load i8, ptr %10, align 1, !tbaa !258
-  %12 = zext i8 %11 to i64
-  %13 = shl nuw nsw i64 %12, 24
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 17
-  %15 = load i8, ptr %14, align 1, !tbaa !258
-  %16 = zext i8 %15 to i64
-  %17 = shl nuw nsw i64 %16, 16
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %19 = load i8, ptr %18, align 1, !tbaa !258
-  %20 = zext i8 %19 to i64
-  %21 = shl nuw nsw i64 %20, 8
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 19
-  %23 = load i8, ptr %22, align 1, !tbaa !258
-  %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %17
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %13
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %21
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %24
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %30 = load i8, ptr %29, align 1, !tbaa !258
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, 24
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 21
-  %34 = load i8, ptr %33, align 1, !tbaa !258
-  %35 = zext i8 %34 to i64
-  %36 = shl nuw nsw i64 %35, 16
-  %37 = or disjoint i64 %36, %32
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 22
-  %39 = load i8, ptr %38, align 1, !tbaa !258
-  %40 = zext i8 %39 to i64
-  %41 = shl nuw nsw i64 %40, 8
-  %42 = or disjoint i64 %37, %41
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 23
-  %44 = load i8, ptr %43, align 1, !tbaa !258
-  %45 = zext i8 %44 to i64
-  %46 = or disjoint i64 %42, %45
-  %47 = getelementptr inbounds nuw i8, ptr %28, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %49 = load i64, ptr %48, align 8, !tbaa !419
-  %50 = getelementptr inbounds i8, ptr %9, i64 %49
-  %51 = icmp ult ptr %50, %47
-  br i1 %51, label %52, label %_ZN4mold9InputFileINS_4M68KEE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = load i8, ptr %8, align 1, !tbaa !258
+  %10 = zext i8 %9 to i64
+  %11 = shl nuw nsw i64 %10, 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 17
+  %13 = load i8, ptr %12, align 1, !tbaa !258
+  %14 = zext i8 %13 to i64
+  %15 = shl nuw nsw i64 %14, 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %17 = load i8, ptr %16, align 1, !tbaa !258
+  %18 = zext i8 %17 to i64
+  %19 = shl nuw nsw i64 %18, 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 19
+  %21 = load i8, ptr %20, align 1, !tbaa !258
+  %22 = zext i8 %21 to i64
+  %23 = or disjoint i64 %15, %11
+  %24 = or disjoint i64 %23, %19
+  %25 = or disjoint i64 %24, %22
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %27 = load i8, ptr %26, align 1, !tbaa !258
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, 24
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 21
+  %31 = load i8, ptr %30, align 1, !tbaa !258
+  %32 = zext i8 %31 to i64
+  %33 = shl nuw nsw i64 %32, 16
+  %34 = or disjoint i64 %33, %29
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 22
+  %36 = load i8, ptr %35, align 1, !tbaa !258
+  %37 = zext i8 %36 to i64
+  %38 = shl nuw nsw i64 %37, 8
+  %39 = or disjoint i64 %34, %38
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 23
+  %41 = load i8, ptr %40, align 1, !tbaa !258
+  %42 = zext i8 %41 to i64
+  %43 = or disjoint i64 %39, %42
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %45 = load i64, ptr %44, align 8, !tbaa !417
+  %46 = add nuw nsw i64 %43, %25
+  %47 = icmp slt i64 %45, %46
+  br i1 %47, label %48, label %_ZN4mold9InputFileINS_4M68KEE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit
 
-52:                                               ; preds = %3
+48:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %4) #20
   call void @_ZN4mold5FatalINS_7ContextINS_4M68KEEEEC2ERS3_(ptr noundef nonnull align 8 dereferenceable(408) %4, ptr noundef nonnull align 8 dereferenceable(4512) %1)
-  %53 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRNS_9InputFileIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %4, ptr noundef nonnull align 8 dereferenceable(296) %0)
-  %54 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRA35_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %53, ptr noundef nonnull align 1 dereferenceable(35) @.str.19)
-  %55 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRKNS_7IntegerIjLb0ELi4EEEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %54, ptr noundef nonnull align 1 dereferenceable(4) %10)
+  %49 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRNS_9InputFileIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %4, ptr noundef nonnull align 8 dereferenceable(296) %0)
+  %50 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRA35_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %49, ptr noundef nonnull align 1 dereferenceable(35) @.str.19)
+  %51 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRKNS_7IntegerIjLb0ELi4EEEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %50, ptr noundef nonnull align 1 dereferenceable(4) %8)
   call void @_ZN4mold5FatalINS_7ContextINS_4M68KEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %4) #22
   unreachable
 
 _ZN4mold9InputFileINS_4M68KEE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit: ; preds = %3
-  %.lhs.trunc = trunc nuw i64 %46 to i32
-  %56 = urem i32 %.lhs.trunc, 12
-  %57 = udiv i32 %.lhs.trunc, 12
-  %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %61, label %58
+  %.lhs.trunc = trunc nuw i64 %43 to i32
+  %52 = urem i32 %.lhs.trunc, 12
+  %53 = udiv i32 %.lhs.trunc, 12
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %57, label %54
 
-58:                                               ; preds = %_ZN4mold9InputFileINS_4M68KEE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit
+54:                                               ; preds = %_ZN4mold9InputFileINS_4M68KEE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %5) #20
   call void @_ZN4mold5FatalINS_7ContextINS_4M68KEEEEC2ERS3_(ptr noundef nonnull align 8 dereferenceable(408) %5, ptr noundef nonnull align 8 dereferenceable(4512) %1)
-  %59 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRNS_9InputFileIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %5, ptr noundef nonnull align 8 dereferenceable(296) %0)
-  %60 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRA20_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %59, ptr noundef nonnull align 1 dereferenceable(20) @.str.18)
+  %55 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRNS_9InputFileIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %5, ptr noundef nonnull align 8 dereferenceable(296) %0)
+  %56 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_4M68KEEEElsIRA20_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %55, ptr noundef nonnull align 1 dereferenceable(20) @.str.18)
   call void @_ZN4mold5FatalINS_7ContextINS_4M68KEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %5) #22
   unreachable
 
-61:                                               ; preds = %_ZN4mold9InputFileINS_4M68KEE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit
-  %.zext7 = zext nneg i32 %57 to i64
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %28, 0
+57:                                               ; preds = %_ZN4mold9InputFileINS_4M68KEE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %59 = load ptr, ptr %58, align 8, !tbaa !419
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %25
+  %.zext7 = zext nneg i32 %53 to i64
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %60, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.zext7, 1
   ret { ptr, i64 } %.fca.1.insert
 }
@@ -4512,7 +4511,7 @@ attributes #23 = { builtin nounwind allocsize(0) }
 !414 = !{!312, !22, i64 16}
 !415 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !416 = !{!283, !284, i64 8}
-!417 = !{!418, !21, i64 32}
+!417 = !{!418, !22, i64 40}
 !418 = !{!"_ZTSN4mold10MappedFileE", !59, i64 0, !21, i64 32, !22, i64 40, !45, i64 48, !284, i64 56, !284, i64 64, !45, i64 72, !44, i64 76}
-!419 = !{!418, !22, i64 40}
+!419 = !{!418, !21, i64 32}
 !420 = !{!61, !22, i64 0}

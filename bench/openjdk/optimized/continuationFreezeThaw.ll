@@ -3522,114 +3522,117 @@ define hidden noundef i32 @_ZN8ThawBase36remove_top_compiled_frame_from_chunkEP1
   %12 = inttoptr i64 %11 to ptr
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %8, i64 %14
-  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %17 = sext i32 %16 to i64
-  %18 = add nsw i64 %17, %4
-  %19 = inttoptr i64 %18 to ptr
-  %20 = load volatile i32, ptr %19, align 4
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %8, i64 %21
-  %.not.i.i = icmp slt i32 %20, %13
-  br i1 %.not.i.i, label %23, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14
+  %.idx22 = shl nsw i64 %14, 3
+  %15 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %16 = sext i32 %15 to i64
+  %17 = add nsw i64 %16, %4
+  %18 = inttoptr i64 %17 to ptr
+  %19 = load volatile i32, ptr %18, align 4
+  %20 = sext i32 %19 to i64
+  %.idx = shl nsw i64 %20, 3
+  %21 = getelementptr inbounds i8, ptr %8, i64 %.idx
+  %.not.i.i = icmp slt i32 %19, %13
+  br i1 %.not.i.i, label %22, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14
 
-23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %22, i64 -8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %25, align 4
-  %.not.i.i.i.i = icmp eq i32 %26, 8658703
-  br i1 %.not.i.i.i.i, label %27, label %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i
+22:                                               ; preds = %3
+  %23 = getelementptr inbounds i8, ptr %21, i64 -8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %24, align 4
+  %.not.i.i.i.i = icmp eq i32 %25, 8658703
+  br i1 %.not.i.i.i.i, label %26, label %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %29 = load i32, ptr %28, align 4
-  %.not13.i.i.i.i = icmp eq i32 %29, 0
-  br i1 %.not13.i.i.i.i, label %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i, label %30
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %28 = load i32, ptr %27, align 4
+  %.not13.i.i.i.i = icmp eq i32 %28, 0
+  br i1 %.not13.i.i.i.i, label %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i, label %29
 
-30:                                               ; preds = %27
-  %31 = and i32 %29, 16777215
-  %32 = zext nneg i32 %31 to i64
-  %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds i8, ptr %25, i64 %33
+29:                                               ; preds = %26
+  %30 = and i32 %28, 16777215
+  %31 = zext nneg i32 %30 to i64
+  %32 = sub nsw i64 0, %31
+  %33 = getelementptr inbounds i8, ptr %24, i64 %32
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14
 
-_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i: ; preds = %27, %23
-  %35 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef nonnull %25) #16
+_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i: ; preds = %26, %22
+  %34 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef nonnull %24) #16
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14
 
-_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14: ; preds = %30, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i, %3
-  %.sroa.7.0 = phi ptr [ null, %3 ], [ %34, %30 ], [ %35, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 44
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 52
-  %39 = load i8, ptr %38, align 4
-  switch i8 %39, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i [
+_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14: ; preds = %29, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i, %3
+  %.sroa.7.0 = phi ptr [ null, %3 ], [ %33, %29 ], [ %34, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 44
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 52
+  %38 = load i8, ptr %37, align 4
+  switch i8 %38, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i [
     i8 9, label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
     i8 6, label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
   ]
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 178
-  %41 = load i16, ptr %40, align 2
-  %42 = add i16 %41, 1
-  %43 = and i16 %42, -2
-  %44 = zext i16 %43 to i32
-  %45 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  %46 = mul nsw i32 %45, %44
-  %47 = ashr i32 %46, 3
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 178
+  %40 = load i16, ptr %39, align 2
+  %41 = add i16 %40, 1
+  %42 = and i16 %41, -2
+  %43 = zext i16 %42 to i32
+  %44 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
+  %45 = mul nsw i32 %44, %43
+  %46 = ashr i32 %45, 3
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i
-  %.0.i = phi i32 [ %47, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14 ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14 ]
+  %.0.i = phi i32 [ %46, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14 ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14 ]
   store i32 %.0.i, ptr %2, align 4
-  %48 = load i32, ptr %36, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i64, ptr %22, i64 %49
-  %.not = icmp ult ptr %50, %15
-  br i1 %.not, label %65, label %51
+  %47 = load i32, ptr %35, align 4
+  %48 = sext i32 %47 to i64
+  %.idx21 = shl nsw i64 %48, 3
+  %49 = add nsw i64 %.idx21, %.idx
+  %.not = icmp slt i64 %49, %.idx22
+  br i1 %.not, label %64, label %50
 
-51:                                               ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
-  %52 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
-  %53 = sext i32 %52 to i64
-  %54 = add nsw i64 %53, %4
-  %55 = inttoptr i64 %54 to ptr
-  %56 = load i32, ptr %55, align 4
-  %57 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %58 = sext i32 %57 to i64
-  %59 = add nsw i64 %58, %4
-  %60 = inttoptr i64 %59 to ptr
-  store volatile i32 %56, ptr %60, align 4
-  %61 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk22_maxThawingSize_offsetE, align 4
-  %62 = sext i32 %61 to i64
-  %63 = add nsw i64 %62, %4
-  %64 = inttoptr i64 %63 to ptr
-  store i32 0, ptr %64, align 4
+50:                                               ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
+  %51 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
+  %52 = sext i32 %51 to i64
+  %53 = add nsw i64 %52, %4
+  %54 = inttoptr i64 %53 to ptr
+  %55 = load i32, ptr %54, align 4
+  %56 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %57 = sext i32 %56 to i64
+  %58 = add nsw i64 %57, %4
+  %59 = inttoptr i64 %58 to ptr
+  store volatile i32 %55, ptr %59, align 4
+  %60 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk22_maxThawingSize_offsetE, align 4
+  %61 = sext i32 %60 to i64
+  %62 = add nsw i64 %61, %4
+  %63 = inttoptr i64 %62 to ptr
+  store i32 0, ptr %63, align 4
   br label %81
 
-65:                                               ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
+64:                                               ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
+  %65 = getelementptr inbounds i8, ptr %21, i64 %.idx21
   %66 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
   %67 = sext i32 %66 to i64
   %68 = add nsw i64 %67, %4
   %69 = inttoptr i64 %68 to ptr
   %70 = load volatile i32, ptr %69, align 4
-  %71 = add nsw i32 %70, %37
+  %71 = add nsw i32 %70, %36
   store volatile i32 %71, ptr %69, align 4
   %72 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk22_maxThawingSize_offsetE, align 4
   %73 = sext i32 %72 to i64
   %74 = add nsw i64 %73, %4
   %75 = inttoptr i64 %74 to ptr
   %76 = load i32, ptr %75, align 4
-  %77 = sub nsw i32 %76, %37
+  %77 = sub nsw i32 %76, %36
   store i32 %77, ptr %75, align 4
-  %78 = getelementptr inbounds i8, ptr %50, i64 -8
+  %78 = getelementptr inbounds i8, ptr %65, i64 -8
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_pc_offsetE, align 4
   tail call void @_ZN7oopDesc17address_field_putEiPh(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %80, ptr noundef %79) #16
   br label %81
 
-81:                                               ; preds = %65, %51
+81:                                               ; preds = %64, %50
   %82 = load i32, ptr %2, align 4
-  %83 = add nsw i32 %82, %37
+  %83 = add nsw i32 %82, %36
   ret i32 %83
 }
 

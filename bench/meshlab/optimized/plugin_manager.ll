@@ -4664,35 +4664,37 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %24, %.lr.ph.i
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit: ; preds = %_ZN7QStringC2ERKS_.exit.i
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre17 = load i32, ptr %.phi.trans.insert, align 8
-  %.pre18 = load i32, ptr %4, align 4
-  %.pre19 = sext i32 %.pre17 to i64
-  %28 = sext i32 %.pre18 to i64
+  %.pre22 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre23 = load i32, ptr %4, align 4
+  %.pre24 = sext i32 %.pre22 to i64
+  %28 = sext i32 %.pre23 to i64
   br label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, %3
-  %.pre-phi = phi i64 [ %.pre19, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %16, %3 ]
+  %.pre-phi = phi i64 [ %.pre24, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %16, %3 ]
   %29 = phi i64 [ %28, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ 0, %3 ]
   %30 = phi ptr [ %.pre, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %12, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %.pre-phi
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %29
-  %34 = sext i32 %2 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %31, i64 %38
-  %.not8.i6 = icmp eq ptr %35, %39
+  %32 = sext i32 %2 to i64
+  %.idx1721 = add nsw i64 %.pre-phi, %32
+  %33 = add nsw i64 %.idx1721, %29
+  %34 = shl nsw i64 %33, 3
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 12
+  %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
+  %.idx20 = shl nsw i64 %37, 3
+  %38 = getelementptr inbounds i8, ptr %31, i64 %.idx20
+  %.not8.i6 = icmp eq i64 %34, %.idx20
   br i1 %.not8.i6, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7.preheader
 
 .lr.ph.i7.preheader:                              ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
-  %40 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %10, i64 %29
+  %39 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %10, i64 %29
+  %40 = getelementptr inbounds i8, ptr %31, i64 %34
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %_ZN7QStringC2ERKS_.exit.i11
-  %.010.i8 = phi ptr [ %46, %_ZN7QStringC2ERKS_.exit.i11 ], [ %35, %.lr.ph.i7.preheader ]
-  %.079.i9 = phi ptr [ %47, %_ZN7QStringC2ERKS_.exit.i11 ], [ %40, %.lr.ph.i7.preheader ]
+  %.010.i8 = phi ptr [ %46, %_ZN7QStringC2ERKS_.exit.i11 ], [ %40, %.lr.ph.i7.preheader ]
+  %.079.i9 = phi ptr [ %47, %_ZN7QStringC2ERKS_.exit.i11 ], [ %39, %.lr.ph.i7.preheader ]
   %41 = load ptr, ptr %.079.i9, align 8
   store ptr %41, ptr %.010.i8, align 8
   %42 = load atomic i32, ptr %41 monotonic, align 4
@@ -4707,7 +4709,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStr
 _ZN7QStringC2ERKS_.exit.i11:                      ; preds = %44, %.lr.ph.i7
   %46 = getelementptr inbounds nuw i8, ptr %.010.i8, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.079.i9, i64 8
-  %.not.i12 = icmp eq ptr %46, %39
+  %.not.i12 = icmp eq ptr %46, %38
   br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !42
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13: ; preds = %_ZN7QStringC2ERKS_.exit.i11, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
@@ -6295,34 +6297,36 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %168, %.lr.ph.i.i
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   %.pre.i118 = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i118, i64 8
-  %.pre17.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %.pre18.i = load i32, ptr %4, align 4
-  %.pre19.i = sext i32 %.pre17.i to i64
-  %172 = sext i32 %.pre18.i to i64
+  %.pre22.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.pre23.i = load i32, ptr %4, align 4
+  %.pre24.i = sext i32 %.pre22.i to i64
+  %172 = sext i32 %.pre23.i to i64
   br label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i, %.noexc124
-  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %160, %.noexc124 ]
+  %.pre-phi.i = phi i64 [ %.pre24.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %160, %.noexc124 ]
   %173 = phi i64 [ %172, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ 0, %.noexc124 ]
   %174 = phi ptr [ %.pre.i118, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %156, %.noexc124 ]
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %176 = getelementptr inbounds ptr, ptr %175, i64 %.pre-phi.i
-  %177 = getelementptr inbounds ptr, ptr %176, i64 %173
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %179 = getelementptr inbounds nuw i8, ptr %174, i64 12
-  %180 = load i32, ptr %179, align 4
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds ptr, ptr %175, i64 %181
-  %.not8.i6.i = icmp eq ptr %178, %182
+  %.idx1721.i = add nsw i64 %.pre-phi.i, 1
+  %176 = add nsw i64 %.idx1721.i, %173
+  %177 = shl nsw i64 %176, 3
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 12
+  %179 = load i32, ptr %178, align 4
+  %180 = sext i32 %179 to i64
+  %.idx20.i = shl nsw i64 %180, 3
+  %181 = getelementptr inbounds i8, ptr %175, i64 %.idx20.i
+  %.not8.i6.i = icmp eq i64 %177, %.idx20.i
   br i1 %.not8.i6.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.preheader.i
 
 .lr.ph.i7.preheader.i:                            ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
-  %183 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %154, i64 %173
+  %182 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %154, i64 %173
+  %183 = getelementptr inbounds i8, ptr %175, i64 %177
   br label %.lr.ph.i7.i
 
 .lr.ph.i7.i:                                      ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %.lr.ph.i7.preheader.i
-  %.010.i8.i = phi ptr [ %189, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %178, %.lr.ph.i7.preheader.i ]
-  %.079.i9.i = phi ptr [ %190, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %183, %.lr.ph.i7.preheader.i ]
+  %.010.i8.i = phi ptr [ %189, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %183, %.lr.ph.i7.preheader.i ]
+  %.079.i9.i = phi ptr [ %190, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %182, %.lr.ph.i7.preheader.i ]
   %184 = load ptr, ptr %.079.i9.i, align 8
   store ptr %184, ptr %.010.i8.i, align 8
   %185 = load atomic i32, ptr %184 monotonic, align 4
@@ -6337,7 +6341,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QS
 _ZN7QStringC2ERKS_.exit.i11.i:                    ; preds = %187, %.lr.ph.i7.i
   %189 = getelementptr inbounds nuw i8, ptr %.010.i8.i, i64 8
   %190 = getelementptr inbounds nuw i8, ptr %.079.i9.i, i64 8
-  %.not.i12.i = icmp eq ptr %189, %182
+  %.not.i12.i = icmp eq ptr %189, %181
   br i1 %.not.i12.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.i, !llvm.loop !42
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i: ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
@@ -7468,34 +7472,36 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %166, %.lr.ph.i.i
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   %.pre.i78 = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i78, i64 8
-  %.pre17.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %.pre18.i = load i32, ptr %4, align 4
-  %.pre19.i = sext i32 %.pre17.i to i64
-  %170 = sext i32 %.pre18.i to i64
+  %.pre22.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.pre23.i = load i32, ptr %4, align 4
+  %.pre24.i = sext i32 %.pre22.i to i64
+  %170 = sext i32 %.pre23.i to i64
   br label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i, %.noexc84
-  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %158, %.noexc84 ]
+  %.pre-phi.i = phi i64 [ %.pre24.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %158, %.noexc84 ]
   %171 = phi i64 [ %170, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ 0, %.noexc84 ]
   %172 = phi ptr [ %.pre.i78, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %154, %.noexc84 ]
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = getelementptr inbounds ptr, ptr %173, i64 %.pre-phi.i
-  %175 = getelementptr inbounds ptr, ptr %174, i64 %171
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 12
-  %178 = load i32, ptr %177, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr %173, i64 %179
-  %.not8.i6.i = icmp eq ptr %176, %180
+  %.idx1721.i = add nsw i64 %.pre-phi.i, 1
+  %174 = add nsw i64 %.idx1721.i, %171
+  %175 = shl nsw i64 %174, 3
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  %177 = load i32, ptr %176, align 4
+  %178 = sext i32 %177 to i64
+  %.idx20.i = shl nsw i64 %178, 3
+  %179 = getelementptr inbounds i8, ptr %173, i64 %.idx20.i
+  %.not8.i6.i = icmp eq i64 %175, %.idx20.i
   br i1 %.not8.i6.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.preheader.i
 
 .lr.ph.i7.preheader.i:                            ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
-  %181 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %152, i64 %171
+  %180 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %152, i64 %171
+  %181 = getelementptr inbounds i8, ptr %173, i64 %175
   br label %.lr.ph.i7.i
 
 .lr.ph.i7.i:                                      ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %.lr.ph.i7.preheader.i
-  %.010.i8.i = phi ptr [ %187, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %176, %.lr.ph.i7.preheader.i ]
-  %.079.i9.i = phi ptr [ %188, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %181, %.lr.ph.i7.preheader.i ]
+  %.010.i8.i = phi ptr [ %187, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %181, %.lr.ph.i7.preheader.i ]
+  %.079.i9.i = phi ptr [ %188, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %180, %.lr.ph.i7.preheader.i ]
   %182 = load ptr, ptr %.079.i9.i, align 8
   store ptr %182, ptr %.010.i8.i, align 8
   %183 = load atomic i32, ptr %182 monotonic, align 4
@@ -7510,7 +7516,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QS
 _ZN7QStringC2ERKS_.exit.i11.i:                    ; preds = %185, %.lr.ph.i7.i
   %187 = getelementptr inbounds nuw i8, ptr %.010.i8.i, i64 8
   %188 = getelementptr inbounds nuw i8, ptr %.079.i9.i, i64 8
-  %.not.i12.i = icmp eq ptr %187, %180
+  %.not.i12.i = icmp eq ptr %187, %179
   br i1 %.not.i12.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.i, !llvm.loop !42
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i: ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
@@ -8338,34 +8344,36 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %166, %.lr.ph.i.i
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   %.pre.i118 = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i118, i64 8
-  %.pre17.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %.pre18.i = load i32, ptr %4, align 4
-  %.pre19.i = sext i32 %.pre17.i to i64
-  %170 = sext i32 %.pre18.i to i64
+  %.pre22.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.pre23.i = load i32, ptr %4, align 4
+  %.pre24.i = sext i32 %.pre22.i to i64
+  %170 = sext i32 %.pre23.i to i64
   br label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i, %.noexc124
-  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %158, %.noexc124 ]
+  %.pre-phi.i = phi i64 [ %.pre24.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %158, %.noexc124 ]
   %171 = phi i64 [ %170, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ 0, %.noexc124 ]
   %172 = phi ptr [ %.pre.i118, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %154, %.noexc124 ]
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = getelementptr inbounds ptr, ptr %173, i64 %.pre-phi.i
-  %175 = getelementptr inbounds ptr, ptr %174, i64 %171
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 12
-  %178 = load i32, ptr %177, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr %173, i64 %179
-  %.not8.i6.i = icmp eq ptr %176, %180
+  %.idx1721.i = add nsw i64 %.pre-phi.i, 1
+  %174 = add nsw i64 %.idx1721.i, %171
+  %175 = shl nsw i64 %174, 3
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  %177 = load i32, ptr %176, align 4
+  %178 = sext i32 %177 to i64
+  %.idx20.i = shl nsw i64 %178, 3
+  %179 = getelementptr inbounds i8, ptr %173, i64 %.idx20.i
+  %.not8.i6.i = icmp eq i64 %175, %.idx20.i
   br i1 %.not8.i6.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.preheader.i
 
 .lr.ph.i7.preheader.i:                            ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
-  %181 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %152, i64 %171
+  %180 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %152, i64 %171
+  %181 = getelementptr inbounds i8, ptr %173, i64 %175
   br label %.lr.ph.i7.i
 
 .lr.ph.i7.i:                                      ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %.lr.ph.i7.preheader.i
-  %.010.i8.i = phi ptr [ %187, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %176, %.lr.ph.i7.preheader.i ]
-  %.079.i9.i = phi ptr [ %188, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %181, %.lr.ph.i7.preheader.i ]
+  %.010.i8.i = phi ptr [ %187, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %181, %.lr.ph.i7.preheader.i ]
+  %.079.i9.i = phi ptr [ %188, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %180, %.lr.ph.i7.preheader.i ]
   %182 = load ptr, ptr %.079.i9.i, align 8
   store ptr %182, ptr %.010.i8.i, align 8
   %183 = load atomic i32, ptr %182 monotonic, align 4
@@ -8380,7 +8388,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QS
 _ZN7QStringC2ERKS_.exit.i11.i:                    ; preds = %185, %.lr.ph.i7.i
   %187 = getelementptr inbounds nuw i8, ptr %.010.i8.i, i64 8
   %188 = getelementptr inbounds nuw i8, ptr %.079.i9.i, i64 8
-  %.not.i12.i = icmp eq ptr %187, %180
+  %.not.i12.i = icmp eq ptr %187, %179
   br i1 %.not.i12.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.i, !llvm.loop !42
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i: ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
@@ -9347,34 +9355,36 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %166, %.lr.ph.i.i
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   %.pre.i118 = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i118, i64 8
-  %.pre17.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %.pre18.i = load i32, ptr %4, align 4
-  %.pre19.i = sext i32 %.pre17.i to i64
-  %170 = sext i32 %.pre18.i to i64
+  %.pre22.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.pre23.i = load i32, ptr %4, align 4
+  %.pre24.i = sext i32 %.pre22.i to i64
+  %170 = sext i32 %.pre23.i to i64
   br label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i, %.noexc124
-  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %158, %.noexc124 ]
+  %.pre-phi.i = phi i64 [ %.pre24.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %158, %.noexc124 ]
   %171 = phi i64 [ %170, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ 0, %.noexc124 ]
   %172 = phi ptr [ %.pre.i118, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %154, %.noexc124 ]
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = getelementptr inbounds ptr, ptr %173, i64 %.pre-phi.i
-  %175 = getelementptr inbounds ptr, ptr %174, i64 %171
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 12
-  %178 = load i32, ptr %177, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr %173, i64 %179
-  %.not8.i6.i = icmp eq ptr %176, %180
+  %.idx1721.i = add nsw i64 %.pre-phi.i, 1
+  %174 = add nsw i64 %.idx1721.i, %171
+  %175 = shl nsw i64 %174, 3
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  %177 = load i32, ptr %176, align 4
+  %178 = sext i32 %177 to i64
+  %.idx20.i = shl nsw i64 %178, 3
+  %179 = getelementptr inbounds i8, ptr %173, i64 %.idx20.i
+  %.not8.i6.i = icmp eq i64 %175, %.idx20.i
   br i1 %.not8.i6.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.preheader.i
 
 .lr.ph.i7.preheader.i:                            ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
-  %181 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %152, i64 %171
+  %180 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %152, i64 %171
+  %181 = getelementptr inbounds i8, ptr %173, i64 %175
   br label %.lr.ph.i7.i
 
 .lr.ph.i7.i:                                      ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %.lr.ph.i7.preheader.i
-  %.010.i8.i = phi ptr [ %187, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %176, %.lr.ph.i7.preheader.i ]
-  %.079.i9.i = phi ptr [ %188, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %181, %.lr.ph.i7.preheader.i ]
+  %.010.i8.i = phi ptr [ %187, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %181, %.lr.ph.i7.preheader.i ]
+  %.079.i9.i = phi ptr [ %188, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %180, %.lr.ph.i7.preheader.i ]
   %182 = load ptr, ptr %.079.i9.i, align 8
   store ptr %182, ptr %.010.i8.i, align 8
   %183 = load atomic i32, ptr %182 monotonic, align 4
@@ -9389,7 +9399,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QS
 _ZN7QStringC2ERKS_.exit.i11.i:                    ; preds = %185, %.lr.ph.i7.i
   %187 = getelementptr inbounds nuw i8, ptr %.010.i8.i, i64 8
   %188 = getelementptr inbounds nuw i8, ptr %.079.i9.i, i64 8
-  %.not.i12.i = icmp eq ptr %187, %180
+  %.not.i12.i = icmp eq ptr %187, %179
   br i1 %.not.i12.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.i, !llvm.loop !42
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i: ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
@@ -10331,34 +10341,36 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %166, %.lr.ph.i.i
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i: ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   %.pre.i78 = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i78, i64 8
-  %.pre17.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %.pre18.i = load i32, ptr %4, align 4
-  %.pre19.i = sext i32 %.pre17.i to i64
-  %170 = sext i32 %.pre18.i to i64
+  %.pre22.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.pre23.i = load i32, ptr %4, align 4
+  %.pre24.i = sext i32 %.pre22.i to i64
+  %170 = sext i32 %.pre23.i to i64
   br label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i, %.noexc84
-  %.pre-phi.i = phi i64 [ %.pre19.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %158, %.noexc84 ]
+  %.pre-phi.i = phi i64 [ %.pre24.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %158, %.noexc84 ]
   %171 = phi i64 [ %170, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ 0, %.noexc84 ]
   %172 = phi ptr [ %.pre.i78, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit.i ], [ %154, %.noexc84 ]
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = getelementptr inbounds ptr, ptr %173, i64 %.pre-phi.i
-  %175 = getelementptr inbounds ptr, ptr %174, i64 %171
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 12
-  %178 = load i32, ptr %177, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr %173, i64 %179
-  %.not8.i6.i = icmp eq ptr %176, %180
+  %.idx1721.i = add nsw i64 %.pre-phi.i, 1
+  %174 = add nsw i64 %.idx1721.i, %171
+  %175 = shl nsw i64 %174, 3
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  %177 = load i32, ptr %176, align 4
+  %178 = sext i32 %177 to i64
+  %.idx20.i = shl nsw i64 %178, 3
+  %179 = getelementptr inbounds i8, ptr %173, i64 %.idx20.i
+  %.not8.i6.i = icmp eq i64 %175, %.idx20.i
   br i1 %.not8.i6.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.preheader.i
 
 .lr.ph.i7.preheader.i:                            ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i
-  %181 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %152, i64 %171
+  %180 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %152, i64 %171
+  %181 = getelementptr inbounds i8, ptr %173, i64 %175
   br label %.lr.ph.i7.i
 
 .lr.ph.i7.i:                                      ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %.lr.ph.i7.preheader.i
-  %.010.i8.i = phi ptr [ %187, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %176, %.lr.ph.i7.preheader.i ]
-  %.079.i9.i = phi ptr [ %188, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %181, %.lr.ph.i7.preheader.i ]
+  %.010.i8.i = phi ptr [ %187, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %181, %.lr.ph.i7.preheader.i ]
+  %.079.i9.i = phi ptr [ %188, %_ZN7QStringC2ERKS_.exit.i11.i ], [ %180, %.lr.ph.i7.preheader.i ]
   %182 = load ptr, ptr %.079.i9.i, align 8
   store ptr %182, ptr %.010.i8.i, align 8
   %183 = load atomic i32, ptr %182 monotonic, align 4
@@ -10373,7 +10385,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i: ; preds = %_ZN5QListI7QS
 _ZN7QStringC2ERKS_.exit.i11.i:                    ; preds = %185, %.lr.ph.i7.i
   %187 = getelementptr inbounds nuw i8, ptr %.010.i8.i, i64 8
   %188 = getelementptr inbounds nuw i8, ptr %.079.i9.i, i64 8
-  %.not.i12.i = icmp eq ptr %187, %180
+  %.not.i12.i = icmp eq ptr %187, %179
   br i1 %.not.i12.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i, label %.lr.ph.i7.i, !llvm.loop !42
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13.i: ; preds = %_ZN7QStringC2ERKS_.exit.i11.i, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i

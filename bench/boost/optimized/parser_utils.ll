@@ -764,10 +764,10 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE26translate
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx360
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %290
-  %6 = phi ptr [ %291, %290 ], [ %4, %.lr.ph.preheader ]
-  %7 = phi ptr [ %293, %290 ], [ %5, %.lr.ph.preheader ]
-  %.sroa.0254.0359 = phi ptr [ %.sroa.0254.1, %290 ], [ %4, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %288
+  %6 = phi ptr [ %289, %288 ], [ %4, %.lr.ph.preheader ]
+  %7 = phi ptr [ %291, %288 ], [ %5, %.lr.ph.preheader ]
+  %.sroa.0254.0359 = phi ptr [ %.sroa.0254.1, %288 ], [ %4, %.lr.ph.preheader ]
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %.sroa.0254.0359 to i64
   %10 = sub i64 %8, %9
@@ -869,7 +869,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_t
   %48 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   %49 = sub i64 %8, %48
   %50 = icmp sgt i64 %49, 4
-  br i1 %50, label %51, label %290
+  br i1 %50, label %51, label %288
 
 51:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit
   %52 = ptrtoint ptr %6 to i64
@@ -879,7 +879,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_t
   %55 = load ptr, ptr %0, align 8, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !19
-  switch i32 %57, label %259 [
+  switch i32 %57, label %257 [
     i32 110, label %58
     i32 114, label %59
     i32 97, label %60
@@ -887,59 +887,57 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_t
     i32 116, label %63
     i32 98, label %64
     i32 120, label %65
-    i32 117, label %100
-    i32 85, label %159
+    i32 117, label %99
+    i32 85, label %157
   ]
 
 58:                                               ; preds = %51
   store i32 10, ptr %56, align 4, !tbaa !19
-  br label %290
+  br label %288
 
 59:                                               ; preds = %51
   store i32 13, ptr %56, align 4, !tbaa !19
-  br label %290
+  br label %288
 
 60:                                               ; preds = %51
   store i32 7, ptr %56, align 4, !tbaa !19
-  br label %290
+  br label %288
 
 61:                                               ; preds = %51
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  br label %290
+  br label %288
 
 63:                                               ; preds = %51
   store i32 9, ptr %56, align 4, !tbaa !19
-  br label %290
+  br label %288
 
 64:                                               ; preds = %51
   store i32 8, ptr %56, align 4, !tbaa !19
-  br label %290
+  br label %288
 
 65:                                               ; preds = %51
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %67 = load i64, ptr %2, align 8, !tbaa !24
   %.idx343 = shl nuw nsw i64 %67, 2
-  %68 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx343
   %reass.sub362 = sub i64 %.idx343, %53
   %gepdiff344 = add i64 %reass.sub362, -4
-  %69 = icmp sgt i64 %gepdiff344, 4
-  br i1 %69, label %70, label %290
+  %68 = icmp sgt i64 %gepdiff344, 4
+  br i1 %68, label %69, label %288
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %72 = load i32, ptr %66, align 4, !tbaa !19
-  %.fr345 = freeze i32 %72
-  %73 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %74 = load i32, ptr %71, align 4, !tbaa !19
-  %.fr346 = freeze i32 %74
-  %75 = add i32 %.fr345, -48
-  %or.cond.i = icmp ult i32 %75, 10
-  %76 = add i32 %.fr345, -97
-  %or.cond3.i = icmp ult i32 %76, 6
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %71 = load i32, ptr %66, align 4, !tbaa !19
+  %.fr345 = freeze i32 %71
+  %72 = load i32, ptr %70, align 4, !tbaa !19
+  %.fr346 = freeze i32 %72
+  %73 = add i32 %.fr345, -48
+  %or.cond.i = icmp ult i32 %73, 10
+  %74 = add i32 %.fr345, -97
+  %or.cond3.i = icmp ult i32 %74, 6
   br i1 %or.cond.i, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread, label %switch.early.test
 
-switch.early.test:                                ; preds = %70
-  switch i32 %.fr345, label %290 [
+switch.early.test:                                ; preds = %69
+  switch i32 %.fr345, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread
@@ -954,15 +952,15 @@ switch.early.test:                                ; preds = %70
     i32 65, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread
   ]
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %70
-  %77 = add i32 %.fr346, -48
-  %or.cond.i57 = icmp ult i32 %77, 10
-  %78 = add i32 %.fr346, -97
-  %or.cond3.i58 = icmp ult i32 %78, 6
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %69
+  %75 = add i32 %.fr346, -48
+  %or.cond.i57 = icmp ult i32 %75, 10
+  %76 = add i32 %.fr346, -97
+  %or.cond3.i58 = icmp ult i32 %76, 6
   br i1 %or.cond.i57, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread, label %switch.early.test316
 
 switch.early.test316:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread
-  switch i32 %.fr346, label %290 [
+  switch i32 %.fr346, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread
@@ -978,96 +976,95 @@ switch.early.test316:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread: ; preds = %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %switch.early.test316, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit.thread
-  br i1 %or.cond.i, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit, label %79
+  br i1 %or.cond.i, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit, label %77
 
-79:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread
-  br i1 %or.cond3.i, label %80, label %82
+77:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread
+  br i1 %or.cond3.i, label %78, label %80
 
-80:                                               ; preds = %79
-  %81 = add nsw i32 %.fr345, -87
+78:                                               ; preds = %77
+  %79 = add nsw i32 %.fr345, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit
 
-82:                                               ; preds = %79
-  %83 = add nsw i32 %.fr345, -65
-  %or.cond5.i = icmp ult i32 %83, 6
-  %84 = add nsw i32 %.fr345, -55
-  %spec.select.i = select i1 %or.cond5.i, i32 %84, i32 0
+80:                                               ; preds = %77
+  %81 = add nsw i32 %.fr345, -65
+  %or.cond5.i = icmp ult i32 %81, 6
+  %82 = add nsw i32 %.fr345, -55
+  %spec.select.i = select i1 %or.cond5.i, i32 %82, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread, %80, %82
-  %.0.i = phi i32 [ %81, %80 ], [ %spec.select.i, %82 ], [ %75, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread ]
-  %85 = shl nuw nsw i32 %.0.i, 4
-  br i1 %or.cond.i57, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68, label %86
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread, %78, %80
+  %.0.i = phi i32 [ %79, %78 ], [ %spec.select.i, %80 ], [ %73, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread ]
+  %83 = shl nuw nsw i32 %.0.i, 4
+  br i1 %or.cond.i57, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68, label %84
 
-86:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit
-  br i1 %or.cond3.i58, label %87, label %89
+84:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit
+  br i1 %or.cond3.i58, label %85, label %87
 
-87:                                               ; preds = %86
-  %88 = add nsw i32 %.fr346, -87
+85:                                               ; preds = %84
+  %86 = add nsw i32 %.fr346, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68
 
-89:                                               ; preds = %86
-  %90 = add nsw i32 %.fr346, -65
-  %or.cond5.i65 = icmp ult i32 %90, 6
-  %91 = add nsw i32 %.fr346, -55
-  %spec.select.i66 = select i1 %or.cond5.i65, i32 %91, i32 0
+87:                                               ; preds = %84
+  %88 = add nsw i32 %.fr346, -65
+  %or.cond5.i65 = icmp ult i32 %88, 6
+  %89 = add nsw i32 %.fr346, -55
+  %spec.select.i66 = select i1 %or.cond5.i65, i32 %89, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit, %87, %89
-  %.0.i67 = phi i32 [ %88, %87 ], [ %spec.select.i66, %89 ], [ %77, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit ]
-  %92 = or i32 %.0.i67, %85
-  store i32 %92, ptr %56, align 4, !tbaa !19
-  %93 = add nuw nsw i64 %53, 4
-  %94 = ashr exact i64 %93, 2
-  %95 = icmp eq ptr %73, %68
-  br i1 %95, label %96, label %97
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit, %85, %87
+  %.0.i67 = phi i32 [ %86, %85 ], [ %spec.select.i66, %87 ], [ %75, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit ]
+  %90 = or i32 %.0.i67, %83
+  store i32 %90, ptr %56, align 4, !tbaa !19
+  %91 = add nuw nsw i64 %53, 4
+  %92 = ashr exact i64 %91, 2
+  %93 = add nuw nsw i64 %53, 12
+  %94 = icmp samesign eq i64 %93, %.idx343
+  br i1 %94, label %95, label %96
 
-96:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68
-  store i64 %94, ptr %2, align 8, !tbaa !24
+95:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68
+  store i64 %92, ptr %2, align 8, !tbaa !24
   store i32 0, ptr %66, align 4, !tbaa !19
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit
 
-97:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %94, i64 noundef 2)
+96:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %92, i64 noundef 2)
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit
 
-_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit: ; preds = %96, %97
-  %98 = phi ptr [ %.pre.i, %97 ], [ %55, %96 ]
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %93
-  br label %290
+_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit: ; preds = %95, %96
+  %97 = phi ptr [ %.pre.i, %96 ], [ %55, %95 ]
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %91
+  br label %288
 
-100:                                              ; preds = %51
-  %101 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %102 = load i64, ptr %2, align 8, !tbaa !24
-  %.idx337 = shl nuw nsw i64 %102, 2
-  %103 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx337
+99:                                               ; preds = %51
+  %100 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %101 = load i64, ptr %2, align 8, !tbaa !24
+  %.idx337 = shl nuw nsw i64 %101, 2
   %reass.sub361 = sub i64 %.idx337, %53
   %gepdiff338 = add i64 %reass.sub361, -4
-  %104 = icmp sgt i64 %gepdiff338, 12
-  br i1 %104, label %105, label %290
+  %102 = icmp sgt i64 %gepdiff338, 12
+  br i1 %102, label %103, label %288
 
-105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %107 = load i32, ptr %101, align 4, !tbaa !19
-  %.fr339 = freeze i32 %107
-  %108 = getelementptr inbounds nuw i8, ptr %56, i64 12
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %105 = load i32, ptr %100, align 4, !tbaa !19
+  %.fr339 = freeze i32 %105
+  %106 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  %107 = load i32, ptr %104, align 4, !tbaa !19
+  %.fr340 = freeze i32 %107
+  %108 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %109 = load i32, ptr %106, align 4, !tbaa !19
-  %.fr340 = freeze i32 %109
-  %110 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %111 = load i32, ptr %108, align 4, !tbaa !19
-  %.fr341 = freeze i32 %111
-  %112 = getelementptr inbounds nuw i8, ptr %56, i64 20
-  %113 = load i32, ptr %110, align 4, !tbaa !19
-  %.fr342 = freeze i32 %113
-  %114 = add i32 %.fr339, -48
-  %or.cond.i69 = icmp ult i32 %114, 10
-  %115 = add i32 %.fr339, -97
-  %or.cond3.i70 = icmp ult i32 %115, 6
+  %.fr341 = freeze i32 %109
+  %110 = load i32, ptr %108, align 4, !tbaa !19
+  %.fr342 = freeze i32 %110
+  %111 = add i32 %.fr339, -48
+  %or.cond.i69 = icmp ult i32 %111, 10
+  %112 = add i32 %.fr339, -97
+  %or.cond3.i70 = icmp ult i32 %112, 6
   br i1 %or.cond.i69, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread, label %switch.early.test317
 
-switch.early.test317:                             ; preds = %105
-  switch i32 %.fr339, label %290 [
+switch.early.test317:                             ; preds = %103
+  switch i32 %.fr339, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread
@@ -1082,15 +1079,15 @@ switch.early.test317:                             ; preds = %105
     i32 65, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread
   ]
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread: ; preds = %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %105
-  %116 = add i32 %.fr340, -48
-  %or.cond.i73 = icmp ult i32 %116, 10
-  %117 = add i32 %.fr340, -97
-  %or.cond3.i74 = icmp ult i32 %117, 6
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread: ; preds = %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %switch.early.test317, %103
+  %113 = add i32 %.fr340, -48
+  %or.cond.i73 = icmp ult i32 %113, 10
+  %114 = add i32 %.fr340, -97
+  %or.cond3.i74 = icmp ult i32 %114, 6
   br i1 %or.cond.i73, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit76.thread, label %switch.early.test318
 
 switch.early.test318:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread
-  switch i32 %.fr340, label %290 [
+  switch i32 %.fr340, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit76.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit76.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit76.thread
@@ -1106,14 +1103,14 @@ switch.early.test318:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit76.thread: ; preds = %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %switch.early.test318, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit72.thread
-  %118 = add i32 %.fr341, -48
-  %or.cond.i77 = icmp ult i32 %118, 10
-  %119 = add i32 %.fr341, -97
-  %or.cond3.i78 = icmp ult i32 %119, 6
+  %115 = add i32 %.fr341, -48
+  %or.cond.i77 = icmp ult i32 %115, 10
+  %116 = add i32 %.fr341, -97
+  %or.cond3.i78 = icmp ult i32 %116, 6
   br i1 %or.cond.i77, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit80.thread, label %switch.early.test319
 
 switch.early.test319:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit76.thread
-  switch i32 %.fr341, label %290 [
+  switch i32 %.fr341, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit80.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit80.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit80.thread
@@ -1129,14 +1126,14 @@ switch.early.test319:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit80.thread: ; preds = %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %switch.early.test319, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit76.thread
-  %120 = add i32 %.fr342, -48
-  %or.cond.i81 = icmp ult i32 %120, 10
-  %121 = add i32 %.fr342, -97
-  %or.cond3.i82 = icmp ult i32 %121, 6
+  %117 = add i32 %.fr342, -48
+  %or.cond.i81 = icmp ult i32 %117, 10
+  %118 = add i32 %.fr342, -97
+  %or.cond3.i82 = icmp ult i32 %118, 6
   br i1 %or.cond.i81, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread, label %switch.early.test320
 
 switch.early.test320:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit80.thread
-  switch i32 %.fr342, label %290 [
+  switch i32 %.fr342, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread
@@ -1152,147 +1149,148 @@ switch.early.test320:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread: ; preds = %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %switch.early.test320, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit80.thread
-  br i1 %or.cond.i69, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90, label %122
+  br i1 %or.cond.i69, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90, label %119
 
-122:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread
-  br i1 %or.cond3.i70, label %123, label %125
+119:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread
+  br i1 %or.cond3.i70, label %120, label %122
 
-123:                                              ; preds = %122
-  %124 = add nsw i32 %.fr339, -87
+120:                                              ; preds = %119
+  %121 = add nsw i32 %.fr339, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90
 
-125:                                              ; preds = %122
-  %126 = add nsw i32 %.fr339, -65
-  %or.cond5.i87 = icmp ult i32 %126, 6
-  %127 = add nsw i32 %.fr339, -55
-  %spec.select.i88 = select i1 %or.cond5.i87, i32 %127, i32 0
+122:                                              ; preds = %119
+  %123 = add nsw i32 %.fr339, -65
+  %or.cond5.i87 = icmp ult i32 %123, 6
+  %124 = add nsw i32 %.fr339, -55
+  %spec.select.i88 = select i1 %or.cond5.i87, i32 %124, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread, %123, %125
-  %.0.i89 = phi i32 [ %124, %123 ], [ %spec.select.i88, %125 ], [ %114, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread ]
-  %128 = shl nuw nsw i32 %.0.i89, 12
-  br i1 %or.cond.i73, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96, label %129
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread, %120, %122
+  %.0.i89 = phi i32 [ %121, %120 ], [ %spec.select.i88, %122 ], [ %111, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread ]
+  %125 = shl nuw nsw i32 %.0.i89, 12
+  br i1 %or.cond.i73, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96, label %126
 
-129:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90
-  br i1 %or.cond3.i74, label %130, label %132
+126:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90
+  br i1 %or.cond3.i74, label %127, label %129
 
-130:                                              ; preds = %129
-  %131 = add nsw i32 %.fr340, -87
+127:                                              ; preds = %126
+  %128 = add nsw i32 %.fr340, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96
 
-132:                                              ; preds = %129
-  %133 = add nsw i32 %.fr340, -65
-  %or.cond5.i93 = icmp ult i32 %133, 6
-  %134 = add nsw i32 %.fr340, -55
-  %spec.select.i94 = select i1 %or.cond5.i93, i32 %134, i32 0
+129:                                              ; preds = %126
+  %130 = add nsw i32 %.fr340, -65
+  %or.cond5.i93 = icmp ult i32 %130, 6
+  %131 = add nsw i32 %.fr340, -55
+  %spec.select.i94 = select i1 %or.cond5.i93, i32 %131, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90, %130, %132
-  %.0.i95 = phi i32 [ %131, %130 ], [ %spec.select.i94, %132 ], [ %116, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90 ]
-  %135 = shl nuw nsw i32 %.0.i95, 8
-  %136 = or i32 %135, %128
-  br i1 %or.cond.i77, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102, label %137
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90, %127, %129
+  %.0.i95 = phi i32 [ %128, %127 ], [ %spec.select.i94, %129 ], [ %113, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90 ]
+  %132 = shl nuw nsw i32 %.0.i95, 8
+  %133 = or i32 %132, %125
+  br i1 %or.cond.i77, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102, label %134
 
-137:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96
-  br i1 %or.cond3.i78, label %138, label %140
+134:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96
+  br i1 %or.cond3.i78, label %135, label %137
 
-138:                                              ; preds = %137
-  %139 = add nsw i32 %.fr341, -87
+135:                                              ; preds = %134
+  %136 = add nsw i32 %.fr341, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102
 
-140:                                              ; preds = %137
-  %141 = add nsw i32 %.fr341, -65
-  %or.cond5.i99 = icmp ult i32 %141, 6
-  %142 = add nsw i32 %.fr341, -55
-  %spec.select.i100 = select i1 %or.cond5.i99, i32 %142, i32 0
+137:                                              ; preds = %134
+  %138 = add nsw i32 %.fr341, -65
+  %or.cond5.i99 = icmp ult i32 %138, 6
+  %139 = add nsw i32 %.fr341, -55
+  %spec.select.i100 = select i1 %or.cond5.i99, i32 %139, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96, %138, %140
-  %.0.i101 = phi i32 [ %139, %138 ], [ %spec.select.i100, %140 ], [ %118, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96 ]
-  %143 = shl nuw nsw i32 %.0.i101, 4
-  %144 = or i32 %136, %143
-  br i1 %or.cond.i81, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108, label %145
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96, %135, %137
+  %.0.i101 = phi i32 [ %136, %135 ], [ %spec.select.i100, %137 ], [ %115, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96 ]
+  %140 = shl nuw nsw i32 %.0.i101, 4
+  %141 = or i32 %133, %140
+  br i1 %or.cond.i81, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108, label %142
 
-145:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102
-  br i1 %or.cond3.i82, label %146, label %148
+142:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102
+  br i1 %or.cond3.i82, label %143, label %145
 
-146:                                              ; preds = %145
-  %147 = add nsw i32 %.fr342, -87
+143:                                              ; preds = %142
+  %144 = add nsw i32 %.fr342, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108
 
-148:                                              ; preds = %145
-  %149 = add nsw i32 %.fr342, -65
-  %or.cond5.i105 = icmp ult i32 %149, 6
-  %150 = add nsw i32 %.fr342, -55
-  %spec.select.i106 = select i1 %or.cond5.i105, i32 %150, i32 0
+145:                                              ; preds = %142
+  %146 = add nsw i32 %.fr342, -65
+  %or.cond5.i105 = icmp ult i32 %146, 6
+  %147 = add nsw i32 %.fr342, -55
+  %spec.select.i106 = select i1 %or.cond5.i105, i32 %147, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102, %146, %148
-  %.0.i107 = phi i32 [ %147, %146 ], [ %spec.select.i106, %148 ], [ %120, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102 ]
-  %151 = or i32 %144, %.0.i107
-  store i32 %151, ptr %56, align 4, !tbaa !19
-  %152 = add nuw nsw i64 %53, 4
-  %153 = ashr exact i64 %152, 2
-  %154 = icmp eq ptr %112, %103
-  br i1 %154, label %155, label %156
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102, %143, %145
+  %.0.i107 = phi i32 [ %144, %143 ], [ %spec.select.i106, %145 ], [ %117, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102 ]
+  %148 = or i32 %141, %.0.i107
+  store i32 %148, ptr %56, align 4, !tbaa !19
+  %149 = add nuw nsw i64 %53, 4
+  %150 = ashr exact i64 %149, 2
+  %151 = add nuw nsw i64 %53, 20
+  %152 = icmp samesign eq i64 %151, %.idx337
+  br i1 %152, label %153, label %154
 
-155:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108
-  store i64 %153, ptr %2, align 8, !tbaa !24
-  store i32 0, ptr %101, align 4, !tbaa !19
+153:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108
+  store i64 %150, ptr %2, align 8, !tbaa !24
+  store i32 0, ptr %100, align 4, !tbaa !19
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110
 
-156:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %153, i64 noundef 4)
+154:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %150, i64 noundef 4)
   %.pre.i109 = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110
 
-_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110: ; preds = %155, %156
-  %157 = phi ptr [ %.pre.i109, %156 ], [ %55, %155 ]
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %152
-  br label %290
+_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110: ; preds = %153, %154
+  %155 = phi ptr [ %.pre.i109, %154 ], [ %55, %153 ]
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %149
+  br label %288
 
-159:                                              ; preds = %51
-  %160 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %161 = load i64, ptr %2, align 8, !tbaa !24
-  %.idx = shl nuw nsw i64 %161, 2
+157:                                              ; preds = %51
+  %158 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %159 = load i64, ptr %2, align 8, !tbaa !24
+  %.idx = shl nuw nsw i64 %159, 2
   %reass.sub = sub i64 %.idx, %53
   %gepdiff = add i64 %reass.sub, -4
-  %162 = icmp sgt i64 %gepdiff, 28
-  br i1 %162, label %163, label %290
+  %160 = icmp sgt i64 %gepdiff, 28
+  br i1 %160, label %161, label %288
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %165 = load i32, ptr %160, align 4, !tbaa !19
-  %.fr329 = freeze i32 %165
-  %166 = getelementptr inbounds nuw i8, ptr %56, i64 12
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %163 = load i32, ptr %158, align 4, !tbaa !19
+  %.fr329 = freeze i32 %163
+  %164 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  %165 = load i32, ptr %162, align 4, !tbaa !19
+  %.fr330 = freeze i32 %165
+  %166 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %167 = load i32, ptr %164, align 4, !tbaa !19
-  %.fr330 = freeze i32 %167
-  %168 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %.fr331 = freeze i32 %167
+  %168 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %169 = load i32, ptr %166, align 4, !tbaa !19
-  %.fr331 = freeze i32 %169
-  %170 = getelementptr inbounds nuw i8, ptr %56, i64 20
+  %.fr332 = freeze i32 %169
+  %170 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %171 = load i32, ptr %168, align 4, !tbaa !19
-  %.fr332 = freeze i32 %171
-  %172 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %.fr333 = freeze i32 %171
+  %172 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %173 = load i32, ptr %170, align 4, !tbaa !19
-  %.fr333 = freeze i32 %173
-  %174 = getelementptr inbounds nuw i8, ptr %56, i64 28
+  %.fr334 = freeze i32 %173
+  %174 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %175 = load i32, ptr %172, align 4, !tbaa !19
-  %.fr334 = freeze i32 %175
-  %176 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.fr335 = freeze i32 %175
+  %176 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %177 = load i32, ptr %174, align 4, !tbaa !19
-  %.fr335 = freeze i32 %177
-  %178 = getelementptr inbounds nuw i8, ptr %56, i64 36
-  %179 = load i32, ptr %176, align 4, !tbaa !19
-  %.fr336 = freeze i32 %179
-  %180 = add i32 %.fr329, -48
-  %or.cond.i111 = icmp ult i32 %180, 10
-  %181 = add i32 %.fr329, -97
-  %or.cond3.i112 = icmp ult i32 %181, 6
+  %.fr336 = freeze i32 %177
+  %178 = add i32 %.fr329, -48
+  %or.cond.i111 = icmp ult i32 %178, 10
+  %179 = add i32 %.fr329, -97
+  %or.cond3.i112 = icmp ult i32 %179, 6
   br i1 %or.cond.i111, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread, label %switch.early.test321
 
-switch.early.test321:                             ; preds = %163
-  switch i32 %.fr329, label %290 [
+switch.early.test321:                             ; preds = %161
+  switch i32 %.fr329, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread
@@ -1307,15 +1305,15 @@ switch.early.test321:                             ; preds = %163
     i32 65, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread
   ]
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread: ; preds = %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %163
-  %182 = add i32 %.fr330, -48
-  %or.cond.i115 = icmp ult i32 %182, 10
-  %183 = add i32 %.fr330, -97
-  %or.cond3.i116 = icmp ult i32 %183, 6
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread: ; preds = %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %161
+  %180 = add i32 %.fr330, -48
+  %or.cond.i115 = icmp ult i32 %180, 10
+  %181 = add i32 %.fr330, -97
+  %or.cond3.i116 = icmp ult i32 %181, 6
   br i1 %or.cond.i115, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit118.thread, label %switch.early.test322
 
 switch.early.test322:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread
-  switch i32 %.fr330, label %290 [
+  switch i32 %.fr330, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit118.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit118.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit118.thread
@@ -1331,14 +1329,14 @@ switch.early.test322:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit118.thread: ; preds = %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit114.thread
-  %184 = add i32 %.fr331, -48
-  %or.cond.i119 = icmp ult i32 %184, 10
-  %185 = add i32 %.fr331, -97
-  %or.cond3.i120 = icmp ult i32 %185, 6
+  %182 = add i32 %.fr331, -48
+  %or.cond.i119 = icmp ult i32 %182, 10
+  %183 = add i32 %.fr331, -97
+  %or.cond3.i120 = icmp ult i32 %183, 6
   br i1 %or.cond.i119, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit122.thread, label %switch.early.test323
 
 switch.early.test323:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit118.thread
-  switch i32 %.fr331, label %290 [
+  switch i32 %.fr331, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit122.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit122.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit122.thread
@@ -1354,14 +1352,14 @@ switch.early.test323:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit122.thread: ; preds = %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit118.thread
-  %186 = add i32 %.fr332, -48
-  %or.cond.i123 = icmp ult i32 %186, 10
-  %187 = add i32 %.fr332, -97
-  %or.cond3.i124 = icmp ult i32 %187, 6
+  %184 = add i32 %.fr332, -48
+  %or.cond.i123 = icmp ult i32 %184, 10
+  %185 = add i32 %.fr332, -97
+  %or.cond3.i124 = icmp ult i32 %185, 6
   br i1 %or.cond.i123, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit126.thread, label %switch.early.test324
 
 switch.early.test324:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit122.thread
-  switch i32 %.fr332, label %290 [
+  switch i32 %.fr332, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit126.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit126.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit126.thread
@@ -1377,14 +1375,14 @@ switch.early.test324:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit126.thread: ; preds = %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit122.thread
-  %188 = add i32 %.fr333, -48
-  %or.cond.i127 = icmp ult i32 %188, 10
-  %189 = add i32 %.fr333, -97
-  %or.cond3.i128 = icmp ult i32 %189, 6
+  %186 = add i32 %.fr333, -48
+  %or.cond.i127 = icmp ult i32 %186, 10
+  %187 = add i32 %.fr333, -97
+  %or.cond3.i128 = icmp ult i32 %187, 6
   br i1 %or.cond.i127, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit130.thread, label %switch.early.test325
 
 switch.early.test325:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit126.thread
-  switch i32 %.fr333, label %290 [
+  switch i32 %.fr333, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit130.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit130.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit130.thread
@@ -1400,14 +1398,14 @@ switch.early.test325:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit130.thread: ; preds = %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit126.thread
-  %190 = add i32 %.fr334, -48
-  %or.cond.i131 = icmp ult i32 %190, 10
-  %191 = add i32 %.fr334, -97
-  %or.cond3.i132 = icmp ult i32 %191, 6
+  %188 = add i32 %.fr334, -48
+  %or.cond.i131 = icmp ult i32 %188, 10
+  %189 = add i32 %.fr334, -97
+  %or.cond3.i132 = icmp ult i32 %189, 6
   br i1 %or.cond.i131, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit134.thread, label %switch.early.test326
 
 switch.early.test326:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit130.thread
-  switch i32 %.fr334, label %290 [
+  switch i32 %.fr334, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit134.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit134.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit134.thread
@@ -1423,14 +1421,14 @@ switch.early.test326:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit134.thread: ; preds = %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit130.thread
-  %192 = add i32 %.fr335, -48
-  %or.cond.i135 = icmp ult i32 %192, 10
-  %193 = add i32 %.fr335, -97
-  %or.cond3.i136 = icmp ult i32 %193, 6
+  %190 = add i32 %.fr335, -48
+  %or.cond.i135 = icmp ult i32 %190, 10
+  %191 = add i32 %.fr335, -97
+  %or.cond3.i136 = icmp ult i32 %191, 6
   br i1 %or.cond.i135, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit138.thread, label %switch.early.test327
 
 switch.early.test327:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit134.thread
-  switch i32 %.fr335, label %290 [
+  switch i32 %.fr335, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit138.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit138.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit138.thread
@@ -1446,14 +1444,14 @@ switch.early.test327:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit138.thread: ; preds = %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit134.thread
-  %194 = add i32 %.fr336, -48
-  %or.cond.i139 = icmp ult i32 %194, 10
-  %195 = add i32 %.fr336, -97
-  %or.cond3.i140 = icmp ult i32 %195, 6
+  %192 = add i32 %.fr336, -48
+  %or.cond.i139 = icmp ult i32 %192, 10
+  %193 = add i32 %.fr336, -97
+  %or.cond3.i140 = icmp ult i32 %193, 6
   br i1 %or.cond.i139, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread, label %switch.early.test328
 
 switch.early.test328:                             ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit138.thread
-  switch i32 %.fr336, label %290 [
+  switch i32 %.fr336, label %288 [
     i32 102, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread
     i32 101, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread
     i32 100, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread
@@ -1469,238 +1467,238 @@ switch.early.test328:                             ; preds = %_ZN5boost3log11v2_m
   ]
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread: ; preds = %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit138.thread
-  br i1 %or.cond.i111, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148, label %196
+  br i1 %or.cond.i111, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148, label %194
 
-196:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread
-  br i1 %or.cond3.i112, label %197, label %199
+194:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread
+  br i1 %or.cond3.i112, label %195, label %197
 
-197:                                              ; preds = %196
-  %198 = add nsw i32 %.fr329, -87
+195:                                              ; preds = %194
+  %196 = add nsw i32 %.fr329, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148
 
-199:                                              ; preds = %196
-  %200 = add nsw i32 %.fr329, -65
-  %or.cond5.i145 = icmp ult i32 %200, 6
-  %201 = add nsw i32 %.fr329, -55
-  %spec.select.i146 = select i1 %or.cond5.i145, i32 %201, i32 0
+197:                                              ; preds = %194
+  %198 = add nsw i32 %.fr329, -65
+  %or.cond5.i145 = icmp ult i32 %198, 6
+  %199 = add nsw i32 %.fr329, -55
+  %spec.select.i146 = select i1 %or.cond5.i145, i32 %199, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread, %197, %199
-  %.0.i147 = phi i32 [ %198, %197 ], [ %spec.select.i146, %199 ], [ %180, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread ]
-  %202 = shl i32 %.0.i147, 28
-  br i1 %or.cond.i115, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154, label %203
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread, %195, %197
+  %.0.i147 = phi i32 [ %196, %195 ], [ %spec.select.i146, %197 ], [ %178, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread ]
+  %200 = shl i32 %.0.i147, 28
+  br i1 %or.cond.i115, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154, label %201
 
-203:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148
-  br i1 %or.cond3.i116, label %204, label %206
+201:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148
+  br i1 %or.cond3.i116, label %202, label %204
 
-204:                                              ; preds = %203
-  %205 = add nsw i32 %.fr330, -87
+202:                                              ; preds = %201
+  %203 = add nsw i32 %.fr330, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154
 
-206:                                              ; preds = %203
-  %207 = add nsw i32 %.fr330, -65
-  %or.cond5.i151 = icmp ult i32 %207, 6
-  %208 = add nsw i32 %.fr330, -55
-  %spec.select.i152 = select i1 %or.cond5.i151, i32 %208, i32 0
+204:                                              ; preds = %201
+  %205 = add nsw i32 %.fr330, -65
+  %or.cond5.i151 = icmp ult i32 %205, 6
+  %206 = add nsw i32 %.fr330, -55
+  %spec.select.i152 = select i1 %or.cond5.i151, i32 %206, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148, %204, %206
-  %.0.i153 = phi i32 [ %205, %204 ], [ %spec.select.i152, %206 ], [ %182, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148 ]
-  %209 = shl nuw nsw i32 %.0.i153, 24
-  %210 = or i32 %209, %202
-  br i1 %or.cond.i119, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160, label %211
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148, %202, %204
+  %.0.i153 = phi i32 [ %203, %202 ], [ %spec.select.i152, %204 ], [ %180, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148 ]
+  %207 = shl nuw nsw i32 %.0.i153, 24
+  %208 = or i32 %207, %200
+  br i1 %or.cond.i119, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160, label %209
 
-211:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154
-  br i1 %or.cond3.i120, label %212, label %214
+209:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154
+  br i1 %or.cond3.i120, label %210, label %212
 
-212:                                              ; preds = %211
-  %213 = add nsw i32 %.fr331, -87
+210:                                              ; preds = %209
+  %211 = add nsw i32 %.fr331, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160
 
-214:                                              ; preds = %211
-  %215 = add nsw i32 %.fr331, -65
-  %or.cond5.i157 = icmp ult i32 %215, 6
-  %216 = add nsw i32 %.fr331, -55
-  %spec.select.i158 = select i1 %or.cond5.i157, i32 %216, i32 0
+212:                                              ; preds = %209
+  %213 = add nsw i32 %.fr331, -65
+  %or.cond5.i157 = icmp ult i32 %213, 6
+  %214 = add nsw i32 %.fr331, -55
+  %spec.select.i158 = select i1 %or.cond5.i157, i32 %214, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154, %212, %214
-  %.0.i159 = phi i32 [ %213, %212 ], [ %spec.select.i158, %214 ], [ %184, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154 ]
-  %217 = shl nuw nsw i32 %.0.i159, 20
-  %218 = or i32 %210, %217
-  br i1 %or.cond.i123, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166, label %219
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154, %210, %212
+  %.0.i159 = phi i32 [ %211, %210 ], [ %spec.select.i158, %212 ], [ %182, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154 ]
+  %215 = shl nuw nsw i32 %.0.i159, 20
+  %216 = or i32 %208, %215
+  br i1 %or.cond.i123, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166, label %217
 
-219:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160
-  br i1 %or.cond3.i124, label %220, label %222
+217:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160
+  br i1 %or.cond3.i124, label %218, label %220
 
-220:                                              ; preds = %219
-  %221 = add nsw i32 %.fr332, -87
+218:                                              ; preds = %217
+  %219 = add nsw i32 %.fr332, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166
 
-222:                                              ; preds = %219
-  %223 = add nsw i32 %.fr332, -65
-  %or.cond5.i163 = icmp ult i32 %223, 6
-  %224 = add nsw i32 %.fr332, -55
-  %spec.select.i164 = select i1 %or.cond5.i163, i32 %224, i32 0
+220:                                              ; preds = %217
+  %221 = add nsw i32 %.fr332, -65
+  %or.cond5.i163 = icmp ult i32 %221, 6
+  %222 = add nsw i32 %.fr332, -55
+  %spec.select.i164 = select i1 %or.cond5.i163, i32 %222, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160, %220, %222
-  %.0.i165 = phi i32 [ %221, %220 ], [ %spec.select.i164, %222 ], [ %186, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160 ]
-  %225 = shl nuw nsw i32 %.0.i165, 16
-  %226 = or i32 %218, %225
-  br i1 %or.cond.i127, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172, label %227
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160, %218, %220
+  %.0.i165 = phi i32 [ %219, %218 ], [ %spec.select.i164, %220 ], [ %184, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160 ]
+  %223 = shl nuw nsw i32 %.0.i165, 16
+  %224 = or i32 %216, %223
+  br i1 %or.cond.i127, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172, label %225
 
-227:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166
-  br i1 %or.cond3.i128, label %228, label %230
+225:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166
+  br i1 %or.cond3.i128, label %226, label %228
 
-228:                                              ; preds = %227
-  %229 = add nsw i32 %.fr333, -87
+226:                                              ; preds = %225
+  %227 = add nsw i32 %.fr333, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172
 
-230:                                              ; preds = %227
-  %231 = add nsw i32 %.fr333, -65
-  %or.cond5.i169 = icmp ult i32 %231, 6
-  %232 = add nsw i32 %.fr333, -55
-  %spec.select.i170 = select i1 %or.cond5.i169, i32 %232, i32 0
+228:                                              ; preds = %225
+  %229 = add nsw i32 %.fr333, -65
+  %or.cond5.i169 = icmp ult i32 %229, 6
+  %230 = add nsw i32 %.fr333, -55
+  %spec.select.i170 = select i1 %or.cond5.i169, i32 %230, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166, %228, %230
-  %.0.i171 = phi i32 [ %229, %228 ], [ %spec.select.i170, %230 ], [ %188, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166 ]
-  %233 = shl nuw nsw i32 %.0.i171, 12
-  %234 = or i32 %226, %233
-  br i1 %or.cond.i131, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178, label %235
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166, %226, %228
+  %.0.i171 = phi i32 [ %227, %226 ], [ %spec.select.i170, %228 ], [ %186, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166 ]
+  %231 = shl nuw nsw i32 %.0.i171, 12
+  %232 = or i32 %224, %231
+  br i1 %or.cond.i131, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178, label %233
 
-235:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172
-  br i1 %or.cond3.i132, label %236, label %238
+233:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172
+  br i1 %or.cond3.i132, label %234, label %236
 
-236:                                              ; preds = %235
-  %237 = add nsw i32 %.fr334, -87
+234:                                              ; preds = %233
+  %235 = add nsw i32 %.fr334, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178
 
-238:                                              ; preds = %235
-  %239 = add nsw i32 %.fr334, -65
-  %or.cond5.i175 = icmp ult i32 %239, 6
-  %240 = add nsw i32 %.fr334, -55
-  %spec.select.i176 = select i1 %or.cond5.i175, i32 %240, i32 0
+236:                                              ; preds = %233
+  %237 = add nsw i32 %.fr334, -65
+  %or.cond5.i175 = icmp ult i32 %237, 6
+  %238 = add nsw i32 %.fr334, -55
+  %spec.select.i176 = select i1 %or.cond5.i175, i32 %238, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172, %236, %238
-  %.0.i177 = phi i32 [ %237, %236 ], [ %spec.select.i176, %238 ], [ %190, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172 ]
-  %241 = shl nuw nsw i32 %.0.i177, 8
-  %242 = or i32 %234, %241
-  br i1 %or.cond.i135, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184, label %243
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172, %234, %236
+  %.0.i177 = phi i32 [ %235, %234 ], [ %spec.select.i176, %236 ], [ %188, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172 ]
+  %239 = shl nuw nsw i32 %.0.i177, 8
+  %240 = or i32 %232, %239
+  br i1 %or.cond.i135, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184, label %241
 
-243:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178
-  br i1 %or.cond3.i136, label %244, label %246
+241:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178
+  br i1 %or.cond3.i136, label %242, label %244
 
-244:                                              ; preds = %243
-  %245 = add nsw i32 %.fr335, -87
+242:                                              ; preds = %241
+  %243 = add nsw i32 %.fr335, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184
 
-246:                                              ; preds = %243
-  %247 = add nsw i32 %.fr335, -65
-  %or.cond5.i181 = icmp ult i32 %247, 6
-  %248 = add nsw i32 %.fr335, -55
-  %spec.select.i182 = select i1 %or.cond5.i181, i32 %248, i32 0
+244:                                              ; preds = %241
+  %245 = add nsw i32 %.fr335, -65
+  %or.cond5.i181 = icmp ult i32 %245, 6
+  %246 = add nsw i32 %.fr335, -55
+  %spec.select.i182 = select i1 %or.cond5.i181, i32 %246, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178, %244, %246
-  %.0.i183 = phi i32 [ %245, %244 ], [ %spec.select.i182, %246 ], [ %192, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178 ]
-  %249 = shl nuw nsw i32 %.0.i183, 4
-  %250 = or i32 %242, %249
-  br i1 %or.cond.i139, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190, label %251
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178, %242, %244
+  %.0.i183 = phi i32 [ %243, %242 ], [ %spec.select.i182, %244 ], [ %190, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178 ]
+  %247 = shl nuw nsw i32 %.0.i183, 4
+  %248 = or i32 %240, %247
+  br i1 %or.cond.i139, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190, label %249
 
-251:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184
-  br i1 %or.cond3.i140, label %252, label %254
+249:                                              ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184
+  br i1 %or.cond3.i140, label %250, label %252
 
-252:                                              ; preds = %251
-  %253 = add nsw i32 %.fr336, -87
+250:                                              ; preds = %249
+  %251 = add nsw i32 %.fr336, -87
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190
 
-254:                                              ; preds = %251
-  %255 = add nsw i32 %.fr336, -65
-  %or.cond5.i187 = icmp ult i32 %255, 6
-  %256 = add nsw i32 %.fr336, -55
-  %spec.select.i188 = select i1 %or.cond5.i187, i32 %256, i32 0
+252:                                              ; preds = %249
+  %253 = add nsw i32 %.fr336, -65
+  %or.cond5.i187 = icmp ult i32 %253, 6
+  %254 = add nsw i32 %.fr336, -55
+  %spec.select.i188 = select i1 %or.cond5.i187, i32 %254, i32 0
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190
 
-_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184, %252, %254
-  %.0.i189 = phi i32 [ %253, %252 ], [ %spec.select.i188, %254 ], [ %194, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184 ]
-  %257 = or i32 %250, %.0.i189
-  store i32 %257, ptr %56, align 4, !tbaa !19
-  %258 = tail call ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %160, ptr nonnull %178)
+_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184, %250, %252
+  %.0.i189 = phi i32 [ %251, %250 ], [ %spec.select.i188, %252 ], [ %192, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184 ]
+  %255 = or i32 %248, %.0.i189
+  store i32 %255, ptr %56, align 4, !tbaa !19
+  %256 = tail call ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %158, ptr nonnull %176)
   %.pre = load ptr, ptr %0, align 8, !tbaa !28
-  br label %290
+  br label %288
 
-259:                                              ; preds = %51
-  %260 = and i32 %57, -8
-  %or.cond313 = icmp eq i32 %260, 48
-  br i1 %or.cond313, label %261, label %290
+257:                                              ; preds = %51
+  %258 = and i32 %57, -8
+  %or.cond313 = icmp eq i32 %258, 48
+  br i1 %or.cond313, label %259, label %288
 
-261:                                              ; preds = %259
-  %262 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %263 = add nsw i32 %57, -48
-  %264 = load i32, ptr %262, align 4, !tbaa !19
-  %265 = and i32 %264, -8
-  %or.cond314 = icmp eq i32 %265, 48
-  br i1 %or.cond314, label %266, label %.thread280
+259:                                              ; preds = %257
+  %260 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %261 = add nsw i32 %57, -48
+  %262 = load i32, ptr %260, align 4, !tbaa !19
+  %263 = and i32 %262, -8
+  %or.cond314 = icmp eq i32 %263, 48
+  br i1 %or.cond314, label %264, label %.thread280
 
-266:                                              ; preds = %261
-  %267 = shl nuw nsw i32 %263, 3
-  %268 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %269 = add nsw i32 %267, -48
-  %270 = add nsw i32 %269, %264
-  %.pr = load i32, ptr %268, align 4, !tbaa !19
-  %271 = and i32 %.pr, -8
-  %or.cond315 = icmp eq i32 %271, 48
-  br i1 %or.cond315, label %272, label %.thread280
+264:                                              ; preds = %259
+  %265 = shl nuw nsw i32 %261, 3
+  %266 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %267 = add nsw i32 %265, -48
+  %268 = add nsw i32 %267, %262
+  %.pr = load i32, ptr %266, align 4, !tbaa !19
+  %269 = and i32 %.pr, -8
+  %or.cond315 = icmp eq i32 %269, 48
+  br i1 %or.cond315, label %270, label %.thread280
 
-272:                                              ; preds = %266
-  %273 = shl nuw nsw i32 %270, 3
-  %274 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %275 = add nsw i32 %273, -48
-  %276 = add nsw i32 %275, %.pr
+270:                                              ; preds = %264
+  %271 = shl nuw nsw i32 %268, 3
+  %272 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  %273 = add nsw i32 %271, -48
+  %274 = add nsw i32 %273, %.pr
   br label %.thread280
 
-.thread280:                                       ; preds = %261, %272, %266
-  %.sroa.0198.1 = phi ptr [ %274, %272 ], [ %268, %266 ], [ %262, %261 ]
-  %.1 = phi i32 [ %276, %272 ], [ %270, %266 ], [ %263, %261 ]
+.thread280:                                       ; preds = %259, %270, %264
+  %.sroa.0198.1 = phi ptr [ %272, %270 ], [ %266, %264 ], [ %260, %259 ]
+  %.1 = phi i32 [ %274, %270 ], [ %268, %264 ], [ %261, %259 ]
   store i32 %.1, ptr %56, align 4, !tbaa !19
-  %277 = add nuw nsw i64 %53, 4
-  %278 = ashr exact i64 %277, 2
-  %279 = load i64, ptr %2, align 8, !tbaa !24
-  %280 = getelementptr inbounds nuw i32, ptr %55, i64 %279
-  %281 = icmp eq ptr %.sroa.0198.1, %280
-  br i1 %281, label %282, label %283
+  %275 = add nuw nsw i64 %53, 4
+  %276 = ashr exact i64 %275, 2
+  %277 = load i64, ptr %2, align 8, !tbaa !24
+  %278 = getelementptr inbounds nuw i32, ptr %55, i64 %277
+  %279 = icmp eq ptr %.sroa.0198.1, %278
+  br i1 %279, label %280, label %281
 
-282:                                              ; preds = %.thread280
-  store i64 %278, ptr %2, align 8, !tbaa !24
-  store i32 0, ptr %262, align 4, !tbaa !19
+280:                                              ; preds = %.thread280
+  store i64 %276, ptr %2, align 8, !tbaa !24
+  store i32 0, ptr %260, align 4, !tbaa !19
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192
 
-283:                                              ; preds = %.thread280
-  %284 = ptrtoint ptr %262 to i64
-  %285 = ptrtoint ptr %.sroa.0198.1 to i64
-  %286 = sub i64 %285, %284
-  %287 = ashr exact i64 %286, 2
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %278, i64 noundef %287)
+281:                                              ; preds = %.thread280
+  %282 = ptrtoint ptr %260 to i64
+  %283 = ptrtoint ptr %.sroa.0198.1 to i64
+  %284 = sub i64 %283, %282
+  %285 = ashr exact i64 %284, 2
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %276, i64 noundef %285)
   %.pre.i191 = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192
 
-_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192: ; preds = %282, %283
-  %288 = phi ptr [ %.pre.i191, %283 ], [ %55, %282 ]
-  %289 = getelementptr inbounds nuw i8, ptr %288, i64 %277
-  br label %290
+_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192: ; preds = %280, %281
+  %286 = phi ptr [ %.pre.i191, %281 ], [ %55, %280 ]
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 %275
+  br label %288
 
-290:                                              ; preds = %switch.early.test328, %switch.early.test327, %switch.early.test326, %switch.early.test325, %switch.early.test324, %switch.early.test323, %switch.early.test322, %switch.early.test321, %switch.early.test320, %switch.early.test319, %switch.early.test318, %switch.early.test317, %switch.early.test316, %switch.early.test, %159, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190, %100, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110, %65, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit, %58, %59, %60, %61, %63, %64, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192, %259, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit
-  %291 = phi ptr [ %288, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %55, %259 ], [ %55, %58 ], [ %55, %59 ], [ %55, %60 ], [ %55, %61 ], [ %55, %63 ], [ %55, %64 ], [ %6, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %98, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %55, %65 ], [ %157, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %55, %100 ], [ %.pre, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %55, %159 ], [ %55, %switch.early.test ], [ %55, %switch.early.test316 ], [ %55, %switch.early.test317 ], [ %55, %switch.early.test318 ], [ %55, %switch.early.test319 ], [ %55, %switch.early.test320 ], [ %55, %switch.early.test321 ], [ %55, %switch.early.test322 ], [ %55, %switch.early.test323 ], [ %55, %switch.early.test324 ], [ %55, %switch.early.test325 ], [ %55, %switch.early.test326 ], [ %55, %switch.early.test327 ], [ %55, %switch.early.test328 ]
-  %.sroa.0254.1 = phi ptr [ %289, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %56, %259 ], [ %56, %58 ], [ %56, %59 ], [ %56, %60 ], [ %62, %61 ], [ %56, %63 ], [ %56, %64 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %99, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %56, %65 ], [ %158, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %56, %100 ], [ %258, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %56, %159 ], [ %56, %switch.early.test ], [ %56, %switch.early.test316 ], [ %56, %switch.early.test317 ], [ %56, %switch.early.test318 ], [ %56, %switch.early.test319 ], [ %56, %switch.early.test320 ], [ %56, %switch.early.test321 ], [ %56, %switch.early.test322 ], [ %56, %switch.early.test323 ], [ %56, %switch.early.test324 ], [ %56, %switch.early.test325 ], [ %56, %switch.early.test326 ], [ %56, %switch.early.test327 ], [ %56, %switch.early.test328 ]
-  %292 = load i64, ptr %2, align 8, !tbaa !24
-  %293 = getelementptr inbounds nuw i32, ptr %291, i64 %292
-  %.not = icmp eq ptr %.sroa.0254.1, %293
+288:                                              ; preds = %switch.early.test328, %switch.early.test327, %switch.early.test326, %switch.early.test325, %switch.early.test324, %switch.early.test323, %switch.early.test322, %switch.early.test321, %switch.early.test320, %switch.early.test319, %switch.early.test318, %switch.early.test317, %switch.early.test316, %switch.early.test, %157, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190, %99, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110, %65, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit, %58, %59, %60, %61, %63, %64, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192, %257, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit
+  %289 = phi ptr [ %286, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %55, %257 ], [ %55, %58 ], [ %55, %59 ], [ %55, %60 ], [ %55, %61 ], [ %55, %63 ], [ %55, %64 ], [ %6, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %97, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %55, %65 ], [ %155, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %55, %99 ], [ %.pre, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %55, %157 ], [ %55, %switch.early.test ], [ %55, %switch.early.test316 ], [ %55, %switch.early.test317 ], [ %55, %switch.early.test318 ], [ %55, %switch.early.test319 ], [ %55, %switch.early.test320 ], [ %55, %switch.early.test321 ], [ %55, %switch.early.test322 ], [ %55, %switch.early.test323 ], [ %55, %switch.early.test324 ], [ %55, %switch.early.test325 ], [ %55, %switch.early.test326 ], [ %55, %switch.early.test327 ], [ %55, %switch.early.test328 ]
+  %.sroa.0254.1 = phi ptr [ %287, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %56, %257 ], [ %56, %58 ], [ %56, %59 ], [ %56, %60 ], [ %62, %61 ], [ %56, %63 ], [ %56, %64 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %98, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %56, %65 ], [ %156, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %56, %99 ], [ %256, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %56, %157 ], [ %56, %switch.early.test ], [ %56, %switch.early.test316 ], [ %56, %switch.early.test317 ], [ %56, %switch.early.test318 ], [ %56, %switch.early.test319 ], [ %56, %switch.early.test320 ], [ %56, %switch.early.test321 ], [ %56, %switch.early.test322 ], [ %56, %switch.early.test323 ], [ %56, %switch.early.test324 ], [ %56, %switch.early.test325 ], [ %56, %switch.early.test326 ], [ %56, %switch.early.test327 ], [ %56, %switch.early.test328 ]
+  %290 = load i64, ptr %2, align 8, !tbaa !24
+  %291 = getelementptr inbounds nuw i32, ptr %289, i64 %290
+  %.not = icmp eq ptr %.sroa.0254.1, %291
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %290, %1
+._crit_edge:                                      ; preds = %288, %1
   ret void
 }
 

@@ -6452,134 +6452,133 @@ _ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_cont
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK2OT20MarkGlyphSetsFormat116collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES2_IS3_ImLj0EES3_ImLj9EEEEEEvR11hb_vector_tIT_Lb0EE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %4 = load i8, ptr %3, align 1
-  %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i64
-  %.idx.i = shl nuw nsw i64 %5, 10
-  %.add = or disjoint i64 %.idx.i, 4
-  %.idx = shl nuw nsw i64 %8, 2
-  %.add12 = add nuw nsw i64 %.add, %.idx
-  %.ptr14 = getelementptr inbounds nuw i8, ptr %0, i64 %.add12
-  %.not10 = icmp eq i64 %.add12, 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i8, ptr %3, align 1
+  %6 = zext i8 %5 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i64
+  %.idx.i = shl nuw nsw i64 %6, 10
+  %.idx = shl nuw nsw i64 %9, 2
+  %10 = or disjoint i64 %.idx.i, %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
+  %.not10 = icmp samesign eq i64 %10, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %11
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %14
 
-11:                                               ; preds = %.lr.ph, %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit
-  %.011 = phi ptr [ %.ptr, %.lr.ph ], [ %69, %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit ]
-  %12 = load i8, ptr %.011, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %.011, i64 1
-  %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds nuw i8, ptr %.011, i64 2
-  %16 = load i8, ptr %15, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %.011, i64 3
-  %18 = load i8, ptr %17, align 1
-  %19 = or i8 %14, %12
-  %20 = or i8 %19, %16
-  %21 = or i8 %20, %18
-  %22 = icmp eq i8 %21, 0
-  %23 = zext i8 %12 to i64
-  %24 = shl nuw nsw i64 %23, 24
-  %25 = zext i8 %14 to i64
-  %26 = shl nuw nsw i64 %25, 16
-  %27 = zext i8 %16 to i64
-  %28 = shl nuw nsw i64 %27, 8
-  %29 = zext i8 %18 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %26
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %24
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %28
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %29
-  %.0.i.i = select i1 %22, ptr @_hb_NullPool, ptr %33
-  %34 = load i32, ptr %9, align 4
-  %35 = add i32 %34, 1
-  %36 = tail call i32 @llvm.smax.i32(i32 %35, i32 0)
-  %37 = load i32, ptr %1, align 8
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %62, label %39
+14:                                               ; preds = %.lr.ph, %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit
+  %.011 = phi ptr [ %4, %.lr.ph ], [ %72, %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit ]
+  %15 = load i8, ptr %.011, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %.011, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %.011, i64 2
+  %19 = load i8, ptr %18, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %.011, i64 3
+  %21 = load i8, ptr %20, align 1
+  %22 = or i8 %17, %15
+  %23 = or i8 %22, %19
+  %24 = or i8 %23, %21
+  %25 = icmp eq i8 %24, 0
+  %26 = zext i8 %15 to i64
+  %27 = shl nuw nsw i64 %26, 24
+  %28 = zext i8 %17 to i64
+  %29 = shl nuw nsw i64 %28, 16
+  %30 = zext i8 %19 to i64
+  %31 = shl nuw nsw i64 %30, 8
+  %32 = zext i8 %21 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %29
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %27
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %31
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %32
+  %.0.i.i = select i1 %25, ptr @_hb_NullPool, ptr %36
+  %37 = load i32, ptr %12, align 4
+  %38 = add i32 %37, 1
+  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
+  %40 = load i32, ptr %1, align 8
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %65, label %42
 
-39:                                               ; preds = %11
-  %.not.i.i.i = icmp sgt i32 %35, %37
+42:                                               ; preds = %14
+  %.not.i.i.i = icmp sgt i32 %38, %40
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i
 
-.preheader.i.i.i:                                 ; preds = %39, %.preheader.i.i.i
-  %.143.i.i.i = phi i32 [ %42, %.preheader.i.i.i ], [ %37, %39 ]
-  %40 = lshr i32 %.143.i.i.i, 1
-  %41 = add nuw i32 %.143.i.i.i, 8
-  %42 = add nuw i32 %41, %40
-  %43 = icmp ugt i32 %36, %42
-  br i1 %43, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !35
+.preheader.i.i.i:                                 ; preds = %42, %.preheader.i.i.i
+  %.143.i.i.i = phi i32 [ %45, %.preheader.i.i.i ], [ %40, %42 ]
+  %43 = lshr i32 %.143.i.i.i, 1
+  %44 = add nuw i32 %.143.i.i.i, 8
+  %45 = add nuw i32 %44, %43
+  %46 = icmp ugt i32 %39, %45
+  br i1 %46, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !35
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
-  %44 = icmp ugt i32 %42, 178956970
-  br i1 %44, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i.i, label %45
+  %47 = icmp ugt i32 %45, 178956970
+  br i1 %47, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i.i, label %48
 
-45:                                               ; preds = %.thread.i.i.i
-  %46 = load ptr, ptr %10, align 8
-  %47 = zext nneg i32 %42 to i64
-  %48 = mul nuw nsw i64 %47, 24
-  %49 = tail call ptr @realloc(ptr noundef %46, i64 noundef %48) #22
-  %.not42.i.i.i = icmp eq ptr %49, null
-  br i1 %.not42.i.i.i, label %50, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i.i
+48:                                               ; preds = %.thread.i.i.i
+  %49 = load ptr, ptr %13, align 8
+  %50 = zext nneg i32 %45 to i64
+  %51 = mul nuw nsw i64 %50, 24
+  %52 = tail call ptr @realloc(ptr noundef %49, i64 noundef %51) #22
+  %.not42.i.i.i = icmp eq ptr %52, null
+  br i1 %.not42.i.i.i, label %53, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i.i
 
-50:                                               ; preds = %45
-  %51 = load i32, ptr %1, align 8
-  %.not21.i.i.i = icmp ugt i32 %42, %51
+53:                                               ; preds = %48
+  %54 = load i32, ptr %1, align 8
+  %.not21.i.i.i = icmp ugt i32 %45, %54
   br i1 %.not21.i.i.i, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i.i, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i
 
-_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i.i: ; preds = %50, %.thread.i.i.i
-  %.01538.sink.i.ph.in.i.i = phi i32 [ %37, %.thread.i.i.i ], [ %51, %50 ]
+_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i.i: ; preds = %53, %.thread.i.i.i
+  %.01538.sink.i.ph.in.i.i = phi i32 [ %40, %.thread.i.i.i ], [ %54, %53 ]
   %.01538.sink.i.ph.i.i = xor i32 %.01538.sink.i.ph.in.i.i, -1
   store i32 %.01538.sink.i.ph.i.i, ptr %1, align 8
-  br label %62
+  br label %65
 
-_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i.i: ; preds = %45
-  store ptr %49, ptr %10, align 8
-  store i32 %42, ptr %1, align 8
+_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i.i: ; preds = %48
+  store ptr %52, ptr %13, align 8
+  store i32 %45, ptr %1, align 8
   br label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i
 
-_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i: ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i.i, %50, %39
-  %52 = load i32, ptr %9, align 4
-  %53 = icmp ugt i32 %36, %52
-  br i1 %53, label %54, label %63
+_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i: ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i.i, %53, %42
+  %55 = load i32, ptr %12, align 4
+  %56 = icmp ugt i32 %39, %55
+  br i1 %56, label %57, label %66
 
-54:                                               ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i
-  %55 = sub nuw nsw i32 %36, %52
-  %56 = mul i32 %55, 24
-  %.not.i.i.i.i = icmp eq i32 %56, 0
-  br i1 %.not.i.i.i.i, label %63, label %57
+57:                                               ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i
+  %58 = sub nuw nsw i32 %39, %55
+  %59 = mul i32 %58, 24
+  %.not.i.i.i.i = icmp eq i32 %59, 0
+  br i1 %.not.i.i.i.i, label %66, label %60
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %10, align 8
-  %59 = zext nneg i32 %52 to i64
-  %60 = getelementptr inbounds nuw %struct.hb_set_digest_combiner_t, ptr %58, i64 %59
-  %61 = zext i32 %56 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %60, i8 0, i64 %61, i1 false)
-  br label %63
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %13, align 8
+  %62 = zext nneg i32 %55 to i64
+  %63 = getelementptr inbounds nuw %struct.hb_set_digest_combiner_t, ptr %61, i64 %62
+  %64 = zext i32 %59 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %63, i8 0, i64 %64, i1 false)
+  br label %66
 
-62:                                               ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i.i, %11
+65:                                               ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i.i, %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
   br label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit
 
-63:                                               ; preds = %57, %54, %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i
-  store i32 %36, ptr %9, align 4
-  %64 = load ptr, ptr %10, align 8
-  %65 = add nsw i32 %36, -1
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %struct.hb_set_digest_combiner_t, ptr %64, i64 %66
+66:                                               ; preds = %60, %57, %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i.i
+  store i32 %39, ptr %12, align 4
+  %67 = load ptr, ptr %13, align 8
+  %68 = add nsw i32 %39, -1
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw %struct.hb_set_digest_combiner_t, ptr %67, i64 %69
   br label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit
 
-_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit: ; preds = %62, %63
-  %.0.i = phi ptr [ %67, %63 ], [ @_hb_CrapPool, %62 ]
-  %68 = tail call noundef zeroext i1 @_ZNK2OT6Layout6Common8Coverage16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES4_IS5_ImLj0EES5_ImLj9EEEEEEbPT_(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i, ptr noundef %.0.i)
-  %69 = getelementptr inbounds nuw i8, ptr %.011, i64 4
-  %.not = icmp eq ptr %69, %.ptr14
-  br i1 %.not, label %._crit_edge, label %11
+_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit: ; preds = %65, %66
+  %.0.i = phi ptr [ %70, %66 ], [ @_hb_CrapPool, %65 ]
+  %71 = tail call noundef zeroext i1 @_ZNK2OT6Layout6Common8Coverage16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES4_IS5_ImLj0EES5_ImLj9EEEEEEbPT_(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i, ptr noundef %.0.i)
+  %72 = getelementptr inbounds nuw i8, ptr %.011, i64 4
+  %.not = icmp eq ptr %72, %11
+  br i1 %.not, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE4pushEv.exit, %2
   ret void
@@ -6681,33 +6680,29 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout6Common8Coverage16c
 
 55:                                               ; preds = %2
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i64
-  %.idx.i.i = mul nuw nsw i64 %58, 1536
-  %.add.i = or disjoint i64 %.idx.i.i, 4
-  %.idx.i = mul nuw nsw i64 %61, 6
-  %.add16.i = add nuw nsw i64 %.add.i, %.idx.i
-  %.ptr18.i = getelementptr inbounds nuw i8, ptr %0, i64 %.add16.i
-  %.not11.i = icmp eq i64 %.add16.i, 4
-  br i1 %.not11.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES6_IS7_ImLj0EES7_ImLj9EEEEEEbPT_.exit, label %.lr.ph.preheader.i
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %58 = load i8, ptr %56, align 1
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i64
+  %.idx.i.i = mul nuw nsw i64 %59, 1536
+  %.idx.i = mul nuw nsw i64 %62, 6
+  %63 = add nuw nsw i64 %.idx.i, %.idx.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 %63
+  %.not11.i = icmp samesign eq i64 %63, 0
+  br i1 %.not11.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES6_IS7_ImLj0EES7_ImLj9EEEEEEbPT_.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %55
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.01012.i = phi ptr [ %.ptr.i, %.lr.ph.preheader.i ], [ %63, %.lr.ph.i ]
-  %62 = tail call noundef zeroext i1 @_ZNK2OT6Layout6Common11RangeRecordINS0_10SmallTypesEE16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES6_IS7_ImLj0EES7_ImLj9EEEEEEbPT_(ptr noundef nonnull align 1 dereferenceable(6) %.01012.i, ptr noundef %1)
-  %63 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 6
-  %.not.i = icmp ne ptr %63, %.ptr18.i
-  %or.cond.not = select i1 %62, i1 %.not.i, i1 false
+.lr.ph.i:                                         ; preds = %55, %.lr.ph.i
+  %.01012.i = phi ptr [ %66, %.lr.ph.i ], [ %57, %55 ]
+  %65 = tail call noundef zeroext i1 @_ZNK2OT6Layout6Common11RangeRecordINS0_10SmallTypesEE16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES6_IS7_ImLj0EES7_ImLj9EEEEEEbPT_(ptr noundef nonnull align 1 dereferenceable(6) %.01012.i, ptr noundef %1)
+  %66 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 6
+  %.not.i = icmp ne ptr %66, %64
+  %or.cond.not = select i1 %65, i1 %.not.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES6_IS7_ImLj0EES7_ImLj9EEEEEEbPT_.exit
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES6_IS7_ImLj0EES7_ImLj9EEEEEEbPT_.exit: ; preds = %.lr.ph.i, %45, %55, %9, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %9 ], [ true, %55 ], [ true, %45 ], [ %62, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %2 ], [ true, %9 ], [ true, %55 ], [ true, %45 ], [ %65, %.lr.ph.i ]
   ret i1 %.0
 }
 

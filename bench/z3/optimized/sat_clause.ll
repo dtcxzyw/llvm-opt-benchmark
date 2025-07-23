@@ -202,55 +202,47 @@ _ZN3sat6clause13update_approxEv.exit:             ; preds = %.lr.ph.i.i, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK3sat6clause8containsENS_7literalE(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %0, i32 %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !9
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr18 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.not13.not = icmp eq i32 %4, 0
-  br i1 %.not13.not, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not13.not = icmp eq i32 %5, 0
+  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 20
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01114 = phi ptr [ %.ptr, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %7 = load i32, ptr %.01114, align 4, !tbaa !16
-  %8 = icmp eq i32 %7, %1
-  %9 = getelementptr inbounds nuw i8, ptr %.01114, i64 4
-  %.not.not = icmp eq ptr %9, %.ptr18
-  %or.cond = select i1 %8, i1 true, i1 %.not.not
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.01114 = phi ptr [ %10, %.lr.ph ], [ %3, %2 ]
+  %8 = load i32, ptr %.01114, align 4, !tbaa !16
+  %9 = icmp eq i32 %8, %1
+  %10 = getelementptr inbounds nuw i8, ptr %.01114, i64 4
+  %.not.not = icmp eq ptr %10, %7
+  %or.cond = select i1 %9, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %8, %.lr.ph ]
+  %.not.lcssa = phi i1 [ false, %2 ], [ %9, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK3sat6clause8containsEj(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !9
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr19 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.not14.not = icmp eq i32 %4, 0
-  br i1 %.not14.not, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not14.not = icmp eq i32 %5, 0
+  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 20
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01215 = phi ptr [ %.ptr, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %7 = load i32, ptr %.01215, align 4, !tbaa !16
-  %8 = lshr i32 %7, 1
-  %.not13 = icmp eq i32 %8, %1
-  %9 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
-  %.not.not = icmp eq ptr %9, %.ptr19
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.01215 = phi ptr [ %10, %.lr.ph ], [ %3, %2 ]
+  %8 = load i32, ptr %.01215, align 4, !tbaa !16
+  %9 = lshr i32 %8, 1
+  %.not13 = icmp eq i32 %9, %1
+  %10 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %.not.not = icmp eq ptr %10, %7
   %or.cond = select i1 %.not13, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
@@ -390,46 +382,45 @@ define hidden void @_ZN3sat6clause7restoreEj(ptr noundef nonnull writeonly align
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK3sat6clause12satisfied_byERK7svectorI5lbooljE(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !9
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr24 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.not17.not = icmp eq i32 %4, 0
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not17.not = icmp eq i32 %5, 0
   br i1 %.not17.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %7 = load ptr, ptr %1, align 8
-  br label %8
+  %8 = load ptr, ptr %1, align 8
+  br label %9
 
-8:                                                ; preds = %.lr.ph, %.critedge
-  %.01318 = phi ptr [ %.ptr, %.lr.ph ], [ %19, %.critedge ]
-  %9 = load i32, ptr %.01318, align 4, !tbaa !16
-  %10 = and i32 %9, 1
-  %.not16 = icmp eq i32 %10, 0
-  %11 = lshr i32 %9, 1
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !19
-  br i1 %.not16, label %17, label %15
+9:                                                ; preds = %.lr.ph, %.critedge
+  %.01318 = phi ptr [ %3, %.lr.ph ], [ %20, %.critedge ]
+  %10 = load i32, ptr %.01318, align 4, !tbaa !16
+  %11 = and i32 %10, 1
+  %.not16 = icmp eq i32 %11, 0
+  %12 = lshr i32 %10, 1
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %13
+  %15 = load i32, ptr %14, align 4, !tbaa !19
+  br i1 %.not16, label %18, label %16
 
-15:                                               ; preds = %8
-  %16 = icmp eq i32 %14, -1
-  br i1 %16, label %._crit_edge, label %.critedge
+16:                                               ; preds = %9
+  %17 = icmp eq i32 %15, -1
+  br i1 %17, label %._crit_edge, label %.critedge
 
-17:                                               ; preds = %8
-  %18 = icmp eq i32 %14, 1
-  br i1 %18, label %._crit_edge, label %.critedge
+18:                                               ; preds = %9
+  %19 = icmp eq i32 %15, 1
+  br i1 %19, label %._crit_edge, label %.critedge
 
-.critedge:                                        ; preds = %17, %15
-  %19 = getelementptr inbounds nuw i8, ptr %.01318, i64 4
-  %.not.not = icmp eq ptr %19, %.ptr24
-  br i1 %.not.not, label %._crit_edge, label %8
+.critedge:                                        ; preds = %18, %16
+  %20 = getelementptr inbounds nuw i8, ptr %.01318, i64 4
+  %.not.not = icmp eq ptr %20, %7
+  br i1 %.not.not, label %._crit_edge, label %9
 
-._crit_edge:                                      ; preds = %.critedge, %17, %15, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ true, %15 ], [ true, %17 ], [ false, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge, %18, %16, %2
+  %.not.lcssa = phi i1 [ false, %2 ], [ true, %16 ], [ true, %18 ], [ false, %.critedge ]
   ret i1 %.not.lcssa
 }
 

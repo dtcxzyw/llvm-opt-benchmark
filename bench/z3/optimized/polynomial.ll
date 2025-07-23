@@ -78650,16 +78650,15 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEED2Ev.exit: 
 
 ._crit_edge.i:                                    ; preds = %81
   %.idx.i.i = shl nuw nsw i64 %wide.trip.count.i, 3
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i
-  %.ptr1.i.i = getelementptr inbounds nuw i8, ptr %73, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i
   %74 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %wide.trip.count.i, i1 true)
   %75 = shl nuw nsw i64 %74, 1
   %76 = xor i64 %75, 126
-  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_T1_(ptr noundef nonnull %72, ptr noundef nonnull %.ptr1.i.i, i64 noundef %76)
+  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_T1_(ptr noundef nonnull %72, ptr noundef nonnull %73, i64 noundef %76)
           to label %.noexc unwind label %100
 
 .noexc:                                           ; preds = %._crit_edge.i
-  invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_(ptr noundef nonnull %72, ptr noundef nonnull %.ptr1.i.i)
+  invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_(ptr noundef nonnull %72, ptr noundef nonnull %73)
           to label %.noexc11 unwind label %100
 
 .noexc11:                                         ; preds = %.noexc

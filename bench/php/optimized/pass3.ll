@@ -204,8 +204,8 @@ in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
   %87 = getelementptr inbounds i8, ptr %.0343, i64 -20
   %88 = load i32, ptr %87, align 4, !tbaa !27
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %83, i64 %89
-  %91 = icmp eq ptr %90, %.1.ptr
+  %90 = add nsw i64 %89, -32
+  %91 = icmp eq i64 %90, %.1.idx
   br i1 %91, label %92, label %in_hitlist.exit300.thread
 
 92:                                               ; preds = %86

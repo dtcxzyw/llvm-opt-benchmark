@@ -36699,7 +36699,7 @@ _ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit: ; preds = %34, %41
   %gepdiff = sub nsw i64 %.idx, %8
   %47 = ashr exact i64 %gepdiff, 3
   %.not = icmp ult i64 %47, %35
-  br i1 %.not, label %71, label %48
+  br i1 %.not, label %72, label %48
 
 48:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit
   %49 = getelementptr inbounds i8, ptr %46, i64 %.idx53
@@ -36746,65 +36746,66 @@ _ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT
   %63 = trunc i64 %35 to i32
   %64 = add i32 %62, %63
   store i32 %64, ptr %9, align 8, !tbaa !10
-  %.not.i.i.i.i.i47 = icmp eq ptr %49, %45
-  br i1 %.not.i.i.i.i.i47, label %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %65
+  %65 = sub i64 %.idx, %16
+  %.not.i.i.i.i.i47 = icmp eq i64 %65, %8
+  br i1 %.not.i.i.i.i.i47, label %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %66
 
-65:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
-  %66 = add i64 %8, %16
-  %gepdiff54 = sub i64 %.idx, %66
-  %67 = ashr exact i64 %gepdiff54, 3
-  %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds %"class.clang::QualType", ptr %46, i64 %68
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %69, ptr align 8 %45, i64 %gepdiff54, i1 false)
+66:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
+  %67 = add i64 %8, %16
+  %gepdiff54 = sub i64 %.idx, %67
+  %68 = ashr exact i64 %gepdiff54, 3
+  %69 = sub nsw i64 0, %68
+  %70 = getelementptr inbounds %"class.clang::QualType", ptr %46, i64 %69
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %70, ptr align 8 %45, i64 %gepdiff54, i1 false)
   br label %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %65
-  br i1 %.not7.i.i.i.i.i, label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %70
+_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %66
+  br i1 %.not7.i.i.i.i.i, label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %71
 
-70:                                               ; preds = %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
+71:                                               ; preds = %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %45, ptr align 8 %2, i64 %16, i1 false)
   br label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
 
-71:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit
-  %72 = trunc i64 %35 to i32
-  %73 = add i32 %43, %72
-  store i32 %73, ptr %9, align 8, !tbaa !10
+72:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit
+  %73 = trunc i64 %35 to i32
+  %74 = add i32 %43, %73
+  store i32 %74, ptr %9, align 8, !tbaa !10
   %.not.i.i49 = icmp eq i64 %8, %.idx
   br i1 %.not.i.i49, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %71
-  %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"class.clang::QualType", ptr %44, i64 %74
-  %76 = sub nsw i64 0, %47
-  %77 = getelementptr inbounds %"class.clang::QualType", ptr %75, i64 %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 8 %45, i64 %gepdiff, i1 false)
+.lr.ph.preheader:                                 ; preds = %72
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw %"class.clang::QualType", ptr %44, i64 %75
+  %77 = sub nsw i64 0, %47
+  %78 = getelementptr inbounds %"class.clang::QualType", ptr %76, i64 %77
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 8 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %71
-  %.042.lcssa = phi ptr [ %2, %71 ], [ %83, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %72
+  %.042.lcssa = phi ptr [ %2, %72 ], [ %84, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %78
+  br i1 %.not.i, label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %79
 
-78:                                               ; preds = %._crit_edge
-  %79 = ptrtoint ptr %.042.lcssa to i64
-  %80 = sub i64 %14, %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 8 %.042.lcssa, i64 %80, i1 false)
+79:                                               ; preds = %._crit_edge
+  %80 = ptrtoint ptr %.042.lcssa to i64
+  %81 = sub i64 %14, %80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 8 %.042.lcssa, i64 %81, i1 false)
   br label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.059 = phi ptr [ %82, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.04058 = phi i64 [ %84, %.lr.ph ], [ %47, %.lr.ph.preheader ]
-  %.04257 = phi ptr [ %83, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %81 = load i64, ptr %.04257, align 8, !tbaa !714
-  store i64 %81, ptr %.059, align 8, !tbaa !714
-  %82 = getelementptr inbounds nuw i8, ptr %.059, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %.04257, i64 8
-  %84 = add i64 %.04058, -1
-  %.not44 = icmp eq i64 %84, 0
+  %.059 = phi ptr [ %83, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.04058 = phi i64 [ %85, %.lr.ph ], [ %47, %.lr.ph.preheader ]
+  %.04257 = phi ptr [ %84, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %82 = load i64, ptr %.04257, align 8, !tbaa !714
+  store i64 %82, ptr %.059, align 8, !tbaa !714
+  %83 = getelementptr inbounds nuw i8, ptr %.059, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.04257, i64 8
+  %85 = add i64 %.04058, -1
+  %.not44 = icmp eq i64 %85, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !1447
 
-_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %78, %._crit_edge, %70, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendIPS2_vEEvT_S6_.exit
-  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendIPS2_vEEvT_S6_.exit ], [ %45, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit ], [ %45, %70 ], [ %45, %._crit_edge ], [ %45, %78 ]
+_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %79, %._crit_edge, %71, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendIPS2_vEEvT_S6_.exit
+  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendIPS2_vEEvT_S6_.exit ], [ %45, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit ], [ %45, %71 ], [ %45, %._crit_edge ], [ %45, %79 ]
   ret ptr %.041
 }
 
@@ -36892,7 +36893,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetA
   %gepdiff = sub nsw i64 %.idx, %8
   %37 = ashr exact i64 %gepdiff, 3
   %.not = icmp ult i64 %37, %2
-  br i1 %.not, label %63, label %38
+  br i1 %.not, label %64, label %38
 
 38:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetAddressERS2_m.exit
   %.neg = mul i64 %2, -8
@@ -36940,68 +36941,69 @@ _ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT
   %53 = trunc i64 %2 to i32
   %54 = add i32 %52, %53
   store i32 %54, ptr %9, align 8, !tbaa !10
-  %.not.i.i.i.i.i35 = icmp eq ptr %39, %35
-  br i1 %.not.i.i.i.i.i35, label %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %55
+  %55 = add nsw i64 %.idx, %.neg
+  %.not.i.i.i.i.i35 = icmp eq i64 %55, %8
+  br i1 %.not.i.i.i.i.i35, label %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %56
 
-55:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
-  %56 = sub i64 %.neg, %8
-  %gepdiff56 = add i64 %56, %.idx
-  %57 = ashr exact i64 %gepdiff56, 3
-  %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds %"class.clang::QualType", ptr %36, i64 %58
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr align 8 %35, i64 %gepdiff56, i1 false)
+56:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
+  %57 = sub i64 %.neg, %8
+  %gepdiff56 = add i64 %57, %.idx
+  %58 = ashr exact i64 %gepdiff56, 3
+  %59 = sub nsw i64 0, %58
+  %60 = getelementptr inbounds %"class.clang::QualType", ptr %36, i64 %59
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %60, ptr align 8 %35, i64 %gepdiff56, i1 false)
   br label %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %55
-  %60 = icmp eq i64 %2, 0
-  br i1 %60, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.preheader.i.i.i.i
+_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %56
+  %61 = icmp eq i64 %2, 0
+  br i1 %61, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
   %.idx.i.i = shl nuw nsw i64 %2, 3
-  %61 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i36
 
 .lr.ph.i.i.i.i36:                                 ; preds = %.lr.ph.i.i.i.i36, %.lr.ph.preheader.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i36 ], [ %35, %.lr.ph.preheader.i.i.i.i ]
+  %.06.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i36 ], [ %35, %.lr.ph.preheader.i.i.i.i ]
   store i64 %3, ptr %.06.i.i.i.i, align 8, !tbaa !714
-  %62 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %.not.i.i.i.i37 = icmp eq ptr %62, %61
+  %63 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %.not.i.i.i.i37 = icmp eq ptr %63, %62
   br i1 %.not.i.i.i.i37, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.i.i.i.i36, !llvm.loop !1449
 
-63:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetAddressERS2_m.exit
-  %64 = trunc i64 %2 to i32
-  %65 = add i32 %33, %64
-  store i32 %65, ptr %9, align 8, !tbaa !10
+64:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetAddressERS2_m.exit
+  %65 = trunc i64 %2 to i32
+  %66 = add i32 %33, %65
+  store i32 %66, ptr %9, align 8, !tbaa !10
   %.not.i.i38 = icmp samesign eq i64 %8, %.idx
   br i1 %.not.i.i38, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit: ; preds = %63
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"class.clang::QualType", ptr %34, i64 %66
-  %68 = sub nsw i64 0, %37
-  %69 = getelementptr inbounds %"class.clang::QualType", ptr %67, i64 %68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 8 %35, i64 %gepdiff, i1 false)
+_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit: ; preds = %64
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw %"class.clang::QualType", ptr %34, i64 %67
+  %69 = sub nsw i64 0, %37
+  %70 = getelementptr inbounds %"class.clang::QualType", ptr %68, i64 %69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr align 8 %35, i64 %gepdiff, i1 false)
   br label %.lr.ph.i.i.i.i42
 
 .lr.ph.i.i.i.i42:                                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit, %.lr.ph.i.i.i.i42
-  %.06.i.i.i.i43 = phi ptr [ %70, %.lr.ph.i.i.i.i42 ], [ %35, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit ]
+  %.06.i.i.i.i43 = phi ptr [ %71, %.lr.ph.i.i.i.i42 ], [ %35, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit ]
   store i64 %3, ptr %.06.i.i.i.i43, align 8, !tbaa !714
-  %70 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i43, i64 8
-  %.not.i.i.i.i44 = icmp eq ptr %70, %36
+  %71 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i43, i64 8
+  %.not.i.i.i.i44 = icmp eq ptr %71, %36
   br i1 %.not.i.i.i.i44, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46, label %.lr.ph.i.i.i.i42, !llvm.loop !1449
 
-_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46: ; preds = %.lr.ph.i.i.i.i42, %63
-  %71 = sub i64 %2, %37
-  %.not7.i.i.i = icmp eq i64 %71, 0
+_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46: ; preds = %.lr.ph.i.i.i.i42, %64
+  %72 = sub i64 %2, %37
+  %.not7.i.i.i = icmp eq i64 %72, 0
   br i1 %.not7.i.i.i, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %73, %.lr.ph.i.i.i ], [ %36, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46 ]
-  %.068.i.i.i = phi i64 [ %72, %.lr.ph.i.i.i ], [ %71, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46 ]
+  %.09.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i ], [ %36, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46 ]
+  %.068.i.i.i = phi i64 [ %73, %.lr.ph.i.i.i ], [ %72, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46 ]
   store i64 %3, ptr %.09.i.i.i, align 8, !tbaa !714
-  %72 = add i64 %.068.i.i.i, -1
-  %73 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
-  %.not.i.i.i47 = icmp eq i64 %72, 0
+  %73 = add i64 %.068.i.i.i, -1
+  %74 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
+  %.not.i.i.i47 = icmp eq i64 %73, 0
   br i1 %.not.i.i.i47, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !1448
 
 _ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i36, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit46, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendEmS2_.exit

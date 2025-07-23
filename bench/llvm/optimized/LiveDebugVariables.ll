@@ -9267,26 +9267,26 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
   br i1 %switch.i.i.i, label %210, label %_ZN12_GLOBAL__N_19UserValue22removeLocationIfUnusedEj.exit.i.i
 
 210:                                              ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE14const_iteratorD2Ev.exit23.i.i.i
-  %211 = load ptr, ptr %81, align 8, !tbaa !25
   %.idx59.i.i.i = shl nuw nsw i64 %96, 5
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 %.idx59.i.i.i
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  %214 = load i32, ptr %82, align 8, !tbaa !26
-  %215 = zext i32 %214 to i64
-  %.idx.i.i.i = shl nuw nsw i64 %215, 5
-  %216 = getelementptr inbounds nuw i8, ptr %211, i64 %.idx.i.i.i
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %216, %213
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplINS_14MachineOperandEE5eraseEPKS1_.exit.i.i.i, label %217
+  %211 = load i32, ptr %82, align 8, !tbaa !26
+  %212 = zext i32 %211 to i64
+  %.idx.i.i.i = shl nuw nsw i64 %212, 5
+  %213 = add nuw nsw i64 %.idx59.i.i.i, 32
+  %.not.i.i.i.i.i.i.i.i.i = icmp samesign eq i64 %.idx.i.i.i, %213
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplINS_14MachineOperandEE5eraseEPKS1_.exit.i.i.i, label %214
 
-217:                                              ; preds = %210
+214:                                              ; preds = %210
+  %215 = load ptr, ptr %81, align 8, !tbaa !25
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 %.idx59.i.i.i
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %reass.sub = sub nsw i64 %.idx.i.i.i, %.idx59.i.i.i
   %gepdiff.i.i.i = add nsw i64 %reass.sub, -32
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %212, ptr nonnull align 8 %213, i64 %gepdiff.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %216, ptr nonnull align 8 %217, i64 %gepdiff.i.i.i, i1 false)
   %.pre.i.i.i.i = load i32, ptr %82, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplINS_14MachineOperandEE5eraseEPKS1_.exit.i.i.i
 
-_ZN4llvm15SmallVectorImplINS_14MachineOperandEE5eraseEPKS1_.exit.i.i.i: ; preds = %217, %210
-  %218 = phi i32 [ %214, %210 ], [ %.pre.i.i.i.i, %217 ]
+_ZN4llvm15SmallVectorImplINS_14MachineOperandEE5eraseEPKS1_.exit.i.i.i: ; preds = %214, %210
+  %218 = phi i32 [ %211, %210 ], [ %.pre.i.i.i.i, %214 ]
   %219 = add i32 %218, -1
   store i32 %219, ptr %82, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #26

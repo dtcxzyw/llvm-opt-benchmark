@@ -11555,71 +11555,70 @@ define internal fastcc i32 @_ZN12_GLOBAL__N_125FindInterveningCodeInLoopEPKN5cla
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %8
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !66, !noalias !400
-  %13 = zext i32 %12 to i64
-  %.idx = shl nuw nsw i64 %13, 3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr23 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = load i32, ptr %12, align 4, !tbaa !66, !noalias !400
+  %14 = zext i32 %13 to i64
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #21
-  store ptr %.ptr, ptr %2, align 8
+  store ptr %11, ptr %2, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %.sroa.511.0..sroa_idx, align 8
-  %.not24 = icmp eq i32 %12, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i32 %13, 0
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
-  %15 = phi i64 [ %35, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ 0, %10 ]
-  %16 = phi ptr [ %33, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %.ptr, %10 ]
-  %17 = and i64 %15, 3
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %19
+  %16 = phi i64 [ %36, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ 0, %10 ]
+  %17 = phi ptr [ %34, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %11, %10 ]
+  %18 = and i64 %16, 3
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %20
 
-19:                                               ; preds = %.lr.ph
-  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
+20:                                               ; preds = %.lr.ph
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph, %19
-  %.in.i = phi ptr [ %20, %19 ], [ %16, %.lr.ph ]
-  %21 = load ptr, ptr %.in.i, align 8, !tbaa !168
-  %22 = call fastcc i32 @_ZN12_GLOBAL__N_125FindInterveningCodeInLoopEPKN5clang4StmtE(ptr noundef %21)
-  %.not21 = icmp eq i32 %22, 0
-  br i1 %.not21, label %23, label %37
+_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph, %20
+  %.in.i = phi ptr [ %21, %20 ], [ %17, %.lr.ph ]
+  %22 = load ptr, ptr %.in.i, align 8, !tbaa !168
+  %23 = call fastcc i32 @_ZN12_GLOBAL__N_125FindInterveningCodeInLoopEPKN5clang4StmtE(ptr noundef %22)
+  %.not21 = icmp eq i32 %23, 0
+  br i1 %.not21, label %24, label %38
 
-23:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %24 = load i64, ptr %.sroa.511.0..sroa_idx, align 8, !tbaa !403
-  %25 = and i64 %24, 3
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %30
+24:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %25 = load i64, ptr %.sroa.511.0..sroa_idx, align 8, !tbaa !403
+  %26 = and i64 %25, 3
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %2, align 8, !tbaa !66
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %29, ptr %2, align 8, !tbaa !66
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %2, align 8, !tbaa !66
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %30, ptr %2, align 8, !tbaa !66
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-30:                                               ; preds = %23
-  %.not.i = icmp ult i64 %24, 4
-  br i1 %.not.i, label %32, label %31
+31:                                               ; preds = %24
+  %.not.i = icmp ult i64 %25, 4
+  br i1 %.not.i, label %33, label %32
 
-31:                                               ; preds = %30
+32:                                               ; preds = %31
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext true) #21
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %27, %31, %32
-  %33 = load ptr, ptr %2, align 8, !tbaa !66
-  %34 = icmp ne ptr %33, %.ptr23
-  %35 = load i64, ptr %.sroa.511.0..sroa_idx, align 8
-  %36 = icmp ne i64 %35, 0
-  %.not3.i = select i1 %34, i1 true, i1 %36
+_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %28, %32, %33
+  %34 = load ptr, ptr %2, align 8, !tbaa !66
+  %35 = icmp ne ptr %34, %15
+  %36 = load i64, ptr %.sroa.511.0..sroa_idx, align 8
+  %37 = icmp ne i64 %36, 0
+  %.not3.i = select i1 %35, i1 true, i1 %37
   br i1 %.not3.i, label %.lr.ph, label %._crit_edge
 
-37:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+38:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #21
   br label %_ZN4llvm3isaIN5clang7ForStmtENS1_8NullStmtEJS2_NS1_15CXXForRangeStmtENS1_9WhileStmtENS1_6DoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread
 
@@ -11628,11 +11627,11 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   br label %_ZN4llvm3isaIN5clang7ForStmtENS1_8NullStmtEJS2_NS1_15CXXForRangeStmtENS1_9WhileStmtENS1_6DoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread
 
 .thread:                                          ; preds = %8
-  %38 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  %39 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   br label %_ZN4llvm3isaIN5clang7ForStmtENS1_8NullStmtEJS2_NS1_15CXXForRangeStmtENS1_9WhileStmtENS1_6DoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread
 
-_ZN4llvm3isaIN5clang7ForStmtENS1_8NullStmtEJS2_NS1_15CXXForRangeStmtENS1_9WhileStmtENS1_6DoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread: ; preds = %._crit_edge, %37, %3, %3, %3, %3, %3, %6, %1, %.thread
-  %.sroa.017.0 = phi i32 [ %38, %.thread ], [ 0, %1 ], [ 0, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ %22, %37 ], [ 0, %._crit_edge ]
+_ZN4llvm3isaIN5clang7ForStmtENS1_8NullStmtEJS2_NS1_15CXXForRangeStmtENS1_9WhileStmtENS1_6DoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread: ; preds = %._crit_edge, %38, %3, %3, %3, %3, %3, %6, %1, %.thread
+  %.sroa.017.0 = phi i32 [ %39, %.thread ], [ 0, %1 ], [ 0, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ %23, %38 ], [ 0, %._crit_edge ]
   ret i32 %.sroa.017.0
 }
 

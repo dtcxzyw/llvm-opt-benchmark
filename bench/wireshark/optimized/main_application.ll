@@ -749,9 +749,9 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds
   %93 = getelementptr i8, ptr %92, i64 %86
   %94 = getelementptr i8, ptr %93, i64 8
   %95 = icmp ne ptr %.sroa.8.064, %80
-  %.idx3.i.i.i.i = shl i64 %91, 3
-  %96 = getelementptr i8, ptr %92, i64 %.idx3.i.i.i.i
-  %.not.i.i.i.i.i31 = icmp eq ptr %94, %96
+  %.idx4.i.i.i.i = shl i64 %91, 3
+  %96 = sub i64 %87, %85
+  %.not.i.i.i.i.i31 = icmp eq i64 %96, %.idx4.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %95, i1 true, i1 %.not.i.i.i.i.i31
   br i1 %or.cond.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %97
 
@@ -763,19 +763,18 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds
   br i1 %.not.i.i.i.i.i31, label %_ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i, label %98
 
 98:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %.neg.i.i.i = sub i64 %85, %87
-  %gepdiff.i.i.i.i = add i64 %.neg.i.i.i, %.idx3.i.i.i.i
+  %gepdiff.i.i.i.i = sub i64 %.idx4.i.i.i.i, %96
   call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %93, ptr noundef align 1 %94, i64 noundef %gepdiff.i.i.i.i, i1 noundef false) #30
   %.pre12.i.i.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 16), align 8
-  %.pre9.pre.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %.pre8.pre.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i
 
 _ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i: ; preds = %98, %._crit_edge.i.i.i.i.i, %97
-  %.pre9.i.i.i = phi ptr [ %92, %._crit_edge.i.i.i.i.i ], [ %.pre9.pre.i.i.i, %98 ], [ %94, %97 ]
+  %.pre8.i.i.i = phi ptr [ %92, %._crit_edge.i.i.i.i.i ], [ %.pre8.pre.i.i.i, %98 ], [ %94, %97 ]
   %99 = phi i64 [ %91, %._crit_edge.i.i.i.i.i ], [ %.pre12.i.i.i.i.i, %98 ], [ %91, %97 ]
   %100 = add i64 %99, -1
   store i64 %100, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 16), align 8
-  %101 = getelementptr i8, ptr %.pre9.i.i.i, i64 %86
+  %101 = getelementptr i8, ptr %.pre8.i.i.i, i64 %86
   %102 = load ptr, ptr @_ZL16recent_captures_, align 8
   %.not.i.i.i.i4.i = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i4.i, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i33, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i32
@@ -8942,9 +8941,9 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds
   %37 = getelementptr i8, ptr %36, i64 %30
   %38 = getelementptr i8, ptr %37, i64 8
   %39 = icmp ne ptr %.sroa.8.017, %24
-  %.idx3.i.i.i.i = shl i64 %35, 3
-  %40 = getelementptr i8, ptr %36, i64 %.idx3.i.i.i.i
-  %.not.i.i.i.i.i5 = icmp eq ptr %38, %40
+  %.idx4.i.i.i.i = shl i64 %35, 3
+  %40 = sub i64 %31, %29
+  %.not.i.i.i.i.i5 = icmp eq i64 %40, %.idx4.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %39, i1 true, i1 %.not.i.i.i.i.i5
   br i1 %or.cond.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %41
 
@@ -8956,19 +8955,18 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE6detachEPS2_.exit.i.i.i.i: ; preds
   br i1 %.not.i.i.i.i.i5, label %_ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i, label %42
 
 42:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %.neg.i.i.i = sub i64 %29, %31
-  %gepdiff.i.i.i.i = add i64 %.neg.i.i.i, %.idx3.i.i.i.i
+  %gepdiff.i.i.i.i = sub i64 %.idx4.i.i.i.i, %40
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %37, ptr noundef align 1 %38, i64 noundef %gepdiff.i.i.i.i, i1 noundef false) #30
   %.pre12.i.i.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 16), align 8
-  %.pre9.pre.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 8), align 8
+  %.pre8.pre.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   br label %_ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i
 
 _ZN5QListIP19_recent_item_statusE5eraseENS2_14const_iteratorE.exit.i: ; preds = %42, %._crit_edge.i.i.i.i.i, %41
-  %.pre9.i.i.i = phi ptr [ %36, %._crit_edge.i.i.i.i.i ], [ %.pre9.pre.i.i.i, %42 ], [ %38, %41 ]
+  %.pre8.i.i.i = phi ptr [ %36, %._crit_edge.i.i.i.i.i ], [ %.pre8.pre.i.i.i, %42 ], [ %38, %41 ]
   %43 = phi i64 [ %35, %._crit_edge.i.i.i.i.i ], [ %.pre12.i.i.i.i.i, %42 ], [ %35, %41 ]
   %44 = add i64 %43, -1
   store i64 %44, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 16), align 8
-  %45 = getelementptr i8, ptr %.pre9.i.i.i, i64 %30
+  %45 = getelementptr i8, ptr %.pre8.i.i.i, i64 %30
   %46 = load ptr, ptr @_ZL16recent_captures_, align 8
   %.not.i.i.i.i4.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i4.i, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i7, label %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i6
@@ -15945,9 +15943,9 @@ _ZN17QArrayDataPointerIP7QActionE6detachEPS2_.exit.i.i: ; preds = %_ZNK17QArrayD
   %95 = getelementptr i8, ptr %94, i64 %84
   %96 = icmp ne ptr %.sroa.038.0.lcssa, %81
   %97 = load i64, ptr %5, align 8
-  %.idx3.i.i = shl i64 %97, 3
-  %98 = getelementptr i8, ptr %93, i64 %.idx3.i.i
-  %.not.i.i.i = icmp eq ptr %95, %98
+  %.idx4.i.i = shl i64 %97, 3
+  %98 = sub i64 %82, %86
+  %.not.i.i.i = icmp eq i64 %98, %.idx4.i.i
   %or.cond.i.i.i34 = select i1 %96, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i34, label %._crit_edge.i.i.i35, label %99
 
@@ -15959,8 +15957,7 @@ _ZN17QArrayDataPointerIP7QActionE6detachEPS2_.exit.i.i: ; preds = %_ZNK17QArrayD
   br i1 %.not.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIP7QActionE5eraseEPS2_x.exit.i.i, label %100
 
 100:                                              ; preds = %._crit_edge.i.i.i35
-  %.neg.i = sub i64 %86, %82
-  %gepdiff.i.i = add i64 %.neg.i, %.idx3.i.i
+  %gepdiff.i.i = sub i64 %.idx4.i.i, %98
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %94, ptr noundef align 1 %95, i64 noundef %gepdiff.i.i, i1 noundef false) #30
   %.pre12.i.i.i = load i64, ptr %5, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIP7QActionE5eraseEPS2_x.exit.i.i

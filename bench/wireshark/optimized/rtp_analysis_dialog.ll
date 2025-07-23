@@ -3313,9 +3313,9 @@ _ZN17QArrayDataPointerIP10tab_info_tE6detachEPS2_.exit.i: ; preds = %_ZNK17QArra
   %39 = getelementptr i8, ptr %38, i64 8
   %40 = icmp ne i32 %1, 0
   %41 = load i64, ptr %7, align 8
-  %.idx3.i = shl i64 %41, 3
-  %42 = getelementptr i8, ptr %37, i64 %.idx3.i
-  %.not.i.i = icmp eq ptr %39, %42
+  %.idx4.i = shl i64 %41, 3
+  %42 = add nsw i64 %.idx.i, 8
+  %.not.i.i = icmp eq i64 %42, %.idx4.i
   %or.cond.i.i = select i1 %40, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %._crit_edge.i.i, label %43
 
@@ -3327,8 +3327,7 @@ _ZN17QArrayDataPointerIP10tab_info_tE6detachEPS2_.exit.i: ; preds = %_ZNK17QArra
   br i1 %.not.i.i, label %_ZN5QListIP10tab_info_tE6removeExx.exit, label %44
 
 44:                                               ; preds = %._crit_edge.i.i
-  %reass.sub = sub i64 %.idx3.i, %.idx.i
-  %gepdiff.i = add i64 %reass.sub, -8
+  %gepdiff.i = sub i64 %.idx4.i, %42
   call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %38, ptr noundef align 1 %39, i64 noundef %gepdiff.i, i1 noundef false) #25
   %.pre12.i.i = load i64, ptr %7, align 8
   br label %_ZN5QListIP10tab_info_tE6removeExx.exit

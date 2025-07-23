@@ -15645,35 +15645,31 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %143, %145
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i16, ptr %3, align 4
-  %5 = zext i16 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not10 = icmp eq i16 %4, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i16, ptr %4, align 4
+  %6 = zext i16 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not10 = icmp eq i16 %5, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %9, %2
+._crit_edge:                                      ; preds = %10, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %.011 = phi ptr [ %10, %9 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.011, align 8, !tbaa !1205
-  %.not9 = icmp eq ptr %7, null
-  br i1 %.not9, label %9, label %8
+.lr.ph:                                           ; preds = %2, %10
+  %.011 = phi ptr [ %11, %10 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.011, align 8, !tbaa !1205
+  %.not9 = icmp eq ptr %8, null
+  br i1 %.not9, label %10, label %9
 
-8:                                                ; preds = %.lr.ph
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7)
-  br label %9
+9:                                                ; preds = %.lr.ph
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %8)
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %8
-  %10 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %.not = icmp eq ptr %10, %.ptr12
+10:                                               ; preds = %.lr.ph, %9
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %.not = icmp eq ptr %11, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1206
 }
 

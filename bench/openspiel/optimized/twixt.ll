@@ -8141,8 +8141,8 @@ _ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds 
   %36 = phi i1 [ false, %_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EEC2ERKS6_.exit ], [ true, %58 ]
   %37 = phi i64 [ 0, %_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EEC2ERKS6_.exit ], [ 1, %58 ]
   %.idx = mul nuw nsw i64 %37, 24
-  %.add9 = add nuw nsw i64 %.idx, 56
-  %.ptr7.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.add9
+  %.add8 = add nuw nsw i64 %.idx, 56
+  %.ptr11 = getelementptr inbounds nuw i8, ptr %0, i64 %.add8
   %38 = getelementptr inbounds nuw [2 x %"class.std::vector.16"], ptr %33, i64 0, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -8150,32 +8150,32 @@ _ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds 
   %42 = ptrtoint ptr %40 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr7.ptr, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i13 = icmp eq ptr %40, %41
-  br i1 %.not.i.i.i.i13, label %.noexc15, label %45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr11, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i12 = icmp eq ptr %40, %41
+  br i1 %.not.i.i.i.i12, label %.noexc14, label %45
 
 45:                                               ; preds = %34
   %46 = icmp ugt i64 %44, 9223372036854775800
-  br i1 %46, label %.noexc.i.i14, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i
+  br i1 %46, label %.noexc.i.i13, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i
 
-.noexc.i.i14:                                     ; preds = %45
+.noexc.i.i13:                                     ; preds = %45
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %.noexc.i.i14
+.noexc:                                           ; preds = %.noexc.i.i13
   unreachable
 
 _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %45
   %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #25
-          to label %.noexc15 unwind label %.loopexit17
+          to label %.noexc14 unwind label %.loopexit16
 
-.noexc15:                                         ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i, %34
+.noexc14:                                         ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i, %34
   %48 = phi ptr [ null, %34 ], [ %47, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i ]
-  store ptr %48, ptr %.ptr7.ptr, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %.ptr7.ptr, i64 8
+  store ptr %48, ptr %.ptr11, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 8
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %48, i64 %44
-  %51 = getelementptr inbounds nuw i8, ptr %.ptr7.ptr, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 16
   store ptr %50, ptr %51, align 8
   %52 = load ptr, ptr %38, align 8
   %53 = load ptr, ptr %39, align 8
@@ -8185,11 +8185,11 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %45
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %53, %52
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %58, label %57
 
-57:                                               ; preds = %.noexc15
+57:                                               ; preds = %.noexc14
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %48, ptr align 8 %52, i64 %56, i1 false)
   br label %58
 
-58:                                               ; preds = %57, %.noexc15
+58:                                               ; preds = %57, %.noexc14
   %59 = getelementptr inbounds i8, ptr %48, i64 %56
   store ptr %59, ptr %49, align 8
   br i1 %36, label %60, label %34
@@ -8197,30 +8197,30 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %45
 60:                                               ; preds = %58
   ret void
 
-.loopexit17:                                      ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i
+.loopexit16:                                      ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %61
 
-.loopexit.split-lp:                               ; preds = %.noexc.i.i14
+.loopexit.split-lp:                               ; preds = %.noexc.i.i13
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %61
 
-61:                                               ; preds = %.loopexit.split-lp, %.loopexit17
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit17 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+61:                                               ; preds = %.loopexit.split-lp, %.loopexit16
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit16 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %35, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %61, %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %.idx8 = phi i64 [ %.add, %_ZNSt6vectorIlSaIlEED2Ev.exit ], [ %.add9, %61 ]
-  %.add = add nsw i64 %.idx8, -24
-  %.ptr11 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %62 = load ptr, ptr %.ptr11, align 8
-  %.not.i.i.i16 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %63
+  %.idx7 = phi i64 [ %.add, %_ZNSt6vectorIlSaIlEED2Ev.exit ], [ %.add8, %61 ]
+  %.add = add nsw i64 %.idx7, -24
+  %.ptr9 = getelementptr inbounds i8, ptr %0, i64 %.add
+  %62 = load ptr, ptr %.ptr9, align 8
+  %.not.i.i.i15 = icmp eq ptr %62, null
+  br i1 %.not.i.i.i15, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %63
 
 63:                                               ; preds = %.preheader
-  %64 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.ptr9, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64

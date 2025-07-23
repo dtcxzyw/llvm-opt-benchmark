@@ -2413,25 +2413,24 @@ define noundef ptr @_ZN4lean16compacted_region4readEv(ptr noundef nonnull align 
   store ptr %17, ptr %4, align 8, !tbaa !106
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %148
-  %21 = phi ptr [ %.sink, %148 ], [ %17, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %149
+  %21 = phi ptr [ %.sink, %149 ], [ %17, %.preheader ]
   %22 = getelementptr i8, ptr %21, i64 4
   %.val = load i32, ptr %22, align 4
   %23 = icmp ult i32 %.val, -201326592
-  br i1 %23, label %24, label %40
+  br i1 %23, label %24, label %41
 
 24:                                               ; preds = %.lr.ph
-  %25 = lshr i32 %.val, 16
-  %26 = and i32 %25, 255
-  %27 = shl nuw nsw i32 %26, 3
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %26 = lshr i32 %.val, 13
+  %27 = and i32 %26, 2040
   %.idx.i = zext nneg i32 %27 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
-  %.not10.i = icmp eq i32 %26, 0
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
+  %.not10.i = icmp eq i32 %27, 0
   br i1 %.not10.i, label %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
-  %.pn.i = phi ptr [ %.011.i, %.lr.ph.i ], [ %21, %24 ]
-  %.011.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
+  %.011.i = phi ptr [ %37, %.lr.ph.i ], [ %25, %24 ]
   %29 = load ptr, ptr %.011.i, align 8, !tbaa !63
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1
@@ -2443,223 +2442,220 @@ define noundef ptr @_ZN4lean16compacted_region4readEv(ptr noundef nonnull align 
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
   %.0.i.i = select i1 %.not.i.i, ptr %36, ptr %29
   store ptr %.0.i.i, ptr %.011.i, align 8, !tbaa !63
-  %.not.i26 = icmp eq ptr %.011.i, %28
+  %37 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
+  %.not.i26 = icmp eq ptr %37, %28
   br i1 %.not.i26, label %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit, label %.lr.ph.i, !llvm.loop !107
 
 _ZN4lean16compacted_region15fix_constructorEP11lean_object.exit: ; preds = %.lr.ph.i, %24
-  %37 = tail call i64 @lean_object_byte_size(ptr noundef nonnull %21)
-  %.biased.i.i.i = add i64 %37, 7
+  %38 = tail call i64 @lean_object_byte_size(ptr noundef nonnull %21)
+  %.biased.i.i.i = add i64 %38, 7
   %.0.i.i.i = and i64 %.biased.i.i.i, -8
-  %38 = load ptr, ptr %2, align 8, !tbaa !105
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.0.i.i.i
-  br label %148
+  %39 = load ptr, ptr %2, align 8, !tbaa !105
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.0.i.i.i
+  br label %149
 
-40:                                               ; preds = %.lr.ph
-  %41 = lshr i32 %.val, 24
-  %42 = trunc nuw i32 %41 to i8
-  switch i8 %42, label %143 [
-    i8 -11, label %43
-    i8 -10, label %48
-    i8 -8, label %64
-    i8 -7, label %71
-    i8 -6, label %74
-    i8 -5, label %90
-    i8 -3, label %103
-    i8 -4, label %114
-    i8 -12, label %127
-    i8 -2, label %138
+41:                                               ; preds = %.lr.ph
+  %42 = lshr i32 %.val, 24
+  %43 = trunc nuw i32 %42 to i8
+  switch i8 %43, label %144 [
+    i8 -11, label %44
+    i8 -10, label %49
+    i8 -8, label %65
+    i8 -7, label %72
+    i8 -6, label %75
+    i8 -5, label %91
+    i8 -3, label %104
+    i8 -4, label %115
+    i8 -12, label %128
+    i8 -2, label %139
   ]
 
-43:                                               ; preds = %40
-  %44 = tail call ptr @__cxa_allocate_exception(i64 40) #22
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %46, ptr %45, align 8, !tbaa !88
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i64 0, ptr %47, align 8, !tbaa !91
-  store i8 0, ptr %46, align 1, !tbaa !93
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %44, align 8, !tbaa !94
-  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
+44:                                               ; preds = %41
+  %45 = tail call ptr @__cxa_allocate_exception(i64 40) #22
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store ptr %47, ptr %46, align 8, !tbaa !88
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i64 0, ptr %48, align 8, !tbaa !91
+  store i8 0, ptr %47, align 1, !tbaa !93
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %45, align 8, !tbaa !94
+  tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable
 
-48:                                               ; preds = %40
-  %49 = getelementptr i8, ptr %21, i64 8
-  %.val.i27 = load i64, ptr %49, align 8, !tbaa !71
+49:                                               ; preds = %41
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %51 = getelementptr i8, ptr %21, i64 8
+  %.val.i27 = load i64, ptr %51, align 8, !tbaa !71
   %.idx.i28 = shl nuw nsw i64 %.val.i27, 3
-  %50 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i28
-  %.ptr12.i = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i28
   %.not10.i29 = icmp eq i64 %.val.i27, 0
   br i1 %.not10.i29, label %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, label %.lr.ph.i30
 
-.lr.ph.i30:                                       ; preds = %48
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 24
-  br label %51
-
-51:                                               ; preds = %51, %.lr.ph.i30
-  %.011.i31 = phi ptr [ %.ptr.i, %.lr.ph.i30 ], [ %60, %51 ]
-  %52 = load ptr, ptr %.011.i31, align 8, !tbaa !63
-  %53 = ptrtoint ptr %52 to i64
-  %54 = and i64 %53, 1
-  %.not.i.i32 = icmp eq i64 %54, 0
-  %55 = load ptr, ptr %11, align 8
-  %56 = load ptr, ptr %0, align 8
-  %57 = ptrtoint ptr %56 to i64
-  %58 = sub i64 %53, %57
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 %58
-  %.0.i.i33 = select i1 %.not.i.i32, ptr %59, ptr %52
+.lr.ph.i30:                                       ; preds = %49, %.lr.ph.i30
+  %.011.i31 = phi ptr [ %61, %.lr.ph.i30 ], [ %50, %49 ]
+  %53 = load ptr, ptr %.011.i31, align 8, !tbaa !63
+  %54 = ptrtoint ptr %53 to i64
+  %55 = and i64 %54, 1
+  %.not.i.i32 = icmp eq i64 %55, 0
+  %56 = load ptr, ptr %11, align 8
+  %57 = load ptr, ptr %0, align 8
+  %58 = ptrtoint ptr %57 to i64
+  %59 = sub i64 %54, %58
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 %59
+  %.0.i.i33 = select i1 %.not.i.i32, ptr %60, ptr %53
   store ptr %.0.i.i33, ptr %.011.i31, align 8, !tbaa !63
-  %60 = getelementptr inbounds nuw i8, ptr %.011.i31, i64 8
-  %.not.i34 = icmp eq ptr %60, %.ptr12.i
-  br i1 %.not.i34, label %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, label %51, !llvm.loop !108
+  %61 = getelementptr inbounds nuw i8, ptr %.011.i31, i64 8
+  %.not.i34 = icmp eq ptr %61, %52
+  br i1 %.not.i34, label %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, label %.lr.ph.i30, !llvm.loop !108
 
-_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %51, %48
-  %61 = tail call i64 @lean_object_byte_size(ptr noundef nonnull %21)
-  %.biased.i.i.i35 = add i64 %61, 7
+_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30, %49
+  %62 = tail call i64 @lean_object_byte_size(ptr noundef nonnull %21)
+  %.biased.i.i.i35 = add i64 %62, 7
   %.0.i.i.i36 = and i64 %.biased.i.i.i35, -8
-  %62 = load ptr, ptr %2, align 8, !tbaa !105
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i.i.i36
-  br label %148
+  %63 = load ptr, ptr %2, align 8, !tbaa !105
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.0.i.i.i36
+  br label %149
 
-64:                                               ; preds = %40
-  %65 = getelementptr i8, ptr %21, i64 16
-  %.val24 = load i64, ptr %65, align 8, !tbaa !71
-  %66 = lshr i32 %.val, 16
-  %67 = and i32 %66, 255
-  %68 = zext nneg i32 %67 to i64
-  %69 = mul i64 %.val24, %68
-  %.biased.i = add i64 %69, 31
+65:                                               ; preds = %41
+  %66 = getelementptr i8, ptr %21, i64 16
+  %.val24 = load i64, ptr %66, align 8, !tbaa !71
+  %67 = lshr i32 %.val, 16
+  %68 = and i32 %67, 255
+  %69 = zext nneg i32 %68 to i64
+  %70 = mul i64 %.val24, %69
+  %.biased.i = add i64 %70, 31
   %.0.i37 = and i64 %.biased.i, -8
-  %70 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i37
-  br label %148
+  %71 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i37
+  br label %149
 
-71:                                               ; preds = %40
-  %72 = getelementptr i8, ptr %21, i64 16
-  %.val25 = load i64, ptr %72, align 8, !tbaa !71
+72:                                               ; preds = %41
+  %73 = getelementptr i8, ptr %21, i64 16
+  %.val25 = load i64, ptr %73, align 8, !tbaa !71
   %.biased.i38 = add i64 %.val25, 39
   %.0.i39 = and i64 %.biased.i38, -8
-  %73 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i39
-  br label %148
+  %74 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i39
+  br label %149
 
-74:                                               ; preds = %40
-  %75 = load ptr, ptr %11, align 8, !tbaa !104
-  %76 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !84
-  %78 = ptrtoint ptr %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 %78
-  %80 = load ptr, ptr %0, align 8, !tbaa !96
-  %81 = ptrtoint ptr %80 to i64
-  %82 = sub i64 0, %81
-  %83 = getelementptr inbounds i8, ptr %79, i64 %82
-  store ptr %83, ptr %76, align 8, !tbaa !84
-  %84 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %85 = load i32, ptr %84, align 4, !tbaa !81
-  %86 = tail call i32 @llvm.abs.i32(i32 %85, i1 true)
-  %87 = zext nneg i32 %86 to i64
-  %88 = shl nuw nsw i64 %87, 3
-  %.biased.i.i = add nuw nsw i64 %88, 31
+75:                                               ; preds = %41
+  %76 = load ptr, ptr %11, align 8, !tbaa !104
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !84
+  %79 = ptrtoint ptr %78 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 %79
+  %81 = load ptr, ptr %0, align 8, !tbaa !96
+  %82 = ptrtoint ptr %81 to i64
+  %83 = sub i64 0, %82
+  %84 = getelementptr inbounds i8, ptr %80, i64 %83
+  store ptr %84, ptr %77, align 8, !tbaa !84
+  %85 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %86 = load i32, ptr %85, align 4, !tbaa !81
+  %87 = tail call i32 @llvm.abs.i32(i32 %86, i1 true)
+  %88 = zext nneg i32 %87 to i64
+  %89 = shl nuw nsw i64 %88, 3
+  %.biased.i.i = add nuw nsw i64 %89, 31
   %.0.i.i40 = and i64 %.biased.i.i, 34359738360
-  %89 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i.i40
-  br label %148
+  %90 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i.i40
+  br label %149
 
-90:                                               ; preds = %40
-  %91 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %92 = load atomic i64, ptr %91 seq_cst, align 8
-  %93 = and i64 %92, 1
-  %.not.i.i41 = icmp eq i64 %93, 0
-  %94 = load ptr, ptr %11, align 8
-  %95 = load ptr, ptr %0, align 8
-  %96 = ptrtoint ptr %95 to i64
-  %97 = sub i64 %92, %96
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %97
-  %99 = ptrtoint ptr %98 to i64
-  %100 = select i1 %.not.i.i41, i64 %99, i64 %92
-  store atomic i64 %100, ptr %91 seq_cst, align 8
-  %101 = load ptr, ptr %2, align 8, !tbaa !105
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  br label %148
+91:                                               ; preds = %41
+  %92 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %93 = load atomic i64, ptr %92 seq_cst, align 8
+  %94 = and i64 %93, 1
+  %.not.i.i41 = icmp eq i64 %94, 0
+  %95 = load ptr, ptr %11, align 8
+  %96 = load ptr, ptr %0, align 8
+  %97 = ptrtoint ptr %96 to i64
+  %98 = sub i64 %93, %97
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
+  %100 = ptrtoint ptr %99 to i64
+  %101 = select i1 %.not.i.i41, i64 %100, i64 %93
+  store atomic i64 %101, ptr %92 seq_cst, align 8
+  %102 = load ptr, ptr %2, align 8, !tbaa !105
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  br label %149
 
-103:                                              ; preds = %40
-  %104 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !76
-  %106 = ptrtoint ptr %105 to i64
-  %107 = and i64 %106, 1
-  %.not.i.i42 = icmp eq i64 %107, 0
-  %108 = load ptr, ptr %11, align 8
-  %109 = load ptr, ptr %0, align 8
-  %110 = ptrtoint ptr %109 to i64
-  %111 = sub i64 %106, %110
-  %112 = getelementptr inbounds nuw i8, ptr %108, i64 %111
-  %.0.i.i43 = select i1 %.not.i.i42, ptr %112, ptr %105
-  store ptr %.0.i.i43, ptr %104, align 8, !tbaa !76
-  %113 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  br label %148
+104:                                              ; preds = %41
+  %105 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !76
+  %107 = ptrtoint ptr %106 to i64
+  %108 = and i64 %107, 1
+  %.not.i.i42 = icmp eq i64 %108, 0
+  %109 = load ptr, ptr %11, align 8
+  %110 = load ptr, ptr %0, align 8
+  %111 = ptrtoint ptr %110 to i64
+  %112 = sub i64 %107, %111
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 %112
+  %.0.i.i43 = select i1 %.not.i.i42, ptr %113, ptr %106
+  store ptr %.0.i.i43, ptr %105, align 8, !tbaa !76
+  %114 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  br label %149
 
-114:                                              ; preds = %40
-  %115 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %116 = load atomic i64, ptr %115 seq_cst, align 8
-  %117 = and i64 %116, 1
-  %.not.i.i44 = icmp eq i64 %117, 0
-  %118 = load ptr, ptr %11, align 8
-  %119 = load ptr, ptr %0, align 8
-  %120 = ptrtoint ptr %119 to i64
-  %121 = sub i64 %116, %120
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 %121
-  %123 = ptrtoint ptr %122 to i64
-  %124 = select i1 %.not.i.i44, i64 %123, i64 %116
-  store atomic i64 %124, ptr %115 seq_cst, align 8
-  %125 = load ptr, ptr %2, align 8, !tbaa !105
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  br label %148
+115:                                              ; preds = %41
+  %116 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %117 = load atomic i64, ptr %116 seq_cst, align 8
+  %118 = and i64 %117, 1
+  %.not.i.i44 = icmp eq i64 %118, 0
+  %119 = load ptr, ptr %11, align 8
+  %120 = load ptr, ptr %0, align 8
+  %121 = ptrtoint ptr %120 to i64
+  %122 = sub i64 %117, %121
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %122
+  %124 = ptrtoint ptr %123 to i64
+  %125 = select i1 %.not.i.i44, i64 %124, i64 %117
+  store atomic i64 %125, ptr %116 seq_cst, align 8
+  %126 = load ptr, ptr %2, align 8, !tbaa !105
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  br label %149
 
-127:                                              ; preds = %40
-  %128 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !78
-  %130 = ptrtoint ptr %129 to i64
-  %131 = and i64 %130, 1
-  %.not.i.i45 = icmp eq i64 %131, 0
-  %132 = load ptr, ptr %11, align 8
-  %133 = load ptr, ptr %0, align 8
-  %134 = ptrtoint ptr %133 to i64
-  %135 = sub i64 %130, %134
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %135
-  %.0.i.i46 = select i1 %.not.i.i45, ptr %136, ptr %129
-  store ptr %.0.i.i46, ptr %128, align 8, !tbaa !78
-  %137 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  br label %148
+128:                                              ; preds = %41
+  %129 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !78
+  %131 = ptrtoint ptr %130 to i64
+  %132 = and i64 %131, 1
+  %.not.i.i45 = icmp eq i64 %132, 0
+  %133 = load ptr, ptr %11, align 8
+  %134 = load ptr, ptr %0, align 8
+  %135 = ptrtoint ptr %134 to i64
+  %136 = sub i64 %131, %135
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 %136
+  %.0.i.i46 = select i1 %.not.i.i45, ptr %137, ptr %130
+  store ptr %.0.i.i46, ptr %129, align 8, !tbaa !78
+  %138 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  br label %149
 
-138:                                              ; preds = %40
-  %139 = tail call ptr @__cxa_allocate_exception(i64 40) #22
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  store ptr %141, ptr %140, align 8, !tbaa !88
-  %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store i64 0, ptr %142, align 8, !tbaa !91
-  store i8 0, ptr %141, align 1, !tbaa !93
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %139, align 8, !tbaa !94
-  tail call void @__cxa_throw(ptr nonnull %139, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
+139:                                              ; preds = %41
+  %140 = tail call ptr @__cxa_allocate_exception(i64 40) #22
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  store ptr %142, ptr %141, align 8, !tbaa !88
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  store i64 0, ptr %143, align 8, !tbaa !91
+  store i8 0, ptr %142, align 1, !tbaa !93
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %140, align 8, !tbaa !94
+  tail call void @__cxa_throw(ptr nonnull %140, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable
 
-143:                                              ; preds = %40
-  %144 = tail call ptr @__cxa_allocate_exception(i64 40) #22
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  store ptr %146, ptr %145, align 8, !tbaa !88
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  store i64 0, ptr %147, align 8, !tbaa !91
-  store i8 0, ptr %146, align 1, !tbaa !93
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %144, align 8, !tbaa !94
-  tail call void @__cxa_throw(ptr nonnull %144, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
+144:                                              ; preds = %41
+  %145 = tail call ptr @__cxa_allocate_exception(i64 40) #22
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  store ptr %147, ptr %146, align 8, !tbaa !88
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  store i64 0, ptr %148, align 8, !tbaa !91
+  store i8 0, ptr %147, align 1, !tbaa !93
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %145, align 8, !tbaa !94
+  tail call void @__cxa_throw(ptr nonnull %145, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #25
   unreachable
 
-148:                                              ; preds = %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, %64, %71, %74, %90, %103, %114, %127, %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit
-  %.sink = phi ptr [ %63, %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit ], [ %70, %64 ], [ %73, %71 ], [ %89, %74 ], [ %102, %90 ], [ %113, %103 ], [ %126, %114 ], [ %137, %127 ], [ %39, %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit ]
+149:                                              ; preds = %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, %65, %72, %75, %91, %104, %115, %128, %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit
+  %.sink = phi ptr [ %64, %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit ], [ %71, %65 ], [ %74, %72 ], [ %90, %75 ], [ %103, %91 ], [ %114, %104 ], [ %127, %115 ], [ %138, %128 ], [ %40, %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit ]
   store ptr %.sink, ptr %2, align 8, !tbaa !105
-  %149 = load ptr, ptr %4, align 8, !tbaa !106
-  %150 = icmp ult ptr %.sink, %149
-  br i1 %150, label %.lr.ph, label %.loopexit, !llvm.loop !109
+  %150 = load ptr, ptr %4, align 8, !tbaa !106
+  %151 = icmp ult ptr %.sink, %150
+  br i1 %151, label %.lr.ph, label %.loopexit, !llvm.loop !109
 
-.loopexit:                                        ; preds = %148, %.preheader, %20, %1
-  %.018 = phi ptr [ null, %1 ], [ %.0.i, %20 ], [ %.0.i, %.preheader ], [ %.0.i, %148 ]
+.loopexit:                                        ; preds = %149, %.preheader, %20, %1
+  %.018 = phi ptr [ null, %1 ], [ %.0.i, %20 ], [ %.0.i, %.preheader ], [ %.0.i, %149 ]
   ret ptr %.018
 }
 

@@ -2992,159 +2992,159 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %3
   store i32 %9, ptr %13, align 4, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %9, ptr %14, align 4, !tbaa !14
-  %.ptr.i.i.i = getelementptr i8, ptr %13, i64 8
-  store ptr %.ptr.i.i.i, ptr %4, align 8, !tbaa !29
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.ptr.i.i.i, i8 0, i64 %11, i1 false), !tbaa !32
+  %15 = getelementptr i8, ptr %13, i64 8
+  store ptr %15, ptr %4, align 8, !tbaa !29
+  tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %11, i1 false), !tbaa !32
   br label %_ZN7svectorIbjEC2Ej.exit
 
 _ZN7svectorIbjEC2Ej.exit:                         ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %.lr.ph.preheader.i.i.i
-  %15 = phi ptr [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %.ptr.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %16 = phi ptr [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %15, %.lr.ph.preheader.i.i.i ]
   invoke void @_ZN7datalog21sieve_relation_plugin21extract_inner_columnsERKNS_18relation_signatureERNS_15relation_pluginER7svectorIbjE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i unwind label %61
+          to label %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i unwind label %62
 
 _ZN6vectorIP4sortLb0EjE5resetEv.exit.i:           ; preds = %_ZN7svectorIbjEC2Ej.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
   store ptr null, ptr %5, align 8, !tbaa !10
-  %16 = load ptr, ptr %1, align 8, !tbaa !10
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
+  %17 = load ptr, ptr %1, align 8, !tbaa !10
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i
-  %18 = getelementptr inbounds i8, ptr %16, i64 -4
-  %19 = load i32, ptr %18, align 4, !tbaa !14
-  %.not.i = icmp eq i32 %19, 0
+  %19 = getelementptr inbounds i8, ptr %17, i64 -4
+  %20 = load i32, ptr %19, align 4, !tbaa !14
+  %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %wide.trip.count.i = zext i32 %19 to i64
+  %wide.trip.count.i = zext i32 %20 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.preheader.i
-  %20 = phi ptr [ null, %.lr.ph.preheader.i ], [ %43, %42 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %42 ]
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i
-  %22 = load i8, ptr %21, align 1, !tbaa !32, !range !34, !noundef !35
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %42
+.lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
+  %21 = phi ptr [ null, %.lr.ph.preheader.i ], [ %44, %43 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %43 ]
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
+  %23 = load i8, ptr %22, align 1, !tbaa !32, !range !34, !noundef !35
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %43
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = load ptr, ptr %1, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
-  %27 = icmp eq ptr %20, null
-  br i1 %27, label %34, label %28
+25:                                               ; preds = %.lr.ph.i
+  %26 = load ptr, ptr %1, align 8, !tbaa !10
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %28 = icmp eq ptr %21, null
+  br i1 %28, label %35, label %29
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %20, i64 -4
-  %30 = load i32, ptr %29, align 4, !tbaa !14
-  %31 = getelementptr inbounds i8, ptr %20, i64 -8
-  %32 = load i32, ptr %31, align 4, !tbaa !14
-  %33 = icmp eq i32 %30, %32
-  br i1 %33, label %34, label %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %21, i64 -4
+  %31 = load i32, ptr %30, align 4, !tbaa !14
+  %32 = getelementptr inbounds i8, ptr %21, i64 -8
+  %33 = load i32, ptr %32, align 4, !tbaa !14
+  %34 = icmp eq i32 %31, %33
+  br i1 %34, label %35, label %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i
 
-34:                                               ; preds = %28, %24
+35:                                               ; preds = %29, %25
   invoke void @_ZN6vectorIP4sortLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.noexc unwind label %63
+          to label %.noexc unwind label %64
 
-.noexc:                                           ; preds = %34
+.noexc:                                           ; preds = %35
   %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !10
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !14
   br label %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i
 
-_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i:   ; preds = %.noexc, %28
-  %35 = phi ptr [ %.pre.i.i, %.noexc ], [ %20, %28 ]
-  %36 = phi i32 [ %.pre2.i.i, %.noexc ], [ %30, %28 ]
-  %37 = getelementptr inbounds i8, ptr %35, i64 -4
-  %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
-  %40 = load ptr, ptr %26, align 8, !tbaa !63
-  store ptr %40, ptr %39, align 8, !tbaa !63
-  %41 = add i32 %36, 1
-  store i32 %41, ptr %37, align 4, !tbaa !14
-  br label %42
+_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i:   ; preds = %.noexc, %29
+  %36 = phi ptr [ %.pre.i.i, %.noexc ], [ %21, %29 ]
+  %37 = phi i32 [ %.pre2.i.i, %.noexc ], [ %31, %29 ]
+  %38 = getelementptr inbounds i8, ptr %36, i64 -4
+  %39 = zext i32 %37 to i64
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %41 = load ptr, ptr %27, align 8, !tbaa !63
+  store ptr %41, ptr %40, align 8, !tbaa !63
+  %42 = add i32 %37, 1
+  store i32 %42, ptr %38, align 4, !tbaa !14
+  br label %43
 
-42:                                               ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i, %.lr.ph.i
-  %43 = phi ptr [ %20, %.lr.ph.i ], [ %35, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i ]
+43:                                               ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i, %.lr.ph.i
+  %44 = phi ptr [ %21, %.lr.ph.i ], [ %36, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit, label %.lr.ph.i, !llvm.loop !130
 
-_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit: ; preds = %42, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i, %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i
-  %44 = load ptr, ptr %2, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = invoke noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %48 unwind label %65
+_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit: ; preds = %43, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i, %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i
+  %45 = load ptr, ptr %2, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %47 = load ptr, ptr %46, align 8
+  %48 = invoke noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %49 unwind label %66
 
-48:                                               ; preds = %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit
-  %49 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-          to label %.noexc13 unwind label %65
+49:                                               ; preds = %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit
+  %50 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
+          to label %.noexc13 unwind label %66
 
-.noexc13:                                         ; preds = %48
-  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %49, ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef readonly %15, ptr noundef %47)
-          to label %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit unwind label %65
+.noexc13:                                         ; preds = %49
+  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef readonly %16, ptr noundef %48)
+          to label %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit unwind label %66
 
 _ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit: ; preds = %.noexc13
-  %50 = load ptr, ptr %5, align 8, !tbaa !10
-  %.not.i.i15 = icmp eq ptr %50, null
-  br i1 %.not.i.i15, label %_ZN6vectorIP4sortLb0EjED2Ev.exit, label %51
+  %51 = load ptr, ptr %5, align 8, !tbaa !10
+  %.not.i.i15 = icmp eq ptr %51, null
+  br i1 %.not.i.i15, label %_ZN6vectorIP4sortLb0EjED2Ev.exit, label %52
 
-51:                                               ; preds = %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit
-  %52 = getelementptr inbounds i8, ptr %50, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %52)
-          to label %_ZN6vectorIP4sortLb0EjED2Ev.exit unwind label %53
+52:                                               ; preds = %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit
+  %53 = getelementptr inbounds i8, ptr %51, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %53)
+          to label %_ZN6vectorIP4sortLb0EjED2Ev.exit unwind label %54
 
-53:                                               ; preds = %51
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %52
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #24
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #24
   unreachable
 
-_ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit, %51
+_ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit, %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  %.not.i.i16 = icmp eq ptr %15, null
-  br i1 %.not.i.i16, label %_ZN6vectorIbLb0EjED2Ev.exit, label %56
+  %.not.i.i16 = icmp eq ptr %16, null
+  br i1 %.not.i.i16, label %_ZN6vectorIbLb0EjED2Ev.exit, label %57
 
-56:                                               ; preds = %_ZN6vectorIP4sortLb0EjED2Ev.exit
-  %57 = getelementptr inbounds i8, ptr %15, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %57)
-          to label %_ZN6vectorIbLb0EjED2Ev.exit unwind label %58
+57:                                               ; preds = %_ZN6vectorIP4sortLb0EjED2Ev.exit
+  %58 = getelementptr inbounds i8, ptr %16, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %58)
+          to label %_ZN6vectorIbLb0EjED2Ev.exit unwind label %59
 
-58:                                               ; preds = %56
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %57
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #24
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #24
   unreachable
 
-_ZN6vectorIbLb0EjED2Ev.exit:                      ; preds = %_ZN6vectorIP4sortLb0EjED2Ev.exit, %56
+_ZN6vectorIbLb0EjED2Ev.exit:                      ; preds = %_ZN6vectorIP4sortLb0EjED2Ev.exit, %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  ret ptr %49
+  ret ptr %50
 
-61:                                               ; preds = %_ZN7svectorIbjEC2Ej.exit
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %_ZN7svectorIbjEC2Ej.exit
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  br label %69
+
+64:                                               ; preds = %35
+  %65 = landingpad { ptr, i32 }
           cleanup
   br label %68
 
-63:                                               ; preds = %34
-  %64 = landingpad { ptr, i32 }
+66:                                               ; preds = %.noexc13, %49, %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %68
 
-65:                                               ; preds = %.noexc13, %48, %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit
-  %66 = landingpad { ptr, i32 }
-          cleanup
-  br label %67
-
-67:                                               ; preds = %65, %63
-  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ]
+68:                                               ; preds = %66, %64
+  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
   call void @_ZN6vectorIP4sortLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  br label %68
+  br label %69
 
-68:                                               ; preds = %67, %61
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %67 ], [ %62, %61 ]
+69:                                               ; preds = %68, %62
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ]
   call void @_ZN6vectorIbLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   resume { ptr, i32 } %.pn.pn
@@ -3317,159 +3317,159 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %4
   store i32 %10, ptr %14, align 4, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %10, ptr %15, align 4, !tbaa !14
-  %.ptr.i.i.i = getelementptr i8, ptr %14, i64 8
-  store ptr %.ptr.i.i.i, ptr %5, align 8, !tbaa !29
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.ptr.i.i.i, i8 0, i64 %12, i1 false), !tbaa !32
+  %16 = getelementptr i8, ptr %14, i64 8
+  store ptr %16, ptr %5, align 8, !tbaa !29
+  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %12, i1 false), !tbaa !32
   br label %_ZN7svectorIbjEC2Ej.exit
 
 _ZN7svectorIbjEC2Ej.exit:                         ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %.lr.ph.preheader.i.i.i
-  %16 = phi ptr [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %.ptr.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %17 = phi ptr [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %16, %.lr.ph.preheader.i.i.i ]
   invoke void @_ZN7datalog21sieve_relation_plugin21extract_inner_columnsERKNS_18relation_signatureERNS_15relation_pluginER7svectorIbjE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i unwind label %62
+          to label %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i unwind label %63
 
 _ZN6vectorIP4sortLb0EjE5resetEv.exit.i:           ; preds = %_ZN7svectorIbjEC2Ej.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
   store ptr null, ptr %6, align 8, !tbaa !10
-  %17 = load ptr, ptr %2, align 8, !tbaa !10
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
+  %18 = load ptr, ptr %2, align 8, !tbaa !10
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i
-  %19 = getelementptr inbounds i8, ptr %17, i64 -4
-  %20 = load i32, ptr %19, align 4, !tbaa !14
-  %.not.i = icmp eq i32 %20, 0
+  %20 = getelementptr inbounds i8, ptr %18, i64 -4
+  %21 = load i32, ptr %20, align 4, !tbaa !14
+  %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %wide.trip.count.i = zext i32 %20 to i64
+  %wide.trip.count.i = zext i32 %21 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
-  %21 = phi ptr [ null, %.lr.ph.preheader.i ], [ %44, %43 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %43 ]
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
-  %23 = load i8, ptr %22, align 1, !tbaa !32, !range !34, !noundef !35
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %43
+.lr.ph.i:                                         ; preds = %44, %.lr.ph.preheader.i
+  %22 = phi ptr [ null, %.lr.ph.preheader.i ], [ %45, %44 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %44 ]
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i
+  %24 = load i8, ptr %23, align 1, !tbaa !32, !range !34, !noundef !35
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %26, label %44
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = load ptr, ptr %2, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
-  %28 = icmp eq ptr %21, null
-  br i1 %28, label %35, label %29
+26:                                               ; preds = %.lr.ph.i
+  %27 = load ptr, ptr %2, align 8, !tbaa !10
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %29 = icmp eq ptr %22, null
+  br i1 %29, label %36, label %30
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %21, i64 -4
-  %31 = load i32, ptr %30, align 4, !tbaa !14
-  %32 = getelementptr inbounds i8, ptr %21, i64 -8
-  %33 = load i32, ptr %32, align 4, !tbaa !14
-  %34 = icmp eq i32 %31, %33
-  br i1 %34, label %35, label %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %22, i64 -4
+  %32 = load i32, ptr %31, align 4, !tbaa !14
+  %33 = getelementptr inbounds i8, ptr %22, i64 -8
+  %34 = load i32, ptr %33, align 4, !tbaa !14
+  %35 = icmp eq i32 %32, %34
+  br i1 %35, label %36, label %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i
 
-35:                                               ; preds = %29, %25
+36:                                               ; preds = %30, %26
   invoke void @_ZN6vectorIP4sortLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.noexc unwind label %64
+          to label %.noexc unwind label %65
 
-.noexc:                                           ; preds = %35
+.noexc:                                           ; preds = %36
   %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !10
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !14
   br label %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i
 
-_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i:   ; preds = %.noexc, %29
-  %36 = phi ptr [ %.pre.i.i, %.noexc ], [ %21, %29 ]
-  %37 = phi i32 [ %.pre2.i.i, %.noexc ], [ %31, %29 ]
-  %38 = getelementptr inbounds i8, ptr %36, i64 -4
-  %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
-  %41 = load ptr, ptr %27, align 8, !tbaa !63
-  store ptr %41, ptr %40, align 8, !tbaa !63
-  %42 = add i32 %37, 1
-  store i32 %42, ptr %38, align 4, !tbaa !14
-  br label %43
+_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i:   ; preds = %.noexc, %30
+  %37 = phi ptr [ %.pre.i.i, %.noexc ], [ %22, %30 ]
+  %38 = phi i32 [ %.pre2.i.i, %.noexc ], [ %32, %30 ]
+  %39 = getelementptr inbounds i8, ptr %37, i64 -4
+  %40 = zext i32 %38 to i64
+  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %40
+  %42 = load ptr, ptr %28, align 8, !tbaa !63
+  store ptr %42, ptr %41, align 8, !tbaa !63
+  %43 = add i32 %38, 1
+  store i32 %43, ptr %39, align 4, !tbaa !14
+  br label %44
 
-43:                                               ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i, %.lr.ph.i
-  %44 = phi ptr [ %21, %.lr.ph.i ], [ %36, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i ]
+44:                                               ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i, %.lr.ph.i
+  %45 = phi ptr [ %22, %.lr.ph.i ], [ %37, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit, label %.lr.ph.i, !llvm.loop !130
 
-_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit: ; preds = %43, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i, %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i
-  %45 = load ptr, ptr %3, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
-  %47 = load ptr, ptr %46, align 8
-  %48 = invoke noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef -1)
-          to label %49 unwind label %66
+_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit: ; preds = %44, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i, %_ZN6vectorIP4sortLb0EjE5resetEv.exit.i
+  %46 = load ptr, ptr %3, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
+  %48 = load ptr, ptr %47, align 8
+  %49 = invoke noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef -1)
+          to label %50 unwind label %67
 
-49:                                               ; preds = %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit
-  %50 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-          to label %.noexc14 unwind label %66
+50:                                               ; preds = %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit
+  %51 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
+          to label %.noexc14 unwind label %67
 
-.noexc14:                                         ; preds = %49
-  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef readonly %16, ptr noundef %48)
-          to label %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit unwind label %66
+.noexc14:                                         ; preds = %50
+  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef readonly %17, ptr noundef %49)
+          to label %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit unwind label %67
 
 _ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit: ; preds = %.noexc14
-  %51 = load ptr, ptr %6, align 8, !tbaa !10
-  %.not.i.i16 = icmp eq ptr %51, null
-  br i1 %.not.i.i16, label %_ZN6vectorIP4sortLb0EjED2Ev.exit, label %52
+  %52 = load ptr, ptr %6, align 8, !tbaa !10
+  %.not.i.i16 = icmp eq ptr %52, null
+  br i1 %.not.i.i16, label %_ZN6vectorIP4sortLb0EjED2Ev.exit, label %53
 
-52:                                               ; preds = %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit
-  %53 = getelementptr inbounds i8, ptr %51, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %53)
-          to label %_ZN6vectorIP4sortLb0EjED2Ev.exit unwind label %54
+53:                                               ; preds = %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit
+  %54 = getelementptr inbounds i8, ptr %52, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %54)
+          to label %_ZN6vectorIP4sortLb0EjED2Ev.exit unwind label %55
 
-54:                                               ; preds = %52
-  %55 = landingpad { ptr, i32 }
+55:                                               ; preds = %53
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #24
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #24
   unreachable
 
-_ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit, %52
+_ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN7datalog21sieve_relation_plugin13mk_from_innerERKNS_18relation_signatureERK7svectorIbjEPNS_13relation_baseE.exit, %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
-  %.not.i.i17 = icmp eq ptr %16, null
-  br i1 %.not.i.i17, label %_ZN6vectorIbLb0EjED2Ev.exit, label %57
+  %.not.i.i17 = icmp eq ptr %17, null
+  br i1 %.not.i.i17, label %_ZN6vectorIbLb0EjED2Ev.exit, label %58
 
-57:                                               ; preds = %_ZN6vectorIP4sortLb0EjED2Ev.exit
-  %58 = getelementptr inbounds i8, ptr %16, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %58)
-          to label %_ZN6vectorIbLb0EjED2Ev.exit unwind label %59
+58:                                               ; preds = %_ZN6vectorIP4sortLb0EjED2Ev.exit
+  %59 = getelementptr inbounds i8, ptr %17, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %59)
+          to label %_ZN6vectorIbLb0EjED2Ev.exit unwind label %60
 
-59:                                               ; preds = %57
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #24
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #24
   unreachable
 
-_ZN6vectorIbLb0EjED2Ev.exit:                      ; preds = %_ZN6vectorIP4sortLb0EjED2Ev.exit, %57
+_ZN6vectorIbLb0EjED2Ev.exit:                      ; preds = %_ZN6vectorIP4sortLb0EjED2Ev.exit, %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  ret ptr %50
+  ret ptr %51
 
-62:                                               ; preds = %_ZN7svectorIbjEC2Ej.exit
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZN7svectorIbjEC2Ej.exit
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  br label %70
+
+65:                                               ; preds = %36
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %69
 
-64:                                               ; preds = %35
-  %65 = landingpad { ptr, i32 }
+67:                                               ; preds = %.noexc14, %50, %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %69
 
-66:                                               ; preds = %.noexc14, %49, %_ZN7datalog21sieve_relation_plugin23collect_inner_signatureERKNS_18relation_signatureERK7svectorIbjERS1_.exit
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  br label %68
-
-68:                                               ; preds = %66, %64
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
+69:                                               ; preds = %67, %65
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
   call void @_ZN6vectorIP4sortLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
-  br label %69
+  br label %70
 
-69:                                               ; preds = %68, %62
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ]
+70:                                               ; preds = %69, %63
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %69 ], [ %64, %63 ]
   call void @_ZN6vectorIbLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   resume { ptr, i32 } %.pn.pn

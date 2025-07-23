@@ -1453,8 +1453,8 @@ free_commit_list.exit:                            ; preds = %pop_commit.exit.i, 
   %sext = add i64 %20, 21474836480
   %21 = ashr exact i64 %sext, 32
   %22 = getelementptr inbounds i8, ptr %2, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %.not86 = icmp ugt ptr %19, %23
+  %23 = add nsw i64 %21, 1
+  %.not86 = icmp sgt i64 %3, %23
   br i1 %.not86, label %24, label %27
 
 24:                                               ; preds = %free_commit_list.exit
@@ -1511,8 +1511,8 @@ free_commit_list.exit:                            ; preds = %pop_commit.exit.i, 
 52:                                               ; preds = %46
   %sext100 = add i64 %20, 30064771072
   %53 = ashr exact i64 %sext100, 32
-  %54 = getelementptr inbounds i8, ptr %49, i64 %53
-  %55 = icmp ult ptr %54, %19
+  %54 = add nsw i64 %48, %53
+  %55 = icmp slt i64 %54, %3
   br i1 %55, label %.lr.ph.split.us.preheader, label %.critedge104
 
 .thread135:                                       ; preds = %46
@@ -1522,199 +1522,201 @@ free_commit_list.exit:                            ; preds = %pop_commit.exit.i, 
   store i32 1, ptr %58, align 4, !tbaa !88
   %sext100136 = add i64 %20, 30064771072
   %59 = ashr exact i64 %sext100136, 32
-  %60 = getelementptr inbounds i8, ptr %49, i64 %59
-  %61 = icmp ult ptr %60, %19
+  %60 = add nsw i64 %48, %59
+  %61 = icmp slt i64 %60, %3
   br i1 %61, label %.lr.ph.split.preheader, label %.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread135
+  %62 = getelementptr inbounds i8, ptr %49, i64 %59
   %sext101137 = add i64 %20, 34359738368
-  %62 = ashr exact i64 %sext101137, 32
-  %63 = getelementptr inbounds nuw i8, ptr %51, i64 36
+  %63 = ashr exact i64 %sext101137, 32
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 36
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %52
+  %65 = getelementptr inbounds i8, ptr %49, i64 %53
   %sext101 = add i64 %20, 34359738368
-  %64 = ashr exact i64 %sext101, 32
+  %66 = ashr exact i64 %sext101, 32
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %75
-  %65 = phi ptr [ %80, %75 ], [ %54, %.lr.ph.split.us.preheader ]
-  %.074114.us = phi ptr [ %76, %75 ], [ %49, %.lr.ph.split.us.preheader ]
-  %.076113.us = phi ptr [ %79, %75 ], [ %15, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %77
+  %67 = phi ptr [ %82, %77 ], [ %65, %.lr.ph.split.us.preheader ]
+  %.074114.us = phi ptr [ %78, %77 ], [ %49, %.lr.ph.split.us.preheader ]
+  %.076113.us = phi ptr [ %81, %77 ], [ %15, %.lr.ph.split.us.preheader ]
   %bcmp92.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.074114.us, ptr noundef nonnull dereferenceable(7) @.str.10, i64 7)
   %.not93.us = icmp eq i32 %bcmp92.us, 0
-  br i1 %.not93.us, label %66, label %.critedge104
+  br i1 %.not93.us, label %68, label %.critedge104
 
-66:                                               ; preds = %.lr.ph.split.us
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  %.not97.us = icmp ugt ptr %19, %67
-  br i1 %.not97.us, label %68, label %.split.us
+68:                                               ; preds = %.lr.ph.split.us
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %.not97.us = icmp ugt ptr %19, %69
+  br i1 %.not97.us, label %70, label %.split.us
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.074114.us, i64 7
-  %70 = call i32 @get_oid_hex(ptr noundef nonnull %69, ptr noundef nonnull %6) #24
-  %.not98.us = icmp eq i32 %70, 0
-  br i1 %.not98.us, label %71, label %.split.us
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %.074114.us, i64 7
+  %72 = call i32 @get_oid_hex(ptr noundef nonnull %71, ptr noundef nonnull %6) #24
+  %.not98.us = icmp eq i32 %72, 0
+  br i1 %.not98.us, label %73, label %.split.us
 
-71:                                               ; preds = %68
-  %72 = load i8, ptr %65, align 1, !tbaa !11
-  %.not99.us = icmp eq i8 %72, 10
-  br i1 %.not99.us, label %73, label %.split.us
-
-73:                                               ; preds = %71
-  %74 = call ptr @lookup_commit(ptr noundef %0, ptr noundef nonnull %6)
-  %.not102.us = icmp eq ptr %74, null
-  br i1 %.not102.us, label %.split121.us, label %75
+73:                                               ; preds = %70
+  %74 = load i8, ptr %67, align 1, !tbaa !11
+  %.not99.us = icmp eq i8 %74, 10
+  br i1 %.not99.us, label %75, label %.split.us
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %.074114.us, i64 %64
-  %77 = call ptr @xmalloc(i64 noundef 16) #24
-  store ptr %74, ptr %77, align 8, !tbaa !89
-  %78 = load ptr, ptr %.076113.us, align 8, !tbaa !90
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr %78, ptr %79, align 8, !tbaa !48
-  store ptr %77, ptr %.076113.us, align 8, !tbaa !90
-  %80 = getelementptr inbounds i8, ptr %76, i64 %53
-  %81 = icmp ult ptr %80, %19
-  br i1 %81, label %.lr.ph.split.us, label %.critedge104
+  %76 = call ptr @lookup_commit(ptr noundef %0, ptr noundef nonnull %6)
+  %.not102.us = icmp eq ptr %76, null
+  br i1 %.not102.us, label %.split121.us, label %77
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
-  %82 = phi ptr [ %108, %107 ], [ %60, %.lr.ph.split.preheader ]
-  %.074114 = phi ptr [ %93, %107 ], [ %49, %.lr.ph.split.preheader ]
-  %.076113 = phi ptr [ %.177, %107 ], [ %15, %.lr.ph.split.preheader ]
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %.074114.us, i64 %66
+  %79 = call ptr @xmalloc(i64 noundef 16) #24
+  store ptr %76, ptr %79, align 8, !tbaa !89
+  %80 = load ptr, ptr %.076113.us, align 8, !tbaa !90
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %80, ptr %81, align 8, !tbaa !48
+  store ptr %79, ptr %.076113.us, align 8, !tbaa !90
+  %82 = getelementptr inbounds i8, ptr %78, i64 %53
+  %83 = icmp ult ptr %82, %19
+  br i1 %83, label %.lr.ph.split.us, label %.critedge104
+
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
+  %84 = phi ptr [ %110, %109 ], [ %62, %.lr.ph.split.preheader ]
+  %.074114 = phi ptr [ %95, %109 ], [ %49, %.lr.ph.split.preheader ]
+  %.076113 = phi ptr [ %.177, %109 ], [ %15, %.lr.ph.split.preheader ]
   %bcmp92 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.074114, ptr noundef nonnull dereferenceable(7) @.str.10, i64 7)
   %.not93 = icmp eq i32 %bcmp92, 0
-  br i1 %.not93, label %83, label %.preheader
+  br i1 %.not93, label %85, label %.preheader
 
-83:                                               ; preds = %.lr.ph.split
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  %.not97 = icmp ugt ptr %19, %84
-  br i1 %.not97, label %85, label %.split.us
+85:                                               ; preds = %.lr.ph.split
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 1
+  %.not97 = icmp ugt ptr %19, %86
+  br i1 %.not97, label %87, label %.split.us
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw i8, ptr %.074114, i64 7
-  %87 = call i32 @get_oid_hex(ptr noundef nonnull %86, ptr noundef nonnull %6) #24
-  %.not98 = icmp eq i32 %87, 0
-  br i1 %.not98, label %88, label %.split.us
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %.074114, i64 7
+  %89 = call i32 @get_oid_hex(ptr noundef nonnull %88, ptr noundef nonnull %6) #24
+  %.not98 = icmp eq i32 %89, 0
+  br i1 %.not98, label %90, label %.split.us
 
-88:                                               ; preds = %85
-  %89 = load i8, ptr %82, align 1, !tbaa !11
-  %.not99 = icmp eq i8 %89, 10
-  br i1 %.not99, label %92, label %.split.us
+90:                                               ; preds = %87
+  %91 = load i8, ptr %84, align 1, !tbaa !11
+  %.not99 = icmp eq i8 %91, 10
+  br i1 %.not99, label %94, label %.split.us
 
-.split.us:                                        ; preds = %83, %85, %88, %66, %68, %71
-  %90 = call ptr @oid_to_hex(ptr noundef nonnull %50) #24
-  %91 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef %90) #24
+.split.us:                                        ; preds = %85, %87, %90, %68, %70, %73
+  %92 = call ptr @oid_to_hex(ptr noundef nonnull %50) #24
+  %93 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef %92) #24
   br label %.thread
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %.074114, i64 %62
-  %94 = load i32, ptr %63, align 4, !tbaa !9
-  %95 = icmp sgt i32 %94, -1
-  %96 = load i32, ptr @grafts_keep_true_parents, align 4
-  %97 = icmp ne i32 %96, 0
-  %or.cond = select i1 %95, i1 %97, i1 false
-  br i1 %or.cond, label %98, label %107, !llvm.loop !91
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds i8, ptr %.074114, i64 %63
+  %96 = load i32, ptr %64, align 4, !tbaa !9
+  %97 = icmp sgt i32 %96, -1
+  %98 = load i32, ptr @grafts_keep_true_parents, align 4
+  %99 = icmp ne i32 %98, 0
+  %or.cond = select i1 %97, i1 %99, i1 false
+  br i1 %or.cond, label %100, label %109, !llvm.loop !91
 
-98:                                               ; preds = %92
-  %99 = call ptr @lookup_commit(ptr noundef %0, ptr noundef nonnull %6)
-  %.not102 = icmp eq ptr %99, null
-  br i1 %.not102, label %.split121.us, label %103
+100:                                              ; preds = %94
+  %101 = call ptr @lookup_commit(ptr noundef %0, ptr noundef nonnull %6)
+  %.not102 = icmp eq ptr %101, null
+  br i1 %.not102, label %.split121.us, label %105
 
-.split121.us:                                     ; preds = %98, %73
-  %100 = call ptr @oid_to_hex(ptr noundef nonnull %6) #24
-  %101 = call ptr @oid_to_hex(ptr noundef nonnull %50) #24
-  %102 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef %100, ptr noundef %101) #24
+.split121.us:                                     ; preds = %100, %75
+  %102 = call ptr @oid_to_hex(ptr noundef nonnull %6) #24
+  %103 = call ptr @oid_to_hex(ptr noundef nonnull %50) #24
+  %104 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef %102, ptr noundef %103) #24
   br label %.thread
 
-103:                                              ; preds = %98
-  %104 = call ptr @xmalloc(i64 noundef 16) #24
-  store ptr %99, ptr %104, align 8, !tbaa !89
-  %105 = load ptr, ptr %.076113, align 8, !tbaa !90
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store ptr %105, ptr %106, align 8, !tbaa !48
-  store ptr %104, ptr %.076113, align 8, !tbaa !90
-  br label %107
+105:                                              ; preds = %100
+  %106 = call ptr @xmalloc(i64 noundef 16) #24
+  store ptr %101, ptr %106, align 8, !tbaa !89
+  %107 = load ptr, ptr %.076113, align 8, !tbaa !90
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store ptr %107, ptr %108, align 8, !tbaa !48
+  store ptr %106, ptr %.076113, align 8, !tbaa !90
+  br label %109
 
-107:                                              ; preds = %92, %103
-  %.177 = phi ptr [ %106, %103 ], [ %.076113, %92 ]
-  %108 = getelementptr inbounds i8, ptr %93, i64 %59
-  %109 = icmp ult ptr %108, %19
-  br i1 %109, label %.lr.ph.split, label %.preheader
+109:                                              ; preds = %94, %105
+  %.177 = phi ptr [ %108, %105 ], [ %.076113, %94 ]
+  %110 = getelementptr inbounds i8, ptr %95, i64 %59
+  %111 = icmp ult ptr %110, %19
+  br i1 %111, label %.lr.ph.split, label %.preheader
 
-.preheader:                                       ; preds = %107, %.lr.ph.split, %.thread135
-  %.074.lcssa141 = phi ptr [ %49, %.thread135 ], [ %.074114, %.lr.ph.split ], [ %93, %107 ]
-  %.076.lcssa140 = phi ptr [ %15, %.thread135 ], [ %.076113, %.lr.ph.split ], [ %.177, %107 ]
-  %110 = getelementptr inbounds nuw i8, ptr %51, i64 36
-  %111 = load i32, ptr %110, align 4, !tbaa !9
-  %.not95124 = icmp sgt i32 %111, 0
+.preheader:                                       ; preds = %109, %.lr.ph.split, %.thread135
+  %.074.lcssa141 = phi ptr [ %49, %.thread135 ], [ %.074114, %.lr.ph.split ], [ %95, %109 ]
+  %.076.lcssa140 = phi ptr [ %15, %.thread135 ], [ %.076113, %.lr.ph.split ], [ %.177, %109 ]
+  %112 = getelementptr inbounds nuw i8, ptr %51, i64 36
+  %113 = load i32, ptr %112, align 4, !tbaa !9
+  %.not95124 = icmp sgt i32 %113, 0
   br i1 %.not95124, label %.lr.ph127, label %.critedge104
 
 .lr.ph127:                                        ; preds = %.preheader
-  %112 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  br label %113
+  %114 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  br label %115
 
-113:                                              ; preds = %.lr.ph127, %125
-  %indvars.iv = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next, %125 ]
-  %.278125 = phi ptr [ %.076.lcssa140, %.lr.ph127 ], [ %128, %125 ]
-  %114 = getelementptr inbounds nuw [0 x %struct.object_id], ptr %112, i64 0, i64 %indvars.iv
-  %115 = call ptr @lookup_object(ptr noundef %0, ptr noundef nonnull %114) #24
-  %.not.i105 = icmp eq ptr %115, null
-  br i1 %.not.i105, label %116, label %119
+115:                                              ; preds = %.lr.ph127, %127
+  %indvars.iv = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next, %127 ]
+  %.278125 = phi ptr [ %.076.lcssa140, %.lr.ph127 ], [ %130, %127 ]
+  %116 = getelementptr inbounds nuw [0 x %struct.object_id], ptr %114, i64 0, i64 %indvars.iv
+  %117 = call ptr @lookup_object(ptr noundef %0, ptr noundef nonnull %116) #24
+  %.not.i105 = icmp eq ptr %117, null
+  br i1 %.not.i105, label %118, label %121
 
-116:                                              ; preds = %113
-  %117 = call ptr @alloc_commit_node(ptr noundef %0) #24
-  %118 = call ptr @create_object(ptr noundef %0, ptr noundef nonnull %114, ptr noundef %117) #24
+118:                                              ; preds = %115
+  %119 = call ptr @alloc_commit_node(ptr noundef %0) #24
+  %120 = call ptr @create_object(ptr noundef %0, ptr noundef nonnull %116, ptr noundef %119) #24
   br label %lookup_commit.exit
 
-119:                                              ; preds = %113
-  %120 = call ptr @object_as_type(ptr noundef nonnull %115, i32 noundef 1, i32 noundef 0) #24
+121:                                              ; preds = %115
+  %122 = call ptr @object_as_type(ptr noundef nonnull %117, i32 noundef 1, i32 noundef 0) #24
   br label %lookup_commit.exit
 
-lookup_commit.exit:                               ; preds = %116, %119
-  %.0.i = phi ptr [ %120, %119 ], [ %118, %116 ]
+lookup_commit.exit:                               ; preds = %118, %121
+  %.0.i = phi ptr [ %122, %121 ], [ %120, %118 ]
   %.not94 = icmp eq ptr %.0.i, null
-  br i1 %.not94, label %121, label %125
+  br i1 %.not94, label %123, label %127
 
-121:                                              ; preds = %lookup_commit.exit
-  %122 = call ptr @oid_to_hex(ptr noundef nonnull %114) #24
-  %123 = call ptr @oid_to_hex(ptr noundef nonnull %50) #24
-  %124 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef %122, ptr noundef %123) #24
+123:                                              ; preds = %lookup_commit.exit
+  %124 = call ptr @oid_to_hex(ptr noundef nonnull %116) #24
+  %125 = call ptr @oid_to_hex(ptr noundef nonnull %50) #24
+  %126 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef %124, ptr noundef %125) #24
   br label %.thread
 
-125:                                              ; preds = %lookup_commit.exit
-  %126 = call ptr @xmalloc(i64 noundef 16) #24
-  store ptr %.0.i, ptr %126, align 8, !tbaa !89
-  %127 = load ptr, ptr %.278125, align 8, !tbaa !90
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store ptr %127, ptr %128, align 8, !tbaa !48
-  store ptr %126, ptr %.278125, align 8, !tbaa !90
+127:                                              ; preds = %lookup_commit.exit
+  %128 = call ptr @xmalloc(i64 noundef 16) #24
+  store ptr %.0.i, ptr %128, align 8, !tbaa !89
+  %129 = load ptr, ptr %.278125, align 8, !tbaa !90
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store ptr %129, ptr %130, align 8, !tbaa !48
+  store ptr %128, ptr %.278125, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %129 = load i32, ptr %110, align 4, !tbaa !9
-  %130 = sext i32 %129 to i64
-  %.not95 = icmp slt i64 %indvars.iv.next, %130
-  br i1 %.not95, label %113, label %.critedge104, !llvm.loop !92
+  %131 = load i32, ptr %112, align 4, !tbaa !9
+  %132 = sext i32 %131 to i64
+  %.not95 = icmp slt i64 %indvars.iv.next, %132
+  br i1 %.not95, label %115, label %.critedge104, !llvm.loop !92
 
-.critedge104:                                     ; preds = %125, %75, %.lr.ph.split.us, %52, %.preheader
-  %.074.lcssa142 = phi ptr [ %.074.lcssa141, %.preheader ], [ %49, %52 ], [ %76, %75 ], [ %.074114.us, %.lr.ph.split.us ], [ %.074.lcssa141, %125 ]
-  %131 = call fastcc i64 @parse_commit_date(ptr noundef %.074.lcssa142, ptr noundef nonnull %19)
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %131, ptr %132, align 8, !tbaa !93
+.critedge104:                                     ; preds = %127, %77, %.lr.ph.split.us, %52, %.preheader
+  %.074.lcssa142 = phi ptr [ %.074.lcssa141, %.preheader ], [ %49, %52 ], [ %78, %77 ], [ %.074114.us, %.lr.ph.split.us ], [ %.074.lcssa141, %127 ]
+  %133 = call fastcc i64 @parse_commit_date(ptr noundef %.074.lcssa142, ptr noundef nonnull %19)
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %133, ptr %134, align 8, !tbaa !93
   %.not96 = icmp eq i32 %4, 0
-  br i1 %.not96, label %134, label %133
+  br i1 %.not96, label %136, label %135
 
-133:                                              ; preds = %.critedge104
+135:                                              ; preds = %.critedge104
   call void @load_commit_graph_info(ptr noundef %0, ptr noundef nonnull %1) #24
-  br label %134
+  br label %136
 
-134:                                              ; preds = %133, %.critedge104
-  %135 = load i32, ptr %1, align 8
-  %136 = or i32 %135, 1
-  store i32 %136, ptr %1, align 8
+136:                                              ; preds = %135, %.critedge104
+  %137 = load i32, ptr %1, align 8
+  %138 = or i32 %137, 1
+  store i32 %138, ptr %1, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.split121.us, %.split.us, %121, %5, %134, %41, %35, %27
-  %.0 = phi i32 [ -1, %27 ], [ -1, %35 ], [ 0, %134 ], [ -1, %121 ], [ -1, %41 ], [ 0, %5 ], [ -1, %.split.us ], [ -1, %.split121.us ]
+.thread:                                          ; preds = %.split121.us, %.split.us, %123, %5, %136, %41, %35, %27
+  %.0 = phi i32 [ -1, %27 ], [ -1, %35 ], [ 0, %136 ], [ -1, %123 ], [ -1, %41 ], [ 0, %5 ], [ -1, %.split.us ], [ -1, %.split121.us ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #24
   ret i32 %.0
 }

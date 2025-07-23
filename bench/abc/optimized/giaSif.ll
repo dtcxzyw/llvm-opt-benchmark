@@ -4356,479 +4356,475 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr noundef readonl
   %33 = getelementptr inbounds i32, ptr %.8.val1, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !29
   %35 = icmp eq i32 %31, %34
-  br i1 %35, label %36, label %93
+  br i1 %35, label %36, label %95
 
 36:                                               ; preds = %3
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %.ptr74.i = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %38 = load i32, ptr %23, align 4, !tbaa !29
-  %39 = sext i32 %38 to i64
-  %.idx.i = shl nsw i64 %39, 2
-  %40 = getelementptr i8, ptr %23, i64 %.idx.i
-  %.ptr72.i = getelementptr i8, ptr %40, i64 4
-  %41 = load i32, ptr %26, align 4, !tbaa !29
-  %42 = sext i32 %41 to i64
-  %.idx73.i = shl nsw i64 %42, 2
-  %43 = getelementptr i8, ptr %26, i64 %.idx73.i
-  %.ptr75.i = getelementptr i8, ptr %43, i64 4
-  %44 = icmp sgt i32 %38, 0
-  %45 = icmp sgt i32 %41, 0
-  %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %.lr.ph.i, label %.preheader53.i
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %40 = load i32, ptr %23, align 4, !tbaa !29
+  %41 = sext i32 %40 to i64
+  %.idx.i = shl nsw i64 %41, 2
+  %42 = getelementptr inbounds i8, ptr %38, i64 %.idx.i
+  %43 = load i32, ptr %26, align 4, !tbaa !29
+  %44 = sext i32 %43 to i64
+  %.idx72.i = shl nsw i64 %44, 2
+  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx72.i
+  %46 = icmp sgt i32 %40, 0
+  %47 = icmp sgt i32 %43, 0
+  %48 = select i1 %46, i1 %47, i1 false
+  br i1 %48, label %.lr.ph.i, label %.preheader53.i
 
 .lr.ph.i:                                         ; preds = %36
-  %47 = sext i32 %2 to i64
-  %48 = getelementptr inbounds i32, ptr %20, i64 %47
-  br label %52
+  %49 = sext i32 %2 to i64
+  %50 = getelementptr inbounds i32, ptr %20, i64 %49
+  br label %54
 
-.preheader53.i:                                   ; preds = %67, %36
-  %.047.lcssa.i = phi ptr [ %.ptr74.i, %36 ], [ %.148.i, %67 ]
-  %.044.lcssa.i = phi ptr [ %.ptr.i, %36 ], [ %.145.i, %67 ]
-  %.0.lcssa.i = phi ptr [ %37, %36 ], [ %.1.i, %67 ]
-  %49 = icmp ult ptr %.044.lcssa.i, %.ptr72.i
-  br i1 %49, label %.lr.ph66.i, label %.preheader.i
+.preheader53.i:                                   ; preds = %69, %36
+  %.047.lcssa.i = phi ptr [ %39, %36 ], [ %.148.i, %69 ]
+  %.044.lcssa.i = phi ptr [ %38, %36 ], [ %.145.i, %69 ]
+  %.0.lcssa.i = phi ptr [ %37, %36 ], [ %.1.i, %69 ]
+  %51 = icmp ult ptr %.044.lcssa.i, %42
+  br i1 %51, label %.lr.ph66.i, label %.preheader.i
 
 .lr.ph66.i:                                       ; preds = %.preheader53.i
-  %50 = sext i32 %2 to i64
-  %51 = getelementptr inbounds i32, ptr %20, i64 %50
-  br label %74
+  %52 = sext i32 %2 to i64
+  %53 = getelementptr inbounds i32, ptr %20, i64 %52
+  br label %76
 
-52:                                               ; preds = %67, %.lr.ph.i
-  %.061.i = phi ptr [ %37, %.lr.ph.i ], [ %.1.i, %67 ]
-  %.04460.i = phi ptr [ %.ptr.i, %.lr.ph.i ], [ %.145.i, %67 ]
-  %.04759.i = phi ptr [ %.ptr74.i, %.lr.ph.i ], [ %.148.i, %67 ]
-  %53 = icmp eq ptr %.061.i, %48
-  br i1 %53, label %Gia_ManSifCutMerge.exit, label %54
+54:                                               ; preds = %69, %.lr.ph.i
+  %.061.i = phi ptr [ %37, %.lr.ph.i ], [ %.1.i, %69 ]
+  %.04460.i = phi ptr [ %38, %.lr.ph.i ], [ %.145.i, %69 ]
+  %.04759.i = phi ptr [ %39, %.lr.ph.i ], [ %.148.i, %69 ]
+  %55 = icmp eq ptr %.061.i, %50
+  br i1 %55, label %Gia_ManSifCutMerge.exit, label %56
 
-54:                                               ; preds = %52
-  %55 = load i32, ptr %.04460.i, align 4, !tbaa !29
-  %56 = load i32, ptr %.04759.i, align 4, !tbaa !29
-  %57 = icmp eq i32 %55, %56
-  br i1 %57, label %58, label %61
+56:                                               ; preds = %54
+  %57 = load i32, ptr %.04460.i, align 4, !tbaa !29
+  %58 = load i32, ptr %.04759.i, align 4, !tbaa !29
+  %59 = icmp eq i32 %57, %58
+  br i1 %59, label %60, label %63
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %.04460.i, i64 4
-  store i32 %55, ptr %.061.i, align 4, !tbaa !29
-  %60 = getelementptr inbounds nuw i8, ptr %.04759.i, i64 4
-  br label %67
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %.04460.i, i64 4
+  store i32 %57, ptr %.061.i, align 4, !tbaa !29
+  %62 = getelementptr inbounds nuw i8, ptr %.04759.i, i64 4
+  br label %69
 
-61:                                               ; preds = %54
-  %62 = icmp slt i32 %55, %56
-  br i1 %62, label %63, label %65
+63:                                               ; preds = %56
+  %64 = icmp slt i32 %57, %58
+  br i1 %64, label %65, label %67
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %.04460.i, i64 4
-  store i32 %55, ptr %.061.i, align 4, !tbaa !29
-  br label %67
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds nuw i8, ptr %.04460.i, i64 4
+  store i32 %57, ptr %.061.i, align 4, !tbaa !29
+  br label %69
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %.04759.i, i64 4
-  store i32 %56, ptr %.061.i, align 4, !tbaa !29
-  br label %67
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %.04759.i, i64 4
+  store i32 %58, ptr %.061.i, align 4, !tbaa !29
+  br label %69
 
-67:                                               ; preds = %65, %63, %58
-  %.148.i = phi ptr [ %60, %58 ], [ %.04759.i, %63 ], [ %66, %65 ]
-  %.145.i = phi ptr [ %59, %58 ], [ %64, %63 ], [ %.04460.i, %65 ]
+69:                                               ; preds = %67, %65, %60
+  %.148.i = phi ptr [ %62, %60 ], [ %.04759.i, %65 ], [ %68, %67 ]
+  %.145.i = phi ptr [ %61, %60 ], [ %66, %65 ], [ %.04460.i, %67 ]
   %.1.i = getelementptr inbounds nuw i8, ptr %.061.i, i64 4
-  %68 = icmp ult ptr %.145.i, %.ptr72.i
-  %69 = icmp ult ptr %.148.i, %.ptr75.i
-  %70 = select i1 %68, i1 %69, i1 false
-  br i1 %70, label %52, label %.preheader53.i, !llvm.loop !102
+  %70 = icmp ult ptr %.145.i, %42
+  %71 = icmp ult ptr %.148.i, %45
+  %72 = select i1 %70, i1 %71, i1 false
+  br i1 %72, label %54, label %.preheader53.i, !llvm.loop !102
 
-.preheader.i:                                     ; preds = %76, %.preheader53.i
-  %.2.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader53.i ], [ %79, %76 ]
-  %71 = icmp ult ptr %.047.lcssa.i, %.ptr75.i
-  br i1 %71, label %.lr.ph70.i, label %._crit_edge.i
+.preheader.i:                                     ; preds = %78, %.preheader53.i
+  %.2.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader53.i ], [ %81, %78 ]
+  %73 = icmp ult ptr %.047.lcssa.i, %45
+  br i1 %73, label %.lr.ph70.i, label %._crit_edge.i
 
 .lr.ph70.i:                                       ; preds = %.preheader.i
-  %72 = sext i32 %2 to i64
-  %73 = getelementptr inbounds i32, ptr %20, i64 %72
-  br label %81
+  %74 = sext i32 %2 to i64
+  %75 = getelementptr inbounds i32, ptr %20, i64 %74
+  br label %83
 
-74:                                               ; preds = %76, %.lr.ph66.i
-  %.265.i = phi ptr [ %.0.lcssa.i, %.lr.ph66.i ], [ %79, %76 ]
-  %.24664.i = phi ptr [ %.044.lcssa.i, %.lr.ph66.i ], [ %77, %76 ]
-  %75 = icmp eq ptr %.265.i, %51
-  br i1 %75, label %Gia_ManSifCutMerge.exit, label %76
+76:                                               ; preds = %78, %.lr.ph66.i
+  %.265.i = phi ptr [ %.0.lcssa.i, %.lr.ph66.i ], [ %81, %78 ]
+  %.24664.i = phi ptr [ %.044.lcssa.i, %.lr.ph66.i ], [ %79, %78 ]
+  %77 = icmp eq ptr %.265.i, %53
+  br i1 %77, label %Gia_ManSifCutMerge.exit, label %78
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %.24664.i, i64 4
-  %78 = load i32, ptr %.24664.i, align 4, !tbaa !29
-  %79 = getelementptr inbounds nuw i8, ptr %.265.i, i64 4
-  store i32 %78, ptr %.265.i, align 4, !tbaa !29
-  %80 = icmp ult ptr %77, %.ptr72.i
-  br i1 %80, label %74, label %.preheader.i, !llvm.loop !103
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %.24664.i, i64 4
+  %80 = load i32, ptr %.24664.i, align 4, !tbaa !29
+  %81 = getelementptr inbounds nuw i8, ptr %.265.i, i64 4
+  store i32 %80, ptr %.265.i, align 4, !tbaa !29
+  %82 = icmp ult ptr %79, %42
+  br i1 %82, label %76, label %.preheader.i, !llvm.loop !103
 
-81:                                               ; preds = %83, %.lr.ph70.i
-  %.369.i = phi ptr [ %.2.lcssa.i, %.lr.ph70.i ], [ %86, %83 ]
-  %.24968.i = phi ptr [ %.047.lcssa.i, %.lr.ph70.i ], [ %84, %83 ]
-  %82 = icmp eq ptr %.369.i, %73
-  br i1 %82, label %Gia_ManSifCutMerge.exit, label %83
+83:                                               ; preds = %85, %.lr.ph70.i
+  %.369.i = phi ptr [ %.2.lcssa.i, %.lr.ph70.i ], [ %88, %85 ]
+  %.24968.i = phi ptr [ %.047.lcssa.i, %.lr.ph70.i ], [ %86, %85 ]
+  %84 = icmp eq ptr %.369.i, %75
+  br i1 %84, label %Gia_ManSifCutMerge.exit, label %85
 
-83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %.24968.i, i64 4
-  %85 = load i32, ptr %.24968.i, align 4, !tbaa !29
-  %86 = getelementptr inbounds nuw i8, ptr %.369.i, i64 4
-  store i32 %85, ptr %.369.i, align 4, !tbaa !29
-  %87 = icmp ult ptr %84, %.ptr75.i
-  br i1 %87, label %81, label %._crit_edge.i, !llvm.loop !104
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %.24968.i, i64 4
+  %87 = load i32, ptr %.24968.i, align 4, !tbaa !29
+  %88 = getelementptr inbounds nuw i8, ptr %.369.i, i64 4
+  store i32 %87, ptr %.369.i, align 4, !tbaa !29
+  %89 = icmp ult ptr %86, %45
+  br i1 %89, label %83, label %._crit_edge.i, !llvm.loop !104
 
-._crit_edge.i:                                    ; preds = %83, %.preheader.i
-  %.3.lcssa.i = phi ptr [ %.2.lcssa.i, %.preheader.i ], [ %86, %83 ]
-  %88 = ptrtoint ptr %.3.lcssa.i to i64
-  %89 = ptrtoint ptr %37 to i64
-  %90 = sub i64 %88, %89
-  %91 = lshr exact i64 %90, 2
-  %92 = trunc i64 %91 to i32
+._crit_edge.i:                                    ; preds = %85, %.preheader.i
+  %.3.lcssa.i = phi ptr [ %.2.lcssa.i, %.preheader.i ], [ %88, %85 ]
+  %90 = ptrtoint ptr %.3.lcssa.i to i64
+  %91 = ptrtoint ptr %37 to i64
+  %92 = sub i64 %90, %91
+  %93 = lshr exact i64 %92, 2
+  %94 = trunc i64 %93 to i32
   br label %Gia_ManSifCutMerge.exit
 
-93:                                               ; preds = %3
-  %94 = icmp sgt i32 %31, %34
-  %95 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  br i1 %94, label %96, label %144
+95:                                               ; preds = %3
+  %96 = icmp sgt i32 %31, %34
+  %97 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  br i1 %96, label %98, label %147
 
-96:                                               ; preds = %93
-  %.ptr.i83 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %97 = load i32, ptr %23, align 4, !tbaa !29
-  %98 = sext i32 %97 to i64
-  %.idx.i85 = shl nsw i64 %98, 2
-  %99 = getelementptr i8, ptr %23, i64 %.idx.i85
-  %.ptr72.i86 = getelementptr i8, ptr %99, i64 4
-  %100 = icmp sgt i32 %97, 0
-  br i1 %100, label %.lr.ph.i104, label %.preheader53.i89
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %100 = load i32, ptr %23, align 4, !tbaa !29
+  %101 = sext i32 %100 to i64
+  %.idx.i83 = shl nsw i64 %101, 2
+  %102 = getelementptr inbounds i8, ptr %99, i64 %.idx.i83
+  %103 = icmp sgt i32 %100, 0
+  br i1 %103, label %.lr.ph.i100, label %.preheader53.i85
 
-.lr.ph.i104:                                      ; preds = %96
-  %101 = sext i32 %2 to i64
-  %102 = getelementptr inbounds i32, ptr %20, i64 %101
-  br label %106
-
-.preheader53.i89:                                 ; preds = %119, %96
-  %.047.lcssa.i90.idx = phi i64 [ 4, %96 ], [ %.148.i108.idx, %119 ]
-  %.044.lcssa.i91 = phi ptr [ %.ptr.i83, %96 ], [ %.145.i109, %119 ]
-  %.0.lcssa.i92 = phi ptr [ %95, %96 ], [ %.1.i110, %119 ]
-  %103 = icmp ult ptr %.044.lcssa.i91, %.ptr72.i86
-  br i1 %103, label %.lr.ph66.i101, label %.preheader.i93
-
-.lr.ph66.i101:                                    ; preds = %.preheader53.i89
+.lr.ph.i100:                                      ; preds = %98
   %104 = sext i32 %2 to i64
   %105 = getelementptr inbounds i32, ptr %20, i64 %104
-  br label %126
+  br label %109
 
-106:                                              ; preds = %119, %.lr.ph.i104
-  %.061.i105 = phi ptr [ %95, %.lr.ph.i104 ], [ %.1.i110, %119 ]
-  %.04460.i106 = phi ptr [ %.ptr.i83, %.lr.ph.i104 ], [ %.145.i109, %119 ]
-  %.04759.i107.idx = phi i64 [ 4, %.lr.ph.i104 ], [ %.148.i108.idx, %119 ]
-  %107 = icmp eq ptr %.061.i105, %102
-  br i1 %107, label %Gia_ManSifCutMerge.exit, label %108
+.preheader53.i85:                                 ; preds = %122, %98
+  %.047.lcssa.i86.idx = phi i64 [ 4, %98 ], [ %.148.i104.idx, %122 ]
+  %.044.lcssa.i87 = phi ptr [ %99, %98 ], [ %.145.i105, %122 ]
+  %.0.lcssa.i88 = phi ptr [ %97, %98 ], [ %.1.i106, %122 ]
+  %106 = icmp ult ptr %.044.lcssa.i87, %102
+  br i1 %106, label %.lr.ph66.i97, label %.preheader.i89
 
-108:                                              ; preds = %106
-  %.04759.i107.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.04759.i107.idx
-  %109 = load i32, ptr %.04460.i106, align 4, !tbaa !29
-  %110 = load i32, ptr %.04759.i107.ptr, align 4, !tbaa !29
-  %111 = icmp eq i32 %109, %110
-  br i1 %111, label %112, label %114
+.lr.ph66.i97:                                     ; preds = %.preheader53.i85
+  %107 = sext i32 %2 to i64
+  %108 = getelementptr inbounds i32, ptr %20, i64 %107
+  br label %129
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %.04460.i106, i64 4
-  store i32 %109, ptr %.061.i105, align 4, !tbaa !29
-  %.04759.i107.add7 = add nuw nsw i64 %.04759.i107.idx, 4
-  br label %119
+109:                                              ; preds = %122, %.lr.ph.i100
+  %.061.i101 = phi ptr [ %97, %.lr.ph.i100 ], [ %.1.i106, %122 ]
+  %.04460.i102 = phi ptr [ %99, %.lr.ph.i100 ], [ %.145.i105, %122 ]
+  %.04759.i103.idx = phi i64 [ 4, %.lr.ph.i100 ], [ %.148.i104.idx, %122 ]
+  %110 = icmp eq ptr %.061.i101, %105
+  br i1 %110, label %Gia_ManSifCutMerge.exit, label %111
 
-114:                                              ; preds = %108
-  %115 = icmp slt i32 %109, %110
-  br i1 %115, label %116, label %118
+111:                                              ; preds = %109
+  %.04759.i103.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.04759.i103.idx
+  %112 = load i32, ptr %.04460.i102, align 4, !tbaa !29
+  %113 = load i32, ptr %.04759.i103.ptr, align 4, !tbaa !29
+  %114 = icmp eq i32 %112, %113
+  br i1 %114, label %115, label %117
 
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %.04460.i106, i64 4
-  store i32 %109, ptr %.061.i105, align 4, !tbaa !29
-  br label %119
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %.04460.i102, i64 4
+  store i32 %112, ptr %.061.i101, align 4, !tbaa !29
+  %.04759.i103.add7 = add nuw nsw i64 %.04759.i103.idx, 4
+  br label %122
 
-118:                                              ; preds = %114
-  %.04759.i107.add = add nuw nsw i64 %.04759.i107.idx, 4
-  store i32 %110, ptr %.061.i105, align 4, !tbaa !29
-  br label %119
+117:                                              ; preds = %111
+  %118 = icmp slt i32 %112, %113
+  br i1 %118, label %119, label %121
 
-119:                                              ; preds = %118, %116, %112
-  %.148.i108.idx = phi i64 [ %.04759.i107.add7, %112 ], [ %.04759.i107.idx, %116 ], [ %.04759.i107.add, %118 ]
-  %.145.i109 = phi ptr [ %113, %112 ], [ %117, %116 ], [ %.04460.i106, %118 ]
-  %.1.i110 = getelementptr inbounds nuw i8, ptr %.061.i105, i64 4
-  %120 = icmp ult ptr %.145.i109, %.ptr72.i86
-  %121 = icmp slt i64 %.148.i108.idx, 8
-  %122 = select i1 %120, i1 %121, i1 false
-  br i1 %122, label %106, label %.preheader53.i89, !llvm.loop !102
+119:                                              ; preds = %117
+  %120 = getelementptr inbounds nuw i8, ptr %.04460.i102, i64 4
+  store i32 %112, ptr %.061.i101, align 4, !tbaa !29
+  br label %122
 
-.preheader.i93:                                   ; preds = %128, %.preheader53.i89
-  %.2.lcssa.i94 = phi ptr [ %.0.lcssa.i92, %.preheader53.i89 ], [ %131, %128 ]
-  %123 = icmp slt i64 %.047.lcssa.i90.idx, 8
-  br i1 %123, label %.lr.ph70.i98, label %._crit_edge.i95
+121:                                              ; preds = %117
+  %.04759.i103.add = add nuw nsw i64 %.04759.i103.idx, 4
+  store i32 %113, ptr %.061.i101, align 4, !tbaa !29
+  br label %122
 
-.lr.ph70.i98:                                     ; preds = %.preheader.i93
-  %124 = sext i32 %2 to i64
-  %125 = getelementptr inbounds i32, ptr %20, i64 %124
-  br label %133
+122:                                              ; preds = %121, %119, %115
+  %.148.i104.idx = phi i64 [ %.04759.i103.add7, %115 ], [ %.04759.i103.idx, %119 ], [ %.04759.i103.add, %121 ]
+  %.145.i105 = phi ptr [ %116, %115 ], [ %120, %119 ], [ %.04460.i102, %121 ]
+  %.1.i106 = getelementptr inbounds nuw i8, ptr %.061.i101, i64 4
+  %123 = icmp ult ptr %.145.i105, %102
+  %124 = icmp slt i64 %.148.i104.idx, 8
+  %125 = select i1 %123, i1 %124, i1 false
+  br i1 %125, label %109, label %.preheader53.i85, !llvm.loop !102
 
-126:                                              ; preds = %128, %.lr.ph66.i101
-  %.265.i102 = phi ptr [ %.0.lcssa.i92, %.lr.ph66.i101 ], [ %131, %128 ]
-  %.24664.i103 = phi ptr [ %.044.lcssa.i91, %.lr.ph66.i101 ], [ %129, %128 ]
-  %127 = icmp eq ptr %.265.i102, %105
-  br i1 %127, label %Gia_ManSifCutMerge.exit, label %128
+.preheader.i89:                                   ; preds = %131, %.preheader53.i85
+  %.2.lcssa.i90 = phi ptr [ %.0.lcssa.i88, %.preheader53.i85 ], [ %134, %131 ]
+  %126 = icmp slt i64 %.047.lcssa.i86.idx, 8
+  br i1 %126, label %.lr.ph70.i94, label %._crit_edge.i91
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds nuw i8, ptr %.24664.i103, i64 4
-  %130 = load i32, ptr %.24664.i103, align 4, !tbaa !29
-  %131 = getelementptr inbounds nuw i8, ptr %.265.i102, i64 4
-  store i32 %130, ptr %.265.i102, align 4, !tbaa !29
-  %132 = icmp ult ptr %129, %.ptr72.i86
-  br i1 %132, label %126, label %.preheader.i93, !llvm.loop !103
+.lr.ph70.i94:                                     ; preds = %.preheader.i89
+  %127 = sext i32 %2 to i64
+  %128 = getelementptr inbounds i32, ptr %20, i64 %127
+  br label %136
 
-133:                                              ; preds = %135, %.lr.ph70.i98
-  %.369.i99 = phi ptr [ %.2.lcssa.i94, %.lr.ph70.i98 ], [ %137, %135 ]
-  %.24968.i100.idx = phi i64 [ %.047.lcssa.i90.idx, %.lr.ph70.i98 ], [ %.24968.i100.add, %135 ]
-  %134 = icmp eq ptr %.369.i99, %125
-  br i1 %134, label %Gia_ManSifCutMerge.exit, label %135
+129:                                              ; preds = %131, %.lr.ph66.i97
+  %.265.i98 = phi ptr [ %.0.lcssa.i88, %.lr.ph66.i97 ], [ %134, %131 ]
+  %.24664.i99 = phi ptr [ %.044.lcssa.i87, %.lr.ph66.i97 ], [ %132, %131 ]
+  %130 = icmp eq ptr %.265.i98, %108
+  br i1 %130, label %Gia_ManSifCutMerge.exit, label %131
 
-135:                                              ; preds = %133
-  %.24968.i100.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.24968.i100.idx
-  %.24968.i100.add = add nuw nsw i64 %.24968.i100.idx, 4
-  %136 = load i32, ptr %.24968.i100.ptr, align 4, !tbaa !29
-  %137 = getelementptr inbounds nuw i8, ptr %.369.i99, i64 4
-  store i32 %136, ptr %.369.i99, align 4, !tbaa !29
-  %138 = icmp slt i64 %.24968.i100.idx, 4
-  br i1 %138, label %133, label %._crit_edge.i95, !llvm.loop !104
+131:                                              ; preds = %129
+  %132 = getelementptr inbounds nuw i8, ptr %.24664.i99, i64 4
+  %133 = load i32, ptr %.24664.i99, align 4, !tbaa !29
+  %134 = getelementptr inbounds nuw i8, ptr %.265.i98, i64 4
+  store i32 %133, ptr %.265.i98, align 4, !tbaa !29
+  %135 = icmp ult ptr %132, %102
+  br i1 %135, label %129, label %.preheader.i89, !llvm.loop !103
 
-._crit_edge.i95:                                  ; preds = %135, %.preheader.i93
-  %.3.lcssa.i96 = phi ptr [ %.2.lcssa.i94, %.preheader.i93 ], [ %137, %135 ]
-  %139 = ptrtoint ptr %.3.lcssa.i96 to i64
-  %140 = ptrtoint ptr %95 to i64
-  %141 = sub i64 %139, %140
-  %142 = lshr exact i64 %141, 2
-  %143 = trunc i64 %142 to i32
+136:                                              ; preds = %138, %.lr.ph70.i94
+  %.369.i95 = phi ptr [ %.2.lcssa.i90, %.lr.ph70.i94 ], [ %140, %138 ]
+  %.24968.i96.idx = phi i64 [ %.047.lcssa.i86.idx, %.lr.ph70.i94 ], [ %.24968.i96.add, %138 ]
+  %137 = icmp eq ptr %.369.i95, %128
+  br i1 %137, label %Gia_ManSifCutMerge.exit, label %138
+
+138:                                              ; preds = %136
+  %.24968.i96.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.24968.i96.idx
+  %.24968.i96.add = add nuw nsw i64 %.24968.i96.idx, 4
+  %139 = load i32, ptr %.24968.i96.ptr, align 4, !tbaa !29
+  %140 = getelementptr inbounds nuw i8, ptr %.369.i95, i64 4
+  store i32 %139, ptr %.369.i95, align 4, !tbaa !29
+  %141 = icmp slt i64 %.24968.i96.idx, 4
+  br i1 %141, label %136, label %._crit_edge.i91, !llvm.loop !104
+
+._crit_edge.i91:                                  ; preds = %138, %.preheader.i89
+  %.3.lcssa.i92 = phi ptr [ %.2.lcssa.i90, %.preheader.i89 ], [ %140, %138 ]
+  %142 = ptrtoint ptr %.3.lcssa.i92 to i64
+  %143 = ptrtoint ptr %97 to i64
+  %144 = sub i64 %142, %143
+  %145 = lshr exact i64 %144, 2
+  %146 = trunc i64 %145 to i32
   br label %Gia_ManSifCutMerge.exit
 
-144:                                              ; preds = %93
-  %.ptr.i112 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %145 = load i32, ptr %26, align 4, !tbaa !29
-  %146 = sext i32 %145 to i64
-  %.idx.i114 = shl nsw i64 %146, 2
-  %147 = getelementptr i8, ptr %26, i64 %.idx.i114
-  %.ptr72.i115 = getelementptr i8, ptr %147, i64 4
-  %148 = icmp sgt i32 %145, 0
-  br i1 %148, label %.lr.ph.i133, label %.preheader53.i118
+147:                                              ; preds = %95
+  %148 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %149 = load i32, ptr %26, align 4, !tbaa !29
+  %150 = sext i32 %149 to i64
+  %.idx.i108 = shl nsw i64 %150, 2
+  %151 = getelementptr inbounds i8, ptr %148, i64 %.idx.i108
+  %152 = icmp sgt i32 %149, 0
+  br i1 %152, label %.lr.ph.i125, label %.preheader53.i110
 
-.lr.ph.i133:                                      ; preds = %144
-  %149 = sext i32 %2 to i64
-  %150 = getelementptr inbounds i32, ptr %20, i64 %149
-  br label %154
+.lr.ph.i125:                                      ; preds = %147
+  %153 = sext i32 %2 to i64
+  %154 = getelementptr inbounds i32, ptr %20, i64 %153
+  br label %158
 
-.preheader53.i118:                                ; preds = %167, %144
-  %.047.lcssa.i119.idx = phi i64 [ 4, %144 ], [ %.148.i137.idx, %167 ]
-  %.044.lcssa.i120 = phi ptr [ %.ptr.i112, %144 ], [ %.145.i138, %167 ]
-  %.0.lcssa.i121 = phi ptr [ %95, %144 ], [ %.1.i139, %167 ]
-  %151 = icmp ult ptr %.044.lcssa.i120, %.ptr72.i115
-  br i1 %151, label %.lr.ph66.i130, label %.preheader.i122
+.preheader53.i110:                                ; preds = %171, %147
+  %.047.lcssa.i111.idx = phi i64 [ 4, %147 ], [ %.148.i129.idx, %171 ]
+  %.044.lcssa.i112 = phi ptr [ %148, %147 ], [ %.145.i130, %171 ]
+  %.0.lcssa.i113 = phi ptr [ %97, %147 ], [ %.1.i131, %171 ]
+  %155 = icmp ult ptr %.044.lcssa.i112, %151
+  br i1 %155, label %.lr.ph66.i122, label %.preheader.i114
 
-.lr.ph66.i130:                                    ; preds = %.preheader53.i118
-  %152 = sext i32 %2 to i64
-  %153 = getelementptr inbounds i32, ptr %20, i64 %152
-  br label %174
+.lr.ph66.i122:                                    ; preds = %.preheader53.i110
+  %156 = sext i32 %2 to i64
+  %157 = getelementptr inbounds i32, ptr %20, i64 %156
+  br label %178
 
-154:                                              ; preds = %167, %.lr.ph.i133
-  %.061.i134 = phi ptr [ %95, %.lr.ph.i133 ], [ %.1.i139, %167 ]
-  %.04460.i135 = phi ptr [ %.ptr.i112, %.lr.ph.i133 ], [ %.145.i138, %167 ]
-  %.04759.i136.idx = phi i64 [ 4, %.lr.ph.i133 ], [ %.148.i137.idx, %167 ]
-  %155 = icmp eq ptr %.061.i134, %150
-  br i1 %155, label %Gia_ManSifCutMerge.exit, label %156
+158:                                              ; preds = %171, %.lr.ph.i125
+  %.061.i126 = phi ptr [ %97, %.lr.ph.i125 ], [ %.1.i131, %171 ]
+  %.04460.i127 = phi ptr [ %148, %.lr.ph.i125 ], [ %.145.i130, %171 ]
+  %.04759.i128.idx = phi i64 [ 4, %.lr.ph.i125 ], [ %.148.i129.idx, %171 ]
+  %159 = icmp eq ptr %.061.i126, %154
+  br i1 %159, label %Gia_ManSifCutMerge.exit, label %160
 
-156:                                              ; preds = %154
-  %.04759.i136.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.04759.i136.idx
-  %157 = load i32, ptr %.04460.i135, align 4, !tbaa !29
-  %158 = load i32, ptr %.04759.i136.ptr, align 4, !tbaa !29
-  %159 = icmp eq i32 %157, %158
-  br i1 %159, label %160, label %162
-
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %.04460.i135, i64 4
-  store i32 %157, ptr %.061.i134, align 4, !tbaa !29
-  %.04759.i136.add4 = add nuw nsw i64 %.04759.i136.idx, 4
-  br label %167
-
-162:                                              ; preds = %156
-  %163 = icmp slt i32 %157, %158
+160:                                              ; preds = %158
+  %.04759.i128.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.04759.i128.idx
+  %161 = load i32, ptr %.04460.i127, align 4, !tbaa !29
+  %162 = load i32, ptr %.04759.i128.ptr, align 4, !tbaa !29
+  %163 = icmp eq i32 %161, %162
   br i1 %163, label %164, label %166
 
-164:                                              ; preds = %162
-  %165 = getelementptr inbounds nuw i8, ptr %.04460.i135, i64 4
-  store i32 %157, ptr %.061.i134, align 4, !tbaa !29
-  br label %167
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds nuw i8, ptr %.04460.i127, i64 4
+  store i32 %161, ptr %.061.i126, align 4, !tbaa !29
+  %.04759.i128.add4 = add nuw nsw i64 %.04759.i128.idx, 4
+  br label %171
 
-166:                                              ; preds = %162
-  %.04759.i136.add = add nuw nsw i64 %.04759.i136.idx, 4
-  store i32 %158, ptr %.061.i134, align 4, !tbaa !29
-  br label %167
+166:                                              ; preds = %160
+  %167 = icmp slt i32 %161, %162
+  br i1 %167, label %168, label %170
 
-167:                                              ; preds = %166, %164, %160
-  %.148.i137.idx = phi i64 [ %.04759.i136.add4, %160 ], [ %.04759.i136.idx, %164 ], [ %.04759.i136.add, %166 ]
-  %.145.i138 = phi ptr [ %161, %160 ], [ %165, %164 ], [ %.04460.i135, %166 ]
-  %.1.i139 = getelementptr inbounds nuw i8, ptr %.061.i134, i64 4
-  %168 = icmp ult ptr %.145.i138, %.ptr72.i115
-  %169 = icmp slt i64 %.148.i137.idx, 8
-  %170 = select i1 %168, i1 %169, i1 false
-  br i1 %170, label %154, label %.preheader53.i118, !llvm.loop !102
+168:                                              ; preds = %166
+  %169 = getelementptr inbounds nuw i8, ptr %.04460.i127, i64 4
+  store i32 %161, ptr %.061.i126, align 4, !tbaa !29
+  br label %171
 
-.preheader.i122:                                  ; preds = %176, %.preheader53.i118
-  %.2.lcssa.i123 = phi ptr [ %.0.lcssa.i121, %.preheader53.i118 ], [ %179, %176 ]
-  %171 = icmp slt i64 %.047.lcssa.i119.idx, 8
-  br i1 %171, label %.lr.ph70.i127, label %._crit_edge.i124
+170:                                              ; preds = %166
+  %.04759.i128.add = add nuw nsw i64 %.04759.i128.idx, 4
+  store i32 %162, ptr %.061.i126, align 4, !tbaa !29
+  br label %171
 
-.lr.ph70.i127:                                    ; preds = %.preheader.i122
-  %172 = sext i32 %2 to i64
-  %173 = getelementptr inbounds i32, ptr %20, i64 %172
-  br label %181
+171:                                              ; preds = %170, %168, %164
+  %.148.i129.idx = phi i64 [ %.04759.i128.add4, %164 ], [ %.04759.i128.idx, %168 ], [ %.04759.i128.add, %170 ]
+  %.145.i130 = phi ptr [ %165, %164 ], [ %169, %168 ], [ %.04460.i127, %170 ]
+  %.1.i131 = getelementptr inbounds nuw i8, ptr %.061.i126, i64 4
+  %172 = icmp ult ptr %.145.i130, %151
+  %173 = icmp slt i64 %.148.i129.idx, 8
+  %174 = select i1 %172, i1 %173, i1 false
+  br i1 %174, label %158, label %.preheader53.i110, !llvm.loop !102
 
-174:                                              ; preds = %176, %.lr.ph66.i130
-  %.265.i131 = phi ptr [ %.0.lcssa.i121, %.lr.ph66.i130 ], [ %179, %176 ]
-  %.24664.i132 = phi ptr [ %.044.lcssa.i120, %.lr.ph66.i130 ], [ %177, %176 ]
-  %175 = icmp eq ptr %.265.i131, %153
-  br i1 %175, label %Gia_ManSifCutMerge.exit, label %176
+.preheader.i114:                                  ; preds = %180, %.preheader53.i110
+  %.2.lcssa.i115 = phi ptr [ %.0.lcssa.i113, %.preheader53.i110 ], [ %183, %180 ]
+  %175 = icmp slt i64 %.047.lcssa.i111.idx, 8
+  br i1 %175, label %.lr.ph70.i119, label %._crit_edge.i116
 
-176:                                              ; preds = %174
-  %177 = getelementptr inbounds nuw i8, ptr %.24664.i132, i64 4
-  %178 = load i32, ptr %.24664.i132, align 4, !tbaa !29
-  %179 = getelementptr inbounds nuw i8, ptr %.265.i131, i64 4
-  store i32 %178, ptr %.265.i131, align 4, !tbaa !29
-  %180 = icmp ult ptr %177, %.ptr72.i115
-  br i1 %180, label %174, label %.preheader.i122, !llvm.loop !103
+.lr.ph70.i119:                                    ; preds = %.preheader.i114
+  %176 = sext i32 %2 to i64
+  %177 = getelementptr inbounds i32, ptr %20, i64 %176
+  br label %185
 
-181:                                              ; preds = %183, %.lr.ph70.i127
-  %.369.i128 = phi ptr [ %.2.lcssa.i123, %.lr.ph70.i127 ], [ %185, %183 ]
-  %.24968.i129.idx = phi i64 [ %.047.lcssa.i119.idx, %.lr.ph70.i127 ], [ %.24968.i129.add, %183 ]
-  %182 = icmp eq ptr %.369.i128, %173
-  br i1 %182, label %Gia_ManSifCutMerge.exit, label %183
+178:                                              ; preds = %180, %.lr.ph66.i122
+  %.265.i123 = phi ptr [ %.0.lcssa.i113, %.lr.ph66.i122 ], [ %183, %180 ]
+  %.24664.i124 = phi ptr [ %.044.lcssa.i112, %.lr.ph66.i122 ], [ %181, %180 ]
+  %179 = icmp eq ptr %.265.i123, %157
+  br i1 %179, label %Gia_ManSifCutMerge.exit, label %180
 
-183:                                              ; preds = %181
-  %.24968.i129.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.24968.i129.idx
-  %.24968.i129.add = add nuw nsw i64 %.24968.i129.idx, 4
-  %184 = load i32, ptr %.24968.i129.ptr, align 4, !tbaa !29
-  %185 = getelementptr inbounds nuw i8, ptr %.369.i128, i64 4
-  store i32 %184, ptr %.369.i128, align 4, !tbaa !29
-  %186 = icmp slt i64 %.24968.i129.idx, 4
-  br i1 %186, label %181, label %._crit_edge.i124, !llvm.loop !104
+180:                                              ; preds = %178
+  %181 = getelementptr inbounds nuw i8, ptr %.24664.i124, i64 4
+  %182 = load i32, ptr %.24664.i124, align 4, !tbaa !29
+  %183 = getelementptr inbounds nuw i8, ptr %.265.i123, i64 4
+  store i32 %182, ptr %.265.i123, align 4, !tbaa !29
+  %184 = icmp ult ptr %181, %151
+  br i1 %184, label %178, label %.preheader.i114, !llvm.loop !103
 
-._crit_edge.i124:                                 ; preds = %183, %.preheader.i122
-  %.3.lcssa.i125 = phi ptr [ %.2.lcssa.i123, %.preheader.i122 ], [ %185, %183 ]
-  %187 = ptrtoint ptr %.3.lcssa.i125 to i64
-  %188 = ptrtoint ptr %95 to i64
-  %189 = sub i64 %187, %188
-  %190 = lshr exact i64 %189, 2
-  %191 = trunc i64 %190 to i32
+185:                                              ; preds = %187, %.lr.ph70.i119
+  %.369.i120 = phi ptr [ %.2.lcssa.i115, %.lr.ph70.i119 ], [ %189, %187 ]
+  %.24968.i121.idx = phi i64 [ %.047.lcssa.i111.idx, %.lr.ph70.i119 ], [ %.24968.i121.add, %187 ]
+  %186 = icmp eq ptr %.369.i120, %177
+  br i1 %186, label %Gia_ManSifCutMerge.exit, label %187
+
+187:                                              ; preds = %185
+  %.24968.i121.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.24968.i121.idx
+  %.24968.i121.add = add nuw nsw i64 %.24968.i121.idx, 4
+  %188 = load i32, ptr %.24968.i121.ptr, align 4, !tbaa !29
+  %189 = getelementptr inbounds nuw i8, ptr %.369.i120, i64 4
+  store i32 %188, ptr %.369.i120, align 4, !tbaa !29
+  %190 = icmp slt i64 %.24968.i121.idx, 4
+  br i1 %190, label %185, label %._crit_edge.i116, !llvm.loop !104
+
+._crit_edge.i116:                                 ; preds = %187, %.preheader.i114
+  %.3.lcssa.i117 = phi ptr [ %.2.lcssa.i115, %.preheader.i114 ], [ %189, %187 ]
+  %191 = ptrtoint ptr %.3.lcssa.i117 to i64
+  %192 = ptrtoint ptr %97 to i64
+  %193 = sub i64 %191, %192
+  %194 = lshr exact i64 %193, 2
+  %195 = trunc i64 %194 to i32
   br label %Gia_ManSifCutMerge.exit
 
-Gia_ManSifCutMerge.exit:                          ; preds = %154, %174, %181, %106, %126, %133, %52, %74, %81, %._crit_edge.i124, %._crit_edge.i95, %._crit_edge.i
-  %.sink.i97.sink = phi i32 [ %92, %._crit_edge.i ], [ %143, %._crit_edge.i95 ], [ %191, %._crit_edge.i124 ], [ -1, %81 ], [ -1, %74 ], [ -1, %52 ], [ -1, %133 ], [ -1, %126 ], [ -1, %106 ], [ -1, %181 ], [ -1, %174 ], [ -1, %154 ]
-  store i32 %.sink.i97.sink, ptr %20, align 4, !tbaa !29
-  %192 = icmp eq i32 %.sink.i97.sink, -1
-  br i1 %192, label %.thread, label %195
+Gia_ManSifCutMerge.exit:                          ; preds = %158, %178, %185, %109, %129, %136, %54, %76, %83, %._crit_edge.i116, %._crit_edge.i91, %._crit_edge.i
+  %.sink.i93.sink = phi i32 [ %94, %._crit_edge.i ], [ %146, %._crit_edge.i91 ], [ %195, %._crit_edge.i116 ], [ -1, %83 ], [ -1, %76 ], [ -1, %54 ], [ -1, %136 ], [ -1, %129 ], [ -1, %109 ], [ -1, %185 ], [ -1, %178 ], [ -1, %158 ]
+  store i32 %.sink.i93.sink, ptr %20, align 4, !tbaa !29
+  %196 = icmp eq i32 %.sink.i93.sink, -1
+  br i1 %196, label %.thread, label %199
 
 .thread:                                          ; preds = %Gia_ManSifCutMerge.exit
   store i32 2, ptr %20, align 4, !tbaa !29
-  %193 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 %16, ptr %193, align 4, !tbaa !29
-  %194 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i32 %17, ptr %194, align 4, !tbaa !29
+  %197 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 %16, ptr %197, align 4, !tbaa !29
+  %198 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i32 %17, ptr %198, align 4, !tbaa !29
   br label %.lr.ph.preheader
 
-195:                                              ; preds = %Gia_ManSifCutMerge.exit
-  %.not22 = icmp slt i32 %.sink.i97.sink, 1
+199:                                              ; preds = %Gia_ManSifCutMerge.exit
+  %.not22 = icmp slt i32 %.sink.i93.sink, 1
   br i1 %.not22, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread, %195
-  %196 = phi i32 [ 2, %.thread ], [ %.sink.i97.sink, %195 ]
-  %197 = add nuw i32 %196, 1
-  %wide.trip.count = zext i32 %197 to i64
+.lr.ph.preheader:                                 ; preds = %.thread, %199
+  %200 = phi i32 [ 2, %.thread ], [ %.sink.i93.sink, %199 ]
+  %201 = add nuw i32 %200, 1
+  %wide.trip.count = zext i32 %201 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.06523 = phi i32 [ -1000000000, %.lr.ph.preheader ], [ %204, %.lr.ph ]
-  %198 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
-  %199 = load i32, ptr %198, align 4, !tbaa !29
-  %200 = ashr i32 %199, 8
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds i32, ptr %.8.val1, i64 %201
+  %.06523 = phi i32 [ -1000000000, %.lr.ph.preheader ], [ %208, %.lr.ph ]
+  %202 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %203 = load i32, ptr %202, align 4, !tbaa !29
-  %204 = tail call noundef i32 @llvm.smax.i32(i32 %.06523, i32 %203)
+  %204 = ashr i32 %203, 8
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds i32, ptr %.8.val1, i64 %205
+  %207 = load i32, ptr %206, align 4, !tbaa !29
+  %208 = tail call noundef i32 @llvm.smax.i32(i32 %.06523, i32 %207)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !105
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %205 = add nsw i32 %204, 1
+  %209 = add nsw i32 %208, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %195
-  %206 = phi i32 [ %.sink.i97.sink, %195 ], [ %196, %._crit_edge.loopexit ]
-  %.065.lcssa = phi i32 [ -999999999, %195 ], [ %205, %._crit_edge.loopexit ]
-  %207 = getelementptr i8, ptr %0, i64 208
-  %.val78 = load ptr, ptr %207, align 8, !tbaa !106
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %199
+  %210 = phi i32 [ %.sink.i93.sink, %199 ], [ %200, %._crit_edge.loopexit ]
+  %.065.lcssa = phi i32 [ -999999999, %199 ], [ %209, %._crit_edge.loopexit ]
+  %211 = getelementptr i8, ptr %0, i64 208
+  %.val78 = load ptr, ptr %211, align 8, !tbaa !106
   %.not.i = icmp eq ptr %.val78, null
   br i1 %.not.i, label %Gia_ManSifCutChoice.exit, label %Gia_ObjSibl.exit
 
 Gia_ObjSibl.exit:                                 ; preds = %._crit_edge
-  %208 = getelementptr inbounds i32, ptr %.val78, i64 %7
-  %209 = load i32, ptr %208, align 4, !tbaa !29
-  %.not68 = icmp eq i32 %209, 0
-  br i1 %.not68, label %Gia_ManSifCutChoice.exit, label %Gia_ObjSibl.exit142
+  %212 = getelementptr inbounds i32, ptr %.val78, i64 %7
+  %213 = load i32, ptr %212, align 4, !tbaa !29
+  %.not68 = icmp eq i32 %213, 0
+  br i1 %.not68, label %Gia_ManSifCutChoice.exit, label %Gia_ObjSibl.exit134
 
-Gia_ObjSibl.exit142:                              ; preds = %Gia_ObjSibl.exit
-  %210 = mul nsw i32 %209, %2
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i32, ptr %.8.val, i64 %211
-  %213 = sext i32 %209 to i64
-  %214 = getelementptr inbounds i32, ptr %.8.val1, i64 %213
-  %215 = load i32, ptr %214, align 4, !tbaa !29
-  %216 = icmp slt i32 %.065.lcssa, %215
-  br i1 %216, label %Gia_ManSifCutChoice.exit, label %217
+Gia_ObjSibl.exit134:                              ; preds = %Gia_ObjSibl.exit
+  %214 = mul nsw i32 %213, %2
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds i32, ptr %.8.val, i64 %215
+  %217 = sext i32 %213 to i64
+  %218 = getelementptr inbounds i32, ptr %.8.val1, i64 %217
+  %219 = load i32, ptr %218, align 4, !tbaa !29
+  %220 = icmp slt i32 %.065.lcssa, %219
+  br i1 %220, label %Gia_ManSifCutChoice.exit, label %221
 
-217:                                              ; preds = %Gia_ObjSibl.exit142
-  %218 = icmp ne i32 %.065.lcssa, %215
-  %.pre.i = load i32, ptr %212, align 4, !tbaa !29
-  %.not.i144 = icmp sgt i32 %206, %.pre.i
-  %or.cond = select i1 %218, i1 true, i1 %.not.i144
-  br i1 %or.cond, label %219, label %Gia_ManSifCutChoice.exit
+221:                                              ; preds = %Gia_ObjSibl.exit134
+  %222 = icmp ne i32 %.065.lcssa, %219
+  %.pre.i = load i32, ptr %216, align 4, !tbaa !29
+  %.not.i136 = icmp sgt i32 %210, %.pre.i
+  %or.cond = select i1 %222, i1 true, i1 %.not.i136
+  br i1 %or.cond, label %223, label %Gia_ManSifCutChoice.exit
 
-219:                                              ; preds = %217
+223:                                              ; preds = %221
   %.not263.i = icmp slt i32 %.pre.i, 0
-  br i1 %.not263.i, label %Gia_ManSifCutChoice.exit, label %.lr.ph.i143
+  br i1 %.not263.i, label %Gia_ManSifCutChoice.exit, label %.lr.ph.i135
 
-.lr.ph.i143:                                      ; preds = %219, %.lr.ph.i143
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i143 ], [ 0, %219 ]
-  %220 = getelementptr inbounds nuw i32, ptr %212, i64 %indvars.iv.i
-  %221 = load i32, ptr %220, align 4, !tbaa !29
-  %222 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
-  store i32 %221, ptr %222, align 4, !tbaa !29
+.lr.ph.i135:                                      ; preds = %223, %.lr.ph.i135
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i135 ], [ 0, %223 ]
+  %224 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv.i
+  %225 = load i32, ptr %224, align 4, !tbaa !29
+  %226 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  store i32 %225, ptr %226, align 4, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %223 = load i32, ptr %212, align 4, !tbaa !29
-  %224 = sext i32 %223 to i64
-  %.not26.not.i = icmp slt i64 %indvars.iv.i, %224
-  br i1 %.not26.not.i, label %.lr.ph.i143, label %Gia_ManSifCutChoice.exit, !llvm.loop !107
+  %227 = load i32, ptr %216, align 4, !tbaa !29
+  %228 = sext i32 %227 to i64
+  %.not26.not.i = icmp slt i64 %indvars.iv.i, %228
+  br i1 %.not26.not.i, label %.lr.ph.i135, label %Gia_ManSifCutChoice.exit, !llvm.loop !107
 
-Gia_ManSifCutChoice.exit:                         ; preds = %.lr.ph.i143, %217, %._crit_edge, %219, %Gia_ObjSibl.exit142, %Gia_ObjSibl.exit
-  %.1 = phi i32 [ %.065.lcssa, %Gia_ObjSibl.exit ], [ %.065.lcssa, %Gia_ObjSibl.exit142 ], [ %215, %219 ], [ %.065.lcssa, %._crit_edge ], [ %.065.lcssa, %217 ], [ %215, %.lr.ph.i143 ]
-  %225 = load i32, ptr %27, align 4, !tbaa !29
-  %226 = icmp slt i32 %225, %.1
-  br i1 %226, label %227, label %Vec_IntUpdateEntry.exit
+Gia_ManSifCutChoice.exit:                         ; preds = %.lr.ph.i135, %221, %._crit_edge, %223, %Gia_ObjSibl.exit134, %Gia_ObjSibl.exit
+  %.1 = phi i32 [ %.065.lcssa, %Gia_ObjSibl.exit ], [ %.065.lcssa, %Gia_ObjSibl.exit134 ], [ %219, %223 ], [ %.065.lcssa, %._crit_edge ], [ %.065.lcssa, %221 ], [ %219, %.lr.ph.i135 ]
+  %229 = load i32, ptr %27, align 4, !tbaa !29
+  %230 = icmp slt i32 %229, %.1
+  br i1 %230, label %231, label %Vec_IntUpdateEntry.exit
 
-227:                                              ; preds = %Gia_ManSifCutChoice.exit
+231:                                              ; preds = %Gia_ManSifCutChoice.exit
   store i32 %.1, ptr %27, align 4, !tbaa !29
   br label %Vec_IntUpdateEntry.exit
 
-Vec_IntUpdateEntry.exit:                          ; preds = %Gia_ManSifCutChoice.exit, %227
-  %228 = icmp sgt i32 %.1, %28
-  %229 = zext i1 %228 to i32
+Vec_IntUpdateEntry.exit:                          ; preds = %Gia_ManSifCutChoice.exit, %231
+  %232 = icmp sgt i32 %.1, %28
+  %233 = zext i1 %232 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  ret i32 %229
+  ret i32 %233
 }
 
 ; Function Attrs: nounwind uwtable

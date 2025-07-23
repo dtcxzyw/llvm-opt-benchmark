@@ -770,17 +770,17 @@ define internal range(i32 0, 2) i32 @afalg_do_cipher(ptr noundef %0, ptr noundef
   %or.cond = or i1 %15, %16
   %17 = icmp eq ptr %2, null
   %or.cond3 = or i1 %or.cond, %17
-  br i1 %or.cond3, label %170, label %18
+  br i1 %or.cond3, label %171, label %18
 
 18:                                               ; preds = %4
   %19 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef nonnull %0) #13
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %170, label %21
+  br i1 %20, label %171, label %21
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %19, align 8, !tbaa !35
   %.not = icmp eq i32 %22, 25757297
-  br i1 %.not, label %23, label %170
+  br i1 %.not, label %23, label %171
 
 23:                                               ; preds = %21
   %24 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #13
@@ -812,330 +812,330 @@ define internal range(i32 0, 2) i32 @afalg_do_cipher(ptr noundef %0, ptr noundef
   store i32 3, ptr %36, align 4, !tbaa !12
   store i64 20, ptr %13, align 16, !tbaa !40
   store i32 %31, ptr %32, align 16
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 279, ptr %37, align 16, !tbaa !12
-  %38 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i32 2, ptr %38, align 4, !tbaa !12
-  store i64 36, ptr %.ptr.i, align 8, !tbaa !40
-  %39 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 16, ptr %39, align 8, !tbaa !41
-  %40 = getelementptr inbounds nuw i8, ptr %13, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull readonly align 1 dereferenceable(16) %30, i64 16, i1 false)
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i32 279, ptr %38, align 16, !tbaa !12
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 36
+  store i32 2, ptr %39, align 4, !tbaa !12
+  store i64 36, ptr %37, align 8, !tbaa !40
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store i32 16, ptr %40, align 8, !tbaa !41
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull readonly align 1 dereferenceable(16) %30, i64 16, i1 false)
   store ptr %2, ptr %12, align 8, !tbaa !43
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %3, ptr %41, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i32 32768, ptr %42, align 8, !tbaa !46
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 1, ptr %43, align 8, !tbaa !47
-  %44 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %12, ptr %44, align 8, !tbaa !48
-  %45 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %46 = load i32, ptr %45, align 4, !tbaa !27
-  %47 = call i64 @sendmsg(i32 noundef %46, ptr noundef nonnull %11, i32 noundef 0) #13
-  %48 = icmp slt i64 %47, 0
-  br i1 %48, label %afalg_start_cipher_sk.exit.thread, label %afalg_start_cipher_sk.exit
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %3, ptr %42, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store i32 32768, ptr %43, align 8, !tbaa !46
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 1, ptr %44, align 8, !tbaa !47
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %12, ptr %45, align 8, !tbaa !48
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !27
+  %48 = call i64 @sendmsg(i32 noundef %47, ptr noundef nonnull %11, i32 noundef 0) #13
+  %49 = icmp slt i64 %48, 0
+  br i1 %49, label %afalg_start_cipher_sk.exit.thread, label %afalg_start_cipher_sk.exit
 
 afalg_start_cipher_sk.exit.thread:                ; preds = %29
-  %49 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 560) #15
+  %50 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 560) #15
   call void @perror(ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #13
-  br label %170
+  br label %171
 
 afalg_start_cipher_sk.exit:                       ; preds = %29
-  %.not.i.not = icmp eq i64 %47, %3
+  %.not.i.not = icmp eq i64 %48, %3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #13
-  br i1 %.not.i.not, label %51, label %170
+  br i1 %.not.i.not, label %52, label %171
 
-51:                                               ; preds = %afalg_start_cipher_sk.exit
-  %52 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %53 = load i32, ptr %45, align 4, !tbaa !27
+52:                                               ; preds = %afalg_start_cipher_sk.exit
+  %53 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %54 = load i32, ptr %46, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
   store i64 0, ptr %9, align 8, !tbaa !40
-  %54 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %55 = load i32, ptr %54, align 4, !tbaa !49
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %93
+  %56 = load i32, ptr %55, align 4, !tbaa !49
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %94
 
-57:                                               ; preds = %51
+58:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   store ptr null, ptr %5, align 8, !tbaa !50
-  %58 = call ptr @ASYNC_get_current_job() #13
-  %.not.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i, label %81, label %59
+  %59 = call ptr @ASYNC_get_current_job() #13
+  %.not.i.i = icmp eq ptr %59, null
+  br i1 %.not.i.i, label %82, label %60
 
-59:                                               ; preds = %57
-  %60 = call ptr @ASYNC_get_wait_ctx(ptr noundef nonnull %58) #13
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %afalg_setup_async_event_notification.exit.thread.i, label %62
+60:                                               ; preds = %58
+  %61 = call ptr @ASYNC_get_wait_ctx(ptr noundef nonnull %59) #13
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %afalg_setup_async_event_notification.exit.thread.i, label %63
 
-62:                                               ; preds = %59
-  %63 = call i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef nonnull %60, ptr noundef nonnull @.str, ptr noundef nonnull %52, ptr noundef nonnull %5) #13
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %afalg_setup_async_event_notification.exit.i
+63:                                               ; preds = %60
+  %64 = call i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef nonnull %61, ptr noundef nonnull @.str, ptr noundef nonnull %53, ptr noundef nonnull %5) #13
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %afalg_setup_async_event_notification.exit.i
 
-65:                                               ; preds = %62
-  %66 = call i64 (i64, ...) @syscall(i64 noundef 290, i32 noundef 0, i32 noundef 0) #13
-  %67 = trunc i64 %66 to i32
-  store i32 %67, ptr %52, align 8, !tbaa !51
-  %68 = icmp eq i32 %67, -1
-  br i1 %68, label %69, label %72
+66:                                               ; preds = %63
+  %67 = call i64 (i64, ...) @syscall(i64 noundef 290, i32 noundef 0, i32 noundef 0) #13
+  %68 = trunc i64 %67 to i32
+  store i32 %68, ptr %53, align 8, !tbaa !51
+  %69 = icmp eq i32 %68, -1
+  br i1 %69, label %70, label %73
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 209) #15
+70:                                               ; preds = %66
+  %71 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 209) #15
   call void @perror(ptr noundef null) #16
   call fastcc void @ERR_AFALG_error(i32 noundef 108, i32 noundef 211)
   br label %afalg_setup_async_event_notification.exit.thread.i
 
-72:                                               ; preds = %65
-  %73 = load ptr, ptr %5, align 8, !tbaa !50
-  %74 = call i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef nonnull %60, ptr noundef nonnull @.str, i32 noundef %67, ptr noundef %73, ptr noundef nonnull @afalg_waitfd_cleanup) #13
-  %75 = icmp eq i32 %74, 0
-  %76 = load i32, ptr %52, align 8, !tbaa !51
-  br i1 %75, label %77, label %79
+73:                                               ; preds = %66
+  %74 = load ptr, ptr %5, align 8, !tbaa !50
+  %75 = call i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef nonnull %61, ptr noundef nonnull @.str, i32 noundef %68, ptr noundef %74, ptr noundef nonnull @afalg_waitfd_cleanup) #13
+  %76 = icmp eq i32 %75, 0
+  %77 = load i32, ptr %53, align 8, !tbaa !51
+  br i1 %76, label %78, label %80
 
-77:                                               ; preds = %72
-  %78 = call i32 @close(i32 noundef %76) #13
+78:                                               ; preds = %73
+  %79 = call i32 @close(i32 noundef %77) #13
   br label %afalg_setup_async_event_notification.exit.thread.i
 
-79:                                               ; preds = %72
-  %80 = call i32 (i32, i32, ...) @fcntl(i32 noundef %76, i32 noundef 4, i32 noundef 2048) #13
+80:                                               ; preds = %73
+  %81 = call i32 (i32, i32, ...) @fcntl(i32 noundef %77, i32 noundef 4, i32 noundef 2048) #13
   br label %afalg_setup_async_event_notification.exit.i
 
-81:                                               ; preds = %57
-  %82 = call i64 (i64, ...) @syscall(i64 noundef 290, i32 noundef 0, i32 noundef 0) #13
-  %83 = trunc i64 %82 to i32
-  store i32 %83, ptr %52, align 8, !tbaa !51
-  %84 = icmp eq i32 %83, -1
-  br i1 %84, label %85, label %afalg_setup_async_event_notification.exit.i
+82:                                               ; preds = %58
+  %83 = call i64 (i64, ...) @syscall(i64 noundef 290, i32 noundef 0, i32 noundef 0) #13
+  %84 = trunc i64 %83 to i32
+  store i32 %84, ptr %53, align 8, !tbaa !51
+  %85 = icmp eq i32 %84, -1
+  br i1 %85, label %86, label %afalg_setup_async_event_notification.exit.i
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 233) #15
+86:                                               ; preds = %82
+  %87 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 233) #15
   call void @perror(ptr noundef null) #16
-  %88 = load i32, ptr @lib_code, align 4, !tbaa !12
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %ERR_AFALG_error.exit.i.i
+  %89 = load i32, ptr @lib_code, align 4, !tbaa !12
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %ERR_AFALG_error.exit.i.i
 
-90:                                               ; preds = %85
-  %91 = call i32 @ERR_get_next_error_library() #13
-  store i32 %91, ptr @lib_code, align 4, !tbaa !12
+91:                                               ; preds = %86
+  %92 = call i32 @ERR_get_next_error_library() #13
+  store i32 %92, ptr @lib_code, align 4, !tbaa !12
   br label %ERR_AFALG_error.exit.i.i
 
-ERR_AFALG_error.exit.i.i:                         ; preds = %90, %85
+ERR_AFALG_error.exit.i.i:                         ; preds = %91, %86
   call void @ERR_new() #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #13
-  %92 = load i32, ptr @lib_code, align 4, !tbaa !12
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %92, i32 noundef 108, ptr noundef null) #13
+  %93 = load i32, ptr @lib_code, align 4, !tbaa !12
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %93, i32 noundef 108, ptr noundef null) #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 235, ptr noundef null) #13
   br label %afalg_setup_async_event_notification.exit.thread.i
 
-afalg_setup_async_event_notification.exit.thread.i: ; preds = %ERR_AFALG_error.exit.i.i, %77, %69, %59
+afalg_setup_async_event_notification.exit.thread.i: ; preds = %ERR_AFALG_error.exit.i.i, %78, %70, %60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   br label %afalg_fin_cipher_aio.exit.thread
 
-afalg_setup_async_event_notification.exit.i:      ; preds = %81, %79, %62
-  %storemerge.i = phi i32 [ 2, %79 ], [ 2, %62 ], [ 1, %81 ]
-  store i32 %storemerge.i, ptr %54, align 4, !tbaa !49
+afalg_setup_async_event_notification.exit.i:      ; preds = %82, %80, %63
+  %storemerge.i = phi i32 [ 2, %80 ], [ 2, %63 ], [ 1, %82 ]
+  store i32 %storemerge.i, ptr %55, align 4, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  br label %93
+  br label %94
 
-93:                                               ; preds = %afalg_setup_async_event_notification.exit.i, %51
-  %94 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  store ptr %94, ptr %6, align 8, !tbaa !52
-  %95 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %95, i8 0, i64 48, i1 false)
-  %96 = getelementptr inbounds nuw i8, ptr %19, i64 84
-  store i32 %53, ptr %96, align 4, !tbaa !54
-  %97 = ptrtoint ptr %1 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %19, i64 88
-  store i64 %97, ptr %98, align 8, !tbaa !57
-  store i64 0, ptr %94, align 8, !tbaa !58
-  %99 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  store i64 %3, ptr %99, align 8, !tbaa !59
-  %100 = getelementptr inbounds nuw i8, ptr %19, i64 120
-  store i32 1, ptr %100, align 8, !tbaa !60
-  %101 = load i32, ptr %52, align 8, !tbaa !51
-  %102 = getelementptr inbounds nuw i8, ptr %19, i64 124
-  store i32 %101, ptr %102, align 4, !tbaa !61
-  %103 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %104 = load i64, ptr %103, align 8, !tbaa !62
-  %105 = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %104, i64 noundef 1, ptr noundef nonnull %6) #13
-  %106 = and i64 %105, 2147483648
-  %.not36.i = icmp eq i64 %106, 0
-  br i1 %.not36.i, label %.preheader.i, label %108
+94:                                               ; preds = %afalg_setup_async_event_notification.exit.i, %52
+  %95 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  store ptr %95, ptr %6, align 8, !tbaa !52
+  %96 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, i8 0, i64 48, i1 false)
+  %97 = getelementptr inbounds nuw i8, ptr %19, i64 84
+  store i32 %54, ptr %97, align 4, !tbaa !54
+  %98 = ptrtoint ptr %1 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %19, i64 88
+  store i64 %98, ptr %99, align 8, !tbaa !57
+  store i64 0, ptr %95, align 8, !tbaa !58
+  %100 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  store i64 %3, ptr %100, align 8, !tbaa !59
+  %101 = getelementptr inbounds nuw i8, ptr %19, i64 120
+  store i32 1, ptr %101, align 8, !tbaa !60
+  %102 = load i32, ptr %53, align 8, !tbaa !51
+  %103 = getelementptr inbounds nuw i8, ptr %19, i64 124
+  store i32 %102, ptr %103, align 4, !tbaa !61
+  %104 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %105 = load i64, ptr %104, align 8, !tbaa !62
+  %106 = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %105, i64 noundef 1, ptr noundef nonnull %6) #13
+  %107 = and i64 %106, 2147483648
+  %.not36.i = icmp eq i64 %107, 0
+  br i1 %.not36.i, label %.preheader.i, label %109
 
-.preheader.i:                                     ; preds = %93
-  %107 = getelementptr inbounds nuw i8, ptr %8, i64 16
+.preheader.i:                                     ; preds = %94
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %.outer
 
-.outer:                                           ; preds = %136, %.preheader.i
-  %.024.i.ph = phi i32 [ %137, %136 ], [ 0, %.preheader.i ]
-  br label %111
+.outer:                                           ; preds = %137, %.preheader.i
+  %.024.i.ph = phi i32 [ %138, %137 ], [ 0, %.preheader.i ]
+  br label %112
 
-108:                                              ; preds = %93
-  %109 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 305) #15
+109:                                              ; preds = %94
+  %110 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 305) #15
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
-111:                                              ; preds = %.backedge, %.outer
-  %112 = call i32 @ASYNC_pause_job() #13
-  %113 = load i32, ptr %52, align 8, !tbaa !51
-  %114 = call i64 @read(i32 noundef %113, ptr noundef nonnull %9, i64 noundef 8) #13
-  %115 = and i64 %114, 2147483648
-  %.not.i36 = icmp eq i64 %115, 0
-  br i1 %.not.i36, label %123, label %116
+112:                                              ; preds = %.backedge, %.outer
+  %113 = call i32 @ASYNC_pause_job() #13
+  %114 = load i32, ptr %53, align 8, !tbaa !51
+  %115 = call i64 @read(i32 noundef %114, ptr noundef nonnull %9, i64 noundef 8) #13
+  %116 = and i64 %115, 2147483648
+  %.not.i36 = icmp eq i64 %116, 0
+  br i1 %.not.i36, label %124, label %117
 
-116:                                              ; preds = %111
-  %117 = tail call ptr @__errno_location() #17
-  %118 = load i32, ptr %117, align 4, !tbaa !12
-  %119 = icmp eq i32 %118, 11
-  br i1 %119, label %.backedge, label %120
+117:                                              ; preds = %112
+  %118 = tail call ptr @__errno_location() #17
+  %119 = load i32, ptr %118, align 4, !tbaa !12
+  %120 = icmp eq i32 %119, 11
+  br i1 %120, label %.backedge, label %121
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 318) #15
+121:                                              ; preds = %117
+  %122 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 318) #15
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
-123:                                              ; preds = %111
-  %124 = load i64, ptr %9, align 8
-  %.not29.i = icmp eq i64 %124, 0
-  br i1 %.not29.i, label %.backedge, label %125
+124:                                              ; preds = %112
+  %125 = load i64, ptr %9, align 8
+  %.not29.i = icmp eq i64 %125, 0
+  br i1 %.not29.i, label %.backedge, label %126
 
-125:                                              ; preds = %123
-  %126 = load i64, ptr %103, align 8, !tbaa !62
-  %127 = call i64 (i64, ...) @syscall(i64 noundef 208, i64 noundef %126, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %7) #13
-  %128 = trunc i64 %127 to i32
-  %129 = icmp sgt i32 %128, 0
-  br i1 %129, label %130, label %158
+126:                                              ; preds = %124
+  %127 = load i64, ptr %104, align 8, !tbaa !62
+  %128 = call i64 (i64, ...) @syscall(i64 noundef 208, i64 noundef %127, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %7) #13
+  %129 = trunc i64 %128 to i32
+  %130 = icmp sgt i32 %129, 0
+  br i1 %130, label %131, label %159
 
-130:                                              ; preds = %125
-  %131 = load i64, ptr %107, align 16, !tbaa !63
-  %132 = icmp slt i64 %131, 0
-  br i1 %132, label %133, label %163
+131:                                              ; preds = %126
+  %132 = load i64, ptr %108, align 16, !tbaa !63
+  %133 = icmp slt i64 %132, 0
+  br i1 %133, label %134, label %164
 
-133:                                              ; preds = %130
-  %134 = icmp eq i64 %131, -16
-  %135 = icmp samesign ult i32 %.024.i.ph, 3
-  %or.cond.i = select i1 %134, i1 %135, i1 false
-  br i1 %or.cond.i, label %136, label %144
+134:                                              ; preds = %131
+  %135 = icmp eq i64 %132, -16
+  %136 = icmp samesign ult i32 %.024.i.ph, 3
+  %or.cond.i = select i1 %135, i1 %136, i1 false
+  br i1 %or.cond.i, label %137, label %145
 
-136:                                              ; preds = %133
-  %137 = add nuw nsw i32 %.024.i.ph, 1
-  %138 = load i64, ptr %103, align 8, !tbaa !62
-  %139 = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %138, i64 noundef 1, ptr noundef nonnull %6) #13
-  %140 = and i64 %139, 2147483648
-  %.not37.i = icmp eq i64 %140, 0
-  br i1 %.not37.i, label %.outer, label %141, !llvm.loop !65
+137:                                              ; preds = %134
+  %138 = add nuw nsw i32 %.024.i.ph, 1
+  %139 = load i64, ptr %104, align 8, !tbaa !62
+  %140 = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %139, i64 noundef 1, ptr noundef nonnull %6) #13
+  %141 = and i64 %140, 2147483648
+  %.not37.i = icmp eq i64 %141, 0
+  br i1 %.not37.i, label %.outer, label %142, !llvm.loop !65
 
-141:                                              ; preds = %136
-  %142 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 352, i32 noundef %137) #15
+142:                                              ; preds = %137
+  %143 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 352, i32 noundef %138) #15
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
-144:                                              ; preds = %133
+145:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  %145 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.32, i64 noundef %131) #13
-  %146 = load i64, ptr %107, align 16, !tbaa !63
-  %cond.i = icmp eq i64 %146, -12
-  %147 = load i32, ptr @lib_code, align 4, !tbaa !12
-  %148 = icmp eq i32 %147, 0
-  br i1 %cond.i, label %149, label %153
+  %146 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.32, i64 noundef %132) #13
+  %147 = load i64, ptr %108, align 16, !tbaa !63
+  %cond.i = icmp eq i64 %147, -12
+  %148 = load i32, ptr @lib_code, align 4, !tbaa !12
+  %149 = icmp eq i32 %148, 0
+  br i1 %cond.i, label %150, label %154
 
-149:                                              ; preds = %144
-  br i1 %148, label %150, label %ERR_AFALG_error.exit.i
+150:                                              ; preds = %145
+  br i1 %149, label %151, label %ERR_AFALG_error.exit.i
 
-150:                                              ; preds = %149
-  %151 = call i32 @ERR_get_next_error_library() #13
-  store i32 %151, ptr @lib_code, align 4, !tbaa !12
+151:                                              ; preds = %150
+  %152 = call i32 @ERR_get_next_error_library() #13
+  store i32 %152, ptr @lib_code, align 4, !tbaa !12
   br label %ERR_AFALG_error.exit.i
 
-ERR_AFALG_error.exit.i:                           ; preds = %150, %149
+ERR_AFALG_error.exit.i:                           ; preds = %151, %150
   call void @ERR_new() #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #13
-  %152 = load i32, ptr @lib_code, align 4, !tbaa !12
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %152, i32 noundef 112, ptr noundef null) #13
+  %153 = load i32, ptr @lib_code, align 4, !tbaa !12
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %153, i32 noundef 112, ptr noundef null) #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef null) #13
   call void (i32, ...) @ERR_add_error_data(i32 noundef 3, ptr noundef nonnull @.str.33, ptr noundef nonnull %10, ptr noundef nonnull @.str.34) #13
-  br label %157
+  br label %158
 
-153:                                              ; preds = %144
-  br i1 %148, label %154, label %ERR_AFALG_error.exit31.i
+154:                                              ; preds = %145
+  br i1 %149, label %155, label %ERR_AFALG_error.exit31.i
 
-154:                                              ; preds = %153
-  %155 = call i32 @ERR_get_next_error_library() #13
-  store i32 %155, ptr @lib_code, align 4, !tbaa !12
+155:                                              ; preds = %154
+  %156 = call i32 @ERR_get_next_error_library() #13
+  store i32 %156, ptr @lib_code, align 4, !tbaa !12
   br label %ERR_AFALG_error.exit31.i
 
-ERR_AFALG_error.exit31.i:                         ; preds = %154, %153
+ERR_AFALG_error.exit31.i:                         ; preds = %155, %154
   call void @ERR_new() #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #13
-  %156 = load i32, ptr @lib_code, align 4, !tbaa !12
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %156, i32 noundef 112, ptr noundef null) #13
+  %157 = load i32, ptr @lib_code, align 4, !tbaa !12
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %157, i32 noundef 112, ptr noundef null) #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef null) #13
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef nonnull %10) #13
-  br label %157
+  br label %158
 
-157:                                              ; preds = %ERR_AFALG_error.exit31.i, %ERR_AFALG_error.exit.i
+158:                                              ; preds = %ERR_AFALG_error.exit31.i, %ERR_AFALG_error.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
   br label %afalg_fin_cipher_aio.exit.thread
 
-158:                                              ; preds = %125
-  %159 = icmp slt i32 %128, 0
-  br i1 %159, label %160, label %.backedge
+159:                                              ; preds = %126
+  %160 = icmp slt i32 %129, 0
+  br i1 %160, label %161, label %.backedge
 
-.backedge:                                        ; preds = %158, %123, %116
-  br label %111, !llvm.loop !65
+.backedge:                                        ; preds = %159, %124, %117
+  br label %112, !llvm.loop !65
 
-160:                                              ; preds = %158
-  %161 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.1, i32 noundef 393) #15
+161:                                              ; preds = %159
+  %162 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.1, i32 noundef 393) #15
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
-afalg_fin_cipher_aio.exit.thread:                 ; preds = %108, %120, %141, %157, %160, %afalg_setup_async_event_notification.exit.thread.i
+afalg_fin_cipher_aio.exit.thread:                 ; preds = %109, %121, %142, %158, %161, %afalg_setup_async_event_notification.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  br label %170
+  br label %171
 
-163:                                              ; preds = %130
+164:                                              ; preds = %131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  %164 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #13
-  %.not34 = icmp eq i32 %164, 0
-  %165 = call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef nonnull %0) #13
-  br i1 %.not34, label %169, label %166
+  %165 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #13
+  %.not34 = icmp eq i32 %165, 0
+  %166 = call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef nonnull %0) #13
+  br i1 %.not34, label %170, label %167
 
-166:                                              ; preds = %163
-  %167 = getelementptr i8, ptr %1, i64 %3
-  %168 = getelementptr i8, ptr %167, i64 -16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %165, ptr noundef nonnull align 1 dereferenceable(16) %168, i64 16, i1 false)
-  br label %170
+167:                                              ; preds = %164
+  %168 = getelementptr i8, ptr %1, i64 %3
+  %169 = getelementptr i8, ptr %168, i64 -16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %166, ptr noundef nonnull align 1 dereferenceable(16) %169, i64 16, i1 false)
+  br label %171
 
-169:                                              ; preds = %163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %165, ptr noundef nonnull align 16 dereferenceable(16) %14, i64 16, i1 false)
-  br label %170
+170:                                              ; preds = %164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %166, ptr noundef nonnull align 16 dereferenceable(16) %14, i64 16, i1 false)
+  br label %171
 
-170:                                              ; preds = %afalg_fin_cipher_aio.exit.thread, %afalg_start_cipher_sk.exit.thread, %166, %169, %afalg_start_cipher_sk.exit, %18, %21, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %21 ], [ 0, %18 ], [ 0, %afalg_start_cipher_sk.exit ], [ 1, %169 ], [ 1, %166 ], [ 0, %afalg_start_cipher_sk.exit.thread ], [ 0, %afalg_fin_cipher_aio.exit.thread ]
+171:                                              ; preds = %afalg_fin_cipher_aio.exit.thread, %afalg_start_cipher_sk.exit.thread, %167, %170, %afalg_start_cipher_sk.exit, %18, %21, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %21 ], [ 0, %18 ], [ 0, %afalg_start_cipher_sk.exit ], [ 1, %170 ], [ 1, %167 ], [ 0, %afalg_start_cipher_sk.exit.thread ], [ 0, %afalg_fin_cipher_aio.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   ret i32 %.0
 }

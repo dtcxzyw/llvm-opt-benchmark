@@ -2310,13 +2310,12 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !71
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
-  %.ptr132 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %7 = icmp sgt i64 %5, 0
-  br i1 %7, label %.lr.ph, label %.critedge
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i64, ptr %5, align 8, !tbaa !71
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %.not132 = icmp eq i64 %6, 0
+  br i1 %.not132, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = tail call ptr @__ctype_b_loc() #16
@@ -2324,7 +2323,7 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   br label %10
 
 10:                                               ; preds = %.lr.ph, %16
-  %.087109 = phi ptr [ %.ptr, %.lr.ph ], [ %17, %16 ]
+  %.087109 = phi ptr [ %4, %.lr.ph ], [ %17, %16 ]
   %11 = load i8, ptr %.087109, align 1, !tbaa !11
   %12 = sext i8 %11 to i64
   %13 = getelementptr inbounds i16, ptr %9, i64 %12
@@ -2335,15 +2334,15 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %.087109, i64 1
-  %18 = icmp ult ptr %17, %.ptr132
+  %18 = icmp ult ptr %17, %7
   br i1 %18, label %10, label %.critedge
 
 .critedge:                                        ; preds = %10, %16, %3
-  %.087.lcssa = phi ptr [ %.ptr, %3 ], [ %17, %16 ], [ %.087109, %10 ]
+  %.087.lcssa = phi ptr [ %4, %3 ], [ %17, %16 ], [ %.087109, %10 ]
   br label %19
 
 19:                                               ; preds = %21, %.critedge
-  %.086 = phi ptr [ %.ptr132, %.critedge ], [ %24, %21 ]
+  %.086 = phi ptr [ %7, %.critedge ], [ %24, %21 ]
   %20 = icmp ult ptr %.087.lcssa, %.086
   br i1 %20, label %21, label %.critedge2
 

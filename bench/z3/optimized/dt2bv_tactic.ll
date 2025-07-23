@@ -3864,7 +3864,7 @@ _ZNK8datatype4util14is_recognizer0EP9func_decl.exit.i: ; preds = %_ZNK4decl13get
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !189
   %39 = icmp eq i32 %38, 1
-  br i1 %39, label %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread24, label %_ZNK8datatype4util14is_recognizer0EP9func_decl.exit.thread.i
+  br i1 %39, label %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread21, label %_ZNK8datatype4util14is_recognizer0EP9func_decl.exit.thread.i
 
 _ZNK8datatype4util14is_recognizer0EP9func_decl.exit.thread.i: ; preds = %_ZNK8datatype4util14is_recognizer0EP9func_decl.exit.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK11ast_manager11is_distinctEPK4expr.exit.thread
   %40 = tail call noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -3881,9 +3881,9 @@ _ZNK8datatype4util13is_recognizerEP9func_decl.exit: ; preds = %_ZNK4decl13get_fa
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !189
   %47 = icmp eq i32 %46, 2
-  br i1 %47, label %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread24, label %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread
+  br i1 %47, label %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread21, label %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread
 
-_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread24: ; preds = %_ZNK8datatype4util14is_recognizer0EP9func_decl.exit.i, %_ZNK8datatype4util13is_recognizerEP9func_decl.exit
+_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread21: ; preds = %_ZNK8datatype4util14is_recognizer0EP9func_decl.exit.i, %_ZNK8datatype4util13is_recognizerEP9func_decl.exit
   %48 = load ptr, ptr %0, align 8, !tbaa !165
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !93
@@ -3892,7 +3892,7 @@ _ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread24: ; preds = %_ZNK8dat
   %53 = tail call noundef zeroext i1 @_ZN8datatype4util12is_enum_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef %51)
   br i1 %53, label %54, label %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread
 
-54:                                               ; preds = %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread24
+54:                                               ; preds = %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread21
   %55 = load ptr, ptr %0, align 8, !tbaa !165
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
@@ -3903,18 +3903,18 @@ _ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread24: ; preds = %_ZNK8dat
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   br label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit
 
-_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread: ; preds = %_ZNK8datatype4util14is_recognizer0EP9func_decl.exit.thread.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i3.i, %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread24, %_ZNK8datatype4util13is_recognizerEP9func_decl.exit
+_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread: ; preds = %_ZNK8datatype4util14is_recognizer0EP9func_decl.exit.thread.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i3.i, %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread21, %_ZNK8datatype4util13is_recognizerEP9func_decl.exit
   %59 = load ptr, ptr %0, align 8, !tbaa !165
   %60 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %1)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %62 = tail call noundef zeroext i1 @_ZN8datatype4util12is_enum_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef %60)
-  br i1 %62, label %63, label %84
+  br i1 %62, label %63, label %85
 
 63:                                               ; preds = %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %65 = load i32, ptr %64, align 8, !tbaa !167
   %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %84, label %66
+  br i1 %.not, label %85, label %66
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %0, align 8, !tbaa !165
@@ -3924,98 +3924,90 @@ _ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread: ; preds = %_ZNK8datat
   store ptr %69, ptr %6, align 8, !tbaa !72
   call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %68, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  %70 = load i32, ptr %64, align 8, !tbaa !167
-  %71 = zext i32 %70 to i64
-  %.idx.i = shl nuw nsw i64 %71, 3
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %.ptr12.i = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %.not10.i = icmp eq i32 %70, 0
-  br i1 %.not10.i, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit, label %.lr.ph.preheader.i
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %71 = load i32, ptr %64, align 8, !tbaa !167
+  %72 = zext i32 %71 to i64
+  %.idx.i = shl nuw nsw i64 %72, 3
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i
+  %.not10.i = icmp eq i32 %71, 0
+  br i1 %.not10.i, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %66
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %66, %83
+  %.011.i = phi ptr [ %84, %83 ], [ %70, %66 ]
+  %74 = load ptr, ptr %.011.i, align 8, !tbaa !93
+  %75 = load ptr, ptr %0, align 8, !tbaa !165
+  %76 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %74)
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %78 = call noundef zeroext i1 @_ZN8datatype4util12is_enum_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef %76)
+  br i1 %78, label %79, label %83
 
-.lr.ph.i:                                         ; preds = %82, %.lr.ph.preheader.i
-  %.011.i = phi ptr [ %83, %82 ], [ %.ptr.i, %.lr.ph.preheader.i ]
-  %73 = load ptr, ptr %.011.i, align 8, !tbaa !93
-  %74 = load ptr, ptr %0, align 8, !tbaa !165
-  %75 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %73)
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %77 = call noundef zeroext i1 @_ZN8datatype4util12is_enum_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef %75)
-  br i1 %77, label %78, label %82
-
-78:                                               ; preds = %.lr.ph.i
-  %79 = load ptr, ptr %0, align 8, !tbaa !165
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 104
+79:                                               ; preds = %.lr.ph.i
+  %80 = load ptr, ptr %0, align 8, !tbaa !165
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 104
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  %81 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %73)
-  store ptr %81, ptr %4, align 8, !tbaa !72
-  call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %80, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %82 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %74)
+  store ptr %82, ptr %4, align 8, !tbaa !72
+  call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %81, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  br label %82
+  br label %83
 
-82:                                               ; preds = %78, %.lr.ph.i
-  %83 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %.not.i = icmp eq ptr %83, %.ptr12.i
+83:                                               ; preds = %79, %.lr.ph.i
+  %84 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
+  %.not.i = icmp eq ptr %84, %73
   br i1 %.not.i, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit, label %.lr.ph.i
 
-84:                                               ; preds = %63, %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread
-  %85 = load ptr, ptr %0, align 8, !tbaa !165
-  %86 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %1)
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %88 = tail call noundef zeroext i1 @_ZN8datatype4util12is_enum_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef %86)
-  br i1 %88, label %89, label %93
+85:                                               ; preds = %63, %_ZNK8datatype4util13is_recognizerEP9func_decl.exit.thread
+  %86 = load ptr, ptr %0, align 8, !tbaa !165
+  %87 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %1)
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %89 = tail call noundef zeroext i1 @_ZN8datatype4util12is_enum_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef %87)
+  br i1 %89, label %90, label %94
 
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %0, align 8, !tbaa !165
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 80
+90:                                               ; preds = %85
+  %91 = load ptr, ptr %0, align 8, !tbaa !165
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
-  %92 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %1)
-  store ptr %92, ptr %7, align 8, !tbaa !72
-  call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %91, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %93 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %1)
+  store ptr %93, ptr %7, align 8, !tbaa !72
+  call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %92, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   br label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit
 
-93:                                               ; preds = %84
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %95 = load i32, ptr %94, align 8, !tbaa !167
-  %96 = zext i32 %95 to i64
-  %.idx.i14 = shl nuw nsw i64 %96, 3
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i14
-  %.ptr12.i15 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  %.not10.i16 = icmp eq i32 %95, 0
-  br i1 %.not10.i16, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit, label %.lr.ph.preheader.i17
+94:                                               ; preds = %85
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %97 = load i32, ptr %96, align 8, !tbaa !167
+  %98 = zext i32 %97 to i64
+  %.idx.i14 = shl nuw nsw i64 %98, 3
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx.i14
+  %.not10.i15 = icmp eq i32 %97, 0
+  br i1 %.not10.i15, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit, label %.lr.ph.i16
 
-.lr.ph.preheader.i17:                             ; preds = %93
-  %.ptr.i18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph.i19
+.lr.ph.i16:                                       ; preds = %94, %109
+  %.011.i17 = phi ptr [ %110, %109 ], [ %95, %94 ]
+  %100 = load ptr, ptr %.011.i17, align 8, !tbaa !93
+  %101 = load ptr, ptr %0, align 8, !tbaa !165
+  %102 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %100)
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 32
+  %104 = call noundef zeroext i1 @_ZN8datatype4util12is_enum_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef %102)
+  br i1 %104, label %105, label %109
 
-.lr.ph.i19:                                       ; preds = %107, %.lr.ph.preheader.i17
-  %.011.i20 = phi ptr [ %108, %107 ], [ %.ptr.i18, %.lr.ph.preheader.i17 ]
-  %98 = load ptr, ptr %.011.i20, align 8, !tbaa !93
-  %99 = load ptr, ptr %0, align 8, !tbaa !165
-  %100 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %98)
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %102 = call noundef zeroext i1 @_ZN8datatype4util12is_enum_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef %100)
-  br i1 %102, label %103, label %107
-
-103:                                              ; preds = %.lr.ph.i19
-  %104 = load ptr, ptr %0, align 8, !tbaa !165
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 104
+105:                                              ; preds = %.lr.ph.i16
+  %106 = load ptr, ptr %0, align 8, !tbaa !165
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 104
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
-  %106 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %98)
-  store ptr %106, ptr %3, align 8, !tbaa !72
-  call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %105, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %108 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %100)
+  store ptr %108, ptr %3, align 8, !tbaa !72
+  call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %107, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  br label %107
+  br label %109
 
-107:                                              ; preds = %103, %.lr.ph.i19
-  %108 = getelementptr inbounds nuw i8, ptr %.011.i20, i64 8
-  %.not.i21 = icmp eq ptr %108, %.ptr12.i15
-  br i1 %.not.i21, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit, label %.lr.ph.i19
+109:                                              ; preds = %105, %.lr.ph.i16
+  %110 = getelementptr inbounds nuw i8, ptr %.011.i17, i64 8
+  %.not.i18 = icmp eq ptr %110, %99
+  br i1 %.not.i18, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit, label %.lr.ph.i16
 
-_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit: ; preds = %82, %107, %93, %66, %_ZNK11ast_manager11is_distinctEPK4expr.exit, %89, %54, %_ZNK11ast_manager5is_eqEPK4expr.exit
+_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit: ; preds = %83, %109, %94, %66, %_ZNK11ast_manager11is_distinctEPK4expr.exit, %90, %54, %_ZNK11ast_manager5is_eqEPK4expr.exit
   ret void
 }
 

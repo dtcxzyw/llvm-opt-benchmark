@@ -3089,25 +3089,25 @@ _ZN4lean8optionalISt4pairINS_4nameEjEEC2EOS4_.exit: ; preds = %19
 
 45:                                               ; preds = %35
   %46 = load ptr, ptr %6, align 8, !tbaa !60
-  %47 = getelementptr inbounds i8, ptr %46, i64 %40
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %49 = load i64, ptr %37, align 8, !tbaa !53
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
-  %51 = icmp eq ptr %48, %50
-  br i1 %51, label %.critedge, label %52
+  %47 = add nuw nsw i64 %40, 1
+  %48 = load i64, ptr %37, align 8, !tbaa !53
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %48
+  %50 = icmp eq i64 %47, %48
+  br i1 %50, label %.critedge, label %51
 
-52:                                               ; preds = %45
-  %53 = load i8, ptr %48, align 1, !tbaa !3
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds i8, ptr %46, i64 %47
+  %53 = load i8, ptr %52, align 1, !tbaa !3
   %54 = icmp eq i8 %53, 48
   br i1 %54, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %45, %52
+.critedge:                                        ; preds = %45, %51
   store i8 0, ptr %0, align 8, !tbaa !70
   br label %_ZN4lean8optionalISt4pairINS_4nameEjEEC2EOS4_.exit28
 
-.lr.ph:                                           ; preds = %52, %57
-  %.sroa.056.067 = phi ptr [ %62, %57 ], [ %48, %52 ]
-  %.066 = phi i32 [ %61, %57 ], [ 0, %52 ]
+.lr.ph:                                           ; preds = %51, %57
+  %.sroa.056.067 = phi ptr [ %62, %57 ], [ %52, %51 ]
+  %.066 = phi i32 [ %61, %57 ], [ 0, %51 ]
   %55 = load i8, ptr %.sroa.056.067, align 1, !tbaa !3
   %56 = add i8 %55, -48
   %or.cond = icmp ult i8 %56, 10
@@ -3119,7 +3119,7 @@ _ZN4lean8optionalISt4pairINS_4nameEjEEC2EOS4_.exit: ; preds = %19
   %60 = add i32 %58, -48
   %61 = add i32 %60, %59
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.056.067, i64 1
-  %.not = icmp eq ptr %62, %50
+  %.not = icmp eq ptr %62, %49
   br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !76
 
 63:                                               ; preds = %.lr.ph
@@ -3155,7 +3155,7 @@ _ZN4lean8optionalISt4pairINS_4nameEjEEC2EOS4_.exit: ; preds = %19
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %76, ptr %9, align 8, !tbaa !50, !alias.scope !77
-  %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %40, i64 %49)
+  %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %40, i64 %48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !77
   store i64 %spec.select.i.i.i, ptr %3, align 8, !tbaa !33, !noalias !77
   %77 = icmp ugt i64 %spec.select.i.i.i, 15

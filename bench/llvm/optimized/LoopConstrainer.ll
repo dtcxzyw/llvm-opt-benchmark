@@ -4781,9 +4781,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm15LoopConstrainer3runEv(ptr noundef
   %103 = load ptr, ptr %102, align 8, !tbaa !11
   %104 = icmp eq ptr %102, %103
   %.028.i.i.i.i.idx.ph.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.028.i.i.i.i.idx.ph.sroa.gep161 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.028.i.i.i.i.idx.ph.sroa.gep162 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.028.i.i.i.i.idx.ph.sroa.gep164 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.028.i.i.i.i.idx.ph.sroa.gep159 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.028.i.i.i.i.idx.ph.sroa.gep160 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.028.i.i.i.i.idx.ph.sroa.gep162 = getelementptr inbounds nuw i8, ptr %15, i64 32
   br i1 %104, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %105
 
 105:                                              ; preds = %1
@@ -5210,12 +5210,12 @@ _ZN4llvm15LoopConstrainer18RewrittenRangeInfoD2Ev.exit81: ; preds = %270, %256
 
 299:                                              ; preds = %297
   %300 = icmp eq ptr %spec.select, null
-  %spec.select160.v.sroa.sel.v = select i1 %300, i64 40, i64 48
-  %spec.select160.v.sroa.sel = getelementptr inbounds nuw i8, ptr %15, i64 %spec.select160.v.sroa.sel.v
+  %spec.select158.v.sroa.sel.v = select i1 %300, i64 40, i64 48
+  %spec.select158.v.sroa.sel = getelementptr inbounds nuw i8, ptr %15, i64 %spec.select158.v.sroa.sel.v
   br label %_ZSt6removeIPPN4llvm10BasicBlockEDnET_S4_S4_RKT0_.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %297, %.lr.ph.i.i.i.i, %291, %293, %295
-  %.028.i.i.i.i.idx.ph.sroa.phi = phi ptr [ %.028.i.i.i.i.idx.ph.sroa.gep, %295 ], [ %.028.i.i.i.i.idx.ph.sroa.gep161, %293 ], [ %.028.i.i.i.i.idx.ph.sroa.gep162, %291 ], [ %15, %.lr.ph.i.i.i.i ], [ %.028.i.i.i.i.idx.ph.sroa.gep164, %297 ]
+  %.028.i.i.i.i.idx.ph.sroa.phi = phi ptr [ %.028.i.i.i.i.idx.ph.sroa.gep, %295 ], [ %.028.i.i.i.i.idx.ph.sroa.gep159, %293 ], [ %.028.i.i.i.i.idx.ph.sroa.gep160, %291 ], [ %15, %.lr.ph.i.i.i.i ], [ %.028.i.i.i.i.idx.ph.sroa.gep162, %297 ]
   %.028.i.i.i.i.idx.ph = phi i64 [ 32, %295 ], [ 24, %293 ], [ 16, %291 ], [ 8, %.lr.ph.i.i.i.i ], [ 40, %297 ]
   br label %.lr.ph.i.i
 
@@ -5239,7 +5239,7 @@ _ZN4llvm15LoopConstrainer18RewrittenRangeInfoD2Ev.exit81: ; preds = %270, %256
   br i1 %.not.i.i, label %_ZSt6removeIPPN4llvm10BasicBlockEDnET_S4_S4_RKT0_.exit, label %.lr.ph.i.i, !llvm.loop !479
 
 _ZSt6removeIPPN4llvm10BasicBlockEDnET_S4_S4_RKT0_.exit: ; preds = %305, %299
-  %.016.i.i = phi ptr [ %spec.select160.v.sroa.sel, %299 ], [ %.1.i.i, %305 ]
+  %.016.i.i = phi ptr [ %spec.select158.v.sroa.sel, %299 ], [ %.1.i.i, %305 ]
   %306 = load ptr, ptr %16, align 8, !tbaa !312
   %307 = load ptr, ptr %306, align 8, !tbaa !442
   %.not.i = icmp eq ptr %307, null

@@ -122,59 +122,59 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1, ptr %2, ptr readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Vt_ShapeData", align 8
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %.ptr, align 8
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread", label %8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread", label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.lr.ph.i.preheader, label %12
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %.lr.ph.i.preheader, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, 0
-  %16 = select i1 %15, i64 16, i64 20
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, 0
+  %17 = select i1 %16, i64 8, i64 12
   br label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %12, %8
-  %.add22.ph = phi i64 [ 12, %8 ], [ %16, %12 ]
-  %.ptr2426 = getelementptr inbounds nuw i8, ptr %1, i64 %.add22.ph
+.lr.ph.i.preheader:                               ; preds = %13, %9
+  %.ph = phi i64 [ 4, %9 ], [ %17, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %.ph
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.08.i = phi i32 [ %18, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %.057.i = phi ptr [ %19, %.lr.ph.i ], [ %.ptr, %.lr.ph.i.preheader ]
-  %17 = load i32, ptr %.057.i, align 4
-  %18 = mul i32 %17, %.08.i
-  %19 = getelementptr inbounds nuw i8, ptr %.057.i, i64 4
-  %.not.i = icmp eq ptr %19, %.ptr2426
+  %.08.i = phi i32 [ %20, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %.057.i = phi ptr [ %21, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
+  %19 = load i32, ptr %.057.i, align 4
+  %20 = mul i32 %19, %.08.i
+  %21 = getelementptr inbounds nuw i8, ptr %.057.i, i64 4
+  %.not.i = icmp eq ptr %21, %18
   br i1 %.not.i, label %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i, !llvm.loop !7
 
 "_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit": ; preds = %.lr.ph.i
-  %20 = sext i32 %18 to i64
-  %.not = icmp eq i32 %18, 0
+  %22 = sext i32 %20 to i64
+  %.not = icmp eq i32 %20, 0
   br i1 %.not, label %.critedge, label %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread"
 
 "_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread": ; preds = %4, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit"
-  %21 = phi i64 [ %20, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit" ], [ 1, %4 ]
-  %22 = load i64, ptr %1, align 8
-  %23 = udiv i64 %22, %21
-  %24 = urem i64 %22, %21
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.critedge, label %26
+  %23 = phi i64 [ %22, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit" ], [ 1, %4 ]
+  %24 = load i64, ptr %1, align 8
+  %25 = udiv i64 %24, %23
+  %26 = urem i64 %24, %23
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %.critedge, label %28
 
-26:                                               ; preds = %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread"
-  store i64 %22, ptr %5, align 8
+28:                                               ; preds = %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread"
+  store i64 %24, ptr %5, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit", %26, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread"
-  %27 = phi i64 [ %23, %26 ], [ %23, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread" ], [ 0, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit" ]
-  %.0 = phi ptr [ %5, %26 ], [ %1, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread" ], [ %1, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit" ]
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_StreamArrayRecursiveERSoRKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS1_EEEmm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %.0, ptr %2, ptr %3, i64 noundef %27, i64 noundef 0)
+.critedge:                                        ; preds = %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit", %28, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread"
+  %29 = phi i64 [ %25, %28 ], [ %25, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread" ], [ 0, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit" ]
+  %.0 = phi ptr [ %5, %28 ], [ %1, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread" ], [ %1, %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit" ]
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_StreamArrayRecursiveERSoRKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS1_EEEmm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %.0, ptr %2, ptr %3, i64 noundef %29, i64 noundef 0)
   ret void
 }
 

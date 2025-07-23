@@ -20917,56 +20917,55 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i: ; preds = 
   %31 = load ptr, ptr %1, align 8, !tbaa !10
   %32 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %31, i64 noundef %26)
   %33 = load ptr, ptr %9, align 8, !tbaa !10
-  %34 = getelementptr inbounds i8, ptr %33, i64 %11
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %36 = load i64, ptr %10, align 8, !tbaa !13
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %36
-  %.not6.i.i = icmp eq ptr %35, %37
+  %34 = getelementptr inbounds i8, ptr %33, i64 %12
+  %35 = load i64, ptr %10, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
+  %.not6.i.i = icmp eq i64 %12, %35
   br i1 %.not6.i.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i, %41
-  %.sroa.02.07.i.i = phi ptr [ %42, %41 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i ]
-  %38 = load i8, ptr %.sroa.02.07.i.i, align 1, !tbaa !14
-  %39 = icmp eq i8 %38, 10
-  br i1 %39, label %40, label %41
+.lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i, %40
+  %.sroa.02.07.i.i = phi ptr [ %41, %40 ], [ %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i ]
+  %37 = load i8, ptr %.sroa.02.07.i.i, align 1, !tbaa !14
+  %38 = icmp eq i8 %37, 10
+  br i1 %38, label %39, label %40
 
-40:                                               ; preds = %.lr.ph.i.i
+39:                                               ; preds = %.lr.ph.i.i
   store i8 32, ptr %.sroa.02.07.i.i, align 1, !tbaa !14
-  br label %41
+  br label %40
 
-41:                                               ; preds = %40, %.lr.ph.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i, i64 1
-  %.not.i.i = icmp eq ptr %42, %37
+40:                                               ; preds = %39, %.lr.ph.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i, i64 1
+  %.not.i.i = icmp eq ptr %41, %36
   br i1 %.not.i.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !1005
 
-_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit.i: ; preds = %41
+_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit.i: ; preds = %40
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !10
   %.pre20.i = load i64, ptr %10, align 8, !tbaa !13
   br label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i
 
 _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i: ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i
-  %43 = phi i64 [ %.pre20.i, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit.i ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i ]
-  %44 = phi ptr [ %.pre.i, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit.i ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
-  %.not6.i11.i = icmp eq ptr %35, %45
+  %42 = phi i64 [ %.pre20.i, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit.i ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i ]
+  %43 = phi ptr [ %.pre.i, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.loopexit.i ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
+  %.not6.i11.i = icmp eq ptr %34, %44
   br i1 %.not6.i11.i, label %_ZL15s_AddDefineFlagRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS4_.exit, label %.lr.ph.i12.i
 
-.lr.ph.i12.i:                                     ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i, %49
-  %.sroa.02.07.i13.i = phi ptr [ %50, %49 ], [ %35, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i ]
-  %46 = load i8, ptr %.sroa.02.07.i13.i, align 1, !tbaa !14
-  %47 = icmp eq i8 %46, 13
-  br i1 %47, label %48, label %49
+.lr.ph.i12.i:                                     ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i, %48
+  %.sroa.02.07.i13.i = phi ptr [ %49, %48 ], [ %34, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i ]
+  %45 = load i8, ptr %.sroa.02.07.i13.i, align 1, !tbaa !14
+  %46 = icmp eq i8 %45, 13
+  br i1 %46, label %47, label %48
 
-48:                                               ; preds = %.lr.ph.i12.i
+47:                                               ; preds = %.lr.ph.i12.i
   store i8 32, ptr %.sroa.02.07.i13.i, align 1, !tbaa !14
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %.lr.ph.i12.i
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i13.i, i64 1
-  %.not.i14.i = icmp eq ptr %50, %45
+48:                                               ; preds = %47, %.lr.ph.i12.i
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i13.i, i64 1
+  %.not.i14.i = icmp eq ptr %49, %44
   br i1 %.not.i14.i, label %_ZL15s_AddDefineFlagRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS4_.exit, label %.lr.ph.i12.i, !llvm.loop !1005
 
-_ZL15s_AddDefineFlagRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS4_.exit: ; preds = %49, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i, %6, %2
+_ZL15s_AddDefineFlagRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS4_.exit: ; preds = %48, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i, %6, %2
   ret void
 }
 

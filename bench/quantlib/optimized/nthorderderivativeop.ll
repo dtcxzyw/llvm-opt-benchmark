@@ -1327,12 +1327,12 @@ _ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit.i:     ; preds = %if.then.i.i.i.i.i.i
   %add.ptr41.i = getelementptr inbounds i8, ptr %171, i64 %sub.ptr.sub.i
   %172 = load i64, ptr %filled2_.i, align 8, !tbaa !70
   %add.ptr45.idx.i = shl nuw nsw i64 %172, 3
-  %add.ptr45.i = getelementptr inbounds nuw i8, ptr %171, i64 %add.ptr45.idx.i
-  %add.ptr46.i = getelementptr inbounds i8, ptr %add.ptr45.i, i64 -8
-  %tobool.not.i.i.i.i.i29.i = icmp eq ptr %add.ptr46.i, %add.ptr41.i
+  %173 = add nsw i64 %add.ptr45.idx.i, -8
+  %tobool.not.i.i.i.i.i29.i = icmp eq i64 %173, %sub.ptr.sub.i
   br i1 %tobool.not.i.i.i.i.i29.i, label %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i30.i
 
 if.then.i.i.i.i.i30.i:                            ; preds = %_ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit.i
+  %add.ptr45.i = getelementptr inbounds nuw i8, ptr %171, i64 %add.ptr45.idx.i
   %reass.sub.i = sub i64 %add.ptr45.idx.i, %sub.ptr.sub.i
   %gepdiff41.i = add i64 %reass.sub.i, -8
   %sub.ptr.div.i.i.i.i.i34.i = ashr exact i64 %gepdiff41.i, 3
@@ -1343,23 +1343,23 @@ if.then.i.i.i.i.i30.i:                            ; preds = %_ZSt13copy_backward
 
 _ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit.i:     ; preds = %if.then.i.i.i.i.i30.i, %_ZSt13copy_backwardIPmS0_ET0_T_S2_S1_.exit.i
   store double %146, ptr %add.ptr41.i, align 8, !tbaa !37
-  %173 = load i64, ptr %filled1_.i.i.i.i, align 8, !tbaa !61
-  %cmp5544.i = icmp ult i64 %add.i.i.i.i, %173
+  %174 = load i64, ptr %filled1_.i.i.i.i, align 8, !tbaa !61
+  %cmp5544.i = icmp ult i64 %add.i.i.i.i, %174
   br i1 %cmp5544.i, label %while.body56.lr.ph.i, label %invoke.cont233
 
 while.body56.lr.ph.i:                             ; preds = %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit.i
-  %174 = load ptr, ptr %data_.i.i.i.i.i, align 8, !tbaa !67
+  %175 = load ptr, ptr %data_.i.i.i.i.i, align 8, !tbaa !67
   br label %while.body56.i
 
 while.body56.i:                                   ; preds = %while.body56.i, %while.body56.lr.ph.i
   %add5345.i = phi i64 [ %add.i.i.i.i, %while.body56.lr.ph.i ], [ %add53.i, %while.body56.i ]
-  %arrayidx.i40.i = getelementptr inbounds nuw i64, ptr %174, i64 %add5345.i
-  %175 = load i64, ptr %arrayidx.i40.i, align 8, !tbaa !40
-  %inc60.i = add i64 %175, 1
+  %arrayidx.i40.i = getelementptr inbounds nuw i64, ptr %175, i64 %add5345.i
+  %176 = load i64, ptr %arrayidx.i40.i, align 8, !tbaa !40
+  %inc60.i = add i64 %176, 1
   store i64 %inc60.i, ptr %arrayidx.i40.i, align 8, !tbaa !40
   %add53.i = add nuw i64 %add5345.i, 1
-  %176 = load i64, ptr %filled1_.i.i.i.i, align 8, !tbaa !61
-  %cmp55.i = icmp ult i64 %add53.i, %176
+  %177 = load i64, ptr %filled1_.i.i.i.i, align 8, !tbaa !61
+  %cmp55.i = icmp ult i64 %add53.i, %177
   br i1 %cmp55.i, label %while.body56.i, label %invoke.cont233, !llvm.loop !74
 
 if.else.i.i:                                      ; preds = %_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEE12find_elementEmm.exit.i.i
@@ -1376,23 +1376,23 @@ invoke.cont233:                                   ; preds = %while.body56.i, %if
   br i1 %exitcond373.not, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i222, label %for.body211, !llvm.loop !75
 
 lpad212:                                          ; preds = %cond.false.i248, %cond.false.i241, %invoke.cont217
-  %177 = landingpad { ptr, i32 }
+  %178 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i.i259 = icmp eq ptr %weights.sroa.0.1, null
   br i1 %cmp.not.i.i259, label %ehcleanup245, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i260
 
 ehcleanup238.thread:                              ; preds = %if.then.i278
-  %178 = landingpad { ptr, i32 }
+  %179 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i260
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i260: ; preds = %ehcleanup238.thread, %lpad212
-  %.pn50.pn310 = phi { ptr, i32 } [ %178, %ehcleanup238.thread ], [ %177, %lpad212 ]
+  %.pn50.pn310 = phi { ptr, i32 } [ %179, %ehcleanup238.thread ], [ %178, %lpad212 ]
   call void @_ZdaPv(ptr noundef nonnull %weights.sroa.0.1) #26
   br label %ehcleanup245
 
 ehcleanup245:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i260, %lpad212, %ehcleanup203
-  %.pn50.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn, %ehcleanup203 ], [ %177, %lpad212 ], [ %.pn50.pn310, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i260 ]
+  %.pn50.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn, %ehcleanup203 ], [ %178, %lpad212 ], [ %.pn50.pn310, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i260 ]
   call void @_ZN8QuantLib19FdmLinearOpIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__end1) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__end1) #23
   call void @_ZN8QuantLib19FdmLinearOpIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__begin1) #23
@@ -1406,19 +1406,19 @@ ehcleanup255:                                     ; preds = %ehcleanup245, %lpad
 ehcleanup256:                                     ; preds = %ehcleanup255, %lpad128
   %.pn50.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn, %ehcleanup255 ], [ %94, %lpad128 ]
   %_M_manager.i263 = getelementptr inbounds nuw i8, ptr %emptyFct, i64 16
-  %179 = load ptr, ptr %_M_manager.i263, align 8, !tbaa !53
-  %tobool.not.i264 = icmp eq ptr %179, null
+  %180 = load ptr, ptr %_M_manager.i263, align 8, !tbaa !53
+  %tobool.not.i264 = icmp eq ptr %180, null
   br i1 %tobool.not.i264, label %_ZN8QuantLib5ArrayD2Ev.exit272, label %if.then.i265
 
 if.then.i265:                                     ; preds = %ehcleanup256
-  %call.i266 = invoke noundef zeroext i1 %179(ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, i32 noundef 3)
+  %call.i266 = invoke noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, i32 noundef 3)
           to label %_ZN8QuantLib5ArrayD2Ev.exit272 unwind label %terminate.lpad.i267
 
 terminate.lpad.i267:                              ; preds = %if.then.i265
-  %180 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           catch ptr null
-  %181 = extractvalue { ptr, i32 } %180, 0
-  call void @__clang_call_terminate(ptr %181) #28
+  %182 = extractvalue { ptr, i32 } %181, 0
+  call void @__clang_call_terminate(ptr %182) #28
   unreachable
 
 _ZN8QuantLib5ArrayD2Ev.exit272:                   ; preds = %ehcleanup256, %if.then.i265
@@ -1434,12 +1434,12 @@ ehcleanup263:                                     ; preds = %lpad126, %_ZN8Quant
 ehcleanup264:                                     ; preds = %ehcleanup263, %lpad21
   %.pn50.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup263 ], [ %30, %lpad21 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %tmp) #23
-  %182 = load ptr, ptr %xValues, align 8, !tbaa !22
-  %cmp.not.i.i273 = icmp eq ptr %182, null
+  %183 = load ptr, ptr %xValues, align 8, !tbaa !22
+  %cmp.not.i.i273 = icmp eq ptr %183, null
   br i1 %cmp.not.i.i273, label %ehcleanup266, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i274
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i274: ; preds = %ehcleanup264
-  call void @_ZdaPv(ptr noundef nonnull %182) #26
+  call void @_ZdaPv(ptr noundef nonnull %183) #26
   br label %ehcleanup266
 
 ehcleanup266:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i274, %ehcleanup264, %lpad17

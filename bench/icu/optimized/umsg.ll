@@ -248,32 +248,31 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %32 = select i1 %29, i64 -1, i64 %31
   %33 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %32) #10
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.loopexit89, label %35
+  br i1 %34, label %.loopexit90, label %35
 
 35:                                               ; preds = %21
   store i64 %27, ptr %33, align 8
   %.ptr74 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = getelementptr inbounds %"class.icu_77::Formattable", ptr %.ptr74, i64 %27
-  br label %37
+  br label %36
 
-37:                                               ; preds = %38, %35
-  %.idx = phi i64 [ 8, %35 ], [ %.add, %38 ]
+36:                                               ; preds = %37, %35
+  %.idx = phi i64 [ 8, %35 ], [ %.add, %37 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
   invoke void @_ZN6icu_7711FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr.ptr)
-          to label %38 unwind label %51
+          to label %37 unwind label %51
 
-38:                                               ; preds = %37
+37:                                               ; preds = %36
   %.add = add nuw nsw i64 %.idx, 112
-  %.ptr73 = getelementptr inbounds nuw i8, ptr %33, i64 %.add
-  %39 = icmp eq ptr %.ptr73, %36
-  br i1 %39, label %.loopexit89, label %37
+  %38 = add nuw nsw i64 %.idx, 104
+  %39 = icmp eq i64 %38, %30
+  br i1 %39, label %.loopexit90, label %36
 
-.loopexit89:                                      ; preds = %38, %21
-  %40 = phi ptr [ null, %21 ], [ %.ptr74, %38 ]
+.loopexit90:                                      ; preds = %37, %21
+  %40 = phi ptr [ null, %21 ], [ %.ptr74, %37 ]
   %41 = icmp sgt i32 %23, 0
   br i1 %41, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.loopexit89
+.lr.ph:                                           ; preds = %.loopexit90
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -281,7 +280,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %55
 
-._crit_edge:                                      ; preds = %162, %.loopexit89
+._crit_edge:                                      ; preds = %162, %.loopexit90
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -297,21 +296,21 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %50 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MessageFormat6formatEPKNS_11FormattableEiRNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %40, i32 noundef %23, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %163 unwind label %176
 
-51:                                               ; preds = %37
+51:                                               ; preds = %36
   %52 = landingpad { ptr, i32 }
           cleanup
   %53 = icmp eq i64 %.idx, 8
-  br i1 %53, label %.loopexit88, label %.preheader87
+  br i1 %53, label %.loopexit89, label %.preheader88
 
-.preheader87:                                     ; preds = %51, %.preheader87
-  %.idx75 = phi i64 [ %.add76, %.preheader87 ], [ %.idx, %51 ]
+.preheader88:                                     ; preds = %51, %.preheader88
+  %.idx75 = phi i64 [ %.add76, %.preheader88 ], [ %.idx, %51 ]
   %.add76 = add nsw i64 %.idx75, -112
   %.ptr78 = getelementptr inbounds i8, ptr %33, i64 %.add76
   tail call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr78) #10
   %54 = icmp eq i64 %.add76, 8
-  br i1 %54, label %.loopexit88, label %.preheader87
+  br i1 %54, label %.loopexit89, label %.preheader88
 
-.loopexit88:                                      ; preds = %.preheader87, %51
+.loopexit89:                                      ; preds = %.preheader88, %51
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %33) #10
   br label %common.resume
 
@@ -455,8 +454,8 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 129:                                              ; preds = %126, %121
   %130 = phi ptr [ %124, %121 ], [ %127, %126 ]
   %131 = load ptr, ptr %130, align 8, !tbaa !54
-  %.not82 = icmp eq ptr %131, null
-  br i1 %.not82, label %144, label %132
+  %.not83 = icmp eq ptr %131, null
+  br i1 %.not83, label %144, label %132
 
 132:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
@@ -476,8 +475,8 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %137 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %6, i64 %.0.i.i.i.i, ptr nonnull %131)
           to label %_ZN6icu_7713UnicodeStringC2IPDsvEERKT_.exit unwind label %138
 
-common.resume:                                    ; preds = %142, %186, %.loopexit88, %138
-  %common.resume.op = phi { ptr, i32 } [ %139, %138 ], [ %143, %142 ], [ %.pn, %186 ], [ %52, %.loopexit88 ]
+common.resume:                                    ; preds = %142, %186, %.loopexit89, %138
+  %common.resume.op = phi { ptr, i32 } [ %139, %138 ], [ %143, %142 ], [ %.pn, %186 ], [ %52, %.loopexit89 ]
   resume { ptr, i32 } %common.resume.op
 
 138:                                              ; preds = %.loopexit.i
@@ -559,8 +558,8 @@ _ZN6icu_7713UnicodeStringC2IPDsvEERKT_.exit:      ; preds = %.loopexit.i
   br i1 %168, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %165
-  %.idx79 = mul nsw i64 %167, 112
-  %169 = getelementptr inbounds i8, ptr %40, i64 %.idx79
+  %.idx80 = mul nsw i64 %167, 112
+  %169 = getelementptr inbounds i8, ptr %40, i64 %.idx80
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

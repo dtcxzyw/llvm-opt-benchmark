@@ -7643,8 +7643,8 @@ define void @_ZN5folly10Subprocess17closeInheritedFdsERKN5boost9container8flat_m
   br label %14
 
 14:                                               ; preds = %.preheader, %45
-  %.044 = phi i32 [ 0, %.preheader ], [ %49, %45 ]
-  %15 = zext nneg i32 %.044 to i64
+  %.042 = phi i32 [ 0, %.preheader ], [ %49, %45 ]
+  %15 = zext nneg i32 %.042 to i64
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 18
   %18 = load i8, ptr %17, align 2, !tbaa !272
@@ -7714,7 +7714,7 @@ _ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread: ; preds = %_
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %47 = load i16, ptr %46, align 8, !tbaa !294
   %48 = zext i16 %47 to i32
-  %49 = add nuw nsw i32 %.044, %48
+  %49 = add nuw nsw i32 %.042, %48
   %50 = icmp slt i32 %49, %13
   br i1 %50, label %14, label %.loopexit33, !llvm.loop !295
 
@@ -7733,9 +7733,9 @@ _ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread: ; preds = %_
   br label %56
 
 56:                                               ; preds = %.lr.ph, %101
-  %storemerge46.in = phi i64 [ %53, %.lr.ph ], [ %storemerge46, %101 ]
-  %storemerge46 = add nsw i64 %storemerge46.in, -1
-  %57 = trunc i64 %storemerge46 to i32
+  %storemerge44.in = phi i64 [ %53, %.lr.ph ], [ %storemerge44, %101 ]
+  %storemerge44 = add nsw i64 %storemerge44.in, -1
+  %57 = trunc i64 %storemerge44 to i32
   %58 = load i64, ptr %55, align 8, !tbaa !61, !noalias !296
   %.not44.i.i.i.i = icmp eq i64 %58, 0
   br i1 %.not44.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %.lr.ph.i.i.i.i22.preheader
@@ -7767,36 +7767,36 @@ _ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread: ; preds = %_
 
 70:                                               ; preds = %68
   %.idx.i.i.i.i = shl nsw i64 %.01445.i.i.i.i, 3
-  %71 = getelementptr inbounds i8, ptr %60, i64 %.idx.i.i.i.i
   %.not12.i.i.i.i.i = icmp eq ptr %62, %.sroa.02.0.i.i.i
   br i1 %.not12.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %70
-  %72 = ptrtoint ptr %.sroa.02.0.i.i.i to i64
-  %73 = ptrtoint ptr %62 to i64
-  %74 = sub i64 %73, %72
-  %75 = ashr exact i64 %74, 3
-  br label %76
+  %71 = ptrtoint ptr %.sroa.02.0.i.i.i to i64
+  %72 = ptrtoint ptr %62 to i64
+  %73 = sub i64 %72, %71
+  %74 = ashr exact i64 %73, 3
+  br label %75
 
-76:                                               ; preds = %76, %.lr.ph.i.i.i.i.i
-  %77 = phi ptr [ %.sroa.02.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %84, %76 ]
-  %.013.i.i.i.i.i = phi i64 [ %75, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %76 ]
-  %78 = lshr i64 %.013.i.i.i.i.i, 1
-  %79 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %77, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !7, !noalias !313
-  %81 = icmp slt i32 %80, %57
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %.neg.i.i.i.i.i = xor i64 %78, -1
-  %83 = add i64 %.013.i.i.i.i.i, %.neg.i.i.i.i.i
-  %84 = select i1 %81, ptr %82, ptr %77
-  %.1.i.i.i.i.i = select i1 %81, i64 %83, i64 %78
+75:                                               ; preds = %75, %.lr.ph.i.i.i.i.i
+  %76 = phi ptr [ %.sroa.02.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %83, %75 ]
+  %.013.i.i.i.i.i = phi i64 [ %74, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %75 ]
+  %77 = lshr i64 %.013.i.i.i.i.i, 1
+  %78 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %76, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !7, !noalias !313
+  %80 = icmp slt i32 %79, %57
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %.neg.i.i.i.i.i = xor i64 %77, -1
+  %82 = add i64 %.013.i.i.i.i.i, %.neg.i.i.i.i.i
+  %83 = select i1 %80, ptr %81, ptr %76
+  %.1.i.i.i.i.i = select i1 %80, i64 %82, i64 %77
   %.not.i.i.i.i.i = icmp eq i64 %.1.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %76, !llvm.loop !96
+  br i1 %.not.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %75, !llvm.loop !96
 
-_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i: ; preds = %76, %70
-  %85 = phi ptr [ %.sroa.02.0.i.i.i, %70 ], [ %84, %76 ]
-  %86 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %.not12.i15.i.i.i.i = icmp eq ptr %71, %86
+_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i: ; preds = %75, %70
+  %84 = phi ptr [ %.sroa.02.0.i.i.i, %70 ], [ %83, %75 ]
+  %85 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %86 = add nuw nsw i64 %.idx37.i.i.i.i, 8
+  %.not12.i15.i.i.i.i = icmp eq i64 %.idx.i.i.i.i, %86
   br i1 %.not12.i15.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, label %.lr.ph.i16.i.i.i.i
 
 .lr.ph.i16.i.i.i.i:                               ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i
@@ -7806,7 +7806,7 @@ _ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0
   br label %88
 
 88:                                               ; preds = %88, %.lr.ph.i16.i.i.i.i
-  %89 = phi ptr [ %86, %.lr.ph.i16.i.i.i.i ], [ %96, %88 ]
+  %89 = phi ptr [ %85, %.lr.ph.i16.i.i.i.i ], [ %96, %88 ]
   %.013.i17.i.i.i.i = phi i64 [ %87, %.lr.ph.i16.i.i.i.i ], [ %.1.i19.i.i.i.i, %88 ]
   %90 = lshr i64 %.013.i17.i.i.i.i, 1
   %91 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %89, i64 %90
@@ -7828,8 +7828,8 @@ _ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0
   br i1 %.not.i.i.i.i23, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %.lr.ph.i.i.i.i22, !llvm.loop !320
 
 _ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit: ; preds = %88, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i
-  %.sink.i.i.i.i = phi ptr [ %71, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i ], [ %96, %88 ]
-  %99 = icmp eq ptr %.sink.i.i.i.i, %85
+  %.sink.i.i.i.i = phi ptr [ %85, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i ], [ %96, %88 ]
+  %99 = icmp eq ptr %.sink.i.i.i.i, %84
   br i1 %99, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %101
 
 _ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread: ; preds = %97, %56, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit
@@ -7837,7 +7837,7 @@ _ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread: ; preds
   br label %101
 
 101:                                              ; preds = %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread
-  %102 = icmp sgt i64 %storemerge46.in, 4
+  %102 = icmp sgt i64 %storemerge44.in, 4
   br i1 %102, label %56, label %.loopexit, !llvm.loop !321
 
 .loopexit:                                        ; preds = %101, %52, %._crit_edge

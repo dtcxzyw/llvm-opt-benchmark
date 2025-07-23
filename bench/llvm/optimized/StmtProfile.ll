@@ -3175,103 +3175,102 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitSizeOfPackExp
   %7 = load i32, ptr %6, align 4
   %8 = icmp ne i32 %7, 0
   %9 = select i1 %5, i1 %8, i1 false
-  br i1 %9, label %10, label %41
+  br i1 %9, label %10, label %42
 
 10:                                               ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = zext i32 %7 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !78
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !79
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i.i = icmp ult i32 %15, %17
-  br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i, label %18, !prof !82
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = zext i32 %7 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !78
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load i32, ptr %15, align 8, !tbaa !79
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i.i = icmp ult i32 %16, %18
+  br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i, label %19, !prof !82
 
-18:                                               ; preds = %10
-  %19 = zext i32 %15 to i64
-  %20 = add nuw nsw i64 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull %21, i64 noundef %20, i64 noundef 4) #12
-  %.pre.i.i.i.i = load i32, ptr %14, align 8, !tbaa !79
+19:                                               ; preds = %10
+  %20 = zext i32 %16 to i64
+  %21 = add nuw nsw i64 %20, 1
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %14, ptr noundef nonnull %22, i64 noundef %21, i64 noundef 4) #12
+  %.pre.i.i.i.i = load i32, ptr %15, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %18, %10
-  %22 = phi i32 [ %15, %10 ], [ %.pre.i.i.i.i, %18 ]
-  %23 = load ptr, ptr %13, align 8, !tbaa !83
-  %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
-  store i32 %7, ptr %25, align 1
-  %26 = load i32, ptr %14, align 8, !tbaa !79
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %14, align 8, !tbaa !79
-  %28 = load i32, ptr %16, align 4, !tbaa !81
-  %.not.i.i.not.i.i2.i.i = icmp ult i32 %27, %28
-  br i1 %.not.i.i.not.i.i2.i.i, label %.lr.ph.preheader, label %29, !prof !82
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %19, %10
+  %23 = phi i32 [ %16, %10 ], [ %.pre.i.i.i.i, %19 ]
+  %24 = load ptr, ptr %14, align 8, !tbaa !83
+  %25 = zext i32 %23 to i64
+  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  store i32 %7, ptr %26, align 1
+  %27 = load i32, ptr %15, align 8, !tbaa !79
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %15, align 8, !tbaa !79
+  %29 = load i32, ptr %17, align 4, !tbaa !81
+  %.not.i.i.not.i.i2.i.i = icmp ult i32 %28, %29
+  br i1 %.not.i.i.not.i.i2.i.i, label %.lr.ph.preheader, label %30, !prof !82
 
-29:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
-  %30 = zext i32 %27 to i64
-  %31 = add nuw nsw i64 %30, 1
-  %32 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull %32, i64 noundef %31, i64 noundef 4) #12
-  %.pre.i.i3.i.i = load i32, ptr %14, align 8, !tbaa !79
+30:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
+  %31 = zext i32 %28 to i64
+  %32 = add nuw nsw i64 %31, 1
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %14, ptr noundef nonnull %33, i64 noundef %32, i64 noundef 4) #12
+  %.pre.i.i3.i.i = load i32, ptr %15, align 8, !tbaa !79
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %29, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
-  %33 = phi i32 [ %27, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %29 ]
-  %34 = load ptr, ptr %13, align 8, !tbaa !83
-  %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
-  store i32 0, ptr %36, align 1
-  %37 = load i32, ptr %14, align 8, !tbaa !79
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %14, align 8, !tbaa !79
-  %.idx = mul nuw nsw i64 %11, 24
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr16 = getelementptr inbounds nuw i8, ptr %39, i64 40
+.lr.ph.preheader:                                 ; preds = %30, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
+  %34 = phi i32 [ %28, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %30 ]
+  %35 = load ptr, ptr %14, align 8, !tbaa !83
+  %36 = zext i32 %34 to i64
+  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  store i32 0, ptr %37, align 1
+  %38 = load i32, ptr %15, align 8, !tbaa !79
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %15, align 8, !tbaa !79
+  %.idx = mul nuw nsw i64 %12, 24
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.015 = phi ptr [ %40, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  %.015 = phi ptr [ %41, %.lr.ph ], [ %11, %.lr.ph.preheader ]
   tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitTemplateArgumentERKN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(24) %.015)
-  %40 = getelementptr inbounds nuw i8, ptr %.015, i64 24
-  %.not = icmp eq ptr %40, %.ptr16
+  %41 = getelementptr inbounds nuw i8, ptr %.015, i64 24
+  %.not = icmp eq ptr %41, %40
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-41:                                               ; preds = %2
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !122
-  %44 = load ptr, ptr %0, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %43) #12
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !78
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !79
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !81
-  %.not.i.i.not.i.i = icmp ult i32 %50, %52
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, label %53, !prof !82
+42:                                               ; preds = %2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %44 = load ptr, ptr %43, align 8, !tbaa !122
+  %45 = load ptr, ptr %0, align 8, !tbaa !12
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %44) #12
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !78
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !79
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
+  %53 = load i32, ptr %52, align 4, !tbaa !81
+  %.not.i.i.not.i.i = icmp ult i32 %51, %53
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, label %54, !prof !82
 
-53:                                               ; preds = %41
-  %54 = zext i32 %50 to i64
-  %55 = add nuw nsw i64 %54, 1
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %48, ptr noundef nonnull %56, i64 noundef %55, i64 noundef 4) #12
-  %.pre.i.i = load i32, ptr %49, align 8, !tbaa !79
+54:                                               ; preds = %42
+  %55 = zext i32 %51 to i64
+  %56 = add nuw nsw i64 %55, 1
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %49, ptr noundef nonnull %57, i64 noundef %56, i64 noundef 4) #12
+  %.pre.i.i = load i32, ptr %50, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %41, %53
-  %57 = phi i32 [ %50, %41 ], [ %.pre.i.i, %53 ]
-  %58 = load ptr, ptr %48, align 8, !tbaa !83
-  %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
-  store i32 0, ptr %60, align 1
-  %61 = load i32, ptr %49, align 8, !tbaa !79
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %49, align 8, !tbaa !79
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %42, %54
+  %58 = phi i32 [ %51, %42 ], [ %.pre.i.i, %54 ]
+  %59 = load ptr, ptr %49, align 8, !tbaa !83
+  %60 = zext i32 %58 to i64
+  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  store i32 0, ptr %61, align 1
+  %62 = load i32, ptr %50, align 8, !tbaa !79
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %50, align 8, !tbaa !79
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
@@ -3283,466 +3282,465 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitRequiresExprE
   tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !78
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !125
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !79
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i.i = icmp ult i32 %8, %10
-  br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i, label %11, !prof !82
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load i32, ptr %6, align 8, !tbaa !125
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !79
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i.i = icmp ult i32 %9, %11
+  br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i, label %12, !prof !82
 
-11:                                               ; preds = %2
-  %12 = zext i32 %8 to i64
-  %13 = add nuw nsw i64 %12, 1
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 4) #12
-  %.pre.i.i.i.i = load i32, ptr %7, align 8, !tbaa !79
+12:                                               ; preds = %2
+  %13 = zext i32 %9 to i64
+  %14 = add nuw nsw i64 %13, 1
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 4) #12
+  %.pre.i.i.i.i = load i32, ptr %8, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %11, %2
-  %15 = phi i32 [ %8, %2 ], [ %.pre.i.i.i.i, %11 ]
-  %16 = load ptr, ptr %4, align 8, !tbaa !83
-  %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
-  store i32 %6, ptr %18, align 1
-  %19 = load i32, ptr %7, align 8, !tbaa !79
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %7, align 8, !tbaa !79
-  %21 = load i32, ptr %9, align 4, !tbaa !81
-  %.not.i.i.not.i.i2.i.i = icmp ult i32 %20, %21
-  br i1 %.not.i.i.not.i.i2.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit, label %22, !prof !82
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %12, %2
+  %16 = phi i32 [ %9, %2 ], [ %.pre.i.i.i.i, %12 ]
+  %17 = load ptr, ptr %4, align 8, !tbaa !83
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  store i32 %7, ptr %19, align 1
+  %20 = load i32, ptr %8, align 8, !tbaa !79
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %8, align 8, !tbaa !79
+  %22 = load i32, ptr %10, align 4, !tbaa !81
+  %.not.i.i.not.i.i2.i.i = icmp ult i32 %21, %22
+  br i1 %.not.i.i.not.i.i2.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit, label %23, !prof !82
 
-22:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
-  %23 = zext i32 %20 to i64
-  %24 = add nuw nsw i64 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %25, i64 noundef %24, i64 noundef 4) #12
-  %.pre.i.i3.i.i = load i32, ptr %7, align 8, !tbaa !79
+23:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
+  %24 = zext i32 %21 to i64
+  %25 = add nuw nsw i64 %24, 1
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %26, i64 noundef %25, i64 noundef 4) #12
+  %.pre.i.i3.i.i = load i32, ptr %8, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i, %22
-  %26 = phi i32 [ %20, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %22 ]
-  %27 = load ptr, ptr %4, align 8, !tbaa !83
-  %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
-  store i32 0, ptr %29, align 1
-  %30 = load i32, ptr %7, align 8, !tbaa !79
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %7, align 8, !tbaa !79
-  %32 = load i32, ptr %5, align 8, !tbaa !125
-  %33 = zext i32 %32 to i64
-  %.idx = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr100 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %.not94 = icmp eq i32 %32, 0
+_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i, %23
+  %27 = phi i32 [ %21, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %23 ]
+  %28 = load ptr, ptr %4, align 8, !tbaa !83
+  %29 = zext i32 %27 to i64
+  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  store i32 0, ptr %30, align 1
+  %31 = load i32, ptr %8, align 8, !tbaa !79
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %8, align 8, !tbaa !79
+  %33 = load i32, ptr %6, align 8, !tbaa !125
+  %34 = zext i32 %33 to i64
+  %.idx = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %.not94 = icmp eq i32 %33, 0
   br i1 %.not94, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit
-  %35 = load ptr, ptr %3, align 8, !tbaa !78
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %37 = load i32, ptr %36, align 4, !tbaa !128
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !79
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %41 = load i32, ptr %40, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i.i48 = icmp ult i32 %39, %41
-  br i1 %.not.i.i.not.i.i.i.i48, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50, label %42, !prof !82
+  %36 = load ptr, ptr %3, align 8, !tbaa !78
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %38 = load i32, ptr %37, align 4, !tbaa !128
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %40 = load i32, ptr %39, align 8, !tbaa !79
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %42 = load i32, ptr %41, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i.i48 = icmp ult i32 %40, %42
+  br i1 %.not.i.i.not.i.i.i.i48, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50, label %43, !prof !82
 
-42:                                               ; preds = %._crit_edge
-  %43 = zext i32 %39 to i64
-  %44 = add nuw nsw i64 %43, 1
-  %45 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull %45, i64 noundef %44, i64 noundef 4) #12
-  %.pre.i.i.i.i49 = load i32, ptr %38, align 8, !tbaa !79
+43:                                               ; preds = %._crit_edge
+  %44 = zext i32 %40 to i64
+  %45 = add nuw nsw i64 %44, 1
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 4) #12
+  %.pre.i.i.i.i49 = load i32, ptr %39, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50: ; preds = %42, %._crit_edge
-  %46 = phi i32 [ %39, %._crit_edge ], [ %.pre.i.i.i.i49, %42 ]
-  %47 = load ptr, ptr %35, align 8, !tbaa !83
-  %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
-  store i32 %37, ptr %49, align 1
-  %50 = load i32, ptr %38, align 8, !tbaa !79
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %38, align 8, !tbaa !79
-  %52 = load i32, ptr %40, align 4, !tbaa !81
-  %.not.i.i.not.i.i2.i.i51 = icmp ult i32 %51, %52
-  br i1 %.not.i.i.not.i.i2.i.i51, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53, label %53, !prof !82
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50: ; preds = %43, %._crit_edge
+  %47 = phi i32 [ %40, %._crit_edge ], [ %.pre.i.i.i.i49, %43 ]
+  %48 = load ptr, ptr %36, align 8, !tbaa !83
+  %49 = zext i32 %47 to i64
+  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  store i32 %38, ptr %50, align 1
+  %51 = load i32, ptr %39, align 8, !tbaa !79
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %39, align 8, !tbaa !79
+  %53 = load i32, ptr %41, align 4, !tbaa !81
+  %.not.i.i.not.i.i2.i.i51 = icmp ult i32 %52, %53
+  br i1 %.not.i.i.not.i.i2.i.i51, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53, label %54, !prof !82
 
-53:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50
-  %54 = zext i32 %51 to i64
-  %55 = add nuw nsw i64 %54, 1
-  %56 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull %56, i64 noundef %55, i64 noundef 4) #12
-  %.pre.i.i3.i.i52 = load i32, ptr %38, align 8, !tbaa !79
+54:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50
+  %55 = zext i32 %52 to i64
+  %56 = add nuw nsw i64 %55, 1
+  %57 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef nonnull %57, i64 noundef %56, i64 noundef 4) #12
+  %.pre.i.i3.i.i52 = load i32, ptr %39, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50, %53
-  %57 = phi i32 [ %51, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50 ], [ %.pre.i.i3.i.i52, %53 ]
-  %58 = load ptr, ptr %35, align 8, !tbaa !83
-  %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
-  store i32 0, ptr %60, align 1
-  %61 = load i32, ptr %38, align 8, !tbaa !79
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %38, align 8, !tbaa !79
-  %63 = load i32, ptr %5, align 8, !tbaa !125
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %64
-  %66 = load i32, ptr %36, align 4, !tbaa !128
-  %67 = zext i32 %66 to i64
-  %.idx101 = shl nuw nsw i64 %67, 3
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx101
-  %.not4196 = icmp eq i32 %66, 0
+_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50, %54
+  %58 = phi i32 [ %52, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i50 ], [ %.pre.i.i3.i.i52, %54 ]
+  %59 = load ptr, ptr %36, align 8, !tbaa !83
+  %60 = zext i32 %58 to i64
+  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  store i32 0, ptr %61, align 1
+  %62 = load i32, ptr %39, align 8, !tbaa !79
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %39, align 8, !tbaa !79
+  %64 = load i32, ptr %6, align 8, !tbaa !125
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds nuw ptr, ptr %5, i64 %65
+  %67 = load i32, ptr %37, align 4, !tbaa !128
+  %68 = zext i32 %67 to i64
+  %.idx100 = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx100
+  %.not4196 = icmp eq i32 %67, 0
   br i1 %.not4196, label %._crit_edge99, label %.lr.ph98
 
 .lr.ph:                                           ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit, %.lr.ph
-  %.095 = phi ptr [ %73, %.lr.ph ], [ %.ptr, %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit ]
-  %69 = load ptr, ptr %.095, align 8, !tbaa !129
-  %70 = load ptr, ptr %0, align 8, !tbaa !12
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %69) #12
-  %73 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  %.not = icmp eq ptr %73, %.ptr100
+  %.095 = phi ptr [ %74, %.lr.ph ], [ %5, %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit ]
+  %70 = load ptr, ptr %.095, align 8, !tbaa !129
+  %71 = load ptr, ptr %0, align 8, !tbaa !12
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %73 = load ptr, ptr %72, align 8
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %70) #12
+  %74 = getelementptr inbounds nuw i8, ptr %.095, i64 8
+  %.not = icmp eq ptr %74, %35
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge99:                                    ; preds = %264, %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53
+._crit_edge99:                                    ; preds = %265, %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53
   ret void
 
-.lr.ph98:                                         ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53, %264
-  %.03897 = phi ptr [ %265, %264 ], [ %65, %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53 ]
-  %74 = load ptr, ptr %.03897, align 8, !tbaa !130
-  %75 = load i32, ptr %74, align 4, !tbaa !132
-  %.not92 = icmp eq i32 %75, 0
-  br i1 %.not92, label %76, label %120
+.lr.ph98:                                         ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53, %265
+  %.03897 = phi ptr [ %266, %265 ], [ %66, %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53 ]
+  %75 = load ptr, ptr %.03897, align 8, !tbaa !130
+  %76 = load i32, ptr %75, align 4, !tbaa !132
+  %.not92 = icmp eq i32 %76, 0
+  br i1 %.not92, label %77, label %121
 
-76:                                               ; preds = %.lr.ph98
-  %77 = load ptr, ptr %3, align 8, !tbaa !78
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !79
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 12
-  %81 = load i32, ptr %80, align 4, !tbaa !81
-  %.not.i.i.not.i.i = icmp ult i32 %79, %81
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, label %82, !prof !82
+77:                                               ; preds = %.lr.ph98
+  %78 = load ptr, ptr %3, align 8, !tbaa !78
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load i32, ptr %79, align 8, !tbaa !79
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %82 = load i32, ptr %81, align 4, !tbaa !81
+  %.not.i.i.not.i.i = icmp ult i32 %80, %82
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, label %83, !prof !82
 
-82:                                               ; preds = %76
-  %83 = zext i32 %79 to i64
-  %84 = add nuw nsw i64 %83, 1
-  %85 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %77, ptr noundef nonnull %85, i64 noundef %84, i64 noundef 4) #12
-  %.pre.i.i = load i32, ptr %78, align 8, !tbaa !79
+83:                                               ; preds = %77
+  %84 = zext i32 %80 to i64
+  %85 = add nuw nsw i64 %84, 1
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %78, ptr noundef nonnull %86, i64 noundef %85, i64 noundef 4) #12
+  %.pre.i.i = load i32, ptr %79, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %76, %82
-  %86 = phi i32 [ %79, %76 ], [ %.pre.i.i, %82 ]
-  %87 = load ptr, ptr %77, align 8, !tbaa !83
-  %88 = zext i32 %86 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
-  store i32 0, ptr %89, align 1
-  %90 = load i32, ptr %78, align 8, !tbaa !79
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %78, align 8, !tbaa !79
-  %92 = load ptr, ptr %3, align 8, !tbaa !78
-  %93 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %94 = load i32, ptr %93, align 8, !tbaa !135
-  %95 = icmp eq i32 %94, 1
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !79
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  %99 = load i32, ptr %98, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i = icmp ult i32 %97, %99
-  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, label %100, !prof !82
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %77, %83
+  %87 = phi i32 [ %80, %77 ], [ %.pre.i.i, %83 ]
+  %88 = load ptr, ptr %78, align 8, !tbaa !83
+  %89 = zext i32 %87 to i64
+  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+  store i32 0, ptr %90, align 1
+  %91 = load i32, ptr %79, align 8, !tbaa !79
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %79, align 8, !tbaa !79
+  %93 = load ptr, ptr %3, align 8, !tbaa !78
+  %94 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %95 = load i32, ptr %94, align 8, !tbaa !135
+  %96 = icmp eq i32 %95, 1
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %98 = load i32, ptr %97, align 8, !tbaa !79
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 12
+  %100 = load i32, ptr %99, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i = icmp ult i32 %98, %100
+  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, label %101, !prof !82
 
-100:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
-  %101 = zext i32 %97 to i64
-  %102 = add nuw nsw i64 %101, 1
-  %103 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %92, ptr noundef nonnull %103, i64 noundef %102, i64 noundef 4) #12
-  %.pre.i.i.i = load i32, ptr %96, align 8, !tbaa !79
+101:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
+  %102 = zext i32 %98 to i64
+  %103 = add nuw nsw i64 %102, 1
+  %104 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %93, ptr noundef nonnull %104, i64 noundef %103, i64 noundef 4) #12
+  %.pre.i.i.i = load i32, ptr %97, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit
 
-_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit:    ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, %100
-  %104 = phi i32 [ %97, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit ], [ %.pre.i.i.i, %100 ]
-  %105 = zext i1 %95 to i32
-  %106 = load ptr, ptr %92, align 8, !tbaa !83
-  %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %106, i64 %107
-  store i32 %105, ptr %108, align 1
-  %109 = load i32, ptr %96, align 8, !tbaa !79
-  %110 = add i32 %109, 1
-  store i32 %110, ptr %96, align 8, !tbaa !79
-  %111 = load i32, ptr %93, align 8, !tbaa !135
-  %112 = icmp eq i32 %111, 1
-  br i1 %112, label %264, label %113
+_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit:    ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, %101
+  %105 = phi i32 [ %98, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit ], [ %.pre.i.i.i, %101 ]
+  %106 = zext i1 %96 to i32
+  %107 = load ptr, ptr %93, align 8, !tbaa !83
+  %108 = zext i32 %105 to i64
+  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  store i32 %106, ptr %109, align 1
+  %110 = load i32, ptr %97, align 8, !tbaa !79
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %97, align 8, !tbaa !79
+  %112 = load i32, ptr %94, align 8, !tbaa !135
+  %113 = icmp eq i32 %112, 1
+  br i1 %113, label %265, label %114
 
-113:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit
-  %114 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %114, align 8
-  %115 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %116 = inttoptr i64 %115 to ptr
-  %.sroa.0.0.copyload.i = load i64, ptr %116, align 8, !tbaa !35
-  %117 = load ptr, ptr %0, align 8, !tbaa !12
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %119 = load ptr, ptr %118, align 8
-  tail call void %119(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i) #12
-  br label %264
+114:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit
+  %115 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %115, align 8
+  %116 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %117 = inttoptr i64 %116 to ptr
+  %.sroa.0.0.copyload.i = load i64, ptr %117, align 8, !tbaa !35
+  %118 = load ptr, ptr %0, align 8, !tbaa !12
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8
+  tail call void %120(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i) #12
+  br label %265
 
-120:                                              ; preds = %.lr.ph98
-  %spec.select.i.i.i.i.i.i.i.i = icmp ugt i32 %75, 2
-  %121 = load ptr, ptr %3, align 8, !tbaa !78
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load i32, ptr %122, align 8, !tbaa !79
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 12
-  %125 = load i32, ptr %124, align 4, !tbaa !81
-  %.not.i.i.not.i.i77 = icmp ult i32 %123, %125
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %230, label %126
+121:                                              ; preds = %.lr.ph98
+  %spec.select.i.i.i.i.i.i.i.i = icmp ugt i32 %76, 2
+  %122 = load ptr, ptr %3, align 8, !tbaa !78
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load i32, ptr %123, align 8, !tbaa !79
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 12
+  %126 = load i32, ptr %125, align 4, !tbaa !81
+  %.not.i.i.not.i.i77 = icmp ult i32 %124, %126
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %231, label %127
 
-126:                                              ; preds = %120
-  br i1 %.not.i.i.not.i.i77, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59, label %127, !prof !82
+127:                                              ; preds = %121
+  br i1 %.not.i.i.not.i.i77, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59, label %128, !prof !82
 
-127:                                              ; preds = %126
-  %128 = zext i32 %123 to i64
-  %129 = add nuw nsw i64 %128, 1
-  %130 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %121, ptr noundef nonnull %130, i64 noundef %129, i64 noundef 4) #12
-  %.pre.i.i58 = load i32, ptr %122, align 8, !tbaa !79
+128:                                              ; preds = %127
+  %129 = zext i32 %124 to i64
+  %130 = add nuw nsw i64 %129, 1
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %122, ptr noundef nonnull %131, i64 noundef %130, i64 noundef 4) #12
+  %.pre.i.i58 = load i32, ptr %123, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59:  ; preds = %126, %127
-  %131 = phi i32 [ %123, %126 ], [ %.pre.i.i58, %127 ]
-  %132 = load ptr, ptr %121, align 8, !tbaa !83
-  %133 = zext i32 %131 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %132, i64 %133
-  store i32 2, ptr %134, align 1
-  %135 = load i32, ptr %122, align 8, !tbaa !79
-  %136 = add i32 %135, 1
-  store i32 %136, ptr %122, align 8, !tbaa !79
-  %137 = load ptr, ptr %3, align 8, !tbaa !78
-  %138 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %139 = load i32, ptr %138, align 8, !tbaa !143
-  %140 = icmp eq i32 %139, 1
-  %141 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %142 = load i32, ptr %141, align 8, !tbaa !79
-  %143 = getelementptr inbounds nuw i8, ptr %137, i64 12
-  %144 = load i32, ptr %143, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i60 = icmp ult i32 %142, %144
-  br i1 %.not.i.i.not.i.i.i60, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62, label %145, !prof !82
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59:  ; preds = %127, %128
+  %132 = phi i32 [ %124, %127 ], [ %.pre.i.i58, %128 ]
+  %133 = load ptr, ptr %122, align 8, !tbaa !83
+  %134 = zext i32 %132 to i64
+  %135 = getelementptr inbounds nuw i32, ptr %133, i64 %134
+  store i32 2, ptr %135, align 1
+  %136 = load i32, ptr %123, align 8, !tbaa !79
+  %137 = add i32 %136, 1
+  store i32 %137, ptr %123, align 8, !tbaa !79
+  %138 = load ptr, ptr %3, align 8, !tbaa !78
+  %139 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %140 = load i32, ptr %139, align 8, !tbaa !143
+  %141 = icmp eq i32 %140, 1
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %143 = load i32, ptr %142, align 8, !tbaa !79
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 12
+  %145 = load i32, ptr %144, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i60 = icmp ult i32 %143, %145
+  br i1 %.not.i.i.not.i.i.i60, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62, label %146, !prof !82
 
-145:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59
-  %146 = zext i32 %142 to i64
-  %147 = add nuw nsw i64 %146, 1
-  %148 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %137, ptr noundef nonnull %148, i64 noundef %147, i64 noundef 4) #12
-  %.pre.i.i.i61 = load i32, ptr %141, align 8, !tbaa !79
+146:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59
+  %147 = zext i32 %143 to i64
+  %148 = add nuw nsw i64 %147, 1
+  %149 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %138, ptr noundef nonnull %149, i64 noundef %148, i64 noundef 4) #12
+  %.pre.i.i.i61 = load i32, ptr %142, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62
 
-_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59, %145
-  %149 = phi i32 [ %142, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59 ], [ %.pre.i.i.i61, %145 ]
-  %150 = zext i1 %140 to i32
-  %151 = load ptr, ptr %137, align 8, !tbaa !83
-  %152 = zext i32 %149 to i64
-  %153 = getelementptr inbounds nuw i32, ptr %151, i64 %152
-  store i32 %150, ptr %153, align 1
-  %154 = load i32, ptr %141, align 8, !tbaa !79
-  %155 = add i32 %154, 1
-  store i32 %155, ptr %141, align 8, !tbaa !79
-  %156 = load i32, ptr %138, align 8, !tbaa !143
-  %157 = icmp eq i32 %156, 1
-  br i1 %157, label %162, label %158
+_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59, %146
+  %150 = phi i32 [ %143, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit59 ], [ %.pre.i.i.i61, %146 ]
+  %151 = zext i1 %141 to i32
+  %152 = load ptr, ptr %138, align 8, !tbaa !83
+  %153 = zext i32 %150 to i64
+  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %153
+  store i32 %151, ptr %154, align 1
+  %155 = load i32, ptr %142, align 8, !tbaa !79
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %142, align 8, !tbaa !79
+  %157 = load i32, ptr %139, align 8, !tbaa !143
+  %158 = icmp eq i32 %157, 1
+  br i1 %158, label %163, label %159
 
-158:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62
-  %159 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i63 = load i64, ptr %159, align 8
-  %160 = and i64 %.0.copyload.i.i.i.i.i.i.i.i63, -4
-  %161 = inttoptr i64 %160 to ptr
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %161)
-  br label %162
+159:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62
+  %160 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i63 = load i64, ptr %160, align 8
+  %161 = and i64 %.0.copyload.i.i.i.i.i.i.i.i63, -4
+  %162 = inttoptr i64 %161 to ptr
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %162)
+  br label %163
 
-162:                                              ; preds = %158, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62
-  %163 = load ptr, ptr %3, align 8, !tbaa !78
-  %164 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %.sroa.0.0.copyload.i64 = load i32, ptr %164, align 8, !tbaa !121
-  %165 = icmp ne i32 %.sroa.0.0.copyload.i64, 0
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %167 = load i32, ptr %166, align 8, !tbaa !79
-  %168 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  %169 = load i32, ptr %168, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i65 = icmp ult i32 %167, %169
-  br i1 %.not.i.i.not.i.i.i65, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67, label %170, !prof !82
+163:                                              ; preds = %159, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit62
+  %164 = load ptr, ptr %3, align 8, !tbaa !78
+  %165 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %.sroa.0.0.copyload.i64 = load i32, ptr %165, align 8, !tbaa !121
+  %166 = icmp ne i32 %.sroa.0.0.copyload.i64, 0
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %168 = load i32, ptr %167, align 8, !tbaa !79
+  %169 = getelementptr inbounds nuw i8, ptr %164, i64 12
+  %170 = load i32, ptr %169, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i65 = icmp ult i32 %168, %170
+  br i1 %.not.i.i.not.i.i.i65, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67, label %171, !prof !82
 
-170:                                              ; preds = %162
-  %171 = zext i32 %167 to i64
-  %172 = add nuw nsw i64 %171, 1
-  %173 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %163, ptr noundef nonnull %173, i64 noundef %172, i64 noundef 4) #12
-  %.pre.i.i.i66 = load i32, ptr %166, align 8, !tbaa !79
+171:                                              ; preds = %163
+  %172 = zext i32 %168 to i64
+  %173 = add nuw nsw i64 %172, 1
+  %174 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %164, ptr noundef nonnull %174, i64 noundef %173, i64 noundef 4) #12
+  %.pre.i.i.i66 = load i32, ptr %167, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67
 
-_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67:  ; preds = %162, %170
-  %174 = phi i32 [ %167, %162 ], [ %.pre.i.i.i66, %170 ]
-  %175 = zext i1 %165 to i32
-  %176 = load ptr, ptr %163, align 8, !tbaa !83
-  %177 = zext i32 %174 to i64
-  %178 = getelementptr inbounds nuw i32, ptr %176, i64 %177
-  store i32 %175, ptr %178, align 1
-  %179 = load i32, ptr %166, align 8, !tbaa !79
-  %180 = add i32 %179, 1
-  store i32 %180, ptr %166, align 8, !tbaa !79
-  %181 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %.0.copyload.i.i.i.i = load i64, ptr %181, align 8
+_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67:  ; preds = %163, %171
+  %175 = phi i32 [ %168, %163 ], [ %.pre.i.i.i66, %171 ]
+  %176 = zext i1 %166 to i32
+  %177 = load ptr, ptr %164, align 8, !tbaa !83
+  %178 = zext i32 %175 to i64
+  %179 = getelementptr inbounds nuw i32, ptr %177, i64 %178
+  store i32 %176, ptr %179, align 1
+  %180 = load i32, ptr %167, align 8, !tbaa !79
+  %181 = add i32 %180, 1
+  store i32 %181, ptr %167, align 8, !tbaa !79
+  %182 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %.0.copyload.i.i.i.i = load i64, ptr %182, align 8
   %.not.i.i = icmp ult i64 %.0.copyload.i.i.i.i, 8
-  br i1 %.not.i.i, label %182, label %198
+  br i1 %.not.i.i, label %183, label %199
 
-182:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67
-  %183 = load ptr, ptr %3, align 8, !tbaa !78
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load i32, ptr %184, align 8, !tbaa !79
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 12
-  %187 = load i32, ptr %186, align 4, !tbaa !81
-  %.not.i.i.not.i.i68 = icmp ult i32 %185, %187
-  br i1 %.not.i.i.not.i.i68, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit70, label %188, !prof !82
+183:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67
+  %184 = load ptr, ptr %3, align 8, !tbaa !78
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %186 = load i32, ptr %185, align 8, !tbaa !79
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 12
+  %188 = load i32, ptr %187, align 4, !tbaa !81
+  %.not.i.i.not.i.i68 = icmp ult i32 %186, %188
+  br i1 %.not.i.i.not.i.i68, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit70, label %189, !prof !82
 
-188:                                              ; preds = %182
-  %189 = zext i32 %185 to i64
-  %190 = add nuw nsw i64 %189, 1
-  %191 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %183, ptr noundef nonnull %191, i64 noundef %190, i64 noundef 4) #12
-  %.pre.i.i69 = load i32, ptr %184, align 8, !tbaa !79
+189:                                              ; preds = %183
+  %190 = zext i32 %186 to i64
+  %191 = add nuw nsw i64 %190, 1
+  %192 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %184, ptr noundef nonnull %192, i64 noundef %191, i64 noundef 4) #12
+  %.pre.i.i69 = load i32, ptr %185, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit70
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit70:  ; preds = %182, %188
-  %192 = phi i32 [ %185, %182 ], [ %.pre.i.i69, %188 ]
-  %193 = load ptr, ptr %183, align 8, !tbaa !83
-  %194 = zext i32 %192 to i64
-  %195 = getelementptr inbounds nuw i32, ptr %193, i64 %194
-  store i32 0, ptr %195, align 1
-  %196 = load i32, ptr %184, align 8, !tbaa !79
-  %197 = add i32 %196, 1
-  store i32 %197, ptr %184, align 8, !tbaa !79
-  br label %264
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit70:  ; preds = %183, %189
+  %193 = phi i32 [ %186, %183 ], [ %.pre.i.i69, %189 ]
+  %194 = load ptr, ptr %184, align 8, !tbaa !83
+  %195 = zext i32 %193 to i64
+  %196 = getelementptr inbounds nuw i32, ptr %194, i64 %195
+  store i32 0, ptr %196, align 1
+  %197 = load i32, ptr %185, align 8, !tbaa !79
+  %198 = add i32 %197, 1
+  store i32 %198, ptr %185, align 8, !tbaa !79
+  br label %265
 
-198:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67
-  %199 = and i64 %.0.copyload.i.i.i.i, 4
-  %200 = icmp eq i64 %199, 0
-  %201 = load ptr, ptr %3, align 8, !tbaa !78
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %203 = load i32, ptr %202, align 8, !tbaa !79
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 12
-  %205 = load i32, ptr %204, align 4, !tbaa !81
-  %.not.i.i.not.i.i71 = icmp ult i32 %203, %205
-  br i1 %200, label %206, label %219
+199:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit67
+  %200 = and i64 %.0.copyload.i.i.i.i, 4
+  %201 = icmp eq i64 %200, 0
+  %202 = load ptr, ptr %3, align 8, !tbaa !78
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load i32, ptr %203, align 8, !tbaa !79
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 12
+  %206 = load i32, ptr %205, align 4, !tbaa !81
+  %.not.i.i.not.i.i71 = icmp ult i32 %204, %206
+  br i1 %201, label %207, label %220
 
-206:                                              ; preds = %198
-  br i1 %.not.i.i.not.i.i71, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit73, label %207, !prof !82
+207:                                              ; preds = %199
+  br i1 %.not.i.i.not.i.i71, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit73, label %208, !prof !82
 
-207:                                              ; preds = %206
-  %208 = zext i32 %203 to i64
-  %209 = add nuw nsw i64 %208, 1
-  %210 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %201, ptr noundef nonnull %210, i64 noundef %209, i64 noundef 4) #12
-  %.pre.i.i72 = load i32, ptr %202, align 8, !tbaa !79
+208:                                              ; preds = %207
+  %209 = zext i32 %204 to i64
+  %210 = add nuw nsw i64 %209, 1
+  %211 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %202, ptr noundef nonnull %211, i64 noundef %210, i64 noundef 4) #12
+  %.pre.i.i72 = load i32, ptr %203, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit73
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit73:  ; preds = %206, %207
-  %211 = phi i32 [ %203, %206 ], [ %.pre.i.i72, %207 ]
-  %212 = load ptr, ptr %201, align 8, !tbaa !83
-  %213 = zext i32 %211 to i64
-  %214 = getelementptr inbounds nuw i32, ptr %212, i64 %213
-  store i32 1, ptr %214, align 1
-  %215 = load i32, ptr %202, align 8, !tbaa !79
-  %216 = add i32 %215, 1
-  store i32 %216, ptr %202, align 8, !tbaa !79
-  %217 = tail call noundef ptr @_ZNK5clang8concepts15ExprRequirement21ReturnTypeRequirement17getTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(8) %181) #12
-  %218 = load ptr, ptr %217, align 8, !tbaa !155
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %218)
-  br label %264
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit73:  ; preds = %207, %208
+  %212 = phi i32 [ %204, %207 ], [ %.pre.i.i72, %208 ]
+  %213 = load ptr, ptr %202, align 8, !tbaa !83
+  %214 = zext i32 %212 to i64
+  %215 = getelementptr inbounds nuw i32, ptr %213, i64 %214
+  store i32 1, ptr %215, align 1
+  %216 = load i32, ptr %203, align 8, !tbaa !79
+  %217 = add i32 %216, 1
+  store i32 %217, ptr %203, align 8, !tbaa !79
+  %218 = tail call noundef ptr @_ZNK5clang8concepts15ExprRequirement21ReturnTypeRequirement17getTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(8) %182) #12
+  %219 = load ptr, ptr %218, align 8, !tbaa !155
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %219)
+  br label %265
 
-219:                                              ; preds = %198
-  br i1 %.not.i.i.not.i.i71, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit76, label %220, !prof !82
+220:                                              ; preds = %199
+  br i1 %.not.i.i.not.i.i71, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit76, label %221, !prof !82
 
-220:                                              ; preds = %219
-  %221 = zext i32 %203 to i64
-  %222 = add nuw nsw i64 %221, 1
-  %223 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %201, ptr noundef nonnull %223, i64 noundef %222, i64 noundef 4) #12
-  %.pre.i.i75 = load i32, ptr %202, align 8, !tbaa !79
+221:                                              ; preds = %220
+  %222 = zext i32 %204 to i64
+  %223 = add nuw nsw i64 %222, 1
+  %224 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %202, ptr noundef nonnull %224, i64 noundef %223, i64 noundef 4) #12
+  %.pre.i.i75 = load i32, ptr %203, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit76
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit76:  ; preds = %219, %220
-  %224 = phi i32 [ %203, %219 ], [ %.pre.i.i75, %220 ]
-  %225 = load ptr, ptr %201, align 8, !tbaa !83
-  %226 = zext i32 %224 to i64
-  %227 = getelementptr inbounds nuw i32, ptr %225, i64 %226
-  store i32 2, ptr %227, align 1
-  %228 = load i32, ptr %202, align 8, !tbaa !79
-  %229 = add i32 %228, 1
-  store i32 %229, ptr %202, align 8, !tbaa !79
-  br label %264
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit76:  ; preds = %220, %221
+  %225 = phi i32 [ %204, %220 ], [ %.pre.i.i75, %221 ]
+  %226 = load ptr, ptr %202, align 8, !tbaa !83
+  %227 = zext i32 %225 to i64
+  %228 = getelementptr inbounds nuw i32, ptr %226, i64 %227
+  store i32 2, ptr %228, align 1
+  %229 = load i32, ptr %203, align 8, !tbaa !79
+  %230 = add i32 %229, 1
+  store i32 %230, ptr %203, align 8, !tbaa !79
+  br label %265
 
-230:                                              ; preds = %120
-  br i1 %.not.i.i.not.i.i77, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79, label %231, !prof !82
+231:                                              ; preds = %121
+  br i1 %.not.i.i.not.i.i77, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79, label %232, !prof !82
 
-231:                                              ; preds = %230
-  %232 = zext i32 %123 to i64
-  %233 = add nuw nsw i64 %232, 1
-  %234 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %121, ptr noundef nonnull %234, i64 noundef %233, i64 noundef 4) #12
-  %.pre.i.i78 = load i32, ptr %122, align 8, !tbaa !79
+232:                                              ; preds = %231
+  %233 = zext i32 %124 to i64
+  %234 = add nuw nsw i64 %233, 1
+  %235 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %122, ptr noundef nonnull %235, i64 noundef %234, i64 noundef 4) #12
+  %.pre.i.i78 = load i32, ptr %123, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79:  ; preds = %230, %231
-  %235 = phi i32 [ %123, %230 ], [ %.pre.i.i78, %231 ]
-  %236 = load ptr, ptr %121, align 8, !tbaa !83
-  %237 = zext i32 %235 to i64
-  %238 = getelementptr inbounds nuw i32, ptr %236, i64 %237
-  store i32 3, ptr %238, align 1
-  %239 = load i32, ptr %122, align 8, !tbaa !79
-  %240 = add i32 %239, 1
-  store i32 %240, ptr %122, align 8, !tbaa !79
-  %241 = load ptr, ptr %3, align 8, !tbaa !78
-  %242 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %243 = load i8, ptr %242, align 8, !tbaa !158, !range !84, !noundef !85
-  %244 = zext nneg i8 %243 to i32
-  %245 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  %246 = load i32, ptr %245, align 8, !tbaa !79
-  %247 = getelementptr inbounds nuw i8, ptr %241, i64 12
-  %248 = load i32, ptr %247, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i80 = icmp ult i32 %246, %248
-  br i1 %.not.i.i.not.i.i.i80, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82, label %249, !prof !82
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79:  ; preds = %231, %232
+  %236 = phi i32 [ %124, %231 ], [ %.pre.i.i78, %232 ]
+  %237 = load ptr, ptr %122, align 8, !tbaa !83
+  %238 = zext i32 %236 to i64
+  %239 = getelementptr inbounds nuw i32, ptr %237, i64 %238
+  store i32 3, ptr %239, align 1
+  %240 = load i32, ptr %123, align 8, !tbaa !79
+  %241 = add i32 %240, 1
+  store i32 %241, ptr %123, align 8, !tbaa !79
+  %242 = load ptr, ptr %3, align 8, !tbaa !78
+  %243 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %244 = load i8, ptr %243, align 8, !tbaa !158, !range !84, !noundef !85
+  %245 = zext nneg i8 %244 to i32
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  %247 = load i32, ptr %246, align 8, !tbaa !79
+  %248 = getelementptr inbounds nuw i8, ptr %242, i64 12
+  %249 = load i32, ptr %248, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i80 = icmp ult i32 %247, %249
+  br i1 %.not.i.i.not.i.i.i80, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82, label %250, !prof !82
 
-249:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79
-  %250 = zext i32 %246 to i64
-  %251 = add nuw nsw i64 %250, 1
-  %252 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %241, ptr noundef nonnull %252, i64 noundef %251, i64 noundef 4) #12
-  %.pre.i.i.i81 = load i32, ptr %245, align 8, !tbaa !79
+250:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79
+  %251 = zext i32 %247 to i64
+  %252 = add nuw nsw i64 %251, 1
+  %253 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %242, ptr noundef nonnull %253, i64 noundef %252, i64 noundef 4) #12
+  %.pre.i.i.i81 = load i32, ptr %246, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82
 
-_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79, %249
-  %253 = phi i32 [ %246, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79 ], [ %.pre.i.i.i81, %249 ]
-  %254 = load ptr, ptr %241, align 8, !tbaa !83
-  %255 = zext i32 %253 to i64
-  %256 = getelementptr inbounds nuw i32, ptr %254, i64 %255
-  store i32 %244, ptr %256, align 1
-  %257 = load i32, ptr %245, align 8, !tbaa !79
-  %258 = add i32 %257, 1
-  store i32 %258, ptr %245, align 8, !tbaa !79
-  %259 = load i8, ptr %242, align 8, !tbaa !158, !range !84, !noundef !85
-  %260 = trunc nuw i8 %259 to i1
-  br i1 %260, label %264, label %261
+_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79, %250
+  %254 = phi i32 [ %247, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit79 ], [ %.pre.i.i.i81, %250 ]
+  %255 = load ptr, ptr %242, align 8, !tbaa !83
+  %256 = zext i32 %254 to i64
+  %257 = getelementptr inbounds nuw i32, ptr %255, i64 %256
+  store i32 %245, ptr %257, align 1
+  %258 = load i32, ptr %246, align 8, !tbaa !79
+  %259 = add i32 %258, 1
+  store i32 %259, ptr %246, align 8, !tbaa !79
+  %260 = load i8, ptr %243, align 8, !tbaa !158, !range !84, !noundef !85
+  %261 = trunc nuw i8 %260 to i1
+  br i1 %261, label %265, label %262
 
-261:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82
-  %262 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %263 = load ptr, ptr %262, align 8, !tbaa !163
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %263)
-  br label %264
+262:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82
+  %263 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %264 = load ptr, ptr %263, align 8, !tbaa !163
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %264)
+  br label %265
 
-264:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit73, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit76, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit70, %261, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, %113
-  %265 = getelementptr inbounds nuw i8, ptr %.03897, i64 8
-  %.not41 = icmp eq ptr %265, %68
+265:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit73, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit76, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit70, %262, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit82, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, %114
+  %266 = getelementptr inbounds nuw i8, ptr %.03897, i64 8
+  %.not41 = icmp eq ptr %266, %69
   br i1 %.not41, label %._crit_edge99, label %.lr.ph98
 }
 
@@ -3752,35 +3750,35 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitPseudoObjectE
   %3 = load i64, ptr %1, align 8
   %4 = lshr i64 %3, 29
   %.idx = and i64 %4, 524280
-  %.add = add nuw nsw i64 %.idx, 16
-  %.ptr16 = getelementptr inbounds nuw i8, ptr %1, i64 %.add
-  %.not14 = icmp eq i64 %.add, 24
+  %5 = add nuw nsw i64 %.idx, 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
+  %.not14 = icmp samesign eq i64 %5, 24
   br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %12, %2
+._crit_edge:                                      ; preds = %14, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %.015 = phi ptr [ %13, %12 ], [ %5, %.lr.ph.preheader ]
-  %6 = load ptr, ptr %.015, align 8, !tbaa !164
-  %7 = load i16, ptr %6, align 8
-  %8 = and i16 %7, 511
-  %.not13 = icmp eq i16 %8, 28
-  br i1 %.not13, label %9, label %12
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
+  %.015 = phi ptr [ %15, %14 ], [ %7, %.lr.ph.preheader ]
+  %8 = load ptr, ptr %.015, align 8, !tbaa !164
+  %9 = load i16, ptr %8, align 8
+  %10 = and i16 %9, 511
+  %.not13 = icmp eq i16 %10, 28
+  br i1 %.not13, label %11, label %14
 
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !165
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %11)
-  br label %12
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !165
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112StmtProfilerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13)
+  br label %14
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.015, i64 8
-  %.not = icmp eq ptr %13, %.ptr16
+14:                                               ; preds = %11, %.lr.ph
+  %15 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  %.not = icmp eq ptr %15, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !167
 }
 
@@ -5137,30 +5135,26 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %2, %16
   %24 = load i32, ptr %12, align 8, !tbaa !79
   %25 = add i32 %24, 1
   store i32 %25, ptr %12, align 8, !tbaa !79
-  %26 = load i32, ptr %10, align 4, !tbaa !263
-  %27 = zext i32 %26 to i64
-  %.idx = shl nuw nsw i64 %27, 3
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %.not10 = icmp eq i32 %26, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %27 = load i32, ptr %10, align 4, !tbaa !263
+  %28 = zext i32 %27 to i64
+  %.idx = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
+  %.not10 = icmp eq i32 %27, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.011 = phi ptr [ %33, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %29 = load ptr, ptr %.011, align 8, !tbaa !264
-  %30 = load ptr, ptr %0, align 8, !tbaa !12
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %29) #12
-  %33 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %.not = icmp eq ptr %33, %.ptr12
+.lr.ph:                                           ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %.lr.ph
+  %.011 = phi ptr [ %34, %.lr.ph ], [ %26, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ]
+  %30 = load ptr, ptr %.011, align 8, !tbaa !264
+  %31 = load ptr, ptr %0, align 8, !tbaa !12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %30) #12
+  %34 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %.not = icmp eq ptr %34, %29
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !265
 }
 
@@ -5821,27 +5815,23 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler30VisitConceptSpecia
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %6) #12
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !294
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %13 = load i32, ptr %12, align 4, !tbaa !295
-  %14 = zext i32 %13 to i64
-  %.idx = mul nuw nsw i64 %14, 24
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
-  %.ptr14 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %.not12 = icmp eq i32 %13, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %11, i64 40
-  br label %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %14 = load i32, ptr %13, align 4, !tbaa !295
+  %15 = zext i32 %14 to i64
+  %.idx = mul nuw nsw i64 %15, 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
+  %.not12 = icmp eq i32 %14, 0
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.013 = phi ptr [ %16, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.013 = phi ptr [ %17, %.lr.ph ], [ %12, %2 ]
   tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitTemplateArgumentERKN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(24) %.013)
-  %16 = getelementptr inbounds nuw i8, ptr %.013, i64 24
-  %.not = icmp eq ptr %16, %.ptr14
+  %17 = getelementptr inbounds nuw i8, ptr %.013, i64 24
+  %.not = icmp eq ptr %17, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -9908,26 +9898,22 @@ define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitSelf
   br label %.loopexit
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !413
-  %17 = zext i32 %16 to i64
-  %.idx = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr15 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %.loopexit, label %.lr.ph.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %17 = load i32, ptr %16, align 4, !tbaa !413
+  %18 = zext i32 %17 to i64
+  %.idx = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
+  %.not13 = icmp eq i32 %17, 0
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %14
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.014 = phi ptr [ %21, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %19 = load ptr, ptr %.014, align 8, !tbaa !164
-  %20 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %20, ptr noundef %19)
-  %21 = getelementptr inbounds nuw i8, ptr %.014, i64 8
-  %.not = icmp eq ptr %21, %.ptr15
+.lr.ph:                                           ; preds = %14, %.lr.ph
+  %.014 = phi ptr [ %22, %.lr.ph ], [ %15, %14 ]
+  %20 = load ptr, ptr %.014, align 8, !tbaa !164
+  %21 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %21, ptr noundef %20)
+  %22 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %.not = icmp eq ptr %22, %19
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %6, %10
@@ -10463,90 +10449,88 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignCla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAffinityClauseEPKN5clang17OMPAffinityClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !451
-  %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !164
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %10, label %8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !451
+  %6 = zext i32 %5 to i64
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %8 = load ptr, ptr %7, align 8, !tbaa !164
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %11, label %9
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  %.pre = load i32, ptr %3, align 4, !tbaa !451
-  %.pre17 = zext i32 %.pre to i64
-  br label %10
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  %.pre = load i32, ptr %4, align 4, !tbaa !451
+  %.pre16 = zext i32 %.pre to i64
+  br label %11
 
-10:                                               ; preds = %8, %2
-  %.pre-phi = phi i64 [ %.pre17, %8 ], [ %5, %2 ]
-  %11 = phi i32 [ %.pre, %8 ], [ %4, %2 ]
+11:                                               ; preds = %9, %2
+  %.pre-phi = phi i64 [ %.pre16, %9 ], [ %6, %2 ]
+  %12 = phi i32 [ %.pre, %9 ], [ %5, %2 ]
   %.idx = shl nuw nsw i64 %.pre-phi, 3
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr16 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.not1314 = icmp eq i32 %11, 0
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not1314 = icmp eq i32 %12, 0
   br i1 %.not1314, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %10
+._crit_edge:                                      ; preds = %.lr.ph, %11
   ret void
 
-.lr.ph:                                           ; preds = %10, %.lr.ph
-  %.015 = phi ptr [ %15, %.lr.ph ], [ %.ptr, %10 ]
-  %13 = load ptr, ptr %.015, align 8, !tbaa !164
-  %14 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %14, ptr noundef %13)
-  %15 = getelementptr inbounds nuw i8, ptr %.015, i64 8
-  %.not13 = icmp eq ptr %15, %.ptr16
+.lr.ph:                                           ; preds = %11, %.lr.ph
+  %.015 = phi ptr [ %16, %.lr.ph ], [ %3, %11 ]
+  %14 = load ptr, ptr %.015, align 8, !tbaa !164
+  %15 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %15, ptr noundef %14)
+  %16 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  %.not13 = icmp eq ptr %16, %13
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPAlignedClauseEPKN5clang16OMPAlignedClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !453
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr6 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not.i4 = icmp eq i32 %4, 0
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !453
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i4 = icmp eq i32 %5, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %10
-  %.0.i5 = phi ptr [ %11, %10 ], [ %.ptr, %2 ]
-  %7 = load ptr, ptr %.0.i5, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i5 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i5, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr6
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit.loopexit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit.loopexit: ; preds = %10
-  %.pre = load i32, ptr %3, align 4, !tbaa !453
-  %12 = zext i32 %.pre to i64
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit.loopexit: ; preds = %11
+  %.pre = load i32, ptr %4, align 4, !tbaa !453
+  %13 = zext i32 %.pre to i64
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit
 
 _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit.loopexit, %2
-  %13 = phi i64 [ %12, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit.loopexit ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !164
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %18, label %16
+  %14 = phi i64 [ %13, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit.loopexit ], [ 0, %2 ]
+  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %14
+  %16 = load ptr, ptr %15, align 8, !tbaa !164
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %19, label %17
 
-16:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit
-  %17 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %17, ptr noundef nonnull %15)
-  br label %18
+17:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit
+  %18 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %18, ptr noundef nonnull %16)
+  br label %19
 
-18:                                               ; preds = %16, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit
+19:                                               ; preds = %17, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedClauseEEEvPT_.exit
   ret void
 }
 
@@ -10563,303 +10547,281 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAlloc
   br label %7
 
 7:                                                ; preds = %5, %2
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 4, !tbaa !459
-  %10 = zext i32 %9 to i64
-  %.idx = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr7 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %.not.i5 = icmp eq i32 %9, 0
-  br i1 %.not.i5, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPAllocateClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = load i32, ptr %9, align 4, !tbaa !459
+  %11 = zext i32 %10 to i64
+  %.idx = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
+  %.not.i5 = icmp eq i32 %10, 0
+  br i1 %.not.i5, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPAllocateClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %7
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 72
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %7, %16
+  %.0.i6 = phi ptr [ %17, %16 ], [ %8, %7 ]
+  %13 = load ptr, ptr %.0.i6, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %13, null
+  br i1 %.not11.i, label %16, label %14
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
-  %.0.i6 = phi ptr [ %16, %15 ], [ %.ptr, %.lr.ph.preheader ]
-  %12 = load ptr, ptr %.0.i6, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %12, null
-  br i1 %.not11.i, label %15, label %13
+14:                                               ; preds = %.lr.ph
+  %15 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %15, ptr noundef nonnull %13)
+  br label %16
 
-13:                                               ; preds = %.lr.ph
-  %14 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %14, ptr noundef nonnull %12)
-  br label %15
-
-15:                                               ; preds = %13, %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 8
-  %.not.i = icmp eq ptr %16, %.ptr7
+16:                                               ; preds = %14, %.lr.ph
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 8
+  %.not.i = icmp eq ptr %17, %12
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPAllocateClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPAllocateClauseEEEvPT_.exit: ; preds = %15, %7
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPAllocateClauseEEEvPT_.exit: ; preds = %16, %7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPCopyprivateClauseEPKN5clang20OMPCopyprivateClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !460
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr66 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not.i51 = icmp eq i32 %4, 0
-  br i1 %.not.i51, label %._crit_edge65, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !460
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i51 = icmp eq i32 %5, 0
+  br i1 %.not.i51, label %._crit_edge65, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i52 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i52, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i52 = phi ptr [ %11, %10 ], [ %.ptr.ptr.ptr.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i52, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr66
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit: ; preds = %10
-  %.pre = load i32, ptr %3, align 4, !tbaa !460
-  %12 = zext i32 %.pre to i64
-  %.idx67 = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx67
-  %.ptr68 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %14 = getelementptr inbounds nuw ptr, ptr %.ptr68, i64 %12
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit: ; preds = %11
+  %.pre = load i32, ptr %4, align 4, !tbaa !460
+  %13 = zext i32 %.pre to i64
+  %.idx66 = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx66
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %.not53 = icmp eq i32 %.pre, 0
   br i1 %.not53, label %._crit_edge65, label %.lr.ph55
 
-._crit_edge:                                      ; preds = %22
-  %.pre72 = load i32, ptr %3, align 4, !tbaa !460
-  %15 = zext i32 %.pre72 to i64
-  %.idx69 = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx69
-  %.ptr = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %17 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %15
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %15
-  %.not3456 = icmp eq i32 %.pre72, 0
+._crit_edge:                                      ; preds = %23
+  %.pre69 = load i32, ptr %4, align 4, !tbaa !460
+  %16 = zext i32 %.pre69 to i64
+  %.idx67 = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx67
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
+  %.not3456 = icmp eq i32 %.pre69, 0
   br i1 %.not3456, label %._crit_edge65, label %.lr.ph59
 
-.lr.ph55:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit, %22
-  %.054 = phi ptr [ %23, %22 ], [ %.ptr68, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit ]
-  %19 = load ptr, ptr %.054, align 8, !tbaa !164
-  %.not38 = icmp eq ptr %19, null
-  br i1 %.not38, label %22, label %20
+.lr.ph55:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit, %23
+  %.054 = phi ptr [ %24, %23 ], [ %14, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit ]
+  %20 = load ptr, ptr %.054, align 8, !tbaa !164
+  %.not38 = icmp eq ptr %20, null
+  br i1 %.not38, label %23, label %21
 
-20:                                               ; preds = %.lr.ph55
-  %21 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %21, ptr noundef nonnull %19)
-  br label %22
+21:                                               ; preds = %.lr.ph55
+  %22 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %22, ptr noundef nonnull %20)
+  br label %23
 
-22:                                               ; preds = %20, %.lr.ph55
-  %23 = getelementptr inbounds nuw i8, ptr %.054, i64 8
-  %.not = icmp eq ptr %23, %14
+23:                                               ; preds = %21, %.lr.ph55
+  %24 = getelementptr inbounds nuw i8, ptr %.054, i64 8
+  %.not = icmp eq ptr %24, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph55
 
-._crit_edge60:                                    ; preds = %32
-  %.pre73 = load i32, ptr %3, align 4, !tbaa !460
-  %24 = zext i32 %.pre73 to i64
-  %.idx70 = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx70
-  %.ptr71 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %26 = getelementptr inbounds nuw ptr, ptr %.ptr71, i64 %24
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %24
-  %.not3561 = icmp eq i32 %.pre73, 0
+._crit_edge60:                                    ; preds = %33
+  %.pre70 = load i32, ptr %4, align 4, !tbaa !460
+  %25 = zext i32 %.pre70 to i64
+  %.idx68 = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx68
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %25
+  %.not3561 = icmp eq i32 %.pre70, 0
   br i1 %.not3561, label %._crit_edge65, label %.lr.ph64
 
-.lr.ph59:                                         ; preds = %._crit_edge, %32
-  %.02957 = phi ptr [ %33, %32 ], [ %17, %._crit_edge ]
-  %29 = load ptr, ptr %.02957, align 8, !tbaa !164
-  %.not37 = icmp eq ptr %29, null
-  br i1 %.not37, label %32, label %30
+.lr.ph59:                                         ; preds = %._crit_edge, %33
+  %.02957 = phi ptr [ %34, %33 ], [ %18, %._crit_edge ]
+  %30 = load ptr, ptr %.02957, align 8, !tbaa !164
+  %.not37 = icmp eq ptr %30, null
+  br i1 %.not37, label %33, label %31
 
-30:                                               ; preds = %.lr.ph59
-  %31 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %31, ptr noundef nonnull %29)
-  br label %32
+31:                                               ; preds = %.lr.ph59
+  %32 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %32, ptr noundef nonnull %30)
+  br label %33
 
-32:                                               ; preds = %30, %.lr.ph59
-  %33 = getelementptr inbounds nuw i8, ptr %.02957, i64 8
-  %.not34 = icmp eq ptr %33, %18
+33:                                               ; preds = %31, %.lr.ph59
+  %34 = getelementptr inbounds nuw i8, ptr %.02957, i64 8
+  %.not34 = icmp eq ptr %34, %19
   br i1 %.not34, label %._crit_edge60, label %.lr.ph59
 
-._crit_edge65:                                    ; preds = %37, %2, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit, %._crit_edge, %._crit_edge60
+._crit_edge65:                                    ; preds = %38, %2, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivateClauseEEEvPT_.exit, %._crit_edge, %._crit_edge60
   ret void
 
-.lr.ph64:                                         ; preds = %._crit_edge60, %37
-  %.03062 = phi ptr [ %38, %37 ], [ %27, %._crit_edge60 ]
-  %34 = load ptr, ptr %.03062, align 8, !tbaa !164
-  %.not36 = icmp eq ptr %34, null
-  br i1 %.not36, label %37, label %35
+.lr.ph64:                                         ; preds = %._crit_edge60, %38
+  %.03062 = phi ptr [ %39, %38 ], [ %28, %._crit_edge60 ]
+  %35 = load ptr, ptr %.03062, align 8, !tbaa !164
+  %.not36 = icmp eq ptr %35, null
+  br i1 %.not36, label %38, label %36
 
-35:                                               ; preds = %.lr.ph64
-  %36 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %36, ptr noundef nonnull %34)
-  br label %37
+36:                                               ; preds = %.lr.ph64
+  %37 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %37, ptr noundef nonnull %35)
+  br label %38
 
-37:                                               ; preds = %35, %.lr.ph64
-  %38 = getelementptr inbounds nuw i8, ptr %.03062, i64 8
-  %.not35 = icmp eq ptr %38, %28
+38:                                               ; preds = %36, %.lr.ph64
+  %39 = getelementptr inbounds nuw i8, ptr %.03062, i64 8
+  %.not35 = icmp eq ptr %39, %29
   br i1 %.not35, label %._crit_edge65, label %.lr.ph64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPCopyinClauseEPKN5clang15OMPCopyinClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !462
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr66 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not.i51 = icmp eq i32 %4, 0
-  br i1 %.not.i51, label %._crit_edge65, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !462
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i51 = icmp eq i32 %5, 0
+  br i1 %.not.i51, label %._crit_edge65, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i52 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i52, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i52 = phi ptr [ %11, %10 ], [ %.ptr.ptr.ptr.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i52, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr66
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit: ; preds = %10
-  %.pre = load i32, ptr %3, align 4, !tbaa !462
-  %12 = zext i32 %.pre to i64
-  %.idx67 = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx67
-  %.ptr68 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %14 = getelementptr inbounds nuw ptr, ptr %.ptr68, i64 %12
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit: ; preds = %11
+  %.pre = load i32, ptr %4, align 4, !tbaa !462
+  %13 = zext i32 %.pre to i64
+  %.idx66 = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx66
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %.not53 = icmp eq i32 %.pre, 0
   br i1 %.not53, label %._crit_edge65, label %.lr.ph55
 
-._crit_edge:                                      ; preds = %22
-  %.pre72 = load i32, ptr %3, align 4, !tbaa !462
-  %15 = zext i32 %.pre72 to i64
-  %.idx69 = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx69
-  %.ptr = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %17 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %15
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %15
-  %.not3456 = icmp eq i32 %.pre72, 0
+._crit_edge:                                      ; preds = %23
+  %.pre69 = load i32, ptr %4, align 4, !tbaa !462
+  %16 = zext i32 %.pre69 to i64
+  %.idx67 = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx67
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
+  %.not3456 = icmp eq i32 %.pre69, 0
   br i1 %.not3456, label %._crit_edge65, label %.lr.ph59
 
-.lr.ph55:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit, %22
-  %.054 = phi ptr [ %23, %22 ], [ %.ptr68, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit ]
-  %19 = load ptr, ptr %.054, align 8, !tbaa !164
-  %.not38 = icmp eq ptr %19, null
-  br i1 %.not38, label %22, label %20
+.lr.ph55:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit, %23
+  %.054 = phi ptr [ %24, %23 ], [ %14, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit ]
+  %20 = load ptr, ptr %.054, align 8, !tbaa !164
+  %.not38 = icmp eq ptr %20, null
+  br i1 %.not38, label %23, label %21
 
-20:                                               ; preds = %.lr.ph55
-  %21 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %21, ptr noundef nonnull %19)
-  br label %22
+21:                                               ; preds = %.lr.ph55
+  %22 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %22, ptr noundef nonnull %20)
+  br label %23
 
-22:                                               ; preds = %20, %.lr.ph55
-  %23 = getelementptr inbounds nuw i8, ptr %.054, i64 8
-  %.not = icmp eq ptr %23, %14
+23:                                               ; preds = %21, %.lr.ph55
+  %24 = getelementptr inbounds nuw i8, ptr %.054, i64 8
+  %.not = icmp eq ptr %24, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph55
 
-._crit_edge60:                                    ; preds = %32
-  %.pre73 = load i32, ptr %3, align 4, !tbaa !462
-  %24 = zext i32 %.pre73 to i64
-  %.idx70 = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx70
-  %.ptr71 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %26 = getelementptr inbounds nuw ptr, ptr %.ptr71, i64 %24
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %24
-  %.not3561 = icmp eq i32 %.pre73, 0
+._crit_edge60:                                    ; preds = %33
+  %.pre70 = load i32, ptr %4, align 4, !tbaa !462
+  %25 = zext i32 %.pre70 to i64
+  %.idx68 = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx68
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %25
+  %.not3561 = icmp eq i32 %.pre70, 0
   br i1 %.not3561, label %._crit_edge65, label %.lr.ph64
 
-.lr.ph59:                                         ; preds = %._crit_edge, %32
-  %.02957 = phi ptr [ %33, %32 ], [ %17, %._crit_edge ]
-  %29 = load ptr, ptr %.02957, align 8, !tbaa !164
-  %.not37 = icmp eq ptr %29, null
-  br i1 %.not37, label %32, label %30
+.lr.ph59:                                         ; preds = %._crit_edge, %33
+  %.02957 = phi ptr [ %34, %33 ], [ %18, %._crit_edge ]
+  %30 = load ptr, ptr %.02957, align 8, !tbaa !164
+  %.not37 = icmp eq ptr %30, null
+  br i1 %.not37, label %33, label %31
 
-30:                                               ; preds = %.lr.ph59
-  %31 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %31, ptr noundef nonnull %29)
-  br label %32
+31:                                               ; preds = %.lr.ph59
+  %32 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %32, ptr noundef nonnull %30)
+  br label %33
 
-32:                                               ; preds = %30, %.lr.ph59
-  %33 = getelementptr inbounds nuw i8, ptr %.02957, i64 8
-  %.not34 = icmp eq ptr %33, %18
+33:                                               ; preds = %31, %.lr.ph59
+  %34 = getelementptr inbounds nuw i8, ptr %.02957, i64 8
+  %.not34 = icmp eq ptr %34, %19
   br i1 %.not34, label %._crit_edge60, label %.lr.ph59
 
-._crit_edge65:                                    ; preds = %37, %2, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit, %._crit_edge, %._crit_edge60
+._crit_edge65:                                    ; preds = %38, %2, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClauseEEEvPT_.exit, %._crit_edge, %._crit_edge60
   ret void
 
-.lr.ph64:                                         ; preds = %._crit_edge60, %37
-  %.03062 = phi ptr [ %38, %37 ], [ %27, %._crit_edge60 ]
-  %34 = load ptr, ptr %.03062, align 8, !tbaa !164
-  %.not36 = icmp eq ptr %34, null
-  br i1 %.not36, label %37, label %35
+.lr.ph64:                                         ; preds = %._crit_edge60, %38
+  %.03062 = phi ptr [ %39, %38 ], [ %28, %._crit_edge60 ]
+  %35 = load ptr, ptr %.03062, align 8, !tbaa !164
+  %.not36 = icmp eq ptr %35, null
+  br i1 %.not36, label %38, label %36
 
-35:                                               ; preds = %.lr.ph64
-  %36 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %36, ptr noundef nonnull %34)
-  br label %37
+36:                                               ; preds = %.lr.ph64
+  %37 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %37, ptr noundef nonnull %35)
+  br label %38
 
-37:                                               ; preds = %35, %.lr.ph64
-  %38 = getelementptr inbounds nuw i8, ptr %.03062, i64 8
-  %.not35 = icmp eq ptr %38, %28
+38:                                               ; preds = %36, %.lr.ph64
+  %39 = getelementptr inbounds nuw i8, ptr %.03062, i64 8
+  %.not35 = icmp eq ptr %39, %29
   br i1 %.not35, label %._crit_edge65, label %.lr.ph64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPDependClauseEPKN5clang15OMPDependClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !464
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPDependClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !464
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPDependClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPDependClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPDependClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPDependClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
@@ -10892,71 +10854,63 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPDoacrossClauseEPKN5clang17OMPDoacrossClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !470
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPDoacrossClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !470
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPDoacrossClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPDoacrossClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPDoacrossClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPDoacrossClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPExclusiveClauseEPKN5clang18OMPExclusiveClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !472
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPExclusiveClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !472
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPExclusiveClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPExclusiveClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPExclusiveClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPExclusiveClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
@@ -11016,170 +10970,156 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPFirstprivateClauseEPKN5clang21OMPFirstprivateClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !478
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr46 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.not.i36 = icmp eq i32 %4, 0
-  br i1 %.not.i36, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !478
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i36 = icmp eq i32 %5, 0
+  br i1 %.not.i36, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i37 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i37, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i37 = phi ptr [ %11, %10 ], [ %.ptr.ptr.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i37, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr46
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit: ; preds = %10, %2
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !466
-  %.not.i27 = icmp eq ptr %13, null
-  br i1 %.not.i27, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %14
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit: ; preds = %11, %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !466
+  %.not.i27 = icmp eq ptr %14, null
+  br i1 %.not.i27, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %15
 
-14:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit
-  %15 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %15, ptr noundef nonnull %13)
+15:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit
+  %16 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %16, ptr noundef nonnull %14)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit, %14
-  %16 = load i32, ptr %3, align 4, !tbaa !478
-  %17 = zext i32 %16 to i64
-  %.idx47 = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx47
-  %.ptr48 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %19 = getelementptr inbounds nuw ptr, ptr %.ptr48, i64 %17
-  %.not38 = icmp eq i32 %16, 0
+_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPFirstprivateClauseEEEvPT_.exit, %15
+  %17 = load i32, ptr %4, align 4, !tbaa !478
+  %18 = zext i32 %17 to i64
+  %.idx46 = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx46
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %.not38 = icmp eq i32 %17, 0
   br i1 %.not38, label %._crit_edge45, label %.lr.ph40
 
-._crit_edge:                                      ; preds = %27
-  %.pre = load i32, ptr %3, align 4, !tbaa !478
-  %20 = zext i32 %.pre to i64
-  %.idx49 = shl nuw nsw i64 %20, 3
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx49
-  %.ptr = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %22 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %20
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+._crit_edge:                                      ; preds = %28
+  %.pre = load i32, ptr %4, align 4, !tbaa !478
+  %21 = zext i32 %.pre to i64
+  %.idx47 = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx47
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
   %.not2441 = icmp eq i32 %.pre, 0
   br i1 %.not2441, label %._crit_edge45, label %.lr.ph44
 
-.lr.ph40:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %27
-  %.039 = phi ptr [ %28, %27 ], [ %.ptr48, %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit ]
-  %24 = load ptr, ptr %.039, align 8, !tbaa !164
-  %.not26 = icmp eq ptr %24, null
-  br i1 %.not26, label %27, label %25
+.lr.ph40:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %28
+  %.039 = phi ptr [ %29, %28 ], [ %19, %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit ]
+  %25 = load ptr, ptr %.039, align 8, !tbaa !164
+  %.not26 = icmp eq ptr %25, null
+  br i1 %.not26, label %28, label %26
 
-25:                                               ; preds = %.lr.ph40
-  %26 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %26, ptr noundef nonnull %24)
-  br label %27
+26:                                               ; preds = %.lr.ph40
+  %27 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %27, ptr noundef nonnull %25)
+  br label %28
 
-27:                                               ; preds = %25, %.lr.ph40
-  %28 = getelementptr inbounds nuw i8, ptr %.039, i64 8
-  %.not = icmp eq ptr %28, %19
+28:                                               ; preds = %26, %.lr.ph40
+  %29 = getelementptr inbounds nuw i8, ptr %.039, i64 8
+  %.not = icmp eq ptr %29, %20
   br i1 %.not, label %._crit_edge, label %.lr.ph40
 
-._crit_edge45:                                    ; preds = %32, %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %._crit_edge
+._crit_edge45:                                    ; preds = %33, %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %._crit_edge
   ret void
 
-.lr.ph44:                                         ; preds = %._crit_edge, %32
-  %.02142 = phi ptr [ %33, %32 ], [ %22, %._crit_edge ]
-  %29 = load ptr, ptr %.02142, align 8, !tbaa !164
-  %.not25 = icmp eq ptr %29, null
-  br i1 %.not25, label %32, label %30
+.lr.ph44:                                         ; preds = %._crit_edge, %33
+  %.02142 = phi ptr [ %34, %33 ], [ %23, %._crit_edge ]
+  %30 = load ptr, ptr %.02142, align 8, !tbaa !164
+  %.not25 = icmp eq ptr %30, null
+  br i1 %.not25, label %33, label %31
 
-30:                                               ; preds = %.lr.ph44
-  %31 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %31, ptr noundef nonnull %29)
-  br label %32
+31:                                               ; preds = %.lr.ph44
+  %32 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %32, ptr noundef nonnull %30)
+  br label %33
 
-32:                                               ; preds = %30, %.lr.ph44
-  %33 = getelementptr inbounds nuw i8, ptr %.02142, i64 8
-  %.not24 = icmp eq ptr %33, %23
+33:                                               ; preds = %31, %.lr.ph44
+  %34 = getelementptr inbounds nuw i8, ptr %.02142, i64 8
+  %.not24 = icmp eq ptr %34, %24
   br i1 %.not24, label %._crit_edge45, label %.lr.ph44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFlushClauseEPKN5clang14OMPFlushClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !480
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang14OMPFlushClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !480
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang14OMPFlushClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang14OMPFlushClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang14OMPFlushClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang14OMPFlushClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPFromClauseEPKN5clang13OMPFromClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !482
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPFromClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !482
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPFromClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 104
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPFromClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPFromClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPFromClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
@@ -11212,36 +11152,32 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPHasDeviceAddrClauseEPKN5clang22OMPHasDeviceAddrClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !487
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPHasDeviceAddrClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !487
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPHasDeviceAddrClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 80
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPHasDeviceAddrClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPHasDeviceAddrClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPHasDeviceAddrClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
@@ -11288,683 +11224,646 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPInRed
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(18) %8, i64 %.sroa.0.0.copyload.i68, i1 noundef zeroext false) #12
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !491
-  %15 = zext i32 %14 to i64
-  %.idx = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr120 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.not.i95 = icmp eq i32 %14, 0
-  br i1 %.not.i95, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load i32, ptr %14, align 4, !tbaa !491
+  %16 = zext i32 %15 to i64
+  %.idx = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %.not.i95 = icmp eq i32 %15, 0
+  br i1 %.not.i95, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr.ptr.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 96
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %21
+  %.0.i96 = phi ptr [ %22, %21 ], [ %13, %2 ]
+  %18 = load ptr, ptr %.0.i96, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %18, null
+  br i1 %.not11.i, label %21, label %19
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.0.i96 = phi ptr [ %21, %20 ], [ %.ptr.ptr.ptr.ptr.ptr.ptr, %.lr.ph.preheader ]
-  %17 = load ptr, ptr %.0.i96, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %17, null
-  br i1 %.not11.i, label %20, label %18
+19:                                               ; preds = %.lr.ph
+  %20 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %20, ptr noundef nonnull %18)
+  br label %21
 
-18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %19, ptr noundef nonnull %17)
-  br label %20
-
-20:                                               ; preds = %18, %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i96, i64 8
-  %.not.i = icmp eq ptr %21, %.ptr120
+21:                                               ; preds = %19, %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i96, i64 8
+  %.not.i = icmp eq ptr %22, %17
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit: ; preds = %20, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !466
-  %.not.i82 = icmp eq ptr %23, null
-  br i1 %.not.i82, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %24
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit: ; preds = %21, %2
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !466
+  %.not.i82 = icmp eq ptr %24, null
+  br i1 %.not.i82, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %25
 
-24:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit
-  %25 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %25, ptr noundef nonnull %23)
+25:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit
+  %26 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %26, ptr noundef nonnull %24)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit, %24
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !493
-  %.not.i69 = icmp eq ptr %27, null
-  br i1 %.not.i69, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %28
+_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPInReductionClauseEEEvPT_.exit, %25
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %28 = load ptr, ptr %27, align 8, !tbaa !493
+  %.not.i69 = icmp eq ptr %28, null
+  br i1 %.not.i69, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %29
 
-28:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
-  %29 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %29, ptr noundef nonnull %27)
+29:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
+  %30 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %30, ptr noundef nonnull %28)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %28
-  %30 = load i32, ptr %13, align 4, !tbaa !491
-  %31 = zext i32 %30 to i64
-  %.idx121 = shl nuw nsw i64 %31, 3
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx121
-  %.ptr122 = getelementptr inbounds nuw i8, ptr %32, i64 96
-  %33 = getelementptr inbounds nuw ptr, ptr %.ptr122, i64 %31
-  %.not97 = icmp eq i32 %30, 0
+_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %29
+  %31 = load i32, ptr %14, align 4, !tbaa !491
+  %32 = zext i32 %31 to i64
+  %.idx120 = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx120
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %.not97 = icmp eq i32 %31, 0
   br i1 %.not97, label %._crit_edge119, label %.lr.ph99
 
-._crit_edge:                                      ; preds = %41
-  %.pre = load i32, ptr %13, align 4, !tbaa !491
-  %34 = zext i32 %.pre to i64
-  %.idx123 = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx123
-  %.ptr = getelementptr inbounds nuw i8, ptr %35, i64 96
-  %36 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %34
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+._crit_edge:                                      ; preds = %42
+  %.pre = load i32, ptr %14, align 4, !tbaa !491
+  %35 = zext i32 %.pre to i64
+  %.idx121 = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx121
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %35
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
   %.not59100 = icmp eq i32 %.pre, 0
   br i1 %.not59100, label %._crit_edge119, label %.lr.ph103
 
-.lr.ph99:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %41
-  %.098 = phi ptr [ %42, %41 ], [ %.ptr122, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
-  %38 = load ptr, ptr %.098, align 8, !tbaa !164
-  %.not67 = icmp eq ptr %38, null
-  br i1 %.not67, label %41, label %39
+.lr.ph99:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %42
+  %.098 = phi ptr [ %43, %42 ], [ %33, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
+  %39 = load ptr, ptr %.098, align 8, !tbaa !164
+  %.not67 = icmp eq ptr %39, null
+  br i1 %.not67, label %42, label %40
 
-39:                                               ; preds = %.lr.ph99
-  %40 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %40, ptr noundef nonnull %38)
-  br label %41
+40:                                               ; preds = %.lr.ph99
+  %41 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %41, ptr noundef nonnull %39)
+  br label %42
 
-41:                                               ; preds = %39, %.lr.ph99
-  %42 = getelementptr inbounds nuw i8, ptr %.098, i64 8
-  %.not = icmp eq ptr %42, %33
+42:                                               ; preds = %40, %.lr.ph99
+  %43 = getelementptr inbounds nuw i8, ptr %.098, i64 8
+  %.not = icmp eq ptr %43, %34
   br i1 %.not, label %._crit_edge, label %.lr.ph99
 
-._crit_edge104:                                   ; preds = %51
-  %.pre130 = load i32, ptr %13, align 4, !tbaa !491
-  %43 = zext i32 %.pre130 to i64
-  %.idx124 = shl nuw nsw i64 %43, 3
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx124
-  %.ptr125 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %45 = getelementptr inbounds nuw ptr, ptr %.ptr125, i64 %43
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %43
-  %.not60105 = icmp eq i32 %.pre130, 0
+._crit_edge104:                                   ; preds = %52
+  %.pre125 = load i32, ptr %14, align 4, !tbaa !491
+  %44 = zext i32 %.pre125 to i64
+  %.idx122 = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx122
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
+  %.not60105 = icmp eq i32 %.pre125, 0
   br i1 %.not60105, label %._crit_edge119, label %.lr.ph108
 
-.lr.ph103:                                        ; preds = %._crit_edge, %51
-  %.050101 = phi ptr [ %52, %51 ], [ %36, %._crit_edge ]
-  %48 = load ptr, ptr %.050101, align 8, !tbaa !164
-  %.not66 = icmp eq ptr %48, null
-  br i1 %.not66, label %51, label %49
+.lr.ph103:                                        ; preds = %._crit_edge, %52
+  %.050101 = phi ptr [ %53, %52 ], [ %37, %._crit_edge ]
+  %49 = load ptr, ptr %.050101, align 8, !tbaa !164
+  %.not66 = icmp eq ptr %49, null
+  br i1 %.not66, label %52, label %50
 
-49:                                               ; preds = %.lr.ph103
-  %50 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %50, ptr noundef nonnull %48)
-  br label %51
+50:                                               ; preds = %.lr.ph103
+  %51 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %51, ptr noundef nonnull %49)
+  br label %52
 
-51:                                               ; preds = %49, %.lr.ph103
-  %52 = getelementptr inbounds nuw i8, ptr %.050101, i64 8
-  %.not59 = icmp eq ptr %52, %37
+52:                                               ; preds = %50, %.lr.ph103
+  %53 = getelementptr inbounds nuw i8, ptr %.050101, i64 8
+  %.not59 = icmp eq ptr %53, %38
   br i1 %.not59, label %._crit_edge104, label %.lr.ph103
 
-._crit_edge109:                                   ; preds = %62
-  %.pre131 = load i32, ptr %13, align 4, !tbaa !491
-  %53 = zext i32 %.pre131 to i64
-  %.idx126 = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx126
-  %.ptr127 = getelementptr inbounds nuw i8, ptr %54, i64 96
-  %55 = getelementptr inbounds nuw ptr, ptr %.ptr127, i64 %53
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %53
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
-  %.not61110 = icmp eq i32 %.pre131, 0
+._crit_edge109:                                   ; preds = %63
+  %.pre126 = load i32, ptr %14, align 4, !tbaa !491
+  %54 = zext i32 %.pre126 to i64
+  %.idx123 = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx123
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %54
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %54
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %54
+  %.not61110 = icmp eq i32 %.pre126, 0
   br i1 %.not61110, label %._crit_edge119, label %.lr.ph113
 
-.lr.ph108:                                        ; preds = %._crit_edge104, %62
-  %.052106 = phi ptr [ %63, %62 ], [ %46, %._crit_edge104 ]
-  %59 = load ptr, ptr %.052106, align 8, !tbaa !164
-  %.not65 = icmp eq ptr %59, null
-  br i1 %.not65, label %62, label %60
+.lr.ph108:                                        ; preds = %._crit_edge104, %63
+  %.052106 = phi ptr [ %64, %63 ], [ %47, %._crit_edge104 ]
+  %60 = load ptr, ptr %.052106, align 8, !tbaa !164
+  %.not65 = icmp eq ptr %60, null
+  br i1 %.not65, label %63, label %61
 
-60:                                               ; preds = %.lr.ph108
-  %61 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %61, ptr noundef nonnull %59)
-  br label %62
+61:                                               ; preds = %.lr.ph108
+  %62 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %62, ptr noundef nonnull %60)
+  br label %63
 
-62:                                               ; preds = %60, %.lr.ph108
-  %63 = getelementptr inbounds nuw i8, ptr %.052106, i64 8
-  %.not60 = icmp eq ptr %63, %47
+63:                                               ; preds = %61, %.lr.ph108
+  %64 = getelementptr inbounds nuw i8, ptr %.052106, i64 8
+  %.not60 = icmp eq ptr %64, %48
   br i1 %.not60, label %._crit_edge109, label %.lr.ph108
 
-._crit_edge114:                                   ; preds = %74
-  %.pre132 = load i32, ptr %13, align 4, !tbaa !491
-  %64 = zext i32 %.pre132 to i64
-  %.idx128 = shl nuw nsw i64 %64, 3
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx128
-  %.ptr129 = getelementptr inbounds nuw i8, ptr %65, i64 96
-  %66 = getelementptr inbounds nuw ptr, ptr %.ptr129, i64 %64
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %64
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %64
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %64
-  %.not62115 = icmp eq i32 %.pre132, 0
+._crit_edge114:                                   ; preds = %75
+  %.pre127 = load i32, ptr %14, align 4, !tbaa !491
+  %65 = zext i32 %.pre127 to i64
+  %.idx124 = shl nuw nsw i64 %65, 3
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx124
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %65
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %65
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %65
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %65
+  %.not62115 = icmp eq i32 %.pre127, 0
   br i1 %.not62115, label %._crit_edge119, label %.lr.ph118
 
-.lr.ph113:                                        ; preds = %._crit_edge109, %74
-  %.053111 = phi ptr [ %75, %74 ], [ %57, %._crit_edge109 ]
-  %71 = load ptr, ptr %.053111, align 8, !tbaa !164
-  %.not64 = icmp eq ptr %71, null
-  br i1 %.not64, label %74, label %72
+.lr.ph113:                                        ; preds = %._crit_edge109, %75
+  %.053111 = phi ptr [ %76, %75 ], [ %58, %._crit_edge109 ]
+  %72 = load ptr, ptr %.053111, align 8, !tbaa !164
+  %.not64 = icmp eq ptr %72, null
+  br i1 %.not64, label %75, label %73
 
-72:                                               ; preds = %.lr.ph113
-  %73 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %73, ptr noundef nonnull %71)
-  br label %74
+73:                                               ; preds = %.lr.ph113
+  %74 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %74, ptr noundef nonnull %72)
+  br label %75
 
-74:                                               ; preds = %72, %.lr.ph113
-  %75 = getelementptr inbounds nuw i8, ptr %.053111, i64 8
-  %.not61 = icmp eq ptr %75, %58
+75:                                               ; preds = %73, %.lr.ph113
+  %76 = getelementptr inbounds nuw i8, ptr %.053111, i64 8
+  %.not61 = icmp eq ptr %76, %59
   br i1 %.not61, label %._crit_edge114, label %.lr.ph113
 
-._crit_edge119:                                   ; preds = %79, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge104, %._crit_edge109, %._crit_edge114
+._crit_edge119:                                   ; preds = %80, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge104, %._crit_edge109, %._crit_edge114
   ret void
 
-.lr.ph118:                                        ; preds = %._crit_edge114, %79
-  %.051116 = phi ptr [ %80, %79 ], [ %69, %._crit_edge114 ]
-  %76 = load ptr, ptr %.051116, align 8, !tbaa !164
-  %.not63 = icmp eq ptr %76, null
-  br i1 %.not63, label %79, label %77
+.lr.ph118:                                        ; preds = %._crit_edge114, %80
+  %.051116 = phi ptr [ %81, %80 ], [ %70, %._crit_edge114 ]
+  %77 = load ptr, ptr %.051116, align 8, !tbaa !164
+  %.not63 = icmp eq ptr %77, null
+  br i1 %.not63, label %80, label %78
 
-77:                                               ; preds = %.lr.ph118
-  %78 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %78, ptr noundef nonnull %76)
-  br label %79
+78:                                               ; preds = %.lr.ph118
+  %79 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %79, ptr noundef nonnull %77)
+  br label %80
 
-79:                                               ; preds = %77, %.lr.ph118
-  %80 = getelementptr inbounds nuw i8, ptr %.051116, i64 8
-  %.not62 = icmp eq ptr %80, %70
+80:                                               ; preds = %78, %.lr.ph118
+  %81 = getelementptr inbounds nuw i8, ptr %.051116, i64 8
+  %.not62 = icmp eq ptr %81, %71
   br i1 %.not62, label %._crit_edge119, label %.lr.ph118
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPInclusiveClauseEPKN5clang18OMPInclusiveClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !495
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPInclusiveClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !495
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPInclusiveClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPInclusiveClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPInclusiveClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPInclusiveClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPInitClauseEPKN5clang13OMPInitClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !497
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPInitClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !497
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPInitClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPInitClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPInitClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPInitClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPIsDevicePtrClauseEPKN5clang20OMPIsDevicePtrClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !499
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPIsDevicePtrClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !499
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPIsDevicePtrClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 80
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPIsDevicePtrClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPIsDevicePtrClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPIsDevicePtrClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPLastprivateClauseEPKN5clang20OMPLastprivateClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !501
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr69 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.not.i54 = icmp eq i32 %4, 0
-  br i1 %.not.i54, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !501
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i54 = icmp eq i32 %5, 0
+  br i1 %.not.i54, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 64
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i55 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i55, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i55 = phi ptr [ %11, %10 ], [ %.ptr.ptr.ptr.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i55, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr69
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit: ; preds = %10, %2
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !466
-  %.not.i47 = icmp eq ptr %13, null
-  br i1 %.not.i47, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %14
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit: ; preds = %11, %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !466
+  %.not.i47 = icmp eq ptr %14, null
+  br i1 %.not.i47, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %15
 
-14:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit
-  %15 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %15, ptr noundef nonnull %13)
+15:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit
+  %16 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %16, ptr noundef nonnull %14)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit, %14
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !493
-  %.not.i40 = icmp eq ptr %17, null
-  br i1 %.not.i40, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %18
+_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPLastprivateClauseEEEvPT_.exit, %15
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %18 = load ptr, ptr %17, align 8, !tbaa !493
+  %.not.i40 = icmp eq ptr %18, null
+  br i1 %.not.i40, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %19
 
-18:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %19, ptr noundef nonnull %17)
+19:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
+  %20 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %20, ptr noundef nonnull %18)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %18
-  %20 = load i32, ptr %3, align 4, !tbaa !501
-  %21 = zext i32 %20 to i64
-  %.idx70 = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx70
-  %.ptr71 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %23 = getelementptr inbounds nuw ptr, ptr %.ptr71, i64 %21
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
-  %.not56 = icmp eq i32 %20, 0
+_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %19
+  %21 = load i32, ptr %4, align 4, !tbaa !501
+  %22 = zext i32 %21 to i64
+  %.idx69 = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx69
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %.not56 = icmp eq i32 %21, 0
   br i1 %.not56, label %._crit_edge68, label %.lr.ph58
 
-._crit_edge:                                      ; preds = %33
-  %.pre = load i32, ptr %3, align 4, !tbaa !501
-  %25 = zext i32 %.pre to i64
-  %.idx72 = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx72
-  %.ptr = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %27 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %25
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %25
+._crit_edge:                                      ; preds = %34
+  %.pre = load i32, ptr %4, align 4, !tbaa !501
+  %26 = zext i32 %.pre to i64
+  %.idx70 = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx70
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %26
   %.not3559 = icmp eq i32 %.pre, 0
   br i1 %.not3559, label %._crit_edge68, label %.lr.ph62
 
-.lr.ph58:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %33
-  %.057 = phi ptr [ %34, %33 ], [ %23, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
-  %30 = load ptr, ptr %.057, align 8, !tbaa !164
-  %.not39 = icmp eq ptr %30, null
-  br i1 %.not39, label %33, label %31
+.lr.ph58:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %34
+  %.057 = phi ptr [ %35, %34 ], [ %24, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
+  %31 = load ptr, ptr %.057, align 8, !tbaa !164
+  %.not39 = icmp eq ptr %31, null
+  br i1 %.not39, label %34, label %32
 
-31:                                               ; preds = %.lr.ph58
-  %32 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %32, ptr noundef nonnull %30)
-  br label %33
+32:                                               ; preds = %.lr.ph58
+  %33 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %33, ptr noundef nonnull %31)
+  br label %34
 
-33:                                               ; preds = %31, %.lr.ph58
-  %34 = getelementptr inbounds nuw i8, ptr %.057, i64 8
-  %.not = icmp eq ptr %34, %24
+34:                                               ; preds = %32, %.lr.ph58
+  %35 = getelementptr inbounds nuw i8, ptr %.057, i64 8
+  %.not = icmp eq ptr %35, %25
   br i1 %.not, label %._crit_edge, label %.lr.ph58
 
-._crit_edge63:                                    ; preds = %44
-  %.pre75 = load i32, ptr %3, align 4, !tbaa !501
-  %35 = zext i32 %.pre75 to i64
-  %.idx73 = shl nuw nsw i64 %35, 3
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx73
-  %.ptr74 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %37 = getelementptr inbounds nuw ptr, ptr %.ptr74, i64 %35
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %35
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %35
-  %.not3664 = icmp eq i32 %.pre75, 0
+._crit_edge63:                                    ; preds = %45
+  %.pre72 = load i32, ptr %4, align 4, !tbaa !501
+  %36 = zext i32 %.pre72 to i64
+  %.idx71 = shl nuw nsw i64 %36, 3
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx71
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %36
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %36
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %36
+  %.not3664 = icmp eq i32 %.pre72, 0
   br i1 %.not3664, label %._crit_edge68, label %.lr.ph67
 
-.lr.ph62:                                         ; preds = %._crit_edge, %44
-  %.03060 = phi ptr [ %45, %44 ], [ %28, %._crit_edge ]
-  %41 = load ptr, ptr %.03060, align 8, !tbaa !164
-  %.not38 = icmp eq ptr %41, null
-  br i1 %.not38, label %44, label %42
+.lr.ph62:                                         ; preds = %._crit_edge, %45
+  %.03060 = phi ptr [ %46, %45 ], [ %29, %._crit_edge ]
+  %42 = load ptr, ptr %.03060, align 8, !tbaa !164
+  %.not38 = icmp eq ptr %42, null
+  br i1 %.not38, label %45, label %43
 
-42:                                               ; preds = %.lr.ph62
-  %43 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %43, ptr noundef nonnull %41)
-  br label %44
+43:                                               ; preds = %.lr.ph62
+  %44 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %44, ptr noundef nonnull %42)
+  br label %45
 
-44:                                               ; preds = %42, %.lr.ph62
-  %45 = getelementptr inbounds nuw i8, ptr %.03060, i64 8
-  %.not35 = icmp eq ptr %45, %29
+45:                                               ; preds = %43, %.lr.ph62
+  %46 = getelementptr inbounds nuw i8, ptr %.03060, i64 8
+  %.not35 = icmp eq ptr %46, %30
   br i1 %.not35, label %._crit_edge63, label %.lr.ph62
 
-._crit_edge68:                                    ; preds = %49, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge63
+._crit_edge68:                                    ; preds = %50, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge63
   ret void
 
-.lr.ph67:                                         ; preds = %._crit_edge63, %49
-  %.03165 = phi ptr [ %50, %49 ], [ %39, %._crit_edge63 ]
-  %46 = load ptr, ptr %.03165, align 8, !tbaa !164
-  %.not37 = icmp eq ptr %46, null
-  br i1 %.not37, label %49, label %47
+.lr.ph67:                                         ; preds = %._crit_edge63, %50
+  %.03165 = phi ptr [ %51, %50 ], [ %40, %._crit_edge63 ]
+  %47 = load ptr, ptr %.03165, align 8, !tbaa !164
+  %.not37 = icmp eq ptr %47, null
+  br i1 %.not37, label %50, label %48
 
-47:                                               ; preds = %.lr.ph67
-  %48 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %48, ptr noundef nonnull %46)
-  br label %49
+48:                                               ; preds = %.lr.ph67
+  %49 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %49, ptr noundef nonnull %47)
+  br label %50
 
-49:                                               ; preds = %47, %.lr.ph67
-  %50 = getelementptr inbounds nuw i8, ptr %.03165, i64 8
-  %.not36 = icmp eq ptr %50, %40
+50:                                               ; preds = %48, %.lr.ph67
+  %51 = getelementptr inbounds nuw i8, ptr %.03165, i64 8
+  %.not36 = icmp eq ptr %51, %41
   br i1 %.not36, label %._crit_edge68, label %.lr.ph67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPLinearClauseEPKN5clang15OMPLinearClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %.ptr.ptr.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !503
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr97 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.not.i77 = icmp eq i32 %4, 0
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !503
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i77 = icmp eq i32 %5, 0
   br i1 %.not.i77, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPLinearClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %10
-  %.0.i78 = phi ptr [ %11, %10 ], [ %.ptr.ptr.ptr.ptr.ptr, %2 ]
-  %7 = load ptr, ptr %.0.i78, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i78 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i78, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i78, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr97
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i78, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPLinearClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPLinearClauseEEEvPT_.exit: ; preds = %10, %2
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !466
-  %.not.i68 = icmp eq ptr %13, null
-  br i1 %.not.i68, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %14
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPLinearClauseEEEvPT_.exit: ; preds = %11, %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !466
+  %.not.i68 = icmp eq ptr %14, null
+  br i1 %.not.i68, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %15
 
-14:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPLinearClauseEEEvPT_.exit
-  %15 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %15, ptr noundef nonnull %13)
+15:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPLinearClauseEEEvPT_.exit
+  %16 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %16, ptr noundef nonnull %14)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPLinearClauseEEEvPT_.exit, %14
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !493
-  %.not.i59 = icmp eq ptr %17, null
-  br i1 %.not.i59, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %18
+_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPLinearClauseEEEvPT_.exit, %15
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %18 = load ptr, ptr %17, align 8, !tbaa !493
+  %.not.i59 = icmp eq ptr %18, null
+  br i1 %.not.i59, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %19
 
-18:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %19, ptr noundef nonnull %17)
+19:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
+  %20 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %20, ptr noundef nonnull %18)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %18
-  %20 = load i32, ptr %3, align 4, !tbaa !503
-  %21 = zext i32 %20 to i64
-  %.idx98 = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx98
-  %.ptr99 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %23 = getelementptr inbounds nuw ptr, ptr %.ptr99, i64 %21
-  %.not79 = icmp eq i32 %20, 0
+_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %19
+  %21 = load i32, ptr %4, align 4, !tbaa !503
+  %22 = zext i32 %21 to i64
+  %.idx97 = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx97
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %.not79 = icmp eq i32 %21, 0
   br i1 %.not79, label %._crit_edge96, label %.lr.ph81
 
-._crit_edge:                                      ; preds = %31
-  %.pre = load i32, ptr %3, align 4, !tbaa !503
-  %24 = zext i32 %.pre to i64
-  %.idx100 = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx100
-  %.ptr = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %26 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %24
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
+._crit_edge:                                      ; preds = %32
+  %.pre = load i32, ptr %4, align 4, !tbaa !503
+  %25 = zext i32 %.pre to i64
+  %.idx98 = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx98
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
   %.not5082 = icmp eq i32 %.pre, 0
   br i1 %.not5082, label %._crit_edge96, label %.lr.ph85
 
-.lr.ph81:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %31
-  %.080 = phi ptr [ %32, %31 ], [ %.ptr99, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
-  %28 = load ptr, ptr %.080, align 8, !tbaa !164
-  %.not58 = icmp eq ptr %28, null
-  br i1 %.not58, label %31, label %29
+.lr.ph81:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %32
+  %.080 = phi ptr [ %33, %32 ], [ %23, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
+  %29 = load ptr, ptr %.080, align 8, !tbaa !164
+  %.not58 = icmp eq ptr %29, null
+  br i1 %.not58, label %32, label %30
 
-29:                                               ; preds = %.lr.ph81
-  %30 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %30, ptr noundef nonnull %28)
-  br label %31
+30:                                               ; preds = %.lr.ph81
+  %31 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %31, ptr noundef nonnull %29)
+  br label %32
 
-31:                                               ; preds = %29, %.lr.ph81
-  %32 = getelementptr inbounds nuw i8, ptr %.080, i64 8
-  %.not = icmp eq ptr %32, %23
+32:                                               ; preds = %30, %.lr.ph81
+  %33 = getelementptr inbounds nuw i8, ptr %.080, i64 8
+  %.not = icmp eq ptr %33, %24
   br i1 %.not, label %._crit_edge, label %.lr.ph81
 
-._crit_edge86:                                    ; preds = %41
-  %.pre105 = load i32, ptr %3, align 4, !tbaa !503
-  %33 = zext i32 %.pre105 to i64
-  %.idx101 = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx101
-  %.ptr102 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  %35 = getelementptr inbounds nuw ptr, ptr %.ptr102, i64 %33
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %33
-  %.not5187 = icmp eq i32 %.pre105, 0
+._crit_edge86:                                    ; preds = %42
+  %.pre101 = load i32, ptr %4, align 4, !tbaa !503
+  %34 = zext i32 %.pre101 to i64
+  %.idx99 = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx99
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %34
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %34
+  %.not5187 = icmp eq i32 %.pre101, 0
   br i1 %.not5187, label %._crit_edge96, label %.lr.ph90
 
-.lr.ph85:                                         ; preds = %._crit_edge, %41
-  %.04383 = phi ptr [ %42, %41 ], [ %26, %._crit_edge ]
-  %38 = load ptr, ptr %.04383, align 8, !tbaa !164
-  %.not57 = icmp eq ptr %38, null
-  br i1 %.not57, label %41, label %39
+.lr.ph85:                                         ; preds = %._crit_edge, %42
+  %.04383 = phi ptr [ %43, %42 ], [ %27, %._crit_edge ]
+  %39 = load ptr, ptr %.04383, align 8, !tbaa !164
+  %.not57 = icmp eq ptr %39, null
+  br i1 %.not57, label %42, label %40
 
-39:                                               ; preds = %.lr.ph85
-  %40 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %40, ptr noundef nonnull %38)
-  br label %41
+40:                                               ; preds = %.lr.ph85
+  %41 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %41, ptr noundef nonnull %39)
+  br label %42
 
-41:                                               ; preds = %39, %.lr.ph85
-  %42 = getelementptr inbounds nuw i8, ptr %.04383, i64 8
-  %.not50 = icmp eq ptr %42, %27
+42:                                               ; preds = %40, %.lr.ph85
+  %43 = getelementptr inbounds nuw i8, ptr %.04383, i64 8
+  %.not50 = icmp eq ptr %43, %28
   br i1 %.not50, label %._crit_edge86, label %.lr.ph85
 
-._crit_edge91:                                    ; preds = %52
-  %.pre106 = load i32, ptr %3, align 4, !tbaa !503
-  %43 = zext i32 %.pre106 to i64
-  %.idx103 = shl nuw nsw i64 %43, 3
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx103
-  %.ptr104 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  %45 = getelementptr inbounds nuw ptr, ptr %.ptr104, i64 %43
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %43
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %43
-  %.not5292 = icmp eq i32 %.pre106, 0
+._crit_edge91:                                    ; preds = %53
+  %.pre102 = load i32, ptr %4, align 4, !tbaa !503
+  %44 = zext i32 %.pre102 to i64
+  %.idx100 = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx100
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %44
+  %.not5292 = icmp eq i32 %.pre102, 0
   br i1 %.not5292, label %._crit_edge96, label %.lr.ph95
 
-.lr.ph90:                                         ; preds = %._crit_edge86, %52
-  %.04588 = phi ptr [ %53, %52 ], [ %36, %._crit_edge86 ]
-  %49 = load ptr, ptr %.04588, align 8, !tbaa !164
-  %.not56 = icmp eq ptr %49, null
-  br i1 %.not56, label %52, label %50
+.lr.ph90:                                         ; preds = %._crit_edge86, %53
+  %.04588 = phi ptr [ %54, %53 ], [ %37, %._crit_edge86 ]
+  %50 = load ptr, ptr %.04588, align 8, !tbaa !164
+  %.not56 = icmp eq ptr %50, null
+  br i1 %.not56, label %53, label %51
 
-50:                                               ; preds = %.lr.ph90
-  %51 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %51, ptr noundef nonnull %49)
-  br label %52
+51:                                               ; preds = %.lr.ph90
+  %52 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %52, ptr noundef nonnull %50)
+  br label %53
 
-52:                                               ; preds = %50, %.lr.ph90
-  %53 = getelementptr inbounds nuw i8, ptr %.04588, i64 8
-  %.not51 = icmp eq ptr %53, %37
+53:                                               ; preds = %51, %.lr.ph90
+  %54 = getelementptr inbounds nuw i8, ptr %.04588, i64 8
+  %.not51 = icmp eq ptr %54, %38
   br i1 %.not51, label %._crit_edge91, label %.lr.ph90
 
-._crit_edge96.loopexit:                           ; preds = %65
-  %.pre107 = load i32, ptr %3, align 4, !tbaa !503
-  %54 = zext i32 %.pre107 to i64
+._crit_edge96.loopexit:                           ; preds = %66
+  %.pre103 = load i32, ptr %4, align 4, !tbaa !503
+  %55 = zext i32 %.pre103 to i64
   br label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge86, %._crit_edge96.loopexit, %._crit_edge91
-  %55 = phi i64 [ %54, %._crit_edge96.loopexit ], [ 0, %._crit_edge91 ], [ 0, %._crit_edge86 ], [ 0, %._crit_edge ], [ 0, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
-  %56 = getelementptr inbounds nuw ptr, ptr %.ptr.ptr.ptr.ptr.ptr, i64 %55
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %55
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %55
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %55
-  %61 = load ptr, ptr %60, align 8, !tbaa !164
-  %.not53 = icmp eq ptr %61, null
-  br i1 %.not53, label %69, label %67
+  %56 = phi i64 [ %55, %._crit_edge96.loopexit ], [ 0, %._crit_edge91 ], [ 0, %._crit_edge86 ], [ 0, %._crit_edge ], [ 0, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
+  %57 = getelementptr inbounds nuw ptr, ptr %3, i64 %56
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %56
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %56
+  %62 = load ptr, ptr %61, align 8, !tbaa !164
+  %.not53 = icmp eq ptr %62, null
+  br i1 %.not53, label %70, label %68
 
-.lr.ph95:                                         ; preds = %._crit_edge91, %65
-  %.04493 = phi ptr [ %66, %65 ], [ %47, %._crit_edge91 ]
-  %62 = load ptr, ptr %.04493, align 8, !tbaa !164
-  %.not55 = icmp eq ptr %62, null
-  br i1 %.not55, label %65, label %63
+.lr.ph95:                                         ; preds = %._crit_edge91, %66
+  %.04493 = phi ptr [ %67, %66 ], [ %48, %._crit_edge91 ]
+  %63 = load ptr, ptr %.04493, align 8, !tbaa !164
+  %.not55 = icmp eq ptr %63, null
+  br i1 %.not55, label %66, label %64
 
-63:                                               ; preds = %.lr.ph95
-  %64 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %64, ptr noundef nonnull %62)
-  br label %65
+64:                                               ; preds = %.lr.ph95
+  %65 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %65, ptr noundef nonnull %63)
+  br label %66
 
-65:                                               ; preds = %63, %.lr.ph95
-  %66 = getelementptr inbounds nuw i8, ptr %.04493, i64 8
-  %.not52 = icmp eq ptr %66, %48
+66:                                               ; preds = %64, %.lr.ph95
+  %67 = getelementptr inbounds nuw i8, ptr %.04493, i64 8
+  %.not52 = icmp eq ptr %67, %49
   br i1 %.not52, label %._crit_edge96.loopexit, label %.lr.ph95
 
-67:                                               ; preds = %._crit_edge96
-  %68 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %68, ptr noundef nonnull %61)
-  %.pre108 = load i32, ptr %3, align 4, !tbaa !503
-  %.pre109 = zext i32 %.pre108 to i64
-  br label %69
+68:                                               ; preds = %._crit_edge96
+  %69 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %69, ptr noundef nonnull %62)
+  %.pre104 = load i32, ptr %4, align 4, !tbaa !503
+  %.pre105 = zext i32 %.pre104 to i64
+  br label %70
 
-69:                                               ; preds = %67, %._crit_edge96
-  %.pre-phi = phi i64 [ %.pre109, %67 ], [ %55, %._crit_edge96 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %.ptr.ptr.ptr.ptr.ptr, i64 %.pre-phi
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.pre-phi
+70:                                               ; preds = %68, %._crit_edge96
+  %.pre-phi = phi i64 [ %.pre105, %68 ], [ %56, %._crit_edge96 ]
+  %71 = getelementptr inbounds nuw ptr, ptr %3, i64 %.pre-phi
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.pre-phi
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.pre-phi
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.pre-phi
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !164
-  %.not54 = icmp eq ptr %76, null
-  br i1 %.not54, label %79, label %77
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %.pre-phi
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !164
+  %.not54 = icmp eq ptr %77, null
+  br i1 %.not54, label %80, label %78
 
-77:                                               ; preds = %69
-  %78 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %78, ptr noundef nonnull %76)
-  br label %79
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %79, ptr noundef nonnull %77)
+  br label %80
 
-79:                                               ; preds = %77, %69
+80:                                               ; preds = %78, %70
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler17VisitOMPMapClauseEPKN5clang12OMPMapClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !505
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang12OMPMapClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !505
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang12OMPMapClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 144
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang12OMPMapClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang12OMPMapClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang12OMPMapClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
@@ -11998,48 +11897,43 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPNontemporalClauseEPKN5clang20OMPNontemporalClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.clang::ConstStmtIterator", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !509
-  %6 = zext i32 %5 to i64
-  %.idx = shl nuw nsw i64 %6, 3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.not.i13 = icmp eq i32 %5, 0
-  br i1 %.not.i13, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit.thread, label %.lr.ph.preheader
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = load i32, ptr %5, align 4, !tbaa !509
+  %7 = zext i32 %6 to i64
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %.not.i13 = icmp eq i32 %6, 0
+  br i1 %.not.i13, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit.thread, label %.lr.ph
 
 _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit.thread: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
   br label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %12
+  %.0.i14 = phi ptr [ %13, %12 ], [ %4, %2 ]
+  %9 = load ptr, ptr %.0.i14, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %9, null
+  br i1 %.not11.i, label %12, label %10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
-  %.0.i14 = phi ptr [ %12, %11 ], [ %.ptr.ptr, %.lr.ph.preheader ]
-  %8 = load ptr, ptr %.0.i14, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %8, null
-  br i1 %.not11.i, label %11, label %9
+10:                                               ; preds = %.lr.ph
+  %11 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %11, ptr noundef nonnull %9)
+  br label %12
 
-9:                                                ; preds = %.lr.ph
-  %10 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
-  br label %11
-
-11:                                               ; preds = %9, %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 8
-  %.not.i = icmp eq ptr %12, %.ptr17
+12:                                               ; preds = %10, %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 8
+  %.not.i = icmp eq ptr %13, %8
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit: ; preds = %11
-  %.pre = load i32, ptr %4, align 4, !tbaa !509, !noalias !511
-  %13 = zext i32 %.pre to i64
-  %.idx18 = shl nuw nsw i64 %13, 3
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx18
-  %.ptr19 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %15 = getelementptr inbounds nuw ptr, ptr %.ptr19, i64 %13
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit: ; preds = %12
+  %.pre = load i32, ptr %5, align 4, !tbaa !509, !noalias !511
+  %14 = zext i32 %.pre to i64
+  %.idx17 = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx17
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  store ptr %.ptr19, ptr %3, align 8
+  store ptr %15, ptr %3, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %.sroa.48.0..sroa_idx, align 8
   %.not = icmp eq i32 %.pre, 0
@@ -12050,50 +11944,50 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontempora
   ret void
 
 .lr.ph16:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
-  %16 = phi i64 [ %35, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ 0, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit ]
-  %17 = phi ptr [ %33, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %.ptr19, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit ]
-  %18 = and i64 %16, 3
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %20
+  %17 = phi i64 [ %36, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ 0, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit ]
+  %18 = phi ptr [ %34, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %15, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPNontemporalClauseEEEvPT_.exit ]
+  %19 = and i64 %17, 3
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %21
 
-20:                                               ; preds = %.lr.ph16
-  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+21:                                               ; preds = %.lr.ph16
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph16, %20
-  %.in.i = phi ptr [ %21, %20 ], [ %17, %.lr.ph16 ]
-  %22 = load ptr, ptr %.in.i, align 8, !tbaa !168
-  %23 = load ptr, ptr %0, align 8, !tbaa !338
-  call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %23, ptr noundef %22)
-  %24 = load i64, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !386
-  %25 = and i64 %24, 3
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %30
+_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph16, %21
+  %.in.i = phi ptr [ %22, %21 ], [ %18, %.lr.ph16 ]
+  %23 = load ptr, ptr %.in.i, align 8, !tbaa !168
+  %24 = load ptr, ptr %0, align 8, !tbaa !338
+  call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %24, ptr noundef %23)
+  %25 = load i64, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !386
+  %26 = and i64 %25, 3
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %28 = load ptr, ptr %3, align 8, !tbaa !35
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %29, ptr %3, align 8, !tbaa !35
+28:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %29 = load ptr, ptr %3, align 8, !tbaa !35
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %30, ptr %3, align 8, !tbaa !35
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-30:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %.not.i6 = icmp ult i64 %24, 4
-  br i1 %.not.i6, label %32, label %31
+31:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %.not.i6 = icmp ult i64 %25, 4
+  br i1 %.not.i6, label %33, label %32
 
-31:                                               ; preds = %30
+32:                                               ; preds = %31
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext true) #12
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %27, %31, %32
-  %33 = load ptr, ptr %3, align 8, !tbaa !35
-  %34 = icmp ne ptr %33, %15
-  %35 = load i64, ptr %.sroa.48.0..sroa_idx, align 8
-  %36 = icmp ne i64 %35, 0
-  %.not3.i = select i1 %34, i1 true, i1 %36
+_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %28, %32, %33
+  %34 = load ptr, ptr %3, align 8, !tbaa !35
+  %35 = icmp ne ptr %34, %16
+  %36 = load i64, ptr %.sroa.48.0..sroa_idx, align 8
+  %37 = icmp ne i64 %36, 0
+  %.not3.i = select i1 %35, i1 true, i1 %37
   br i1 %.not3.i, label %.lr.ph16, label %._crit_edge
 }
 
@@ -12153,47 +12047,43 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTeamsClauseEPKN5clang17OMPNumTeamsClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !521
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr6 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.not.i4 = icmp eq i32 %4, 0
-  br i1 %.not.i4, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !521
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i4 = icmp eq i32 %5, 0
+  br i1 %.not.i4, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i5 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i5, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i5 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i5, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr6
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit: ; preds = %10, %2
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !466
-  %.not.i3 = icmp eq ptr %13, null
-  br i1 %.not.i3, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %14
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit: ; preds = %11, %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !466
+  %.not.i3 = icmp eq ptr %14, null
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %15
 
-14:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit
-  %15 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %15, ptr noundef nonnull %13)
+15:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit
+  %16 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %16, ptr noundef nonnull %14)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit, %14
+_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPNumTeamsClauseEEEvPT_.exit, %15
   ret void
 }
 
@@ -12253,36 +12143,32 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPPermutationClauseEPKN5clang20OMPPermutationClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !527
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not13 = icmp eq i32 %4, 0
-  br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !527
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not13 = icmp eq i32 %5, 0
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %10, %2
+._crit_edge:                                      ; preds = %11, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.014 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.014, align 8, !tbaa !164
-  %.not11 = icmp eq ptr %7, null
-  br i1 %.not11, label %10, label %8
+.lr.ph:                                           ; preds = %2, %11
+  %.014 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.014, align 8, !tbaa !164
+  %.not11 = icmp eq ptr %8, null
+  br i1 %.not11, label %11, label %9
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.014, i64 8
-  %.not = icmp eq ptr %11, %.ptr15
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -12315,62 +12201,57 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPPrivateClauseEPKN5clang16OMPPrivateClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !531
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr22 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not.i17 = icmp eq i32 %4, 0
-  br i1 %.not.i17, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !531
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i17 = icmp eq i32 %5, 0
+  br i1 %.not.i17, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i18 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i18, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i18 = phi ptr [ %11, %10 ], [ %.ptr.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i18, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr22
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit: ; preds = %10
-  %.pre = load i32, ptr %3, align 4, !tbaa !531
-  %12 = zext i32 %.pre to i64
-  %.idx23 = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx23
-  %.ptr24 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %14 = getelementptr inbounds nuw ptr, ptr %.ptr24, i64 %12
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit: ; preds = %11
+  %.pre = load i32, ptr %4, align 4, !tbaa !531
+  %13 = zext i32 %.pre to i64
+  %.idx22 = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx22
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %.not19 = icmp eq i32 %.pre, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph21
 
-._crit_edge:                                      ; preds = %18, %2, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit
+._crit_edge:                                      ; preds = %19, %2, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit
   ret void
 
-.lr.ph21:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit, %18
-  %.020 = phi ptr [ %19, %18 ], [ %.ptr24, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit ]
-  %15 = load ptr, ptr %.020, align 8, !tbaa !164
-  %.not12 = icmp eq ptr %15, null
-  br i1 %.not12, label %18, label %16
+.lr.ph21:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit, %19
+  %.020 = phi ptr [ %20, %19 ], [ %14, %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateClauseEEEvPT_.exit ]
+  %16 = load ptr, ptr %.020, align 8, !tbaa !164
+  %.not12 = icmp eq ptr %16, null
+  br i1 %.not12, label %19, label %17
 
-16:                                               ; preds = %.lr.ph21
-  %17 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %17, ptr noundef nonnull %15)
-  br label %18
+17:                                               ; preds = %.lr.ph21
+  %18 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %18, ptr noundef nonnull %16)
+  br label %19
 
-18:                                               ; preds = %16, %.lr.ph21
-  %19 = getelementptr inbounds nuw i8, ptr %.020, i64 8
-  %.not = icmp eq ptr %19, %14
+19:                                               ; preds = %17, %.lr.ph21
+  %20 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %.not = icmp eq ptr %20, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph21
 }
 
@@ -12390,267 +12271,256 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPReduc
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(18) %8, i64 %.sroa.0.0.copyload.i95, i1 noundef zeroext false) #12
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !533
-  %15 = zext i32 %14 to i64
-  %.idx = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr164 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  %.not.i130 = icmp eq i32 %14, 0
-  br i1 %.not.i130, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load i32, ptr %14, align 4, !tbaa !533
+  %16 = zext i32 %15 to i64
+  %.idx = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %.not.i130 = icmp eq i32 %15, 0
+  br i1 %.not.i130, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 104
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %21
+  %.0.i131 = phi ptr [ %22, %21 ], [ %13, %2 ]
+  %18 = load ptr, ptr %.0.i131, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %18, null
+  br i1 %.not11.i, label %21, label %19
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.0.i131 = phi ptr [ %21, %20 ], [ %.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr, %.lr.ph.preheader ]
-  %17 = load ptr, ptr %.0.i131, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %17, null
-  br i1 %.not11.i, label %20, label %18
+19:                                               ; preds = %.lr.ph
+  %20 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %20, ptr noundef nonnull %18)
+  br label %21
 
-18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %19, ptr noundef nonnull %17)
-  br label %20
-
-20:                                               ; preds = %18, %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i131, i64 8
-  %.not.i = icmp eq ptr %21, %.ptr164
+21:                                               ; preds = %19, %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i131, i64 8
+  %.not.i = icmp eq ptr %22, %17
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit: ; preds = %20, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !466
-  %.not.i113 = icmp eq ptr %23, null
-  br i1 %.not.i113, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %24
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit: ; preds = %21, %2
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !466
+  %.not.i113 = icmp eq ptr %24, null
+  br i1 %.not.i113, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %25
 
-24:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit
-  %25 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %25, ptr noundef nonnull %23)
+25:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit
+  %26 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %26, ptr noundef nonnull %24)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit, %24
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !493
-  %.not.i96 = icmp eq ptr %27, null
-  br i1 %.not.i96, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %28
+_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPReductionClauseEEEvPT_.exit, %25
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %28 = load ptr, ptr %27, align 8, !tbaa !493
+  %.not.i96 = icmp eq ptr %28, null
+  br i1 %.not.i96, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %29
 
-28:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
-  %29 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %29, ptr noundef nonnull %27)
+29:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
+  %30 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %30, ptr noundef nonnull %28)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %28
-  %30 = load i32, ptr %13, align 4, !tbaa !533
-  %31 = zext i32 %30 to i64
-  %.idx165 = shl nuw nsw i64 %31, 3
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx165
-  %.ptr166 = getelementptr inbounds nuw i8, ptr %32, i64 104
-  %33 = getelementptr inbounds nuw ptr, ptr %.ptr166, i64 %31
-  %.not132 = icmp eq i32 %30, 0
+_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %29
+  %31 = load i32, ptr %14, align 4, !tbaa !533
+  %32 = zext i32 %31 to i64
+  %.idx164 = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx164
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %.not132 = icmp eq i32 %31, 0
   br i1 %.not132, label %._crit_edge149, label %.lr.ph134
 
-._crit_edge:                                      ; preds = %41
-  %.pre = load i32, ptr %13, align 4, !tbaa !533
-  %34 = zext i32 %.pre to i64
-  %.idx167 = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx167
-  %.ptr = getelementptr inbounds nuw i8, ptr %35, i64 104
-  %36 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %34
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+._crit_edge:                                      ; preds = %42
+  %.pre = load i32, ptr %14, align 4, !tbaa !533
+  %35 = zext i32 %.pre to i64
+  %.idx165 = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx165
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %35
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
   %.not82135 = icmp eq i32 %.pre, 0
   br i1 %.not82135, label %._crit_edge149, label %.lr.ph138
 
-.lr.ph134:                                        ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %41
-  %.0133 = phi ptr [ %42, %41 ], [ %.ptr166, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
-  %38 = load ptr, ptr %.0133, align 8, !tbaa !164
-  %.not94 = icmp eq ptr %38, null
-  br i1 %.not94, label %41, label %39
+.lr.ph134:                                        ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %42
+  %.0133 = phi ptr [ %43, %42 ], [ %33, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
+  %39 = load ptr, ptr %.0133, align 8, !tbaa !164
+  %.not94 = icmp eq ptr %39, null
+  br i1 %.not94, label %42, label %40
 
-39:                                               ; preds = %.lr.ph134
-  %40 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %40, ptr noundef nonnull %38)
-  br label %41
+40:                                               ; preds = %.lr.ph134
+  %41 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %41, ptr noundef nonnull %39)
+  br label %42
 
-41:                                               ; preds = %39, %.lr.ph134
-  %42 = getelementptr inbounds nuw i8, ptr %.0133, i64 8
-  %.not = icmp eq ptr %42, %33
+42:                                               ; preds = %40, %.lr.ph134
+  %43 = getelementptr inbounds nuw i8, ptr %.0133, i64 8
+  %.not = icmp eq ptr %43, %34
   br i1 %.not, label %._crit_edge, label %.lr.ph134
 
-._crit_edge139:                                   ; preds = %51
-  %.pre178 = load i32, ptr %13, align 4, !tbaa !533
-  %43 = zext i32 %.pre178 to i64
-  %.idx168 = shl nuw nsw i64 %43, 3
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx168
-  %.ptr169 = getelementptr inbounds nuw i8, ptr %44, i64 104
-  %45 = getelementptr inbounds nuw ptr, ptr %.ptr169, i64 %43
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %43
-  %.not83140 = icmp eq i32 %.pre178, 0
+._crit_edge139:                                   ; preds = %52
+  %.pre171 = load i32, ptr %14, align 4, !tbaa !533
+  %44 = zext i32 %.pre171 to i64
+  %.idx166 = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx166
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
+  %.not83140 = icmp eq i32 %.pre171, 0
   br i1 %.not83140, label %._crit_edge149, label %.lr.ph143
 
-.lr.ph138:                                        ; preds = %._crit_edge, %51
-  %.069136 = phi ptr [ %52, %51 ], [ %36, %._crit_edge ]
-  %48 = load ptr, ptr %.069136, align 8, !tbaa !164
-  %.not93 = icmp eq ptr %48, null
-  br i1 %.not93, label %51, label %49
+.lr.ph138:                                        ; preds = %._crit_edge, %52
+  %.069136 = phi ptr [ %53, %52 ], [ %37, %._crit_edge ]
+  %49 = load ptr, ptr %.069136, align 8, !tbaa !164
+  %.not93 = icmp eq ptr %49, null
+  br i1 %.not93, label %52, label %50
 
-49:                                               ; preds = %.lr.ph138
-  %50 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %50, ptr noundef nonnull %48)
-  br label %51
+50:                                               ; preds = %.lr.ph138
+  %51 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %51, ptr noundef nonnull %49)
+  br label %52
 
-51:                                               ; preds = %49, %.lr.ph138
-  %52 = getelementptr inbounds nuw i8, ptr %.069136, i64 8
-  %.not82 = icmp eq ptr %52, %37
+52:                                               ; preds = %50, %.lr.ph138
+  %53 = getelementptr inbounds nuw i8, ptr %.069136, i64 8
+  %.not82 = icmp eq ptr %53, %38
   br i1 %.not82, label %._crit_edge139, label %.lr.ph138
 
-._crit_edge144:                                   ; preds = %62
-  %.pre179 = load i32, ptr %13, align 4, !tbaa !533
-  %53 = zext i32 %.pre179 to i64
-  %.idx170 = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx170
-  %.ptr171 = getelementptr inbounds nuw i8, ptr %54, i64 104
-  %55 = getelementptr inbounds nuw ptr, ptr %.ptr171, i64 %53
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %53
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
-  %.not84145 = icmp eq i32 %.pre179, 0
+._crit_edge144:                                   ; preds = %63
+  %.pre172 = load i32, ptr %14, align 4, !tbaa !533
+  %54 = zext i32 %.pre172 to i64
+  %.idx167 = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx167
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %54
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %54
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %54
+  %.not84145 = icmp eq i32 %.pre172, 0
   br i1 %.not84145, label %._crit_edge149, label %.lr.ph148
 
-.lr.ph143:                                        ; preds = %._crit_edge139, %62
-  %.071141 = phi ptr [ %63, %62 ], [ %46, %._crit_edge139 ]
-  %59 = load ptr, ptr %.071141, align 8, !tbaa !164
-  %.not92 = icmp eq ptr %59, null
-  br i1 %.not92, label %62, label %60
+.lr.ph143:                                        ; preds = %._crit_edge139, %63
+  %.071141 = phi ptr [ %64, %63 ], [ %47, %._crit_edge139 ]
+  %60 = load ptr, ptr %.071141, align 8, !tbaa !164
+  %.not92 = icmp eq ptr %60, null
+  br i1 %.not92, label %63, label %61
 
-60:                                               ; preds = %.lr.ph143
-  %61 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %61, ptr noundef nonnull %59)
-  br label %62
+61:                                               ; preds = %.lr.ph143
+  %62 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %62, ptr noundef nonnull %60)
+  br label %63
 
-62:                                               ; preds = %60, %.lr.ph143
-  %63 = getelementptr inbounds nuw i8, ptr %.071141, i64 8
-  %.not83 = icmp eq ptr %63, %47
+63:                                               ; preds = %61, %.lr.ph143
+  %64 = getelementptr inbounds nuw i8, ptr %.071141, i64 8
+  %.not83 = icmp eq ptr %64, %48
   br i1 %.not83, label %._crit_edge144, label %.lr.ph143
 
-._crit_edge149:                                   ; preds = %70, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge139, %._crit_edge144
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %65 = load i32, ptr %64, align 8, !tbaa !535
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %72, label %.loopexit
+._crit_edge149:                                   ; preds = %71, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge139, %._crit_edge144
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %66 = load i32, ptr %65, align 8, !tbaa !535
+  %67 = icmp eq i32 %66, 1
+  br i1 %67, label %73, label %.loopexit
 
-.lr.ph148:                                        ; preds = %._crit_edge144, %70
-  %.072146 = phi ptr [ %71, %70 ], [ %57, %._crit_edge144 ]
-  %67 = load ptr, ptr %.072146, align 8, !tbaa !164
-  %.not91 = icmp eq ptr %67, null
-  br i1 %.not91, label %70, label %68
+.lr.ph148:                                        ; preds = %._crit_edge144, %71
+  %.072146 = phi ptr [ %72, %71 ], [ %58, %._crit_edge144 ]
+  %68 = load ptr, ptr %.072146, align 8, !tbaa !164
+  %.not91 = icmp eq ptr %68, null
+  br i1 %.not91, label %71, label %69
 
-68:                                               ; preds = %.lr.ph148
-  %69 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %69, ptr noundef nonnull %67)
-  br label %70
+69:                                               ; preds = %.lr.ph148
+  %70 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %70, ptr noundef nonnull %68)
+  br label %71
 
-70:                                               ; preds = %68, %.lr.ph148
-  %71 = getelementptr inbounds nuw i8, ptr %.072146, i64 8
-  %.not84 = icmp eq ptr %71, %58
+71:                                               ; preds = %69, %.lr.ph148
+  %72 = getelementptr inbounds nuw i8, ptr %.072146, i64 8
+  %.not84 = icmp eq ptr %72, %59
   br i1 %.not84, label %._crit_edge149, label %.lr.ph148
 
-72:                                               ; preds = %._crit_edge149
-  %73 = load i32, ptr %13, align 4, !tbaa !533
-  %74 = zext i32 %73 to i64
-  %.idx172 = shl nuw nsw i64 %74, 3
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx172
-  %.ptr173 = getelementptr inbounds nuw i8, ptr %75, i64 104
-  %76 = getelementptr inbounds nuw ptr, ptr %.ptr173, i64 %74
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %74
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %74
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %74
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %74
-  %.not85150 = icmp eq i32 %73, 0
+73:                                               ; preds = %._crit_edge149
+  %74 = load i32, ptr %14, align 4, !tbaa !533
+  %75 = zext i32 %74 to i64
+  %.idx168 = shl nuw nsw i64 %75, 3
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx168
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %75
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %75
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %75
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %75
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %75
+  %.not85150 = icmp eq i32 %74, 0
   br i1 %.not85150, label %.loopexit, label %.lr.ph153
 
-._crit_edge154:                                   ; preds = %92
-  %.pre180 = load i32, ptr %13, align 4, !tbaa !533
-  %81 = zext i32 %.pre180 to i64
-  %.idx174 = shl nuw nsw i64 %81, 3
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx174
-  %.ptr175 = getelementptr inbounds nuw i8, ptr %82, i64 104
-  %83 = getelementptr inbounds nuw ptr, ptr %.ptr175, i64 %81
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %81
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %81
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %81
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %81
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %81
-  %.not86155 = icmp eq i32 %.pre180, 0
+._crit_edge154:                                   ; preds = %93
+  %.pre173 = load i32, ptr %14, align 4, !tbaa !533
+  %82 = zext i32 %.pre173 to i64
+  %.idx169 = shl nuw nsw i64 %82, 3
+  %83 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx169
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %82
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %82
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %82
+  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %82
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %82
+  %.not86155 = icmp eq i32 %.pre173, 0
   br i1 %.not86155, label %.loopexit, label %.lr.ph158
 
-.lr.ph153:                                        ; preds = %72, %92
-  %.073151 = phi ptr [ %93, %92 ], [ %79, %72 ]
-  %89 = load ptr, ptr %.073151, align 8, !tbaa !164
-  %.not90 = icmp eq ptr %89, null
-  br i1 %.not90, label %92, label %90
+.lr.ph153:                                        ; preds = %73, %93
+  %.073151 = phi ptr [ %94, %93 ], [ %80, %73 ]
+  %90 = load ptr, ptr %.073151, align 8, !tbaa !164
+  %.not90 = icmp eq ptr %90, null
+  br i1 %.not90, label %93, label %91
 
-90:                                               ; preds = %.lr.ph153
-  %91 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %91, ptr noundef nonnull %89)
-  br label %92
+91:                                               ; preds = %.lr.ph153
+  %92 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %92, ptr noundef nonnull %90)
+  br label %93
 
-92:                                               ; preds = %90, %.lr.ph153
-  %93 = getelementptr inbounds nuw i8, ptr %.073151, i64 8
-  %.not85 = icmp eq ptr %93, %80
+93:                                               ; preds = %91, %.lr.ph153
+  %94 = getelementptr inbounds nuw i8, ptr %.073151, i64 8
+  %.not85 = icmp eq ptr %94, %81
   br i1 %.not85, label %._crit_edge154, label %.lr.ph153
 
-._crit_edge159:                                   ; preds = %106
-  %.pre181 = load i32, ptr %13, align 4, !tbaa !533
-  %94 = zext i32 %.pre181 to i64
-  %.idx176 = shl nuw nsw i64 %94, 3
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx176
-  %.ptr177 = getelementptr inbounds nuw i8, ptr %95, i64 104
-  %96 = getelementptr inbounds nuw ptr, ptr %.ptr177, i64 %94
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %94
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %94
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %94
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %94
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %94
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %94
-  %.not87160 = icmp eq i32 %.pre181, 0
+._crit_edge159:                                   ; preds = %107
+  %.pre174 = load i32, ptr %14, align 4, !tbaa !533
+  %95 = zext i32 %.pre174 to i64
+  %.idx170 = shl nuw nsw i64 %95, 3
+  %96 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx170
+  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %95
+  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %95
+  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %95
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %95
+  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %95
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %95
+  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %95
+  %.not87160 = icmp eq i32 %.pre174, 0
   br i1 %.not87160, label %.loopexit, label %.lr.ph163
 
-.lr.ph158:                                        ; preds = %._crit_edge154, %106
-  %.074156 = phi ptr [ %107, %106 ], [ %87, %._crit_edge154 ]
-  %103 = load ptr, ptr %.074156, align 8, !tbaa !164
-  %.not89 = icmp eq ptr %103, null
-  br i1 %.not89, label %106, label %104
+.lr.ph158:                                        ; preds = %._crit_edge154, %107
+  %.074156 = phi ptr [ %108, %107 ], [ %88, %._crit_edge154 ]
+  %104 = load ptr, ptr %.074156, align 8, !tbaa !164
+  %.not89 = icmp eq ptr %104, null
+  br i1 %.not89, label %107, label %105
 
-104:                                              ; preds = %.lr.ph158
-  %105 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %105, ptr noundef nonnull %103)
-  br label %106
+105:                                              ; preds = %.lr.ph158
+  %106 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %106, ptr noundef nonnull %104)
+  br label %107
 
-106:                                              ; preds = %104, %.lr.ph158
-  %107 = getelementptr inbounds nuw i8, ptr %.074156, i64 8
-  %.not86 = icmp eq ptr %107, %88
+107:                                              ; preds = %105, %.lr.ph158
+  %108 = getelementptr inbounds nuw i8, ptr %.074156, i64 8
+  %.not86 = icmp eq ptr %108, %89
   br i1 %.not86, label %._crit_edge159, label %.lr.ph158
 
-.lr.ph163:                                        ; preds = %._crit_edge159, %111
-  %.070161 = phi ptr [ %112, %111 ], [ %101, %._crit_edge159 ]
-  %108 = load ptr, ptr %.070161, align 8, !tbaa !164
-  %.not88 = icmp eq ptr %108, null
-  br i1 %.not88, label %111, label %109
+.lr.ph163:                                        ; preds = %._crit_edge159, %112
+  %.070161 = phi ptr [ %113, %112 ], [ %102, %._crit_edge159 ]
+  %109 = load ptr, ptr %.070161, align 8, !tbaa !164
+  %.not88 = icmp eq ptr %109, null
+  br i1 %.not88, label %112, label %110
 
-109:                                              ; preds = %.lr.ph163
-  %110 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %110, ptr noundef nonnull %108)
-  br label %111
+110:                                              ; preds = %.lr.ph163
+  %111 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %111, ptr noundef nonnull %109)
+  br label %112
 
-111:                                              ; preds = %109, %.lr.ph163
-  %112 = getelementptr inbounds nuw i8, ptr %.070161, i64 8
-  %.not87 = icmp eq ptr %112, %102
+112:                                              ; preds = %110, %.lr.ph163
+  %113 = getelementptr inbounds nuw i8, ptr %.070161, i64 8
+  %.not87 = icmp eq ptr %113, %103
   br i1 %.not87, label %.loopexit, label %.lr.ph163
 
-.loopexit:                                        ; preds = %111, %72, %._crit_edge154, %._crit_edge159, %._crit_edge149
+.loopexit:                                        ; preds = %112, %73, %._crit_edge154, %._crit_edge159, %._crit_edge149
   ret void
 }
 
@@ -12683,71 +12553,63 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPSharedClauseEPKN5clang15OMPSharedClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !541
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPSharedClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !541
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPSharedClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPSharedClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPSharedClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPSharedClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPSizesClauseEPKN5clang14OMPSizesClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !543
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.not13 = icmp eq i32 %4, 0
-  br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !543
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not13 = icmp eq i32 %5, 0
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %10, %2
+._crit_edge:                                      ; preds = %11, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.014 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.014, align 8, !tbaa !164
-  %.not11 = icmp eq ptr %7, null
-  br i1 %.not11, label %10, label %8
+.lr.ph:                                           ; preds = %2, %11
+  %.014 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.014, align 8, !tbaa !164
+  %.not11 = icmp eq ptr %8, null
+  br i1 %.not11, label %11, label %9
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.014, i64 8
-  %.not = icmp eq ptr %11, %.ptr15
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -12767,319 +12629,295 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPTaskR
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(18) %8, i64 %.sroa.0.0.copyload.i55, i1 noundef zeroext false) #12
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !545
-  %15 = zext i32 %14 to i64
-  %.idx = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr98 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.not.i78 = icmp eq i32 %14, 0
-  br i1 %.not.i78, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load i32, ptr %14, align 4, !tbaa !545
+  %16 = zext i32 %15 to i64
+  %.idx = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %.not.i78 = icmp eq i32 %15, 0
+  br i1 %.not.i78, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr.ptr.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 96
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %21
+  %.0.i79 = phi ptr [ %22, %21 ], [ %13, %2 ]
+  %18 = load ptr, ptr %.0.i79, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %18, null
+  br i1 %.not11.i, label %21, label %19
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.0.i79 = phi ptr [ %21, %20 ], [ %.ptr.ptr.ptr.ptr.ptr, %.lr.ph.preheader ]
-  %17 = load ptr, ptr %.0.i79, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %17, null
-  br i1 %.not11.i, label %20, label %18
+19:                                               ; preds = %.lr.ph
+  %20 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %20, ptr noundef nonnull %18)
+  br label %21
 
-18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %19, ptr noundef nonnull %17)
-  br label %20
-
-20:                                               ; preds = %18, %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i79, i64 8
-  %.not.i = icmp eq ptr %21, %.ptr98
+21:                                               ; preds = %19, %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i79, i64 8
+  %.not.i = icmp eq ptr %22, %17
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit: ; preds = %20, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !466
-  %.not.i67 = icmp eq ptr %23, null
-  br i1 %.not.i67, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %24
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit: ; preds = %21, %2
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !466
+  %.not.i67 = icmp eq ptr %24, null
+  br i1 %.not.i67, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %25
 
-24:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit
-  %25 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %25, ptr noundef nonnull %23)
+25:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit
+  %26 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %26, ptr noundef nonnull %24)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit, %24
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !493
-  %.not.i56 = icmp eq ptr %27, null
-  br i1 %.not.i56, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %28
+_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPTaskReductionClauseEEEvPT_.exit, %25
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %28 = load ptr, ptr %27, align 8, !tbaa !493
+  %.not.i56 = icmp eq ptr %28, null
+  br i1 %.not.i56, label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, label %29
 
-28:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
-  %29 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %29, ptr noundef nonnull %27)
+29:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
+  %30 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %30, ptr noundef nonnull %28)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %28
-  %30 = load i32, ptr %13, align 4, !tbaa !545
-  %31 = zext i32 %30 to i64
-  %.idx99 = shl nuw nsw i64 %31, 3
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx99
-  %.ptr100 = getelementptr inbounds nuw i8, ptr %32, i64 96
-  %33 = getelementptr inbounds nuw ptr, ptr %.ptr100, i64 %31
-  %.not80 = icmp eq i32 %30, 0
+_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, %29
+  %31 = load i32, ptr %14, align 4, !tbaa !545
+  %32 = zext i32 %31 to i64
+  %.idx98 = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx98
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %.not80 = icmp eq i32 %31, 0
   br i1 %.not80, label %._crit_edge97, label %.lr.ph82
 
-._crit_edge:                                      ; preds = %41
-  %.pre = load i32, ptr %13, align 4, !tbaa !545
-  %34 = zext i32 %.pre to i64
-  %.idx101 = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx101
-  %.ptr = getelementptr inbounds nuw i8, ptr %35, i64 96
-  %36 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %34
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+._crit_edge:                                      ; preds = %42
+  %.pre = load i32, ptr %14, align 4, !tbaa !545
+  %35 = zext i32 %.pre to i64
+  %.idx99 = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx99
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %35
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
   %.not4883 = icmp eq i32 %.pre, 0
   br i1 %.not4883, label %._crit_edge97, label %.lr.ph86
 
-.lr.ph82:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %41
-  %.081 = phi ptr [ %42, %41 ], [ %.ptr100, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
-  %38 = load ptr, ptr %.081, align 8, !tbaa !164
-  %.not54 = icmp eq ptr %38, null
-  br i1 %.not54, label %41, label %39
+.lr.ph82:                                         ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %42
+  %.081 = phi ptr [ %43, %42 ], [ %33, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit ]
+  %39 = load ptr, ptr %.081, align 8, !tbaa !164
+  %.not54 = icmp eq ptr %39, null
+  br i1 %.not54, label %42, label %40
 
-39:                                               ; preds = %.lr.ph82
-  %40 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %40, ptr noundef nonnull %38)
-  br label %41
+40:                                               ; preds = %.lr.ph82
+  %41 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %41, ptr noundef nonnull %39)
+  br label %42
 
-41:                                               ; preds = %39, %.lr.ph82
-  %42 = getelementptr inbounds nuw i8, ptr %.081, i64 8
-  %.not = icmp eq ptr %42, %33
+42:                                               ; preds = %40, %.lr.ph82
+  %43 = getelementptr inbounds nuw i8, ptr %.081, i64 8
+  %.not = icmp eq ptr %43, %34
   br i1 %.not, label %._crit_edge, label %.lr.ph82
 
-._crit_edge87:                                    ; preds = %51
-  %.pre106 = load i32, ptr %13, align 4, !tbaa !545
-  %43 = zext i32 %.pre106 to i64
-  %.idx102 = shl nuw nsw i64 %43, 3
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx102
-  %.ptr103 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %45 = getelementptr inbounds nuw ptr, ptr %.ptr103, i64 %43
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %43
-  %.not4988 = icmp eq i32 %.pre106, 0
+._crit_edge87:                                    ; preds = %52
+  %.pre102 = load i32, ptr %14, align 4, !tbaa !545
+  %44 = zext i32 %.pre102 to i64
+  %.idx100 = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx100
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
+  %.not4988 = icmp eq i32 %.pre102, 0
   br i1 %.not4988, label %._crit_edge97, label %.lr.ph91
 
-.lr.ph86:                                         ; preds = %._crit_edge, %51
-  %.04184 = phi ptr [ %52, %51 ], [ %36, %._crit_edge ]
-  %48 = load ptr, ptr %.04184, align 8, !tbaa !164
-  %.not53 = icmp eq ptr %48, null
-  br i1 %.not53, label %51, label %49
+.lr.ph86:                                         ; preds = %._crit_edge, %52
+  %.04184 = phi ptr [ %53, %52 ], [ %37, %._crit_edge ]
+  %49 = load ptr, ptr %.04184, align 8, !tbaa !164
+  %.not53 = icmp eq ptr %49, null
+  br i1 %.not53, label %52, label %50
 
-49:                                               ; preds = %.lr.ph86
-  %50 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %50, ptr noundef nonnull %48)
-  br label %51
+50:                                               ; preds = %.lr.ph86
+  %51 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %51, ptr noundef nonnull %49)
+  br label %52
 
-51:                                               ; preds = %49, %.lr.ph86
-  %52 = getelementptr inbounds nuw i8, ptr %.04184, i64 8
-  %.not48 = icmp eq ptr %52, %37
+52:                                               ; preds = %50, %.lr.ph86
+  %53 = getelementptr inbounds nuw i8, ptr %.04184, i64 8
+  %.not48 = icmp eq ptr %53, %38
   br i1 %.not48, label %._crit_edge87, label %.lr.ph86
 
-._crit_edge92:                                    ; preds = %62
-  %.pre107 = load i32, ptr %13, align 4, !tbaa !545
-  %53 = zext i32 %.pre107 to i64
-  %.idx104 = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx104
-  %.ptr105 = getelementptr inbounds nuw i8, ptr %54, i64 96
-  %55 = getelementptr inbounds nuw ptr, ptr %.ptr105, i64 %53
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %53
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
-  %.not5093 = icmp eq i32 %.pre107, 0
+._crit_edge92:                                    ; preds = %63
+  %.pre103 = load i32, ptr %14, align 4, !tbaa !545
+  %54 = zext i32 %.pre103 to i64
+  %.idx101 = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx101
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %54
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %54
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %54
+  %.not5093 = icmp eq i32 %.pre103, 0
   br i1 %.not5093, label %._crit_edge97, label %.lr.ph96
 
-.lr.ph91:                                         ; preds = %._crit_edge87, %62
-  %.04389 = phi ptr [ %63, %62 ], [ %46, %._crit_edge87 ]
-  %59 = load ptr, ptr %.04389, align 8, !tbaa !164
-  %.not52 = icmp eq ptr %59, null
-  br i1 %.not52, label %62, label %60
+.lr.ph91:                                         ; preds = %._crit_edge87, %63
+  %.04389 = phi ptr [ %64, %63 ], [ %47, %._crit_edge87 ]
+  %60 = load ptr, ptr %.04389, align 8, !tbaa !164
+  %.not52 = icmp eq ptr %60, null
+  br i1 %.not52, label %63, label %61
 
-60:                                               ; preds = %.lr.ph91
-  %61 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %61, ptr noundef nonnull %59)
-  br label %62
+61:                                               ; preds = %.lr.ph91
+  %62 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %62, ptr noundef nonnull %60)
+  br label %63
 
-62:                                               ; preds = %60, %.lr.ph91
-  %63 = getelementptr inbounds nuw i8, ptr %.04389, i64 8
-  %.not49 = icmp eq ptr %63, %47
+63:                                               ; preds = %61, %.lr.ph91
+  %64 = getelementptr inbounds nuw i8, ptr %.04389, i64 8
+  %.not49 = icmp eq ptr %64, %48
   br i1 %.not49, label %._crit_edge92, label %.lr.ph91
 
-._crit_edge97:                                    ; preds = %67, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge87, %._crit_edge92
+._crit_edge97:                                    ; preds = %68, %_ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMPClauseWithPostUpdateE.exit, %._crit_edge, %._crit_edge87, %._crit_edge92
   ret void
 
-.lr.ph96:                                         ; preds = %._crit_edge92, %67
-  %.04294 = phi ptr [ %68, %67 ], [ %57, %._crit_edge92 ]
-  %64 = load ptr, ptr %.04294, align 8, !tbaa !164
-  %.not51 = icmp eq ptr %64, null
-  br i1 %.not51, label %67, label %65
+.lr.ph96:                                         ; preds = %._crit_edge92, %68
+  %.04294 = phi ptr [ %69, %68 ], [ %58, %._crit_edge92 ]
+  %65 = load ptr, ptr %.04294, align 8, !tbaa !164
+  %.not51 = icmp eq ptr %65, null
+  br i1 %.not51, label %68, label %66
 
-65:                                               ; preds = %.lr.ph96
-  %66 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %66, ptr noundef nonnull %64)
-  br label %67
+66:                                               ; preds = %.lr.ph96
+  %67 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %67, ptr noundef nonnull %65)
+  br label %68
 
-67:                                               ; preds = %65, %.lr.ph96
-  %68 = getelementptr inbounds nuw i8, ptr %.04294, i64 8
-  %.not50 = icmp eq ptr %68, %58
+68:                                               ; preds = %66, %.lr.ph96
+  %69 = getelementptr inbounds nuw i8, ptr %.04294, i64 8
+  %.not50 = icmp eq ptr %69, %59
   br i1 %.not50, label %._crit_edge97, label %.lr.ph96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPThreadLimitClauseEPKN5clang20OMPThreadLimitClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !547
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr6 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.not.i4 = icmp eq i32 %4, 0
-  br i1 %.not.i4, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !547
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i4 = icmp eq i32 %5, 0
+  br i1 %.not.i4, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i5 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i5, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i5 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i5, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr6
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit: ; preds = %10, %2
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !466
-  %.not.i3 = icmp eq ptr %13, null
-  br i1 %.not.i3, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %14
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit: ; preds = %11, %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !466
+  %.not.i3 = icmp eq ptr %14, null
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit, label %15
 
-14:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit
-  %15 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %15, ptr noundef nonnull %13)
+15:                                               ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit
+  %16 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %16, ptr noundef nonnull %14)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit, %14
+_ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPClauseWithPreInitE.exit: ; preds = %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPThreadLimitClauseEEEvPT_.exit, %15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPToClauseEPKN5clang11OMPToClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !549
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang11OMPToClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !549
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang11OMPToClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 104
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang11OMPToClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang11OMPToClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang11OMPToClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPUseDeviceAddrClauseEPKN5clang22OMPUseDeviceAddrClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !551
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPUseDeviceAddrClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !551
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPUseDeviceAddrClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 80
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPUseDeviceAddrClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPUseDeviceAddrClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPUseDeviceAddrClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPUseDevicePtrClauseEPKN5clang21OMPUseDevicePtrClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 4, !tbaa !553
-  %5 = zext i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %.not.i2 = icmp eq i32 %4, 0
-  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPUseDevicePtrClauseEEEvPT_.exit, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 4, !tbaa !553
+  %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not.i2 = icmp eq i32 %5, 0
+  br i1 %.not.i2, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPUseDevicePtrClauseEEEvPT_.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 80
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %2, %11
+  %.0.i3 = phi ptr [ %12, %11 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.0.i3, align 8, !tbaa !164
+  %.not11.i = icmp eq ptr %8, null
+  br i1 %.not11.i, label %11, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.0.i3 = phi ptr [ %11, %10 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.0.i3, align 8, !tbaa !164
-  %.not11.i = icmp eq ptr %7, null
-  br i1 %.not11.i, label %10, label %8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8, !tbaa !338
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %8)
+  br label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8, !tbaa !338
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %9, ptr noundef nonnull %7)
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
-  %.not.i = icmp eq ptr %11, %.ptr4
+11:                                               ; preds = %9, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
+  %.not.i = icmp eq ptr %12, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPUseDevicePtrClauseEEEvPT_.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPUseDevicePtrClauseEEEvPT_.exit: ; preds = %10, %2
+_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPUseDevicePtrClauseEEEvPT_.exit: ; preds = %11, %2
   ret void
 }
 

@@ -278,15 +278,15 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZNK5folly5RangeIPK
 _ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69:   ; preds = %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit, %49
   %bcmp.i.i68 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %17, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
   %.not209 = icmp eq i32 %bcmp.i.i68, 0
-  br i1 %.not209, label %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit, label %.critedge
+  br i1 %.not209, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i, label %.critedge
 
-_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit:        ; preds = %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69
+_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i:         ; preds = %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69
   %50 = getelementptr i8, ptr %20, i64 -1
   %lhsc = load i8, ptr %50, align 1
   %51 = icmp eq i8 %lhsc, 41
   br i1 %51, label %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit.thread139, label %.critedge
 
-_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit.thread139: ; preds = %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit
+_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit.thread139: ; preds = %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 9
   store ptr %52, ptr %5, align 8, !tbaa !18
   %53 = icmp eq i64 %19, 9
@@ -303,9 +303,9 @@ _ZN5folly5RangeIPKcE8subtractEm.exit:             ; preds = %_ZNK5folly5RangeIPK
   store ptr %50, ptr %18, align 8, !tbaa !20
   br label %.critedge
 
-.critedge:                                        ; preds = %49, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69, %_ZN5folly5RangeIPKcE8subtractEm.exit, %_ZN5folly5RangeIPKcE7advanceEm.exit, %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit
-  %.sroa.43.0.copyload.i = phi ptr [ %20, %49 ], [ %20, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69 ], [ %50, %_ZN5folly5RangeIPKcE8subtractEm.exit ], [ %20, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %20, %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit ]
-  %.sroa.02.0.copyload.i = phi ptr [ %17, %49 ], [ %17, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69 ], [ %52, %_ZN5folly5RangeIPKcE8subtractEm.exit ], [ %46, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %17, %_ZNK5folly5RangeIPKcE8endsWithERKS3_.exit ]
+.critedge:                                        ; preds = %49, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69, %_ZN5folly5RangeIPKcE8subtractEm.exit, %_ZN5folly5RangeIPKcE7advanceEm.exit, %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i
+  %.sroa.43.0.copyload.i = phi ptr [ %20, %49 ], [ %20, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69 ], [ %50, %_ZN5folly5RangeIPKcE8subtractEm.exit ], [ %20, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %20, %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i ]
+  %.sroa.02.0.copyload.i = phi ptr [ %17, %49 ], [ %17, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit69 ], [ %52, %_ZN5folly5RangeIPKcE8subtractEm.exit ], [ %46, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %17, %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i ]
   %55 = ptrtoint ptr %.sroa.43.0.copyload.i to i64
   %56 = ptrtoint ptr %.sroa.02.0.copyload.i to i64
   %57 = sub i64 %55, %56

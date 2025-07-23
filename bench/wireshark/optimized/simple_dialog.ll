@@ -3056,9 +3056,9 @@ _ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i: ; preds = %_
   %77 = getelementptr i8, ptr %76, i64 16
   %78 = icmp ne i32 %.01042, 0
   %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 16), align 8
-  %.idx3.i.i = shl i64 %79, 4
-  %80 = getelementptr i8, ptr %75, i64 %.idx3.i.i
-  %.not.i.i.i39 = icmp eq ptr %77, %80
+  %.idx4.i.i = shl i64 %79, 4
+  %80 = add nsw i64 %.idx.i.i, 16
+  %.not.i.i.i39 = icmp eq i64 %80, %.idx4.i.i
   %or.cond.i.i.i = select i1 %78, i1 true, i1 %.not.i.i.i39
   br i1 %or.cond.i.i.i, label %._crit_edge.i.i.i, label %81
 
@@ -3070,8 +3070,7 @@ _ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i: ; preds = %_
   br i1 %.not.i.i.i39, label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit, label %82
 
 82:                                               ; preds = %._crit_edge.i.i.i
-  %reass.sub = sub i64 %.idx3.i.i, %.idx.i.i
-  %gepdiff.i.i = add i64 %reass.sub, -16
+  %gepdiff.i.i = sub i64 %.idx4.i.i, %80
   call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %76, ptr noundef align 1 %77, i64 noundef %gepdiff.i.i, i1 noundef false) #25
   %.pre14.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 16), align 8
   br label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit

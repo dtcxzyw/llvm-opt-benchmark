@@ -360,9 +360,9 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %22, %25
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
   %29 = zext i32 %1 to i64
-  %.ptr = getelementptr i8, ptr %.0.i.i.i, i64 112
-  %30 = shl nuw nsw i64 %29, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.ptr, i8 0, i64 %30, i1 false), !tbaa !39
+  %30 = getelementptr i8, ptr %.0.i.i.i, i64 112
+  %31 = shl nuw nsw i64 %29, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %31, i1 false), !tbaa !39
   br label %_ZSt18uninitialized_fillIPPN5clang4StmtES2_EvT_S4_RKT0_.exit
 
 _ZSt18uninitialized_fillIPPN5clang4StmtES2_EvT_S4_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZNK5clang10ASTContext8AllocateEmj.exit

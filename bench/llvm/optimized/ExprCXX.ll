@@ -8984,9 +8984,9 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %22, %25
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
   %30 = zext i32 %29 to i64
-  %.ptr = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %.idx = shl nuw nsw i64 %30, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %.idx, i1 false), !tbaa !27
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %.idx, i1 false), !tbaa !27
   br label %_ZSt18uninitialized_fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit
 
 _ZSt18uninitialized_fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit, %.lr.ph.preheader.i.i.i.i.i
@@ -9039,21 +9039,21 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %27, %24
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %32 = zext i32 %31 to i64
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %.idx.i = shl nuw nsw i64 %32, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr.i, i8 0, i64 %.idx.i, i1 false), !tbaa !27
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %33, i8 0, i64 %.idx.i, i1 false), !tbaa !27
   br label %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit
 
 _ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %.lr.ph.preheader.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit, label %33
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit, label %34
 
-33:                                               ; preds = %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr align 8 %3, i64 %7, i1 false)
+34:                                               ; preds = %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %3, i64 %7, i1 false)
   br label %_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit
 
-_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit: ; preds = %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit, %33
+_ZSt18uninitialized_copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit: ; preds = %_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEj.exit, %34
   ret ptr %.0.i.i.i.i
 }
 

@@ -17504,38 +17504,34 @@ if.then.i:                                        ; preds = %if.end.i.i.i.i, %_Z
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then.i
+  %add.ptr.i.i.i5 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %size_.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %size_.i, align 8
   %add.ptr.i.idx = shl nsw i64 %10, 3
-  %11 = getelementptr i8, ptr %8, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %11, i64 16
+  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i5, i64 %add.ptr.i.idx
   %cmp.not8 = icmp eq i64 %10, 0
-  br i1 %cmp.not8, label %return, label %for.body.preheader
+  br i1 %cmp.not8, label %return, label %for.body
 
-for.body.preheader:                               ; preds = %if.end
-  %add.ptr.i.i.i5.ptr = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %if.end8
-  %__begin2.09 = phi ptr [ %incdec.ptr, %if.end8 ], [ %add.ptr.i.i.i5.ptr, %for.body.preheader ]
-  %12 = load ptr, ptr %__begin2.09, align 8
-  %call5 = tail call fastcc { i64, i8 } @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder5buildEPKNS_6parser9JSONValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %12)
-  %13 = extractvalue { i64, i8 } %call5, 1
-  %tobool.i = trunc i8 %13 to i1
+for.body:                                         ; preds = %if.end, %if.end8
+  %__begin2.09 = phi ptr [ %incdec.ptr, %if.end8 ], [ %add.ptr.i.i.i5, %if.end ]
+  %11 = load ptr, ptr %__begin2.09, align 8
+  %call5 = tail call fastcc { i64, i8 } @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder5buildEPKNS_6parser9JSONValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %11)
+  %12 = extractvalue { i64, i8 } %call5, 1
+  %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %for.body
-  %14 = extractvalue { i64, i8 } %call5, 0
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load ptr, ptr %result, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %13 = extractvalue { i64, i8 } %call5, 0
+  %14 = inttoptr i64 %13 to ptr
+  %15 = load ptr, ptr %result, align 8
+  %Next2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %result, ptr %Next2.i.i.i.i.i, align 8
-  store ptr %16, ptr %15, align 8
-  %Next2.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %15, ptr %Next2.i7.i.i.i.i, align 8
-  store ptr %15, ptr %result, align 8
+  store ptr %15, ptr %14, align 8
+  %Next2.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %14, ptr %Next2.i7.i.i.i.i, align 8
+  store ptr %14, ptr %result, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.09, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %for.body, %if.end8, %if.end, %if.then.i

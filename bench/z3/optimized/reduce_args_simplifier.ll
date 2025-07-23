@@ -4906,94 +4906,93 @@ _Z11is_uninterpPK4expr.exit.thread:               ; preds = %8, %_Z11is_uninterp
   br i1 %.not27.i.i, label %.lr.ph, label %.lr.ph39.i.i, !llvm.loop !253
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i, %47, %.lr.ph39.i.i, %.preheader.i.i
-  %49 = zext i32 %17 to i64
-  %.idx = shl nuw nsw i64 %49, 3
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr23 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %54
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %50 = zext i32 %17 to i64
+  %.idx = shl nuw nsw i64 %50, 3
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %55
 
-52:                                               ; preds = %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
-  %53 = getelementptr inbounds nuw i8, ptr %.01422, i64 8
-  %.not = icmp eq ptr %53, %.ptr23
-  br i1 %.not, label %.critedge, label %54
+53:                                               ; preds = %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
+  %54 = getelementptr inbounds nuw i8, ptr %.01422, i64 8
+  %.not = icmp eq ptr %54, %51
+  br i1 %.not, label %.critedge, label %55
 
-54:                                               ; preds = %.lr.ph, %52
-  %.01422 = phi ptr [ %.ptr, %.lr.ph ], [ %53, %52 ]
-  %55 = load ptr, ptr %.01422, align 8, !tbaa !87
-  %56 = load ptr, ptr %0, align 8, !tbaa !254
-  %57 = load ptr, ptr %51, align 8, !tbaa !255
-  %58 = tail call noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %56, ptr noundef %55)
-  br i1 %58, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %59
+55:                                               ; preds = %.lr.ph, %53
+  %.01422 = phi ptr [ %49, %.lr.ph ], [ %54, %53 ]
+  %56 = load ptr, ptr %.01422, align 8, !tbaa !87
+  %57 = load ptr, ptr %0, align 8, !tbaa !254
+  %58 = load ptr, ptr %52, align 8, !tbaa !255
+  %59 = tail call noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %57, ptr noundef %56)
+  br i1 %59, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %60
 
-59:                                               ; preds = %54
-  %60 = load i32, ptr %57, align 4, !tbaa !256
-  %61 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 65535
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
+60:                                               ; preds = %55
+  %61 = load i32, ptr %58, align 4, !tbaa !256
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %63 = load i32, ptr %62, align 4
+  %64 = and i32 %63, 65535
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !244
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !245
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %69, null
+66:                                               ; preds = %60
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !244
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load ptr, ptr %69, align 8, !tbaa !245
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit, label %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i
 
-_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i: ; preds = %65
-  %70 = load i32, ptr %69, align 8, !tbaa !246
-  %71 = icmp eq i32 %70, %60
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, 4
-  %75 = select i1 %71, i1 %74, i1 false
-  br i1 %75, label %76, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
+_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i: ; preds = %66
+  %71 = load i32, ptr %70, align 8, !tbaa !246
+  %72 = icmp eq i32 %71, %61
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp eq i32 %74, 4
+  %76 = select i1 %72, i1 %75, i1 false
+  br i1 %76, label %77, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
 
-76:                                               ; preds = %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %78 = load i32, ptr %77, align 8, !tbaa !231
-  %79 = icmp eq i32 %78, 2
-  br i1 %79, label %80, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
+77:                                               ; preds = %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %79 = load i32, ptr %78, align 8, !tbaa !231
+  %80 = icmp eq i32 %79, 2
+  br i1 %80, label %81, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %82 = load ptr, ptr %81, align 8, !tbaa !87
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %84 = load ptr, ptr %83, align 8, !tbaa !87
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, 65535
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %83 = load ptr, ptr %82, align 8, !tbaa !87
+  %84 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %85 = load ptr, ptr %84, align 8, !tbaa !87
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %87 = load i32, ptr %86, align 4
+  %88 = and i32 %87, 65535
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
 
-89:                                               ; preds = %80
-  %90 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !244
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %93 = load ptr, ptr %92, align 8, !tbaa !245
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %93, null
+90:                                               ; preds = %81
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %92 = load ptr, ptr %91, align 8, !tbaa !244
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %94 = load ptr, ptr %93, align 8, !tbaa !245
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit, label %_ZNK14bv_recognizers10is_numeralEPK4expr.exit.i.i.i
 
-_ZNK14bv_recognizers10is_numeralEPK4expr.exit.i.i.i: ; preds = %89
-  %94 = load i32, ptr %93, align 8, !tbaa !246
-  %95 = icmp eq i32 %94, %60
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp eq i32 %97, 0
-  %99 = select i1 %95, i1 %98, i1 false
-  %cond.fr.i.i.i = freeze i1 %99
-  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, ptr %84, ptr %55
+_ZNK14bv_recognizers10is_numeralEPK4expr.exit.i.i.i: ; preds = %90
+  %95 = load i32, ptr %94, align 8, !tbaa !246
+  %96 = icmp eq i32 %95, %61
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp eq i32 %98, 0
+  %100 = select i1 %96, i1 %99, i1 false
+  %cond.fr.i.i.i = freeze i1 %100
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, ptr %85, ptr %56
   br label %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit
 
-_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit: ; preds = %59, %65, %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i, %76, %80, %89, %_ZNK14bv_recognizers10is_numeralEPK4expr.exit.i.i.i
-  %storemerge.i.i.i = phi ptr [ %55, %76 ], [ %55, %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i ], [ %55, %59 ], [ %55, %65 ], [ %55, %80 ], [ %55, %89 ], [ %spec.select.i.i.i, %_ZNK14bv_recognizers10is_numeralEPK4expr.exit.i.i.i ]
-  %100 = tail call noundef zeroext i1 @_Z13has_free_varsP4expr(ptr noundef %storemerge.i.i.i)
-  br i1 %100, label %52, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
+_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit: ; preds = %60, %66, %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i, %77, %81, %90, %_ZNK14bv_recognizers10is_numeralEPK4expr.exit.i.i.i
+  %storemerge.i.i.i = phi ptr [ %56, %77 ], [ %56, %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i.i.i.i ], [ %56, %60 ], [ %56, %66 ], [ %56, %81 ], [ %56, %90 ], [ %spec.select.i.i.i, %_ZNK14bv_recognizers10is_numeralEPK4expr.exit.i.i.i ]
+  %101 = tail call noundef zeroext i1 @_Z13has_free_varsP4expr(ptr noundef %storemerge.i.i.i)
+  br i1 %101, label %53, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
 
-.critedge:                                        ; preds = %52
+.critedge:                                        ; preds = %53
   %.pre = load ptr, ptr %20, align 8, !tbaa !250
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr %10, ptr %3, align 8, !tbaa !131
@@ -5001,7 +5000,7 @@ _ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   br label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
 
-_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %34, %42, %54, %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit, %2, %.critedge, %_Z11is_uninterpPK4expr.exit.thread, %_Z11is_uninterpPK4expr.exit
+_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %34, %42, %55, %_ZN22reduce_args_simplifier13may_be_uniqueER11ast_managerR7bv_utilP4expr.exit, %2, %.critedge, %_Z11is_uninterpPK4expr.exit.thread, %_Z11is_uninterpPK4expr.exit
   ret void
 }
 

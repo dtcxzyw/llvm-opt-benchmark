@@ -4018,12 +4018,12 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i297:        ; preds = %.noexc302, %._crit_
   %596 = load ptr, ptr %10, align 8, !tbaa !79
   %597 = zext i32 %594 to i64
   %598 = getelementptr i8, ptr %596, i64 %597
-  %.012.i.i.ptr = getelementptr i8, ptr %598, i64 -1
+  %.012.i.i = getelementptr i8, ptr %598, i64 -1
   %599 = getelementptr inbounds nuw i8, ptr %596, i64 2
   br label %.lr.ph.i.i305
 
 .lr.ph.i.i305:                                    ; preds = %.lr.ph.i.i305.preheader, %.lr.ph.i.i305
-  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i305 ], [ %.012.i.i.ptr, %.lr.ph.i.i305.preheader ]
+  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i305 ], [ %.012.i.i, %.lr.ph.i.i305.preheader ]
   %.0913.i.i = phi ptr [ %602, %.lr.ph.i.i305 ], [ %599, %.lr.ph.i.i305.preheader ]
   %600 = load i8, ptr %.0913.i.i, align 1, !tbaa !12
   %601 = load i8, ptr %.014.i.i, align 1, !tbaa !12

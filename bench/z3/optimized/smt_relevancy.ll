@@ -418,102 +418,101 @@ define linkonce_odr hidden void @_ZN3smt24relevancy_propagator_imp22propagate_re
   %5 = tail call noundef i32 @_ZNK3smt7context15find_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %4, ptr noundef %1)
   switch i32 %5, label %.critedge [
     i32 -1, label %6
-    i32 1, label %37
+    i32 1, label %38
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !6
-  %9 = zext i32 %8 to i64
-  %.idx = shl nuw nsw i64 %9, 3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr41 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.not38 = icmp eq i32 %8, 0
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = load i32, ptr %8, align 8, !tbaa !6
+  %10 = zext i32 %9 to i64
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %.not38 = icmp eq i32 %9, 0
   br i1 %.not38, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %31
-  %.040 = phi ptr [ null, %.lr.ph ], [ %.3.ph, %31 ]
-  %.02439 = phi ptr [ %.ptr, %.lr.ph ], [ %32, %31 ]
-  %13 = load ptr, ptr %.02439, align 8, !tbaa !15
-  %14 = load ptr, ptr %3, align 8, !tbaa !28
-  %15 = tail call noundef i32 @_ZNK3smt7context15find_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %14, ptr noundef %13)
-  %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %31
+13:                                               ; preds = %.lr.ph, %32
+  %.040 = phi ptr [ null, %.lr.ph ], [ %.3.ph, %32 ]
+  %.02439 = phi ptr [ %7, %.lr.ph ], [ %33, %32 ]
+  %14 = load ptr, ptr %.02439, align 8, !tbaa !15
+  %15 = load ptr, ptr %3, align 8, !tbaa !28
+  %16 = tail call noundef i32 @_ZNK3smt7context15find_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %15, ptr noundef %14)
+  %17 = icmp eq i32 %16, -1
+  br i1 %17, label %18, label %32
 
-17:                                               ; preds = %12
-  %18 = load i32, ptr %13, align 4, !tbaa !530
-  %19 = lshr i32 %18, 5
-  %20 = load ptr, ptr %11, align 8, !tbaa !531
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
+18:                                               ; preds = %13
+  %19 = load i32, ptr %14, align 4, !tbaa !530
+  %20 = lshr i32 %19, 5
+  %21 = load ptr, ptr %12, align 8, !tbaa !531
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
 
-_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %20, i64 -4
-  %23 = load i32, ptr %22, align 4, !tbaa !532
-  %24 = icmp ult i32 %19, %23
-  br i1 %24, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %21, i64 -4
+  %24 = load i32, ptr %23, align 4, !tbaa !532
+  %25 = icmp ult i32 %20, %24
+  br i1 %25, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread
 
 _ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
-  %25 = zext nneg i32 %19 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %20, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !532
-  %28 = and i32 %18, 31
-  %29 = shl nuw i32 1, %28
-  %30 = and i32 %27, %29
-  %.not35 = icmp eq i32 %30, 0
+  %26 = zext nneg i32 %20 to i64
+  %27 = getelementptr inbounds nuw i32, ptr %21, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !532
+  %29 = and i32 %19, 31
+  %30 = shl nuw i32 1, %29
+  %31 = and i32 %28, %30
+  %.not35 = icmp eq i32 %31, 0
   br i1 %.not35, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, label %.critedge
 
-_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread: ; preds = %17, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit
+_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread: ; preds = %18, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit
   %.not25 = icmp eq ptr %.040, null
-  %spec.select = select i1 %.not25, ptr %13, ptr %.040
-  br label %31
+  %spec.select = select i1 %.not25, ptr %14, ptr %.040
+  br label %32
 
-31:                                               ; preds = %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, %12
-  %.3.ph = phi ptr [ %spec.select, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread ], [ %.040, %12 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
-  %.not = icmp eq ptr %32, %.ptr41
-  br i1 %.not, label %._crit_edge, label %12
+32:                                               ; preds = %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, %13
+  %.3.ph = phi ptr [ %spec.select, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread ], [ %.040, %13 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
+  %.not = icmp eq ptr %33, %11
+  br i1 %.not, label %._crit_edge, label %13
 
-._crit_edge:                                      ; preds = %31
+._crit_edge:                                      ; preds = %32
   %.not26 = icmp eq ptr %.3.ph, null
-  br i1 %.not26, label %.critedge, label %33
+  br i1 %.not26, label %.critedge, label %34
 
-33:                                               ; preds = %._crit_edge
-  %34 = load ptr, ptr %0, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.3.ph)
+34:                                               ; preds = %._crit_edge
+  %35 = load ptr, ptr %0, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.3.ph)
   br label %.critedge
 
-37:                                               ; preds = %2
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %39 = load i32, ptr %38, align 8, !tbaa !6
-  %.not5.i = icmp eq i32 %39, 0
+38:                                               ; preds = %2
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %40 = load i32, ptr %39, align 8, !tbaa !6
+  %.not5.i = icmp eq i32 %40, 0
   br i1 %.not5.i, label %.critedge, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = zext i32 %39 to i64
-  br label %42
+.lr.ph.i:                                         ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %42 = zext i32 %40 to i64
+  br label %43
 
-42:                                               ; preds = %42, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %41, %.lr.ph.i ], [ %43, %42 ]
-  %43 = add nsw i64 %indvars.iv.i, -1
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !15
-  %46 = load ptr, ptr %0, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %45)
-  %.not.wide.i = icmp eq i64 %43, 0
-  br i1 %.not.wide.i, label %.critedge, label %42, !llvm.loop !533
+43:                                               ; preds = %43, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %42, %.lr.ph.i ], [ %44, %43 ]
+  %44 = add nsw i64 %indvars.iv.i, -1
+  %45 = getelementptr inbounds nuw [0 x ptr], ptr %41, i64 0, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !15
+  %47 = load ptr, ptr %0, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %46)
+  %.not.wide.i = icmp eq i64 %44, 0
+  br i1 %.not.wide.i, label %.critedge, label %43, !llvm.loop !533
 
-.critedge:                                        ; preds = %42, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit, %6, %37, %33, %._crit_edge, %2
+.critedge:                                        ; preds = %43, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit, %6, %38, %34, %._crit_edge, %2
   ret void
 }
 
@@ -571,75 +570,74 @@ define linkonce_odr hidden void @_ZN3smt24relevancy_propagator_imp21propagate_re
   br i1 %.not.wide.i, label %.critedge, label %11, !llvm.loop !533
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !6
-  %21 = zext i32 %20 to i64
-  %.idx = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr42 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %.not39 = icmp eq i32 %20, 0
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %21 = load i32, ptr %20, align 8, !tbaa !6
+  %22 = zext i32 %21 to i64
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
+  %.not39 = icmp eq i32 %21, 0
   br i1 %.not39, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %25
 
-24:                                               ; preds = %.lr.ph, %43
-  %.041 = phi ptr [ null, %.lr.ph ], [ %.3.ph, %43 ]
-  %.02540 = phi ptr [ %.ptr, %.lr.ph ], [ %44, %43 ]
-  %25 = load ptr, ptr %.02540, align 8, !tbaa !15
-  %26 = load ptr, ptr %3, align 8, !tbaa !28
-  %27 = tail call noundef i32 @_ZNK3smt7context15find_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %26, ptr noundef %25)
-  %28 = icmp eq i32 %27, 1
-  br i1 %28, label %29, label %43
+25:                                               ; preds = %.lr.ph, %44
+  %.041 = phi ptr [ null, %.lr.ph ], [ %.3.ph, %44 ]
+  %.02540 = phi ptr [ %19, %.lr.ph ], [ %45, %44 ]
+  %26 = load ptr, ptr %.02540, align 8, !tbaa !15
+  %27 = load ptr, ptr %3, align 8, !tbaa !28
+  %28 = tail call noundef i32 @_ZNK3smt7context15find_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %27, ptr noundef %26)
+  %29 = icmp eq i32 %28, 1
+  br i1 %29, label %30, label %44
 
-29:                                               ; preds = %24
-  %30 = load i32, ptr %25, align 4, !tbaa !530
-  %31 = lshr i32 %30, 5
-  %32 = load ptr, ptr %23, align 8, !tbaa !531
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
+30:                                               ; preds = %25
+  %31 = load i32, ptr %26, align 4, !tbaa !530
+  %32 = lshr i32 %31, 5
+  %33 = load ptr, ptr %24, align 8, !tbaa !531
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
 
-_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %32, i64 -4
-  %35 = load i32, ptr %34, align 4, !tbaa !532
-  %36 = icmp ult i32 %31, %35
-  br i1 %36, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %30
+  %35 = getelementptr inbounds i8, ptr %33, i64 -4
+  %36 = load i32, ptr %35, align 4, !tbaa !532
+  %37 = icmp ult i32 %32, %36
+  br i1 %37, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread
 
 _ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
-  %37 = zext nneg i32 %31 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !532
-  %40 = and i32 %30, 31
-  %41 = shl nuw i32 1, %40
-  %42 = and i32 %39, %41
-  %.not36 = icmp eq i32 %42, 0
+  %38 = zext nneg i32 %32 to i64
+  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !532
+  %41 = and i32 %31, 31
+  %42 = shl nuw i32 1, %41
+  %43 = and i32 %40, %42
+  %.not36 = icmp eq i32 %43, 0
   br i1 %.not36, label %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, label %.critedge
 
-_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread: ; preds = %29, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit
+_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread: ; preds = %30, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit
   %.not26 = icmp eq ptr %.041, null
-  %spec.select = select i1 %.not26, ptr %25, ptr %.041
-  br label %43
+  %spec.select = select i1 %.not26, ptr %26, ptr %.041
+  br label %44
 
-43:                                               ; preds = %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, %24
-  %.3.ph = phi ptr [ %spec.select, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread ], [ %.041, %24 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.02540, i64 8
-  %.not = icmp eq ptr %44, %.ptr42
-  br i1 %.not, label %._crit_edge, label %24
+44:                                               ; preds = %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, %25
+  %.3.ph = phi ptr [ %spec.select, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread ], [ %.041, %25 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.02540, i64 8
+  %.not = icmp eq ptr %45, %23
+  br i1 %.not, label %._crit_edge, label %25
 
-._crit_edge:                                      ; preds = %43
+._crit_edge:                                      ; preds = %44
   %.not27 = icmp eq ptr %.3.ph, null
-  br i1 %.not27, label %.critedge, label %45
+  br i1 %.not27, label %.critedge, label %46
 
-45:                                               ; preds = %._crit_edge
-  %46 = load ptr, ptr %0, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.3.ph)
+46:                                               ; preds = %._crit_edge
+  %47 = load ptr, ptr %0, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.3.ph)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit, %11, %18, %6, %45, %._crit_edge, %2
+.critedge:                                        ; preds = %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit, %11, %18, %6, %46, %._crit_edge, %2
   ret void
 }
 

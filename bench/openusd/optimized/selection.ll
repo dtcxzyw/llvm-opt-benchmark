@@ -3411,28 +3411,28 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelectionC2ER
   %7 = phi i1 [ false, %2 ], [ true, %20 ]
   %8 = phi i64 [ 0, %2 ], [ 1, %20 ]
   %.idx = mul nuw nsw i64 %8, 56
-  %.add9 = add nuw nsw i64 %.idx, 8
-  %.ptr7.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.add9
+  %.add8 = add nuw nsw i64 %.idx, 8
+  %.ptr11 = getelementptr inbounds nuw i8, ptr %0, i64 %.add8
   %9 = getelementptr inbounds nuw [2 x %"class.std::unordered_map"], ptr %4, i64 0, i64 %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr null, ptr %.ptr7.ptr, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %.ptr7.ptr, i64 8
+  store ptr null, ptr %.ptr11, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %.ptr7.ptr, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 16
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.ptr7.ptr, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.ptr7.ptr, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
-  %19 = getelementptr inbounds nuw i8, ptr %.ptr7.ptr, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 48
   store ptr null, ptr %19, align 8
-  store ptr %.ptr7.ptr, ptr %3, align 8
-  invoke void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_11HdSelection18PrimSelectionStateEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSI_NS8_10_AllocNodeISaINS8_10_Hash_nodeIS6_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %.ptr7.ptr, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr %.ptr11, ptr %3, align 8
+  invoke void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_11HdSelection18PrimSelectionStateEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSI_NS8_10_AllocNodeISaINS8_10_Hash_nodeIS6_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %.ptr11, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %20 unwind label %45
 
 20:                                               ; preds = %5
@@ -3450,7 +3450,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelectionC2ER
   %29 = sub i64 %27, %28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %25, %26
-  br i1 %.not.i.i.i.i, label %.noexc19, label %30
+  br i1 %.not.i.i.i.i, label %.noexc17, label %30
 
 30:                                               ; preds = %21
   %31 = icmp ugt i64 %29, 9223372036854775792
@@ -3465,9 +3465,9 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelectionC2ER
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %30
   %32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #21
-          to label %.noexc19 unwind label %48
+          to label %.noexc17 unwind label %48
 
-.noexc19:                                         ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEE8allocateERS2_m.exit.i.i.i.i, %21
+.noexc17:                                         ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEE8allocateERS2_m.exit.i.i.i.i, %21
   %33 = phi ptr [ null, %21 ], [ %32, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %33, ptr %22, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3483,11 +3483,11 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEE8alloca
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %38, %37
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %43, label %42
 
-42:                                               ; preds = %.noexc19
+42:                                               ; preds = %.noexc17
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %33, ptr align 4 %37, i64 %41, i1 false)
   br label %43
 
-43:                                               ; preds = %42, %.noexc19
+43:                                               ; preds = %42, %.noexc17
   %44 = getelementptr inbounds i8, ptr %33, i64 %41
   store ptr %44, ptr %34, align 8
   ret void
@@ -3498,10 +3498,10 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEE8alloca
   br i1 %6, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %45, %.preheader
-  %.idx8 = phi i64 [ %.add, %.preheader ], [ %.add9, %45 ]
-  %.add = add nsw i64 %.idx8, -56
-  %.ptr11 = getelementptr inbounds i8, ptr %0, i64 %.add
-  call void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_11HdSelection18PrimSelectionStateEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr11) #19
+  %.idx7 = phi i64 [ %.add, %.preheader ], [ %.add8, %45 ]
+  %.add = add nsw i64 %.idx7, -56
+  %.ptr9 = getelementptr inbounds i8, ptr %0, i64 %.add
+  call void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_11HdSelection18PrimSelectionStateEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr9) #19
   %47 = icmp eq i64 %.add, 8
   br i1 %47, label %.loopexit, label %.preheader
 
@@ -3511,11 +3511,11 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEE8alloca
   br label %50
 
 50:                                               ; preds = %50, %48
-  %.idx13 = phi i64 [ 120, %48 ], [ %.add14, %50 ]
-  %.add14 = add nsw i64 %.idx13, -56
-  %.ptr16 = getelementptr inbounds i8, ptr %0, i64 %.add14
-  call void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_11HdSelection18PrimSelectionStateEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr16) #19
-  %51 = icmp eq i64 %.add14, 8
+  %.idx12 = phi i64 [ 120, %48 ], [ %.add13, %50 ]
+  %.add13 = add nsw i64 %.idx12, -56
+  %.ptr14 = getelementptr inbounds i8, ptr %0, i64 %.add13
+  call void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_NS0_11HdSelection18PrimSelectionStateEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr14) #19
+  %51 = icmp eq i64 %.add13, 8
   br i1 %51, label %.loopexit, label %50
 
 .loopexit:                                        ; preds = %.preheader, %50, %45

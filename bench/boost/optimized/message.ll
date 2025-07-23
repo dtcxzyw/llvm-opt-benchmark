@@ -8033,8 +8033,8 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext10mo_messageIcE7ex
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.lr.ph.i: ; preds = %12
   %14 = sub nuw i64 %2, %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %15 = getelementptr i8, ptr %1, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 1
   %17 = ptrtoint ptr %16 to i64
   %18 = load i8, ptr %8, align 1, !tbaa !23
   %19 = sext i8 %18 to i32
@@ -12136,8 +12136,8 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext10mo_messageIwE7ex
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.lr.ph.i: ; preds = %12
   %14 = sub nuw i64 %2, %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %15 = getelementptr i8, ptr %1, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 1
   %17 = ptrtoint ptr %16 to i64
   %18 = load i8, ptr %8, align 1, !tbaa !23
   %19 = sext i8 %18 to i32

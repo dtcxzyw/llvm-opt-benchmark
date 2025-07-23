@@ -456,7 +456,7 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold118.i
   %26 = phi i8 [ %53, %select.unfold118.i ], [ %.ph, %.lr.ph.preheader ]
   %.pn = phi ptr [ %27, %select.unfold118.i ], [ %.083.i40.ph, %.lr.ph.preheader ]
-  %.078.ptr.ptr.ptr.i44 = phi ptr [ %.078.ptr.ptr.ptr.i, %select.unfold118.i ], [ %4, %.lr.ph.preheader ]
+  %.078.ptr.ptr.i44 = phi ptr [ %.078.ptr.ptr.i, %select.unfold118.i ], [ %4, %.lr.ph.preheader ]
   %.070.i43 = phi i32 [ %.272.i, %select.unfold118.i ], [ 0, %.lr.ph.preheader ]
   %.073.i42 = phi i32 [ %.275.i, %select.unfold118.i ], [ 0, %.lr.ph.preheader ]
   %.078.idx.i41 = phi i64 [ %.280.idx.i, %select.unfold118.i ], [ 0, %.lr.ph.preheader ]
@@ -503,15 +503,15 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef
 42:                                               ; preds = %40
   %43 = load i8, ptr %27, align 1
   %44 = icmp eq i8 %43, 0
-  %45 = icmp sgt i64 %.078.idx.i41, 14
+  %45 = icmp ugt i64 %.078.idx.i41, 14
   %or.cond.i = select i1 %44, i1 true, i1 %45
   br i1 %or.cond.i, label %inet_pton6.exit, label %46
 
 46:                                               ; preds = %42
   %47 = lshr i32 %.070.i43, 8
   %48 = trunc i32 %47 to i8
-  %.ptr101.i = getelementptr inbounds nuw i8, ptr %.078.ptr.ptr.ptr.i44, i64 1
-  store i8 %48, ptr %.078.ptr.ptr.ptr.i44, align 1
+  %.ptr101.i = getelementptr inbounds nuw i8, ptr %.078.ptr.ptr.i44, i64 1
+  store i8 %48, ptr %.078.ptr.ptr.i44, align 1
   %49 = trunc i32 %.070.i43 to i8
   %.add.i = add nuw nsw i64 %.078.idx.i41, 2
   store i8 %49, ptr %.ptr101.i, align 1
@@ -523,17 +523,17 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef
 
 51:                                               ; preds = %50
   %.078.add.i = add nuw nsw i64 %.078.idx.i41, 4
-  %52 = call fastcc i32 @inet_pton4(ptr noundef %.083.i40, ptr noundef %.078.ptr.ptr.ptr.i44)
+  %52 = call fastcc i32 @inet_pton4(ptr noundef %.083.i40, ptr noundef %.078.ptr.ptr.i44)
   %.not103.i = icmp eq i32 %52, 0
   br i1 %.not103.i, label %.thread141.i, label %inet_pton6.exit
 
 select.unfold118.i:                               ; preds = %46, %41, %.thread.i
-  %.288.i = phi ptr [ %.086.i39, %46 ], [ %.086.i39, %.thread.i ], [ %.078.ptr.ptr.ptr.i44, %41 ]
+  %.288.i = phi ptr [ %.086.i39, %46 ], [ %.086.i39, %.thread.i ], [ %.078.ptr.ptr.i44, %41 ]
   %.184.i = phi ptr [ %27, %46 ], [ %.083.i40, %.thread.i ], [ %27, %41 ]
   %.280.idx.i = phi i64 [ %.add.i, %46 ], [ %.078.idx.i41, %.thread.i ], [ %.078.idx.i41, %41 ]
   %.275.i = phi i32 [ 0, %46 ], [ %37, %.thread.i ], [ 0, %41 ]
   %.272.i = phi i32 [ 0, %46 ], [ %36, %.thread.i ], [ %.070.i43, %41 ]
-  %.078.ptr.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.280.idx.i
+  %.078.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.280.idx.i
   %53 = load i8, ptr %27, align 1
   %.not96.i = icmp eq i8 %53, 0
   br i1 %.not96.i, label %._crit_edge, label %.lr.ph
@@ -549,8 +549,8 @@ select.unfold118.i:                               ; preds = %46, %41, %.thread.i
 57:                                               ; preds = %55
   %58 = lshr i32 %.272.i, 8
   %59 = trunc i32 %58 to i8
-  %60 = getelementptr inbounds nuw i8, ptr %.078.ptr.ptr.ptr.i, i64 1
-  store i8 %59, ptr %.078.ptr.ptr.ptr.i, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %.078.ptr.ptr.i, i64 1
+  store i8 %59, ptr %.078.ptr.ptr.i, align 1
   %61 = trunc i32 %.272.i to i8
   %.179.ptr.add.i = add nuw nsw i64 %.280.idx.i, 2
   store i8 %61, ptr %60, align 1

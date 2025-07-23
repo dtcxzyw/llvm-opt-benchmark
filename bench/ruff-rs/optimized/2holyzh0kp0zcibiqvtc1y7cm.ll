@@ -6645,8 +6645,8 @@ define internal fastcc void @_ZN22ruff_annotate_snippets8renderer12display_list1
   %105 = load ptr, ptr %104, align 8, !noalias !580, !nonnull !3, !noundef !3
   %106 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %107 = load i64, ptr %106, align 8, !noalias !580, !noundef !3
-  %.idx.i = mul nuw nsw i64 %107, 40
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i
+  %.idx117.i = mul nuw nsw i64 %107, 40
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx117.i
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hb0fe7622ee837526E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %45, ptr noundef nonnull %105, ptr noundef nonnull %108, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfe846c4727a7a14302b2193681272d9.26)
           to label %_ZN4core4iter6traits8iterator8Iterator7collect17hb461e16f615105c9E.exit.i unwind label %111, !noalias !580
 
@@ -6694,15 +6694,15 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hb461e16f615105c9E.exit.i: ; pre
   %.val16.i.i = load i64, ptr %123, align 8, !noalias !590
   %124 = add nuw i64 %121, 1
   %.not.i.not.i.i.i.i.i.i.i = icmp uge i64 %121, %107
-  %.idx117.i = mul nuw nsw i64 %121, 40
-  %125 = add nuw nsw i64 %.idx117.i, 40
+  %.idx.i = mul nuw nsw i64 %121, 40
+  %125 = add nuw nsw i64 %.idx.i, 40
   %126 = getelementptr inbounds nuw i8, ptr %105, i64 %125
-  %127 = icmp samesign eq i64 %125, %.idx.i
+  %127 = icmp samesign eq i64 %125, %.idx117.i
   %or.cond.i = select i1 %.not.i.not.i.i.i.i.i.i.i, i1 true, i1 %127
   br i1 %or.cond.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9bab6e3675a22c46E.exit.i.i", label %128
 
 128:                                              ; preds = %120
-  %gepdiff.i = sub nuw nsw i64 %.idx.i, %125
+  %gepdiff.i = sub nuw nsw i64 %.idx117.i, %125
   %129 = udiv exact i64 %gepdiff.i, 40
   %130 = call i64 @llvm.usub.sat.i64(i64 %.val16.i.i, i64 1)
   br label %131

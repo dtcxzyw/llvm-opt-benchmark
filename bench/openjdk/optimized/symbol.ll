@@ -144,75 +144,74 @@ define hidden noundef i32 @_ZNK6Symbol11index_of_atEiPKci(ptr noundef nonnull al
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
-  %12 = zext nneg i32 %3 to i64
-  %13 = sub nsw i64 0, %12
-  %14 = getelementptr inbounds i8, ptr %11, i64 %13
-  %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds i8, ptr %7, i64 %15
-  %17 = icmp ugt ptr %16, %14
-  br i1 %17, label %.loopexit, label %.preheader
+  %11 = zext nneg i32 %3 to i64
+  %12 = sub nsw i64 %10, %11
+  %13 = getelementptr inbounds i8, ptr %7, i64 %12
+  %14 = sext i32 %1 to i64
+  %15 = icmp slt i64 %12, %14
+  br i1 %15, label %.loopexit, label %.lr.ph
 
-.preheader:                                       ; preds = %6
-  %18 = load i8, ptr %2, align 1
-  %19 = sext i8 %18 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %21 = ptrtoint ptr %20 to i64
-  %22 = icmp samesign ult i32 %3, 3
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %24 = add nsw i32 %3, -1
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %25
-  br i1 %22, label %.preheader.split.us, label %.preheader.split
+.lr.ph:                                           ; preds = %6
+  %16 = getelementptr inbounds i8, ptr %7, i64 %14
+  %17 = load i8, ptr %2, align 1
+  %18 = sext i8 %17 to i32
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %20 = ptrtoint ptr %19 to i64
+  %21 = icmp samesign ult i32 %3, 3
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %23 = add nsw i32 %3, -1
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
+  br i1 %21, label %.lr.ph.split.us, label %.lr.ph.split
 
-.preheader.split.us:                              ; preds = %.preheader, %36
-  %.032.us = phi ptr [ %37, %36 ], [ %16, %.preheader ]
-  %27 = ptrtoint ptr %.032.us to i64
-  %28 = sub i64 %21, %27
-  %29 = tail call noundef ptr @memchr(ptr noundef nonnull %.032.us, i32 noundef %19, i64 noundef %28) #18
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit, label %31
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %35
+  %.033.us = phi ptr [ %36, %35 ], [ %16, %.lr.ph ]
+  %26 = ptrtoint ptr %.033.us to i64
+  %27 = sub i64 %20, %26
+  %28 = tail call noundef ptr @memchr(ptr noundef nonnull %.033.us, i32 noundef %18, i64 noundef %27) #18
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.loopexit, label %30
 
-31:                                               ; preds = %.preheader.split.us
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %25
-  %33 = load i8, ptr %32, align 1
-  %34 = load i8, ptr %26, align 1
-  %35 = icmp eq i8 %33, %34
-  br i1 %35, label %.split.us, label %36
+30:                                               ; preds = %.lr.ph.split.us
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %24
+  %32 = load i8, ptr %31, align 1
+  %33 = load i8, ptr %25, align 1
+  %34 = icmp eq i8 %32, %33
+  br i1 %34, label %.split.us, label %35
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  %.not.us = icmp ugt ptr %37, %14
-  br i1 %.not.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !6
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %.not.us = icmp ugt ptr %36, %13
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !6
 
-.preheader.split:                                 ; preds = %.preheader, %49
-  %.032 = phi ptr [ %43, %49 ], [ %16, %.preheader ]
-  %38 = ptrtoint ptr %.032 to i64
-  %39 = sub i64 %21, %38
-  %40 = tail call noundef ptr @memchr(ptr noundef nonnull %.032, i32 noundef %19, i64 noundef %39) #18
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit, label %42
+.lr.ph.split:                                     ; preds = %.lr.ph, %48
+  %.033 = phi ptr [ %42, %48 ], [ %16, %.lr.ph ]
+  %37 = ptrtoint ptr %.033 to i64
+  %38 = sub i64 %20, %37
+  %39 = tail call noundef ptr @memchr(ptr noundef nonnull %.033, i32 noundef %18, i64 noundef %38) #18
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %.loopexit, label %41
 
-42:                                               ; preds = %.preheader.split
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  %bcmp = tail call i32 @bcmp(ptr nonnull %43, ptr nonnull %23, i64 %25)
-  %44 = icmp eq i32 %bcmp, 0
-  br i1 %44, label %.split.us, label %49
+41:                                               ; preds = %.lr.ph.split
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %bcmp = tail call i32 @bcmp(ptr nonnull %42, ptr nonnull %22, i64 %24)
+  %43 = icmp eq i32 %bcmp, 0
+  br i1 %43, label %.split.us, label %48
 
-.split.us:                                        ; preds = %42, %31
-  %.us-phi = phi ptr [ %29, %31 ], [ %40, %42 ]
-  %45 = ptrtoint ptr %.us-phi to i64
-  %46 = ptrtoint ptr %7 to i64
-  %47 = sub i64 %45, %46
-  %48 = trunc i64 %47 to i32
+.split.us:                                        ; preds = %41, %30
+  %.us-phi = phi ptr [ %28, %30 ], [ %39, %41 ]
+  %44 = ptrtoint ptr %.us-phi to i64
+  %45 = ptrtoint ptr %7 to i64
+  %46 = sub i64 %44, %45
+  %47 = trunc i64 %46 to i32
   br label %.loopexit
 
-49:                                               ; preds = %42
-  %.not = icmp ugt ptr %43, %14
-  br i1 %.not, label %.loopexit, label %.preheader.split, !llvm.loop !6
+48:                                               ; preds = %41
+  %.not = icmp ugt ptr %42, %13
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.preheader.split, %49, %36, %.preheader.split.us, %6, %4, %.split.us
-  %.027 = phi i32 [ %48, %.split.us ], [ 0, %4 ], [ -1, %6 ], [ -1, %.preheader.split.us ], [ -1, %36 ], [ -1, %49 ], [ -1, %.preheader.split ]
+.loopexit:                                        ; preds = %.lr.ph.split, %48, %.lr.ph.split.us, %35, %6, %4, %.split.us
+  %.027 = phi i32 [ %47, %.split.us ], [ 0, %4 ], [ -1, %6 ], [ -1, %35 ], [ -1, %.lr.ph.split.us ], [ -1, %48 ], [ -1, %.lr.ph.split ]
   ret i32 %.027
 }
 

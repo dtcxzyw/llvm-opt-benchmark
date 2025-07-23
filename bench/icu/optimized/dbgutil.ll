@@ -483,7 +483,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
   %3 = alloca %"class.icu_77::UnicodeString", align 8
   %4 = load ptr, ptr @_ZL4strs, align 8, !tbaa !15
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %46
+  br i1 %5, label %6, label %44
 
 6:                                                ; preds = %2
   tail call void @ucln_registerCleanup_77(i32 noundef 3, ptr noundef nonnull @_ZL10tu_cleanupv)
@@ -496,8 +496,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
   br i1 %10, label %_ZL10udbg_setupv.exit, label %.loopexit.loopexit.i
 
 11:                                               ; preds = %._crit_edge.i, %6
-  %indvars.iv58.i = phi i64 [ 0, %6 ], [ %indvars.iv.next59.i, %._crit_edge.i ]
-  %12 = trunc nuw nsw i64 %indvars.iv58.i to i32
+  %indvars.iv59.i = phi i64 [ 0, %6 ], [ %indvars.iv.next60.i, %._crit_edge.i ]
+  %12 = trunc nuw nsw i64 %indvars.iv59.i to i32
   %13 = call i32 @udbg_enumCount(i32 noundef %12)
   %14 = add i32 %13, 1
   %15 = sext i32 %14 to i64
@@ -507,77 +507,73 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
   %19 = select i1 %16, i64 -1, i64 %18
   %20 = call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %19) #15
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.loopexit53.i, label %22
+  br i1 %21, label %.loopexit54.i, label %22
 
 22:                                               ; preds = %11
   store i64 %15, ptr %20, align 8
   %.ptr46.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = icmp eq i32 %14, 0
-  br i1 %23, label %.loopexit53.thread.i, label %25
+  br i1 %23, label %.loopexit54.thread.i, label %.preheader.i
 
-.loopexit53.thread.i:                             ; preds = %22
-  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv58.i
+.loopexit54.thread.i:                             ; preds = %22
+  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59.i
   store ptr %.ptr46.i, ptr %24, align 8, !tbaa !18
   br label %._crit_edge.i
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.ptr46.i, i64 %15
-  br label %27
-
-27:                                               ; preds = %27, %25
-  %.idx43.i = phi i64 [ 8, %25 ], [ %.add44.i, %27 ]
+.preheader.i:                                     ; preds = %22, %.preheader.i
+  %.idx43.i = phi i64 [ %.add44.i, %.preheader.i ], [ 8, %22 ]
   %.ptr.ptr51.i = getelementptr inbounds nuw i8, ptr %20, i64 %.idx43.i
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr.ptr51.i, align 8, !tbaa !20
-  %28 = getelementptr inbounds nuw i8, ptr %.ptr.ptr51.i, i64 8
-  store i16 2, ptr %28, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw i8, ptr %.ptr.ptr51.i, i64 8
+  store i16 2, ptr %25, align 8, !tbaa !22
   %.add44.i = add nuw nsw i64 %.idx43.i, 64
-  %.ptr45.i = getelementptr inbounds nuw i8, ptr %20, i64 %.add44.i
-  %29 = icmp eq ptr %.ptr45.i, %26
-  br i1 %29, label %.loopexit53.i, label %27
+  %26 = add nuw nsw i64 %.idx43.i, 56
+  %27 = icmp eq i64 %26, %17
+  br i1 %27, label %.loopexit54.i, label %.preheader.i
 
-.loopexit53.i:                                    ; preds = %27, %11
-  %30 = phi ptr [ null, %11 ], [ %.ptr46.i, %27 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv58.i
-  store ptr %30, ptr %31, align 8, !tbaa !18
-  %.not54.i = icmp slt i32 %13, 0
-  br i1 %.not54.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+.loopexit54.i:                                    ; preds = %.preheader.i, %11
+  %28 = phi ptr [ null, %11 ], [ %.ptr46.i, %.preheader.i ]
+  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59.i
+  store ptr %28, ptr %29, align 8, !tbaa !18
+  %.not55.i = icmp slt i32 %13, 0
+  br i1 %.not55.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.loopexit53.i
+.lr.ph.preheader.i:                               ; preds = %.loopexit54.i
   %wide.trip.count.i = zext i32 %14 to i64
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i, %.loopexit53.i, %.loopexit53.thread.i
-  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
-  %exitcond61.not.i = icmp eq i64 %indvars.iv.next59.i, 6
-  br i1 %exitcond61.not.i, label %8, label %11, !llvm.loop !23
+._crit_edge.i:                                    ; preds = %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i, %.loopexit54.i, %.loopexit54.thread.i
+  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 6
+  br i1 %exitcond62.not.i, label %8, label %11, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i ]
-  %32 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %30, i64 %indvars.iv.i
-  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %34 = call ptr @udbg_enumName(i32 noundef range(i32 -2147483648, 6) %12, i32 noundef %33)
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %41
+  %30 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %28, i64 %indvars.iv.i
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %32 = call ptr @udbg_enumName(i32 noundef range(i32 -2147483648, 6) %12, i32 noundef %31)
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %39
 
-36:                                               ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %38 = load i16, ptr %37, align 8, !tbaa !22
-  %39 = and i16 %38, 1
-  %.not.i.i.i = icmp eq i16 %39, 0
-  %40 = and i16 %38, 30
-  %storemerge.i.i.i = select i1 %.not.i.i.i, i16 %40, i16 2
-  store i16 %storemerge.i.i.i, ptr %37, align 8, !tbaa !22
+34:                                               ; preds = %.lr.ph.i
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %36 = load i16, ptr %35, align 8, !tbaa !22
+  %37 = and i16 %36, 1
+  %.not.i.i.i = icmp eq i16 %37, 0
+  %38 = and i16 %36, 30
+  %storemerge.i.i.i = select i1 %.not.i.i.i, i16 %38, i16 2
+  store i16 %storemerge.i.i.i, ptr %35, align 8, !tbaa !22
   br label %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i
 
-41:                                               ; preds = %.lr.ph.i
+39:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
-  call void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %34, i32 noundef -1, i32 noundef 0)
-  %42 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(64) %3) #15
+  call void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %32, i32 noundef -1, i32 noundef 0)
+  %40 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %3) #15
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
   br label %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i
 
-_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i: ; preds = %41, %36
+_ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i: ; preds = %39, %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
@@ -586,50 +582,50 @@ _ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i: ; preds = %4
   store i64 1, ptr %9, align 8
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr.ptr.i, align 8, !tbaa !20
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 2, ptr %43, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i16 2, ptr %41, align 8, !tbaa !22
   br label %_ZL10udbg_setupv.exit
 
 _ZL10udbg_setupv.exit:                            ; preds = %8, %.loopexit.loopexit.i
-  %44 = phi ptr [ null, %8 ], [ %.ptr.ptr.i, %.loopexit.loopexit.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %44, ptr %45, align 8, !tbaa !18
+  %42 = phi ptr [ null, %8 ], [ %.ptr.ptr.i, %.loopexit.loopexit.i ]
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store ptr %42, ptr %43, align 8, !tbaa !18
   store ptr %7, ptr @_ZL4strs, align 8, !tbaa !15
-  br label %46
+  br label %44
 
-46:                                               ; preds = %_ZL10udbg_setupv.exit, %2
-  %47 = phi ptr [ %7, %_ZL10udbg_setupv.exit ], [ %4, %2 ]
+44:                                               ; preds = %_ZL10udbg_setupv.exit, %2
+  %45 = phi ptr [ %7, %_ZL10udbg_setupv.exit ], [ %4, %2 ]
   %or.cond = icmp ugt i32 %0, 5
-  br i1 %or.cond, label %48, label %51
+  br i1 %or.cond, label %46, label %49
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %50 = load ptr, ptr %49, align 8, !tbaa !18
-  br label %65
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  %48 = load ptr, ptr %47, align 8, !tbaa !18
+  br label %63
 
-51:                                               ; preds = %46
-  %52 = call i32 @udbg_enumCount(i32 noundef %0)
-  %53 = icmp slt i32 %1, 0
-  %54 = icmp sgt i32 %1, %52
-  %or.cond13 = select i1 %53, i1 true, i1 %54
-  %55 = load ptr, ptr @_ZL4strs, align 8, !tbaa !15
-  %56 = zext nneg i32 %0 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
-  %58 = load ptr, ptr %57, align 8, !tbaa !18
-  br i1 %or.cond13, label %59, label %62
+49:                                               ; preds = %44
+  %50 = call i32 @udbg_enumCount(i32 noundef %0)
+  %51 = icmp slt i32 %1, 0
+  %52 = icmp sgt i32 %1, %50
+  %or.cond13 = select i1 %51, i1 true, i1 %52
+  %53 = load ptr, ptr @_ZL4strs, align 8, !tbaa !15
+  %54 = zext nneg i32 %0 to i64
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %56 = load ptr, ptr %55, align 8, !tbaa !18
+  br i1 %or.cond13, label %57, label %60
 
-59:                                               ; preds = %51
-  %60 = sext i32 %52 to i64
-  %61 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %58, i64 %60
-  br label %65
+57:                                               ; preds = %49
+  %58 = sext i32 %50 to i64
+  %59 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %56, i64 %58
+  br label %63
 
-62:                                               ; preds = %51
-  %63 = zext nneg i32 %1 to i64
-  %64 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %58, i64 %63
-  br label %65
+60:                                               ; preds = %49
+  %61 = zext nneg i32 %1 to i64
+  %62 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %56, i64 %61
+  br label %63
 
-65:                                               ; preds = %59, %62, %48
-  %.0 = phi ptr [ %50, %48 ], [ %61, %59 ], [ %64, %62 ]
+63:                                               ; preds = %57, %60, %46
+  %.0 = phi ptr [ %48, %46 ], [ %59, %57 ], [ %62, %60 ]
   ret ptr %.0
 }
 

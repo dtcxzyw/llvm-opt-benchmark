@@ -918,126 +918,125 @@ define hidden void @_ZNK10__cxxabiv121__vmi_class_type_info27has_unambiguous_pub
   br label %_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi.exit
 
 41:                                               ; preds = %4
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %43 = load i32, ptr %42, align 4, !tbaa !46
-  %44 = zext i32 %43 to i64
-  %.idx = shl nuw nsw i64 %44, 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr19 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load i64, ptr %46, align 8, !tbaa !39
-  %48 = and i64 %47, 1
-  %.not.i = icmp eq i64 %48, 0
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 79
-  %50 = load i8, ptr %49, align 1, !tbaa !20, !range !41, !noundef !42
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %58
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %44 = load i32, ptr %43, align 4, !tbaa !46
+  %45 = zext i32 %44 to i64
+  %.idx = shl nuw nsw i64 %45, 4
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %48 = load i64, ptr %47, align 8, !tbaa !39
+  %49 = and i64 %48, 1
+  %.not.i = icmp eq i64 %49, 0
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 79
+  %51 = load i8, ptr %50, align 1, !tbaa !20, !range !41, !noundef !42
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %53, label %59
 
-52:                                               ; preds = %41
-  %53 = ashr i64 %47, 8
-  br i1 %.not.i, label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit, label %54
+53:                                               ; preds = %41
+  %54 = ashr i64 %48, 8
+  br i1 %.not.i, label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit, label %55
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %2, align 8, !tbaa !43
-  %56 = getelementptr inbounds i8, ptr %55, i64 %53
-  %57 = load i64, ptr %56, align 8, !tbaa !44
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %2, align 8, !tbaa !43
+  %57 = getelementptr inbounds i8, ptr %56, i64 %54
+  %58 = load i64, ptr %57, align 8, !tbaa !44
   br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit
 
-58:                                               ; preds = %41
-  br i1 %.not.i, label %59, label %61
+59:                                               ; preds = %41
+  br i1 %.not.i, label %60, label %62
 
-59:                                               ; preds = %58
-  %60 = ashr i64 %47, 8
+60:                                               ; preds = %59
+  %61 = ashr i64 %48, 8
   br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %.ptr, align 8, !tbaa !45
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !4
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %64, ptr %65, align 8, !tbaa !21
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %42, align 8, !tbaa !45
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store ptr %65, ptr %66, align 8, !tbaa !21
   br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit
 
-_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit: ; preds = %52, %54, %59, %61
-  %.011.i = phi i64 [ %57, %54 ], [ %53, %52 ], [ 0, %61 ], [ %60, %59 ]
-  %.0.i = phi ptr [ %2, %54 ], [ %2, %52 ], [ null, %61 ], [ %2, %59 ]
-  %66 = load ptr, ptr %.ptr, align 8, !tbaa !45
-  %67 = ptrtoint ptr %.0.i to i64
-  %68 = add i64 %.011.i, %67
-  %69 = inttoptr i64 %68 to ptr
-  %70 = and i64 %47, 2
-  %.not12.i = icmp eq i64 %70, 0
-  %71 = select i1 %.not12.i, i32 2, i32 %3
-  %72 = load ptr, ptr %66, align 8, !tbaa !23
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull %1, ptr noundef %69, i32 noundef %71)
-  %75 = icmp ugt i32 %43, 1
-  br i1 %75, label %.preheader, label %_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi.exit
+_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit: ; preds = %53, %55, %60, %62
+  %.011.i = phi i64 [ %58, %55 ], [ %54, %53 ], [ 0, %62 ], [ %61, %60 ]
+  %.0.i = phi ptr [ %2, %55 ], [ %2, %53 ], [ null, %62 ], [ %2, %60 ]
+  %67 = load ptr, ptr %42, align 8, !tbaa !45
+  %68 = ptrtoint ptr %.0.i to i64
+  %69 = add i64 %.011.i, %68
+  %70 = inttoptr i64 %69 to ptr
+  %71 = and i64 %48, 2
+  %.not12.i = icmp eq i64 %71, 0
+  %72 = select i1 %.not12.i, i32 2, i32 %3
+  %73 = load ptr, ptr %67, align 8, !tbaa !23
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
+  %75 = load ptr, ptr %74, align 8
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull %1, ptr noundef %70, i32 noundef %72)
+  %76 = icmp ugt i32 %44, 1
+  br i1 %76, label %.preheader, label %_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi.exit
 
 .preheader:                                       ; preds = %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  br label %79
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 78
+  br label %80
 
-79:                                               ; preds = %.preheader, %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit25
-  %.0 = phi ptr [ %109, %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit25 ], [ %76, %.preheader ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %81 = load i64, ptr %80, align 8, !tbaa !39
-  %82 = and i64 %81, 1
-  %.not.i21 = icmp eq i64 %82, 0
-  %83 = load i8, ptr %49, align 1, !tbaa !20, !range !41, !noundef !42
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %91
+80:                                               ; preds = %.preheader, %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit24
+  %.0 = phi ptr [ %110, %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit24 ], [ %77, %.preheader ]
+  %81 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %82 = load i64, ptr %81, align 8, !tbaa !39
+  %83 = and i64 %82, 1
+  %.not.i20 = icmp eq i64 %83, 0
+  %84 = load i8, ptr %50, align 1, !tbaa !20, !range !41, !noundef !42
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %86, label %92
 
-85:                                               ; preds = %79
-  %86 = ashr i64 %81, 8
-  br i1 %.not.i21, label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit25, label %87
+86:                                               ; preds = %80
+  %87 = ashr i64 %82, 8
+  br i1 %.not.i20, label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit24, label %88
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %2, align 8, !tbaa !43
-  %89 = getelementptr inbounds i8, ptr %88, i64 %86
-  %90 = load i64, ptr %89, align 8, !tbaa !44
-  br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit25
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %2, align 8, !tbaa !43
+  %90 = getelementptr inbounds i8, ptr %89, i64 %87
+  %91 = load i64, ptr %90, align 8, !tbaa !44
+  br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit24
 
-91:                                               ; preds = %79
-  br i1 %.not.i21, label %92, label %94
+92:                                               ; preds = %80
+  br i1 %.not.i20, label %93, label %95
 
-92:                                               ; preds = %91
-  %93 = ashr i64 %81, 8
-  br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit25
+93:                                               ; preds = %92
+  %94 = ashr i64 %82, 8
+  br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit24
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr %.0, align 8, !tbaa !45
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !4
-  store ptr %97, ptr %77, align 8, !tbaa !21
-  br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit25
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %.0, align 8, !tbaa !45
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !4
+  store ptr %98, ptr %78, align 8, !tbaa !21
+  br label %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit24
 
-_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit25: ; preds = %85, %87, %92, %94
-  %.011.i22 = phi i64 [ %90, %87 ], [ %86, %85 ], [ 0, %94 ], [ %93, %92 ]
-  %.0.i23 = phi ptr [ %2, %87 ], [ %2, %85 ], [ null, %94 ], [ %2, %92 ]
-  %98 = load ptr, ptr %.0, align 8, !tbaa !45
-  %99 = ptrtoint ptr %.0.i23 to i64
-  %100 = add i64 %.011.i22, %99
-  %101 = inttoptr i64 %100 to ptr
-  %102 = and i64 %81, 2
-  %.not12.i24 = icmp eq i64 %102, 0
-  %103 = select i1 %.not12.i24, i32 2, i32 %3
-  %104 = load ptr, ptr %98, align 8, !tbaa !23
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 56
-  %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull %1, ptr noundef %101, i32 noundef %103)
-  %107 = load i8, ptr %78, align 2, !tbaa !31, !range !41, !noundef !42
-  %108 = trunc nuw i8 %107 to i1
-  %109 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %110 = icmp uge ptr %109, %.ptr19
-  %or.cond.not = select i1 %108, i1 true, i1 %110
-  br i1 %or.cond.not, label %_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi.exit, label %79, !llvm.loop !48
+_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit24: ; preds = %86, %88, %93, %95
+  %.011.i21 = phi i64 [ %91, %88 ], [ %87, %86 ], [ 0, %95 ], [ %94, %93 ]
+  %.0.i22 = phi ptr [ %2, %88 ], [ %2, %86 ], [ null, %95 ], [ %2, %93 ]
+  %99 = load ptr, ptr %.0, align 8, !tbaa !45
+  %100 = ptrtoint ptr %.0.i22 to i64
+  %101 = add i64 %.011.i21, %100
+  %102 = inttoptr i64 %101 to ptr
+  %103 = and i64 %82, 2
+  %.not12.i23 = icmp eq i64 %103, 0
+  %104 = select i1 %.not12.i23, i32 2, i32 %3
+  %105 = load ptr, ptr %99, align 8, !tbaa !23
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
+  %107 = load ptr, ptr %106, align 8
+  tail call void %107(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull %1, ptr noundef %102, i32 noundef %104)
+  %108 = load i8, ptr %79, align 2, !tbaa !31, !range !41, !noundef !42
+  %109 = trunc nuw i8 %108 to i1
+  %110 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %111 = icmp uge ptr %110, %46
+  %or.cond.not = select i1 %109, i1 true, i1 %111
+  br i1 %or.cond.not, label %_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi.exit, label %80, !llvm.loop !48
 
-_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi.exit: ; preds = %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit25, %37, %36, %32, %16, %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit
+_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi.exit: ; preds = %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit24, %37, %36, %32, %16, %_ZNK10__cxxabiv122__base_class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi.exit
   ret void
 }
 
@@ -1644,33 +1643,33 @@ _ZL8is_equalPKSt9type_infoS1_b.exit.thread:       ; preds = %14, %8, %_ZL8is_equ
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %33 = icmp eq ptr %10, %32
-  br i1 %33, label %_ZL8is_equalPKSt9type_infoS1_b.exit94.thread, label %116
+  br i1 %33, label %_ZL8is_equalPKSt9type_infoS1_b.exit93.thread, label %117
 
 34:                                               ; preds = %_ZL8is_equalPKSt9type_infoS1_b.exit
   %35 = load ptr, ptr %1, align 8, !tbaa !11
   %36 = icmp eq ptr %0, %35
-  br i1 %36, label %_ZL8is_equalPKSt9type_infoS1_b.exit94.thread, label %_ZL8is_equalPKSt9type_infoS1_b.exit94
+  br i1 %36, label %_ZL8is_equalPKSt9type_infoS1_b.exit93.thread, label %_ZL8is_equalPKSt9type_infoS1_b.exit93
 
-_ZL8is_equalPKSt9type_infoS1_b.exit94:            ; preds = %34
+_ZL8is_equalPKSt9type_infoS1_b.exit93:            ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %38) #22
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %_ZL8is_equalPKSt9type_infoS1_b.exit94.thread, label %116
+  br i1 %40, label %_ZL8is_equalPKSt9type_infoS1_b.exit93.thread, label %117
 
-_ZL8is_equalPKSt9type_infoS1_b.exit94.thread:     ; preds = %34, %29, %_ZL8is_equalPKSt9type_infoS1_b.exit94
+_ZL8is_equalPKSt9type_infoS1_b.exit93.thread:     ; preds = %34, %29, %_ZL8is_equalPKSt9type_infoS1_b.exit93
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %43 = icmp eq ptr %2, %42
   br i1 %43, label %48, label %44
 
-44:                                               ; preds = %_ZL8is_equalPKSt9type_infoS1_b.exit94.thread
+44:                                               ; preds = %_ZL8is_equalPKSt9type_infoS1_b.exit93.thread
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !34
   %47 = icmp eq ptr %2, %46
   br i1 %47, label %48, label %52
 
-48:                                               ; preds = %44, %_ZL8is_equalPKSt9type_infoS1_b.exit94.thread
+48:                                               ; preds = %44, %_ZL8is_equalPKSt9type_infoS1_b.exit93.thread
   %49 = icmp eq i32 %3, 1
   br i1 %49, label %50, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
 
@@ -1684,115 +1683,114 @@ _ZL8is_equalPKSt9type_infoS1_b.exit94.thread:     ; preds = %34, %29, %_ZL8is_eq
   store i32 %3, ptr %53, align 8, !tbaa !57
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %55 = load i32, ptr %54, align 4, !tbaa !58
-  %.not90 = icmp eq i32 %55, 4
-  br i1 %.not90, label %.critedge, label %56
+  %.not89 = icmp eq i32 %55, 4
+  br i1 %.not89, label %.critedge, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %58 = load i32, ptr %57, align 4, !tbaa !46
-  %59 = zext i32 %58 to i64
-  %.idx130 = shl nuw nsw i64 %59, 4
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx130
-  %.ptr132 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %.not133 = icmp eq i32 %58, 0
-  br i1 %.not133, label %.critedge.critedge, label %.lr.ph
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %59 = load i32, ptr %58, align 4, !tbaa !46
+  %60 = zext i32 %59 to i64
+  %.idx129 = shl nuw nsw i64 %60, 4
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx129
+  %.not130 = icmp eq i32 %59, 0
+  br i1 %.not130, label %.critedge.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %56
-  %.ptr131 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 77
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  br label %66
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 77
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 78
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  br label %67
 
-66:                                               ; preds = %.lr.ph, %99
-  %.176123 = phi i1 [ false, %.lr.ph ], [ %.3, %99 ]
-  %.078122 = phi ptr [ %.ptr131, %.lr.ph ], [ %100, %99 ]
-  %.079121 = phi i1 [ false, %.lr.ph ], [ %.281, %99 ]
-  store i8 0, ptr %61, align 4, !tbaa !29
-  store i8 0, ptr %62, align 1, !tbaa !30
-  %67 = getelementptr inbounds nuw i8, ptr %.078122, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !39
-  %69 = ashr i64 %68, 8
-  %70 = and i64 %68, 1
-  %.not.i95 = icmp eq i64 %70, 0
-  br i1 %.not.i95, label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit, label %71
+67:                                               ; preds = %.lr.ph, %100
+  %.176122 = phi i1 [ false, %.lr.ph ], [ %.3, %100 ]
+  %.078121 = phi ptr [ %57, %.lr.ph ], [ %101, %100 ]
+  %.079120 = phi i1 [ false, %.lr.ph ], [ %.281, %100 ]
+  store i8 0, ptr %62, align 4, !tbaa !29
+  store i8 0, ptr %63, align 1, !tbaa !30
+  %68 = getelementptr inbounds nuw i8, ptr %.078121, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !39
+  %70 = ashr i64 %69, 8
+  %71 = and i64 %69, 1
+  %.not.i94 = icmp eq i64 %71, 0
+  br i1 %.not.i94, label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit, label %72
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %2, align 8, !tbaa !43
-  %73 = getelementptr inbounds i8, ptr %72, i64 %69
-  %74 = load i64, ptr %73, align 8, !tbaa !44
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %2, align 8, !tbaa !43
+  %74 = getelementptr inbounds i8, ptr %73, i64 %70
+  %75 = load i64, ptr %74, align 8, !tbaa !44
   br label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
 
-_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit: ; preds = %66, %71
-  %.0.i96 = phi i64 [ %74, %71 ], [ %69, %66 ]
-  %75 = load ptr, ptr %.078122, align 8, !tbaa !45
-  %76 = getelementptr inbounds i8, ptr %2, i64 %.0.i96
-  %77 = and i64 %68, 2
-  %.not9.i = icmp eq i64 %77, 0
-  %78 = select i1 %.not9.i, i32 2, i32 1
-  %79 = load ptr, ptr %75, align 8, !tbaa !23
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %76, i32 noundef %78, i1 noundef zeroext %4)
-  %82 = load i8, ptr %63, align 2, !tbaa !31, !range !41, !noundef !42
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %._crit_edge, label %84
+_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit: ; preds = %67, %72
+  %.0.i95 = phi i64 [ %75, %72 ], [ %70, %67 ]
+  %76 = load ptr, ptr %.078121, align 8, !tbaa !45
+  %77 = getelementptr inbounds i8, ptr %2, i64 %.0.i95
+  %78 = and i64 %69, 2
+  %.not9.i = icmp eq i64 %78, 0
+  %79 = select i1 %.not9.i, i32 2, i32 1
+  %80 = load ptr, ptr %76, align 8, !tbaa !23
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  %82 = load ptr, ptr %81, align 8
+  tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %77, i32 noundef %79, i1 noundef zeroext %4)
+  %83 = load i8, ptr %64, align 2, !tbaa !31, !range !41, !noundef !42
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %._crit_edge, label %85
 
-84:                                               ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
-  %85 = load i8, ptr %62, align 1, !tbaa !30, !range !41, !noundef !42
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %87, label %99
+85:                                               ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
+  %86 = load i8, ptr %63, align 1, !tbaa !30, !range !41, !noundef !42
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %88, label %100
 
-87:                                               ; preds = %84
-  %88 = load i8, ptr %61, align 4, !tbaa !29, !range !41, !noundef !42
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %90, label %96
+88:                                               ; preds = %85
+  %89 = load i8, ptr %62, align 4, !tbaa !29, !range !41, !noundef !42
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %91, label %97
 
-90:                                               ; preds = %87
-  %91 = load i32, ptr %65, align 8, !tbaa !25
-  %92 = icmp eq i32 %91, 1
-  br i1 %92, label %.thread113, label %93
+91:                                               ; preds = %88
+  %92 = load i32, ptr %66, align 8, !tbaa !25
+  %93 = icmp eq i32 %92, 1
+  br i1 %93, label %.thread112, label %94
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr %64, align 8, !tbaa !59
-  %95 = and i32 %94, 2
-  %.not92 = icmp eq i32 %95, 0
-  br i1 %.not92, label %.thread113, label %99
+94:                                               ; preds = %91
+  %95 = load i32, ptr %65, align 8, !tbaa !59
+  %96 = and i32 %95, 2
+  %.not91 = icmp eq i32 %96, 0
+  br i1 %.not91, label %.thread112, label %100
 
-96:                                               ; preds = %87
-  %97 = load i32, ptr %64, align 8, !tbaa !59
-  %98 = and i32 %97, 1
-  %.not91 = icmp eq i32 %98, 0
-  br i1 %.not91, label %._crit_edge.thread, label %99
+97:                                               ; preds = %88
+  %98 = load i32, ptr %65, align 8, !tbaa !59
+  %99 = and i32 %98, 1
+  %.not90 = icmp eq i32 %99, 0
+  br i1 %.not90, label %._crit_edge.thread, label %100
 
-._crit_edge.thread:                               ; preds = %96
+._crit_edge.thread:                               ; preds = %97
   store i32 3, ptr %54, align 4, !tbaa !58
-  br i1 %.176123, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %.critedge
+  br i1 %.176122, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %.critedge
 
-99:                                               ; preds = %84, %96, %93
-  %.281 = phi i1 [ true, %93 ], [ true, %96 ], [ %.079121, %84 ]
-  %.3 = phi i1 [ true, %93 ], [ %.176123, %96 ], [ %.176123, %84 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.078122, i64 16
-  %101 = icmp ult ptr %100, %.ptr132
-  br i1 %101, label %66, label %._crit_edge, !llvm.loop !60
+100:                                              ; preds = %85, %97, %94
+  %.281 = phi i1 [ true, %94 ], [ true, %97 ], [ %.079120, %85 ]
+  %.3 = phi i1 [ true, %94 ], [ %.176122, %97 ], [ %.176122, %85 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.078121, i64 16
+  %102 = icmp ult ptr %101, %61
+  br i1 %102, label %67, label %._crit_edge, !llvm.loop !60
 
-.thread113:                                       ; preds = %90, %93
+.thread112:                                       ; preds = %91, %94
   store i32 3, ptr %54, align 4, !tbaa !58
   br label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
 
-._crit_edge:                                      ; preds = %99, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
-  %.176.lcssa = phi i1 [ %.176123, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.3, %99 ]
-  %.180 = phi i1 [ %.079121, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.281, %99 ]
+._crit_edge:                                      ; preds = %100, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
+  %.176.lcssa = phi i1 [ %.176122, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.3, %100 ]
+  %.180 = phi i1 [ %.079120, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.281, %100 ]
   %cond.fr = freeze i1 %.180
-  br i1 %cond.fr, label %102, label %103
+  br i1 %cond.fr, label %103, label %104
 
-102:                                              ; preds = %._crit_edge
+103:                                              ; preds = %._crit_edge
   store i32 3, ptr %54, align 4, !tbaa !58
   br i1 %.176.lcssa, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %.critedge
 
-103:                                              ; preds = %._crit_edge
+104:                                              ; preds = %._crit_edge
   store i32 4, ptr %54, align 4, !tbaa !58
   br i1 %.176.lcssa, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %.critedge
 
@@ -1800,216 +1798,215 @@ _ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_
   store i32 4, ptr %54, align 4, !tbaa !58
   br label %.critedge
 
-.critedge:                                        ; preds = %102, %._crit_edge.thread, %.critedge.critedge, %52, %103
+.critedge:                                        ; preds = %103, %._crit_edge.thread, %.critedge.critedge, %52, %104
   store ptr %2, ptr %45, align 8, !tbaa !34
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %105 = load i32, ptr %104, align 8, !tbaa !33
-  %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %104, align 8, !tbaa !33
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %108 = load i32, ptr %107, align 4, !tbaa !32
-  %109 = icmp eq i32 %108, 1
-  br i1 %109, label %110, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %106 = load i32, ptr %105, align 8, !tbaa !33
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %105, align 8, !tbaa !33
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %109 = load i32, ptr %108, align 4, !tbaa !32
+  %110 = icmp eq i32 %109, 1
+  br i1 %110, label %111, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
 
-110:                                              ; preds = %.critedge
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %112 = load i32, ptr %111, align 8, !tbaa !25
-  %113 = icmp eq i32 %112, 2
-  br i1 %113, label %114, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
+111:                                              ; preds = %.critedge
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %113 = load i32, ptr %112, align 8, !tbaa !25
+  %114 = icmp eq i32 %113, 2
+  br i1 %114, label %115, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
 
-114:                                              ; preds = %110
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  store i8 1, ptr %115, align 2, !tbaa !31
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 78
+  store i8 1, ptr %116, align 2, !tbaa !31
   br label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
 
-116:                                              ; preds = %29, %_ZL8is_equalPKSt9type_infoS1_b.exit94
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %118 = load i32, ptr %117, align 4, !tbaa !46
-  %119 = zext i32 %118 to i64
-  %.idx = shl nuw nsw i64 %119, 4
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr88 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %122 = load i64, ptr %121, align 8, !tbaa !39
-  %123 = ashr i64 %122, 8
-  %124 = and i64 %122, 1
-  %.not.i97 = icmp eq i64 %124, 0
-  br i1 %.not.i97, label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit, label %125
+117:                                              ; preds = %29, %_ZL8is_equalPKSt9type_infoS1_b.exit93
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %120 = load i32, ptr %119, align 4, !tbaa !46
+  %121 = zext i32 %120 to i64
+  %.idx = shl nuw nsw i64 %121, 4
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %124 = load i64, ptr %123, align 8, !tbaa !39
+  %125 = ashr i64 %124, 8
+  %126 = and i64 %124, 1
+  %.not.i96 = icmp eq i64 %126, 0
+  br i1 %.not.i96, label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit, label %127
 
-125:                                              ; preds = %116
-  %126 = load ptr, ptr %2, align 8, !tbaa !43
-  %127 = getelementptr inbounds i8, ptr %126, i64 %123
-  %128 = load i64, ptr %127, align 8, !tbaa !44
+127:                                              ; preds = %117
+  %128 = load ptr, ptr %2, align 8, !tbaa !43
+  %129 = getelementptr inbounds i8, ptr %128, i64 %125
+  %130 = load i64, ptr %129, align 8, !tbaa !44
   br label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit
 
-_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit: ; preds = %116, %125
-  %.0.i98 = phi i64 [ %128, %125 ], [ %123, %116 ]
-  %129 = load ptr, ptr %.ptr, align 8, !tbaa !45
-  %130 = getelementptr inbounds i8, ptr %2, i64 %.0.i98
-  %131 = and i64 %122, 2
-  %.not8.i = icmp eq i64 %131, 0
-  %132 = select i1 %.not8.i, i32 2, i32 %3
-  %133 = load ptr, ptr %129, align 8, !tbaa !23
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
-  %135 = load ptr, ptr %134, align 8
-  tail call void %135(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull %1, ptr noundef %130, i32 noundef %132, i1 noundef zeroext %4)
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %137 = icmp ugt i32 %118, 1
-  br i1 %137, label %138, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
+_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit: ; preds = %117, %127
+  %.0.i97 = phi i64 [ %130, %127 ], [ %125, %117 ]
+  %131 = load ptr, ptr %118, align 8, !tbaa !45
+  %132 = getelementptr inbounds i8, ptr %2, i64 %.0.i97
+  %133 = and i64 %124, 2
+  %.not8.i = icmp eq i64 %133, 0
+  %134 = select i1 %.not8.i, i32 2, i32 %3
+  %135 = load ptr, ptr %131, align 8, !tbaa !23
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
+  %137 = load ptr, ptr %136, align 8
+  tail call void %137(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull %1, ptr noundef %132, i32 noundef %134, i1 noundef zeroext %4)
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %139 = icmp ugt i32 %120, 1
+  br i1 %139, label %140, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
 
-138:                                              ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %140 = load i32, ptr %139, align 8, !tbaa !59
-  %141 = and i32 %140, 2
-  %.not = icmp eq i32 %141, 0
-  br i1 %.not, label %142, label %146
+140:                                              ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %142 = load i32, ptr %141, align 8, !tbaa !59
+  %143 = and i32 %142, 2
+  %.not = icmp eq i32 %143, 0
+  br i1 %.not, label %144, label %148
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %144 = load i32, ptr %143, align 4, !tbaa !32
-  %145 = icmp eq i32 %144, 1
-  br i1 %145, label %146, label %169
+144:                                              ; preds = %140
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %146 = load i32, ptr %145, align 4, !tbaa !32
+  %147 = icmp eq i32 %146, 1
+  br i1 %147, label %148, label %171
 
-146:                                              ; preds = %142, %138
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  br label %148
+148:                                              ; preds = %144, %140
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 78
+  br label %150
 
-148:                                              ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit102, %146
-  %.0 = phi ptr [ %136, %146 ], [ %167, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit102 ]
-  %149 = load i8, ptr %147, align 2, !tbaa !31, !range !41, !noundef !42
-  %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %151
+150:                                              ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit101, %148
+  %.0 = phi ptr [ %138, %148 ], [ %169, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit101 ]
+  %151 = load i8, ptr %149, align 2, !tbaa !31, !range !41, !noundef !42
+  %152 = trunc nuw i8 %151 to i1
+  br i1 %152, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %153
 
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %153 = load i64, ptr %152, align 8, !tbaa !39
-  %154 = ashr i64 %153, 8
-  %155 = and i64 %153, 1
-  %.not.i99 = icmp eq i64 %155, 0
-  br i1 %.not.i99, label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit102, label %156
+153:                                              ; preds = %150
+  %154 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %155 = load i64, ptr %154, align 8, !tbaa !39
+  %156 = ashr i64 %155, 8
+  %157 = and i64 %155, 1
+  %.not.i98 = icmp eq i64 %157, 0
+  br i1 %.not.i98, label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit101, label %158
 
-156:                                              ; preds = %151
-  %157 = load ptr, ptr %2, align 8, !tbaa !43
-  %158 = getelementptr inbounds i8, ptr %157, i64 %154
-  %159 = load i64, ptr %158, align 8, !tbaa !44
-  br label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit102
+158:                                              ; preds = %153
+  %159 = load ptr, ptr %2, align 8, !tbaa !43
+  %160 = getelementptr inbounds i8, ptr %159, i64 %156
+  %161 = load i64, ptr %160, align 8, !tbaa !44
+  br label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit101
 
-_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit102: ; preds = %151, %156
-  %.0.i100 = phi i64 [ %159, %156 ], [ %154, %151 ]
-  %160 = load ptr, ptr %.0, align 8, !tbaa !45
-  %161 = getelementptr inbounds i8, ptr %2, i64 %.0.i100
-  %162 = and i64 %153, 2
-  %.not8.i101 = icmp eq i64 %162, 0
-  %163 = select i1 %.not8.i101, i32 2, i32 %3
-  %164 = load ptr, ptr %160, align 8, !tbaa !23
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 48
-  %166 = load ptr, ptr %165, align 8
-  tail call void %166(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull %1, ptr noundef %161, i32 noundef %163, i1 noundef zeroext %4)
-  %167 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %168 = icmp ult ptr %167, %.ptr88
-  br i1 %168, label %148, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, !llvm.loop !61
+_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit101: ; preds = %153, %158
+  %.0.i99 = phi i64 [ %161, %158 ], [ %156, %153 ]
+  %162 = load ptr, ptr %.0, align 8, !tbaa !45
+  %163 = getelementptr inbounds i8, ptr %2, i64 %.0.i99
+  %164 = and i64 %155, 2
+  %.not8.i100 = icmp eq i64 %164, 0
+  %165 = select i1 %.not8.i100, i32 2, i32 %3
+  %166 = load ptr, ptr %162, align 8, !tbaa !23
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 48
+  %168 = load ptr, ptr %167, align 8
+  tail call void %168(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull %1, ptr noundef %163, i32 noundef %165, i1 noundef zeroext %4)
+  %169 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %170 = icmp ult ptr %169, %122
+  br i1 %170, label %150, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, !llvm.loop !61
 
-169:                                              ; preds = %142
-  %170 = and i32 %140, 1
-  %.not89 = icmp eq i32 %170, 0
-  br i1 %.not89, label %.preheader, label %.preheader118
+171:                                              ; preds = %144
+  %172 = and i32 %142, 1
+  %.not88 = icmp eq i32 %172, 0
+  br i1 %.not88, label %.preheader, label %.preheader117
 
-.preheader118:                                    ; preds = %169
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  br label %174
+.preheader117:                                    ; preds = %171
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 78
+  br label %176
 
-.preheader:                                       ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  br label %201
+.preheader:                                       ; preds = %171
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 78
+  br label %203
 
-174:                                              ; preds = %.preheader118, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit106
-  %.1 = phi ptr [ %199, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit106 ], [ %136, %.preheader118 ]
-  %175 = load i8, ptr %172, align 2, !tbaa !31, !range !41, !noundef !42
-  %176 = trunc nuw i8 %175 to i1
-  br i1 %176, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %177
+176:                                              ; preds = %.preheader117, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit105
+  %.1 = phi ptr [ %201, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit105 ], [ %138, %.preheader117 ]
+  %177 = load i8, ptr %174, align 2, !tbaa !31, !range !41, !noundef !42
+  %178 = trunc nuw i8 %177 to i1
+  br i1 %178, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %179
 
-177:                                              ; preds = %174
-  %178 = load i32, ptr %143, align 4, !tbaa !32
-  %179 = icmp eq i32 %178, 1
-  br i1 %179, label %180, label %183
+179:                                              ; preds = %176
+  %180 = load i32, ptr %145, align 4, !tbaa !32
+  %181 = icmp eq i32 %180, 1
+  br i1 %181, label %182, label %185
 
-180:                                              ; preds = %177
-  %181 = load i32, ptr %171, align 8, !tbaa !25
-  %182 = icmp eq i32 %181, 1
-  br i1 %182, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %183
+182:                                              ; preds = %179
+  %183 = load i32, ptr %173, align 8, !tbaa !25
+  %184 = icmp eq i32 %183, 1
+  br i1 %184, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %185
 
-183:                                              ; preds = %180, %177
-  %184 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %185 = load i64, ptr %184, align 8, !tbaa !39
-  %186 = ashr i64 %185, 8
-  %187 = and i64 %185, 1
-  %.not.i103 = icmp eq i64 %187, 0
-  br i1 %.not.i103, label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit106, label %188
+185:                                              ; preds = %182, %179
+  %186 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %187 = load i64, ptr %186, align 8, !tbaa !39
+  %188 = ashr i64 %187, 8
+  %189 = and i64 %187, 1
+  %.not.i102 = icmp eq i64 %189, 0
+  br i1 %.not.i102, label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit105, label %190
 
-188:                                              ; preds = %183
-  %189 = load ptr, ptr %2, align 8, !tbaa !43
-  %190 = getelementptr inbounds i8, ptr %189, i64 %186
-  %191 = load i64, ptr %190, align 8, !tbaa !44
-  br label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit106
+190:                                              ; preds = %185
+  %191 = load ptr, ptr %2, align 8, !tbaa !43
+  %192 = getelementptr inbounds i8, ptr %191, i64 %188
+  %193 = load i64, ptr %192, align 8, !tbaa !44
+  br label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit105
 
-_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit106: ; preds = %183, %188
-  %.0.i104 = phi i64 [ %191, %188 ], [ %186, %183 ]
-  %192 = load ptr, ptr %.1, align 8, !tbaa !45
-  %193 = getelementptr inbounds i8, ptr %2, i64 %.0.i104
-  %194 = and i64 %185, 2
-  %.not8.i105 = icmp eq i64 %194, 0
-  %195 = select i1 %.not8.i105, i32 2, i32 %3
-  %196 = load ptr, ptr %192, align 8, !tbaa !23
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 48
-  %198 = load ptr, ptr %197, align 8
-  tail call void %198(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull %1, ptr noundef %193, i32 noundef %195, i1 noundef zeroext %4)
-  %199 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %200 = icmp ult ptr %199, %.ptr88
-  br i1 %200, label %174, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, !llvm.loop !62
+_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit105: ; preds = %185, %190
+  %.0.i103 = phi i64 [ %193, %190 ], [ %188, %185 ]
+  %194 = load ptr, ptr %.1, align 8, !tbaa !45
+  %195 = getelementptr inbounds i8, ptr %2, i64 %.0.i103
+  %196 = and i64 %187, 2
+  %.not8.i104 = icmp eq i64 %196, 0
+  %197 = select i1 %.not8.i104, i32 2, i32 %3
+  %198 = load ptr, ptr %194, align 8, !tbaa !23
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 48
+  %200 = load ptr, ptr %199, align 8
+  tail call void %200(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef nonnull %1, ptr noundef %195, i32 noundef %197, i1 noundef zeroext %4)
+  %201 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %202 = icmp ult ptr %201, %122
+  br i1 %202, label %176, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, !llvm.loop !62
 
-201:                                              ; preds = %.preheader, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit110
-  %.2 = phi ptr [ %223, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit110 ], [ %136, %.preheader ]
-  %202 = load i8, ptr %173, align 2, !tbaa !31, !range !41, !noundef !42
-  %203 = trunc nuw i8 %202 to i1
-  br i1 %203, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %204
+203:                                              ; preds = %.preheader, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit109
+  %.2 = phi ptr [ %225, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit109 ], [ %138, %.preheader ]
+  %204 = load i8, ptr %175, align 2, !tbaa !31, !range !41, !noundef !42
+  %205 = trunc nuw i8 %204 to i1
+  br i1 %205, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %206
 
-204:                                              ; preds = %201
-  %205 = load i32, ptr %143, align 4, !tbaa !32
-  %206 = icmp eq i32 %205, 1
-  br i1 %206, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %207
+206:                                              ; preds = %203
+  %207 = load i32, ptr %145, align 4, !tbaa !32
+  %208 = icmp eq i32 %207, 1
+  br i1 %208, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, label %209
 
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %209 = load i64, ptr %208, align 8, !tbaa !39
-  %210 = ashr i64 %209, 8
-  %211 = and i64 %209, 1
-  %.not.i107 = icmp eq i64 %211, 0
-  br i1 %.not.i107, label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit110, label %212
+209:                                              ; preds = %206
+  %210 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %211 = load i64, ptr %210, align 8, !tbaa !39
+  %212 = ashr i64 %211, 8
+  %213 = and i64 %211, 1
+  %.not.i106 = icmp eq i64 %213, 0
+  br i1 %.not.i106, label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit109, label %214
 
-212:                                              ; preds = %207
-  %213 = load ptr, ptr %2, align 8, !tbaa !43
-  %214 = getelementptr inbounds i8, ptr %213, i64 %210
-  %215 = load i64, ptr %214, align 8, !tbaa !44
-  br label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit110
+214:                                              ; preds = %209
+  %215 = load ptr, ptr %2, align 8, !tbaa !43
+  %216 = getelementptr inbounds i8, ptr %215, i64 %212
+  %217 = load i64, ptr %216, align 8, !tbaa !44
+  br label %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit109
 
-_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit110: ; preds = %207, %212
-  %.0.i108 = phi i64 [ %215, %212 ], [ %210, %207 ]
-  %216 = load ptr, ptr %.2, align 8, !tbaa !45
-  %217 = getelementptr inbounds i8, ptr %2, i64 %.0.i108
-  %218 = and i64 %209, 2
-  %.not8.i109 = icmp eq i64 %218, 0
-  %219 = select i1 %.not8.i109, i32 2, i32 %3
-  %220 = load ptr, ptr %216, align 8, !tbaa !23
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 48
-  %222 = load ptr, ptr %221, align 8
-  tail call void %222(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull %1, ptr noundef %217, i32 noundef %219, i1 noundef zeroext %4)
-  %223 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %224 = icmp ult ptr %223, %.ptr88
-  br i1 %224, label %201, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, !llvm.loop !63
+_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit109: ; preds = %209, %214
+  %.0.i107 = phi i64 [ %217, %214 ], [ %212, %209 ]
+  %218 = load ptr, ptr %.2, align 8, !tbaa !45
+  %219 = getelementptr inbounds i8, ptr %2, i64 %.0.i107
+  %220 = and i64 %211, 2
+  %.not8.i108 = icmp eq i64 %220, 0
+  %221 = select i1 %.not8.i108, i32 2, i32 %3
+  %222 = load ptr, ptr %218, align 8, !tbaa !23
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 48
+  %224 = load ptr, ptr %223, align 8
+  tail call void %224(ptr noundef nonnull align 8 dereferenceable(16) %218, ptr noundef nonnull %1, ptr noundef %219, i32 noundef %221, i1 noundef zeroext %4)
+  %225 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %226 = icmp ult ptr %225, %122
+  br i1 %226, label %203, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit, !llvm.loop !63
 
-_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit: ; preds = %180, %174, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit106, %204, %201, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit110, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit102, %148, %102, %._crit_edge.thread, %.thread113, %28, %25, %_ZL8is_equalPKSt9type_infoS1_b.exit.thread, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit, %103, %114, %110, %.critedge, %48, %50
+_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit: ; preds = %182, %176, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit105, %206, %203, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit109, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit101, %150, %103, %._crit_edge.thread, %.thread112, %28, %25, %_ZL8is_equalPKSt9type_infoS1_b.exit.thread, %_ZNK10__cxxabiv122__base_class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib.exit, %104, %115, %111, %.critedge, %48, %50
   ret void
 }
 
@@ -2434,126 +2431,125 @@ _ZL8is_equalPKSt9type_infoS1_b.exit.thread:       ; preds = %15, %9, %_ZL8is_equ
   %59 = load i8, ptr %58, align 4, !tbaa !29, !range !41, !noundef !42
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 77
   %61 = load i8, ptr %60, align 1, !tbaa !30, !range !41, !noundef !42
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %63 = load i32, ptr %62, align 4, !tbaa !46
-  %64 = zext i32 %63 to i64
-  %.idx = shl nuw nsw i64 %64, 4
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr49 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %64 = load i32, ptr %63, align 4, !tbaa !46
+  %65 = zext i32 %64 to i64
+  %.idx = shl nuw nsw i64 %65, 4
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
   store i8 0, ptr %58, align 4, !tbaa !29
   store i8 0, ptr %60, align 1, !tbaa !30
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = load i64, ptr %66, align 8, !tbaa !39
-  %68 = ashr i64 %67, 8
-  %69 = and i64 %67, 1
-  %.not.i = icmp eq i64 %69, 0
-  br i1 %.not.i, label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit, label %70
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %68 = load i64, ptr %67, align 8, !tbaa !39
+  %69 = ashr i64 %68, 8
+  %70 = and i64 %68, 1
+  %.not.i = icmp eq i64 %70, 0
+  br i1 %.not.i, label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit, label %71
 
-70:                                               ; preds = %57
-  %71 = load ptr, ptr %3, align 8, !tbaa !43
-  %72 = getelementptr inbounds i8, ptr %71, i64 %68
-  %73 = load i64, ptr %72, align 8, !tbaa !44
+71:                                               ; preds = %57
+  %72 = load ptr, ptr %3, align 8, !tbaa !43
+  %73 = getelementptr inbounds i8, ptr %72, i64 %69
+  %74 = load i64, ptr %73, align 8, !tbaa !44
   br label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
 
-_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit: ; preds = %57, %70
-  %.0.i51 = phi i64 [ %73, %70 ], [ %68, %57 ]
-  %74 = load ptr, ptr %.ptr, align 8, !tbaa !45
-  %75 = getelementptr inbounds i8, ptr %3, i64 %.0.i51
-  %76 = and i64 %67, 2
-  %.not9.i = icmp eq i64 %76, 0
-  %77 = select i1 %.not9.i, i32 2, i32 %4
-  %78 = load ptr, ptr %74, align 8, !tbaa !23
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  %80 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %75, i32 noundef %77, i1 noundef zeroext %5)
-  %81 = load i8, ptr %58, align 4, !tbaa !29, !range !41, !noundef !42
-  %82 = or i8 %81, %59
-  %83 = load i8, ptr %60, align 1, !tbaa !30, !range !41, !noundef !42
-  %84 = or i8 %83, %61
-  %85 = icmp ugt i32 %63, 1
-  br i1 %85, label %.preheader, label %.loopexit
+_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit: ; preds = %57, %71
+  %.0.i50 = phi i64 [ %74, %71 ], [ %69, %57 ]
+  %75 = load ptr, ptr %62, align 8, !tbaa !45
+  %76 = getelementptr inbounds i8, ptr %3, i64 %.0.i50
+  %77 = and i64 %68, 2
+  %.not9.i = icmp eq i64 %77, 0
+  %78 = select i1 %.not9.i, i32 2, i32 %4
+  %79 = load ptr, ptr %75, align 8, !tbaa !23
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
+  %81 = load ptr, ptr %80, align 8
+  tail call void %81(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %76, i32 noundef %78, i1 noundef zeroext %5)
+  %82 = load i8, ptr %58, align 4, !tbaa !29, !range !41, !noundef !42
+  %83 = or i8 %82, %59
+  %84 = load i8, ptr %60, align 1, !tbaa !30, !range !41, !noundef !42
+  %85 = or i8 %84, %61
+  %86 = icmp ugt i32 %64, 1
+  br i1 %86, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  br label %90
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 78
+  br label %91
 
-90:                                               ; preds = %.preheader, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55
-  %91 = phi i8 [ %126, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %83, %.preheader ]
-  %92 = phi i8 [ %124, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %81, %.preheader ]
-  %.146 = phi i8 [ %127, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %84, %.preheader ]
-  %.1 = phi i8 [ %125, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %82, %.preheader ]
-  %.0 = phi ptr [ %128, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %86, %.preheader ]
-  %93 = load i8, ptr %89, align 2, !tbaa !31, !range !41, !noundef !42
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %.loopexit, label %95
+91:                                               ; preds = %.preheader, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54
+  %92 = phi i8 [ %127, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54 ], [ %84, %.preheader ]
+  %93 = phi i8 [ %125, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54 ], [ %82, %.preheader ]
+  %.146 = phi i8 [ %128, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54 ], [ %85, %.preheader ]
+  %.1 = phi i8 [ %126, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54 ], [ %83, %.preheader ]
+  %.0 = phi ptr [ %129, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54 ], [ %87, %.preheader ]
+  %94 = load i8, ptr %90, align 2, !tbaa !31, !range !41, !noundef !42
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %.loopexit, label %96
 
-95:                                               ; preds = %90
-  %96 = trunc nuw i8 %92 to i1
-  br i1 %96, label %97, label %103
+96:                                               ; preds = %91
+  %97 = trunc nuw i8 %93 to i1
+  br i1 %97, label %98, label %104
 
-97:                                               ; preds = %95
-  %98 = load i32, ptr %88, align 8, !tbaa !25
-  %99 = icmp eq i32 %98, 1
-  br i1 %99, label %.loopexit, label %100
+98:                                               ; preds = %96
+  %99 = load i32, ptr %89, align 8, !tbaa !25
+  %100 = icmp eq i32 %99, 1
+  br i1 %100, label %.loopexit, label %101
 
-100:                                              ; preds = %97
-  %101 = load i32, ptr %87, align 8, !tbaa !59
-  %102 = and i32 %101, 2
-  %.not50 = icmp eq i32 %102, 0
-  br i1 %.not50, label %.loopexit, label %108
+101:                                              ; preds = %98
+  %102 = load i32, ptr %88, align 8, !tbaa !59
+  %103 = and i32 %102, 2
+  %.not49 = icmp eq i32 %103, 0
+  br i1 %.not49, label %.loopexit, label %109
 
-103:                                              ; preds = %95
-  %104 = trunc nuw i8 %91 to i1
-  br i1 %104, label %105, label %108
+104:                                              ; preds = %96
+  %105 = trunc nuw i8 %92 to i1
+  br i1 %105, label %106, label %109
 
-105:                                              ; preds = %103
-  %106 = load i32, ptr %87, align 8, !tbaa !59
-  %107 = and i32 %106, 1
-  %.not = icmp eq i32 %107, 0
-  br i1 %.not, label %.loopexit, label %108
+106:                                              ; preds = %104
+  %107 = load i32, ptr %88, align 8, !tbaa !59
+  %108 = and i32 %107, 1
+  %.not = icmp eq i32 %108, 0
+  br i1 %.not, label %.loopexit, label %109
 
-108:                                              ; preds = %103, %105, %100
+109:                                              ; preds = %104, %106, %101
   store i8 0, ptr %58, align 4, !tbaa !29
   store i8 0, ptr %60, align 1, !tbaa !30
-  %109 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %110 = load i64, ptr %109, align 8, !tbaa !39
-  %111 = ashr i64 %110, 8
-  %112 = and i64 %110, 1
-  %.not.i52 = icmp eq i64 %112, 0
-  br i1 %.not.i52, label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55, label %113
+  %110 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %111 = load i64, ptr %110, align 8, !tbaa !39
+  %112 = ashr i64 %111, 8
+  %113 = and i64 %111, 1
+  %.not.i51 = icmp eq i64 %113, 0
+  br i1 %.not.i51, label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54, label %114
 
-113:                                              ; preds = %108
-  %114 = load ptr, ptr %3, align 8, !tbaa !43
-  %115 = getelementptr inbounds i8, ptr %114, i64 %111
-  %116 = load i64, ptr %115, align 8, !tbaa !44
-  br label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55
+114:                                              ; preds = %109
+  %115 = load ptr, ptr %3, align 8, !tbaa !43
+  %116 = getelementptr inbounds i8, ptr %115, i64 %112
+  %117 = load i64, ptr %116, align 8, !tbaa !44
+  br label %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54
 
-_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55: ; preds = %108, %113
-  %.0.i53 = phi i64 [ %116, %113 ], [ %111, %108 ]
-  %117 = load ptr, ptr %.0, align 8, !tbaa !45
-  %118 = getelementptr inbounds i8, ptr %3, i64 %.0.i53
-  %119 = and i64 %110, 2
-  %.not9.i54 = icmp eq i64 %119, 0
-  %120 = select i1 %.not9.i54, i32 2, i32 %4
-  %121 = load ptr, ptr %117, align 8, !tbaa !23
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 40
-  %123 = load ptr, ptr %122, align 8
-  tail call void %123(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %118, i32 noundef %120, i1 noundef zeroext %5)
-  %124 = load i8, ptr %58, align 4, !tbaa !29, !range !41, !noundef !42
-  %125 = or i8 %124, %.1
-  %126 = load i8, ptr %60, align 1, !tbaa !30, !range !41, !noundef !42
-  %127 = or i8 %126, %.146
-  %128 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %129 = icmp ult ptr %128, %.ptr49
-  br i1 %129, label %90, label %.loopexit, !llvm.loop !64
+_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54: ; preds = %109, %114
+  %.0.i52 = phi i64 [ %117, %114 ], [ %112, %109 ]
+  %118 = load ptr, ptr %.0, align 8, !tbaa !45
+  %119 = getelementptr inbounds i8, ptr %3, i64 %.0.i52
+  %120 = and i64 %111, 2
+  %.not9.i53 = icmp eq i64 %120, 0
+  %121 = select i1 %.not9.i53, i32 2, i32 %4
+  %122 = load ptr, ptr %118, align 8, !tbaa !23
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %124 = load ptr, ptr %123, align 8
+  tail call void %124(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %119, i32 noundef %121, i1 noundef zeroext %5)
+  %125 = load i8, ptr %58, align 4, !tbaa !29, !range !41, !noundef !42
+  %126 = or i8 %125, %.1
+  %127 = load i8, ptr %60, align 1, !tbaa !30, !range !41, !noundef !42
+  %128 = or i8 %127, %.146
+  %129 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %130 = icmp ult ptr %129, %66
+  br i1 %130, label %91, label %.loopexit, !llvm.loop !64
 
-.loopexit:                                        ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55, %90, %97, %100, %105, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
-  %.045 = phi i8 [ %84, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.146, %105 ], [ %.146, %100 ], [ %127, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %.146, %97 ], [ %.146, %90 ]
-  %.044 = phi i8 [ %82, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.1, %105 ], [ %.1, %100 ], [ %125, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit55 ], [ %.1, %97 ], [ %.1, %90 ]
+.loopexit:                                        ; preds = %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54, %91, %98, %101, %106, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
+  %.045 = phi i8 [ %85, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.146, %106 ], [ %.146, %101 ], [ %128, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54 ], [ %.146, %98 ], [ %.146, %91 ]
+  %.044 = phi i8 [ %83, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.1, %106 ], [ %.1, %101 ], [ %126, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit54 ], [ %.1, %98 ], [ %.1, %91 ]
   store i8 %.044, ptr %58, align 4, !tbaa !29
   store i8 %.045, ptr %60, align 1, !tbaa !30
   br label %_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit

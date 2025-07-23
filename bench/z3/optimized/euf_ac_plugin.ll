@@ -971,78 +971,77 @@ _ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit:        ; preds = %_ZNK4decl13get_fami
   br i1 %28, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread19, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread
 
 _ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread: ; preds = %2, %_ZNK4decl13get_family_idEv.exit.thread.i, %_ZNK4decl13get_family_idEv.exit.i, %_ZNK3euf5enode8get_declEv.exit.i, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %30 = load i32, ptr %29, align 8, !tbaa !137
-  %31 = zext i32 %30 to i64
-  %.idx = shl nuw nsw i64 %31, 3
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr23 = getelementptr inbounds nuw i8, ptr %32, i64 176
-  %.not21 = icmp eq i32 %30, 0
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %31 = load i32, ptr %30, align 8, !tbaa !137
+  %32 = zext i32 %31 to i64
+  %.idx = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
+  %.not21 = icmp eq i32 %31, 0
   br i1 %.not21, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.in.i15 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  br label %35
+  br label %36
 
-35:                                               ; preds = %.lr.ph, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
-  %.022 = phi ptr [ %.ptr, %.lr.ph ], [ %61, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread ]
-  %36 = load ptr, ptr %.022, align 8, !tbaa !138
-  %37 = load ptr, ptr %36, align 8, !tbaa !123
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, 65535
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %_ZNK3euf5enode8get_declEv.exit.i11, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
+36:                                               ; preds = %.lr.ph, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
+  %.022 = phi ptr [ %29, %.lr.ph ], [ %62, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread ]
+  %37 = load ptr, ptr %.022, align 8, !tbaa !138
+  %38 = load ptr, ptr %37, align 8, !tbaa !123
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %40, 65535
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %_ZNK3euf5enode8get_declEv.exit.i11, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
 
-_ZNK3euf5enode8get_declEv.exit.i11:               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !132
-  %.not.i12 = icmp eq ptr %43, null
-  br i1 %.not.i12, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread, label %44
+_ZNK3euf5enode8get_declEv.exit.i11:               ; preds = %36
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !132
+  %.not.i12 = icmp eq ptr %44, null
+  br i1 %.not.i12, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread, label %45
 
-44:                                               ; preds = %_ZNK3euf5enode8get_declEv.exit.i11
-  %45 = load ptr, ptr %33, align 8, !tbaa !122
-  %46 = icmp eq ptr %43, %45
-  br i1 %46, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread20, label %47
+45:                                               ; preds = %_ZNK3euf5enode8get_declEv.exit.i11
+  %46 = load ptr, ptr %34, align 8, !tbaa !122
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread20, label %48
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %34, align 8, !tbaa !10
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !112
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %_ZNK4decl13get_family_idEv.exit.i16, label %_ZNK4decl13get_family_idEv.exit.thread.i13
+48:                                               ; preds = %45
+  %49 = load i32, ptr %35, align 8, !tbaa !10
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !112
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %_ZNK4decl13get_family_idEv.exit.i16, label %_ZNK4decl13get_family_idEv.exit.thread.i13
 
-_ZNK4decl13get_family_idEv.exit.i16:              ; preds = %47
-  %52 = icmp eq i32 %48, -1
-  br i1 %52, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
+_ZNK4decl13get_family_idEv.exit.i16:              ; preds = %48
+  %53 = icmp eq i32 %49, -1
+  br i1 %53, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
 
-_ZNK4decl13get_family_idEv.exit.thread.i13:       ; preds = %47
-  %53 = load i32, ptr %50, align 8, !tbaa !117
-  %54 = icmp eq i32 %48, %53
-  br i1 %54, label %55, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
+_ZNK4decl13get_family_idEv.exit.thread.i13:       ; preds = %48
+  %54 = load i32, ptr %51, align 8, !tbaa !117
+  %55 = icmp eq i32 %49, %54
+  br i1 %55, label %56, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
 
-55:                                               ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i13
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !136
+56:                                               ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i13
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %58 = load i32, ptr %57, align 4, !tbaa !136
   br label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17
 
-_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17:      ; preds = %_ZNK4decl13get_family_idEv.exit.i16, %55
-  %58 = phi i32 [ %57, %55 ], [ -1, %_ZNK4decl13get_family_idEv.exit.i16 ]
-  %59 = load i32, ptr %.in.i15, align 4, !tbaa !73
-  %60 = icmp eq i32 %59, %58
-  br i1 %60, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread20, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
+_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17:      ; preds = %_ZNK4decl13get_family_idEv.exit.i16, %56
+  %59 = phi i32 [ %58, %56 ], [ -1, %_ZNK4decl13get_family_idEv.exit.i16 ]
+  %60 = load i32, ptr %.in.i15, align 4, !tbaa !73
+  %61 = icmp eq i32 %60, %59
+  br i1 %61, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread20, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
 
-_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread20: ; preds = %44, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17
-  tail call void @_ZN3euf9ac_plugin15register_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull %36)
+_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread20: ; preds = %45, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17
+  tail call void @_ZN3euf9ac_plugin15register_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull %37)
   br label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread
 
-_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread: ; preds = %35, %_ZNK4decl13get_family_idEv.exit.thread.i13, %_ZNK4decl13get_family_idEv.exit.i16, %_ZNK3euf5enode8get_declEv.exit.i11, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread20, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17
-  %61 = getelementptr inbounds nuw i8, ptr %.022, i64 8
-  %.not = icmp eq ptr %61, %.ptr23
-  br i1 %.not, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread19, label %35
+_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread: ; preds = %36, %_ZNK4decl13get_family_idEv.exit.thread.i13, %_ZNK4decl13get_family_idEv.exit.i16, %_ZNK3euf5enode8get_declEv.exit.i11, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread20, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17
+  %62 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %.not = icmp eq ptr %62, %33
+  br i1 %.not, label %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread19, label %36
 
 _ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread19: ; preds = %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit17.thread, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit.thread, %10, %_ZNK3euf9ac_plugin5is_opEPNS_5enodeE.exit
   ret void

@@ -163,183 +163,167 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeViewContext7addFileERNS_10MCS
   %.fca.0.extract.i = extractvalue { ptr, i8 } %17, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %17, 1
   %18 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !61, !noalias !58
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !63, !noalias !58
-  %20 = trunc nuw i8 %.fca.1.extract.i to i1
-  br i1 %20, label %21, label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load i64, ptr %18, align 8, !tbaa !63, !noalias !58
+  %21 = trunc nuw i8 %.fca.1.extract.i to i1
+  br i1 %21, label %22, label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
 
-21:                                               ; preds = %7
-  %22 = add nuw nsw i64 %19, 1
-  %23 = load i64, ptr %13, align 8, !tbaa !47, !noalias !58
-  %24 = add i64 %23, %22
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load i64, ptr %25, align 8, !tbaa !48, !noalias !58
-  %27 = icmp ult i64 %26, %24
-  br i1 %27, label %28, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
+22:                                               ; preds = %7
+  %23 = add nuw nsw i64 %20, 1
+  %24 = load i64, ptr %13, align 8, !tbaa !47, !noalias !58
+  %25 = add i64 %24, %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %27 = load i64, ptr %26, align 8, !tbaa !48, !noalias !58
+  %28 = icmp ult i64 %27, %25
+  br i1 %28, label %29, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %29, i64 noundef %24, i64 noundef 1) #17, !noalias !58
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %30, i64 noundef %25, i64 noundef 1) #17, !noalias !58
   %.pre8.pre.i.i = load i64, ptr %13, align 8, !tbaa !47, !noalias !58
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %28, %21
-  %.pre8.i.i = phi i64 [ %23, %21 ], [ %.pre8.pre.i.i, %28 ]
-  %.not.i.i.i = icmp eq i64 %19, -1
-  br i1 %.not.i.i.i, label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i, label %30
-
-30:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
+_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %29, %22
+  %.pre8.i.i = phi i64 [ %24, %22 ], [ %.pre8.pre.i.i, %29 ]
   %31 = load ptr, ptr %12, align 8, !tbaa !46, !noalias !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.pre8.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.ptr.i, i64 %22, i1 false), !noalias !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %19, i64 %23, i1 false), !noalias !58
   %.pre.i.i = load i64, ptr %13, align 8, !tbaa !47, !noalias !58
-  br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i
-
-_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i: ; preds = %30, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
-  %33 = phi i64 [ %.pre8.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ %.pre.i.i, %30 ]
-  %34 = add i64 %33, %22
-  store i64 %34, ptr %13, align 8, !tbaa !47, !noalias !58
+  %33 = add i64 %.pre.i.i, %23
+  store i64 %33, ptr %13, align 8, !tbaa !47, !noalias !58
   br label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
 
-_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit: ; preds = %7, %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i
-  %35 = add i32 %2, -1
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %39 = load i32, ptr %38, align 8, !tbaa !49
-  %.not = icmp ugt i32 %39, %35
-  br i1 %.not, label %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit, label %40
+_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit: ; preds = %7, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
+  %34 = add i32 %2, -1
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %38 = load i32, ptr %37, align 8, !tbaa !49
+  %.not = icmp ugt i32 %38, %34
+  br i1 %.not, label %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit, label %39
 
-40:                                               ; preds = %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
-  %41 = zext i32 %2 to i64
-  %42 = icmp eq i32 %2, %39
-  br i1 %42, label %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit, label %43
+39:                                               ; preds = %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
+  %40 = zext i32 %2 to i64
+  %41 = icmp eq i32 %2, %38
+  br i1 %41, label %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit, label %42
 
-43:                                               ; preds = %40
-  %44 = icmp ult i32 %2, %39
-  br i1 %44, label %.sink.split.i.i, label %45
+42:                                               ; preds = %39
+  %43 = icmp ult i32 %2, %38
+  br i1 %43, label %.sink.split.i.i, label %44
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %47 = load i32, ptr %46, align 4, !tbaa !65
-  %48 = icmp ugt i32 %2, %47
-  br i1 %48, label %49, label %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE7reserveEm.exit.i.i
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %46 = load i32, ptr %45, align 4, !tbaa !65
+  %47 = icmp ugt i32 %2, %46
+  br i1 %47, label %48, label %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE7reserveEm.exit.i.i
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %50, i64 noundef %41, i64 noundef 32) #17
-  %.pre.i.i16 = load i32, ptr %38, align 8, !tbaa !49
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %49, i64 noundef %40, i64 noundef 32) #17
+  %.pre.i.i16 = load i32, ptr %37, align 8, !tbaa !49
   br label %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE7reserveEm.exit.i.i: ; preds = %49, %45
-  %.pre-phi.i.i.in = phi i32 [ %39, %45 ], [ %.pre.i.i16, %49 ]
+_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE7reserveEm.exit.i.i: ; preds = %48, %44
+  %.pre-phi.i.i.in = phi i32 [ %38, %44 ], [ %.pre.i.i16, %48 ]
   %.not11.i.i = icmp eq i32 %2, %.pre-phi.i.i.in
   br i1 %.not11.i.i, label %.sink.split.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE7reserveEm.exit.i.i
   %.pre-phi.i.i = zext i32 %.pre-phi.i.i.in to i64
-  %51 = load ptr, ptr %37, align 8, !tbaa !50
-  %52 = getelementptr %"struct.llvm::CodeViewContext::FileInfo", ptr %51, i64 %.pre-phi.i.i
-  %53 = sub nsw i64 %41, %.pre-phi.i.i
-  %54 = shl nsw i64 %53, 5
-  call void @llvm.memset.p0.i64(ptr align 8 %52, i8 0, i64 %54, i1 false)
+  %50 = load ptr, ptr %36, align 8, !tbaa !50
+  %51 = getelementptr %"struct.llvm::CodeViewContext::FileInfo", ptr %50, i64 %.pre-phi.i.i
+  %52 = sub nsw i64 %40, %.pre-phi.i.i
+  %53 = shl nsw i64 %52, 5
+  call void @llvm.memset.p0.i64(ptr align 8 %51, i8 0, i64 %53, i1 false)
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE7reserveEm.exit.i.i, %43
-  store i32 %2, ptr %38, align 8, !tbaa !49
+.sink.split.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE7reserveEm.exit.i.i, %42
+  store i32 %2, ptr %37, align 8, !tbaa !49
   br label %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit
 
-_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit: ; preds = %.sink.split.i.i, %40, %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
-  %55 = load ptr, ptr %37, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw %"struct.llvm::CodeViewContext::FileInfo", ptr %55, i64 %36, i32 1
-  %57 = load i8, ptr %56, align 4, !tbaa !51, !range !56, !noundef !57
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %95, label %59
+_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit: ; preds = %.sink.split.i.i, %39, %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
+  %54 = load ptr, ptr %36, align 8, !tbaa !50
+  %55 = getelementptr inbounds nuw %"struct.llvm::CodeViewContext::FileInfo", ptr %54, i64 %35, i32 1
+  %56 = load i8, ptr %55, align 4, !tbaa !51, !range !56, !noundef !57
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %93, label %58
 
-59:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit
-  %60 = icmp eq i64 %19, 0
-  %spec.select40 = select i1 %60, i64 7, i64 %19
-  %spec.select = select i1 %60, ptr @.str, ptr %.ptr.i
-  %61 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
-  %62 = trunc i64 %61 to i32
+58:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit
+  %59 = icmp eq i64 %20, 0
+  %spec.select37 = select i1 %59, i64 7, i64 %20
+  %spec.select = select i1 %59, ptr @.str, ptr %19
+  %60 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
+  %61 = trunc i64 %60 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !66
   store ptr %spec.select, ptr %8, align 8, !noalias !66
   %.sroa.03.sroa.2.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %spec.select40, ptr %.sroa.03.sroa.2.0..sroa_idx.i17, align 8, !noalias !66
+  store i64 %spec.select37, ptr %.sroa.03.sroa.2.0..sroa_idx.i17, align 8, !noalias !66
   %.sroa.2.0..sroa_idx4.i18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %62, ptr %.sroa.2.0..sroa_idx4.i18, align 8, !noalias !66
-  %63 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %spec.select, i64 %spec.select40) #17, !noalias !66
-  %64 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nonnull %spec.select, i64 %spec.select40, i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx4.i18), !noalias !66
+  store i32 %61, ptr %.sroa.2.0..sroa_idx4.i18, align 8, !noalias !66
+  %62 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %spec.select, i64 %spec.select37) #17, !noalias !66
+  %63 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nonnull %spec.select, i64 %spec.select37, i32 noundef %62, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx4.i18), !noalias !66
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !66
-  %.fca.0.extract.i19 = extractvalue { ptr, i8 } %64, 0
-  %.fca.1.extract.i20 = extractvalue { ptr, i8 } %64, 1
-  %65 = load ptr, ptr %.fca.0.extract.i19, align 8, !tbaa !61, !noalias !66
-  %.ptr.i21 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %66 = load i64, ptr %65, align 8, !tbaa !63, !noalias !66
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %68 = load i32, ptr %67, align 4, !tbaa !69, !noalias !70
-  %69 = trunc nuw i8 %.fca.1.extract.i20 to i1
-  br i1 %69, label %70, label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit29
+  %.fca.0.extract.i19 = extractvalue { ptr, i8 } %63, 0
+  %.fca.1.extract.i20 = extractvalue { ptr, i8 } %63, 1
+  %64 = load ptr, ptr %.fca.0.extract.i19, align 8, !tbaa !61, !noalias !66
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %67 = load i32, ptr %66, align 4, !tbaa !69, !noalias !70
+  %68 = trunc nuw i8 %.fca.1.extract.i20 to i1
+  br i1 %68, label %69, label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit26
 
-70:                                               ; preds = %59
-  %71 = add nuw nsw i64 %66, 1
+69:                                               ; preds = %58
+  %70 = load i64, ptr %64, align 8, !tbaa !63, !noalias !66
+  %71 = add nuw nsw i64 %70, 1
   %72 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
   %73 = add i64 %72, %71
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %75 = load i64, ptr %74, align 8, !tbaa !48, !noalias !66
   %76 = icmp ult i64 %75, %73
-  br i1 %76, label %77, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i23
+  br i1 %76, label %77, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i22
 
-77:                                               ; preds = %70
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %37, i64 noundef %73, i64 noundef 1) #17, !noalias !66
-  %.pre8.pre.i.i28 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
-  br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i23
+77:                                               ; preds = %69
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %36, i64 noundef %73, i64 noundef 1) #17, !noalias !66
+  %.pre8.pre.i.i25 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
+  br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i22
 
-_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i23: ; preds = %77, %70
-  %.pre8.i.i24 = phi i64 [ %72, %70 ], [ %.pre8.pre.i.i28, %77 ]
-  %.not.i.i.i25 = icmp eq i64 %66, -1
-  br i1 %.not.i.i.i25, label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i27, label %78
+_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i22: ; preds = %77, %69
+  %.pre8.i.i23 = phi i64 [ %72, %69 ], [ %.pre8.pre.i.i25, %77 ]
+  %78 = load ptr, ptr %12, align 8, !tbaa !46, !noalias !66
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.pre8.i.i23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %79, ptr noundef nonnull align 1 dereferenceable(1) %65, i64 %71, i1 false), !noalias !66
+  %.pre.i.i24 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
+  %80 = add i64 %.pre.i.i24, %71
+  store i64 %80, ptr %13, align 8, !tbaa !47, !noalias !66
+  br label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit26
 
-78:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i23
-  %79 = load ptr, ptr %12, align 8, !tbaa !46, !noalias !66
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.pre8.i.i24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %80, ptr noundef nonnull align 1 dereferenceable(1) %.ptr.i21, i64 %71, i1 false), !noalias !66
-  %.pre.i.i26 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
-  br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i27
-
-_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i27: ; preds = %78, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i23
-  %81 = phi i64 [ %.pre8.i.i24, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i23 ], [ %.pre.i.i26, %78 ]
-  %82 = add i64 %81, %71
-  store i64 %82, ptr %13, align 8, !tbaa !47, !noalias !66
-  br label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit29
-
-_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit29: ; preds = %59, %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i27
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !73
+_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit26: ; preds = %58, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i22
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
-  %85 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %86 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 1, ptr %86, align 1, !tbaa !105
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 1, ptr %84, align 1, !tbaa !105
   store ptr @.str.1, ptr %10, align 8, !tbaa !108
-  store i8 3, ptr %85, align 8, !tbaa !109
-  %87 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432) %84, ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext false) #17
+  store i8 3, ptr %83, align 8, !tbaa !109
+  %85 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(2432) %82, ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext false) #17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #17
-  %88 = load ptr, ptr %37, align 8, !tbaa !50
-  %89 = getelementptr inbounds nuw %"struct.llvm::CodeViewContext::FileInfo", ptr %88, i64 %36
-  store i32 %68, ptr %89, align 8, !tbaa !110
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store ptr %87, ptr %90, align 8, !tbaa !111
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  store i8 1, ptr %91, align 4, !tbaa !51
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !112
-  %93 = load ptr, ptr %37, align 8, !tbaa !50
-  %94 = getelementptr inbounds nuw %"struct.llvm::CodeViewContext::FileInfo", ptr %93, i64 %36, i32 2
-  store i8 %6, ptr %94, align 1, !tbaa !115
-  br label %95
+  %86 = load ptr, ptr %36, align 8, !tbaa !50
+  %87 = getelementptr inbounds nuw %"struct.llvm::CodeViewContext::FileInfo", ptr %86, i64 %35
+  store i32 %67, ptr %87, align 8, !tbaa !110
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  store ptr %85, ptr %88, align 8, !tbaa !111
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  store i8 1, ptr %89, align 4, !tbaa !51
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !112
+  %91 = load ptr, ptr %36, align 8, !tbaa !50
+  %92 = getelementptr inbounds nuw %"struct.llvm::CodeViewContext::FileInfo", ptr %91, i64 %35, i32 2
+  store i8 %6, ptr %92, align 1, !tbaa !115
+  br label %93
 
-95:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit, %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit29
-  %.0 = xor i1 %58, true
+93:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit, %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit26
+  %.0 = xor i1 %57, true
   ret i1 %.0
 }
 
@@ -363,53 +347,45 @@ define dso_local void @_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRef
   %.fca.0.extract = extractvalue { ptr, i8 } %12, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %12, 1
   %13 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !61
-  %.ptr = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %13, align 8, !tbaa !63
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  store ptr %.ptr, ptr %0, align 8, !tbaa !113
+  store ptr %14, ptr %0, align 8, !tbaa !113
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %14, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %15, align 4, !tbaa !69, !noalias !116
-  store i32 %17, ptr %16, align 8, !tbaa !119, !alias.scope !116
-  %18 = trunc nuw i8 %.fca.1.extract to i1
-  br i1 %18, label %19, label %33
+  store i64 %15, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i32, ptr %16, align 4, !tbaa !69, !noalias !116
+  store i32 %18, ptr %17, align 8, !tbaa !119, !alias.scope !116
+  %19 = trunc nuw i8 %.fca.1.extract to i1
+  br i1 %19, label %20, label %32
 
-19:                                               ; preds = %4
-  %20 = add nuw nsw i64 %14, 1
-  %21 = load i64, ptr %8, align 8, !tbaa !47
-  %22 = add i64 %21, %20
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %24 = load i64, ptr %23, align 8, !tbaa !48
-  %25 = icmp ult i64 %24, %22
-  br i1 %25, label %26, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
+20:                                               ; preds = %4
+  %21 = add nuw nsw i64 %15, 1
+  %22 = load i64, ptr %8, align 8, !tbaa !47
+  %23 = add i64 %22, %21
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %25 = load i64, ptr %24, align 8, !tbaa !48
+  %26 = icmp ult i64 %25, %23
+  br i1 %26, label %27, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
 
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %27, i64 noundef %22, i64 noundef 1) #17
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %28, i64 noundef %23, i64 noundef 1) #17
   %.pre8.pre.i = load i64, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
 
-_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %26, %19
-  %.pre8.i = phi i64 [ %21, %19 ], [ %.pre8.pre.i, %26 ]
-  %.not.i.i = icmp eq i64 %14, -1
-  br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, label %28
-
-28:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
+_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %20, %27
+  %.pre8.i = phi i64 [ %22, %20 ], [ %.pre8.pre.i, %27 ]
   %29 = load ptr, ptr %7, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.pre8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.ptr, i64 %20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %14, i64 %21, i1 false)
   %.pre.i = load i64, ptr %8, align 8, !tbaa !47
-  br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
+  %31 = add i64 %.pre.i, %21
+  store i64 %31, ptr %8, align 8, !tbaa !47
+  br label %32
 
-_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i, %28
-  %31 = phi i64 [ %.pre8.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ], [ %.pre.i, %28 ]
-  %32 = add i64 %31, %20
-  store i64 %32, ptr %8, align 8, !tbaa !47
-  br label %33
-
-33:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, %4
+32:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i, %4
   ret void
 }
 

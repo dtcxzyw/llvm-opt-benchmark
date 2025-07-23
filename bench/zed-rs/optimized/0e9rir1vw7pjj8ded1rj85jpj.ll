@@ -9390,39 +9390,38 @@ define hidden void @"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %3 = alloca [200 x i8], align 8
   %4 = load i32, ptr %1, align 8, !noundef !19
   %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.idx = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr1 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3), !noalias !2345
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2348)
   %.not.not.i4.i = icmp eq i32 %4, 0
   br i1 %.not.not.i4.i, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h3b5d30a60910cbc4E.llvm.2322846936782632955.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.ptr.i3.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
-  %.sroa.0.0.ptr.i8.i = phi ptr [ %.sroa.0.0.ptr.i.i, %10 ], [ %.sroa.0.0.ptr.i3.i, %.lr.ph.preheader.i ]
-  %.sroa.0.0.idx.i7.i = phi i64 [ %.sroa.0.0.add.i.i, %10 ], [ 8, %.lr.ph.preheader.i ]
-  %.sroa.016.0.i6.i = phi ptr [ %7, %10 ], [ %.ptr, %.lr.ph.preheader.i ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i6.i, i64 16
-  %8 = icmp eq i64 %.sroa.0.0.idx.i7.i, 200
-  br i1 %8, label %9, label %10
+.lr.ph.i:                                         ; preds = %11, %.lr.ph.preheader.i
+  %.sroa.0.0.ptr.i8.i = phi ptr [ %.sroa.0.0.ptr.i.i, %11 ], [ %.sroa.0.0.ptr.i3.i, %.lr.ph.preheader.i ]
+  %.sroa.0.0.idx.i7.i = phi i64 [ %.sroa.0.0.add.i.i, %11 ], [ 8, %.lr.ph.preheader.i ]
+  %.sroa.016.0.i6.i = phi ptr [ %8, %11 ], [ %6, %.lr.ph.preheader.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i6.i, i64 16
+  %9 = icmp eq i64 %.sroa.0.0.idx.i7.i, 200
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %.lr.ph.i
+10:                                               ; preds = %.lr.ph.i
   tail call void @_ZN8arrayvec8arrayvec12extend_panic17hddd0611bc9dc1911E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e54cf43f8943e83398c4d0ef3ea0fa90.1.llvm.2322846936782632955), !noalias !2351
-  br label %10
+  br label %11
 
-10:                                               ; preds = %9, %.lr.ph.i
+11:                                               ; preds = %10, %.lr.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.016.0.i6.i, i64 16, i1 false)
   %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx.i7.i, 16
   %.sroa.0.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.0.0.add.i.i
-  %.not.not.i.i = icmp eq ptr %7, %.ptr1
+  %.not.not.i.i = icmp eq ptr %8, %7
   br i1 %.not.not.i.i, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h3b5d30a60910cbc4E.llvm.2322846936782632955.exit", label %.lr.ph.i
 
-"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h3b5d30a60910cbc4E.llvm.2322846936782632955.exit": ; preds = %10, %2
+"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h3b5d30a60910cbc4E.llvm.2322846936782632955.exit": ; preds = %11, %2
   store i32 %4, ptr %3, align 8, !alias.scope !2348, !noalias !2352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %3, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3), !noalias !2345
@@ -9454,64 +9453,60 @@ define hidden void @"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %3 = alloca [2408 x i8], align 8
   %4 = load i32, ptr %1, align 8, !noundef !19
   %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.idx = mul nuw nsw i64 %5, 200
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr1 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 2408, ptr nonnull %3), !noalias !2361
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2364)
-  %7 = icmp eq i32 %4, 0
-  br i1 %7, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h2c0d2ffbfbf78d03E.llvm.2322846936782632955.exit", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i.preheader"
+  %8 = icmp eq i32 %4, 0
+  br i1 %8, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h2c0d2ffbfbf78d03E.llvm.2322846936782632955.exit", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i"
 
-"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i.preheader": ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i"
-
-"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i.preheader", %18
-  %.sroa.0.0.idx38.i.i = phi i64 [ %.sroa.0.0.add.i.i, %18 ], [ 8, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i.preheader" ]
-  %.sroa.5.037.i.i = phi i32 [ %19, %18 ], [ 0, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i.preheader" ]
-  %.sroa.016.036.i.i = phi ptr [ %8, %18 ], [ %.ptr, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i.preheader" ]
+"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i": ; preds = %2, %19
+  %.sroa.0.0.idx38.i.i = phi i64 [ %.sroa.0.0.add.i.i, %19 ], [ 8, %2 ]
+  %.sroa.5.037.i.i = phi i32 [ %20, %19 ], [ 0, %2 ]
+  %.sroa.016.036.i.i = phi ptr [ %9, %19 ], [ %6, %2 ]
   %.sroa.0.0.ptr39.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.0.0.idx38.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 200
   %.sroa.9.152..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 192
   %.sroa.9.152.copyload.i.i = load i8, ptr %.sroa.9.152..sroa_idx.i.i, align 8, !noalias !2367
-  %9 = load i64, ptr %.sroa.016.036.i.i, align 8, !alias.scope !2371, !noalias !2374, !noundef !19
-  %10 = icmp eq i8 %.sroa.9.152.copyload.i.i, 2
-  br i1 %10, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h2c0d2ffbfbf78d03E.llvm.2322846936782632955.exit", label %11
+  %10 = load i64, ptr %.sroa.016.036.i.i, align 8, !alias.scope !2371, !noalias !2374, !noundef !19
+  %11 = icmp eq i8 %.sroa.9.152.copyload.i.i, 2
+  br i1 %11, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h2c0d2ffbfbf78d03E.llvm.2322846936782632955.exit", label %12
 
-11:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i"
+12:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i"
   %.sroa.11.152..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 193
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 152
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 104
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 56
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 8
-  %16 = icmp eq i64 %.sroa.0.0.idx38.i.i, 2408
-  br i1 %16, label %17, label %18
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.016.036.i.i, i64 8
+  %17 = icmp eq i64 %.sroa.0.0.idx38.i.i, 2408
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %11
+18:                                               ; preds = %12
   tail call void @_ZN8arrayvec8arrayvec12extend_panic17hddd0611bc9dc1911E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e54cf43f8943e83398c4d0ef3ea0fa90.1.llvm.2322846936782632955), !noalias !2377
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %11
-  store i64 %9, ptr %.sroa.0.0.ptr39.i.i, align 8, !alias.scope !2364, !noalias !2378
+19:                                               ; preds = %18, %12
+  store i64 %10, ptr %.sroa.0.0.ptr39.i.i, align 8, !alias.scope !2364, !noalias !2378
   %.sroa.2.0..sroa.0.0.ptr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr39.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false)
   %.sroa.3.0..sroa.0.0.ptr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr39.i.i, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.3.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.3.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
   %.sroa.427.0..sroa.0.0.ptr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr39.i.i, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.427.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.427.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
   %.sroa.528.0..sroa.0.0.ptr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr39.i.i, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.528.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.528.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
   %.sroa.629.0..sroa.0.0.ptr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr39.i.i, i64 192
   store i8 %.sroa.9.152.copyload.i.i, ptr %.sroa.629.0..sroa.0.0.ptr.sroa_idx.i.i, align 8, !alias.scope !2364, !noalias !2378
   %.sroa.730.0..sroa.0.0.ptr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr39.i.i, i64 193
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.730.0..sroa.0.0.ptr.sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.152..sroa_idx.i.i, i64 7, i1 false)
   %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx38.i.i, 200
-  %19 = add nuw i32 %.sroa.5.037.i.i, 1
-  %20 = icmp eq ptr %8, %.ptr1
-  br i1 %20, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h2c0d2ffbfbf78d03E.llvm.2322846936782632955.exit", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i"
+  %20 = add nuw i32 %.sroa.5.037.i.i, 1
+  %21 = icmp eq ptr %9, %7
+  br i1 %21, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h2c0d2ffbfbf78d03E.llvm.2322846936782632955.exit", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i"
 
-"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h2c0d2ffbfbf78d03E.llvm.2322846936782632955.exit": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i", %18, %2
-  %.sroa.5.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %19, %18 ], [ %.sroa.5.037.i.i, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i" ]
+"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h2c0d2ffbfbf78d03E.llvm.2322846936782632955.exit": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i", %19, %2
+  %.sroa.5.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %20, %19 ], [ %.sroa.5.037.i.i, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5f1ed8cc2404cd7E.exit.i.i" ]
   store i32 %.sroa.5.0.lcssa.i.i, ptr %3, align 8, !alias.scope !2364, !noalias !2379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2408) %0, ptr noundef nonnull align 8 dereferenceable(2408) %3, i64 2408, i1 false)
   call void @llvm.lifetime.end.p0(i64 2408, ptr nonnull %3), !noalias !2361
@@ -9523,52 +9518,48 @@ define hidden void @"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %3 = alloca [296 x i8], align 8
   %4 = load i32, ptr %1, align 8, !noundef !19
   %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.idx = mul nuw nsw i64 %5, 24
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr1 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %3), !noalias !2387
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2390)
-  %7 = icmp eq i32 %4, 0
-  br i1 %7, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h4674712bacd5cfa0E.llvm.2322846936782632955.exit", label %.lr.ph.i.i.preheader
+  %8 = icmp eq i32 %4, 0
+  br i1 %8, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h4674712bacd5cfa0E.llvm.2322846936782632955.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i.preheader:                             ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %16
-  %.sroa.0.0.idx30.i.i = phi i64 [ %.sroa.0.0.add.i.i, %16 ], [ 8, %.lr.ph.i.i.preheader ]
-  %.sroa.5.029.i.i = phi i32 [ %17, %16 ], [ 0, %.lr.ph.i.i.preheader ]
-  %.sroa.016.028.i.i = phi ptr [ %8, %16 ], [ %.ptr, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %2, %17
+  %.sroa.0.0.idx30.i.i = phi i64 [ %.sroa.0.0.add.i.i, %17 ], [ 8, %2 ]
+  %.sroa.5.029.i.i = phi i32 [ %18, %17 ], [ 0, %2 ]
+  %.sroa.016.028.i.i = phi ptr [ %9, %17 ], [ %6, %2 ]
   %.sroa.0.0.ptr31.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.0.0.idx30.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.016.028.i.i, i64 24
-  %9 = load i64, ptr %.sroa.016.028.i.i, align 8, !range !163, !alias.scope !2393, !noalias !2396, !noundef !19
-  %trunc.i.i.i.i = trunc nuw i64 %9 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.016.028.i.i, i64 8
-  %11 = load i64, ptr %10, align 8, !alias.scope !2393, !noalias !2396
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.016.028.i.i, i64 16
-  %13 = load i64, ptr %12, align 8, !alias.scope !2393, !noalias !2396
-  %.sroa.6.0.i.i.i.i = select i1 %trunc.i.i.i.i, i64 %13, i64 undef
-  %.sroa.5.0.i.i.i.i = select i1 %trunc.i.i.i.i, i64 %11, i64 undef
-  %14 = icmp eq i64 %.sroa.0.0.idx30.i.i, 296
-  br i1 %14, label %15, label %16
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.016.028.i.i, i64 24
+  %10 = load i64, ptr %.sroa.016.028.i.i, align 8, !range !163, !alias.scope !2393, !noalias !2396, !noundef !19
+  %trunc.i.i.i.i = trunc nuw i64 %10 to i1
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.016.028.i.i, i64 8
+  %12 = load i64, ptr %11, align 8, !alias.scope !2393, !noalias !2396
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.016.028.i.i, i64 16
+  %14 = load i64, ptr %13, align 8, !alias.scope !2393, !noalias !2396
+  %.sroa.6.0.i.i.i.i = select i1 %trunc.i.i.i.i, i64 %14, i64 undef
+  %.sroa.5.0.i.i.i.i = select i1 %trunc.i.i.i.i, i64 %12, i64 undef
+  %15 = icmp eq i64 %.sroa.0.0.idx30.i.i, 296
+  br i1 %15, label %16, label %17
 
-15:                                               ; preds = %.lr.ph.i.i
+16:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN8arrayvec8arrayvec12extend_panic17hddd0611bc9dc1911E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e54cf43f8943e83398c4d0ef3ea0fa90.1.llvm.2322846936782632955), !noalias !2402
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %.lr.ph.i.i
-  store i64 %9, ptr %.sroa.0.0.ptr31.i.i, align 8, !alias.scope !2390, !noalias !2403
+17:                                               ; preds = %16, %.lr.ph.i.i
+  store i64 %10, ptr %.sroa.0.0.ptr31.i.i, align 8, !alias.scope !2390, !noalias !2403
   %.sroa.2.0..sroa.0.0.ptr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr31.i.i, i64 8
   store i64 %.sroa.5.0.i.i.i.i, ptr %.sroa.2.0..sroa.0.0.ptr.sroa_idx.i.i, align 8, !alias.scope !2390, !noalias !2403
   %.sroa.3.0..sroa.0.0.ptr.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr31.i.i, i64 16
   store i64 %.sroa.6.0.i.i.i.i, ptr %.sroa.3.0..sroa.0.0.ptr.sroa_idx.i.i, align 8, !alias.scope !2390, !noalias !2403
   %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx30.i.i, 24
-  %17 = add nuw i32 %.sroa.5.029.i.i, 1
-  %18 = icmp eq ptr %8, %.ptr1
-  br i1 %18, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h4674712bacd5cfa0E.llvm.2322846936782632955.exit", label %.lr.ph.i.i
+  %18 = add nuw i32 %.sroa.5.029.i.i, 1
+  %19 = icmp eq ptr %9, %7
+  br i1 %19, label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h4674712bacd5cfa0E.llvm.2322846936782632955.exit", label %.lr.ph.i.i
 
-"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h4674712bacd5cfa0E.llvm.2322846936782632955.exit": ; preds = %16, %2
-  %.sroa.5.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %17, %16 ]
+"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h4674712bacd5cfa0E.llvm.2322846936782632955.exit": ; preds = %17, %2
+  %.sroa.5.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %18, %17 ]
   store i32 %.sroa.5.0.lcssa.i.i, ptr %3, align 8, !alias.scope !2390, !noalias !2404
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %3, i64 296, i1 false)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %3), !noalias !2387

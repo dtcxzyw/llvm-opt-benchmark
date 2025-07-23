@@ -816,15 +816,18 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 370:                                              ; preds = %365
   %371 = load i32, ptr %349, align 8, !tbaa !21
   %372 = sext i32 %371 to i64
-  %.idx.i = shl nsw i64 %372, 3
-  %373 = getelementptr inbounds i8, ptr %369, i64 %.idx.i
+  %.idx64.i = shl nsw i64 %372, 3
+  %373 = getelementptr inbounds i8, ptr %369, i64 %.idx64.i
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %369, ptr %374, align 8, !tbaa !20
   store i32 %.0.i, ptr %349, align 8, !tbaa !21
-  %375 = getelementptr inbounds ptr, ptr %369, i64 %367
-  %.04455.i = getelementptr inbounds i8, ptr %375, i64 -8
-  %.not5256.i = icmp ult ptr %.04455.i, %373
-  br i1 %.not5256.i, label %.preheader.i, label %.lr.ph.i
+  %.not5256.not.i = icmp sgt i64 %368, %.idx64.i
+  br i1 %.not5256.not.i, label %.lr.ph.preheader.i, label %.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %370
+  %375 = getelementptr i8, ptr %369, i64 %368
+  %.04455.i = getelementptr i8, ptr %375, i64 -8
+  br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %370
   %376 = icmp sgt i32 %371, 0
@@ -834,8 +837,8 @@ thread-pre-split:                                 ; preds = %283, %279, %272
   %377 = add nsw i32 %.0.i, -1
   br label %378
 
-.lr.ph.i:                                         ; preds = %370, %.lr.ph.i
-  %.04457.i = phi ptr [ %.044.i, %.lr.ph.i ], [ %.04455.i, %370 ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.04457.i = phi ptr [ %.044.i, %.lr.ph.i ], [ %.04455.i, %.lr.ph.preheader.i ]
   store ptr null, ptr %.04457.i, align 8, !tbaa !22
   %.044.i = getelementptr inbounds i8, ptr %.04457.i, i64 -8
   %.not52.i = icmp ult ptr %.044.i, %373
@@ -1078,15 +1081,18 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
 21:                                               ; preds = %16
   %22 = load i32, ptr %2, align 8, !tbaa !21
   %23 = sext i32 %22 to i64
-  %.idx = shl nsw i64 %23, 3
-  %24 = getelementptr inbounds i8, ptr %20, i64 %.idx
+  %.idx64 = shl nsw i64 %23, 3
+  %24 = getelementptr inbounds i8, ptr %20, i64 %.idx64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %20, ptr %25, align 8, !tbaa !20
   store i32 %.0, ptr %2, align 8, !tbaa !21
-  %26 = getelementptr inbounds ptr, ptr %20, i64 %18
-  %.04455 = getelementptr inbounds i8, ptr %26, i64 -8
-  %.not5256 = icmp ult ptr %.04455, %24
-  br i1 %.not5256, label %.preheader, label %.lr.ph
+  %.not5256.not = icmp sgt i64 %19, %.idx64
+  br i1 %.not5256.not, label %.lr.ph.preheader, label %.preheader
+
+.lr.ph.preheader:                                 ; preds = %21
+  %26 = getelementptr i8, ptr %20, i64 %19
+  %.04455 = getelementptr i8, ptr %26, i64 -8
+  br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %21
   %27 = icmp sgt i32 %22, 0
@@ -1096,8 +1102,8 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
   %28 = add nsw i32 %.0, -1
   br label %29
 
-.lr.ph:                                           ; preds = %21, %.lr.ph
-  %.04457 = phi ptr [ %.044, %.lr.ph ], [ %.04455, %21 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.04457 = phi ptr [ %.044, %.lr.ph ], [ %.04455, %.lr.ph.preheader ]
   store ptr null, ptr %.04457, align 8, !tbaa !22
   %.044 = getelementptr inbounds i8, ptr %.04457, i64 -8
   %.not52 = icmp ult ptr %.044, %24

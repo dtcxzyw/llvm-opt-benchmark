@@ -197,20 +197,24 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %79 = trunc i64 %78 to i32
   %sext = shl i64 %78, 32
   %80 = ashr exact i64 %sext, 32
-  %81 = getelementptr inbounds i8, ptr %4, i64 %80
-  %82 = icmp sgt i32 %79, 1
+  %81 = icmp sgt i32 %79, 1
   %lhsv = load i16, ptr %4, align 16
   %.not106 = icmp eq i16 %lhsv, 30768
-  %or.cond = select i1 %82, i1 %.not106, i1 false
+  %or.cond = select i1 %81, i1 %.not106, i1 false
+  %.383.idx = select i1 %or.cond, i64 2, i64 0
   %.383.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond, i64 2, i64 0
   %.383.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.383.idx.sroa.sel.idx.sroa.sel.idx
-  %.073132 = getelementptr inbounds i8, ptr %81, i64 -1
-  %.not107133 = icmp ult ptr %.073132, %.383.idx.sroa.sel.idx.sroa.sel
-  br i1 %.not107133, label %.thread117, label %.lr.ph137
+  %.not107133.not = icmp sgt i64 %80, %.383.idx
+  br i1 %.not107133.not, label %.lr.ph137.preheader, label %.thread117
 
-.lr.ph137:                                        ; preds = %77, %101
-  %.073135 = phi ptr [ %.073, %101 ], [ %.073132, %77 ]
-  %.071134 = phi i32 [ %102, %101 ], [ 0, %77 ]
+.lr.ph137.preheader:                              ; preds = %77
+  %82 = getelementptr i8, ptr %4, i64 %80
+  %.073132 = getelementptr i8, ptr %82, i64 -1
+  br label %.lr.ph137
+
+.lr.ph137:                                        ; preds = %.lr.ph137.preheader, %101
+  %.073135 = phi ptr [ %.073, %101 ], [ %.073132, %.lr.ph137.preheader ]
+  %.071134 = phi i32 [ %102, %101 ], [ 0, %.lr.ph137.preheader ]
   %83 = load i8, ptr %.073135, align 1
   %84 = sext i8 %83 to i32
   %85 = call i32 @slurm_char_to_hex(i32 noundef %84) #7

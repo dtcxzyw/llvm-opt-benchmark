@@ -4912,21 +4912,21 @@ define internal fastcc void @mcopy(ptr noundef captures(none) %0, ptr noundef wr
 
 75:                                               ; preds = %10, %10
   %76 = zext i32 %5 to i64
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 %76
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 127
-  %80 = icmp eq i32 %2, 18
-  %spec.select165.idx = zext i1 %80 to i64
-  %spec.select165 = getelementptr inbounds nuw i8, ptr %77, i64 %spec.select165.idx
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 127
+  %79 = icmp eq i32 %2, 18
+  %spec.select165.idx = zext i1 %79 to i64
+  %80 = add nuw nsw i64 %76, %spec.select165.idx
+  %spec.select165 = getelementptr inbounds nuw i8, ptr %4, i64 %80
   %.not152.not = icmp ugt i64 %6, %76
   br i1 %.not152.not, label %.preheader, label %.critedge168
 
 .preheader:                                       ; preds = %75
-  %81 = icmp ult ptr %spec.select165, %78
+  %81 = icmp samesign ult i64 %80, %6
   br i1 %81, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  br i1 %80, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %79, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %88
   %.0123.idx174.us = phi i64 [ %.0123.add.us, %88 ], [ 0, %.lr.ph ]
@@ -4950,7 +4950,7 @@ define internal fastcc void @mcopy(ptr noundef captures(none) %0, ptr noundef wr
 88:                                               ; preds = %87, %84, %.lr.ph.split.us
   %89 = getelementptr inbounds nuw i8, ptr %.1126172.us, i64 2
   %.0123.add.us = add nuw nsw i64 %.0123.idx174.us, 1
-  %90 = icmp ult ptr %89, %78
+  %90 = icmp ult ptr %89, %77
   %91 = icmp samesign ult i64 %.0123.idx174.us, 126
   %or.cond166.us = select i1 %90, i1 %91, i1 false
   br i1 %or.cond166.us, label %.lr.ph.split.us, label %._crit_edge.loopexit
@@ -4966,7 +4966,7 @@ define internal fastcc void @mcopy(ptr noundef captures(none) %0, ptr noundef wr
 
 94:                                               ; preds = %.lr.ph.split
   %95 = getelementptr inbounds nuw i8, ptr %.1126172, i64 1
-  %96 = icmp ult ptr %95, %78
+  %96 = icmp ult ptr %95, %77
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %94
@@ -4981,7 +4981,7 @@ define internal fastcc void @mcopy(ptr noundef captures(none) %0, ptr noundef wr
 100:                                              ; preds = %.lr.ph.split, %99, %97, %94
   %101 = getelementptr inbounds nuw i8, ptr %.1126172, i64 2
   %.0123.add = add nuw nsw i64 %.0123.idx174, 1
-  %102 = icmp ult ptr %101, %78
+  %102 = icmp ult ptr %101, %77
   %103 = icmp samesign ult i64 %.0123.idx174, 126
   %or.cond166 = select i1 %102, i1 %103, i1 false
   br i1 %or.cond166, label %.lr.ph.split, label %._crit_edge.loopexit189
@@ -4996,7 +4996,7 @@ define internal fastcc void @mcopy(ptr noundef captures(none) %0, ptr noundef wr
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit189, %._crit_edge.loopexit, %.preheader
   %.0123.ptr.lcssa = phi ptr [ %1, %.preheader ], [ %.0123.ptr.us, %._crit_edge.loopexit ], [ %.0123.ptr, %._crit_edge.loopexit189 ]
-  store i8 0, ptr %79, align 1, !tbaa !28
+  store i8 0, ptr %78, align 1, !tbaa !28
   store i8 0, ptr %.0123.ptr.lcssa, align 1, !tbaa !28
   br label %122
 

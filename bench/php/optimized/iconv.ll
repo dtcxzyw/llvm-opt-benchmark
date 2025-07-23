@@ -4016,19 +4016,15 @@ get_internal_encoding.exit:                       ; preds = %22, %24
   br label %.loopexit.thread
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %60 = load i64, ptr %59, align 8, !tbaa !20
-  %61 = getelementptr i8, ptr %44, i64 %60
-  %.ptr105 = getelementptr i8, ptr %61, i64 24
-  %62 = icmp sgt i64 %60, 0
-  br i1 %62, label %.lr.ph.preheader, label %.thread
+  %59 = getelementptr i8, ptr %44, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %61 = load i64, ptr %60, align 8, !tbaa !20
+  %62 = getelementptr i8, ptr %59, i64 %61
+  %.not105 = icmp eq i64 %61, 0
+  br i1 %.not105, label %.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %58
-  %.ptr = getelementptr inbounds nuw i8, ptr %44, i64 24
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %77
-  %.05495 = phi ptr [ %78, %77 ], [ %.ptr, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %58, %77
+  %.05495 = phi ptr [ %78, %77 ], [ %59, %58 ]
   %63 = load i8, ptr %.05495, align 1, !tbaa !4
   %64 = icmp eq i8 %63, 58
   br i1 %64, label %65, label %77
@@ -4041,7 +4037,7 @@ get_internal_encoding.exit:                       ; preds = %22, %24
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = getelementptr inbounds nuw i8, ptr %.05495, i64 1
-  %72 = icmp ult ptr %71, %.ptr105
+  %72 = icmp ult ptr %71, %62
   br i1 %72, label %.lr.ph96, label %._crit_edge
 
 .lr.ph96:                                         ; preds = %65, %75
@@ -4054,17 +4050,17 @@ get_internal_encoding.exit:                       ; preds = %22, %24
 
 75:                                               ; preds = %.lr.ph96, %.lr.ph96
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  %exitcond.not = icmp eq ptr %76, %.ptr105
+  %exitcond.not = icmp eq ptr %76, %62
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph96
 
 77:                                               ; preds = %.lr.ph
   %78 = getelementptr inbounds nuw i8, ptr %.05495, i64 1
-  %79 = icmp ult ptr %78, %.ptr105
+  %79 = icmp ult ptr %78, %62
   br i1 %79, label %.lr.ph, label %.thread
 
 ._crit_edge:                                      ; preds = %75, %.lr.ph96, %65
-  %.lcssa = phi ptr [ %71, %65 ], [ %73, %.lr.ph96 ], [ %.ptr105, %75 ]
-  %80 = ptrtoint ptr %.ptr105 to i64
+  %.lcssa = phi ptr [ %71, %65 ], [ %73, %.lr.ph96 ], [ %62, %75 ]
+  %80 = ptrtoint ptr %62 to i64
   %81 = ptrtoint ptr %.lcssa to i64
   %82 = sub i64 %80, %81
   %83 = load ptr, ptr %1, align 8, !tbaa !4

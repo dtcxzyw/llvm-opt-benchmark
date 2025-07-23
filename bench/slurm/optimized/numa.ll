@@ -361,26 +361,27 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %90 = trunc i64 %89 to i32
   %sext.i = shl i64 %89, 32
   %91 = ashr exact i64 %sext.i, 32
-  %92 = getelementptr inbounds i8, ptr %9, i64 %91
-  %93 = call i32 @numa_max_node() #8
-  %94 = icmp sgt i32 %90, 1
+  %92 = call i32 @numa_max_node() #8
+  %93 = icmp sgt i32 %90, 1
   %lhsv = load i16, ptr %9, align 16
   %.not103 = icmp eq i16 %lhsv, 30768
-  %95 = select i1 %94, i1 %.not103, i1 false
-  %.050.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %95, i64 2, i64 0
+  %94 = select i1 %93, i1 %.not103, i1 false
+  %.050.i.idx = select i1 %94, i64 2, i64 0
+  %.050.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %94, i64 2, i64 0
   %.050.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %9, i64 %.050.i.idx.sroa.sel.idx.sroa.sel.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
-  %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %0, ptr %96, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %0, ptr %95, align 8
   store i64 128, ptr %6, align 8
-  %97 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %6) #8
+  %96 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  %.05386.i = getelementptr inbounds i8, ptr %92, i64 -1
-  %.not5987.i = icmp ult ptr %.05386.i, %.050.i.idx.sroa.sel.idx.sroa.sel
-  br i1 %.not5987.i, label %_str_to_memset.exit, label %.lr.ph.preheader.i
+  %.not5987.i.not = icmp sgt i64 %91, %.050.i.idx
+  br i1 %.not5987.i.not, label %.lr.ph.preheader.i, label %_str_to_memset.exit
 
 .lr.ph.preheader.i:                               ; preds = %88
-  %98 = sext i32 %93 to i64
+  %97 = getelementptr i8, ptr %9, i64 %91
+  %.05386.i = getelementptr i8, ptr %97, i64 -1
+  %98 = sext i32 %92 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %154, %.lr.ph.preheader.i

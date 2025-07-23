@@ -5860,8 +5860,8 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %86 = load i32, ptr %85, align 4, !tbaa !108
   %87 = zext i32 %86 to i64
   %88 = zext i32 %82 to i64
-  %.idx8991.i = add nuw nsw i64 %87, %88
-  %89 = shl nuw nsw i64 %.idx8991.i, 5
+  %.idx91.i = add nuw nsw i64 %87, %88
+  %89 = shl nuw nsw i64 %.idx91.i, 5
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 %89
   %91 = getelementptr inbounds i8, ptr %90, i64 -32
   %92 = getelementptr inbounds i8, ptr %90, i64 -4
@@ -5893,18 +5893,19 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %95 = getelementptr inbounds i8, ptr %90, i64 -24
   %96 = load i32, ptr %95, align 8, !tbaa !53
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i8, ptr %91, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %100 = load i32, ptr %99, align 4, !tbaa !108
-  %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %struct._zend_op, ptr %84, i64 %101
-  %103 = icmp eq ptr %98, %102
+  %98 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  %99 = load i32, ptr %98, align 4, !tbaa !108
+  %100 = zext i32 %99 to i64
+  %.idx97.i = shl nuw nsw i64 %100, 5
+  %101 = add nsw i64 %89, -32
+  %102 = add nsw i64 %101, %97
+  %103 = icmp eq i64 %102, %.idx97.i
   tail call void @llvm.assume(i1 %103)
   %104 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %105 = load i32, ptr %104, align 4, !tbaa !108
-  %106 = trunc i64 %.idx8991.i to i32
-  %.tr111.i = sub i32 %105, %106
-  %107 = shl i32 %.tr111.i, 5
+  %106 = trunc i64 %.idx91.i to i32
+  %.tr113.i = sub i32 %105, %106
+  %107 = shl i32 %.tr113.i, 5
   %108 = add i32 %107, 32
   store i32 %108, ptr %95, align 8, !tbaa !53
   br label %230
@@ -5913,20 +5914,21 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %110 = getelementptr inbounds i8, ptr %90, i64 -20
   %111 = load i32, ptr %110, align 4, !tbaa !53
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %91, i64 %112
-  %114 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %115 = load i32, ptr %114, align 4, !tbaa !108
-  %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %struct._zend_op, ptr %84, i64 %116
-  %118 = icmp eq ptr %113, %117
+  %113 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  %114 = load i32, ptr %113, align 4, !tbaa !108
+  %115 = zext i32 %114 to i64
+  %.idx94.i = shl nuw nsw i64 %115, 5
+  %116 = add nsw i64 %89, -32
+  %117 = add nsw i64 %116, %112
+  %118 = icmp eq i64 %117, %.idx94.i
   br i1 %118, label %119, label %230
 
 119:                                              ; preds = %109
   %120 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %121 = load i32, ptr %120, align 4, !tbaa !108
-  %122 = trunc i64 %.idx8991.i to i32
-  %.tr110.i = sub i32 %121, %122
-  %123 = shl i32 %.tr110.i, 5
+  %122 = trunc i64 %.idx91.i to i32
+  %.tr112.i = sub i32 %121, %122
+  %123 = shl i32 %.tr112.i, 5
   %124 = add i32 %123, 32
   store i32 %124, ptr %110, align 4, !tbaa !53
   br label %230
@@ -5942,20 +5944,21 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %130 = getelementptr inbounds i8, ptr %90, i64 -20
   %131 = load i32, ptr %130, align 4, !tbaa !53
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i8, ptr %91, i64 %132
-  %134 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %135 = load i32, ptr %134, align 4, !tbaa !108
-  %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw %struct._zend_op, ptr %84, i64 %136
-  %138 = icmp eq ptr %133, %137
+  %133 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  %134 = load i32, ptr %133, align 4, !tbaa !108
+  %135 = zext i32 %134 to i64
+  %.idx90.i = shl nuw nsw i64 %135, 5
+  %136 = add nsw i64 %89, -32
+  %137 = add nsw i64 %136, %132
+  %138 = icmp eq i64 %137, %.idx90.i
   br i1 %138, label %139, label %230
 
 139:                                              ; preds = %129
   %140 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %141 = load i32, ptr %140, align 4, !tbaa !108
-  %142 = trunc i64 %.idx8991.i to i32
-  %.tr109.i = sub i32 %141, %142
-  %143 = shl i32 %.tr109.i, 5
+  %142 = trunc i64 %.idx91.i to i32
+  %.tr111.i = sub i32 %141, %142
+  %143 = shl i32 %.tr111.i, 5
   %144 = add i32 %143, 32
   store i32 %144, ptr %130, align 4, !tbaa !53
   br label %230
@@ -5976,7 +5979,7 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
 156:                                              ; preds = %145
   %157 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %158 = load i32, ptr %157, align 4, !tbaa !108
-  %159 = trunc i64 %.idx8991.i to i32
+  %159 = trunc i64 %.idx91.i to i32
   %.tr.i = sub i32 %158, %159
   %160 = shl i32 %.tr.i, 5
   %161 = add i32 %160, 32
@@ -5992,10 +5995,10 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %168 = load ptr, ptr %167, align 8, !tbaa !53
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %170 = load i32, ptr %169, align 8, !tbaa !66
-  %.not87103.i = icmp eq i32 %170, 0
-  br i1 %.not87103.i, label %._crit_edge108.i, label %.lr.ph107.i
+  %.not87105.i = icmp eq i32 %170, 0
+  br i1 %.not87105.i, label %._crit_edge110.i, label %.lr.ph109.i
 
-.lr.ph107.i:                                      ; preds = %162
+.lr.ph109.i:                                      ; preds = %162
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %172 = load ptr, ptr %171, align 8, !tbaa !53
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -6009,16 +6012,16 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %181 = zext nneg i32 %177 to i64
   br label %182
 
-182:                                              ; preds = %204, %.lr.ph107.i
-  %.0105.i = phi ptr [ %172, %.lr.ph107.i ], [ %206, %204 ]
-  %.085104.i = phi i32 [ %170, %.lr.ph107.i ], [ %207, %204 ]
-  %183 = getelementptr inbounds nuw i8, ptr %.0105.i, i64 8
+182:                                              ; preds = %204, %.lr.ph109.i
+  %.0107.i = phi ptr [ %172, %.lr.ph109.i ], [ %206, %204 ]
+  %.085106.i = phi i32 [ %170, %.lr.ph109.i ], [ %207, %204 ]
+  %183 = getelementptr inbounds nuw i8, ptr %.0107.i, i64 8
   %184 = load i8, ptr %183, align 8, !tbaa !53
   %185 = icmp eq i8 %184, 0
   br i1 %185, label %204, label %186, !prof !113
 
 186:                                              ; preds = %182
-  %187 = load i64, ptr %.0105.i, align 8, !tbaa !53
+  %187 = load i64, ptr %.0107.i, align 8, !tbaa !53
   %sext.i = shl i64 %187, 32
   %188 = ashr exact i64 %sext.i, 32
   %189 = getelementptr inbounds i8, ptr %91, i64 %188
@@ -6038,22 +6041,22 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %201 = getelementptr inbounds nuw %struct._zend_op, ptr %190, i64 %200
   %202 = ptrtoint ptr %201 to i64
   %203 = sub i64 %202, %180
-  store i64 %203, ptr %.0105.i, align 8, !tbaa !53
+  store i64 %203, ptr %.0107.i, align 8, !tbaa !53
   br label %204
 
 204:                                              ; preds = %198, %186, %182
-  %205 = getelementptr inbounds nuw i8, ptr %.0105.i, i64 %181
+  %205 = getelementptr inbounds nuw i8, ptr %.0107.i, i64 %181
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  %207 = add i32 %.085104.i, -1
+  %207 = add i32 %.085106.i, -1
   %.not87.i = icmp eq i32 %207, 0
-  br i1 %.not87.i, label %._crit_edge108.loopexit.i, label %182
+  br i1 %.not87.i, label %._crit_edge110.loopexit.i, label %182
 
-._crit_edge108.loopexit.i:                        ; preds = %204
-  %.pre113.i = load ptr, ptr %54, align 8, !tbaa !70
-  br label %._crit_edge108.i
+._crit_edge110.loopexit.i:                        ; preds = %204
+  %.pre115.i = load ptr, ptr %54, align 8, !tbaa !70
+  br label %._crit_edge110.i
 
-._crit_edge108.i:                                 ; preds = %._crit_edge108.loopexit.i, %162
-  %208 = phi ptr [ %.pre113.i, %._crit_edge108.loopexit.i ], [ %84, %162 ]
+._crit_edge110.i:                                 ; preds = %._crit_edge110.loopexit.i, %162
+  %208 = phi ptr [ %.pre115.i, %._crit_edge110.loopexit.i ], [ %84, %162 ]
   %209 = getelementptr inbounds i8, ptr %90, i64 -12
   %210 = load i32, ptr %209, align 4, !tbaa !58
   %211 = sext i32 %210 to i64
@@ -6068,7 +6071,7 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %220 = icmp eq i64 %216, %219
   br i1 %220, label %221, label %230
 
-221:                                              ; preds = %._crit_edge108.i
+221:                                              ; preds = %._crit_edge110.i
   %222 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %223 = load i32, ptr %222, align 4, !tbaa !108
   %224 = zext i32 %223 to i64
@@ -6080,7 +6083,7 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   store i32 %229, ptr %209, align 4, !tbaa !58
   br label %230
 
-230:                                              ; preds = %221, %._crit_edge108.i, %156, %145, %139, %129, %125, %119, %109, %94, %83, %._crit_edge.i
+230:                                              ; preds = %221, %._crit_edge110.i, %156, %145, %139, %129, %125, %119, %109, %94, %83, %._crit_edge.i
   %231 = load ptr, ptr %53, align 8, !tbaa !104
   %232 = getelementptr inbounds %struct._zend_basic_block, ptr %231, i64 %65
   %233 = load ptr, ptr %19, align 8, !tbaa !136

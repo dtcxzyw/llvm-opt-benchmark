@@ -725,7 +725,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 0) #9
   %16 = and i32 %4, 32767
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %59, label %17
+  br i1 %.not, label %60, label %17
 
 17:                                               ; preds = %0
   %18 = lshr i32 %16, 2
@@ -747,52 +747,52 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %33 = xor i8 %32, -1
   %34 = and i8 %31, %33
   store i8 %34, ptr %30, align 1
-  %.ptr = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %35 = xor i32 %18, 8191
-  %36 = zext nneg i32 %35 to i64
-  %37 = ptrtoint ptr %.ptr to i64
-  %38 = and i64 %37, 7
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %54
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %36 = xor i32 %18, 8191
+  %37 = zext nneg i32 %36 to i64
+  %38 = ptrtoint ptr %35 to i64
+  %39 = and i64 %38, 7
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %41, label %55
 
-40:                                               ; preds = %17
-  %41 = and i64 %36, 7
-  %42 = icmp eq i64 %41, 0
-  %43 = icmp samesign ult i32 %35, 1025
-  %or.cond3 = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond3, label %44, label %54
+41:                                               ; preds = %17
+  %42 = and i64 %37, 7
+  %43 = icmp eq i64 %42, 0
+  %44 = icmp samesign ult i32 %36, 1025
+  %or.cond3 = select i1 %43, i1 %44, i1 false
+  br i1 %or.cond3, label %45, label %55
 
-44:                                               ; preds = %40
-  %.not35 = icmp eq i32 %18, 8191
-  br i1 %.not35, label %.loopexit, label %.lr.ph.preheader
+45:                                               ; preds = %41
+  %.not34 = icmp eq i32 %18, 8191
+  br i1 %.not34, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %44
-  %45 = add i64 %28, %29
-  %46 = add i64 %45, %36
-  %47 = add i64 %46, 1
-  %48 = add i64 %45, 9
-  %umax = tail call i64 @llvm.umax.i64(i64 %47, i64 %48)
-  %49 = add i64 %umax, -2
-  %50 = add i64 %28, %29
-  %51 = sub i64 %49, %50
-  %52 = and i64 %51, -8
-  %53 = add i64 %52, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %53, i1 false)
+.lr.ph.preheader:                                 ; preds = %45
+  %46 = add i64 %28, %29
+  %47 = add i64 %46, %37
+  %48 = add i64 %47, 1
+  %49 = add i64 %46, 9
+  %umax = tail call i64 @llvm.umax.i64(i64 %48, i64 %49)
+  %50 = add i64 %umax, -2
+  %51 = add i64 %28, %29
+  %52 = sub i64 %50, %51
+  %53 = and i64 %52, -8
+  %54 = add i64 %53, 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %54, i1 false)
   br label %.loopexit
 
-54:                                               ; preds = %40, %17
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr, i8 0, i64 %36, i1 false)
+55:                                               ; preds = %41, %17
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %37, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %44, %54
-  %55 = load ptr, ptr @XactCtlData, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 %25
-  store i8 1, ptr %58, align 1
-  br label %59
+.loopexit:                                        ; preds = %.lr.ph.preheader, %45, %55
+  %56 = load ptr, ptr @XactCtlData, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 %25
+  store i8 1, ptr %59, align 1
+  br label %60
 
-59:                                               ; preds = %.loopexit, %0
+60:                                               ; preds = %.loopexit, %0
   tail call void @LWLockRelease(ptr noundef %14) #9
   ret void
 }

@@ -45,20 +45,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.129" = type { %"class.std::__shared_ptr.130" }
 %"class.std::__shared_ptr.130" = type { ptr, %"class.std::__shared_count" }
-%"class.rocksdb::LRUList" = type { ptr, %"class.rocksdb::port::Mutex", ptr, ptr }
-%"class.rocksdb::port::Mutex" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket" = type { %"class.std::__cxx11::list.79" }
 %"class.std::__cxx11::list.79" = type { %"class.std::__cxx11::_List_base.80" }
 %"class.std::__cxx11::_List_base.80" = type { %"struct.std::__cxx11::_List_base<rocksdb::BlockInfo *, std::allocator<rocksdb::BlockInfo *>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<rocksdb::BlockInfo *, std::allocator<rocksdb::BlockInfo *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.rocksdb::port::RWMutex" = type { %union.pthread_rwlock_t }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
 %"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket" = type { %"class.std::__cxx11::list.148" }
 %"class.std::__cxx11::list.148" = type { %"class.std::__cxx11::_List_base.149" }
 %"class.std::__cxx11::_List_base.149" = type { %"struct.std::__cxx11::_List_base<rocksdb::BlockCacheFile *, std::allocator<rocksdb::BlockCacheFile *>>::_List_impl" }
@@ -9004,66 +8996,65 @@ define linkonce_odr void @_ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS
   %8 = shl nuw nsw i64 %7, 6
   %9 = or disjoint i64 %8, 8
   %10 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %9) #21
-          to label %11 unwind label %23
+          to label %11 unwind label %22
 
 11:                                               ; preds = %4
   store i64 %7, ptr %10, align 16
-  %.ptr10 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = icmp eq i32 %6, 0
-  br i1 %12, label %.loopexit16, label %13
+  br i1 %12, label %.loopexit18, label %.preheader17
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %.ptr10, i64 %7
-  %15 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1, !tbaa !26, !range !27, !noundef !28
-  %16 = trunc nuw i8 %15 to i1
-  br label %17
+.preheader17:                                     ; preds = %11
+  %13 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1, !tbaa !26, !range !27, !noundef !28
+  %14 = trunc nuw i8 %13 to i1
+  br label %15
 
-17:                                               ; preds = %19, %13
-  %.idx = phi i64 [ 8, %13 ], [ %.add, %19 ]
+15:                                               ; preds = %.preheader17, %17
+  %.idx = phi i64 [ %.add, %17 ], [ 8, %.preheader17 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb7LRUListINS_14BlockCacheFileEEE, i64 16), ptr %.ptr.ptr, align 8, !tbaa !122
-  %18 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %18, i1 noundef zeroext %16)
-          to label %19 unwind label %25
+  %16 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
+  invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %16, i1 noundef zeroext %14)
+          to label %17 unwind label %24
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %.add = add nuw nsw i64 %.idx, 64
-  %.ptr9 = getelementptr inbounds nuw i8, ptr %10, i64 %.add
-  %21 = icmp eq ptr %.ptr9, %14
-  br i1 %21, label %.loopexit16, label %17
+  %19 = add nuw nsw i64 %.idx, 56
+  %20 = icmp eq i64 %19, %8
+  br i1 %20, label %.loopexit18, label %15
 
-.loopexit16:                                      ; preds = %19, %11
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.ptr10, ptr %22, align 8, !tbaa !323
+.loopexit18:                                      ; preds = %17, %11
+  %.ptr10 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.ptr10, ptr %21, align 8, !tbaa !323
   ret void
 
-23:                                               ; preds = %4
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %4
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %29
+  br label %28
 
-25:                                               ; preds = %17
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %27 = icmp eq i64 %.idx, 8
-  br i1 %27, label %.loopexit, label %.preheader
+  %26 = icmp eq i64 %.idx, 8
+  br i1 %26, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %25, %.preheader
-  %.idx11 = phi i64 [ %.add12, %.preheader ], [ %.idx, %25 ]
+.preheader:                                       ; preds = %24, %.preheader
+  %.idx11 = phi i64 [ %.add12, %.preheader ], [ %.idx, %24 ]
   %.add12 = add nsw i64 %.idx11, -64
   %.ptr14 = getelementptr inbounds i8, ptr %10, i64 %.add12
   tail call void @_ZN7rocksdb7LRUListINS_14BlockCacheFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr14) #19
-  %28 = icmp eq i64 %.add12, 8
-  br i1 %28, label %.loopexit, label %.preheader
+  %27 = icmp eq i64 %.add12, 8
+  br i1 %27, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %25
+.loopexit:                                        ; preds = %.preheader, %24
   tail call void @_ZdaPvm(ptr noundef nonnull %10, i64 noundef %9) #20
-  br label %29
+  br label %28
 
-29:                                               ; preds = %.loopexit, %23
-  %.pn = phi { ptr, i32 } [ %26, %.loopexit ], [ %24, %23 ]
+28:                                               ; preds = %.loopexit, %22
+  %.pn = phi { ptr, i32 } [ %25, %.loopexit ], [ %23, %22 ]
   tail call void @_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS3_19BlockCacheFileEqualEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   resume { ptr, i32 } %.pn
 }
@@ -9088,7 +9079,7 @@ define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTi
   %15 = mul nuw nsw i64 %14, 24
   %16 = add nuw nsw i64 %15, 8
   %17 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %16) #21
-          to label %18 unwind label %57
+          to label %18 unwind label %55
 
 18:                                               ; preds = %4
   store i64 %14, ptr %17, align 16
@@ -9119,93 +9110,89 @@ _ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_9BlockInfoENS0_22BlockCacheTierMeta
   %32 = mul nuw nsw i64 %31, 56
   %33 = add nuw nsw i64 %32, 8
   %34 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %33) #21
-          to label %35 unwind label %57
+          to label %35 unwind label %55
 
 35:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_9BlockInfoENS0_22BlockCacheTierMetadata4HashENS4_5EqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit
   store i64 %31, ptr %34, align 16
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = icmp eq i32 %30, 0
-  br i1 %36, label %.loopexit22, label %37
+  br i1 %36, label %.loopexit24, label %.preheader23
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %.ptr12, i64 %31
-  br label %39
-
-39:                                               ; preds = %40, %37
-  %.idx = phi i64 [ 8, %37 ], [ %.add, %40 ]
+.preheader23:                                     ; preds = %35, %37
+  %.idx = phi i64 [ %.add, %37 ], [ 8, %35 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   invoke void @_ZN7rocksdb4port7RWMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr.ptr)
-          to label %40 unwind label %59
+          to label %37 unwind label %57
 
-40:                                               ; preds = %39
+37:                                               ; preds = %.preheader23
   %.add = add nuw nsw i64 %.idx, 56
-  %.ptr11 = getelementptr inbounds nuw i8, ptr %34, i64 %.add
-  %41 = icmp eq ptr %.ptr11, %38
-  br i1 %41, label %.loopexit22, label %39
+  %38 = add nuw nsw i64 %.idx, 48
+  %39 = icmp eq i64 %38, %32
+  br i1 %39, label %.loopexit24, label %.preheader23
 
-.loopexit22:                                      ; preds = %40, %35
-  %42 = load ptr, ptr %13, align 8, !tbaa !320
+.loopexit24:                                      ; preds = %37, %35
+  %.ptr12 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %40 = load ptr, ptr %13, align 8, !tbaa !320
   store ptr %.ptr12, ptr %13, align 8, !tbaa !320
-  %.not.i.i18 = icmp eq ptr %42, null
-  br i1 %.not.i.i18, label %_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %43
+  %.not.i.i19 = icmp eq ptr %40, null
+  br i1 %.not.i.i19, label %_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %41
 
-43:                                               ; preds = %.loopexit22
-  %44 = getelementptr inbounds i8, ptr %42, i64 -8
-  %45 = load i64, ptr %44, align 8
-  %.idx.i.i.i19 = mul i64 %45, 56
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.preheader.i.i.i20
+41:                                               ; preds = %.loopexit24
+  %42 = getelementptr inbounds i8, ptr %40, i64 -8
+  %43 = load i64, ptr %42, align 8
+  %.idx.i.i.i20 = mul i64 %43, 56
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.preheader.i.i.i21
 
-.preheader.preheader.i.i.i20:                     ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i19
-  br label %.preheader.i.i.i21
+.preheader.preheader.i.i.i21:                     ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %40, i64 %.idx.i.i.i20
+  br label %.preheader.i.i.i22
 
-.preheader.i.i.i21:                               ; preds = %.preheader.i.i.i21, %.preheader.preheader.i.i.i20
-  %48 = phi ptr [ %49, %.preheader.i.i.i21 ], [ %47, %.preheader.preheader.i.i.i20 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 -56
-  tail call void @_ZN7rocksdb4port7RWMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #19
-  %50 = icmp eq ptr %49, %42
-  br i1 %50, label %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i21
+.preheader.i.i.i22:                               ; preds = %.preheader.i.i.i22, %.preheader.preheader.i.i.i21
+  %46 = phi ptr [ %47, %.preheader.i.i.i22 ], [ %45, %.preheader.preheader.i.i.i21 ]
+  %47 = getelementptr inbounds i8, ptr %46, i64 -56
+  tail call void @_ZN7rocksdb4port7RWMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %47) #19
+  %48 = icmp eq ptr %47, %40
+  br i1 %48, label %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i22
 
-_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %.preheader.i.i.i21, %43
-  %51 = add i64 %.idx.i.i.i19, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %44, i64 noundef %51) #20
+_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %.preheader.i.i.i22, %41
+  %49 = add i64 %.idx.i.i.i20, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %42, i64 noundef %49) #20
   %.pre = load ptr, ptr %13, align 8, !tbaa !320
   br label %_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
-_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %.loopexit22, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
-  %52 = phi ptr [ %.ptr12, %.loopexit22 ], [ %.pre, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i ]
-  %53 = load i32, ptr %12, align 8, !tbaa !366
-  %54 = zext i32 %53 to i64
-  %55 = mul nuw nsw i64 %54, 56
-  %56 = tail call i32 @mlock(ptr noundef %52, i64 noundef %55) #19
+_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %.loopexit24, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
+  %50 = phi ptr [ %.ptr12, %.loopexit24 ], [ %.pre, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i ]
+  %51 = load i32, ptr %12, align 8, !tbaa !366
+  %52 = zext i32 %51 to i64
+  %53 = mul nuw nsw i64 %52, 56
+  %54 = tail call i32 @mlock(ptr noundef %50, i64 noundef %53) #19
   ret void
 
-57:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_9BlockInfoENS0_22BlockCacheTierMetadata4HashENS4_5EqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit, %4
+55:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_9BlockInfoENS0_22BlockCacheTierMetadata4HashENS4_5EqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit, %4
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  br label %61
+
+57:                                               ; preds = %.preheader23
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  %59 = icmp eq i64 %.idx, 8
+  br i1 %59, label %.loopexit, label %.preheader
 
-59:                                               ; preds = %39
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = icmp eq i64 %.idx, 8
-  br i1 %61, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %59, %.preheader
-  %.idx13 = phi i64 [ %.add14, %.preheader ], [ %.idx, %59 ]
+.preheader:                                       ; preds = %57, %.preheader
+  %.idx13 = phi i64 [ %.add14, %.preheader ], [ %.idx, %57 ]
   %.add14 = add nsw i64 %.idx13, -56
   %.ptr16 = getelementptr inbounds i8, ptr %34, i64 %.add14
   tail call void @_ZN7rocksdb4port7RWMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr16) #19
-  %62 = icmp eq i64 %.add14, 8
-  br i1 %62, label %.loopexit, label %.preheader
+  %60 = icmp eq i64 %.add14, 8
+  br i1 %60, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %59
+.loopexit:                                        ; preds = %.preheader, %57
   tail call void @_ZdaPvm(ptr noundef nonnull %34, i64 noundef %33) #20
-  br label %63
+  br label %61
 
-63:                                               ; preds = %.loopexit, %57
-  %.pn = phi { ptr, i32 } [ %60, %.loopexit ], [ %58, %57 ]
+61:                                               ; preds = %.loopexit, %55
+  %.pn = phi { ptr, i32 } [ %58, %.loopexit ], [ %56, %55 ]
   tail call void @_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
   tail call void @_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_9BlockInfoENS0_22BlockCacheTierMetadata4HashENS4_5EqualEE6BucketESt14default_deleteIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   resume { ptr, i32 } %.pn
@@ -9231,7 +9218,7 @@ define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockC
   %15 = mul nuw nsw i64 %14, 24
   %16 = add nuw nsw i64 %15, 8
   %17 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %16) #21
-          to label %18 unwind label %57
+          to label %18 unwind label %55
 
 18:                                               ; preds = %4
   store i64 %14, ptr %17, align 16
@@ -9262,93 +9249,89 @@ _ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_14BlockCacheFileENS0_22BlockCacheTi
   %32 = mul nuw nsw i64 %31, 56
   %33 = add nuw nsw i64 %32, 8
   %34 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %33) #21
-          to label %35 unwind label %57
+          to label %35 unwind label %55
 
 35:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_14BlockCacheFileENS0_22BlockCacheTierMetadata18BlockCacheFileHashENS4_19BlockCacheFileEqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit
   store i64 %31, ptr %34, align 16
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = icmp eq i32 %30, 0
-  br i1 %36, label %.loopexit22, label %37
+  br i1 %36, label %.loopexit24, label %.preheader23
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %.ptr12, i64 %31
-  br label %39
-
-39:                                               ; preds = %40, %37
-  %.idx = phi i64 [ 8, %37 ], [ %.add, %40 ]
+.preheader23:                                     ; preds = %35, %37
+  %.idx = phi i64 [ %.add, %37 ], [ 8, %35 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   invoke void @_ZN7rocksdb4port7RWMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr.ptr)
-          to label %40 unwind label %59
+          to label %37 unwind label %57
 
-40:                                               ; preds = %39
+37:                                               ; preds = %.preheader23
   %.add = add nuw nsw i64 %.idx, 56
-  %.ptr11 = getelementptr inbounds nuw i8, ptr %34, i64 %.add
-  %41 = icmp eq ptr %.ptr11, %38
-  br i1 %41, label %.loopexit22, label %39
+  %38 = add nuw nsw i64 %.idx, 48
+  %39 = icmp eq i64 %38, %32
+  br i1 %39, label %.loopexit24, label %.preheader23
 
-.loopexit22:                                      ; preds = %40, %35
-  %42 = load ptr, ptr %13, align 8, !tbaa !320
+.loopexit24:                                      ; preds = %37, %35
+  %.ptr12 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %40 = load ptr, ptr %13, align 8, !tbaa !320
   store ptr %.ptr12, ptr %13, align 8, !tbaa !320
-  %.not.i.i18 = icmp eq ptr %42, null
-  br i1 %.not.i.i18, label %_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %43
+  %.not.i.i19 = icmp eq ptr %40, null
+  br i1 %.not.i.i19, label %_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %41
 
-43:                                               ; preds = %.loopexit22
-  %44 = getelementptr inbounds i8, ptr %42, i64 -8
-  %45 = load i64, ptr %44, align 8
-  %.idx.i.i.i19 = mul i64 %45, 56
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.preheader.i.i.i20
+41:                                               ; preds = %.loopexit24
+  %42 = getelementptr inbounds i8, ptr %40, i64 -8
+  %43 = load i64, ptr %42, align 8
+  %.idx.i.i.i20 = mul i64 %43, 56
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.preheader.i.i.i21
 
-.preheader.preheader.i.i.i20:                     ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i19
-  br label %.preheader.i.i.i21
+.preheader.preheader.i.i.i21:                     ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %40, i64 %.idx.i.i.i20
+  br label %.preheader.i.i.i22
 
-.preheader.i.i.i21:                               ; preds = %.preheader.i.i.i21, %.preheader.preheader.i.i.i20
-  %48 = phi ptr [ %49, %.preheader.i.i.i21 ], [ %47, %.preheader.preheader.i.i.i20 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 -56
-  tail call void @_ZN7rocksdb4port7RWMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #19
-  %50 = icmp eq ptr %49, %42
-  br i1 %50, label %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i21
+.preheader.i.i.i22:                               ; preds = %.preheader.i.i.i22, %.preheader.preheader.i.i.i21
+  %46 = phi ptr [ %47, %.preheader.i.i.i22 ], [ %45, %.preheader.preheader.i.i.i21 ]
+  %47 = getelementptr inbounds i8, ptr %46, i64 -56
+  tail call void @_ZN7rocksdb4port7RWMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %47) #19
+  %48 = icmp eq ptr %47, %40
+  br i1 %48, label %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i22
 
-_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %.preheader.i.i.i21, %43
-  %51 = add i64 %.idx.i.i.i19, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %44, i64 noundef %51) #20
+_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %.preheader.i.i.i22, %41
+  %49 = add i64 %.idx.i.i.i20, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %42, i64 noundef %49) #20
   %.pre = load ptr, ptr %13, align 8, !tbaa !320
   br label %_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
-_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %.loopexit22, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
-  %52 = phi ptr [ %.ptr12, %.loopexit22 ], [ %.pre, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i ]
-  %53 = load i32, ptr %12, align 8, !tbaa !363
-  %54 = zext i32 %53 to i64
-  %55 = mul nuw nsw i64 %54, 56
-  %56 = tail call i32 @mlock(ptr noundef %52, i64 noundef %55) #19
+_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %.loopexit24, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
+  %50 = phi ptr [ %.ptr12, %.loopexit24 ], [ %.pre, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i ]
+  %51 = load i32, ptr %12, align 8, !tbaa !363
+  %52 = zext i32 %51 to i64
+  %53 = mul nuw nsw i64 %52, 56
+  %54 = tail call i32 @mlock(ptr noundef %50, i64 noundef %53) #19
   ret void
 
-57:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_14BlockCacheFileENS0_22BlockCacheTierMetadata18BlockCacheFileHashENS4_19BlockCacheFileEqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit, %4
+55:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_14BlockCacheFileENS0_22BlockCacheTierMetadata18BlockCacheFileHashENS4_19BlockCacheFileEqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit, %4
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  br label %61
+
+57:                                               ; preds = %.preheader23
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  %59 = icmp eq i64 %.idx, 8
+  br i1 %59, label %.loopexit, label %.preheader
 
-59:                                               ; preds = %39
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = icmp eq i64 %.idx, 8
-  br i1 %61, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %59, %.preheader
-  %.idx13 = phi i64 [ %.add14, %.preheader ], [ %.idx, %59 ]
+.preheader:                                       ; preds = %57, %.preheader
+  %.idx13 = phi i64 [ %.add14, %.preheader ], [ %.idx, %57 ]
   %.add14 = add nsw i64 %.idx13, -56
   %.ptr16 = getelementptr inbounds i8, ptr %34, i64 %.add14
   tail call void @_ZN7rocksdb4port7RWMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr16) #19
-  %62 = icmp eq i64 %.add14, 8
-  br i1 %62, label %.loopexit, label %.preheader
+  %60 = icmp eq i64 %.add14, 8
+  br i1 %60, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %59
+.loopexit:                                        ; preds = %.preheader, %57
   tail call void @_ZdaPvm(ptr noundef nonnull %34, i64 noundef %33) #20
-  br label %63
+  br label %61
 
-63:                                               ; preds = %.loopexit, %57
-  %.pn = phi { ptr, i32 } [ %60, %.loopexit ], [ %58, %57 ]
+61:                                               ; preds = %.loopexit, %55
+  %.pn = phi { ptr, i32 } [ %58, %.loopexit ], [ %56, %55 ]
   tail call void @_ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
   tail call void @_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_14BlockCacheFileENS0_22BlockCacheTierMetadata18BlockCacheFileHashENS4_19BlockCacheFileEqualEE6BucketESt14default_deleteIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   resume { ptr, i32 } %.pn

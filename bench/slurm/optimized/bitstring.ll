@@ -1612,8 +1612,8 @@ define dso_local range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef captures(ad
   %8 = load i64, ptr %7, align 8
   %sext = shl i64 %6, 32
   %9 = ashr exact i64 %sext, 32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 -1
+  %10 = getelementptr i8, ptr %1, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -1
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
   %.not1825.i = icmp slt i64 %8, 1
   br i1 %.not1825.i, label %bit_nclear.exit, label %.lr.ph27.i
@@ -1647,8 +1647,8 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %21 = icmp eq i32 %20, 0
   %spec.select.idx = select i1 %21, i64 2, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
-  %.not92 = icmp ult ptr %11, %spec.select
-  br i1 %.not92, label %.loopexit, label %.lr.ph
+  %.not92.not = icmp sgt i64 %9, %spec.select.idx
+  br i1 %.not92.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %bit_nclear.exit
   %22 = tail call ptr @__ctype_b_loc() #18

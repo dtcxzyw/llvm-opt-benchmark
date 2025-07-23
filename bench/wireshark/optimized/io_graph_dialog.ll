@@ -26360,9 +26360,9 @@ _ZN17QArrayDataPointerIP7IOGraphE6detachEPS2_.exit.i: ; preds = %_ZNK17QArrayDat
   %30 = icmp ne i64 %.idx.i, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8
-  %.idx3.i = shl i64 %32, 3
-  %33 = getelementptr i8, ptr %27, i64 %.idx3.i
-  %.not.i.i = icmp eq ptr %29, %33
+  %.idx4.i = shl i64 %32, 3
+  %33 = add i64 %.idx.i, 8
+  %.not.i.i = icmp eq i64 %33, %.idx4.i
   %or.cond.i.i = select i1 %30, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %._crit_edge.i.i, label %34
 
@@ -26374,8 +26374,7 @@ _ZN17QArrayDataPointerIP7IOGraphE6detachEPS2_.exit.i: ; preds = %_ZNK17QArrayDat
   br i1 %.not.i.i, label %_ZN5QListIP7IOGraphE6removeExx.exit, label %35
 
 35:                                               ; preds = %._crit_edge.i.i
-  %reass.sub = sub i64 %.idx3.i, %.idx.i
-  %gepdiff.i = add i64 %reass.sub, -8
+  %gepdiff.i = sub i64 %.idx4.i, %33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %28, ptr noundef align 1 %29, i64 noundef %gepdiff.i, i1 noundef false) #33
   %.pre12.i.i = load i64, ptr %31, align 8
   br label %_ZN5QListIP7IOGraphE6removeExx.exit

@@ -460,8 +460,8 @@ _ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i.i
 
 _ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit..critedge_crit_edge: ; preds = %_ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit
   %.pre = load ptr, ptr %40, align 8, !tbaa !411
-  %.phi.trans.insert184 = getelementptr inbounds nuw i8, ptr %36, i64 36
-  %.pre185 = load i32, ptr %.phi.trans.insert184, align 4, !tbaa !412
+  %.phi.trans.insert183 = getelementptr inbounds nuw i8, ptr %36, i64 36
+  %.pre184 = load i32, ptr %.phi.trans.insert183, align 4, !tbaa !412
   br label %.critedge
 
 41:                                               ; preds = %_ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit
@@ -477,7 +477,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %41
   br i1 %45, label %.critedge, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread169
 
 .critedge:                                        ; preds = %_ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit..critedge_crit_edge, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %46 = phi i32 [ %.pre185, %_ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit..critedge_crit_edge ], [ %43, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
+  %46 = phi i32 [ %.pre184, %_ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit..critedge_crit_edge ], [ %43, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
   %47 = phi ptr [ %.pre, %_ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit..critedge_crit_edge ], [ %44, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -787,12 +787,12 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139:   ; preds = %190, %189, %187, %1
 
 208:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139
   %209 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %204) #22
-  %.phi.trans.insert186 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  %.pre187 = load i8, ptr %.phi.trans.insert186, align 16
+  %.phi.trans.insert185 = getelementptr inbounds nuw i8, ptr %209, i64 16
+  %.pre186 = load i8, ptr %.phi.trans.insert185, align 16
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139, %208
-  %210 = phi i8 [ %.pre187, %208 ], [ %206, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139 ]
+  %210 = phi i8 [ %.pre186, %208 ], [ %206, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139 ]
   %.1.i = phi ptr [ %209, %208 ], [ %204, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139 ]
   %211 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %212 = icmp eq i8 %210, 26
@@ -869,55 +869,50 @@ _ZN4llvm11raw_ostreamlsEc.exit148:                ; preds = %223, %225
   %242 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %243 = load i8, ptr %242, align 8, !tbaa !452
   %244 = zext i8 %243 to i64
-  %245 = load i64, ptr %211, align 16
-  %246 = lshr i64 %245, 38
-  %.idx.i = and i64 %246, 65535
-  %.idx = shl nuw nsw i64 %.idx.i, 3
-  %247 = getelementptr inbounds nuw i8, ptr %spec.select.i.i142, i64 %.idx
-  %.ptr182 = getelementptr inbounds nuw i8, ptr %247, i64 48
-  %.not106177 = icmp eq i64 %.idx.i, 0
-  br i1 %.not106177, label %.thread, label %.lr.ph.preheader
+  %245 = getelementptr inbounds nuw i8, ptr %spec.select.i.i142, i64 48
+  %246 = load i64, ptr %211, align 16
+  %247 = lshr i64 %246, 35
+  %.idx = and i64 %247, 524280
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 %.idx
+  %.not106177 = icmp samesign eq i64 %.idx, 0
+  br i1 %.not106177, label %.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %241
-  %.ptr = getelementptr inbounds nuw i8, ptr %spec.select.i.i142, i64 48
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %252
-  %.191179 = phi i32 [ %266, %252 ], [ %.090, %.lr.ph.preheader ]
-  %.093178 = phi ptr [ %267, %252 ], [ %.ptr, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %241, %253
+  %.191179 = phi i32 [ %267, %253 ], [ %.090, %241 ]
+  %.093178 = phi ptr [ %268, %253 ], [ %245, %241 ]
   %.0.copyload.i.i.i.i.i155 = load i64, ptr %.093178, align 8
-  %248 = and i64 %.0.copyload.i.i.i.i.i155, -16
-  %249 = inttoptr i64 %248 to ptr
-  %250 = load ptr, ptr %249, align 16, !tbaa !398
-  %251 = tail call noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(ptr noundef nonnull align 16 dereferenceable(24) %250, ptr noundef null) #22
-  br i1 %251, label %.thread, label %252
+  %249 = and i64 %.0.copyload.i.i.i.i.i155, -16
+  %250 = inttoptr i64 %249 to ptr
+  %251 = load ptr, ptr %250, align 16, !tbaa !398
+  %252 = tail call noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(ptr noundef nonnull align 16 dereferenceable(24) %251, ptr noundef null) #22
+  br i1 %252, label %.thread, label %253
 
-252:                                              ; preds = %.lr.ph
+253:                                              ; preds = %.lr.ph
   %.sroa.0.0.copyload = load i64, ptr %.093178, align 8, !tbaa !397
-  %253 = and i64 %.sroa.0.0.copyload, -16
-  %254 = inttoptr i64 %253 to ptr
-  %255 = load ptr, ptr %254, align 16, !tbaa !398
-  %256 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %6, ptr noundef %255) #22
-  %257 = extractvalue { i64, i64 } %256, 0
-  %258 = icmp ne i64 %257, 0
-  %259 = zext i1 %258 to i64
-  %260 = sub i64 %257, %259
-  %261 = udiv i64 %260, %244
-  %262 = add i64 %261, %259
-  %263 = mul i64 %262, %244
-  %264 = udiv i64 %263, %244
-  %265 = trunc i64 %264 to i32
-  %266 = add i32 %.191179, %265
-  %267 = getelementptr inbounds nuw i8, ptr %.093178, i64 8
-  %.not106 = icmp eq ptr %267, %.ptr182
+  %254 = and i64 %.sroa.0.0.copyload, -16
+  %255 = inttoptr i64 %254 to ptr
+  %256 = load ptr, ptr %255, align 16, !tbaa !398
+  %257 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %6, ptr noundef %256) #22
+  %258 = extractvalue { i64, i64 } %257, 0
+  %259 = icmp ne i64 %258, 0
+  %260 = zext i1 %259 to i64
+  %261 = sub i64 %258, %260
+  %262 = udiv i64 %261, %244
+  %263 = add i64 %262, %260
+  %264 = mul i64 %263, %244
+  %265 = udiv i64 %264, %244
+  %266 = trunc i64 %265 to i32
+  %267 = add i32 %.191179, %266
+  %268 = getelementptr inbounds nuw i8, ptr %.093178, i64 8
+  %.not106 = icmp eq ptr %268, %248
   br i1 %.not106, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %252, %.lr.ph, %241
-  %.191.lcssa = phi i32 [ %.090, %241 ], [ %.191179, %.lr.ph ], [ %266, %252 ]
-  %268 = lshr i64 %244, 3
-  %269 = zext i32 %.191.lcssa to i64
-  %270 = mul nuw nsw i64 %268, %269
-  %271 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %270) #22
+.thread:                                          ; preds = %253, %.lr.ph, %241
+  %.191.lcssa = phi i32 [ %.090, %241 ], [ %.191179, %.lr.ph ], [ %267, %253 ]
+  %269 = lshr i64 %244, 3
+  %270 = zext i32 %.191.lcssa to i64
+  %271 = mul nuw nsw i64 %269, %270
+  %272 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %271) #22
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %232, %230, %115, %113, %57, %59, %60, %89, %91, %92, %98, %.thread, %133, %134

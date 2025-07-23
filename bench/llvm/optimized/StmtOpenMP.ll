@@ -369,13 +369,13 @@ define dso_local noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInn
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = tail call noundef ptr @_ZN5clang4Stmt16IgnoreContainersEb(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false) #14
-  br i1 %1, label %6, label %69
+  br i1 %1, label %6, label %70
 
 6:                                                ; preds = %2
   %7 = load i16, ptr %5, align 8
   %8 = and i16 %7, 511
   %.not = icmp eq i16 %8, 249
-  br i1 %.not, label %.lr.ph.i.i.i.i.i.i.i.i, label %69
+  br i1 %.not, label %.lr.ph.i.i.i.i.i.i.i.i, label %70
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #14
@@ -417,62 +417,58 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br i1 %.not25, label %15, label %21, !llvm.loop !40
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !41
-  %24 = zext i32 %23 to i64
-  %.idx = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
-  %.ptr64 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.not2660 = icmp eq i32 %23, 0
-  br i1 %.not2660, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge, label %.lr.ph.preheader
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !41
+  %25 = zext i32 %24 to i64
+  %.idx = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
+  %.not2660 = icmp eq i32 %24, 0
+  br i1 %.not2660, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %21
-  %.ptr = getelementptr inbounds nuw i8, ptr %19, i64 16
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %21, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
+  %.462 = phi ptr [ %.6.ph, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %.2.ph, %21 ]
+  %.02061 = phi ptr [ %60, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %22, %21 ]
+  %27 = load ptr, ptr %.02061, align 8, !tbaa !11
+  %.not27 = icmp eq ptr %27, null
+  br i1 %.not27, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread, label %28
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
-  %.462 = phi ptr [ %.6.ph, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %.2.ph, %.lr.ph.preheader ]
-  %.02061 = phi ptr [ %59, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %.ptr, %.lr.ph.preheader ]
-  %26 = load ptr, ptr %.02061, align 8, !tbaa !11
-  %.not27 = icmp eq ptr %26, null
-  br i1 %.not27, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread, label %27
+28:                                               ; preds = %.lr.ph
+  %29 = load i16, ptr %27, align 8
+  %30 = and i16 %29, 511
+  %.not57 = icmp eq i16 %30, 237
+  br i1 %.not57, label %31, label %34
 
-27:                                               ; preds = %.lr.ph
-  %28 = load i16, ptr %26, align 8
-  %29 = and i16 %28, 511
-  %.not57 = icmp eq i16 %29, 237
-  br i1 %.not57, label %30, label %33
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !11
+  %.pre67 = load i16, ptr %33, align 8
+  %.pre70 = and i16 %.pre67, 511
+  br label %34
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !11
-  %.pre68 = load i16, ptr %32, align 8
-  %.pre71 = and i16 %.pre68, 511
-  br label %33
-
-33:                                               ; preds = %30, %27
-  %.pre-phi = phi i16 [ %.pre71, %30 ], [ %29, %27 ]
-  %.045 = phi ptr [ %32, %30 ], [ %26, %27 ]
-  switch i16 %.pre-phi, label %34 [
+34:                                               ; preds = %31, %28
+  %.pre-phi = phi i16 [ %.pre70, %31 ], [ %30, %28 ]
+  %.045 = phi ptr [ %33, %31 ], [ %27, %28 ]
+  switch i16 %.pre-phi, label %35 [
     i16 243, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit
     i16 252, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit
   ]
 
-34:                                               ; preds = %33
-  %35 = add nsw i16 %.pre-phi, -162
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %35, 75
+35:                                               ; preds = %34
+  %36 = add nsw i16 %.pre-phi, -162
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %36, 75
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit, label %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
 
-_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit: ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %.045, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !42
-  %38 = call noundef zeroext i1 @_ZN5clang21isOpenMPLoopDirectiveEN4llvm3omp9DirectiveE(i32 noundef %37) #14
-  br i1 %38, label %39, label %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
+_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit: ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %.045, i64 8
+  %38 = load i32, ptr %37, align 8, !tbaa !42
+  %39 = call noundef zeroext i1 @_ZN5clang21isOpenMPLoopDirectiveEN4llvm3omp9DirectiveE(i32 noundef %38) #14
+  br i1 %39, label %40, label %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
 
-39:                                               ; preds = %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit
-  %40 = load i16, ptr %.045, align 8
-  %41 = and i16 %40, 511
-  switch i16 %41, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit [
+40:                                               ; preds = %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit
+  %41 = load i16, ptr %.045, align 8
+  %42 = and i16 %41, 511
+  switch i16 %42, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit [
     i16 207, label %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
     i16 221, label %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
     i16 220, label %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
@@ -510,105 +506,105 @@ _ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit: ; preds = 
     i16 200, label %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
   ]
 
-_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit: ; preds = %33, %33, %39
+_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit: ; preds = %34, %34, %40
   %.not30 = icmp eq ptr %.462, null
   br i1 %.not30, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit
 
-_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread: ; preds = %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %34, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit
-  %42 = call noundef ptr @_ZN5clang4Stmt16IgnoreContainersEb(ptr noundef nonnull align 8 dereferenceable(8) %.045, i1 noundef zeroext false) #14
-  %.not.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread, label %43
+_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread: ; preds = %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %35, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit
+  %43 = call noundef ptr @_ZN5clang4Stmt16IgnoreContainersEb(ptr noundef nonnull align 8 dereferenceable(8) %.045, i1 noundef zeroext false) #14
+  %.not.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread, label %44
 
-43:                                               ; preds = %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
-  %44 = load i16, ptr %42, align 8
-  %45 = and i16 %44, 511
-  %46 = icmp eq i16 %45, 249
-  br i1 %46, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
+44:                                               ; preds = %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread
+  %45 = load i16, ptr %43, align 8
+  %46 = and i16 %45, 511
+  %47 = icmp eq i16 %46, 249
+  br i1 %47, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit: ; preds = %43
-  %47 = load i32, ptr %12, align 8, !tbaa !39
-  %48 = load i32, ptr %13, align 4, !tbaa !36
-  %.not.i.i.not.i = icmp ult i32 %47, %48
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit, label %49, !prof !43
+_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit: ; preds = %44
+  %48 = load i32, ptr %12, align 8, !tbaa !39
+  %49 = load i32, ptr %13, align 4, !tbaa !36
+  %.not.i.i.not.i = icmp ult i32 %48, %49
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit, label %50, !prof !43
 
-49:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit
-  %50 = zext i32 %47 to i64
-  %51 = add nuw nsw i64 %50, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %11, i64 noundef %51, i64 noundef 8) #14
+50:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit
+  %51 = zext i32 %48 to i64
+  %52 = add nuw nsw i64 %51, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %11, i64 noundef %52, i64 noundef 8) #14
   %.pre.i = load i32, ptr %12, align 8, !tbaa !39
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit, %49
-  %52 = phi i32 [ %47, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit ], [ %.pre.i, %49 ]
-  %53 = load ptr, ptr %4, align 8, !tbaa !34
-  %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
-  %56 = ptrtoint ptr %42 to i64
-  store i64 %56, ptr %55, align 1
-  %57 = load i32, ptr %12, align 8, !tbaa !39
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %12, align 8, !tbaa !39
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit, %50
+  %53 = phi i32 [ %48, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit ], [ %.pre.i, %50 ]
+  %54 = load ptr, ptr %4, align 8, !tbaa !34
+  %55 = zext i32 %53 to i64
+  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %57 = ptrtoint ptr %43 to i64
+  store i64 %57, ptr %56, align 1
+  %58 = load i32, ptr %12, align 8, !tbaa !39
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %12, align 8, !tbaa !39
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread, %43, %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit
-  %.6.ph = phi ptr [ %.462, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit ], [ %.462, %.lr.ph ], [ %.462, %43 ], [ %.462, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread ], [ %.045, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ]
-  %59 = getelementptr inbounds nuw i8, ptr %.02061, i64 8
-  %.not26 = icmp eq ptr %59, %.ptr64
+_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread, %44, %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit
+  %.6.ph = phi ptr [ %.462, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit ], [ %.462, %.lr.ph ], [ %.462, %44 ], [ %.462, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread ], [ %.045, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ]
+  %60 = getelementptr inbounds nuw i8, ptr %.02061, i64 8
+  %.not26 = icmp eq ptr %60, %26
   br i1 %.not26, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit, label %.lr.ph
 
 _ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit: ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
   %.5.ph = phi ptr [ %.6.ph, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %0, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ]
-  %.pre69 = load i32, ptr %10, align 8, !tbaa !39
+  %.pre68 = load i32, ptr %10, align 8, !tbaa !39
   br label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge
 
 _ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge: ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit, %21
-  %60 = phi i32 [ %20, %21 ], [ %.pre69, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit ]
+  %61 = phi i32 [ %20, %21 ], [ %.pre68, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit ]
   %.5 = phi ptr [ %.2.ph, %21 ], [ %.5.ph, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit ]
-  %.not.i36 = icmp eq i32 %60, 0
-  br i1 %.not.i36, label %61, label %thread-pre-split.backedge
+  %.not.i36 = icmp eq i32 %61, 0
+  br i1 %.not.i36, label %62, label %thread-pre-split.backedge
 
-61:                                               ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge
+62:                                               ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge
   %.not31 = icmp eq ptr %.5, null
-  br i1 %.not31, label %62, label %.loopexit
+  br i1 %.not31, label %63, label %.loopexit
 
-62:                                               ; preds = %61
+63:                                               ; preds = %62
   call void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %.pr.pre.pre = load i32, ptr %10, align 8, !tbaa !39
   br label %thread-pre-split.backedge
 
-thread-pre-split.backedge:                        ; preds = %62, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge
-  %.pr.pre = phi i32 [ %.pr.pre.pre, %62 ], [ %60, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge ]
-  %.2.ph.be = phi ptr [ null, %62 ], [ %.5, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge ]
+thread-pre-split.backedge:                        ; preds = %63, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge
+  %.pr.pre = phi i32 [ %.pr.pre.pre, %63 ], [ %61, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge ]
+  %.2.ph.be = phi ptr [ null, %63 ], [ %.5, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge ]
   %.pre = load ptr, ptr %3, align 8
   br label %thread-pre-split, !llvm.loop !40
 
-.loopexit:                                        ; preds = %61, %15
-  %.3 = phi ptr [ %.2.ph, %15 ], [ %.5, %61 ]
+.loopexit:                                        ; preds = %62, %15
+  %.3 = phi ptr [ %.2.ph, %15 ], [ %.5, %62 ]
   %.not32 = icmp eq ptr %.3, null
   %spec.select = select i1 %.not32, ptr %0, ptr %.3
-  %63 = load ptr, ptr %4, align 8, !tbaa !34
-  %64 = icmp eq ptr %63, %11
-  br i1 %64, label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit, label %65
+  %64 = load ptr, ptr %4, align 8, !tbaa !34
+  %65 = icmp eq ptr %64, %11
+  br i1 %65, label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit, label %66
 
-65:                                               ; preds = %.loopexit
-  call void @free(ptr noundef %63) #14
+66:                                               ; preds = %.loopexit
+  call void @free(ptr noundef %64) #14
   br label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit: ; preds = %.loopexit, %65
+_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit: ; preds = %.loopexit, %66
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #14
-  %66 = load ptr, ptr %3, align 8, !tbaa !34
-  %67 = icmp eq ptr %66, %.ptr55
-  br i1 %67, label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37, label %68
+  %67 = load ptr, ptr %3, align 8, !tbaa !34
+  %68 = icmp eq ptr %67, %.ptr55
+  br i1 %68, label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37, label %69
 
-68:                                               ; preds = %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit
-  call void @free(ptr noundef %66) #14
+69:                                               ; preds = %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit
+  call void @free(ptr noundef %67) #14
   br label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37
 
-_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37: ; preds = %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit, %68
+_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37: ; preds = %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit, %69
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #14
-  br label %69
+  br label %70
 
-69:                                               ; preds = %6, %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37, %2
+70:                                               ; preds = %6, %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37, %2
   %.0 = phi ptr [ %5, %2 ], [ %spec.select, %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit37 ], [ %5, %6 ]
   ret ptr %.0
 }

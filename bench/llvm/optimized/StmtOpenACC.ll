@@ -48,7 +48,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -68,32 +68,32 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 20, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %32, i8 0, i64 36, i1 false)
-  br i1 %33, label %_ZN5clang23OpenACCComputeConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang23OpenACCComputeConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang23OpenACCComputeConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 56
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 56
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang23OpenACCComputeConstructC2Ej.exit
 
-_ZN5clang23OpenACCComputeConstructC2Ej.exit:      ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang23OpenACCComputeConstructC2Ej.exit:      ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang23OpenACCComputeConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang23OpenACCComputeConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang23OpenACCComputeConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang23OpenACCComputeConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -199,28 +199,28 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   store i8 20, ptr %11, align 8, !tbaa !45
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = zext i32 %1 to i64
-  %.idx = shl nuw nsw i64 %12, 3
-  %13 = icmp eq i32 %1, 0
-  br i1 %13, label %_ZSt29uninitialized_value_constructIPPKN5clang13OpenACCClauseEEvT_S5_.exit, label %14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = zext i32 %1 to i64
+  %.idx = shl nuw nsw i64 %13, 3
+  %14 = icmp eq i32 %1, 0
+  br i1 %14, label %_ZSt29uninitialized_value_constructIPPKN5clang13OpenACCClauseEEvT_S5_.exit, label %15
 
-14:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit
-  store ptr null, ptr %.ptr, align 8, !tbaa !37
+15:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit
+  store ptr null, ptr %12, align 8, !tbaa !37
   %.not.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i, label %_ZSt29uninitialized_value_constructIPPKN5clang13OpenACCClauseEEvT_S5_.exit, label %.lr.ph.i.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %14
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = add nsw i64 %.idx, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %16, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = add nsw i64 %.idx, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %16, i8 0, i64 %17, i1 false), !tbaa !37
   br label %_ZSt29uninitialized_value_constructIPPKN5clang13OpenACCClauseEEvT_S5_.exit
 
-_ZSt29uninitialized_value_constructIPPKN5clang13OpenACCClauseEEvT_S5_.exit: ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit, %14, %.lr.ph.i.i.i.preheader.i.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.ptr, ptr %17, align 8
+_ZSt29uninitialized_value_constructIPPKN5clang13OpenACCClauseEEvT_S5_.exit: ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit, %15, %.lr.ph.i.i.i.preheader.i.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %12, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %12, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %13, ptr %.sroa.2.0..sroa_idx.i, align 8
   ret void
 }
 
@@ -396,7 +396,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -416,32 +416,32 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 20, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %32, i8 0, i64 36, i1 false)
-  br i1 %33, label %_ZN5clang24OpenACCCombinedConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang24OpenACCCombinedConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang24OpenACCCombinedConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 56
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 56
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang24OpenACCCombinedConstructC2Ej.exit
 
-_ZN5clang24OpenACCCombinedConstructC2Ej.exit:     ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang24OpenACCCombinedConstructC2Ej.exit:     ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang24OpenACCCombinedConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang24OpenACCCombinedConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang24OpenACCCombinedConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang24OpenACCCombinedConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -558,7 +558,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -578,32 +578,32 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 3, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %32, i8 0, i64 36, i1 false)
-  br i1 %33, label %_ZN5clang20OpenACCDataConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang20OpenACCDataConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang20OpenACCDataConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 56
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 56
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang20OpenACCDataConstructC2Ej.exit
 
-_ZN5clang20OpenACCDataConstructC2Ej.exit:         ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang20OpenACCDataConstructC2Ej.exit:         ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang20OpenACCDataConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang20OpenACCDataConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang20OpenACCDataConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang20OpenACCDataConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -717,7 +717,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -737,32 +737,32 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 4, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, i8 0, i64 12, i1 false)
-  br i1 %33, label %_ZN5clang25OpenACCEnterDataConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang25OpenACCEnterDataConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang25OpenACCEnterDataConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang25OpenACCEnterDataConstructC2Ej.exit
 
-_ZN5clang25OpenACCEnterDataConstructC2Ej.exit:    ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang25OpenACCEnterDataConstructC2Ej.exit:    ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang25OpenACCEnterDataConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang25OpenACCEnterDataConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang25OpenACCEnterDataConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang25OpenACCEnterDataConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -874,7 +874,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -894,32 +894,32 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 5, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, i8 0, i64 12, i1 false)
-  br i1 %33, label %_ZN5clang24OpenACCExitDataConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang24OpenACCExitDataConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang24OpenACCExitDataConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang24OpenACCExitDataConstructC2Ej.exit
 
-_ZN5clang24OpenACCExitDataConstructC2Ej.exit:     ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang24OpenACCExitDataConstructC2Ej.exit:     ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang24OpenACCExitDataConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang24OpenACCExitDataConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang24OpenACCExitDataConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang24OpenACCExitDataConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1031,7 +1031,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -1051,32 +1051,32 @@ _ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirec
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 6, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %32, i8 0, i64 36, i1 false)
-  br i1 %33, label %_ZN5clang24OpenACCHostDataConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang24OpenACCHostDataConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang24OpenACCHostDataConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 56
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 56
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang24OpenACCHostDataConstructC2Ej.exit
 
-_ZN5clang24OpenACCHostDataConstructC2Ej.exit:     ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang24OpenACCHostDataConstructC2Ej.exit:     ; preds = %_ZN5clang30OpenACCAssociatedStmtConstructC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_PS1_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang24OpenACCHostDataConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang24OpenACCHostDataConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang24OpenACCHostDataConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang24OpenACCHostDataConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1192,7 +1192,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %3
   store ptr %24, ptr %9, align 8, !tbaa !21
   %25 = inttoptr i64 %16 to ptr
   %26 = icmp eq i64 %16, 0
-  br i1 %26, label %46, label %27
+  br i1 %26, label %48, label %27
 
 27:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i7 = phi ptr [ %23, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %25, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -1215,50 +1215,49 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %35, i8 0, i64 40, i1 false)
   store i32 %1, ptr %36, align 4, !tbaa !48
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 56
   %.idx.i = shl nuw nsw i64 %4, 3
-  %.add.i = add nuw nsw i64 %.idx.i, 56
-  %.ptr10.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 %.add.i
-  %37 = icmp eq i32 %1, 0
-  br i1 %37, label %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i, label %38
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
+  %39 = icmp eq i32 %1, 0
+  br i1 %39, label %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i, label %40
 
-38:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 56
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !50
-  %.not.i.i.i.i = icmp eq i64 %.add.i, 64
+40:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
+  store ptr null, ptr %37, align 8, !tbaa !50
+  %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %38
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 64
-  %40 = add nsw i64 %.idx.i, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %39, i8 0, i64 %40, i1 false), !tbaa !50
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %40
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 64
+  %42 = add nsw i64 %.idx.i, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %41, i8 0, i64 %42, i1 false), !tbaa !50
   br label %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i
 
-_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i.i, %38, %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  %.idx12.i = shl nuw nsw i64 %5, 3
-  %41 = icmp eq i32 %2, 0
-  br i1 %41, label %_ZN5clang20OpenACCWaitConstructC2Ejj.exit, label %42
+_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i.i, %40, %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
+  %.idx10.i = shl nuw nsw i64 %5, 3
+  %43 = icmp eq i32 %2, 0
+  br i1 %43, label %_ZN5clang20OpenACCWaitConstructC2Ejj.exit, label %44
 
-42:                                               ; preds = %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i
-  store ptr null, ptr %.ptr10.ptr.i, align 8, !tbaa !37
+44:                                               ; preds = %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i
+  store ptr null, ptr %38, align 8, !tbaa !37
   %.not.i.i.i4.i = icmp eq i32 %2, 1
   br i1 %.not.i.i.i4.i, label %_ZN5clang20OpenACCWaitConstructC2Ejj.exit, label %.lr.ph.i.i.i.preheader.i.i.i5.i
 
-.lr.ph.i.i.i.preheader.i.i.i5.i:                  ; preds = %42
-  %43 = getelementptr inbounds nuw i8, ptr %.ptr10.ptr.i, i64 8
-  %44 = add nsw i64 %.idx12.i, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %43, i8 0, i64 %44, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i5.i:                  ; preds = %44
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %46 = add nsw i64 %.idx10.i, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %45, i8 0, i64 %46, i1 false), !tbaa !37
   br label %_ZN5clang20OpenACCWaitConstructC2Ejj.exit
 
-_ZN5clang20OpenACCWaitConstructC2Ejj.exit:        ; preds = %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i, %42, %.lr.ph.i.i.i.preheader.i.i.i5.i
-  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 24
-  store ptr %.ptr10.ptr.i, ptr %45, align 8
+_ZN5clang20OpenACCWaitConstructC2Ejj.exit:        ; preds = %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i, %44, %.lr.ph.i.i.i.preheader.i.i.i5.i
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 24
+  store ptr %38, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 32
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %46
+  br label %48
 
-46:                                               ; preds = %_ZN5clang20OpenACCWaitConstructC2Ejj.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %47 = phi ptr [ %.0.i.i.i7, %_ZN5clang20OpenACCWaitConstructC2Ejj.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %47
+48:                                               ; preds = %_ZN5clang20OpenACCWaitConstructC2Ejj.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %49 = phi ptr [ %.0.i.i.i7, %_ZN5clang20OpenACCWaitConstructC2Ejj.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1403,7 +1402,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -1423,32 +1422,32 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 14, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, i8 0, i64 12, i1 false)
-  br i1 %33, label %_ZN5clang20OpenACCInitConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang20OpenACCInitConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang20OpenACCInitConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang20OpenACCInitConstructC2Ej.exit
 
-_ZN5clang20OpenACCInitConstructC2Ej.exit:         ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang20OpenACCInitConstructC2Ej.exit:         ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang20OpenACCInitConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang20OpenACCInitConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang20OpenACCInitConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang20OpenACCInitConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1560,7 +1559,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -1580,32 +1579,32 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 15, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, i8 0, i64 12, i1 false)
-  br i1 %33, label %_ZN5clang24OpenACCShutdownConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang24OpenACCShutdownConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang24OpenACCShutdownConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang24OpenACCShutdownConstructC2Ej.exit
 
-_ZN5clang24OpenACCShutdownConstructC2Ej.exit:     ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang24OpenACCShutdownConstructC2Ej.exit:     ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang24OpenACCShutdownConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang24OpenACCShutdownConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang24OpenACCShutdownConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang24OpenACCShutdownConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1717,7 +1716,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -1737,32 +1736,32 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 16, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, i8 0, i64 12, i1 false)
-  br i1 %33, label %_ZN5clang19OpenACCSetConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang19OpenACCSetConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang19OpenACCSetConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang19OpenACCSetConstructC2Ej.exit
 
-_ZN5clang19OpenACCSetConstructC2Ej.exit:          ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang19OpenACCSetConstructC2Ej.exit:          ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang19OpenACCSetConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang19OpenACCSetConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang19OpenACCSetConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang19OpenACCSetConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1874,7 +1873,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
   store ptr %21, ptr %6, align 8, !tbaa !21
   %22 = inttoptr i64 %13 to ptr
   %23 = icmp eq i64 %13, 0
-  br i1 %23, label %38, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
   %.0.i.i.i5 = phi ptr [ %20, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %22, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
@@ -1894,32 +1893,32 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 8
   store i8 17, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
-  %33 = icmp eq i32 %1, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 40
+  %34 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, i8 0, i64 12, i1 false)
-  br i1 %33, label %_ZN5clang22OpenACCUpdateConstructC2Ej.exit, label %34
+  br i1 %34, label %_ZN5clang22OpenACCUpdateConstructC2Ej.exit, label %35
 
-34:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  store ptr null, ptr %.ptr.i, align 8, !tbaa !37
+35:                                               ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
+  store ptr null, ptr %33, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq i32 %1, 1
   br i1 %.not.i.i.i.i, label %_ZN5clang22OpenACCUpdateConstructC2Ej.exit, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
-  %36 = add nsw i64 %4, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false), !tbaa !37
+.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 48
+  %37 = add nsw i64 %4, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %37, i1 false), !tbaa !37
   br label %_ZN5clang22OpenACCUpdateConstructC2Ej.exit
 
-_ZN5clang22OpenACCUpdateConstructC2Ej.exit:       ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %34, %.lr.ph.i.i.i.preheader.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
-  store ptr %.ptr.i, ptr %37, align 8
+_ZN5clang22OpenACCUpdateConstructC2Ej.exit:       ; preds = %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i, %35, %.lr.ph.i.i.i.preheader.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 24
+  store ptr %33, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i5, i64 32
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN5clang22OpenACCUpdateConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %39 = phi ptr [ %.0.i.i.i5, %_ZN5clang22OpenACCUpdateConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %39
+39:                                               ; preds = %_ZN5clang22OpenACCUpdateConstructC2Ej.exit, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %40 = phi ptr [ %.0.i.i.i5, %_ZN5clang22OpenACCUpdateConstructC2Ej.exit ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

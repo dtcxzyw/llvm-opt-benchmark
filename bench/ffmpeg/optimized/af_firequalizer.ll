@@ -2632,7 +2632,7 @@ define internal double @cubic_interpolate_func(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 340
   %6 = load i32, ptr %5, align 4, !tbaa !119
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %93, label %7
+  br i1 %.not, label %92, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 352
@@ -2643,7 +2643,7 @@ define internal double @cubic_interpolate_func(ptr noundef readonly captures(non
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %13 = load double, ptr %12, align 8, !tbaa !148
-  br label %93
+  br label %92
 
 14:                                               ; preds = %7
   %15 = add nsw i32 %6, -1
@@ -2656,7 +2656,7 @@ define internal double @cubic_interpolate_func(ptr noundef readonly captures(non
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !148
-  br label %93
+  br label %92
 
 23:                                               ; preds = %14
   %.not24.i = icmp eq i32 %15, 0
@@ -2718,58 +2718,58 @@ bsearch.exit._crit_edge:                          ; preds = %bsearch.exit, %37
   %48 = load double, ptr %47, align 8, !tbaa !148
   %49 = fsub nsz double %48, %.pre
   %50 = sext i32 %6 to i64
-  %51 = getelementptr inbounds %struct.GainEntry, ptr %8, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -32
-  %.not78 = icmp eq ptr %27, %52
-  br i1 %.not78, label %62, label %53
+  %.idx = shl nsw i64 %50, 4
+  %51 = add nsw i64 %.idx, -32
+  %.not78 = icmp eq i64 %26, %51
+  br i1 %.not78, label %61, label %52
 
-53:                                               ; preds = %bsearch.exit._crit_edge
-  %54 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %55 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %56 = load double, ptr %55, align 8, !tbaa !148
-  %57 = fsub nsz double %56, %48
-  %58 = fmul nsz double %36, %57
-  %59 = load double, ptr %54, align 8, !tbaa !146
-  %60 = fsub nsz double %59, %31
-  %61 = fdiv nsz double %58, %60
-  br label %62
+52:                                               ; preds = %bsearch.exit._crit_edge
+  %53 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %55 = load double, ptr %54, align 8, !tbaa !148
+  %56 = fsub nsz double %55, %48
+  %57 = fmul nsz double %36, %56
+  %58 = load double, ptr %53, align 8, !tbaa !146
+  %59 = fsub nsz double %58, %31
+  %60 = fdiv nsz double %57, %59
+  br label %61
 
-62:                                               ; preds = %bsearch.exit._crit_edge, %53
-  %63 = phi nsz double [ %61, %53 ], [ 0.000000e+00, %bsearch.exit._crit_edge ]
-  %64 = tail call nsz double @llvm.fabs.f64(double %46)
-  %65 = tail call nsz double @llvm.fabs.f64(double %49)
-  %66 = fadd nsz double %64, %65
-  %67 = fcmp nsz ogt double %66, 0.000000e+00
-  %68 = fmul nsz double %46, %65
-  %69 = tail call nsz double @llvm.fmuladd.f64(double %64, double %49, double %68)
-  %70 = fdiv nsz double %69, %66
-  %71 = select nsz i1 %67, double %70, double 0.000000e+00
-  %72 = tail call nsz double @llvm.fabs.f64(double %63)
-  %73 = fadd nsz double %65, %72
-  %74 = fcmp nsz ogt double %73, 0.000000e+00
-  %75 = fmul nsz double %49, %72
-  %76 = tail call nsz double @llvm.fmuladd.f64(double %65, double %63, double %75)
-  %77 = fneg nsz double %76
-  %.neg = fdiv nsz double %77, %73
-  %78 = select nsz i1 %74, double %.neg, double -0.000000e+00
-  %79 = tail call nsz double @llvm.fmuladd.f64(double %48, double 3.000000e+00, double %78)
-  %80 = tail call nsz double @llvm.fmuladd.f64(double %71, double -2.000000e+00, double %79)
-  %81 = tail call nsz double @llvm.fmuladd.f64(double %.pre, double -3.000000e+00, double %80)
-  %82 = fsub nsz double %48, %81
-  %83 = fsub nsz double %82, %71
-  %84 = fsub nsz double %83, %.pre
-  %85 = fsub nsz double %1, %28
-  %86 = fdiv nsz double %85, %36
-  %87 = fmul nsz double %86, %86
-  %88 = fmul nsz double %86, %87
-  %89 = fmul nsz double %87, %81
-  %90 = tail call nsz double @llvm.fmuladd.f64(double %84, double %88, double %89)
-  %91 = tail call nsz double @llvm.fmuladd.f64(double %71, double %86, double %90)
-  %92 = fadd nsz double %.pre, %91
-  br label %93
+61:                                               ; preds = %bsearch.exit._crit_edge, %52
+  %62 = phi nsz double [ %60, %52 ], [ 0.000000e+00, %bsearch.exit._crit_edge ]
+  %63 = tail call nsz double @llvm.fabs.f64(double %46)
+  %64 = tail call nsz double @llvm.fabs.f64(double %49)
+  %65 = fadd nsz double %63, %64
+  %66 = fcmp nsz ogt double %65, 0.000000e+00
+  %67 = fmul nsz double %46, %64
+  %68 = tail call nsz double @llvm.fmuladd.f64(double %63, double %49, double %67)
+  %69 = fdiv nsz double %68, %65
+  %70 = select nsz i1 %66, double %69, double 0.000000e+00
+  %71 = tail call nsz double @llvm.fabs.f64(double %62)
+  %72 = fadd nsz double %64, %71
+  %73 = fcmp nsz ogt double %72, 0.000000e+00
+  %74 = fmul nsz double %49, %71
+  %75 = tail call nsz double @llvm.fmuladd.f64(double %64, double %62, double %74)
+  %76 = fneg nsz double %75
+  %.neg = fdiv nsz double %76, %72
+  %77 = select nsz i1 %73, double %.neg, double -0.000000e+00
+  %78 = tail call nsz double @llvm.fmuladd.f64(double %48, double 3.000000e+00, double %77)
+  %79 = tail call nsz double @llvm.fmuladd.f64(double %70, double -2.000000e+00, double %78)
+  %80 = tail call nsz double @llvm.fmuladd.f64(double %.pre, double -3.000000e+00, double %79)
+  %81 = fsub nsz double %48, %80
+  %82 = fsub nsz double %81, %70
+  %83 = fsub nsz double %82, %.pre
+  %84 = fsub nsz double %1, %28
+  %85 = fdiv nsz double %84, %36
+  %86 = fmul nsz double %85, %85
+  %87 = fmul nsz double %85, %86
+  %88 = fmul nsz double %86, %80
+  %89 = tail call nsz double @llvm.fmuladd.f64(double %83, double %87, double %88)
+  %90 = tail call nsz double @llvm.fmuladd.f64(double %70, double %85, double %89)
+  %91 = fadd nsz double %.pre, %90
+  br label %92
 
-93:                                               ; preds = %2, %62, %20, %11
-  %.0 = phi nsz double [ %13, %11 ], [ %22, %20 ], [ %92, %62 ], [ 0.000000e+00, %2 ]
+92:                                               ; preds = %2, %61, %20, %11
+  %.0 = phi nsz double [ %13, %11 ], [ %22, %20 ], [ %91, %61 ], [ 0.000000e+00, %2 ]
   ret double %.0
 }
 

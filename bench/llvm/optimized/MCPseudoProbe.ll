@@ -1369,8 +1369,8 @@ define dso_local void @_ZNK4llvm20MCDecodedPseudoProbe16getInlineContextERNS_15S
   %7 = load i32, ptr %6, align 8, !tbaa !90
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.014 = load ptr, ptr %9, align 8, !tbaa !365
-  %10 = getelementptr inbounds nuw i8, ptr %.014, i64 24
+  %.015 = load ptr, ptr %9, align 8, !tbaa !365
+  %10 = getelementptr inbounds nuw i8, ptr %.015, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !12
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %_ZSt7reverseIPSt4pairIN4llvm9StringRefEjEEvT_S5_.exit, label %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.lr.ph
@@ -1383,8 +1383,8 @@ _ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.lr.ph: ; preds =
   br label %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit
 
 _ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit: ; preds = %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.lr.ph, %_ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEjEE12emplace_backIJS3_EEERS3_DpOT_.exit
-  %.015 = phi ptr [ %.014, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.lr.ph ], [ %.0, %_ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEjEE12emplace_backIJS3_EEERS3_DpOT_.exit ]
-  %16 = getelementptr inbounds nuw i8, ptr %.015, i64 32
+  %.016 = phi ptr [ %.015, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.lr.ph ], [ %.0, %_ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEjEE12emplace_backIJS3_EEERS3_DpOT_.exit ]
+  %16 = getelementptr inbounds nuw i8, ptr %.016, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !366
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !12
@@ -1426,7 +1426,7 @@ _ZL20getProbeFNameForGUIDRKN4llvm20GUIDProbeFunctionMapEm.exit: ; preds = %_ZSt7
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
-  %36 = getelementptr inbounds nuw i8, ptr %.015, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %.016, i64 44
   %37 = load i32, ptr %36, align 4, !tbaa !126, !noalias !370
   store ptr %.sroa.0.0.copyload.i, ptr %5, align 8, !tbaa !363
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !62
@@ -1460,35 +1460,41 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEjEE12emplace_backIJS3_EEERS3_DpO
 
 _ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread: ; preds = %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit, %_ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEjEE12emplace_backIJS3_EEERS3_DpOT_.exit
   %.pre = load i32, ptr %6, align 8, !tbaa !90
-  %.pre16 = zext i32 %.pre to i64
+  %.pre17 = zext i32 %.pre to i64
   %51 = icmp ne i32 %7, %.pre
-  %52 = load ptr, ptr %1, align 8, !tbaa !89
-  %53 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %52, i64 %8
-  %54 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %52, i64 %.pre16
-  %.012.i.i = getelementptr inbounds i8, ptr %54, i64 -24
-  %55 = icmp ult ptr %53, %.012.i.i
-  %or.cond.i.i = select i1 %51, i1 %55, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPSt4pairIN4llvm9StringRefEjEEvT_S5_.exit
+  %.idx = mul nuw nsw i64 %8, 24
+  %.idx14 = mul nuw nsw i64 %.pre17, 24
+  %52 = add nsw i64 %.idx14, -24
+  %53 = icmp slt i64 %.idx, %52
+  %or.cond.i.i = select i1 %51, i1 %53, i1 false
+  br i1 %or.cond.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPSt4pairIN4llvm9StringRefEjEEvT_S5_.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread, %.lr.ph.i.i
-  %.015.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread ]
-  %.pn14.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %54, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread ]
-  %.0913.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %53, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread ]
+.lr.ph.i.i.preheader:                             ; preds = %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread
+  %54 = load ptr, ptr %1, align 8, !tbaa !89
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx14
+  %.012.i.i = getelementptr inbounds i8, ptr %55, i64 -24
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.015.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %.lr.ph.i.i.preheader ]
+  %.pn14.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %55, %.lr.ph.i.i.preheader ]
+  %.0913.i.i = phi ptr [ %61, %.lr.ph.i.i ], [ %56, %.lr.ph.i.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %.0913.i.i, i64 16, i1 false), !tbaa.struct !376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.0913.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.015.i.i, i64 16, i1 false), !tbaa.struct !376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.015.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !376
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %56 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
-  %57 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
-  %58 = load i32, ptr %56, align 4, !tbaa !126
+  %57 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
+  %58 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
   %59 = load i32, ptr %57, align 4, !tbaa !126
-  store i32 %59, ptr %56, align 4, !tbaa !126
-  store i32 %58, ptr %57, align 4, !tbaa !126
-  %60 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 24
+  %60 = load i32, ptr %58, align 4, !tbaa !126
+  store i32 %60, ptr %57, align 4, !tbaa !126
+  store i32 %59, ptr %58, align 4, !tbaa !126
+  %61 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 24
   %.0.i.i = getelementptr inbounds i8, ptr %.015.i.i, i64 -24
-  %61 = icmp ult ptr %60, %.0.i.i
-  br i1 %61, label %.lr.ph.i.i, label %_ZSt7reverseIPSt4pairIN4llvm9StringRefEjEEvT_S5_.exit, !llvm.loop !377
+  %62 = icmp ult ptr %61, %.0.i.i
+  br i1 %62, label %.lr.ph.i.i, label %_ZSt7reverseIPSt4pairIN4llvm9StringRefEjEEvT_S5_.exit, !llvm.loop !377
 
 _ZSt7reverseIPSt4pairIN4llvm9StringRefEjEEvT_S5_.exit: ; preds = %.lr.ph.i.i, %3, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread
   ret void

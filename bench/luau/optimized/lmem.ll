@@ -964,15 +964,15 @@ define hidden void @_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE(ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !22
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  %18 = mul nsw i32 %9, %12
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %13, i64 %19
-  %.016 = getelementptr inbounds i8, ptr %17, i64 %10
-  %.not17 = icmp eq ptr %.016, %20
+  %17 = mul nsw i32 %9, %12
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i8, ptr %13, i64 %18
+  %20 = add nsw i64 %16, %10
+  %.not17 = icmp eq i64 %20, %18
   br i1 %.not17, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
+  %.016 = getelementptr inbounds i8, ptr %13, i64 %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %22 = load i32, ptr %21, align 4, !tbaa !25
   br label %.lr.ph
@@ -996,7 +996,7 @@ define hidden void @_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE(ptr nound
 30:                                               ; preds = %27, %.lr.ph, %25
   %.1.ph = phi i32 [ %.01218, %25 ], [ %.01218, %.lr.ph ], [ %28, %27 ]
   %.0 = getelementptr inbounds i8, ptr %.019, i64 %10
-  %.not = icmp eq ptr %.0, %20
+  %.not = icmp eq ptr %.0, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %30, %27, %3
@@ -1032,15 +1032,15 @@ define hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(pt
   %20 = getelementptr inbounds nuw i8, ptr %.09, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !22
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %19, i64 %22
-  %24 = mul nsw i32 %15, %18
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %19, i64 %25
-  %.016.i = getelementptr inbounds i8, ptr %23, i64 %16
-  %.not17.i = icmp eq ptr %.016.i, %26
+  %23 = mul nsw i32 %15, %18
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %19, i64 %24
+  %26 = add nsw i64 %22, %16
+  %.not17.i = icmp eq i64 %26, %24
   br i1 %.not17.i, label %_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph
+  %.016.i = getelementptr inbounds i8, ptr %19, i64 %26
   %27 = getelementptr inbounds nuw i8, ptr %.09, i64 52
   %28 = load i32, ptr %27, align 4, !tbaa !25
   br label %.lr.ph.i
@@ -1064,7 +1064,7 @@ define hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(pt
 36:                                               ; preds = %33, %31, %.lr.ph.i
   %.1.ph.i = phi i32 [ %.01218.i, %31 ], [ %.01218.i, %.lr.ph.i ], [ %34, %33 ]
   %.0.i = getelementptr inbounds i8, ptr %.019.i, i64 %16
-  %.not.i = icmp eq ptr %.0.i, %26
+  %.not.i = icmp eq ptr %.0.i, %25
   br i1 %.not.i, label %_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit, label %.lr.ph.i, !llvm.loop !55
 
 _Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit: ; preds = %33, %36, %.lr.ph

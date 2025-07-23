@@ -220,8 +220,8 @@ rar5_signature.exit.preheader.i:                  ; preds = %30, %rar5_signature
   %43 = getelementptr inbounds i8, ptr %37, i64 %.02446.i
   %44 = load i64, ptr %4, align 8, !tbaa !29
   %45 = getelementptr inbounds i8, ptr %37, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = icmp ult ptr %46, %45
+  %46 = add nsw i64 %.02446.i, 8
+  %47 = icmp slt i64 %46, %44
   br i1 %47, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %42, %49

@@ -23,251 +23,256 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 20:                                               ; preds = %18
   %21 = load i32, ptr %13, align 4, !tbaa !3
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds double, ptr %11, i64 %12
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = getelementptr inbounds double, ptr %11, i64 %22
-  %.not1174 = icmp eq ptr %24, %25
-  br i1 %.not1174, label %.loopexit, label %.lr.ph1173
+  %.idx1074 = shl nsw i64 %12, 3
+  %23 = add nsw i64 %.idx1074, 8
+  %.idx1075 = shl nsw i64 %22, 3
+  %.not1178 = icmp eq i64 %23, %.idx1075
+  br i1 %.not1178, label %.loopexit, label %.lr.ph1175.preheader
 
-.lr.ph1173:                                       ; preds = %20, %.lr.ph1173
-  %.010001172 = phi ptr [ %29, %.lr.ph1173 ], [ %25, %20 ]
-  %.010071171 = phi ptr [ %28, %.lr.ph1173 ], [ %24, %20 ]
-  %.010151170 = phi i64 [ %30, %.lr.ph1173 ], [ 0, %20 ]
-  %26 = load double, ptr %.010071171, align 8, !tbaa !7
-  %27 = load double, ptr %.010001172, align 8, !tbaa !7
-  store double %27, ptr %.010071171, align 8, !tbaa !7
-  store double %26, ptr %.010001172, align 8, !tbaa !7
-  %28 = getelementptr inbounds double, ptr %.010071171, i64 %5
-  %29 = getelementptr inbounds double, ptr %.010001172, i64 %5
-  %30 = add nuw nsw i64 %.010151170, 1
+.lr.ph1175.preheader:                             ; preds = %20
+  %24 = getelementptr i8, ptr %4, i64 %.idx1074
+  %25 = getelementptr inbounds i8, ptr %11, i64 %.idx1075
+  br label %.lr.ph1175
+
+.lr.ph1175:                                       ; preds = %.lr.ph1175.preheader, %.lr.ph1175
+  %.010001173 = phi ptr [ %29, %.lr.ph1175 ], [ %25, %.lr.ph1175.preheader ]
+  %.010071172 = phi ptr [ %28, %.lr.ph1175 ], [ %24, %.lr.ph1175.preheader ]
+  %.010151171 = phi i64 [ %30, %.lr.ph1175 ], [ 0, %.lr.ph1175.preheader ]
+  %26 = load double, ptr %.010071172, align 8, !tbaa !7
+  %27 = load double, ptr %.010001173, align 8, !tbaa !7
+  store double %27, ptr %.010071172, align 8, !tbaa !7
+  store double %26, ptr %.010001173, align 8, !tbaa !7
+  %28 = getelementptr inbounds double, ptr %.010071172, i64 %5
+  %29 = getelementptr inbounds double, ptr %.010001173, i64 %5
+  %30 = add nuw nsw i64 %.010151171, 1
   %exitcond.not = icmp eq i64 %30, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph1173, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph1175, !llvm.loop !9
 
 31:                                               ; preds = %18
   %.not = icmp samesign ult i64 %0, 4
-  br i1 %.not, label %.loopexit1075, label %.preheader1074
+  br i1 %.not, label %.loopexit1076, label %.preheader
 
-.preheader1074:                                   ; preds = %31
+.preheader:                                       ; preds = %31
   %32 = lshr i64 %0, 2
   %33 = shl nsw i64 %5, 1
   %34 = mul nsw i64 %5, 3
   %35 = getelementptr inbounds i32, ptr %13, i64 %9
   %36 = lshr i64 %16, 1
-  %.010111086 = getelementptr inbounds i32, ptr %35, i64 %9
+  %.010111087 = getelementptr inbounds i32, ptr %35, i64 %9
   %37 = icmp samesign ugt i64 %16, 3
   %38 = and i64 %16, 1
   %.not1050 = icmp eq i64 %38, 0
   %.idx = shl nsw i64 %5, 5
   %.pre = load i32, ptr %13, align 4, !tbaa !3
-  %.pre1205 = load i32, ptr %35, align 4, !tbaa !3
-  %.pn10471076 = sext i32 %.pre1205 to i64
-  %.pn1079 = sext i32 %.pre to i64
+  %.pre1209 = load i32, ptr %35, align 4, !tbaa !3
+  %.pn10471077 = sext i32 %.pre1209 to i64
+  %.pn1080 = sext i32 %.pre to i64
   br label %39
 
-39:                                               ; preds = %.preheader1074, %158
-  %.11021 = phi ptr [ %159, %158 ], [ %11, %.preheader1074 ]
-  %.11016 = phi i64 [ %160, %158 ], [ %32, %.preheader1074 ]
+39:                                               ; preds = %.preheader, %158
+  %.11021 = phi ptr [ %159, %158 ], [ %11, %.preheader ]
+  %.11016 = phi i64 [ %160, %158 ], [ %32, %.preheader ]
   %40 = getelementptr inbounds double, ptr %.11021, i64 %12
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = getelementptr inbounds double, ptr %41, i64 %5
   %43 = getelementptr inbounds double, ptr %41, i64 %33
   %44 = getelementptr inbounds double, ptr %41, i64 %34
-  %.09981077 = getelementptr inbounds double, ptr %.11021, i64 %.pn10471076
-  %.01078 = getelementptr inbounds double, ptr %.09981077, i64 %34
-  %.110011080 = getelementptr inbounds double, ptr %.11021, i64 %.pn1079
-  %.09921081 = getelementptr inbounds double, ptr %.110011080, i64 %34
-  %.09931082 = getelementptr inbounds double, ptr %.09981077, i64 %33
-  %.09941083 = getelementptr inbounds double, ptr %.110011080, i64 %33
-  %.09951084 = getelementptr inbounds double, ptr %.09981077, i64 %5
-  %.09961085 = getelementptr inbounds double, ptr %.110011080, i64 %5
+  %.09981078 = getelementptr inbounds double, ptr %.11021, i64 %.pn10471077
+  %.01079 = getelementptr inbounds double, ptr %.09981078, i64 %34
+  %.110011081 = getelementptr inbounds double, ptr %.11021, i64 %.pn1080
+  %.09921082 = getelementptr inbounds double, ptr %.110011081, i64 %34
+  %.09931083 = getelementptr inbounds double, ptr %.09981078, i64 %33
+  %.09941084 = getelementptr inbounds double, ptr %.110011081, i64 %33
+  %.09951085 = getelementptr inbounds double, ptr %.09981078, i64 %5
+  %.09961086 = getelementptr inbounds double, ptr %.110011081, i64 %5
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %39, %90
-  %.010171103.in = phi i64 [ %.010171103, %90 ], [ %36, %39 ]
-  %.010111102 = phi ptr [ %.01011, %90 ], [ %.010111086, %39 ]
-  %.09961101 = phi ptr [ %.0996, %90 ], [ %.09961085, %39 ]
-  %.09951100 = phi ptr [ %.0995, %90 ], [ %.09951084, %39 ]
-  %.09941099 = phi ptr [ %.0994, %90 ], [ %.09941083, %39 ]
-  %.09931098 = phi ptr [ %.0993, %90 ], [ %.09931082, %39 ]
-  %.09921097 = phi ptr [ %.0992, %90 ], [ %.09921081, %39 ]
-  %.110011096 = phi ptr [ %.11001, %90 ], [ %.110011080, %39 ]
-  %.01095 = phi ptr [ %.0, %90 ], [ %.01078, %39 ]
-  %.09981094 = phi ptr [ %.0998, %90 ], [ %.09981077, %39 ]
-  %.pn1047.in1093 = phi i32 [ %67, %90 ], [ %.pre1205, %39 ]
-  %.pn.in1092 = phi i32 [ %65, %90 ], [ %.pre, %39 ]
-  %.010031091 = phi ptr [ %94, %90 ], [ %44, %39 ]
-  %.010041090 = phi ptr [ %93, %90 ], [ %43, %39 ]
-  %.010051089 = phi ptr [ %92, %90 ], [ %42, %39 ]
-  %.110081088 = phi ptr [ %91, %90 ], [ %41, %39 ]
-  %.010171103 = add nsw i64 %.010171103.in, -1
-  %45 = load double, ptr %.110081088, align 8, !tbaa !7
-  %46 = getelementptr inbounds nuw i8, ptr %.110081088, i64 8
+  %.010171104.in = phi i64 [ %.010171104, %90 ], [ %36, %39 ]
+  %.010111103 = phi ptr [ %.01011, %90 ], [ %.010111087, %39 ]
+  %.09961102 = phi ptr [ %.0996, %90 ], [ %.09961086, %39 ]
+  %.09951101 = phi ptr [ %.0995, %90 ], [ %.09951085, %39 ]
+  %.09941100 = phi ptr [ %.0994, %90 ], [ %.09941084, %39 ]
+  %.09931099 = phi ptr [ %.0993, %90 ], [ %.09931083, %39 ]
+  %.09921098 = phi ptr [ %.0992, %90 ], [ %.09921082, %39 ]
+  %.110011097 = phi ptr [ %.11001, %90 ], [ %.110011081, %39 ]
+  %.01096 = phi ptr [ %.0, %90 ], [ %.01079, %39 ]
+  %.09981095 = phi ptr [ %.0998, %90 ], [ %.09981078, %39 ]
+  %.pn1047.in1094 = phi i32 [ %67, %90 ], [ %.pre1209, %39 ]
+  %.pn.in1093 = phi i32 [ %65, %90 ], [ %.pre, %39 ]
+  %.010031092 = phi ptr [ %94, %90 ], [ %44, %39 ]
+  %.010041091 = phi ptr [ %93, %90 ], [ %43, %39 ]
+  %.010051090 = phi ptr [ %92, %90 ], [ %42, %39 ]
+  %.110081089 = phi ptr [ %91, %90 ], [ %41, %39 ]
+  %.010171104 = add nsw i64 %.010171104.in, -1
+  %45 = load double, ptr %.110081089, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw i8, ptr %.110081089, i64 8
   %47 = load double, ptr %46, align 8, !tbaa !7
-  %48 = load double, ptr %.010051089, align 8, !tbaa !7
-  %49 = getelementptr inbounds nuw i8, ptr %.010051089, i64 8
+  %48 = load double, ptr %.010051090, align 8, !tbaa !7
+  %49 = getelementptr inbounds nuw i8, ptr %.010051090, i64 8
   %50 = load double, ptr %49, align 8, !tbaa !7
-  %51 = load double, ptr %.010041090, align 8, !tbaa !7
-  %52 = getelementptr inbounds nuw i8, ptr %.010041090, i64 8
+  %51 = load double, ptr %.010041091, align 8, !tbaa !7
+  %52 = getelementptr inbounds nuw i8, ptr %.010041091, i64 8
   %53 = load double, ptr %52, align 8, !tbaa !7
-  %54 = load double, ptr %.010031091, align 8, !tbaa !7
-  %55 = getelementptr inbounds nuw i8, ptr %.010031091, i64 8
+  %54 = load double, ptr %.010031092, align 8, !tbaa !7
+  %55 = getelementptr inbounds nuw i8, ptr %.010031092, i64 8
   %56 = load double, ptr %55, align 8, !tbaa !7
-  %57 = load double, ptr %.110011096, align 8, !tbaa !7
-  %58 = load double, ptr %.09981094, align 8, !tbaa !7
-  %59 = load double, ptr %.09961101, align 8, !tbaa !7
-  %60 = load double, ptr %.09951100, align 8, !tbaa !7
-  %61 = load double, ptr %.09941099, align 8, !tbaa !7
-  %62 = load double, ptr %.09931098, align 8, !tbaa !7
-  %63 = load double, ptr %.09921097, align 8, !tbaa !7
-  %64 = load double, ptr %.01095, align 8, !tbaa !7
-  %65 = load i32, ptr %.010111102, align 4, !tbaa !3
-  %66 = getelementptr inbounds i32, ptr %.010111102, i64 %9
+  %57 = load double, ptr %.110011097, align 8, !tbaa !7
+  %58 = load double, ptr %.09981095, align 8, !tbaa !7
+  %59 = load double, ptr %.09961102, align 8, !tbaa !7
+  %60 = load double, ptr %.09951101, align 8, !tbaa !7
+  %61 = load double, ptr %.09941100, align 8, !tbaa !7
+  %62 = load double, ptr %.09931099, align 8, !tbaa !7
+  %63 = load double, ptr %.09921098, align 8, !tbaa !7
+  %64 = load double, ptr %.01096, align 8, !tbaa !7
+  %65 = load i32, ptr %.010111103, align 4, !tbaa !3
+  %66 = getelementptr inbounds i32, ptr %.010111103, i64 %9
   %67 = load i32, ptr %66, align 4, !tbaa !3
-  %68 = icmp eq ptr %.110011096, %.110081088
+  %68 = icmp eq ptr %.110011097, %.110081089
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %.lr.ph
-  %70 = icmp eq ptr %.09981094, %.110011096
+  %70 = icmp eq ptr %.09981095, %.110011097
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %69
-  store double %47, ptr %.110011096, align 8, !tbaa !7
+  store double %47, ptr %.110011097, align 8, !tbaa !7
   store double %45, ptr %46, align 8, !tbaa !7
-  store double %50, ptr %.010051089, align 8, !tbaa !7
+  store double %50, ptr %.010051090, align 8, !tbaa !7
   store double %48, ptr %49, align 8, !tbaa !7
-  store double %53, ptr %.010041090, align 8, !tbaa !7
+  store double %53, ptr %.010041091, align 8, !tbaa !7
   store double %51, ptr %52, align 8, !tbaa !7
-  store double %56, ptr %.010031091, align 8, !tbaa !7
+  store double %56, ptr %.010031092, align 8, !tbaa !7
   store double %54, ptr %55, align 8, !tbaa !7
   br label %90
 
 72:                                               ; preds = %69
-  %.not1073 = icmp eq ptr %.09981094, %46
+  %.not1073 = icmp eq ptr %.09981095, %46
   br i1 %.not1073, label %90, label %73
 
 73:                                               ; preds = %72
   store double %58, ptr %46, align 8, !tbaa !7
-  store double %47, ptr %.09981094, align 8, !tbaa !7
+  store double %47, ptr %.09981095, align 8, !tbaa !7
   store double %60, ptr %49, align 8, !tbaa !7
-  store double %50, ptr %.09951100, align 8, !tbaa !7
+  store double %50, ptr %.09951101, align 8, !tbaa !7
   store double %62, ptr %52, align 8, !tbaa !7
-  store double %53, ptr %.09931098, align 8, !tbaa !7
+  store double %53, ptr %.09931099, align 8, !tbaa !7
   store double %64, ptr %55, align 8, !tbaa !7
-  store double %56, ptr %.01095, align 8, !tbaa !7
+  store double %56, ptr %.01096, align 8, !tbaa !7
   br label %90
 
 74:                                               ; preds = %.lr.ph
-  %75 = icmp eq ptr %.110011096, %46
-  %.not1072 = icmp eq ptr %.09981094, %.110081088
+  %75 = icmp eq ptr %.110011097, %46
+  %.not1072 = icmp eq ptr %.09981095, %.110081089
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %74
   br i1 %.not1072, label %90, label %77
 
 77:                                               ; preds = %76
-  %78 = icmp eq ptr %.09981094, %.110011096
-  store double %47, ptr %.110081088, align 8, !tbaa !7
+  %78 = icmp eq ptr %.09981095, %.110011097
+  store double %47, ptr %.110081089, align 8, !tbaa !7
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
-  store double %45, ptr %.110011096, align 8, !tbaa !7
-  store double %50, ptr %.010051089, align 8, !tbaa !7
+  store double %45, ptr %.110011097, align 8, !tbaa !7
+  store double %50, ptr %.010051090, align 8, !tbaa !7
   store double %48, ptr %49, align 8, !tbaa !7
-  store double %53, ptr %.010041090, align 8, !tbaa !7
+  store double %53, ptr %.010041091, align 8, !tbaa !7
   store double %51, ptr %52, align 8, !tbaa !7
-  store double %56, ptr %.010031091, align 8, !tbaa !7
+  store double %56, ptr %.010031092, align 8, !tbaa !7
   store double %54, ptr %55, align 8, !tbaa !7
   br label %90
 
 80:                                               ; preds = %77
-  store double %58, ptr %.110011096, align 8, !tbaa !7
-  store double %45, ptr %.09981094, align 8, !tbaa !7
-  store double %50, ptr %.010051089, align 8, !tbaa !7
+  store double %58, ptr %.110011097, align 8, !tbaa !7
+  store double %45, ptr %.09981095, align 8, !tbaa !7
+  store double %50, ptr %.010051090, align 8, !tbaa !7
   store double %60, ptr %49, align 8, !tbaa !7
-  store double %48, ptr %.09951100, align 8, !tbaa !7
-  store double %53, ptr %.010041090, align 8, !tbaa !7
+  store double %48, ptr %.09951101, align 8, !tbaa !7
+  store double %53, ptr %.010041091, align 8, !tbaa !7
   store double %62, ptr %52, align 8, !tbaa !7
-  store double %51, ptr %.09931098, align 8, !tbaa !7
-  store double %56, ptr %.010031091, align 8, !tbaa !7
+  store double %51, ptr %.09931099, align 8, !tbaa !7
+  store double %56, ptr %.010031092, align 8, !tbaa !7
   store double %64, ptr %55, align 8, !tbaa !7
-  store double %54, ptr %.01095, align 8, !tbaa !7
+  store double %54, ptr %.01096, align 8, !tbaa !7
   br label %90
 
 81:                                               ; preds = %74
   br i1 %.not1072, label %82, label %83
 
 82:                                               ; preds = %81
-  store double %47, ptr %.09981094, align 8, !tbaa !7
+  store double %47, ptr %.09981095, align 8, !tbaa !7
   store double %57, ptr %46, align 8, !tbaa !7
-  store double %45, ptr %.110011096, align 8, !tbaa !7
-  store double %50, ptr %.010051089, align 8, !tbaa !7
+  store double %45, ptr %.110011097, align 8, !tbaa !7
+  store double %50, ptr %.010051090, align 8, !tbaa !7
   store double %59, ptr %49, align 8, !tbaa !7
-  store double %48, ptr %.09961101, align 8, !tbaa !7
-  store double %53, ptr %.010041090, align 8, !tbaa !7
+  store double %48, ptr %.09961102, align 8, !tbaa !7
+  store double %53, ptr %.010041091, align 8, !tbaa !7
   store double %61, ptr %52, align 8, !tbaa !7
-  store double %51, ptr %.09941099, align 8, !tbaa !7
-  store double %56, ptr %.010031091, align 8, !tbaa !7
+  store double %51, ptr %.09941100, align 8, !tbaa !7
+  store double %56, ptr %.010031092, align 8, !tbaa !7
   store double %63, ptr %55, align 8, !tbaa !7
-  store double %54, ptr %.09921097, align 8, !tbaa !7
+  store double %54, ptr %.09921098, align 8, !tbaa !7
   br label %90
 
 83:                                               ; preds = %81
-  %84 = icmp eq ptr %.09981094, %46
+  %84 = icmp eq ptr %.09981095, %46
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %83
-  store double %57, ptr %.110081088, align 8, !tbaa !7
-  store double %45, ptr %.110011096, align 8, !tbaa !7
-  store double %59, ptr %.010051089, align 8, !tbaa !7
-  store double %48, ptr %.09961101, align 8, !tbaa !7
-  store double %61, ptr %.010041090, align 8, !tbaa !7
-  store double %51, ptr %.09941099, align 8, !tbaa !7
-  store double %63, ptr %.010031091, align 8, !tbaa !7
-  store double %54, ptr %.09921097, align 8, !tbaa !7
+  store double %57, ptr %.110081089, align 8, !tbaa !7
+  store double %45, ptr %.110011097, align 8, !tbaa !7
+  store double %59, ptr %.010051090, align 8, !tbaa !7
+  store double %48, ptr %.09961102, align 8, !tbaa !7
+  store double %61, ptr %.010041091, align 8, !tbaa !7
+  store double %51, ptr %.09941100, align 8, !tbaa !7
+  store double %63, ptr %.010031092, align 8, !tbaa !7
+  store double %54, ptr %.09921098, align 8, !tbaa !7
   br label %90
 
 86:                                               ; preds = %83
-  %87 = icmp eq i32 %.pn1047.in1093, %.pn.in1092
-  store double %57, ptr %.110081088, align 8, !tbaa !7
+  %87 = icmp eq i32 %.pn1047.in1094, %.pn.in1093
+  store double %57, ptr %.110081089, align 8, !tbaa !7
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %86
   store double %45, ptr %46, align 8, !tbaa !7
-  store double %47, ptr %.110011096, align 8, !tbaa !7
-  store double %59, ptr %.010051089, align 8, !tbaa !7
+  store double %47, ptr %.110011097, align 8, !tbaa !7
+  store double %59, ptr %.010051090, align 8, !tbaa !7
   store double %48, ptr %49, align 8, !tbaa !7
-  store double %50, ptr %.09961101, align 8, !tbaa !7
-  store double %61, ptr %.010041090, align 8, !tbaa !7
+  store double %50, ptr %.09961102, align 8, !tbaa !7
+  store double %61, ptr %.010041091, align 8, !tbaa !7
   store double %51, ptr %52, align 8, !tbaa !7
-  store double %53, ptr %.09941099, align 8, !tbaa !7
-  store double %63, ptr %.010031091, align 8, !tbaa !7
+  store double %53, ptr %.09941100, align 8, !tbaa !7
+  store double %63, ptr %.010031092, align 8, !tbaa !7
   store double %54, ptr %55, align 8, !tbaa !7
-  store double %56, ptr %.09921097, align 8, !tbaa !7
+  store double %56, ptr %.09921098, align 8, !tbaa !7
   br label %90
 
 89:                                               ; preds = %86
   store double %58, ptr %46, align 8, !tbaa !7
-  store double %45, ptr %.110011096, align 8, !tbaa !7
-  store double %47, ptr %.09981094, align 8, !tbaa !7
-  store double %59, ptr %.010051089, align 8, !tbaa !7
+  store double %45, ptr %.110011097, align 8, !tbaa !7
+  store double %47, ptr %.09981095, align 8, !tbaa !7
+  store double %59, ptr %.010051090, align 8, !tbaa !7
   store double %60, ptr %49, align 8, !tbaa !7
-  store double %48, ptr %.09961101, align 8, !tbaa !7
-  store double %50, ptr %.09951100, align 8, !tbaa !7
-  store double %61, ptr %.010041090, align 8, !tbaa !7
+  store double %48, ptr %.09961102, align 8, !tbaa !7
+  store double %50, ptr %.09951101, align 8, !tbaa !7
+  store double %61, ptr %.010041091, align 8, !tbaa !7
   store double %62, ptr %52, align 8, !tbaa !7
-  store double %51, ptr %.09941099, align 8, !tbaa !7
-  store double %53, ptr %.09931098, align 8, !tbaa !7
-  store double %63, ptr %.010031091, align 8, !tbaa !7
+  store double %51, ptr %.09941100, align 8, !tbaa !7
+  store double %53, ptr %.09931099, align 8, !tbaa !7
+  store double %63, ptr %.010031092, align 8, !tbaa !7
   store double %64, ptr %55, align 8, !tbaa !7
-  store double %54, ptr %.09921097, align 8, !tbaa !7
-  store double %56, ptr %.01095, align 8, !tbaa !7
+  store double %54, ptr %.09921098, align 8, !tbaa !7
+  store double %56, ptr %.01096, align 8, !tbaa !7
   br label %90
 
 90:                                               ; preds = %79, %80, %76, %85, %89, %88, %82, %71, %73, %72
-  %91 = getelementptr inbounds nuw i8, ptr %.110081088, i64 16
-  %92 = getelementptr inbounds nuw i8, ptr %.010051089, i64 16
-  %93 = getelementptr inbounds nuw i8, ptr %.010041090, i64 16
-  %94 = getelementptr inbounds nuw i8, ptr %.010031091, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.110081089, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.010051090, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.010041091, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.010031092, i64 16
   %.pn1047 = sext i32 %67 to i64
   %.0998 = getelementptr inbounds double, ptr %.11021, i64 %.pn1047
   %.0 = getelementptr inbounds double, ptr %.0998, i64 %34
@@ -279,7 +284,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %.0995 = getelementptr inbounds double, ptr %.0998, i64 %5
   %.0996 = getelementptr inbounds double, ptr %.11001, i64 %5
   %.01011 = getelementptr inbounds i32, ptr %66, i64 %9
-  %95 = icmp sgt i64 %.010171103.in, 2
+  %95 = icmp sgt i64 %.010171104.in, 2
   br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %90, %39
@@ -288,16 +293,16 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %.01004.lcssa = phi ptr [ %43, %39 ], [ %93, %90 ]
   %.01003.lcssa = phi ptr [ %44, %39 ], [ %94, %90 ]
   %.pn.in.lcssa = phi i32 [ %.pre, %39 ], [ %65, %90 ]
-  %.pn1047.in.lcssa = phi i32 [ %.pre1205, %39 ], [ %67, %90 ]
-  %.0998.lcssa = phi ptr [ %.09981077, %39 ], [ %.0998, %90 ]
-  %.0.lcssa = phi ptr [ %.01078, %39 ], [ %.0, %90 ]
-  %.11001.lcssa = phi ptr [ %.110011080, %39 ], [ %.11001, %90 ]
-  %.0992.lcssa = phi ptr [ %.09921081, %39 ], [ %.0992, %90 ]
-  %.0993.lcssa = phi ptr [ %.09931082, %39 ], [ %.0993, %90 ]
-  %.0994.lcssa = phi ptr [ %.09941083, %39 ], [ %.0994, %90 ]
-  %.0995.lcssa = phi ptr [ %.09951084, %39 ], [ %.0995, %90 ]
-  %.0996.lcssa = phi ptr [ %.09961085, %39 ], [ %.0996, %90 ]
-  %.01011.lcssa = phi ptr [ %.010111086, %39 ], [ %.01011, %90 ]
+  %.pn1047.in.lcssa = phi i32 [ %.pre1209, %39 ], [ %67, %90 ]
+  %.0998.lcssa = phi ptr [ %.09981078, %39 ], [ %.0998, %90 ]
+  %.0.lcssa = phi ptr [ %.01079, %39 ], [ %.0, %90 ]
+  %.11001.lcssa = phi ptr [ %.110011081, %39 ], [ %.11001, %90 ]
+  %.0992.lcssa = phi ptr [ %.09921082, %39 ], [ %.0992, %90 ]
+  %.0993.lcssa = phi ptr [ %.09931083, %39 ], [ %.0993, %90 ]
+  %.0994.lcssa = phi ptr [ %.09941084, %39 ], [ %.0994, %90 ]
+  %.0995.lcssa = phi ptr [ %.09951085, %39 ], [ %.0995, %90 ]
+  %.0996.lcssa = phi ptr [ %.09961086, %39 ], [ %.0996, %90 ]
+  %.01011.lcssa = phi ptr [ %.010111087, %39 ], [ %.01011, %90 ]
   %96 = load double, ptr %.11008.lcssa, align 8, !tbaa !7
   %97 = getelementptr inbounds nuw i8, ptr %.11008.lcssa, i64 8
   %98 = load double, ptr %97, align 8, !tbaa !7
@@ -494,161 +499,161 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %159 = getelementptr inbounds i8, ptr %.11021, i64 %.idx
   %160 = add nsw i64 %.11016, -1
   %161 = icmp sgt i64 %.11016, 1
-  br i1 %161, label %39, label %.loopexit1075, !llvm.loop !12
+  br i1 %161, label %39, label %.loopexit1076, !llvm.loop !12
 
-.loopexit1075:                                    ; preds = %158, %31
+.loopexit1076:                                    ; preds = %158, %31
   %.01020 = phi ptr [ %11, %31 ], [ %159, %158 ]
   %162 = and i64 %0, 2
   %.not1051 = icmp eq i64 %162, 0
   br i1 %.not1051, label %258, label %163
 
-163:                                              ; preds = %.loopexit1075
+163:                                              ; preds = %.loopexit1076
   %164 = getelementptr inbounds double, ptr %.01020, i64 %12
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = getelementptr inbounds double, ptr %165, i64 %5
   %167 = load i32, ptr %13, align 4, !tbaa !3
   %168 = getelementptr inbounds i32, ptr %13, i64 %9
   %169 = load i32, ptr %168, align 4, !tbaa !3
-  %.pn10561118 = sext i32 %169 to i64
-  %.19991119 = getelementptr inbounds double, ptr %.01020, i64 %.pn10561118
-  %.11120 = getelementptr inbounds double, ptr %.19991119, i64 %5
-  %.pn10541121 = sext i32 %167 to i64
-  %.210021122 = getelementptr inbounds double, ptr %.01020, i64 %.pn10541121
-  %.19971123 = getelementptr inbounds double, ptr %.210021122, i64 %5
-  %.110121124 = getelementptr inbounds i32, ptr %168, i64 %9
+  %.pn10561119 = sext i32 %169 to i64
+  %.19991120 = getelementptr inbounds double, ptr %.01020, i64 %.pn10561119
+  %.11121 = getelementptr inbounds double, ptr %.19991120, i64 %5
+  %.pn10541122 = sext i32 %167 to i64
+  %.210021123 = getelementptr inbounds double, ptr %.01020, i64 %.pn10541122
+  %.19971124 = getelementptr inbounds double, ptr %.210021123, i64 %5
+  %.110121125 = getelementptr inbounds i32, ptr %168, i64 %9
   %170 = icmp ugt i64 %16, 3
-  br i1 %170, label %.lr.ph1137.preheader, label %._crit_edge1138
+  br i1 %170, label %.lr.ph1138.preheader, label %._crit_edge1139
 
-.lr.ph1137.preheader:                             ; preds = %163
+.lr.ph1138.preheader:                             ; preds = %163
   %171 = lshr i64 %16, 1
-  br label %.lr.ph1137
+  br label %.lr.ph1138
 
-.lr.ph1137:                                       ; preds = %.lr.ph1137.preheader, %207
-  %.110181135.in = phi i64 [ %.110181135, %207 ], [ %171, %.lr.ph1137.preheader ]
-  %.110121134 = phi ptr [ %.11012, %207 ], [ %.110121124, %.lr.ph1137.preheader ]
-  %.19971133 = phi ptr [ %.1997, %207 ], [ %.19971123, %.lr.ph1137.preheader ]
-  %.210021132 = phi ptr [ %.21002, %207 ], [ %.210021122, %.lr.ph1137.preheader ]
-  %.11131 = phi ptr [ %.1, %207 ], [ %.11120, %.lr.ph1137.preheader ]
-  %.19991130 = phi ptr [ %.1999, %207 ], [ %.19991119, %.lr.ph1137.preheader ]
-  %.pn1056.in1129 = phi i32 [ %184, %207 ], [ %169, %.lr.ph1137.preheader ]
-  %.pn1054.in1128 = phi i32 [ %182, %207 ], [ %167, %.lr.ph1137.preheader ]
-  %.110061127 = phi ptr [ %209, %207 ], [ %166, %.lr.ph1137.preheader ]
-  %.210091126 = phi ptr [ %208, %207 ], [ %165, %.lr.ph1137.preheader ]
-  %.110181135 = add nsw i64 %.110181135.in, -1
-  %172 = load double, ptr %.210091126, align 8, !tbaa !7
-  %173 = getelementptr inbounds nuw i8, ptr %.210091126, i64 8
+.lr.ph1138:                                       ; preds = %.lr.ph1138.preheader, %207
+  %.110181136.in = phi i64 [ %.110181136, %207 ], [ %171, %.lr.ph1138.preheader ]
+  %.110121135 = phi ptr [ %.11012, %207 ], [ %.110121125, %.lr.ph1138.preheader ]
+  %.19971134 = phi ptr [ %.1997, %207 ], [ %.19971124, %.lr.ph1138.preheader ]
+  %.210021133 = phi ptr [ %.21002, %207 ], [ %.210021123, %.lr.ph1138.preheader ]
+  %.11132 = phi ptr [ %.1, %207 ], [ %.11121, %.lr.ph1138.preheader ]
+  %.19991131 = phi ptr [ %.1999, %207 ], [ %.19991120, %.lr.ph1138.preheader ]
+  %.pn1056.in1130 = phi i32 [ %184, %207 ], [ %169, %.lr.ph1138.preheader ]
+  %.pn1054.in1129 = phi i32 [ %182, %207 ], [ %167, %.lr.ph1138.preheader ]
+  %.110061128 = phi ptr [ %209, %207 ], [ %166, %.lr.ph1138.preheader ]
+  %.210091127 = phi ptr [ %208, %207 ], [ %165, %.lr.ph1138.preheader ]
+  %.110181136 = add nsw i64 %.110181136.in, -1
+  %172 = load double, ptr %.210091127, align 8, !tbaa !7
+  %173 = getelementptr inbounds nuw i8, ptr %.210091127, i64 8
   %174 = load double, ptr %173, align 8, !tbaa !7
-  %175 = load double, ptr %.110061127, align 8, !tbaa !7
-  %176 = getelementptr inbounds nuw i8, ptr %.110061127, i64 8
+  %175 = load double, ptr %.110061128, align 8, !tbaa !7
+  %176 = getelementptr inbounds nuw i8, ptr %.110061128, i64 8
   %177 = load double, ptr %176, align 8, !tbaa !7
-  %178 = load double, ptr %.210021132, align 8, !tbaa !7
-  %179 = load double, ptr %.19991130, align 8, !tbaa !7
-  %180 = load double, ptr %.19971133, align 8, !tbaa !7
-  %181 = load double, ptr %.11131, align 8, !tbaa !7
-  %182 = load i32, ptr %.110121134, align 4, !tbaa !3
-  %183 = getelementptr inbounds i32, ptr %.110121134, i64 %9
+  %178 = load double, ptr %.210021133, align 8, !tbaa !7
+  %179 = load double, ptr %.19991131, align 8, !tbaa !7
+  %180 = load double, ptr %.19971134, align 8, !tbaa !7
+  %181 = load double, ptr %.11132, align 8, !tbaa !7
+  %182 = load i32, ptr %.110121135, align 4, !tbaa !3
+  %183 = getelementptr inbounds i32, ptr %.110121135, i64 %9
   %184 = load i32, ptr %183, align 4, !tbaa !3
-  %185 = icmp eq ptr %.210021132, %.210091126
+  %185 = icmp eq ptr %.210021133, %.210091127
   br i1 %185, label %186, label %191
 
-186:                                              ; preds = %.lr.ph1137
-  %187 = icmp eq ptr %.19991130, %.210021132
+186:                                              ; preds = %.lr.ph1138
+  %187 = icmp eq ptr %.19991131, %.210021133
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %186
-  store double %174, ptr %.210021132, align 8, !tbaa !7
+  store double %174, ptr %.210021133, align 8, !tbaa !7
   store double %172, ptr %173, align 8, !tbaa !7
-  store double %177, ptr %.110061127, align 8, !tbaa !7
+  store double %177, ptr %.110061128, align 8, !tbaa !7
   store double %175, ptr %176, align 8, !tbaa !7
   br label %207
 
 189:                                              ; preds = %186
-  %.not1071 = icmp eq ptr %.19991130, %173
+  %.not1071 = icmp eq ptr %.19991131, %173
   br i1 %.not1071, label %207, label %190
 
 190:                                              ; preds = %189
   store double %179, ptr %173, align 8, !tbaa !7
-  store double %174, ptr %.19991130, align 8, !tbaa !7
+  store double %174, ptr %.19991131, align 8, !tbaa !7
   store double %181, ptr %176, align 8, !tbaa !7
-  store double %177, ptr %.11131, align 8, !tbaa !7
+  store double %177, ptr %.11132, align 8, !tbaa !7
   br label %207
 
-191:                                              ; preds = %.lr.ph1137
-  %192 = icmp eq ptr %.210021132, %173
-  %.not1070 = icmp eq ptr %.19991130, %.210091126
+191:                                              ; preds = %.lr.ph1138
+  %192 = icmp eq ptr %.210021133, %173
+  %.not1070 = icmp eq ptr %.19991131, %.210091127
   br i1 %192, label %193, label %198
 
 193:                                              ; preds = %191
   br i1 %.not1070, label %207, label %194
 
 194:                                              ; preds = %193
-  %195 = icmp eq ptr %.19991130, %.210021132
-  store double %174, ptr %.210091126, align 8, !tbaa !7
+  %195 = icmp eq ptr %.19991131, %.210021133
+  store double %174, ptr %.210091127, align 8, !tbaa !7
   br i1 %195, label %196, label %197
 
 196:                                              ; preds = %194
-  store double %172, ptr %.210021132, align 8, !tbaa !7
-  store double %177, ptr %.110061127, align 8, !tbaa !7
+  store double %172, ptr %.210021133, align 8, !tbaa !7
+  store double %177, ptr %.110061128, align 8, !tbaa !7
   store double %175, ptr %176, align 8, !tbaa !7
   br label %207
 
 197:                                              ; preds = %194
-  store double %179, ptr %.210021132, align 8, !tbaa !7
-  store double %172, ptr %.19991130, align 8, !tbaa !7
-  store double %177, ptr %.110061127, align 8, !tbaa !7
+  store double %179, ptr %.210021133, align 8, !tbaa !7
+  store double %172, ptr %.19991131, align 8, !tbaa !7
+  store double %177, ptr %.110061128, align 8, !tbaa !7
   store double %181, ptr %176, align 8, !tbaa !7
-  store double %175, ptr %.11131, align 8, !tbaa !7
+  store double %175, ptr %.11132, align 8, !tbaa !7
   br label %207
 
 198:                                              ; preds = %191
   br i1 %.not1070, label %199, label %200
 
 199:                                              ; preds = %198
-  store double %174, ptr %.19991130, align 8, !tbaa !7
+  store double %174, ptr %.19991131, align 8, !tbaa !7
   store double %178, ptr %173, align 8, !tbaa !7
-  store double %172, ptr %.210021132, align 8, !tbaa !7
-  store double %177, ptr %.110061127, align 8, !tbaa !7
+  store double %172, ptr %.210021133, align 8, !tbaa !7
+  store double %177, ptr %.110061128, align 8, !tbaa !7
   store double %180, ptr %176, align 8, !tbaa !7
-  store double %175, ptr %.19971133, align 8, !tbaa !7
+  store double %175, ptr %.19971134, align 8, !tbaa !7
   br label %207
 
 200:                                              ; preds = %198
-  %201 = icmp eq ptr %.19991130, %173
+  %201 = icmp eq ptr %.19991131, %173
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %200
-  store double %178, ptr %.210091126, align 8, !tbaa !7
-  store double %172, ptr %.210021132, align 8, !tbaa !7
-  store double %180, ptr %.110061127, align 8, !tbaa !7
-  store double %175, ptr %.19971133, align 8, !tbaa !7
+  store double %178, ptr %.210091127, align 8, !tbaa !7
+  store double %172, ptr %.210021133, align 8, !tbaa !7
+  store double %180, ptr %.110061128, align 8, !tbaa !7
+  store double %175, ptr %.19971134, align 8, !tbaa !7
   br label %207
 
 203:                                              ; preds = %200
-  %204 = icmp eq i32 %.pn1056.in1129, %.pn1054.in1128
-  store double %178, ptr %.210091126, align 8, !tbaa !7
+  %204 = icmp eq i32 %.pn1056.in1130, %.pn1054.in1129
+  store double %178, ptr %.210091127, align 8, !tbaa !7
   br i1 %204, label %205, label %206
 
 205:                                              ; preds = %203
   store double %172, ptr %173, align 8, !tbaa !7
-  store double %174, ptr %.210021132, align 8, !tbaa !7
-  store double %180, ptr %.110061127, align 8, !tbaa !7
+  store double %174, ptr %.210021133, align 8, !tbaa !7
+  store double %180, ptr %.110061128, align 8, !tbaa !7
   store double %175, ptr %176, align 8, !tbaa !7
-  store double %177, ptr %.19971133, align 8, !tbaa !7
+  store double %177, ptr %.19971134, align 8, !tbaa !7
   br label %207
 
 206:                                              ; preds = %203
   store double %179, ptr %173, align 8, !tbaa !7
-  store double %172, ptr %.210021132, align 8, !tbaa !7
-  store double %174, ptr %.19991130, align 8, !tbaa !7
-  store double %180, ptr %.110061127, align 8, !tbaa !7
+  store double %172, ptr %.210021133, align 8, !tbaa !7
+  store double %174, ptr %.19991131, align 8, !tbaa !7
+  store double %180, ptr %.110061128, align 8, !tbaa !7
   store double %181, ptr %176, align 8, !tbaa !7
-  store double %175, ptr %.19971133, align 8, !tbaa !7
-  store double %177, ptr %.11131, align 8, !tbaa !7
+  store double %175, ptr %.19971134, align 8, !tbaa !7
+  store double %177, ptr %.11132, align 8, !tbaa !7
   br label %207
 
 207:                                              ; preds = %196, %197, %193, %202, %206, %205, %199, %188, %190, %189
-  %208 = getelementptr inbounds nuw i8, ptr %.210091126, i64 16
-  %209 = getelementptr inbounds nuw i8, ptr %.110061127, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %.210091127, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %.110061128, i64 16
   %.pn1056 = sext i32 %184 to i64
   %.1999 = getelementptr inbounds double, ptr %.01020, i64 %.pn1056
   %.1 = getelementptr inbounds double, ptr %.1999, i64 %5
@@ -656,19 +661,19 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %.21002 = getelementptr inbounds double, ptr %.01020, i64 %.pn1054
   %.1997 = getelementptr inbounds double, ptr %.21002, i64 %5
   %.11012 = getelementptr inbounds i32, ptr %183, i64 %9
-  %210 = icmp samesign ugt i64 %.110181135.in, 2
-  br i1 %210, label %.lr.ph1137, label %._crit_edge1138, !llvm.loop !13
+  %210 = icmp samesign ugt i64 %.110181136.in, 2
+  br i1 %210, label %.lr.ph1138, label %._crit_edge1139, !llvm.loop !13
 
-._crit_edge1138:                                  ; preds = %207, %163
+._crit_edge1139:                                  ; preds = %207, %163
   %.21009.lcssa = phi ptr [ %165, %163 ], [ %208, %207 ]
   %.11006.lcssa = phi ptr [ %166, %163 ], [ %209, %207 ]
   %.pn1054.in.lcssa = phi i32 [ %167, %163 ], [ %182, %207 ]
   %.pn1056.in.lcssa = phi i32 [ %169, %163 ], [ %184, %207 ]
-  %.1999.lcssa = phi ptr [ %.19991119, %163 ], [ %.1999, %207 ]
-  %.1.lcssa = phi ptr [ %.11120, %163 ], [ %.1, %207 ]
-  %.21002.lcssa = phi ptr [ %.210021122, %163 ], [ %.21002, %207 ]
-  %.1997.lcssa = phi ptr [ %.19971123, %163 ], [ %.1997, %207 ]
-  %.11012.lcssa = phi ptr [ %.110121124, %163 ], [ %.11012, %207 ]
+  %.1999.lcssa = phi ptr [ %.19991120, %163 ], [ %.1999, %207 ]
+  %.1.lcssa = phi ptr [ %.11121, %163 ], [ %.1, %207 ]
+  %.21002.lcssa = phi ptr [ %.210021123, %163 ], [ %.21002, %207 ]
+  %.1997.lcssa = phi ptr [ %.19971124, %163 ], [ %.1997, %207 ]
+  %.11012.lcssa = phi ptr [ %.110121125, %163 ], [ %.11012, %207 ]
   %211 = load double, ptr %.21002.lcssa, align 8, !tbaa !7
   %212 = load double, ptr %.1999.lcssa, align 8, !tbaa !7
   %213 = load double, ptr %.1997.lcssa, align 8, !tbaa !7
@@ -682,7 +687,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %221 = icmp eq ptr %.21002.lcssa, %.21009.lcssa
   br i1 %221, label %222, label %227
 
-222:                                              ; preds = %._crit_edge1138
+222:                                              ; preds = %._crit_edge1139
   %223 = icmp eq ptr %.1999.lcssa, %.21009.lcssa
   br i1 %223, label %224, label %225
 
@@ -704,7 +709,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   store double %220, ptr %.1.lcssa, align 8, !tbaa !7
   br label %243
 
-227:                                              ; preds = %._crit_edge1138
+227:                                              ; preds = %._crit_edge1139
   %228 = icmp eq ptr %.21002.lcssa, %216
   %.not1057 = icmp eq ptr %.1999.lcssa, %.21009.lcssa
   br i1 %228, label %229, label %234
@@ -804,8 +809,8 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %257 = getelementptr inbounds i8, ptr %.01020, i64 %.idx1060
   br label %258
 
-258:                                              ; preds = %256, %.loopexit1075
-  %.21022 = phi ptr [ %257, %256 ], [ %.01020, %.loopexit1075 ]
+258:                                              ; preds = %256, %.loopexit1076
+  %.21022 = phi ptr [ %257, %256 ], [ %.01020, %.loopexit1076 ]
   %259 = and i64 %0, 1
   %.not1061 = icmp eq i64 %259, 0
   br i1 %.not1061, label %.loopexit, label %260
@@ -816,129 +821,129 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %263 = load i32, ptr %13, align 4, !tbaa !3
   %264 = getelementptr inbounds i32, ptr %13, i64 %9
   %265 = load i32, ptr %264, align 4, !tbaa !3
-  %.pn10641148 = sext i32 %265 to i64
-  %.21149 = getelementptr inbounds double, ptr %.21022, i64 %.pn10641148
-  %.pn10631150 = sext i32 %263 to i64
-  %.31151 = getelementptr inbounds double, ptr %.21022, i64 %.pn10631150
-  %.210131152 = getelementptr inbounds i32, ptr %264, i64 %9
+  %.pn10641149 = sext i32 %265 to i64
+  %.21150 = getelementptr inbounds double, ptr %.21022, i64 %.pn10641149
+  %.pn10631151 = sext i32 %263 to i64
+  %.31152 = getelementptr inbounds double, ptr %.21022, i64 %.pn10631151
+  %.210131153 = getelementptr inbounds i32, ptr %264, i64 %9
   %266 = icmp ugt i64 %16, 3
-  br i1 %266, label %.lr.ph1162.preheader, label %._crit_edge1163
+  br i1 %266, label %.lr.ph1163.preheader, label %._crit_edge1164
 
-.lr.ph1162.preheader:                             ; preds = %260
+.lr.ph1163.preheader:                             ; preds = %260
   %267 = lshr i64 %16, 1
-  br label %.lr.ph1162
+  br label %.lr.ph1163
 
-.lr.ph1162:                                       ; preds = %.lr.ph1162.preheader, %298
-  %.210191160.in = phi i64 [ %.210191160, %298 ], [ %267, %.lr.ph1162.preheader ]
-  %.210131159 = phi ptr [ %.21013, %298 ], [ %.210131152, %.lr.ph1162.preheader ]
-  %.31158 = phi ptr [ %.3, %298 ], [ %.31151, %.lr.ph1162.preheader ]
-  %.21157 = phi ptr [ %.2, %298 ], [ %.21149, %.lr.ph1162.preheader ]
-  %.pn1064.in1156 = phi i32 [ %275, %298 ], [ %265, %.lr.ph1162.preheader ]
-  %.pn1063.in1155 = phi i32 [ %273, %298 ], [ %263, %.lr.ph1162.preheader ]
-  %.310101154 = phi ptr [ %299, %298 ], [ %262, %.lr.ph1162.preheader ]
-  %.210191160 = add nsw i64 %.210191160.in, -1
-  %268 = load double, ptr %.310101154, align 8, !tbaa !7
-  %269 = getelementptr inbounds nuw i8, ptr %.310101154, i64 8
+.lr.ph1163:                                       ; preds = %.lr.ph1163.preheader, %298
+  %.210191161.in = phi i64 [ %.210191161, %298 ], [ %267, %.lr.ph1163.preheader ]
+  %.210131160 = phi ptr [ %.21013, %298 ], [ %.210131153, %.lr.ph1163.preheader ]
+  %.31159 = phi ptr [ %.3, %298 ], [ %.31152, %.lr.ph1163.preheader ]
+  %.21158 = phi ptr [ %.2, %298 ], [ %.21150, %.lr.ph1163.preheader ]
+  %.pn1064.in1157 = phi i32 [ %275, %298 ], [ %265, %.lr.ph1163.preheader ]
+  %.pn1063.in1156 = phi i32 [ %273, %298 ], [ %263, %.lr.ph1163.preheader ]
+  %.310101155 = phi ptr [ %299, %298 ], [ %262, %.lr.ph1163.preheader ]
+  %.210191161 = add nsw i64 %.210191161.in, -1
+  %268 = load double, ptr %.310101155, align 8, !tbaa !7
+  %269 = getelementptr inbounds nuw i8, ptr %.310101155, i64 8
   %270 = load double, ptr %269, align 8, !tbaa !7
-  %271 = load double, ptr %.31158, align 8, !tbaa !7
-  %272 = load double, ptr %.21157, align 8, !tbaa !7
-  %273 = load i32, ptr %.210131159, align 4, !tbaa !3
-  %274 = getelementptr inbounds i32, ptr %.210131159, i64 %9
+  %271 = load double, ptr %.31159, align 8, !tbaa !7
+  %272 = load double, ptr %.21158, align 8, !tbaa !7
+  %273 = load i32, ptr %.210131160, align 4, !tbaa !3
+  %274 = getelementptr inbounds i32, ptr %.210131160, i64 %9
   %275 = load i32, ptr %274, align 4, !tbaa !3
-  %276 = icmp eq ptr %.31158, %.310101154
+  %276 = icmp eq ptr %.31159, %.310101155
   br i1 %276, label %277, label %282
 
-277:                                              ; preds = %.lr.ph1162
-  %278 = icmp eq ptr %.21157, %.31158
+277:                                              ; preds = %.lr.ph1163
+  %278 = icmp eq ptr %.21158, %.31159
   br i1 %278, label %279, label %280
 
 279:                                              ; preds = %277
-  store double %270, ptr %.31158, align 8, !tbaa !7
+  store double %270, ptr %.31159, align 8, !tbaa !7
   store double %268, ptr %269, align 8, !tbaa !7
   br label %298
 
 280:                                              ; preds = %277
-  %.not1069 = icmp eq ptr %.21157, %269
+  %.not1069 = icmp eq ptr %.21158, %269
   br i1 %.not1069, label %298, label %281
 
 281:                                              ; preds = %280
   store double %272, ptr %269, align 8, !tbaa !7
-  store double %270, ptr %.21157, align 8, !tbaa !7
+  store double %270, ptr %.21158, align 8, !tbaa !7
   br label %298
 
-282:                                              ; preds = %.lr.ph1162
-  %283 = icmp eq ptr %.31158, %269
-  %.not1068 = icmp eq ptr %.21157, %.310101154
+282:                                              ; preds = %.lr.ph1163
+  %283 = icmp eq ptr %.31159, %269
+  %.not1068 = icmp eq ptr %.21158, %.310101155
   br i1 %283, label %284, label %289
 
 284:                                              ; preds = %282
   br i1 %.not1068, label %298, label %285
 
 285:                                              ; preds = %284
-  %286 = icmp eq ptr %.21157, %.31158
-  store double %270, ptr %.310101154, align 8, !tbaa !7
+  %286 = icmp eq ptr %.21158, %.31159
+  store double %270, ptr %.310101155, align 8, !tbaa !7
   br i1 %286, label %287, label %288
 
 287:                                              ; preds = %285
-  store double %268, ptr %.31158, align 8, !tbaa !7
+  store double %268, ptr %.31159, align 8, !tbaa !7
   br label %298
 
 288:                                              ; preds = %285
-  store double %272, ptr %.31158, align 8, !tbaa !7
-  store double %268, ptr %.21157, align 8, !tbaa !7
+  store double %272, ptr %.31159, align 8, !tbaa !7
+  store double %268, ptr %.21158, align 8, !tbaa !7
   br label %298
 
 289:                                              ; preds = %282
   br i1 %.not1068, label %290, label %291
 
 290:                                              ; preds = %289
-  store double %270, ptr %.21157, align 8, !tbaa !7
+  store double %270, ptr %.21158, align 8, !tbaa !7
   store double %271, ptr %269, align 8, !tbaa !7
-  store double %268, ptr %.31158, align 8, !tbaa !7
+  store double %268, ptr %.31159, align 8, !tbaa !7
   br label %298
 
 291:                                              ; preds = %289
-  %292 = icmp eq ptr %.21157, %269
+  %292 = icmp eq ptr %.21158, %269
   br i1 %292, label %293, label %294
 
 293:                                              ; preds = %291
-  store double %271, ptr %.310101154, align 8, !tbaa !7
-  store double %268, ptr %.31158, align 8, !tbaa !7
+  store double %271, ptr %.310101155, align 8, !tbaa !7
+  store double %268, ptr %.31159, align 8, !tbaa !7
   br label %298
 
 294:                                              ; preds = %291
-  %295 = icmp eq i32 %.pn1064.in1156, %.pn1063.in1155
-  store double %271, ptr %.310101154, align 8, !tbaa !7
+  %295 = icmp eq i32 %.pn1064.in1157, %.pn1063.in1156
+  store double %271, ptr %.310101155, align 8, !tbaa !7
   br i1 %295, label %296, label %297
 
 296:                                              ; preds = %294
   store double %268, ptr %269, align 8, !tbaa !7
-  store double %270, ptr %.31158, align 8, !tbaa !7
+  store double %270, ptr %.31159, align 8, !tbaa !7
   br label %298
 
 297:                                              ; preds = %294
   store double %272, ptr %269, align 8, !tbaa !7
-  store double %268, ptr %.31158, align 8, !tbaa !7
-  store double %270, ptr %.21157, align 8, !tbaa !7
+  store double %268, ptr %.31159, align 8, !tbaa !7
+  store double %270, ptr %.21158, align 8, !tbaa !7
   br label %298
 
 298:                                              ; preds = %287, %288, %284, %293, %297, %296, %290, %279, %281, %280
-  %299 = getelementptr inbounds nuw i8, ptr %.310101154, i64 16
+  %299 = getelementptr inbounds nuw i8, ptr %.310101155, i64 16
   %.pn1064 = sext i32 %275 to i64
   %.2 = getelementptr inbounds double, ptr %.21022, i64 %.pn1064
   %.pn1063 = sext i32 %273 to i64
   %.3 = getelementptr inbounds double, ptr %.21022, i64 %.pn1063
   %.21013 = getelementptr inbounds i32, ptr %274, i64 %9
-  %300 = icmp samesign ugt i64 %.210191160.in, 2
-  br i1 %300, label %.lr.ph1162, label %._crit_edge1163, !llvm.loop !14
+  %300 = icmp samesign ugt i64 %.210191161.in, 2
+  br i1 %300, label %.lr.ph1163, label %._crit_edge1164, !llvm.loop !14
 
-._crit_edge1163:                                  ; preds = %298, %260
+._crit_edge1164:                                  ; preds = %298, %260
   %.31010.lcssa = phi ptr [ %262, %260 ], [ %299, %298 ]
   %.pn1063.in.lcssa = phi i32 [ %263, %260 ], [ %273, %298 ]
   %.pn1064.in.lcssa = phi i32 [ %265, %260 ], [ %275, %298 ]
-  %.2.lcssa = phi ptr [ %.21149, %260 ], [ %.2, %298 ]
-  %.3.lcssa = phi ptr [ %.31151, %260 ], [ %.3, %298 ]
-  %.21013.lcssa = phi ptr [ %.210131152, %260 ], [ %.21013, %298 ]
+  %.2.lcssa = phi ptr [ %.21150, %260 ], [ %.2, %298 ]
+  %.3.lcssa = phi ptr [ %.31152, %260 ], [ %.3, %298 ]
+  %.21013.lcssa = phi ptr [ %.210131153, %260 ], [ %.21013, %298 ]
   %301 = load double, ptr %.31010.lcssa, align 8, !tbaa !7
   %302 = getelementptr inbounds nuw i8, ptr %.31010.lcssa, i64 8
   %303 = load double, ptr %302, align 8, !tbaa !7
@@ -947,7 +952,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %306 = icmp eq ptr %.3.lcssa, %.31010.lcssa
   br i1 %306, label %307, label %312
 
-307:                                              ; preds = %._crit_edge1163
+307:                                              ; preds = %._crit_edge1164
   %308 = icmp eq ptr %.2.lcssa, %.31010.lcssa
   br i1 %308, label %309, label %310
 
@@ -965,7 +970,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   store double %303, ptr %.2.lcssa, align 8, !tbaa !7
   br label %328
 
-312:                                              ; preds = %._crit_edge1163
+312:                                              ; preds = %._crit_edge1164
   %313 = icmp eq ptr %.3.lcssa, %302
   %.not1065 = icmp eq ptr %.2.lcssa, %.31010.lcssa
   br i1 %313, label %314, label %319
@@ -1037,7 +1042,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   store double %335, ptr %334, align 8, !tbaa !7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph1173, %258, %330, %328, %20, %15, %10
+.loopexit:                                        ; preds = %.lr.ph1175, %258, %330, %328, %20, %15, %10
   ret i32 0
 }
 

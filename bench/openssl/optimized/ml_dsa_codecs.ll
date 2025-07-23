@@ -199,224 +199,223 @@ switch.lookup:                                    ; preds = %14
   %42 = load ptr, ptr %7, align 8, !tbaa !14
   %.0.copyload.i = load i32, ptr %42, align 1
   %43 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i)
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %45 = load ptr, ptr %31, align 8, !tbaa !23
-  %.not99128 = icmp eq ptr %45, null
+  %44 = load ptr, ptr %31, align 8, !tbaa !23
+  %.not99128 = icmp eq ptr %44, null
   br i1 %.not99128, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %46 = zext nneg i32 %39 to i64
-  br label %47
+  %45 = zext nneg i32 %39 to i64
+  br label %46
 
-47:                                               ; preds = %.lr.ph, %61
-  %48 = phi ptr [ %45, %.lr.ph ], [ %63, %61 ]
-  %.078129 = phi ptr [ %31, %.lr.ph ], [ %62, %61 ]
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !25
-  %.not100 = icmp eq i64 %50, %46
-  br i1 %.not100, label %51, label %61
+46:                                               ; preds = %.lr.ph, %60
+  %47 = phi ptr [ %44, %.lr.ph ], [ %62, %60 ]
+  %.078129 = phi ptr [ %31, %.lr.ph ], [ %61, %60 ]
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !25
+  %.not100 = icmp eq i64 %49, %45
+  br i1 %.not100, label %50, label %60
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !28
-  %54 = icmp eq i32 %53, 4
-  br i1 %54, label %64, label %55
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %52 = load i32, ptr %51, align 8, !tbaa !28
+  %53 = icmp eq i32 %52, 4
+  br i1 %53, label %63, label %54
 
-55:                                               ; preds = %51
-  %56 = shl nsw i32 %53, 3
-  %57 = lshr i32 %43, %56
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 20
-  %59 = load i32, ptr %58, align 4, !tbaa !29
-  %60 = icmp eq i32 %57, %59
-  br i1 %60, label %64, label %61
+54:                                               ; preds = %50
+  %55 = shl nsw i32 %52, 3
+  %56 = lshr i32 %43, %55
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  %58 = load i32, ptr %57, align 4, !tbaa !29
+  %59 = icmp eq i32 %56, %58
+  br i1 %59, label %63, label %60
 
-61:                                               ; preds = %55, %47
-  %62 = getelementptr inbounds nuw i8, ptr %.078129, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !23
-  %.not99 = icmp eq ptr %63, null
-  br i1 %.not99, label %.thread, label %47, !llvm.loop !30
+60:                                               ; preds = %54, %46
+  %61 = getelementptr inbounds nuw i8, ptr %.078129, i64 16
+  %62 = load ptr, ptr %61, align 8, !tbaa !23
+  %.not99 = icmp eq ptr %62, null
+  br i1 %.not99, label %.thread, label %46, !llvm.loop !30
 
-64:                                               ; preds = %55, %51
-  %65 = sext i32 %53 to i64
-  %66 = sub nsw i64 0, %65
-  %67 = getelementptr inbounds i8, ptr %44, i64 %66
-  %68 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %69 = load i64, ptr %68, align 8, !tbaa !32
-  switch i64 %69, label %.thread [
-    i64 0, label %70
-    i64 32, label %70
+63:                                               ; preds = %54, %50
+  %64 = sext i32 %52 to i64
+  %65 = sub nsw i64 4, %64
+  %66 = getelementptr inbounds i8, ptr %42, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %68 = load i64, ptr %67, align 8, !tbaa !32
+  switch i64 %68, label %.thread [
+    i64 0, label %69
+    i64 32, label %69
   ]
 
-70:                                               ; preds = %64, %64
-  %71 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  %72 = load i64, ptr %71, align 8, !tbaa !33
-  %.not103 = icmp eq i64 %72, 0
-  br i1 %.not103, label %76, label %73
+69:                                               ; preds = %63, %63
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %71 = load i64, ptr %70, align 8, !tbaa !33
+  %.not103 = icmp eq i64 %71, 0
+  br i1 %.not103, label %75, label %72
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %75 = load i64, ptr %74, align 8, !tbaa !34
-  %.not104 = icmp eq i64 %72, %75
-  br i1 %.not104, label %76, label %.thread
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %74 = load i64, ptr %73, align 8, !tbaa !34
+  %.not104 = icmp eq i64 %71, %74
+  br i1 %.not104, label %75, label %.thread
 
-76:                                               ; preds = %73, %70
-  %77 = getelementptr inbounds nuw i8, ptr %48, i64 80
-  %78 = load i64, ptr %77, align 8, !tbaa !35
-  %.not105 = icmp eq i64 %78, 0
-  br i1 %.not105, label %83, label %79
+75:                                               ; preds = %72, %69
+  %76 = getelementptr inbounds nuw i8, ptr %47, i64 80
+  %77 = load i64, ptr %76, align 8, !tbaa !35
+  %.not105 = icmp eq i64 %77, 0
+  br i1 %.not105, label %82, label %78
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %81 = load i64, ptr %80, align 8, !tbaa !3
-  %.not106 = icmp eq i64 %78, %81
-  br i1 %.not106, label %83, label %.thread
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %80 = load i64, ptr %79, align 8, !tbaa !3
+  %.not106 = icmp eq i64 %77, %80
+  br i1 %.not106, label %82, label %.thread
 
-.thread:                                          ; preds = %61, %41, %64, %79, %73
+.thread:                                          ; preds = %60, %41, %63, %78, %72
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @__func__.ossl_ml_dsa_d2i_PKCS8) #6
-  %82 = load ptr, ptr %12, align 8, !tbaa !13
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 245, ptr noundef nonnull @.str.5, ptr noundef %82) #6
+  %81 = load ptr, ptr %12, align 8, !tbaa !13
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 245, ptr noundef nonnull @.str.5, ptr noundef %81) #6
   br label %select.unfold
 
-83:                                               ; preds = %79, %76
-  %.not107 = icmp eq i64 %69, 0
-  br i1 %.not107, label %96, label %84
+82:                                               ; preds = %78, %75
+  %.not107 = icmp eq i64 %68, 0
+  br i1 %.not107, label %95, label %83
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  %86 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %87 = load i64, ptr %86, align 8, !tbaa !36
-  %88 = getelementptr inbounds nuw i8, ptr %42, i64 %87
-  %89 = icmp eq ptr %85, %88
-  br i1 %89, label %90, label %93
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %85 = load i64, ptr %84, align 8, !tbaa !36
+  %86 = sub nsw i64 6, %64
+  %87 = icmp eq i64 %86, %85
+  br i1 %87, label %88, label %92
 
-90:                                               ; preds = %84
-  %.0.copyload.i119 = load i16, ptr %67, align 1
+88:                                               ; preds = %83
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 2
+  %.0.copyload.i119 = load i16, ptr %66, align 1
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i119)
-  %91 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %92 = load i16, ptr %91, align 8, !tbaa !37
-  %.not109 = icmp eq i16 %rev.i.i, %92
-  br i1 %.not109, label %94, label %select.unfold
+  %90 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %91 = load i16, ptr %90, align 8, !tbaa !37
+  %.not109 = icmp eq i16 %rev.i.i, %91
+  br i1 %.not109, label %93, label %select.unfold
 
-93:                                               ; preds = %84
-  %.not108 = icmp eq ptr %67, %88
-  br i1 %.not108, label %94, label %select.unfold
+92:                                               ; preds = %83
+  %.not108 = icmp eq i64 %65, %85
+  br i1 %.not108, label %93, label %select.unfold
 
-94:                                               ; preds = %93, %90
-  %.2 = phi ptr [ %85, %90 ], [ %67, %93 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.2, i64 32
-  br label %96
+93:                                               ; preds = %92, %88
+  %.2 = phi ptr [ %89, %88 ], [ %66, %92 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.2, i64 32
+  br label %95
 
-96:                                               ; preds = %94, %83
-  %.1 = phi ptr [ %95, %94 ], [ %67, %83 ]
-  br i1 %.not103, label %112, label %97
+95:                                               ; preds = %93, %82
+  %.1 = phi ptr [ %94, %93 ], [ %66, %82 ]
+  br i1 %.not103, label %111, label %96
 
-97:                                               ; preds = %96
-  %98 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %99 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %100 = load i64, ptr %99, align 8, !tbaa !38
-  %101 = getelementptr inbounds nuw i8, ptr %42, i64 %100
-  %102 = icmp eq ptr %98, %101
-  br i1 %102, label %103, label %107
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %99 = load i64, ptr %98, align 8, !tbaa !38
+  %100 = getelementptr inbounds nuw i8, ptr %42, i64 %99
+  %101 = icmp eq ptr %97, %100
+  br i1 %101, label %102, label %106
 
-103:                                              ; preds = %97
+102:                                              ; preds = %96
   %.0.copyload.i120 = load i32, ptr %.1, align 1
-  %104 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i120)
-  %105 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %106 = load i32, ptr %105, align 8, !tbaa !39
-  %.not112 = icmp eq i32 %104, %106
-  br i1 %.not112, label %108, label %select.unfold
+  %103 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i120)
+  %104 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %105 = load i32, ptr %104, align 8, !tbaa !39
+  %.not112 = icmp eq i32 %103, %105
+  br i1 %.not112, label %107, label %select.unfold
 
-107:                                              ; preds = %97
-  %.not111 = icmp eq ptr %.1, %101
-  br i1 %.not111, label %108, label %select.unfold
+106:                                              ; preds = %96
+  %.not111 = icmp eq ptr %.1, %100
+  br i1 %.not111, label %107, label %select.unfold
 
-108:                                              ; preds = %107, %103
-  %.4 = phi ptr [ %98, %103 ], [ %.1, %107 ]
-  %109 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %110 = load i64, ptr %109, align 8, !tbaa !34
-  %111 = getelementptr inbounds nuw i8, ptr %.4, i64 %110
-  br label %112
+107:                                              ; preds = %106, %102
+  %.4 = phi ptr [ %97, %102 ], [ %.1, %106 ]
+  %108 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %109 = load i64, ptr %108, align 8, !tbaa !34
+  %110 = getelementptr inbounds nuw i8, ptr %.4, i64 %109
+  br label %111
 
-112:                                              ; preds = %108, %96
-  %.3 = phi ptr [ %111, %108 ], [ %.1, %96 ]
-  br i1 %.not105, label %121, label %113
+111:                                              ; preds = %107, %95
+  %.3 = phi ptr [ %110, %107 ], [ %.1, %95 ]
+  br i1 %.not105, label %120, label %112
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds nuw i8, ptr %48, i64 72
-  %115 = load i64, ptr %114, align 8, !tbaa !40
-  %116 = getelementptr inbounds nuw i8, ptr %42, i64 %115
-  %.not114 = icmp eq ptr %.3, %116
-  br i1 %.not114, label %117, label %select.unfold
+112:                                              ; preds = %111
+  %113 = getelementptr inbounds nuw i8, ptr %47, i64 72
+  %114 = load i64, ptr %113, align 8, !tbaa !40
+  %115 = getelementptr inbounds nuw i8, ptr %42, i64 %114
+  %.not114 = icmp eq ptr %.3, %115
+  br i1 %.not114, label %116, label %select.unfold
 
-117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %119 = load i64, ptr %118, align 8, !tbaa !3
-  %120 = getelementptr inbounds nuw i8, ptr %.3, i64 %119
-  br label %121
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %118 = load i64, ptr %117, align 8, !tbaa !3
+  %119 = getelementptr inbounds nuw i8, ptr %.3, i64 %118
+  br label %120
 
-121:                                              ; preds = %117, %112
-  %.5 = phi ptr [ %120, %117 ], [ %.3, %112 ]
-  %122 = getelementptr inbounds nuw i8, ptr %42, i64 %46
-  %.not115 = icmp eq ptr %.5, %122
-  br i1 %.not115, label %123, label %select.unfold
+120:                                              ; preds = %116, %111
+  %.5 = phi ptr [ %119, %116 ], [ %.3, %111 ]
+  %121 = getelementptr inbounds nuw i8, ptr %42, i64 %45
+  %.not115 = icmp eq ptr %.5, %121
+  br i1 %.not115, label %122, label %select.unfold
 
-123:                                              ; preds = %121
-  %124 = call ptr @ossl_ml_dsa_key_new(ptr noundef %11, ptr noundef %4, i32 noundef %2) #6
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %select.unfold, label %126
+122:                                              ; preds = %120
+  %123 = call ptr @ossl_ml_dsa_key_new(ptr noundef %11, ptr noundef %4, i32 noundef %2) #6
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %select.unfold, label %125
 
-126:                                              ; preds = %123
-  %127 = load i64, ptr %68, align 8, !tbaa !32
-  %.not116 = icmp eq i64 %127, 0
-  br i1 %.not116, label %133, label %128
+125:                                              ; preds = %122
+  %126 = load i64, ptr %67, align 8, !tbaa !32
+  %.not116 = icmp eq i64 %126, 0
+  br i1 %.not116, label %132, label %127
 
-128:                                              ; preds = %126
-  %129 = load ptr, ptr %7, align 8, !tbaa !14
-  %130 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %131 = load i64, ptr %130, align 8, !tbaa !36
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 %131
-  br label %133
+127:                                              ; preds = %125
+  %128 = load ptr, ptr %7, align 8, !tbaa !14
+  %129 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %130 = load i64, ptr %129, align 8, !tbaa !36
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %130
+  br label %132
 
-133:                                              ; preds = %128, %126
-  %.075 = phi ptr [ %132, %128 ], [ null, %126 ]
-  %134 = load i64, ptr %71, align 8, !tbaa !33
-  %.not117 = icmp eq i64 %134, 0
-  br i1 %.not117, label %140, label %135
+132:                                              ; preds = %127, %125
+  %.075 = phi ptr [ %131, %127 ], [ null, %125 ]
+  %133 = load i64, ptr %70, align 8, !tbaa !33
+  %.not117 = icmp eq i64 %133, 0
+  br i1 %.not117, label %139, label %134
 
-135:                                              ; preds = %133
-  %136 = load ptr, ptr %7, align 8, !tbaa !14
-  %137 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %138 = load i64, ptr %137, align 8, !tbaa !38
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 %138
-  br label %140
+134:                                              ; preds = %132
+  %135 = load ptr, ptr %7, align 8, !tbaa !14
+  %136 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %137 = load i64, ptr %136, align 8, !tbaa !38
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 %137
+  br label %139
 
-140:                                              ; preds = %135, %133
-  %.0 = phi ptr [ %139, %135 ], [ null, %133 ]
-  %141 = call i32 @ossl_prov_ctx_get_bool_param(ptr noundef %3, ptr noundef nonnull @.str.6, i32 noundef 1) #6
-  %142 = call i32 @ossl_prov_ctx_get_bool_param(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 1) #6
-  %143 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %144 = load i64, ptr %143, align 8, !tbaa !34
-  %145 = call i32 @ossl_ml_dsa_set_prekey(ptr noundef nonnull %124, i32 noundef %142, i32 noundef %141, ptr noundef %.075, i64 noundef 32, ptr noundef %.0, i64 noundef %144) #6
-  %.not118 = icmp eq i32 %145, 0
-  %spec.select = select i1 %.not118, ptr null, ptr %124
+139:                                              ; preds = %134, %132
+  %.0 = phi ptr [ %138, %134 ], [ null, %132 ]
+  %140 = call i32 @ossl_prov_ctx_get_bool_param(ptr noundef %3, ptr noundef nonnull @.str.6, i32 noundef 1) #6
+  %141 = call i32 @ossl_prov_ctx_get_bool_param(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 1) #6
+  %142 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %143 = load i64, ptr %142, align 8, !tbaa !34
+  %144 = call i32 @ossl_ml_dsa_set_prekey(ptr noundef nonnull %123, i32 noundef %141, i32 noundef %140, ptr noundef %.075, i64 noundef 32, ptr noundef %.0, i64 noundef %143) #6
+  %.not118 = icmp eq i32 %144, 0
+  %spec.select = select i1 %.not118, ptr null, ptr %123
   br label %select.unfold
 
-select.unfold:                                    ; preds = %140, %123, %121, %113, %107, %103, %93, %90, %38, %26, %22, %20, %.thread, %36
-  %.081 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %90 ], [ null, %103 ], [ null, %113 ], [ null, %121 ], [ null, %123 ], [ null, %107 ], [ null, %93 ], [ null, %20 ], [ %124, %140 ]
-  %.080 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %90 ], [ null, %103 ], [ null, %113 ], [ null, %121 ], [ null, %123 ], [ null, %107 ], [ null, %93 ], [ null, %20 ], [ %spec.select, %140 ]
-  %.077 = phi ptr [ null, %22 ], [ null, %26 ], [ %31, %36 ], [ %31, %38 ], [ %31, %.thread ], [ %31, %90 ], [ %31, %103 ], [ %31, %113 ], [ %31, %121 ], [ %31, %123 ], [ %31, %107 ], [ %31, %93 ], [ null, %20 ], [ %31, %140 ]
+select.unfold:                                    ; preds = %139, %122, %120, %112, %106, %102, %92, %88, %38, %26, %22, %20, %.thread, %36
+  %.081 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ null, %106 ], [ null, %92 ], [ null, %20 ], [ %123, %139 ]
+  %.080 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ null, %106 ], [ null, %92 ], [ null, %20 ], [ %spec.select, %139 ]
+  %.077 = phi ptr [ null, %22 ], [ null, %26 ], [ %31, %36 ], [ %31, %38 ], [ %31, %.thread ], [ %31, %88 ], [ %31, %102 ], [ %31, %112 ], [ %31, %120 ], [ %31, %122 ], [ %31, %106 ], [ %31, %92 ], [ null, %20 ], [ %31, %139 ]
   call void @CRYPTO_free(ptr noundef %.077, ptr noundef nonnull @.str, i32 noundef 272) #6
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %18) #6
-  %146 = icmp eq ptr %.080, null
-  br i1 %146, label %147, label %ml_dsa_get_codec.exit
+  %145 = icmp eq ptr %.080, null
+  br i1 %145, label %146, label %ml_dsa_get_codec.exit
 
-147:                                              ; preds = %select.unfold
+146:                                              ; preds = %select.unfold
   call void @ossl_ml_dsa_key_free(ptr noundef %.081) #6
   br label %ml_dsa_get_codec.exit
 
-ml_dsa_get_codec.exit:                            ; preds = %14, %select.unfold, %147, %switch.lookup, %5
-  %.076 = phi ptr [ null, %5 ], [ null, %switch.lookup ], [ null, %147 ], [ %.080, %select.unfold ], [ null, %14 ]
+ml_dsa_get_codec.exit:                            ; preds = %14, %select.unfold, %146, %switch.lookup, %5
+  %.076 = phi ptr [ null, %5 ], [ null, %switch.lookup ], [ null, %146 ], [ %.080, %select.unfold ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6

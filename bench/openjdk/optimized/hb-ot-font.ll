@@ -17235,36 +17235,36 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK2OT9glyf_impl5Glyph12trim_paddingEv
   %18 = shl nsw i64 %17, 1
   %19 = add nsw i64 %18, 10
   %20 = and i64 %19, 4294967294
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %.not.i = icmp ult ptr %22, %9
-  br i1 %.not.i, label %23, label %_ZNK2OT9glyf_impl11SimpleGlyph12trim_paddingEv.exit
+  %21 = add nuw nsw i64 %20, 2
+  %.not.i = icmp samesign ult i64 %21, %8
+  br i1 %.not.i, label %22, label %_ZNK2OT9glyf_impl11SimpleGlyph12trim_paddingEv.exit
 
-23:                                               ; preds = %5
-  %24 = getelementptr inbounds i8, ptr %21, i64 -2
+22:                                               ; preds = %5
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %20
+  %24 = getelementptr inbounds i8, ptr %23, i64 -2
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 -1
+  %28 = getelementptr inbounds i8, ptr %23, i64 -1
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   %32 = add nuw nsw i32 %31, 1
-  %33 = load i8, ptr %21, align 1
+  %33 = load i8, ptr %23, align 1
   %34 = zext i8 %33 to i64
   %35 = shl nuw nsw i64 %34, 8
-  %36 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %21, i64 %35
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 %35
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   br label %42
 
-42:                                               ; preds = %55, %23
-  %.039.i = phi i32 [ 0, %23 ], [ %64, %55 ]
-  %.037.i = phi i32 [ 0, %23 ], [ %65, %55 ]
-  %.036.i = phi ptr [ %41, %23 ], [ %.2.i, %55 ]
+42:                                               ; preds = %55, %22
+  %.039.i = phi i32 [ 0, %22 ], [ %64, %55 ]
+  %.037.i = phi i32 [ 0, %22 ], [ %65, %55 ]
+  %.036.i = phi ptr [ %41, %22 ], [ %.2.i, %55 ]
   %43 = icmp ult ptr %.036.i, %9
   br i1 %43, label %44, label %66
 

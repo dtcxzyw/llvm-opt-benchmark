@@ -58216,7 +58216,7 @@ _ZN4llvm15SmallVectorImplINS_10MCRegisterEE7reserveEm.exit: ; preds = %35, %36
   %gepdiff = sub nsw i64 %.idx, %8
   %42 = ashr exact i64 %gepdiff, 2
   %.not = icmp ult i64 %42, %17
-  br i1 %.not, label %72, label %43
+  br i1 %.not, label %73, label %43
 
 43:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE7reserveEm.exit
   %.neg = mul i64 %16, -2
@@ -58264,77 +58264,78 @@ _ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendISt13move_iteratorIPS1_EvEEvT_
   %58 = trunc i64 %17 to i32
   %59 = add i32 %57, %58
   store i32 %59, ptr %9, align 8, !tbaa !97
-  %.not.i.i.i.i.i51 = icmp eq ptr %44, %40
-  br i1 %.not.i.i.i.i.i51, label %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit, label %60
+  %60 = add nsw i64 %.idx, %.neg
+  %.not.i.i.i.i.i51 = icmp eq i64 %60, %8
+  br i1 %.not.i.i.i.i.i51, label %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit, label %61
 
-60:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_.exit
-  %61 = sub i64 %.neg, %8
-  %gepdiff58 = add i64 %61, %.idx
-  %62 = ashr exact i64 %gepdiff58, 2
-  %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds %"class.llvm::MCRegister", ptr %41, i64 %63
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %64, ptr align 4 %40, i64 %gepdiff58, i1 false)
+61:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_.exit
+  %62 = sub i64 %.neg, %8
+  %gepdiff58 = add i64 %62, %.idx
+  %63 = ashr exact i64 %gepdiff58, 2
+  %64 = sub nsw i64 0, %63
+  %65 = getelementptr inbounds %"class.llvm::MCRegister", ptr %41, i64 %64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %65, ptr align 4 %40, i64 %gepdiff58, i1 false)
   br label %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_.exit, %60
-  %65 = icmp sgt i64 %17, 0
-  br i1 %65, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIPKtPN4llvm10MCRegisterEET0_T_S6_S5_.exit
+_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_.exit, %61
+  %66 = icmp sgt i64 %17, 0
+  br i1 %66, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIPKtPN4llvm10MCRegisterEET0_T_S6_S5_.exit
 
 .lr.ph.i.i.i.i.i52:                               ; preds = %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit, %.lr.ph.i.i.i.i.i52
-  %.012.i.i.i.i.i = phi i64 [ %70, %.lr.ph.i.i.i.i.i52 ], [ %17, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit ]
-  %.0811.i.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i.i52 ], [ %40, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit ]
-  %.0910.i.i.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i.i.i52 ], [ %2, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit ]
-  %66 = load i16, ptr %.0910.i.i.i.i.i, align 2, !tbaa !1141
-  %67 = zext i16 %66 to i32
-  store i32 %67, ptr %.0811.i.i.i.i.i, align 4, !tbaa !499
-  %68 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 2
-  %69 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
-  %70 = add nsw i64 %.012.i.i.i.i.i, -1
-  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %71, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIPKtPN4llvm10MCRegisterEET0_T_S6_S5_.exit, !llvm.loop !1888
+  %.012.i.i.i.i.i = phi i64 [ %71, %.lr.ph.i.i.i.i.i52 ], [ %17, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit ]
+  %.0811.i.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i.i52 ], [ %40, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit ]
+  %.0910.i.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i.i52 ], [ %2, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit ]
+  %67 = load i16, ptr %.0910.i.i.i.i.i, align 2, !tbaa !1141
+  %68 = zext i16 %67 to i32
+  store i32 %68, ptr %.0811.i.i.i.i.i, align 4, !tbaa !499
+  %69 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
+  %71 = add nsw i64 %.012.i.i.i.i.i, -1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %72, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIPKtPN4llvm10MCRegisterEET0_T_S6_S5_.exit, !llvm.loop !1888
 
-72:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE7reserveEm.exit
-  %73 = trunc i64 %17 to i32
-  %74 = add i32 %38, %73
-  store i32 %74, ptr %9, align 8, !tbaa !97
+73:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE7reserveEm.exit
+  %74 = trunc i64 %17 to i32
+  %75 = add i32 %38, %74
+  store i32 %75, ptr %9, align 8, !tbaa !97
   %.not.i.i = icmp eq i64 %8, %.idx
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %72
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"class.llvm::MCRegister", ptr %39, i64 %75
-  %77 = sub nsw i64 0, %42
-  %78 = getelementptr inbounds %"class.llvm::MCRegister", ptr %76, i64 %77
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 4 %40, i64 %gepdiff, i1 false)
+.lr.ph.preheader:                                 ; preds = %73
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds nuw %"class.llvm::MCRegister", ptr %39, i64 %76
+  %78 = sub nsw i64 0, %42
+  %79 = getelementptr inbounds %"class.llvm::MCRegister", ptr %77, i64 %78
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 4 %40, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %72
-  %.042.lcssa = phi ptr [ %2, %72 ], [ %86, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %73
+  %.042.lcssa = phi ptr [ %2, %73 ], [ %87, %.lr.ph ]
   %.not9.i.i.i.i = icmp eq ptr %.042.lcssa, %3
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIPKtPN4llvm10MCRegisterEET0_T_S6_S5_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i ], [ %41, %._crit_edge ]
-  %.0810.i.i.i.i = phi ptr [ %81, %.lr.ph.i.i.i.i ], [ %.042.lcssa, %._crit_edge ]
-  %79 = load i16, ptr %.0810.i.i.i.i, align 2, !tbaa !1141
-  %80 = zext i16 %79 to i32
-  store i32 %80, ptr %.011.i.i.i.i, align 4, !tbaa !571
-  %81 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
-  %82 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %.not.i.i.i.i = icmp eq ptr %81, %3
+  %.011.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i ], [ %41, %._crit_edge ]
+  %.0810.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i ], [ %.042.lcssa, %._crit_edge ]
+  %80 = load i16, ptr %.0810.i.i.i.i, align 2, !tbaa !1141
+  %81 = zext i16 %80 to i32
+  store i32 %81, ptr %.011.i.i.i.i, align 4, !tbaa !571
+  %82 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
+  %.not.i.i.i.i = icmp eq ptr %82, %3
   br i1 %.not.i.i.i.i, label %_ZSt4copyIPKtPN4llvm10MCRegisterEET0_T_S6_S5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1886
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.064 = phi ptr [ %85, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.04063 = phi i64 [ %87, %.lr.ph ], [ %42, %.lr.ph.preheader ]
-  %.04262 = phi ptr [ %86, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %83 = load i16, ptr %.04262, align 2, !tbaa !1141
-  %84 = zext i16 %83 to i32
-  store i32 %84, ptr %.064, align 4, !tbaa !499
-  %85 = getelementptr inbounds nuw i8, ptr %.064, i64 4
-  %86 = getelementptr inbounds nuw i8, ptr %.04262, i64 2
-  %87 = add i64 %.04063, -1
-  %.not44 = icmp eq i64 %87, 0
+  %.064 = phi ptr [ %86, %.lr.ph ], [ %40, %.lr.ph.preheader ]
+  %.04063 = phi i64 [ %88, %.lr.ph ], [ %42, %.lr.ph.preheader ]
+  %.04262 = phi ptr [ %87, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %84 = load i16, ptr %.04262, align 2, !tbaa !1141
+  %85 = zext i16 %84 to i32
+  store i32 %85, ptr %.064, align 4, !tbaa !499
+  %86 = getelementptr inbounds nuw i8, ptr %.064, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.04262, i64 2
+  %88 = add i64 %.04063, -1
+  %.not44 = icmp eq i64 %88, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !1889
 
 _ZSt4copyIPKtPN4llvm10MCRegisterEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i52, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplINS_10MCRegisterEE6appendIPKtvEEvT_S6_.exit

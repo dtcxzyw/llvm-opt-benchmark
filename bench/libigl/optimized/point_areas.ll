@@ -20475,7 +20475,7 @@ define linkonce_odr dso_local void @_ZN4CGAL17Compact_containerINS_28Triangulati
   %11 = load ptr, ptr %10, align 8, !tbaa !925
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %24
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %26
 
 .thread:                                          ; preds = %._crit_edge23.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -20483,65 +20483,65 @@ define linkonce_odr dso_local void @_ZN4CGAL17Compact_containerINS_28Triangulati
   br label %_ZNSt6vectorISt4pairIPN4CGAL28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS5_NS1_30Triangulation_ds_vertex_base_2IvEEEEEENS2_IvEEEEEEmESaISF_EED2Ev.exit
 
 .lr.ph22.i:                                       ; preds = %1, %._crit_edge.i
-  %.sroa.010.020.i = phi ptr [ %16, %._crit_edge.i ], [ %3, %1 ]
+  %.sroa.010.020.i = phi ptr [ %18, %._crit_edge.i ], [ %3, %1 ]
   %13 = load ptr, ptr %.sroa.010.020.i, align 8, !tbaa !926
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !928
   %.idx.i = mul i64 %15, 56
-  %.add.i = add nsw i64 %.idx.i, -56
-  %.ptr24.i = getelementptr inbounds i8, ptr %13, i64 %.add.i
-  %.not16.i = icmp eq i64 %.add.i, 56
+  %16 = add nsw i64 %.idx.i, -56
+  %17 = getelementptr inbounds i8, ptr %13, i64 %16
+  %.not16.i = icmp eq i64 %16, 56
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph22.i
   %.015.i = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %23, %.lr.ph22.i
+._crit_edge.i:                                    ; preds = %25, %.lr.ph22.i
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %.idx.i) #41
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 16
-  %.not14.i = icmp eq ptr %16, %5
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 16
+  %.not14.i = icmp eq ptr %18, %5
   br i1 %.not14.i, label %._crit_edge23.loopexit.i, label %.lr.ph22.i, !llvm.loop !929
 
-.lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
-  %.018.i = phi ptr [ %.0.i, %23 ], [ %.015.i, %.lr.ph.preheader.i ]
-  %.pn17.i = phi ptr [ %.018.i, %23 ], [ %13, %.lr.ph.preheader.i ]
-  %17 = getelementptr inbounds nuw i8, ptr %.pn17.i, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !195
-  %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, 3
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %23
+.lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
+  %.018.i = phi ptr [ %.0.i, %25 ], [ %.015.i, %.lr.ph.preheader.i ]
+  %.pn17.i = phi ptr [ %.018.i, %25 ], [ %13, %.lr.ph.preheader.i ]
+  %19 = getelementptr inbounds nuw i8, ptr %.pn17.i, i64 80
+  %20 = load ptr, ptr %19, align 8, !tbaa !195
+  %21 = ptrtoint ptr %20 to i64
+  %22 = and i64 %21, 3
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %25
 
-22:                                               ; preds = %.lr.ph.i
-  store ptr inttoptr (i64 2 to ptr), ptr %17, align 8, !tbaa !195
-  br label %23
+24:                                               ; preds = %.lr.ph.i
+  store ptr inttoptr (i64 2 to ptr), ptr %19, align 8, !tbaa !195
+  br label %25
 
-23:                                               ; preds = %22, %.lr.ph.i
+25:                                               ; preds = %24, %.lr.ph.i
   %.0.i = getelementptr inbounds nuw i8, ptr %.018.i, i64 56
-  %.not.i = icmp eq ptr %.0.i, %.ptr24.i
+  %.not.i = icmp eq ptr %.0.i, %17
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !930
 
-24:                                               ; preds = %._crit_edge23.i
-  %25 = ptrtoint ptr %11 to i64
-  %26 = ptrtoint ptr %6 to i64
-  %27 = sub i64 %25, %26
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %27) #41
+26:                                               ; preds = %._crit_edge23.i
+  %27 = ptrtoint ptr %11 to i64
+  %28 = ptrtoint ptr %6 to i64
+  %29 = sub i64 %27, %28
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %29) #41
   %.pre = load ptr, ptr %2, align 8, !tbaa !924
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store atomic i64 0, ptr %28 seq_cst, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store atomic i64 0, ptr %30 seq_cst, align 8
   %.not.i.i.i = icmp eq ptr %.pre, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS5_NS1_30Triangulation_ds_vertex_base_2IvEEEEEENS2_IvEEEEEEmESaISF_EED2Ev.exit, label %29
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS5_NS1_30Triangulation_ds_vertex_base_2IvEEEEEENS2_IvEEEEEEmESaISF_EED2Ev.exit, label %31
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %10, align 8, !tbaa !925
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %.pre to i64
-  %33 = sub i64 %31, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %33) #41
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %10, align 8, !tbaa !925
+  %33 = ptrtoint ptr %32 to i64
+  %34 = ptrtoint ptr %.pre to i64
+  %35 = sub i64 %33, %34
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %35) #41
   br label %_ZNSt6vectorISt4pairIPN4CGAL28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS5_NS1_30Triangulation_ds_vertex_base_2IvEEEEEENS2_IvEEEEEEmESaISF_EED2Ev.exit
 
-_ZNSt6vectorISt4pairIPN4CGAL28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS5_NS1_30Triangulation_ds_vertex_base_2IvEEEEEENS2_IvEEEEEEmESaISF_EED2Ev.exit: ; preds = %.thread, %24, %29
+_ZNSt6vectorISt4pairIPN4CGAL28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS5_NS1_30Triangulation_ds_vertex_base_2IvEEEEEENS2_IvEEEEEEmESaISF_EED2Ev.exit: ; preds = %.thread, %26, %31
   ret void
 }
 
@@ -21654,121 +21654,121 @@ define linkonce_odr dso_local void @_ZN4CGAL30Triangulation_data_structure_2INS_
   br label %_ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit
 
 .lr.ph22.i:                                       ; preds = %1, %._crit_edge.i
-  %.sroa.010.020.i = phi ptr [ %19, %._crit_edge.i ], [ %3, %1 ]
+  %.sroa.010.020.i = phi ptr [ %21, %._crit_edge.i ], [ %3, %1 ]
   %16 = load ptr, ptr %.sroa.010.020.i, align 8, !tbaa !926
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !928
   %.idx.i = mul i64 %18, 56
-  %.add.i = add nsw i64 %.idx.i, -56
-  %.ptr24.i = getelementptr inbounds i8, ptr %16, i64 %.add.i
-  %.not16.i = icmp eq i64 %.add.i, 56
+  %19 = add nsw i64 %.idx.i, -56
+  %20 = getelementptr inbounds i8, ptr %16, i64 %19
+  %.not16.i = icmp eq i64 %19, 56
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph22.i
   %.015.i = getelementptr inbounds nuw i8, ptr %16, i64 56
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %26, %.lr.ph22.i
+._crit_edge.i:                                    ; preds = %28, %.lr.ph22.i
   tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %.idx.i) #41
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 16
-  %.not14.i = icmp eq ptr %19, %5
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 16
+  %.not14.i = icmp eq ptr %21, %5
   br i1 %.not14.i, label %._crit_edge23.loopexit.i, label %.lr.ph22.i, !llvm.loop !929
 
-.lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
-  %.018.i = phi ptr [ %.0.i, %26 ], [ %.015.i, %.lr.ph.preheader.i ]
-  %.pn17.i = phi ptr [ %.018.i, %26 ], [ %16, %.lr.ph.preheader.i ]
-  %20 = getelementptr inbounds nuw i8, ptr %.pn17.i, i64 80
-  %21 = load ptr, ptr %20, align 8, !tbaa !195
-  %22 = ptrtoint ptr %21 to i64
-  %23 = and i64 %22, 3
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %26
+.lr.ph.i:                                         ; preds = %28, %.lr.ph.preheader.i
+  %.018.i = phi ptr [ %.0.i, %28 ], [ %.015.i, %.lr.ph.preheader.i ]
+  %.pn17.i = phi ptr [ %.018.i, %28 ], [ %16, %.lr.ph.preheader.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %.pn17.i, i64 80
+  %23 = load ptr, ptr %22, align 8, !tbaa !195
+  %24 = ptrtoint ptr %23 to i64
+  %25 = and i64 %24, 3
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %27, label %28
 
-25:                                               ; preds = %.lr.ph.i
-  store ptr inttoptr (i64 2 to ptr), ptr %20, align 8, !tbaa !195
-  br label %26
+27:                                               ; preds = %.lr.ph.i
+  store ptr inttoptr (i64 2 to ptr), ptr %22, align 8, !tbaa !195
+  br label %28
 
-26:                                               ; preds = %25, %.lr.ph.i
+28:                                               ; preds = %27, %.lr.ph.i
   %.0.i = getelementptr inbounds nuw i8, ptr %.018.i, i64 56
-  %.not.i = icmp eq ptr %.0.i, %.ptr24.i
+  %.not.i = icmp eq ptr %.0.i, %20
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !930
 
 _ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit: ; preds = %._crit_edge23.i, %12
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store atomic i64 0, ptr %27 seq_cst, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %29 = load ptr, ptr %28, align 8, !tbaa !970
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store atomic i64 0, ptr %29 seq_cst, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %31 = load ptr, ptr %30, align 8, !tbaa !970
-  %.not1418.i = icmp eq ptr %29, %31
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %33 = load ptr, ptr %32, align 8, !tbaa !970
+  %.not1418.i = icmp eq ptr %31, %33
   br i1 %.not1418.i, label %._crit_edge22.i, label %.lr.ph21.i
 
-._crit_edge22.loopexit.i:                         ; preds = %._crit_edge.i9
-  %.pre.i11 = load ptr, ptr %28, align 8, !tbaa !952
+._crit_edge22.loopexit.i:                         ; preds = %._crit_edge.i8
+  %.pre.i10 = load ptr, ptr %30, align 8, !tbaa !952
   br label %._crit_edge22.i
 
 ._crit_edge22.i:                                  ; preds = %._crit_edge22.loopexit.i, %_ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit
-  %32 = phi ptr [ %.pre.i11, %._crit_edge22.loopexit.i ], [ %29, %_ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 14, ptr %33, align 8, !tbaa !178
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %37 = load ptr, ptr %36, align 8, !tbaa !951
-  %.not.i.i.i.i.i.i.i12 = icmp eq ptr %32, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i.i12, label %_ZN4CGAL17Compact_containerINS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS2_NS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS1_IjS2_NS3_IS2_NS4_IvEEEEEENS_28Triangulation_ds_face_base_2IvEEEEEEEEEENS_7DefaultESF_SF_E5clearEv.exit, label %38
+  %34 = phi ptr [ %.pre.i10, %._crit_edge22.loopexit.i ], [ %31, %_ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 14, ptr %35, align 8, !tbaa !178
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %39 = load ptr, ptr %38, align 8, !tbaa !951
+  %.not.i.i.i.i.i.i.i11 = icmp eq ptr %34, null
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i.i.i11, label %_ZN4CGAL17Compact_containerINS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS2_NS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS1_IjS2_NS3_IS2_NS4_IvEEEEEENS_28Triangulation_ds_face_base_2IvEEEEEEEEEENS_7DefaultESF_SF_E5clearEv.exit, label %40
 
-38:                                               ; preds = %._crit_edge22.i
-  %39 = ptrtoint ptr %37 to i64
-  %40 = ptrtoint ptr %32 to i64
-  %41 = sub i64 %39, %40
-  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %41) #41
+40:                                               ; preds = %._crit_edge22.i
+  %41 = ptrtoint ptr %39 to i64
+  %42 = ptrtoint ptr %34 to i64
+  %43 = sub i64 %41, %42
+  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %43) #41
   br label %_ZN4CGAL17Compact_containerINS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS2_NS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS1_IjS2_NS3_IS2_NS4_IvEEEEEENS_28Triangulation_ds_face_base_2IvEEEEEEEEEENS_7DefaultESF_SF_E5clearEv.exit
 
-.lr.ph21.i:                                       ; preds = %_ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit, %._crit_edge.i9
-  %.sroa.010.019.i = phi ptr [ %45, %._crit_edge.i9 ], [ %29, %_ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit ]
-  %42 = load ptr, ptr %.sroa.010.019.i, align 8, !tbaa !971
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !973
-  %.idx.i1 = shl i64 %44, 5
-  %.add.i2 = add nsw i64 %.idx.i1, -32
-  %.ptr23.i = getelementptr inbounds i8, ptr %42, i64 %.add.i2
-  %.not16.i3 = icmp eq i64 %.add.i2, 32
-  br i1 %.not16.i3, label %._crit_edge.i9, label %.lr.ph.preheader.i4
+.lr.ph21.i:                                       ; preds = %_ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit, %._crit_edge.i8
+  %.sroa.010.019.i = phi ptr [ %49, %._crit_edge.i8 ], [ %31, %_ZN4CGAL17Compact_containerINS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS4_NS_30Triangulation_ds_vertex_base_2IvEEEEEENS1_IvEEEEEENS_7DefaultESD_SD_E5clearEv.exit ]
+  %44 = load ptr, ptr %.sroa.010.019.i, align 8, !tbaa !971
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !973
+  %.idx.i1 = shl i64 %46, 5
+  %47 = add nsw i64 %.idx.i1, -32
+  %48 = getelementptr inbounds i8, ptr %44, i64 %47
+  %.not16.i2 = icmp eq i64 %47, 32
+  br i1 %.not16.i2, label %._crit_edge.i8, label %.lr.ph.preheader.i3
 
-.lr.ph.preheader.i4:                              ; preds = %.lr.ph21.i
-  %.015.i5 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  br label %.lr.ph.i6
+.lr.ph.preheader.i3:                              ; preds = %.lr.ph21.i
+  %.015.i4 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  br label %.lr.ph.i5
 
-._crit_edge.i9:                                   ; preds = %51, %.lr.ph21.i
-  tail call void @_ZdlPvm(ptr noundef %42, i64 noundef %.idx.i1) #41
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 16
-  %.not14.i10 = icmp eq ptr %45, %31
-  br i1 %.not14.i10, label %._crit_edge22.loopexit.i, label %.lr.ph21.i, !llvm.loop !974
+._crit_edge.i8:                                   ; preds = %55, %.lr.ph21.i
+  tail call void @_ZdlPvm(ptr noundef %44, i64 noundef %.idx.i1) #41
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 16
+  %.not14.i9 = icmp eq ptr %49, %33
+  br i1 %.not14.i9, label %._crit_edge22.loopexit.i, label %.lr.ph21.i, !llvm.loop !974
 
-.lr.ph.i6:                                        ; preds = %51, %.lr.ph.preheader.i4
-  %.017.i = phi ptr [ %.0.i7, %51 ], [ %.015.i5, %.lr.ph.preheader.i4 ]
-  %46 = load ptr, ptr %.017.i, align 8, !tbaa !195
-  %47 = ptrtoint ptr %46 to i64
-  %48 = and i64 %47, 3
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %51
+.lr.ph.i5:                                        ; preds = %55, %.lr.ph.preheader.i3
+  %.017.i = phi ptr [ %.0.i6, %55 ], [ %.015.i4, %.lr.ph.preheader.i3 ]
+  %50 = load ptr, ptr %.017.i, align 8, !tbaa !195
+  %51 = ptrtoint ptr %50 to i64
+  %52 = and i64 %51, 3
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %55
 
-50:                                               ; preds = %.lr.ph.i6
+54:                                               ; preds = %.lr.ph.i5
   store ptr inttoptr (i64 2 to ptr), ptr %.017.i, align 8, !tbaa !195
-  br label %51
+  br label %55
 
-51:                                               ; preds = %50, %.lr.ph.i6
-  %.0.i7 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
-  %.not.i8 = icmp eq ptr %.0.i7, %.ptr23.i
-  br i1 %.not.i8, label %._crit_edge.i9, label %.lr.ph.i6, !llvm.loop !975
+55:                                               ; preds = %54, %.lr.ph.i5
+  %.0.i6 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
+  %.not.i7 = icmp eq ptr %.0.i6, %48
+  br i1 %.not.i7, label %._crit_edge.i8, label %.lr.ph.i5, !llvm.loop !975
 
-_ZN4CGAL17Compact_containerINS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS2_NS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS1_IjS2_NS3_IS2_NS4_IvEEEEEENS_28Triangulation_ds_face_base_2IvEEEEEEEEEENS_7DefaultESF_SF_E5clearEv.exit: ; preds = %._crit_edge22.i, %38
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store atomic i64 0, ptr %52 seq_cst, align 8
+_ZN4CGAL17Compact_containerINS_37Triangulation_vertex_base_with_info_2IjNS_5EpickENS_27Triangulation_vertex_base_2IS2_NS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS1_IjS2_NS3_IS2_NS4_IvEEEEEENS_28Triangulation_ds_face_base_2IvEEEEEEEEEENS_7DefaultESF_SF_E5clearEv.exit: ; preds = %._crit_edge22.i, %40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store atomic i64 0, ptr %56 seq_cst, align 8
   store i32 -2, ptr %0, align 8, !tbaa !157
   ret void
 }
@@ -21798,7 +21798,7 @@ define linkonce_odr dso_local void @_ZN4CGAL17Compact_containerINS_37Triangulati
   %11 = load ptr, ptr %10, align 8, !tbaa !951
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %23
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %25
 
 .thread:                                          ; preds = %._crit_edge22.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -21806,63 +21806,63 @@ define linkonce_odr dso_local void @_ZN4CGAL17Compact_containerINS_37Triangulati
   br label %_ZNSt6vectorISt4pairIPN4CGAL37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS3_NS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_IjS3_NS4_IS3_NS5_IvEEEEEENS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISH_EED2Ev.exit
 
 .lr.ph21.i:                                       ; preds = %1, %._crit_edge.i
-  %.sroa.010.019.i = phi ptr [ %16, %._crit_edge.i ], [ %3, %1 ]
+  %.sroa.010.019.i = phi ptr [ %18, %._crit_edge.i ], [ %3, %1 ]
   %13 = load ptr, ptr %.sroa.010.019.i, align 8, !tbaa !971
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !973
   %.idx.i = shl i64 %15, 5
-  %.add.i = add nsw i64 %.idx.i, -32
-  %.ptr23.i = getelementptr inbounds i8, ptr %13, i64 %.add.i
-  %.not16.i = icmp eq i64 %.add.i, 32
+  %16 = add nsw i64 %.idx.i, -32
+  %17 = getelementptr inbounds i8, ptr %13, i64 %16
+  %.not16.i = icmp eq i64 %16, 32
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph21.i
   %.015.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %22, %.lr.ph21.i
+._crit_edge.i:                                    ; preds = %24, %.lr.ph21.i
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %.idx.i) #41
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 16
-  %.not14.i = icmp eq ptr %16, %5
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 16
+  %.not14.i = icmp eq ptr %18, %5
   br i1 %.not14.i, label %._crit_edge22.loopexit.i, label %.lr.ph21.i, !llvm.loop !974
 
-.lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
-  %.017.i = phi ptr [ %.0.i, %22 ], [ %.015.i, %.lr.ph.preheader.i ]
-  %17 = load ptr, ptr %.017.i, align 8, !tbaa !195
-  %18 = ptrtoint ptr %17 to i64
-  %19 = and i64 %18, 3
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %22
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
+  %.017.i = phi ptr [ %.0.i, %24 ], [ %.015.i, %.lr.ph.preheader.i ]
+  %19 = load ptr, ptr %.017.i, align 8, !tbaa !195
+  %20 = ptrtoint ptr %19 to i64
+  %21 = and i64 %20, 3
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %24
 
-21:                                               ; preds = %.lr.ph.i
+23:                                               ; preds = %.lr.ph.i
   store ptr inttoptr (i64 2 to ptr), ptr %.017.i, align 8, !tbaa !195
-  br label %22
+  br label %24
 
-22:                                               ; preds = %21, %.lr.ph.i
+24:                                               ; preds = %23, %.lr.ph.i
   %.0.i = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
-  %.not.i = icmp eq ptr %.0.i, %.ptr23.i
+  %.not.i = icmp eq ptr %.0.i, %17
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !975
 
-23:                                               ; preds = %._crit_edge22.i
-  %24 = ptrtoint ptr %11 to i64
-  %25 = ptrtoint ptr %6 to i64
-  %26 = sub i64 %24, %25
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %26) #41
+25:                                               ; preds = %._crit_edge22.i
+  %26 = ptrtoint ptr %11 to i64
+  %27 = ptrtoint ptr %6 to i64
+  %28 = sub i64 %26, %27
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %28) #41
   %.pre = load ptr, ptr %2, align 8, !tbaa !952
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store atomic i64 0, ptr %27 seq_cst, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store atomic i64 0, ptr %29 seq_cst, align 8
   %.not.i.i.i = icmp eq ptr %.pre, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS3_NS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_IjS3_NS4_IS3_NS5_IvEEEEEENS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISH_EED2Ev.exit, label %28
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS3_NS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_IjS3_NS4_IS3_NS5_IvEEEEEENS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISH_EED2Ev.exit, label %30
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %10, align 8, !tbaa !951
-  %30 = ptrtoint ptr %29 to i64
-  %31 = ptrtoint ptr %.pre to i64
-  %32 = sub i64 %30, %31
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %32) #41
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %10, align 8, !tbaa !951
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %.pre to i64
+  %34 = sub i64 %32, %33
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %34) #41
   br label %_ZNSt6vectorISt4pairIPN4CGAL37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS3_NS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_IjS3_NS4_IS3_NS5_IvEEEEEENS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISH_EED2Ev.exit
 
-_ZNSt6vectorISt4pairIPN4CGAL37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS3_NS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_IjS3_NS4_IS3_NS5_IvEEEEEENS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISH_EED2Ev.exit: ; preds = %.thread, %23, %28
+_ZNSt6vectorISt4pairIPN4CGAL37Triangulation_vertex_base_with_info_2IjNS1_5EpickENS1_27Triangulation_vertex_base_2IS3_NS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_IjS3_NS4_IS3_NS5_IvEEEEEENS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISH_EED2Ev.exit: ; preds = %.thread, %25, %30
   ret void
 }
 

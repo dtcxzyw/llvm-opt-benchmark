@@ -17369,52 +17369,56 @@ define dso_local noundef zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef rea
   %12 = sext i8 %7 to i64
   %13 = add nsw i64 %12, -48
   store i64 %13, ptr %2, align 8, !tbaa !82
-  %14 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
-  %15 = icmp eq ptr %14, %4
-  br i1 %15, label %._crit_edge, label %.lr.ph
+  %14 = select i1 %6, i64 2, i64 1
+  %15 = icmp samesign eq i64 %14, %1
+  br i1 %15, label %._crit_edge, label %.lr.ph.preheader
 
-._crit_edge:                                      ; preds = %29, %11
-  %storemerge.lcssa = phi i64 [ %13, %11 ], [ %32, %29 ]
-  %16 = load i8, ptr %0, align 1, !tbaa !5
-  %17 = icmp eq i8 %16, 45
-  br i1 %17, label %18, label %23
+.lr.ph.preheader:                                 ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
+  br label %.lr.ph
 
-18:                                               ; preds = %._crit_edge
-  %19 = add i64 %storemerge.lcssa, -1
-  %20 = icmp slt i64 %19, 0
-  br i1 %20, label %.loopexit, label %21
+._crit_edge:                                      ; preds = %30, %11
+  %storemerge.lcssa = phi i64 [ %13, %11 ], [ %33, %30 ]
+  %17 = load i8, ptr %0, align 1, !tbaa !5
+  %18 = icmp eq i8 %17, 45
+  br i1 %18, label %19, label %24
 
-21:                                               ; preds = %18
-  %22 = sub i64 0, %storemerge.lcssa
-  store i64 %22, ptr %2, align 8, !tbaa !82
-  br label %25
+19:                                               ; preds = %._crit_edge
+  %20 = add i64 %storemerge.lcssa, -1
+  %21 = icmp slt i64 %20, 0
+  br i1 %21, label %.loopexit, label %22
 
-23:                                               ; preds = %._crit_edge
-  %24 = icmp slt i64 %storemerge.lcssa, 0
-  br i1 %24, label %.loopexit, label %25
+22:                                               ; preds = %19
+  %23 = sub i64 0, %storemerge.lcssa
+  store i64 %23, ptr %2, align 8, !tbaa !82
+  br label %26
 
-25:                                               ; preds = %23, %21
+24:                                               ; preds = %._crit_edge
+  %25 = icmp slt i64 %storemerge.lcssa, 0
+  br i1 %25, label %.loopexit, label %26
+
+26:                                               ; preds = %24, %22
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %11, %29
-  %26 = phi ptr [ %33, %29 ], [ %14, %11 ]
-  %storemerge34 = phi i64 [ %32, %29 ], [ %13, %11 ]
-  %27 = load i8, ptr %26, align 1, !tbaa !5
-  %28 = add i8 %27, -48
-  %or.cond32 = icmp ult i8 %28, 10
-  br i1 %or.cond32, label %29, label %.loopexit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %30
+  %27 = phi ptr [ %34, %30 ], [ %16, %.lr.ph.preheader ]
+  %storemerge34 = phi i64 [ %33, %30 ], [ %13, %.lr.ph.preheader ]
+  %28 = load i8, ptr %27, align 1, !tbaa !5
+  %29 = add i8 %28, -48
+  %or.cond32 = icmp ult i8 %29, 10
+  br i1 %or.cond32, label %30, label %.loopexit
 
-29:                                               ; preds = %.lr.ph
-  %30 = mul i64 %storemerge34, 10
-  %31 = zext nneg i8 %28 to i64
-  %32 = add i64 %30, %31
-  store i64 %32, ptr %2, align 8, !tbaa !82
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %34 = icmp eq ptr %33, %4
-  br i1 %34, label %._crit_edge, label %.lr.ph
+30:                                               ; preds = %.lr.ph
+  %31 = mul i64 %storemerge34, 10
+  %32 = zext nneg i8 %29 to i64
+  %33 = add i64 %31, %32
+  store i64 %33, ptr %2, align 8, !tbaa !82
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %35 = icmp eq ptr %34, %4
+  br i1 %35, label %._crit_edge, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %23, %18, %3, %25
-  %.0 = phi i1 [ true, %25 ], [ false, %3 ], [ false, %18 ], [ false, %23 ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %24, %19, %3, %26
+  %.0 = phi i1 [ true, %26 ], [ false, %3 ], [ false, %19 ], [ false, %24 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

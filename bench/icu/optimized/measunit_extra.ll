@@ -4905,30 +4905,30 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %4
   store i64 %22, ptr %31, align 8
   %.ptr32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = icmp eq i32 %21, 0
-  br i1 %34, label %.loopexit39, label %35
+  br i1 %34, label %.loopexit40, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds %"class.icu_77::MeasureUnit", ptr %.ptr32, i64 %22
-  br label %37
+  %.idx37 = mul nsw i64 %22, 24
+  br label %36
 
-37:                                               ; preds = %38, %35
-  %.idx = phi i64 [ 8, %35 ], [ %.add, %38 ]
+36:                                               ; preds = %37, %35
+  %.idx = phi i64 [ 8, %35 ], [ %.add, %37 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
   invoke void @_ZN6icu_7711MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19) %.ptr.ptr)
-          to label %38 unwind label %46
+          to label %37 unwind label %46
 
-38:                                               ; preds = %37
+37:                                               ; preds = %36
   %.add = add nuw nsw i64 %.idx, 24
-  %.ptr31 = getelementptr inbounds nuw i8, ptr %31, i64 %.add
-  %39 = icmp eq ptr %.ptr31, %36
-  br i1 %39, label %.loopexit39, label %37
+  %38 = add nuw nsw i64 %.idx, 16
+  %39 = icmp eq i64 %38, %.idx37
+  br i1 %39, label %.loopexit40, label %36
 
-.loopexit39:                                      ; preds = %38, %33
+.loopexit40:                                      ; preds = %37, %33
   %40 = load i32, ptr %2, align 4, !tbaa !12
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph, label %_ZN6icu_7710LocalArrayINS_11MeasureUnitEEC2EPS1_R10UErrorCode.exit
 
-.lr.ph:                                           ; preds = %.loopexit39
+.lr.ph:                                           ; preds = %.loopexit40
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 16
   br label %50
 
@@ -4941,7 +4941,7 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %4
           cleanup
   br label %80
 
-46:                                               ; preds = %37
+46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
   %48 = icmp eq i64 %.idx, 8
@@ -4985,8 +4985,8 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
   br label %80
 
-_ZN6icu_7710LocalArrayINS_11MeasureUnitEEC2EPS1_R10UErrorCode.exit: ; preds = %54, %.loopexit39, %43
-  %storemerge = phi ptr [ null, %43 ], [ %.ptr32, %.loopexit39 ], [ %.ptr32, %54 ]
+_ZN6icu_7710LocalArrayINS_11MeasureUnitEEC2EPS1_R10UErrorCode.exit: ; preds = %54, %.loopexit40, %43
+  %storemerge = phi ptr [ null, %43 ], [ %.ptr32, %.loopexit40 ], [ %.ptr32, %54 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !121
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %12) #18
   %62 = load i32, ptr %7, align 8, !tbaa !28

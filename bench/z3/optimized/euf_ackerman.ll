@@ -713,57 +713,49 @@ define hidden noundef zeroext i1 @_ZN3euf8ackerman9enable_ccEP3appS2_(ptr nounde
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !51
-  %12 = zext i32 %11 to i64
-  %.idx = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr46 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.not37 = icmp eq i32 %11, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = load i32, ptr %11, align 8, !tbaa !51
+  %13 = zext i32 %12 to i64
+  %.idx = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  %.not37 = icmp eq i32 %12, 0
+  br i1 %.not37, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %9
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
-
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.02438, i64 8
-  %.not = icmp eq ptr %15, %.ptr46
+15:                                               ; preds = %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %.02438, i64 8
+  %.not = icmp eq ptr %16, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %.02438 = phi ptr [ %15, %14 ], [ %.ptr, %.lr.ph.preheader ]
-  %16 = load ptr, ptr %.02438, align 8, !tbaa !56
-  %17 = load ptr, ptr %0, align 8, !tbaa !50
-  %18 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %17, ptr noundef %16)
-  br i1 %18, label %14, label %.loopexit
+.lr.ph:                                           ; preds = %9, %15
+  %.02438 = phi ptr [ %16, %15 ], [ %10, %9 ]
+  %17 = load ptr, ptr %.02438, align 8, !tbaa !56
+  %18 = load ptr, ptr %0, align 8, !tbaa !50
+  %19 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %18, ptr noundef %17)
+  br i1 %19, label %15, label %.loopexit
 
-._crit_edge:                                      ; preds = %14, %9
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !51
-  %21 = zext i32 %20 to i64
-  %.idx47 = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx47
-  %.ptr49 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %.not3039 = icmp eq i32 %20, 0
-  br i1 %.not3039, label %.loopexit, label %.lr.ph43.preheader
+._crit_edge:                                      ; preds = %15, %9
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %22 = load i32, ptr %21, align 8, !tbaa !51
+  %23 = zext i32 %22 to i64
+  %.idx46 = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx46
+  %.not3039 = icmp eq i32 %22, 0
+  br i1 %.not3039, label %.loopexit, label %.lr.ph43
 
-.lr.ph43.preheader:                               ; preds = %._crit_edge
-  %.ptr48 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  br label %.lr.ph43
-
-.lr.ph43:                                         ; preds = %.lr.ph43, %.lr.ph43.preheader
-  %.02540 = phi ptr [ %.ptr48, %.lr.ph43.preheader ], [ %26, %.lr.ph43 ]
-  %23 = load ptr, ptr %.02540, align 8, !tbaa !56
-  %24 = load ptr, ptr %0, align 8, !tbaa !50
-  %25 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %24, ptr noundef %23)
-  %26 = getelementptr inbounds nuw i8, ptr %.02540, i64 8
-  %.not30 = icmp ne ptr %26, %.ptr49
-  %or.cond.not = select i1 %25, i1 %.not30, i1 false
+.lr.ph43:                                         ; preds = %._crit_edge, %.lr.ph43
+  %.02540 = phi ptr [ %28, %.lr.ph43 ], [ %20, %._crit_edge ]
+  %25 = load ptr, ptr %.02540, align 8, !tbaa !56
+  %26 = load ptr, ptr %0, align 8, !tbaa !50
+  %27 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %26, ptr noundef %25)
+  %28 = getelementptr inbounds nuw i8, ptr %.02540, i64 8
+  %.not30 = icmp ne ptr %28, %24
+  %or.cond.not = select i1 %27, i1 %.not30, i1 false
   br i1 %or.cond.not, label %.lr.ph43, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph43, %._crit_edge, %6, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %._crit_edge ], [ %25, %.lr.ph43 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %._crit_edge ], [ %27, %.lr.ph43 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -837,56 +829,48 @@ define hidden void @_ZN3euf8ackerman14cg_conflict_ehEP4exprS2_(ptr noundef nonnu
   br i1 %31, label %32, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
 
 32:                                               ; preds = %29
-  %33 = load i32, ptr %22, align 8, !tbaa !51
-  %34 = zext i32 %33 to i64
-  %.idx.i = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %.ptr46.i = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %.not37.i = icmp eq i32 %33, 0
-  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = load i32, ptr %22, align 8, !tbaa !51
+  %35 = zext i32 %34 to i64
+  %.idx.i = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
+  %.not37.i = icmp eq i32 %34, 0
+  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %32
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph.i
-
-36:                                               ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds nuw i8, ptr %.02438.i, i64 8
-  %.not.i = icmp eq ptr %37, %.ptr46.i
+37:                                               ; preds = %.lr.ph.i
+  %38 = getelementptr inbounds nuw i8, ptr %.02438.i, i64 8
+  %.not.i = icmp eq ptr %38, %36
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %36, %.lr.ph.preheader.i
-  %.02438.i = phi ptr [ %37, %36 ], [ %.ptr.i, %.lr.ph.preheader.i ]
-  %38 = load ptr, ptr %.02438.i, align 8, !tbaa !56
-  %39 = load ptr, ptr %0, align 8, !tbaa !50
-  %40 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %39, ptr noundef %38)
-  br i1 %40, label %36, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
+.lr.ph.i:                                         ; preds = %32, %37
+  %.02438.i = phi ptr [ %38, %37 ], [ %33, %32 ]
+  %39 = load ptr, ptr %.02438.i, align 8, !tbaa !56
+  %40 = load ptr, ptr %0, align 8, !tbaa !50
+  %41 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %40, ptr noundef %39)
+  br i1 %41, label %37, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
 
-._crit_edge.i:                                    ; preds = %36, %32
-  %41 = load i32, ptr %24, align 8, !tbaa !51
-  %42 = zext i32 %41 to i64
-  %.idx47.i = shl nuw nsw i64 %42, 3
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx47.i
-  %.ptr49.i = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %.not3039.i = icmp eq i32 %41, 0
-  br i1 %.not3039.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.preheader.i
+._crit_edge.i:                                    ; preds = %37, %32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %43 = load i32, ptr %24, align 8, !tbaa !51
+  %44 = zext i32 %43 to i64
+  %.idx46.i = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx46.i
+  %.not3039.i = icmp eq i32 %43, 0
+  br i1 %.not3039.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.i
 
-.lr.ph43.preheader.i:                             ; preds = %._crit_edge.i
-  %.ptr48.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  br label %.lr.ph43.i
-
-44:                                               ; preds = %.lr.ph43.i
-  %45 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 8
-  %.not30.i = icmp eq ptr %45, %.ptr49.i
+46:                                               ; preds = %.lr.ph43.i
+  %47 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 8
+  %.not30.i = icmp eq ptr %47, %45
   br i1 %.not30.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.i
 
-.lr.ph43.i:                                       ; preds = %44, %.lr.ph43.preheader.i
-  %.02540.i = phi ptr [ %45, %44 ], [ %.ptr48.i, %.lr.ph43.preheader.i ]
-  %46 = load ptr, ptr %.02540.i, align 8, !tbaa !56
-  %47 = load ptr, ptr %0, align 8, !tbaa !50
-  %48 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %47, ptr noundef %46)
-  br i1 %48, label %44, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
+.lr.ph43.i:                                       ; preds = %._crit_edge.i, %46
+  %.02540.i = phi ptr [ %47, %46 ], [ %42, %._crit_edge.i ]
+  %48 = load ptr, ptr %.02540.i, align 8, !tbaa !56
+  %49 = load ptr, ptr %0, align 8, !tbaa !50
+  %50 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %49, ptr noundef %48)
+  br i1 %50, label %46, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
 
-_ZN3euf8ackerman9enable_ccEP3appS2_.exit:         ; preds = %44, %._crit_edge.i
+_ZN3euf8ackerman9enable_ccEP3appS2_.exit:         ; preds = %46, %._crit_edge.i
   tail call void @_ZN3euf8ackerman6insertEP3appS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   tail call void @_ZN3euf8ackerman2gcEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   br label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
@@ -1054,115 +1038,107 @@ define hidden void @_ZN3euf8ackerman10used_cc_ehEP3appS2_(ptr noundef nonnull al
   br i1 %12, label %13, label %_ZN3euf8ackerman2gcEv.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !51
-  %16 = zext i32 %15 to i64
-  %.idx.i = shl nuw nsw i64 %16, 3
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %.ptr46.i = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.not37.i = icmp eq i32 %15, 0
-  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = load i32, ptr %15, align 8, !tbaa !51
+  %17 = zext i32 %16 to i64
+  %.idx.i = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
+  %.not37.i = icmp eq i32 %16, 0
+  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %13
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph.i
-
-18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds nuw i8, ptr %.02438.i, i64 8
-  %.not.i = icmp eq ptr %19, %.ptr46.i
+19:                                               ; preds = %.lr.ph.i
+  %20 = getelementptr inbounds nuw i8, ptr %.02438.i, i64 8
+  %.not.i = icmp eq ptr %20, %18
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
-  %.02438.i = phi ptr [ %19, %18 ], [ %.ptr.i, %.lr.ph.preheader.i ]
-  %20 = load ptr, ptr %.02438.i, align 8, !tbaa !56
-  %21 = load ptr, ptr %0, align 8, !tbaa !50
-  %22 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %21, ptr noundef %20)
-  br i1 %22, label %18, label %_ZN3euf8ackerman2gcEv.exit
+.lr.ph.i:                                         ; preds = %13, %19
+  %.02438.i = phi ptr [ %20, %19 ], [ %14, %13 ]
+  %21 = load ptr, ptr %.02438.i, align 8, !tbaa !56
+  %22 = load ptr, ptr %0, align 8, !tbaa !50
+  %23 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %22, ptr noundef %21)
+  br i1 %23, label %19, label %_ZN3euf8ackerman2gcEv.exit
 
-._crit_edge.i:                                    ; preds = %18, %13
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !51
-  %25 = zext i32 %24 to i64
-  %.idx47.i = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx47.i
-  %.ptr49.i = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %.not3039.i = icmp eq i32 %24, 0
-  br i1 %.not3039.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.preheader.i
+._crit_edge.i:                                    ; preds = %19, %13
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %26 = load i32, ptr %25, align 8, !tbaa !51
+  %27 = zext i32 %26 to i64
+  %.idx46.i = shl nuw nsw i64 %27, 3
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx46.i
+  %.not3039.i = icmp eq i32 %26, 0
+  br i1 %.not3039.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.i
 
-.lr.ph43.preheader.i:                             ; preds = %._crit_edge.i
-  %.ptr48.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  br label %.lr.ph43.i
-
-27:                                               ; preds = %.lr.ph43.i
-  %28 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 8
-  %.not30.i = icmp eq ptr %28, %.ptr49.i
+29:                                               ; preds = %.lr.ph43.i
+  %30 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 8
+  %.not30.i = icmp eq ptr %30, %28
   br i1 %.not30.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.i
 
-.lr.ph43.i:                                       ; preds = %27, %.lr.ph43.preheader.i
-  %.02540.i = phi ptr [ %28, %27 ], [ %.ptr48.i, %.lr.ph43.preheader.i ]
-  %29 = load ptr, ptr %.02540.i, align 8, !tbaa !56
-  %30 = load ptr, ptr %0, align 8, !tbaa !50
-  %31 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %30, ptr noundef %29)
-  br i1 %31, label %27, label %_ZN3euf8ackerman2gcEv.exit
+.lr.ph43.i:                                       ; preds = %._crit_edge.i, %29
+  %.02540.i = phi ptr [ %30, %29 ], [ %24, %._crit_edge.i ]
+  %31 = load ptr, ptr %.02540.i, align 8, !tbaa !56
+  %32 = load ptr, ptr %0, align 8, !tbaa !50
+  %33 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %32, ptr noundef %31)
+  br i1 %33, label %29, label %_ZN3euf8ackerman2gcEv.exit
 
-_ZN3euf8ackerman9enable_ccEP3appS2_.exit:         ; preds = %27, %._crit_edge.i
-  %32 = load i32, ptr %1, align 4, !tbaa !46
-  %33 = load i32, ptr %2, align 4, !tbaa !46
-  %34 = icmp ugt i32 %32, %33
-  %spec.select.i = select i1 %34, ptr %2, ptr %1
-  %spec.select11.i = select i1 %34, ptr %1, ptr %2
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !29
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %spec.select.i, ptr %37, align 8, !tbaa !38
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %spec.select11.i, ptr %38, align 8, !tbaa !44
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store ptr null, ptr %39, align 8, !tbaa !45
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 44
-  store i8 1, ptr %40, align 4, !tbaa !47
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store i32 0, ptr %41, align 8, !tbaa !48
+_ZN3euf8ackerman9enable_ccEP3appS2_.exit:         ; preds = %29, %._crit_edge.i
+  %34 = load i32, ptr %1, align 4, !tbaa !46
+  %35 = load i32, ptr %2, align 4, !tbaa !46
+  %36 = icmp ugt i32 %34, %35
+  %spec.select.i = select i1 %36, ptr %2, ptr %1
+  %spec.select11.i = select i1 %36, ptr %1, ptr %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load ptr, ptr %37, align 8, !tbaa !29
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store ptr %spec.select.i, ptr %39, align 8, !tbaa !38
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store ptr %spec.select11.i, ptr %40, align 8, !tbaa !44
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr null, ptr %41, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 44
+  store i8 1, ptr %42, align 4, !tbaa !47
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  store i32 0, ptr %43, align 8, !tbaa !48
   tail call void @_ZN3euf8ackerman6insertEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %43 = load i32, ptr %42, align 8, !tbaa !28
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %42, align 8, !tbaa !28
-  %45 = load ptr, ptr %0, align 8, !tbaa !50
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 916
-  %47 = load i32, ptr %46, align 4, !tbaa !58
-  %.not.i5 = icmp ugt i32 %44, %47
-  br i1 %.not.i5, label %48, label %_ZN3euf8ackerman2gcEv.exit
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %45 = load i32, ptr %44, align 8, !tbaa !28
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %44, align 8, !tbaa !28
+  %47 = load ptr, ptr %0, align 8, !tbaa !50
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 916
+  %49 = load i32, ptr %48, align 4, !tbaa !58
+  %.not.i5 = icmp ugt i32 %46, %49
+  br i1 %.not.i5, label %50, label %_ZN3euf8ackerman2gcEv.exit
 
-48:                                               ; preds = %_ZN3euf8ackerman9enable_ccEP3appS2_.exit
-  store i32 0, ptr %42, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %51 = load i32, ptr %49, align 4, !tbaa !22
-  %52 = load i32, ptr %50, align 8, !tbaa !24
-  %53 = icmp ugt i32 %51, %52
-  br i1 %53, label %.lr.ph.i7, label %._crit_edge.i6
+50:                                               ; preds = %_ZN3euf8ackerman9enable_ccEP3appS2_.exit
+  store i32 0, ptr %44, align 8, !tbaa !28
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %53 = load i32, ptr %51, align 4, !tbaa !22
+  %54 = load i32, ptr %52, align 8, !tbaa !24
+  %55 = icmp ugt i32 %53, %54
+  br i1 %55, label %.lr.ph.i7, label %._crit_edge.i6
 
-.lr.ph.i7:                                        ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %55
+.lr.ph.i7:                                        ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %57
 
-55:                                               ; preds = %55, %.lr.ph.i7
-  %56 = load ptr, ptr %54, align 8, !tbaa !35
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !32
-  tail call void @_ZN3euf8ackerman6removeEPNS0_9inferenceE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %58)
-  %59 = load i32, ptr %49, align 4, !tbaa !22
-  %60 = load i32, ptr %50, align 8, !tbaa !24
-  %61 = icmp ugt i32 %59, %60
-  br i1 %61, label %55, label %._crit_edge.i6, !llvm.loop !62
+57:                                               ; preds = %57, %.lr.ph.i7
+  %58 = load ptr, ptr %56, align 8, !tbaa !35
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !32
+  tail call void @_ZN3euf8ackerman6removeEPNS0_9inferenceE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %60)
+  %61 = load i32, ptr %51, align 4, !tbaa !22
+  %62 = load i32, ptr %52, align 8, !tbaa !24
+  %63 = icmp ugt i32 %61, %62
+  br i1 %63, label %57, label %._crit_edge.i6, !llvm.loop !62
 
-._crit_edge.i6:                                   ; preds = %55, %48
-  %.lcssa.i = phi i32 [ %52, %48 ], [ %60, %55 ]
-  %62 = mul i32 %.lcssa.i, 110
-  %63 = udiv i32 %62, 100
-  %64 = add nuw nsw i32 %63, 1
-  store i32 %64, ptr %50, align 8, !tbaa !24
+._crit_edge.i6:                                   ; preds = %57, %50
+  %.lcssa.i = phi i32 [ %54, %50 ], [ %62, %57 ]
+  %64 = mul i32 %.lcssa.i, 110
+  %65 = udiv i32 %64, 100
+  %66 = add nuw nsw i32 %65, 1
+  store i32 %66, ptr %52, align 8, !tbaa !24
   br label %_ZN3euf8ackerman2gcEv.exit
 
 _ZN3euf8ackerman2gcEv.exit:                       ; preds = %.lr.ph.i, %.lr.ph43.i, %10, %8, %._crit_edge.i6, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %3

@@ -394,158 +394,157 @@ define internal fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr no
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 3120
   store i8 0, ptr %14, align 8, !tbaa !53
-  br label %_ZL6getFCDPKDsPii.exit34.i
+  br label %_ZL6getFCDPKDsPii.exit36.i
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr @_ZL9g_nfcImpl, align 8, !tbaa !21
   %17 = sext i32 %9 to i64
-  %.idx.i = shl nsw i64 %17, 1
-  %18 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %20 = load i16, ptr %7, align 2, !tbaa !54
-  %21 = zext i16 %20 to i32
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %23 = load i16, ptr %22, align 8, !tbaa !56
-  %24 = icmp ult i16 %20, %23
-  br i1 %24, label %_ZL6getFCDPKDsPii.exit.i, label %25
+  %.idx7.i.i = shl nsw i64 %17, 1
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %19 = load i16, ptr %7, align 2, !tbaa !54
+  %20 = zext i16 %19 to i32
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %22 = load i16, ptr %21, align 8, !tbaa !56
+  %23 = icmp ult i16 %19, %22
+  br i1 %23, label %_ZL6getFCDPKDsPii.exit.i, label %24
 
-25:                                               ; preds = %15
-  %26 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !66
-  %28 = lshr i32 %21, 8
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !67
-  %32 = icmp eq i8 %31, 0
-  %33 = zext i8 %31 to i16
-  %34 = lshr i16 %20, 5
-  %35 = and i16 %34, 7
-  %36 = shl nuw nsw i16 1, %35
-  %37 = and i16 %36, %33
-  %.not16.i.i.i = icmp eq i16 %37, 0
-  %.not.i.i.i = select i1 %32, i1 true, i1 %.not16.i.i.i
-  br i1 %.not.i.i.i, label %_ZL6getFCDPKDsPii.exit.i, label %38
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %26 = load ptr, ptr %25, align 8, !tbaa !66
+  %27 = lshr i32 %20, 8
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
+  %30 = load i8, ptr %29, align 1, !tbaa !67
+  %31 = icmp eq i8 %30, 0
+  %32 = zext i8 %30 to i16
+  %33 = lshr i16 %19, 5
+  %34 = and i16 %33, 7
+  %35 = shl nuw nsw i16 1, %34
+  %36 = and i16 %35, %32
+  %.not16.i.i.i = icmp eq i16 %36, 0
+  %.not.i.i.i = select i1 %31, i1 true, i1 %.not16.i.i.i
+  br i1 %.not.i.i.i, label %_ZL6getFCDPKDsPii.exit.i, label %37
 
-38:                                               ; preds = %25
-  %39 = and i32 %21, 64512
-  %40 = icmp ne i32 %39, 55296
+37:                                               ; preds = %24
+  %38 = and i32 %20, 64512
+  %39 = icmp ne i32 %38, 55296
   %.not15.i.i.i = icmp eq i32 %9, 1
-  %or.cond.i.i.i = select i1 %40, i1 true, i1 %.not15.i.i.i
-  br i1 %or.cond.i.i.i, label %50, label %41
+  %or.cond.i.i.i = select i1 %39, i1 true, i1 %.not15.i.i.i
+  br i1 %or.cond.i.i.i, label %49, label %40
 
-41:                                               ; preds = %38
-  %42 = load i16, ptr %19, align 2, !tbaa !54
-  %43 = zext i16 %42 to i32
-  %44 = and i32 %43, 64512
-  %45 = icmp eq i32 %44, 56320
-  br i1 %45, label %46, label %50
+40:                                               ; preds = %37
+  %41 = load i16, ptr %18, align 2, !tbaa !54
+  %42 = zext i16 %41 to i32
+  %43 = and i32 %42, 64512
+  %44 = icmp eq i32 %43, 56320
+  br i1 %44, label %45, label %49
 
-46:                                               ; preds = %41
-  %47 = shl nuw nsw i32 %21, 10
-  %48 = add nsw i32 %47, -56613888
-  %49 = add nuw nsw i32 %48, %43
-  br label %50
+45:                                               ; preds = %40
+  %46 = shl nuw nsw i32 %20, 10
+  %47 = add nsw i32 %46, -56613888
+  %48 = add nuw nsw i32 %47, %42
+  br label %49
 
-50:                                               ; preds = %46, %41, %38
-  %.012.i.i.i = phi i32 [ %21, %38 ], [ %49, %46 ], [ %21, %41 ]
-  %51 = tail call noundef zeroext i16 @_ZNK6icu_7715Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %16, i32 noundef %.012.i.i.i)
-  %52 = lshr i16 %51, 8
-  %53 = trunc nuw i16 %52 to i8
+49:                                               ; preds = %45, %40, %37
+  %.012.i.i.i = phi i32 [ %20, %37 ], [ %48, %45 ], [ %20, %40 ]
+  %50 = tail call noundef zeroext i16 @_ZNK6icu_7715Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %16, i32 noundef %.012.i.i.i)
+  %51 = lshr i16 %50, 8
+  %52 = trunc nuw i16 %51 to i8
   br label %_ZL6getFCDPKDsPii.exit.i
 
-_ZL6getFCDPKDsPii.exit.i:                         ; preds = %50, %25, %15
-  %.0.i.i.i = phi i8 [ 0, %15 ], [ 0, %25 ], [ %53, %50 ]
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 3120
-  store i8 %.0.i.i.i, ptr %54, align 8, !tbaa !53
-  %55 = add nsw i32 %9, -1
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %7, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !54
-  %59 = and i16 %58, -1024
-  %60 = icmp eq i16 %59, -9216
-  %61 = icmp sgt i32 %9, 1
-  %or.cond.i = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond.i, label %62, label %70
+_ZL6getFCDPKDsPii.exit.i:                         ; preds = %49, %24, %15
+  %.0.i.i.i = phi i8 [ 0, %15 ], [ 0, %24 ], [ %52, %49 ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 3120
+  store i8 %.0.i.i.i, ptr %53, align 8, !tbaa !53
+  %54 = add nsw i32 %9, -1
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i16, ptr %7, i64 %55
+  %57 = load i16, ptr %56, align 2, !tbaa !54
+  %58 = and i16 %57, -1024
+  %59 = icmp eq i16 %58, -9216
+  %60 = icmp sgt i32 %9, 1
+  %or.cond.i = select i1 %59, i1 %60, i1 false
+  br i1 %or.cond.i, label %61, label %69
 
-62:                                               ; preds = %_ZL6getFCDPKDsPii.exit.i
-  %63 = zext nneg i32 %9 to i64
-  %64 = getelementptr i16, ptr %7, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 -4
-  %66 = load i16, ptr %65, align 2, !tbaa !54
-  %67 = and i16 %66, -1024
-  %68 = icmp eq i16 %67, -10240
-  %69 = add nsw i32 %9, -2
-  %spec.select.i = select i1 %68, i32 %69, i32 %55
+61:                                               ; preds = %_ZL6getFCDPKDsPii.exit.i
+  %62 = zext nneg i32 %9 to i64
+  %63 = getelementptr i16, ptr %7, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -4
+  %65 = load i16, ptr %64, align 2, !tbaa !54
+  %66 = and i16 %65, -1024
+  %67 = icmp eq i16 %66, -10240
+  %68 = add nsw i32 %9, -2
+  %spec.select.i = select i1 %67, i32 %68, i32 %54
   %.pre.i = zext nneg i32 %spec.select.i to i64
-  %.phi.trans.insert.i = getelementptr inbounds nuw i16, ptr %7, i64 %.pre.i
-  %.pre40.i = load i16, ptr %.phi.trans.insert.i, align 2, !tbaa !54
-  br label %70
+  br label %69
 
-70:                                               ; preds = %62, %_ZL6getFCDPKDsPii.exit.i
-  %71 = phi i16 [ %.pre40.i, %62 ], [ %58, %_ZL6getFCDPKDsPii.exit.i ]
-  %.pre-phi.i = phi i64 [ %.pre.i, %62 ], [ %56, %_ZL6getFCDPKDsPii.exit.i ]
-  %72 = getelementptr inbounds i16, ptr %7, i64 %.pre-phi.i
-  %73 = load ptr, ptr @_ZL9g_nfcImpl, align 8, !tbaa !21
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 2
-  %75 = zext i16 %71 to i32
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %77 = load i16, ptr %76, align 8, !tbaa !56
-  %78 = icmp ult i16 %71, %77
-  br i1 %78, label %_ZL6getFCDPKDsPii.exit34.i, label %79
+69:                                               ; preds = %61, %_ZL6getFCDPKDsPii.exit.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %61 ], [ %55, %_ZL6getFCDPKDsPii.exit.i ]
+  %.idx.i26.i = shl nsw i64 %.pre-phi.i, 1
+  %70 = getelementptr inbounds i8, ptr %7, i64 %.idx.i26.i
+  %71 = load ptr, ptr @_ZL9g_nfcImpl, align 8, !tbaa !21
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 2
+  %73 = load i16, ptr %70, align 2, !tbaa !54
+  %74 = zext i16 %73 to i32
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %76 = load i16, ptr %75, align 8, !tbaa !56
+  %77 = icmp ult i16 %73, %76
+  br i1 %77, label %_ZL6getFCDPKDsPii.exit36.i, label %78
 
-79:                                               ; preds = %70
-  %80 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  %81 = load ptr, ptr %80, align 8, !tbaa !66
-  %82 = lshr i32 %75, 8
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !67
-  %86 = icmp eq i8 %85, 0
-  %87 = zext i8 %85 to i16
-  %88 = lshr i16 %71, 5
-  %89 = and i16 %88, 7
-  %90 = shl nuw nsw i16 1, %89
-  %91 = and i16 %90, %87
-  %.not16.i.i26.i = icmp eq i16 %91, 0
-  %.not.i.i27.i = select i1 %86, i1 true, i1 %.not16.i.i26.i
-  br i1 %.not.i.i27.i, label %_ZL6getFCDPKDsPii.exit34.i, label %92
+78:                                               ; preds = %69
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 56
+  %80 = load ptr, ptr %79, align 8, !tbaa !66
+  %81 = lshr i32 %74, 8
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 %82
+  %84 = load i8, ptr %83, align 1, !tbaa !67
+  %85 = icmp eq i8 %84, 0
+  %86 = zext i8 %84 to i16
+  %87 = lshr i16 %73, 5
+  %88 = and i16 %87, 7
+  %89 = shl nuw nsw i16 1, %88
+  %90 = and i16 %89, %86
+  %.not16.i.i28.i = icmp eq i16 %90, 0
+  %.not.i.i29.i = select i1 %85, i1 true, i1 %.not16.i.i28.i
+  br i1 %.not.i.i29.i, label %_ZL6getFCDPKDsPii.exit36.i, label %91
 
-92:                                               ; preds = %79
-  %93 = and i32 %75, 64512
-  %94 = icmp ne i32 %93, 55296
-  %.not15.i.i28.i = icmp eq ptr %74, %18
-  %or.cond.i.i29.i = select i1 %94, i1 true, i1 %.not15.i.i28.i
-  br i1 %or.cond.i.i29.i, label %104, label %95
+91:                                               ; preds = %78
+  %92 = and i32 %74, 64512
+  %93 = icmp ne i32 %92, 55296
+  %94 = add nsw i64 %.idx.i26.i, 2
+  %.not15.i.i30.i = icmp eq i64 %94, %.idx7.i.i
+  %or.cond.i.i31.i = select i1 %93, i1 true, i1 %.not15.i.i30.i
+  br i1 %or.cond.i.i31.i, label %104, label %95
 
-95:                                               ; preds = %92
-  %96 = load i16, ptr %74, align 2, !tbaa !54
+95:                                               ; preds = %91
+  %96 = load i16, ptr %72, align 2, !tbaa !54
   %97 = zext i16 %96 to i32
   %98 = and i32 %97, 64512
   %99 = icmp eq i32 %98, 56320
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %95
-  %101 = shl nuw nsw i32 %75, 10
+  %101 = shl nuw nsw i32 %74, 10
   %102 = add nsw i32 %101, -56613888
   %103 = add nuw nsw i32 %102, %97
   br label %104
 
-104:                                              ; preds = %100, %95, %92
-  %.012.i.i31.i = phi i32 [ %75, %92 ], [ %103, %100 ], [ %75, %95 ]
-  %105 = tail call noundef zeroext i16 @_ZNK6icu_7715Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %73, i32 noundef %.012.i.i31.i)
+104:                                              ; preds = %100, %95, %91
+  %.012.i.i33.i = phi i32 [ %74, %91 ], [ %103, %100 ], [ %74, %95 ]
+  %105 = tail call noundef zeroext i16 @_ZNK6icu_7715Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %71, i32 noundef %.012.i.i33.i)
   %106 = trunc i16 %105 to i8
-  br label %_ZL6getFCDPKDsPii.exit34.i
+  br label %_ZL6getFCDPKDsPii.exit36.i
 
-_ZL6getFCDPKDsPii.exit34.i:                       ; preds = %104, %79, %70, %13
-  %.0.i.i33.sink.i = phi i8 [ 0, %13 ], [ 0, %70 ], [ 0, %79 ], [ %106, %104 ]
+_ZL6getFCDPKDsPii.exit36.i:                       ; preds = %104, %78, %69, %13
+  %.0.i.i35.sink.i = phi i8 [ 0, %13 ], [ 0, %69 ], [ 0, %78 ], [ %106, %104 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 3121
-  store i8 %.0.i.i33.sink.i, ptr %107, align 1, !tbaa !68
+  store i8 %.0.i.i35.sink.i, ptr %107, align 1, !tbaa !68
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %109 = load ptr, ptr %108, align 8, !tbaa !38
   %.not24.i = icmp eq ptr %109, null
   br i1 %.not24.i, label %114, label %110
 
-110:                                              ; preds = %_ZL6getFCDPKDsPii.exit34.i
+110:                                              ; preds = %_ZL6getFCDPKDsPii.exit36.i
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %.not25.i = icmp eq ptr %109, %111
   br i1 %.not25.i, label %113, label %112
@@ -558,7 +557,7 @@ _ZL6getFCDPKDsPii.exit34.i:                       ; preds = %104, %79, %70, %13
   store ptr null, ptr %108, align 8, !tbaa !38
   br label %114
 
-114:                                              ; preds = %113, %_ZL6getFCDPKDsPii.exit34.i
+114:                                              ; preds = %113, %_ZL6getFCDPKDsPii.exit36.i
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %116 = load i32, ptr %8, align 8, !tbaa !52
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 3160
@@ -613,7 +612,7 @@ _ZL6getFCDPKDsPii.exit34.i:                       ; preds = %104, %79, %70, %13
   %141 = phi i32 [ %135, %.lr.ph.i.i ], [ %177, %_ZL5getCEPK13UStringSearchj.exit.thread.i.i ]
   %.087.i.i = phi ptr [ %115, %.lr.ph.i.i ], [ %.3.i.i, %_ZL5getCEPK13UStringSearchj.exit.thread.i.i ]
   %.05186.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.354.i.i, %_ZL5getCEPK13UStringSearchj.exit.thread.i.i ]
-  %.06885.i.i = phi i32 [ 256, %.lr.ph.i.i ], [ %.1.i37.i, %_ZL5getCEPK13UStringSearchj.exit.thread.i.i ]
+  %.06885.i.i = phi i32 [ 256, %.lr.ph.i.i ], [ %.1.i39.i, %_ZL5getCEPK13UStringSearchj.exit.thread.i.i ]
   %142 = load i32, ptr %1, align 4, !tbaa !3
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %.critedge.i.i, label %144
@@ -622,8 +621,8 @@ _ZL6getFCDPKDsPii.exit34.i:                       ; preds = %104, %79, %70, %13
   %145 = load i32, ptr %136, align 8, !tbaa !25
   %146 = and i32 %145, %141
   %147 = load i8, ptr %137, align 8, !tbaa !26
-  %.not.i.i35.i = icmp eq i8 %147, 0
-  br i1 %.not.i.i35.i, label %155, label %148
+  %.not.i.i37.i = icmp eq i8 %147, 0
+  br i1 %.not.i.i37.i, label %155, label %148
 
 148:                                              ; preds = %144
   %149 = load i32, ptr %138, align 4, !tbaa !27
@@ -640,16 +639,16 @@ _ZL6getFCDPKDsPii.exit34.i:                       ; preds = %104, %79, %70, %13
   %156 = load i32, ptr %10, align 4, !tbaa !24
   %157 = icmp sgt i32 %156, 2
   %158 = icmp eq i32 %146, 0
-  %or.cond.i.i38.i = select i1 %157, i1 %158, i1 false
-  br i1 %or.cond.i.i38.i, label %_ZL5getCEPK13UStringSearchj.exit.thread74.i.i, label %_ZL5getCEPK13UStringSearchj.exit.i.i
+  %or.cond.i.i40.i = select i1 %157, i1 %158, i1 false
+  br i1 %or.cond.i.i40.i, label %_ZL5getCEPK13UStringSearchj.exit.thread74.i.i, label %_ZL5getCEPK13UStringSearchj.exit.i.i
 
 _ZL5getCEPK13UStringSearchj.exit.i.i:             ; preds = %155, %151, %148
-  %.0.i.i36.i = phi i32 [ %146, %148 ], [ %146, %155 ], [ %154, %151 ]
-  %.not63.i.i = icmp eq i32 %.0.i.i36.i, 0
+  %.0.i.i38.i = phi i32 [ %146, %148 ], [ %146, %155 ], [ %154, %151 ]
+  %.not63.i.i = icmp eq i32 %.0.i.i38.i, 0
   br i1 %.not63.i.i, label %_ZL5getCEPK13UStringSearchj.exit.thread.i.i, label %_ZL5getCEPK13UStringSearchj.exit.thread74.i.i
 
 _ZL5getCEPK13UStringSearchj.exit.thread74.i.i:    ; preds = %_ZL5getCEPK13UStringSearchj.exit.i.i, %155
-  %.0.i77.i.i = phi i32 [ %.0.i.i36.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ 65535, %155 ]
+  %.0.i77.i.i = phi i32 [ %.0.i.i38.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ 65535, %155 ]
   %159 = tail call i32 @ucol_getOffset_77(ptr noundef %.048.i.i)
   %160 = add i32 %.05186.i.i, 1
   %161 = icmp eq i32 %160, %.06885.i.i
@@ -702,7 +701,7 @@ _ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i: ; preds = %_ZL5getCEPK13US
   br label %_ZL5getCEPK13UStringSearchj.exit.thread.i.i
 
 _ZL5getCEPK13UStringSearchj.exit.thread.i.i:      ; preds = %176, %175, %_ZL5getCEPK13UStringSearchj.exit.i.i, %151
-  %.1.i37.i = phi i32 [ %.06885.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %.269101.i.i, %175 ], [ %.269101.i.i, %176 ], [ %.06885.i.i, %151 ]
+  %.1.i39.i = phi i32 [ %.06885.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %.269101.i.i, %175 ], [ %.269101.i.i, %176 ], [ %.06885.i.i, %151 ]
   %.354.i.i = phi i32 [ %.05186.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %160, %175 ], [ %160, %176 ], [ %.05186.i.i, %151 ]
   %.3.i.i = phi ptr [ %.087.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %.020.i102.i.i, %175 ], [ %.020.i102.i.i, %176 ], [ %.087.i.i, %151 ]
   %177 = tail call i32 @ucol_next_77(ptr noundef %.048.i.i, ptr noundef nonnull %1)

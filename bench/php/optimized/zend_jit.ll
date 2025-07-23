@@ -120223,36 +120223,35 @@ define internal fastcc ptr @zend_jit_get_prop_not_accepting_double(ptr noundef r
 8:                                                ; preds = %5
   %9 = and i64 %4, -2
   %10 = inttoptr i64 %9 to ptr
-  %.ptr = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !469
-  %.idx = shl nuw nsw i64 %11, 3
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %.ptr31 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.not32 = icmp eq i64 %11, 0
-  br i1 %.not32, label %.loopexit, label %.lr.ph.preheader
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i64, ptr %10, align 8, !tbaa !469
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
+  %.not31 = icmp eq i64 %12, 0
+  br i1 %.not31, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %8
-  %.01730 = phi ptr [ %7, %.thread ], [ %.ptr31, %8 ]
-  %.01829 = phi ptr [ %2, %.thread ], [ %.ptr, %8 ]
+  %.01730 = phi ptr [ %7, %.thread ], [ %13, %8 ]
+  %.01829 = phi ptr [ %2, %.thread ], [ %11, %8 ]
   br label %.lr.ph
 
-13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %.11924, i64 8
-  %15 = icmp ult ptr %14, %.01730
-  br i1 %15, label %.lr.ph, label %.loopexit
+14:                                               ; preds = %.lr.ph
+  %15 = getelementptr inbounds nuw i8, ptr %.11924, i64 8
+  %16 = icmp ult ptr %15, %.01730
+  br i1 %16, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %13
-  %.11924 = phi ptr [ %14, %13 ], [ %.01829, %.lr.ph.preheader ]
-  %16 = load ptr, ptr %.11924, align 8, !tbaa !471
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %18 = load i32, ptr %17, align 8, !tbaa !428
-  %19 = and i32 %18, 32
-  %.not21 = icmp eq i32 %19, 0
-  br i1 %.not21, label %.loopexit, label %13
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
+  %.11924 = phi ptr [ %15, %14 ], [ %.01829, %.lr.ph.preheader ]
+  %17 = load ptr, ptr %.11924, align 8, !tbaa !471
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load i32, ptr %18, align 8, !tbaa !428
+  %20 = and i32 %19, 32
+  %.not21 = icmp eq i32 %20, 0
+  br i1 %.not21, label %.loopexit, label %14
 
-.loopexit:                                        ; preds = %.lr.ph, %13, %8, %1
-  %20 = phi ptr [ null, %1 ], [ null, %8 ], [ %16, %.lr.ph ], [ null, %13 ]
-  ret ptr %20
+.loopexit:                                        ; preds = %.lr.ph, %14, %8, %1
+  %21 = phi ptr [ null, %1 ], [ null, %8 ], [ %17, %.lr.ph ], [ null, %14 ]
+  ret ptr %21
 }
 
 ; Function Attrs: nounwind uwtable

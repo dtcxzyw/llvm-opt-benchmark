@@ -5926,12 +5926,12 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParseCharC
 39:                                               ; preds = %16
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %172
+  br label %173
 
 41:                                               ; preds = %20
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %172
+  br label %173
 
 43:                                               ; preds = %32, %37
   %44 = phi i64 [ %.pre, %37 ], [ %34, %32 ]
@@ -5950,7 +5950,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParseCharC
   br label %50
 
 50:                                               ; preds = %.lr.ph, %.backedge
-  %51 = phi i64 [ %46, %.lr.ph ], [ %164, %.backedge ]
+  %51 = phi i64 [ %46, %.lr.ph ], [ %165, %.backedge ]
   %.067137 = phi i1 [ true, %.lr.ph ], [ false, %.backedge ]
   %52 = load ptr, ptr %1, align 8, !tbaa !93
   %53 = load i8, ptr %52, align 1, !tbaa !27
@@ -6056,52 +6056,52 @@ _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
 
 98:                                               ; preds = %93
   %99 = getelementptr i8, ptr %52, i64 %51
-  %.ptr47.i = getelementptr i8, ptr %99, i64 -2
+  %100 = getelementptr i8, ptr %99, i64 -2
   %.not3245.i = icmp samesign ult i64 %51, 4
   br i1 %.not3245.i, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %98
-  %100 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %52, i64 2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.preheader.i
-  %.02946.i = phi ptr [ %105, %.critedge2.i ], [ %100, %.lr.ph.preheader.i ]
-  %101 = load i8, ptr %.02946.i, align 1, !tbaa !27
-  %.not33.i = icmp eq i8 %101, 58
-  br i1 %.not33.i, label %102, label %.critedge2.i
+  %.02946.i = phi ptr [ %106, %.critedge2.i ], [ %101, %.lr.ph.preheader.i ]
+  %102 = load i8, ptr %.02946.i, align 1, !tbaa !27
+  %.not33.i = icmp eq i8 %102, 58
+  br i1 %.not33.i, label %103, label %.critedge2.i
 
-102:                                              ; preds = %.lr.ph.i
-  %103 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 1
-  %104 = load i8, ptr %103, align 1, !tbaa !27
-  %.not34.i = icmp eq i8 %104, 93
+103:                                              ; preds = %.lr.ph.i
+  %104 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 1
+  %105 = load i8, ptr %104, align 1, !tbaa !27
+  %.not34.i = icmp eq i8 %105, 93
   br i1 %.not34.i, label %.critedge.i, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %102, %.lr.ph.i
-  %105 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 1
-  %.not32.i = icmp ugt ptr %105, %.ptr47.i
+.critedge2.i:                                     ; preds = %103, %.lr.ph.i
+  %106 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 1
+  %.not32.i = icmp ugt ptr %106, %100
   br i1 %.not32.i, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread, label %.lr.ph.i, !llvm.loop !204
 
-.critedge.i:                                      ; preds = %102
-  %106 = getelementptr i8, ptr %.02946.i, i64 2
-  %107 = ptrtoint ptr %106 to i64
-  %108 = sub i64 %107, %96
+.critedge.i:                                      ; preds = %103
+  %107 = getelementptr i8, ptr %.02946.i, i64 2
+  %108 = ptrtoint ptr %107 to i64
+  %109 = sub i64 %108, %96
   br i1 %.not4.i.i.i, label %.lr.ph.preheader.i.i.i, label %.loopexit108
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.critedge.i
-  %109 = icmp eq ptr %106, %52
-  br i1 %109, label %.lr.ph.i.us.i.i, label %.lr.ph.i.i.i
+  %110 = icmp eq ptr %107, %52
+  br i1 %110, label %.lr.ph.i.us.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.us.i.i:                                  ; preds = %.lr.ph.preheader.i.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i
   %indvars.iv.i.us.i.i = phi i64 [ %indvars.iv.next.i.us.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %110 = getelementptr inbounds nuw %"struct.duckdb_re2::UGroup", ptr @_ZN10duckdb_re212posix_groupsE, i64 %indvars.iv.i.us.i.i
-  %111 = load ptr, ptr %110, align 8, !tbaa !180
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit, label %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i
+  %111 = getelementptr inbounds nuw %"struct.duckdb_re2::UGroup", ptr @_ZN10duckdb_re212posix_groupsE, i64 %indvars.iv.i.us.i.i
+  %112 = load ptr, ptr %111, align 8, !tbaa !180
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit, label %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i
 
 _ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i: ; preds = %.lr.ph.i.us.i.i
-  %char0.i.i = load i8, ptr %111, align 1
-  %113 = icmp eq i8 %char0.i.i, 0
-  br i1 %113, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i
+  %char0.i.i = load i8, ptr %112, align 1
+  %114 = icmp eq i8 %char0.i.i, 0
+  br i1 %114, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i
 
 _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i: ; preds = %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i
   %indvars.iv.next.i.us.i.i = add nuw nsw i64 %indvars.iv.i.us.i.i, 1
@@ -6110,177 +6110,177 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i: ; preds = %_ZN10
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.preheader.i.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %114 = getelementptr inbounds nuw %"struct.duckdb_re2::UGroup", ptr @_ZN10duckdb_re212posix_groupsE, i64 %indvars.iv.i.i.i
-  %115 = load ptr, ptr %114, align 8, !tbaa !180
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i, label %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i
+  %115 = getelementptr inbounds nuw %"struct.duckdb_re2::UGroup", ptr @_ZN10duckdb_re212posix_groupsE, i64 %indvars.iv.i.i.i
+  %116 = load ptr, ptr %115, align 8, !tbaa !180
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i, label %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i
 
 _ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i:    ; preds = %.lr.ph.i.i.i
-  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %115) #35
-  %118 = icmp eq i64 %117, %108
-  br i1 %118, label %119, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i
+  %118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #35
+  %119 = icmp eq i64 %118, %109
+  br i1 %119, label %120, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i
 
-119:                                              ; preds = %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i
-  %120 = icmp eq ptr %115, %52
-  br i1 %120, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i
+120:                                              ; preds = %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i
+  %121 = icmp eq ptr %116, %52
+  br i1 %121, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i
 
-_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i: ; preds = %119
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %115, ptr nonnull readonly %52, i64 %108)
-  %121 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %121, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i
+_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i: ; preds = %120
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %116, ptr nonnull readonly %52, i64 %109)
+  %122 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %122, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i
 
 _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i: ; preds = %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit108, label %.lr.ph.i.i.i, !llvm.loop !184
 
-_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit: ; preds = %119, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i, %.lr.ph.i.us.i.i, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i
-  %spec.select.i.i.ph.i = phi ptr [ %110, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i ], [ %110, %.lr.ph.i.us.i.i ], [ %114, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i ], [ %114, %119 ]
-  %122 = getelementptr inbounds nuw i8, ptr %52, i64 %108
-  store ptr %122, ptr %1, align 8, !tbaa !93
-  %123 = sub i64 %51, %108
-  store i64 %123, ptr %8, align 8, !tbaa !97
-  %124 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.ph.i, i64 8
-  %125 = load i32, ptr %124, align 8, !tbaa !205
-  call fastcc void @_ZN10duckdb_re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %95, ptr noundef nonnull %spec.select.i.i.ph.i, i32 noundef %125, i32 noundef %94)
+_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit: ; preds = %120, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i, %.lr.ph.i.us.i.i, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i
+  %spec.select.i.i.ph.i = phi ptr [ %111, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i ], [ %111, %.lr.ph.i.us.i.i ], [ %115, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i ], [ %115, %120 ]
+  %123 = getelementptr inbounds nuw i8, ptr %52, i64 %109
+  store ptr %123, ptr %1, align 8, !tbaa !93
+  %124 = sub i64 %51, %109
+  store i64 %124, ptr %8, align 8, !tbaa !97
+  %125 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.ph.i, i64 8
+  %126 = load i32, ptr %125, align 8, !tbaa !205
+  call fastcc void @_ZN10duckdb_re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %95, ptr noundef nonnull %spec.select.i.i.ph.i, i32 noundef %126, i32 noundef %94)
   br label %.backedge
 
 .loopexit108:                                     ; preds = %.critedge.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i
   store i32 4, ptr %3, align 8, !tbaa !58
-  %126 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %52, ptr %126, align 8, !tbaa !17
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %52, ptr %127, align 8, !tbaa !17
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %108, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !18
+  store i64 %109, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !18
   call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   br label %.loopexit112
 
 _ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread: ; preds = %.critedge2.i, %98, %93, %89, %86
-  %127 = icmp eq i8 %53, 92
-  %or.cond205 = and i1 %87, %127
-  br i1 %or.cond205, label %128, label %.thread172
+  %128 = icmp eq i8 %53, 92
+  %or.cond205 = and i1 %87, %128
+  br i1 %or.cond205, label %129, label %.thread172
 
-128:                                              ; preds = %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread
-  %129 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %130 = load i8, ptr %129, align 1, !tbaa !27
-  switch i8 %130, label %.thread172 [
-    i8 112, label %131
-    i8 80, label %131
+129:                                              ; preds = %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread
+  %130 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  %131 = load i8, ptr %130, align 1, !tbaa !27
+  switch i8 %131, label %.thread172 [
+    i8 112, label %132
+    i8 80, label %132
   ]
 
-131:                                              ; preds = %128, %128
-  %132 = load i32, ptr %0, align 8, !tbaa !7
-  %133 = load ptr, ptr %23, align 8, !tbaa !27
-  %134 = call noundef i32 @_ZN10duckdb_re217ParseUnicodeGroupEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE(ptr noundef nonnull %1, i32 noundef %132, ptr noundef %133, ptr noundef %3)
-  switch i32 %134, label %.thread172 [
+132:                                              ; preds = %129, %129
+  %133 = load i32, ptr %0, align 8, !tbaa !7
+  %134 = load ptr, ptr %23, align 8, !tbaa !27
+  %135 = call noundef i32 @_ZN10duckdb_re217ParseUnicodeGroupEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE(ptr noundef nonnull %1, i32 noundef %133, ptr noundef %134, ptr noundef %3)
+  switch i32 %135, label %.thread172 [
     i32 0, label %.backedge
-    i32 1, label %135
+    i32 1, label %136
   ]
 
-135:                                              ; preds = %131
+136:                                              ; preds = %132
   call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   br label %.loopexit112
 
-.thread172:                                       ; preds = %58, %63, %128, %131, %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread
-  %136 = load i32, ptr %0, align 8, !tbaa !7
-  %137 = and i32 %136, 128
-  %.not.i80 = icmp eq i32 %137, 0
-  br i1 %.not.i80, label %.loopexit, label %138
+.thread172:                                       ; preds = %58, %63, %129, %132, %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread
+  %137 = load i32, ptr %0, align 8, !tbaa !7
+  %138 = and i32 %137, 128
+  %.not.i80 = icmp eq i32 %138, 0
+  br i1 %.not.i80, label %.loopexit, label %139
 
-138:                                              ; preds = %.thread172
-  %139 = load i64, ptr %8, align 8, !tbaa !97
-  %140 = icmp ult i64 %139, 2
-  br i1 %140, label %.loopexit, label %141
+139:                                              ; preds = %.thread172
+  %140 = load i64, ptr %8, align 8, !tbaa !97
+  %141 = icmp ult i64 %140, 2
+  br i1 %141, label %.loopexit, label %142
 
-141:                                              ; preds = %138
-  %142 = load ptr, ptr %1, align 8, !tbaa !93
-  %143 = load i8, ptr %142, align 1, !tbaa !27
-  %.not8.i = icmp ne i8 %143, 92
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %1, align 8, !tbaa !93
+  %144 = load i8, ptr %143, align 1, !tbaa !27
+  %.not8.i = icmp ne i8 %144, 92
   %brmerge = select i1 %.not8.i, i1 true, i1 %.not4.i.i.i82
   br i1 %brmerge, label %.loopexit, label %.lr.ph.i.i.i85
 
-.lr.ph.i.i.i85:                                   ; preds = %141, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88
-  %indvars.iv.i.i.i86 = phi i64 [ %indvars.iv.next.i.i.i89, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88 ], [ 0, %141 ]
-  %144 = getelementptr inbounds nuw %"struct.duckdb_re2::UGroup", ptr @_ZN10duckdb_re211perl_groupsE, i64 %indvars.iv.i.i.i86
-  %145 = load ptr, ptr %144, align 8, !tbaa !180
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88, label %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i87
+.lr.ph.i.i.i85:                                   ; preds = %142, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88
+  %indvars.iv.i.i.i86 = phi i64 [ %indvars.iv.next.i.i.i89, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88 ], [ 0, %142 ]
+  %145 = getelementptr inbounds nuw %"struct.duckdb_re2::UGroup", ptr @_ZN10duckdb_re211perl_groupsE, i64 %indvars.iv.i.i.i86
+  %146 = load ptr, ptr %145, align 8, !tbaa !180
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88, label %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i87
 
 _ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i87:  ; preds = %.lr.ph.i.i.i85
-  %147 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %145) #35
-  %148 = icmp eq i64 %147, 2
-  br i1 %148, label %149, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88
+  %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #35
+  %149 = icmp eq i64 %148, 2
+  br i1 %149, label %150, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88
 
-149:                                              ; preds = %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i87
-  %150 = icmp eq ptr %145, %142
-  br i1 %150, label %.thread173, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i91
+150:                                              ; preds = %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i87
+  %151 = icmp eq ptr %146, %143
+  br i1 %151, label %.thread173, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i91
 
-_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i91: ; preds = %149
-  %bcmp.i.i.i.i92 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %145, ptr noundef nonnull readonly dereferenceable(2) %142, i64 2)
-  %151 = icmp eq i32 %bcmp.i.i.i.i92, 0
-  br i1 %151, label %.thread173, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88
+_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i91: ; preds = %150
+  %bcmp.i.i.i.i92 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %146, ptr noundef nonnull readonly dereferenceable(2) %143, i64 2)
+  %152 = icmp eq i32 %bcmp.i.i.i.i92, 0
+  br i1 %152, label %.thread173, label %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88
 
 _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88: ; preds = %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i91, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i87, %.lr.ph.i.i.i85
   %indvars.iv.next.i.i.i89 = add nuw nsw i64 %indvars.iv.i.i.i86, 1
   %exitcond.not.i.i.i90 = icmp eq i64 %indvars.iv.next.i.i.i89, %wide.trip.count.i.i.i84
   br i1 %exitcond.not.i.i.i90, label %.loopexit, label %.lr.ph.i.i.i85, !llvm.loop !184
 
-.thread173:                                       ; preds = %149, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i91
-  %152 = getelementptr inbounds nuw i8, ptr %142, i64 2
-  store ptr %152, ptr %1, align 8, !tbaa !93
-  %153 = add i64 %139, -2
-  store i64 %153, ptr %8, align 8, !tbaa !97
-  %154 = load ptr, ptr %23, align 8, !tbaa !27
-  %155 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %156 = load i32, ptr %155, align 8, !tbaa !205
-  call fastcc void @_ZN10duckdb_re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %154, ptr noundef nonnull %144, i32 noundef %156, i32 noundef %136)
+.thread173:                                       ; preds = %150, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i91
+  %153 = getelementptr inbounds nuw i8, ptr %143, i64 2
+  store ptr %153, ptr %1, align 8, !tbaa !93
+  %154 = add i64 %140, -2
+  store i64 %154, ptr %8, align 8, !tbaa !97
+  %155 = load ptr, ptr %23, align 8, !tbaa !27
+  %156 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %157 = load i32, ptr %156, align 8, !tbaa !205
+  call fastcc void @_ZN10duckdb_re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %155, ptr noundef nonnull %145, i32 noundef %157, i32 noundef %137)
   br label %.backedge
 
-.loopexit:                                        ; preds = %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88, %141, %.thread172, %138
+.loopexit:                                        ; preds = %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88, %142, %.thread172, %139
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
   store i32 0, ptr %7, align 4, !tbaa !47
   store i32 0, ptr %49, align 4, !tbaa !168
-  %157 = call noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState12ParseCCRangeEPNS_11StringPieceEPNS_9RuneRangeERKS2_PNS_12RegexpStatusE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %3)
-  br i1 %157, label %158, label %.loopexit112.loopexit
+  %158 = call noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState12ParseCCRangeEPNS_11StringPieceEPNS_9RuneRangeERKS2_PNS_12RegexpStatusE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %3)
+  br i1 %158, label %159, label %.loopexit112.loopexit
 
-158:                                              ; preds = %.loopexit
-  %159 = load ptr, ptr %23, align 8, !tbaa !27
-  %160 = load i32, ptr %7, align 4, !tbaa !47
-  %161 = load i32, ptr %49, align 4, !tbaa !168
-  %162 = load i32, ptr %0, align 8, !tbaa !7
-  %163 = or i32 %162, 4
-  call void @_ZN10duckdb_re216CharClassBuilder13AddRangeFlagsEiiNS_6Regexp10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(64) %159, i32 noundef %160, i32 noundef %161, i32 noundef %163)
+159:                                              ; preds = %.loopexit
+  %160 = load ptr, ptr %23, align 8, !tbaa !27
+  %161 = load i32, ptr %7, align 4, !tbaa !47
+  %162 = load i32, ptr %49, align 4, !tbaa !168
+  %163 = load i32, ptr %0, align 8, !tbaa !7
+  %164 = or i32 %163, 4
+  call void @_ZN10duckdb_re216CharClassBuilder13AddRangeFlagsEiiNS_6Regexp10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(64) %160, i32 noundef %161, i32 noundef %162, i32 noundef %164)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
   br label %.backedge
 
-.backedge:                                        ; preds = %158, %.thread173, %131, %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit
-  %164 = load i64, ptr %8, align 8, !tbaa !97
-  %165 = icmp eq i64 %164, 0
-  br i1 %165, label %._crit_edge, label %50, !llvm.loop !206
+.backedge:                                        ; preds = %159, %.thread173, %132, %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit
+  %165 = load i64, ptr %8, align 8, !tbaa !97
+  %166 = icmp eq i64 %165, 0
+  br i1 %166, label %._crit_edge, label %50, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %.backedge, %22, %43
   store i32 5, ptr %3, align 8, !tbaa !58
-  %166 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !16
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !16
   call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   br label %.loopexit112
 
 .critedge:                                        ; preds = %50
-  %167 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  store ptr %167, ptr %1, align 8, !tbaa !93
-  %168 = add i64 %51, -1
-  store i64 %168, ptr %8, align 8, !tbaa !97
-  br i1 %31, label %169, label %171
+  %168 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store ptr %168, ptr %1, align 8, !tbaa !93
+  %169 = add i64 %51, -1
+  store i64 %169, ptr %8, align 8, !tbaa !97
+  br i1 %31, label %170, label %172
 
-169:                                              ; preds = %.critedge
-  %170 = load ptr, ptr %23, align 8, !tbaa !27
-  call void @_ZN10duckdb_re216CharClassBuilder6NegateEv(ptr noundef nonnull align 8 dereferenceable(64) %170)
-  br label %171
+170:                                              ; preds = %.critedge
+  %171 = load ptr, ptr %23, align 8, !tbaa !27
+  call void @_ZN10duckdb_re216CharClassBuilder6NegateEv(ptr noundef nonnull align 8 dereferenceable(64) %171)
+  br label %172
 
-171:                                              ; preds = %169, %.critedge
+172:                                              ; preds = %170, %.critedge
   store ptr %17, ptr %2, align 8, !tbaa !63
   br label %.loopexit112
 
-172:                                              ; preds = %41, %39
+173:                                              ; preds = %41, %39
   %.sink = phi ptr [ %21, %41 ], [ %17, %39 ]
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sink) #30
@@ -6292,8 +6292,8 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i88: ; preds = %_ZN10d
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
   br label %.loopexit112
 
-.loopexit112:                                     ; preds = %.loopexit112.loopexit, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread, %.loopexit108, %135, %._crit_edge, %171, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %._crit_edge ], [ true, %171 ], [ false, %135 ], [ false, %.loopexit108 ], [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread ], [ false, %.loopexit112.loopexit ]
+.loopexit112:                                     ; preds = %.loopexit112.loopexit, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread, %.loopexit108, %136, %._crit_edge, %172, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %._crit_edge ], [ true, %172 ], [ false, %136 ], [ false, %.loopexit108 ], [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread ], [ false, %.loopexit112.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
   ret i1 %.0
 }

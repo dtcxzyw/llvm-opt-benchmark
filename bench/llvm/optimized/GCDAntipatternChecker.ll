@@ -12453,111 +12453,110 @@ _ZN5clang12ast_matchers8internal30matcher_hasAnyArgument0MatcherINS_15ObjCMessag
 define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30matcher_hasAnyArgument0MatcherINS_15ObjCMessageExprENS1_7MatcherINS_4ExprEEEE7matchesERKS3_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #4 comdat align 2 {
   %5 = alloca %"class.clang::DynTypedNode", align 8
   %6 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load i32, ptr %7, align 8
-  %9 = and i32 %8, 65535
-  %10 = shl nuw nsw i32 %9, 3
-  %.idx = zext nneg i32 %10 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr30 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.not24 = icmp eq i32 %9, 0
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = load i32, ptr %8, align 8
+  %10 = shl i32 %9, 3
+  %11 = and i32 %10, 524280
+  %.idx = zext nneg i32 %11 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %.not24 = icmp eq i32 %11, 0
   br i1 %.not24, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %20
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %21
 
-18:                                               ; preds = %46
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 8
-  %.not = icmp eq ptr %19, %.ptr30
-  br i1 %.not, label %.thread, label %20
+19:                                               ; preds = %47
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 8
+  %.not = icmp eq ptr %20, %12
+  br i1 %.not, label %.thread, label %21
 
-20:                                               ; preds = %.lr.ph, %18
-  %.sroa.018.025 = phi ptr [ %.ptr, %.lr.ph ], [ %19, %18 ]
-  %21 = load ptr, ptr %.sroa.018.025, align 8, !tbaa !1050
-  %22 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal14ASTMatchFinder32isTraversalIgnoringImplicitNodesEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  br i1 %22, label %23, label %27
+21:                                               ; preds = %.lr.ph, %19
+  %.sroa.018.025 = phi ptr [ %7, %.lr.ph ], [ %20, %19 ]
+  %22 = load ptr, ptr %.sroa.018.025, align 8, !tbaa !1050
+  %23 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal14ASTMatchFinder32isTraversalIgnoringImplicitNodesEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %20
-  %24 = load i16, ptr %21, align 8
-  %25 = and i16 %24, 511
-  %26 = icmp eq i16 %25, 114
-  br i1 %26, label %.thread, label %27
+24:                                               ; preds = %21
+  %25 = load i16, ptr %22, align 8
+  %26 = and i16 %25, 511
+  %27 = icmp eq i16 %26, 114
+  br i1 %27, label %.thread, label %28
 
-27:                                               ; preds = %23, %20
+28:                                               ; preds = %24, %21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #19
-  store ptr %12, ptr %6, align 8, !tbaa !73
-  store i32 0, ptr %13, align 8, !tbaa !70
-  store i32 1, ptr %14, align 4, !tbaa !80
-  %28 = load i32, ptr %15, align 8, !tbaa !70
-  %.not.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit, label %29
+  store ptr %13, ptr %6, align 8, !tbaa !73
+  store i32 0, ptr %14, align 8, !tbaa !70
+  store i32 1, ptr %15, align 4, !tbaa !80
+  %29 = load i32, ptr %16, align 8, !tbaa !70
+  %.not.i.i.i = icmp eq i32 %29, 0
+  br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit, label %30
 
-29:                                               ; preds = %27
-  %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12ast_matchers8internal13BoundNodesMapEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %3)
+30:                                               ; preds = %28
+  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12ast_matchers8internal13BoundNodesMapEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit
 
-_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit: ; preds = %27, %29
+_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit: ; preds = %28, %30
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !1168)
   call void @llvm.experimental.noalias.scope.decl(metadata !1171)
-  %31 = call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(16) %21) #19, !noalias !1174
-  store i32 %31, ptr %5, align 8, !tbaa !10, !alias.scope !1174
-  store ptr %21, ptr %17, align 8, !tbaa !14, !alias.scope !1174
-  %32 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %2, ptr noundef nonnull %6) #19
+  %32 = call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(16) %22) #19, !noalias !1174
+  store i32 %32, ptr %5, align 8, !tbaa !10, !alias.scope !1174
+  store ptr %22, ptr %18, align 8, !tbaa !14, !alias.scope !1174
+  %33 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %2, ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #19
-  br i1 %32, label %33, label %35
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit
-  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12ast_matchers8internal13BoundNodesMapEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %6)
-  br label %35
+34:                                               ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit
+  %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12ast_matchers8internal13BoundNodesMapEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %6)
+  br label %36
 
-35:                                               ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit, %33
-  %36 = load ptr, ptr %6, align 8, !tbaa !73
-  %37 = load i32, ptr %13, align 8, !tbaa !70
-  %.not4.i.i.i = icmp eq i32 %37, 0
+36:                                               ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit, %34
+  %37 = load ptr, ptr %6, align 8, !tbaa !73
+  %38 = load i32, ptr %14, align 8, !tbaa !70
+  %.not4.i.i.i = icmp eq i32 %38, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.i.preheader.i.i:                           ; preds = %35
-  %38 = zext i32 %37 to i64
-  %.idx.i.i = mul nuw nsw i64 %38, 48
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i
+.lr.ph.i.preheader.i.i:                           ; preds = %36
+  %39 = zext i32 %38 to i64
+  %.idx.i.i = mul nuw nsw i64 %39, 48
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
-  %.05.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %39, %.lr.ph.i.preheader.i.i ]
-  %40 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -48
-  %41 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -32
-  %42 = load ptr, ptr %41, align 8, !tbaa !74
-  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef %42)
-  %.not.i.i.i16 = icmp eq ptr %36, %40
+  %.05.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %40, %.lr.ph.i.preheader.i.i ]
+  %41 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -48
+  %42 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -32
+  %43 = load ptr, ptr %42, align 8, !tbaa !74
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef %43)
+  %.not.i.i.i16 = icmp eq ptr %37, %41
   br i1 %.not.i.i.i16, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !79
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
   %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !73
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.loopexit.i.i, %35
-  %43 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.loopexit.i.i ], [ %36, %35 ]
-  %44 = icmp eq ptr %43, %12
-  br i1 %44, label %46, label %45
+_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.loopexit.i.i, %36
+  %44 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.loopexit.i.i ], [ %37, %36 ]
+  %45 = icmp eq ptr %44, %13
+  br i1 %45, label %47, label %46
 
-45:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.i.i
-  call void @free(ptr noundef %43) #19
-  br label %46
+46:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.i.i
+  call void @free(ptr noundef %44) #19
+  br label %47
 
-46:                                               ; preds = %45, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.i.i
+47:                                               ; preds = %46, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapELb0EE13destroy_rangeEPS4_S6_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #19
-  br i1 %32, label %.thread, label %18
+  br i1 %33, label %.thread, label %19
 
-.thread:                                          ; preds = %46, %18, %23, %4
-  %not.switch = phi i1 [ false, %4 ], [ false, %23 ], [ false, %18 ], [ true, %46 ]
+.thread:                                          ; preds = %47, %19, %24, %4
+  %not.switch = phi i1 [ false, %4 ], [ false, %24 ], [ false, %19 ], [ true, %47 ]
   ret i1 %not.switch
 }
 

@@ -77,7 +77,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %trunc = trunc i32 %7 to i16
   switch i16 %trunc, label %.thread98 [
     i16 0, label %8
-    i16 1, label %179
+    i16 1, label %181
   ]
 
 8:                                                ; preds = %tailrecurse
@@ -99,23 +99,23 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !25
   switch i32 %16, label %.thread98 [
-    i32 0, label %common.ret.loopexit226
-    i32 1, label %common.ret263
+    i32 0, label %common.ret.loopexit223
+    i32 1, label %common.ret260
     i32 8, label %17
     i32 5, label %23
-    i32 6, label %33
+    i32 6, label %34
     i32 4, label %tailrecurse.backedge
-    i32 2, label %48
-    i32 7, label %57
-    i32 9, label %66
+    i32 2, label %50
+    i32 7, label %59
+    i32 9, label %68
   ]
 
-common.ret.loopexit226:                           ; preds = %_ZNK3app13get_decl_kindEv.exit
-  br label %common.ret263
+common.ret.loopexit223:                           ; preds = %_ZNK3app13get_decl_kindEv.exit
+  br label %common.ret260
 
-common.ret263:                                    ; preds = %173, %66, %_ZNK8rational9get_int64Ev.exit94, %185, %.thread98, %23, %33, %common.ret.loopexit226, %_ZNK3app13get_decl_kindEv.exit, %.lr.ph144, %28, %.lr.ph, %38, %174, %160, %155, %147, %139, %130, %121, %112, %103, %71, %57, %48, %17
-  %common.ret263.op = phi float [ %22, %17 ], [ %56, %48 ], [ %65, %57 ], [ %76, %71 ], [ %111, %103 ], [ %120, %112 ], [ %129, %121 ], [ %138, %130 ], [ %146, %139 ], [ %154, %147 ], [ %159, %155 ], [ %167, %160 ], [ %178, %174 ], [ 1.000000e+00, %.thread98 ], [ %192, %185 ], [ 1.000000e+00, %173 ], [ 1.000000e+00, %66 ], [ %91, %_ZNK8rational9get_int64Ev.exit94 ], [ 1.000000e+00, %23 ], [ 0.000000e+00, %33 ], [ 1.000000e+00, %common.ret.loopexit226 ], [ 0.000000e+00, %_ZNK3app13get_decl_kindEv.exit ], [ 1.000000e+00, %28 ], [ 0.000000e+00, %.lr.ph144 ], [ 0.000000e+00, %38 ], [ 1.000000e+00, %.lr.ph ]
-  ret float %common.ret263.op
+common.ret260:                                    ; preds = %175, %68, %_ZNK8rational9get_int64Ev.exit94, %187, %.thread98, %23, %34, %common.ret.loopexit223, %_ZNK3app13get_decl_kindEv.exit, %.lr.ph144, %29, %.lr.ph, %40, %176, %162, %157, %149, %141, %132, %123, %114, %105, %73, %59, %50, %17
+  %common.ret260.op = phi float [ %22, %17 ], [ %58, %50 ], [ %67, %59 ], [ %78, %73 ], [ %113, %105 ], [ %122, %114 ], [ %131, %123 ], [ %140, %132 ], [ %148, %141 ], [ %156, %149 ], [ %161, %157 ], [ %169, %162 ], [ %180, %176 ], [ 1.000000e+00, %.thread98 ], [ %194, %187 ], [ 1.000000e+00, %175 ], [ 1.000000e+00, %68 ], [ %93, %_ZNK8rational9get_int64Ev.exit94 ], [ 1.000000e+00, %23 ], [ 0.000000e+00, %34 ], [ 1.000000e+00, %common.ret.loopexit223 ], [ 0.000000e+00, %_ZNK3app13get_decl_kindEv.exit ], [ 1.000000e+00, %29 ], [ 0.000000e+00, %.lr.ph144 ], [ 0.000000e+00, %40 ], [ 1.000000e+00, %.lr.ph ]
+  ret float %common.ret260.op
 
 17:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
@@ -123,318 +123,310 @@ common.ret263:                                    ; preds = %173, %66, %_ZNK8rat
   %20 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %19)
   %21 = fcmp oeq float %20, 0.000000e+00
   %22 = select i1 %21, float 1.000000e+00, float 0.000000e+00
-  br label %common.ret263
+  br label %common.ret260
 
 23:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %24 = getelementptr inbounds nuw i8, ptr %.tr106, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !28
-  %26 = zext i32 %25 to i64
-  %.idx149 = shl nuw nsw i64 %26, 3
-  %27 = getelementptr inbounds nuw i8, ptr %.tr106, i64 %.idx149
-  %.ptr151 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.not90142 = icmp eq i32 %25, 0
-  br i1 %.not90142, label %common.ret263, label %.lr.ph144.preheader
+  %24 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.tr106, i64 24
+  %26 = load i32, ptr %25, align 8, !tbaa !28
+  %27 = zext i32 %26 to i64
+  %.idx148 = shl nuw nsw i64 %27, 3
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx148
+  %.not90142 = icmp eq i32 %26, 0
+  br i1 %.not90142, label %common.ret260, label %.lr.ph144
 
-.lr.ph144.preheader:                              ; preds = %23
-  %.ptr150 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  br label %.lr.ph144
+29:                                               ; preds = %.lr.ph144
+  %30 = getelementptr inbounds nuw i8, ptr %.081143, i64 8
+  %.not90 = icmp eq ptr %30, %28
+  br i1 %.not90, label %common.ret260, label %.lr.ph144
 
-28:                                               ; preds = %.lr.ph144
-  %29 = getelementptr inbounds nuw i8, ptr %.081143, i64 8
-  %.not90 = icmp eq ptr %29, %.ptr151
-  br i1 %.not90, label %common.ret263, label %.lr.ph144
+.lr.ph144:                                        ; preds = %23, %29
+  %.081143 = phi ptr [ %30, %29 ], [ %24, %23 ]
+  %31 = load ptr, ptr %.081143, align 8, !tbaa !26
+  %32 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %31)
+  %33 = fcmp une float %32, 0.000000e+00
+  br i1 %33, label %29, label %common.ret260
 
-.lr.ph144:                                        ; preds = %.lr.ph144.preheader, %28
-  %.081143 = phi ptr [ %29, %28 ], [ %.ptr150, %.lr.ph144.preheader ]
-  %30 = load ptr, ptr %.081143, align 8, !tbaa !26
-  %31 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %30)
-  %32 = fcmp une float %31, 0.000000e+00
-  br i1 %32, label %28, label %common.ret263
+34:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
+  %35 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.tr106, i64 24
+  %37 = load i32, ptr %36, align 8, !tbaa !28
+  %38 = zext i32 %37 to i64
+  %.idx = shl nuw nsw i64 %38, 3
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
+  %.not138 = icmp eq i32 %37, 0
+  br i1 %.not138, label %common.ret260, label %.lr.ph
 
-33:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %34 = getelementptr inbounds nuw i8, ptr %.tr106, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !28
-  %36 = zext i32 %35 to i64
-  %.idx = shl nuw nsw i64 %36, 3
-  %37 = getelementptr inbounds nuw i8, ptr %.tr106, i64 %.idx
-  %.ptr148 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %.not138 = icmp eq i32 %35, 0
-  br i1 %.not138, label %common.ret263, label %.lr.ph.preheader
+40:                                               ; preds = %.lr.ph
+  %41 = getelementptr inbounds nuw i8, ptr %.082139, i64 8
+  %.not = icmp eq ptr %41, %39
+  br i1 %.not, label %common.ret260, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %33
-  %.ptr = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  br label %.lr.ph
-
-38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds nuw i8, ptr %.082139, i64 8
-  %.not = icmp eq ptr %39, %.ptr148
-  br i1 %.not, label %common.ret263, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %.082139 = phi ptr [ %39, %38 ], [ %.ptr, %.lr.ph.preheader ]
-  %40 = load ptr, ptr %.082139, align 8, !tbaa !26
-  %41 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %40)
-  %42 = fcmp oeq float %41, 0.000000e+00
-  br i1 %42, label %38, label %common.ret263
+.lr.ph:                                           ; preds = %34, %40
+  %.082139 = phi ptr [ %41, %40 ], [ %35, %34 ]
+  %42 = load ptr, ptr %.082139, align 8, !tbaa !26
+  %43 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %42)
+  %44 = fcmp oeq float %43, 0.000000e+00
+  br i1 %44, label %40, label %common.ret260
 
 tailrecurse.backedge:                             ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %43 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !26
-  %45 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %44)
-  %46 = fcmp une float %45, 0.000000e+00
-  %.sink = select i1 %46, i64 40, i64 48
-  %47 = getelementptr inbounds nuw i8, ptr %.tr106, i64 %.sink
-  %.tr106.be = load ptr, ptr %47, align 8, !tbaa !26
+  %45 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !26
+  %47 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %46)
+  %48 = fcmp une float %47, 0.000000e+00
+  %.sink = select i1 %48, i64 40, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %.tr106, i64 %.sink
+  %.tr106.be = load ptr, ptr %49, align 8, !tbaa !26
   br label %tailrecurse
 
-48:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %49 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !26
-  %51 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %50)
-  %52 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !26
-  %54 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %53)
-  %55 = fcmp oeq float %51, %54
-  %56 = select i1 %55, float 1.000000e+00, float 0.000000e+00
-  br label %common.ret263
+50:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
+  %51 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %52 = load ptr, ptr %51, align 8, !tbaa !26
+  %53 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %52)
+  %54 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %55 = load ptr, ptr %54, align 8, !tbaa !26
+  %56 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %55)
+  %57 = fcmp oeq float %53, %56
+  %58 = select i1 %57, float 1.000000e+00, float 0.000000e+00
+  br label %common.ret260
 
-57:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %58 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !26
-  %60 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %59)
-  %61 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !26
-  %63 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %62)
-  %64 = fcmp une float %60, %63
-  %65 = select i1 %64, float 1.000000e+00, float 0.000000e+00
-  br label %common.ret263
+59:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
+  %60 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %61 = load ptr, ptr %60, align 8, !tbaa !26
+  %62 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %61)
+  %63 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %64 = load ptr, ptr %63, align 8, !tbaa !26
+  %65 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %64)
+  %66 = fcmp une float %62, %65
+  %67 = select i1 %66, float 1.000000e+00, float 0.000000e+00
+  br label %common.ret260
 
-66:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %67 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !26
-  %69 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %68)
-  %70 = fcmp oeq float %69, 0.000000e+00
-  br i1 %70, label %common.ret263, label %71
+68:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
+  %69 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %70 = load ptr, ptr %69, align 8, !tbaa !26
+  %71 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %70)
+  %72 = fcmp oeq float %71, 0.000000e+00
+  br i1 %72, label %common.ret260, label %73
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %73 = load ptr, ptr %72, align 8, !tbaa !26
-  %74 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %73)
-  %75 = fcmp une float %74, 0.000000e+00
-  %76 = select i1 %75, float 1.000000e+00, float 0.000000e+00
-  br label %common.ret263
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %75 = load ptr, ptr %74, align 8, !tbaa !26
+  %76 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %75)
+  %77 = fcmp une float %76, 0.000000e+00
+  %78 = select i1 %77, float 1.000000e+00, float 0.000000e+00
+  br label %common.ret260
 
 _ZNK3app13get_decl_kindEv.exit93:                 ; preds = %_ZNK3app13get_family_idEv.exit
-  %77 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !25
-  switch i32 %78, label %.thread98 [
-    i32 0, label %79
-    i32 2, label %103
-    i32 3, label %112
-    i32 4, label %121
-    i32 5, label %130
-    i32 6, label %139
-    i32 7, label %147
-    i32 8, label %155
-    i32 9, label %160
-    i32 10, label %168
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %80 = load i32, ptr %79, align 4, !tbaa !25
+  switch i32 %80, label %.thread98 [
+    i32 0, label %81
+    i32 2, label %105
+    i32 3, label %114
+    i32 4, label %123
+    i32 5, label %132
+    i32 6, label %141
+    i32 7, label %149
+    i32 8, label %157
+    i32 9, label %162
+    i32 10, label %170
   ]
 
-79:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit93
+81:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit93
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
-  %80 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !29
-  %82 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9parameter12get_rationalEv(ptr noundef nonnull align 8 dereferenceable(16) %81)
-  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %82)
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %83 = load ptr, ptr %82, align 8, !tbaa !29
+  %84 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9parameter12get_rationalEv(ptr noundef nonnull align 8 dereferenceable(16) %83)
+  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %84)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   invoke void @_Z9numeratorRK8rational(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %83 unwind label %92
+          to label %85 unwind label %94
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !30
-  %85 = invoke noundef i64 @_ZNK11mpz_managerILb1EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %84, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZNK8rational9get_int64Ev.exit unwind label %94
+85:                                               ; preds = %81
+  %86 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !30
+  %87 = invoke noundef i64 @_ZNK11mpz_managerILb1EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %86, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %_ZNK8rational9get_int64Ev.exit unwind label %96
 
-_ZNK8rational9get_int64Ev.exit:                   ; preds = %83
-  %86 = sitofp i64 %85 to float
+_ZNK8rational9get_int64Ev.exit:                   ; preds = %85
+  %88 = sitofp i64 %87 to float
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
   invoke void @_Z11denominatorRK8rational(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %87 unwind label %96
+          to label %89 unwind label %98
 
-87:                                               ; preds = %_ZNK8rational9get_int64Ev.exit
-  %88 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !30
-  %89 = invoke noundef i64 @_ZNK11mpz_managerILb1EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %88, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNK8rational9get_int64Ev.exit94 unwind label %98
+89:                                               ; preds = %_ZNK8rational9get_int64Ev.exit
+  %90 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !30
+  %91 = invoke noundef i64 @_ZNK11mpz_managerILb1EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %90, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZNK8rational9get_int64Ev.exit94 unwind label %100
 
-_ZNK8rational9get_int64Ev.exit94:                 ; preds = %87
-  %90 = sitofp i64 %89 to float
-  %91 = fdiv float %86, %90
+_ZNK8rational9get_int64Ev.exit94:                 ; preds = %89
+  %92 = sitofp i64 %91 to float
+  %93 = fdiv float %88, %92
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
-  br label %common.ret263
+  br label %common.ret260
 
-92:                                               ; preds = %79
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  br label %102
-
-94:                                               ; preds = %83
+94:                                               ; preds = %81
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %104
 
-96:                                               ; preds = %_ZNK8rational9get_int64Ev.exit
+96:                                               ; preds = %85
   %97 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %103
 
-98:                                               ; preds = %87
+98:                                               ; preds = %_ZNK8rational9get_int64Ev.exit
   %99 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  br label %100
-
-100:                                              ; preds = %98, %96
-  %.pn = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  br label %101
-
-101:                                              ; preds = %100, %94
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %100 ], [ %95, %94 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   br label %102
 
-102:                                              ; preds = %101, %92
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %101 ], [ %93, %92 ]
+100:                                              ; preds = %89
+  %101 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
+  br label %102
+
+102:                                              ; preds = %100, %98
+  %.pn = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  br label %103
+
+103:                                              ; preds = %102, %96
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %102 ], [ %97, %96 ]
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  br label %104
+
+104:                                              ; preds = %103, %94
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %103 ], [ %95, %94 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   resume { ptr, i32 } %.pn.pn.pn
 
-103:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %104 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !26
-  %106 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %105)
-  %107 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %108 = load ptr, ptr %107, align 8, !tbaa !26
-  %109 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %108)
-  %110 = fcmp ole float %106, %109
-  %111 = select i1 %110, float 1.000000e+00, float 0.000000e+00
-  br label %common.ret263
+105:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %106 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %107 = load ptr, ptr %106, align 8, !tbaa !26
+  %108 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %107)
+  %109 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %110 = load ptr, ptr %109, align 8, !tbaa !26
+  %111 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %110)
+  %112 = fcmp ole float %108, %111
+  %113 = select i1 %112, float 1.000000e+00, float 0.000000e+00
+  br label %common.ret260
 
-112:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %113 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !26
-  %115 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %114)
-  %116 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %117 = load ptr, ptr %116, align 8, !tbaa !26
-  %118 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %117)
-  %119 = fcmp oge float %115, %118
-  %120 = select i1 %119, float 1.000000e+00, float 0.000000e+00
-  br label %common.ret263
+114:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %115 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %116 = load ptr, ptr %115, align 8, !tbaa !26
+  %117 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %116)
+  %118 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %119 = load ptr, ptr %118, align 8, !tbaa !26
+  %120 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %119)
+  %121 = fcmp oge float %117, %120
+  %122 = select i1 %121, float 1.000000e+00, float 0.000000e+00
+  br label %common.ret260
 
-121:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %122 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %123 = load ptr, ptr %122, align 8, !tbaa !26
-  %124 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %123)
-  %125 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %126 = load ptr, ptr %125, align 8, !tbaa !26
-  %127 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %126)
-  %128 = fcmp olt float %124, %127
-  %129 = select i1 %128, float 1.000000e+00, float 0.000000e+00
-  br label %common.ret263
+123:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %124 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %125 = load ptr, ptr %124, align 8, !tbaa !26
+  %126 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %125)
+  %127 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %128 = load ptr, ptr %127, align 8, !tbaa !26
+  %129 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %128)
+  %130 = fcmp olt float %126, %129
+  %131 = select i1 %130, float 1.000000e+00, float 0.000000e+00
+  br label %common.ret260
 
-130:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %131 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %132 = load ptr, ptr %131, align 8, !tbaa !26
-  %133 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %132)
-  %134 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %135 = load ptr, ptr %134, align 8, !tbaa !26
-  %136 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %135)
-  %137 = fcmp ogt float %133, %136
-  %138 = select i1 %137, float 1.000000e+00, float 0.000000e+00
-  br label %common.ret263
+132:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %133 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %134 = load ptr, ptr %133, align 8, !tbaa !26
+  %135 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %134)
+  %136 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %137 = load ptr, ptr %136, align 8, !tbaa !26
+  %138 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %137)
+  %139 = fcmp ogt float %135, %138
+  %140 = select i1 %139, float 1.000000e+00, float 0.000000e+00
+  br label %common.ret260
 
-139:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %140 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %141 = load ptr, ptr %140, align 8, !tbaa !26
-  %142 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %141)
-  %143 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %144 = load ptr, ptr %143, align 8, !tbaa !26
-  %145 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %144)
-  %146 = fadd float %142, %145
-  br label %common.ret263
+141:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %142 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %143 = load ptr, ptr %142, align 8, !tbaa !26
+  %144 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %143)
+  %145 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %146 = load ptr, ptr %145, align 8, !tbaa !26
+  %147 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %146)
+  %148 = fadd float %144, %147
+  br label %common.ret260
 
-147:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %148 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %149 = load ptr, ptr %148, align 8, !tbaa !26
-  %150 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %149)
-  %151 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %152 = load ptr, ptr %151, align 8, !tbaa !26
-  %153 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %152)
-  %154 = fsub float %150, %153
-  br label %common.ret263
+149:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %150 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %151 = load ptr, ptr %150, align 8, !tbaa !26
+  %152 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %151)
+  %153 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %154 = load ptr, ptr %153, align 8, !tbaa !26
+  %155 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %154)
+  %156 = fsub float %152, %155
+  br label %common.ret260
 
-155:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %156 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !26
-  %158 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %157)
-  %159 = fneg float %158
-  br label %common.ret263
+157:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %158 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %159 = load ptr, ptr %158, align 8, !tbaa !26
+  %160 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %159)
+  %161 = fneg float %160
+  br label %common.ret260
 
-160:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %161 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %162 = load ptr, ptr %161, align 8, !tbaa !26
-  %163 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %162)
-  %164 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %165 = load ptr, ptr %164, align 8, !tbaa !26
-  %166 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %165)
-  %167 = fmul float %163, %166
-  br label %common.ret263
+162:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %163 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %164 = load ptr, ptr %163, align 8, !tbaa !26
+  %165 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %164)
+  %166 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %167 = load ptr, ptr %166, align 8, !tbaa !26
+  %168 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %167)
+  %169 = fmul float %165, %168
+  br label %common.ret260
 
-168:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
-  %169 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
-  %170 = load ptr, ptr %169, align 8, !tbaa !26
-  %171 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %170)
-  %172 = fcmp oeq float %171, 0.000000e+00
-  br i1 %172, label %173, label %174
+170:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit93
+  %171 = getelementptr inbounds nuw i8, ptr %.tr106, i64 40
+  %172 = load ptr, ptr %171, align 8, !tbaa !26
+  %173 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %172)
+  %174 = fcmp oeq float %173, 0.000000e+00
+  br i1 %174, label %175, label %176
 
-173:                                              ; preds = %168
+175:                                              ; preds = %170
   tail call void (ptr, ...) @_Z11warning_msgPKcz(ptr noundef nonnull @.str)
-  br label %common.ret263
+  br label %common.ret260
 
-174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
-  %176 = load ptr, ptr %175, align 8, !tbaa !26
-  %177 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %176)
-  %178 = fdiv float %177, %171
-  br label %common.ret263
+176:                                              ; preds = %170
+  %177 = getelementptr inbounds nuw i8, ptr %.tr106, i64 32
+  %178 = load ptr, ptr %177, align 8, !tbaa !26
+  %179 = tail call noundef float @_ZNK14cost_evaluator4evalEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %178)
+  %180 = fdiv float %179, %173
+  br label %common.ret260
 
-179:                                              ; preds = %tailrecurse
-  %180 = getelementptr inbounds nuw i8, ptr %.tr106, i64 16
-  %181 = load i32, ptr %180, align 8, !tbaa !32
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %183 = load i32, ptr %182, align 8, !tbaa !35
-  %184 = icmp ult i32 %181, %183
-  br i1 %184, label %185, label %.thread98
+181:                                              ; preds = %tailrecurse
+  %182 = getelementptr inbounds nuw i8, ptr %.tr106, i64 16
+  %183 = load i32, ptr %182, align 8, !tbaa !32
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %185 = load i32, ptr %184, align 8, !tbaa !35
+  %186 = icmp ult i32 %183, %185
+  br i1 %186, label %187, label %.thread98
 
-185:                                              ; preds = %179
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %187 = load ptr, ptr %186, align 8, !tbaa !40
-  %188 = xor i32 %181, -1
-  %189 = add i32 %183, %188
-  %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw float, ptr %187, i64 %190
-  %192 = load float, ptr %191, align 4, !tbaa !41
-  br label %common.ret263
+187:                                              ; preds = %181
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %189 = load ptr, ptr %188, align 8, !tbaa !40
+  %190 = xor i32 %183, -1
+  %191 = add i32 %185, %190
+  %192 = zext i32 %191 to i64
+  %193 = getelementptr inbounds nuw float, ptr %189, i64 %192
+  %194 = load float, ptr %193, align 4, !tbaa !41
+  br label %common.ret260
 
-.thread98:                                        ; preds = %tailrecurse, %_ZNK3app13get_family_idEv.exit, %8, %_ZNK3app13get_decl_kindEv.exit, %179, %_ZNK3app13get_decl_kindEv.exit93
+.thread98:                                        ; preds = %tailrecurse, %_ZNK3app13get_family_idEv.exit, %8, %_ZNK3app13get_decl_kindEv.exit, %181, %_ZNK3app13get_decl_kindEv.exit93
   tail call void (ptr, ...) @_Z11warning_msgPKcz(ptr noundef nonnull @.str.1)
-  br label %common.ret263
+  br label %common.ret260
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

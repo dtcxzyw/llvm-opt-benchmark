@@ -2314,267 +2314,267 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %15
   %28 = load i32, ptr %27, align 8, !tbaa !62
   %29 = zext i32 %28 to i64
   %.idx = shl nuw nsw i64 %29, 3
-  %.add = add nuw nsw i64 %.idx, 32
-  %.ptr44 = getelementptr inbounds nuw i8, ptr %1, i64 %.add
-  %.not2539 = icmp eq i64 %.add, 40
+  %30 = add nuw nsw i64 %.idx, 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
+  %.not2539 = icmp samesign eq i64 %30, 40
   br i1 %.not2539, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br label %35
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  br label %37
 
-35:                                               ; preds = %.lr.ph, %63
-  %.040 = phi ptr [ %30, %.lr.ph ], [ %64, %63 ]
-  %36 = load ptr, ptr %.040, align 8, !tbaa !38
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = and i32 %38, 65535
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
+37:                                               ; preds = %.lr.ph, %65
+  %.040 = phi ptr [ %32, %.lr.ph ], [ %66, %65 ]
+  %38 = load ptr, ptr %.040, align 8, !tbaa !38
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %40, 65535
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !67
-  %44 = call noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(24) %31)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !68
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !67
+  %46 = call noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %48 = load ptr, ptr %47, align 8, !tbaa !68
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
 
-_ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %41
-  %48 = load i32, ptr %46, align 8, !tbaa !73
-  %49 = icmp eq i32 %48, %44
-  br i1 %49, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
+_ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %43
+  %50 = load i32, ptr %48, align 8, !tbaa !73
+  %51 = icmp eq i32 %50, %46
+  br i1 %51, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
 
 _ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit: ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !87
-  %52 = icmp eq i32 %51, 3
-  br i1 %52, label %63, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %53 = load i32, ptr %52, align 4, !tbaa !87
+  %54 = icmp eq i32 %53, 3
+  br i1 %54, label %65, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
 
-_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread: ; preds = %41, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %35, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit
-  %53 = load ptr, ptr %32, align 8, !tbaa !121
+_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread: ; preds = %43, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %37, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit
+  %55 = load ptr, ptr %34, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  store ptr %53, ptr %8, align 8, !tbaa !6
+  store ptr %55, ptr %8, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  invoke void @_Z18for_each_expr_coreIN26collect_uninterp_consts_ns4procE8obj_markI4expr10bit_vector14default_t2uintIS3_EELb0ELb0EEvRT_RT0_PS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %36)
-          to label %54 unwind label %61
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  invoke void @_Z18for_each_expr_coreIN26collect_uninterp_consts_ns4procE8obj_markI4expr10bit_vector14default_t2uintIS3_EELb0ELb0EEvRT_RT0_PS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %38)
+          to label %56 unwind label %63
 
-54:                                               ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
-  %55 = load ptr, ptr %34, align 8, !tbaa !45
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit, label %57
+56:                                               ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
+  %57 = load ptr, ptr %36, align 8, !tbaa !45
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit, label %59
 
-57:                                               ; preds = %54
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %55)
-          to label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit unwind label %58
+59:                                               ; preds = %56
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %57)
+          to label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit unwind label %60
 
-58:                                               ; preds = %57
-  %59 = landingpad { ptr, i32 }
+60:                                               ; preds = %59
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #15
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #15
   unreachable
 
-common.resume:                                    ; preds = %142, %106, %61
-  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %107, %106 ], [ %143, %142 ]
+common.resume:                                    ; preds = %147, %109, %63
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %110, %109 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
-61:                                               ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
-  %62 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit.thread
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
   br label %common.resume
 
-_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit: ; preds = %54, %57
+_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit: ; preds = %56, %59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  br label %63
+  br label %65
 
-63:                                               ; preds = %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit
-  %64 = getelementptr inbounds nuw i8, ptr %.040, i64 8
-  %.not25 = icmp eq ptr %64, %.ptr44
-  br i1 %.not25, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %35
+65:                                               ; preds = %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit
+  %66 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  %.not25 = icmp eq ptr %66, %31
+  br i1 %.not25, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %37
 
 _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %_ZNK17array_recognizers9is_selectEP4expr.exit
-  %65 = load i32, ptr %19, align 8, !tbaa !73
-  %66 = icmp eq i32 %65, %10
-  %67 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  %70 = select i1 %66, i1 %69, i1 false
-  br i1 %70, label %71, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread
+  %67 = load i32, ptr %19, align 8, !tbaa !73
+  %68 = icmp eq i32 %67, %10
+  %69 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, 0
+  %72 = select i1 %68, i1 %71, i1 false
+  br i1 %72, label %73, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread
 
-71:                                               ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %73 = load i32, ptr %72, align 8, !tbaa !62
-  %74 = add i32 %73, -1
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw [0 x ptr], ptr %.ptr, i64 0, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !38
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %79 = load i32, ptr %78, align 4
-  %80 = and i32 %79, 65535
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
+73:                                               ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %75 = load i32, ptr %74, align 8, !tbaa !62
+  %76 = add i32 %75, -1
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %78 = zext i32 %76 to i64
+  %79 = getelementptr inbounds nuw [0 x ptr], ptr %77, i64 0, i64 %78
+  %80 = load ptr, ptr %79, align 8, !tbaa !38
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = and i32 %82, 65535
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
 
-82:                                               ; preds = %71
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !67
-  %86 = tail call noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(24) %83)
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %88 = load ptr, ptr %87, align 8, !tbaa !68
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i27
+85:                                               ; preds = %73
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !67
+  %89 = tail call noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(24) %86)
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %91 = load ptr, ptr %90, align 8, !tbaa !68
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i27
 
-_ZNK4decl13get_family_idEv.exit.thread.i.i.i27:   ; preds = %82
-  %90 = load i32, ptr %88, align 8, !tbaa !73
-  %91 = icmp eq i32 %90, %86
-  br i1 %91, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
+_ZNK4decl13get_family_idEv.exit.thread.i.i.i27:   ; preds = %85
+  %93 = load i32, ptr %91, align 8, !tbaa !73
+  %94 = icmp eq i32 %93, %89
+  br i1 %94, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
 
 _ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28: ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i27
-  %92 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !87
-  %94 = icmp eq i32 %93, 3
-  br i1 %94, label %108, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %96 = load i32, ptr %95, align 4, !tbaa !87
+  %97 = icmp eq i32 %96, 3
+  br i1 %97, label %111, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
 
-_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread: ; preds = %82, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i27, %71, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !121
+_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread: ; preds = %85, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i27, %73, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  store ptr %96, ptr %6, align 8, !tbaa !6
+  store ptr %99, ptr %6, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
-  invoke void @_Z18for_each_expr_coreIN26collect_uninterp_consts_ns4procE8obj_markI4expr10bit_vector14default_t2uintIS3_EELb0ELb0EEvRT_RT0_PS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %77)
-          to label %98 unwind label %106
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
+  invoke void @_Z18for_each_expr_coreIN26collect_uninterp_consts_ns4procE8obj_markI4expr10bit_vector14default_t2uintIS3_EELb0ELb0EEvRT_RT0_PS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %80)
+          to label %101 unwind label %109
 
-98:                                               ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %100 = load ptr, ptr %99, align 8, !tbaa !45
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29, label %102
+101:                                              ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !45
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29, label %105
 
-102:                                              ; preds = %98
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %100)
-          to label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29 unwind label %103
+105:                                              ; preds = %101
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %103)
+          to label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29 unwind label %106
 
-103:                                              ; preds = %102
-  %104 = landingpad { ptr, i32 }
+106:                                              ; preds = %105
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #15
+  %108 = extractvalue { ptr, i32 } %107, 0
+  call void @__clang_call_terminate(ptr %108) #15
   unreachable
 
-106:                                              ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
-  %107 = landingpad { ptr, i32 }
+109:                                              ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28.thread
+  %110 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
   br label %common.resume
 
-_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29: ; preds = %98, %102
+_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29: ; preds = %101, %105
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  br label %108
+  br label %111
 
-108:                                              ; preds = %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28
-  %109 = load i32, ptr %72, align 8, !tbaa !62
-  %110 = zext i32 %109 to i64
-  %.idx45 = shl nuw nsw i64 %110, 3
-  %.add47 = add nuw nsw i64 %.idx45, 24
-  %.ptr49 = getelementptr inbounds nuw i8, ptr %1, i64 %.add47
-  %.not41 = icmp eq i64 %.add47, 40
+111:                                              ; preds = %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit28
+  %112 = load i32, ptr %74, align 8, !tbaa !62
+  %113 = zext i32 %112 to i64
+  %.idx44 = shl nuw nsw i64 %113, 3
+  %114 = getelementptr i8, ptr %77, i64 %.idx44
+  %115 = getelementptr i8, ptr %114, i64 -8
+  %.not41 = icmp eq i32 %112, 2
   br i1 %.not41, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %.lr.ph43
 
-.lr.ph43:                                         ; preds = %108
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %115 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %116
+.lr.ph43:                                         ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br label %121
 
-116:                                              ; preds = %.lr.ph43, %144
-  %.02442 = phi ptr [ %111, %.lr.ph43 ], [ %145, %144 ]
-  %117 = load ptr, ptr %.02442, align 8, !tbaa !38
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = and i32 %119, 65535
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
+121:                                              ; preds = %.lr.ph43, %149
+  %.02442 = phi ptr [ %116, %.lr.ph43 ], [ %150, %149 ]
+  %122 = load ptr, ptr %.02442, align 8, !tbaa !38
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  %124 = load i32, ptr %123, align 4
+  %125 = and i32 %124, 65535
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
 
-122:                                              ; preds = %116
-  %123 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %124 = load ptr, ptr %123, align 8, !tbaa !67
-  %125 = call noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(24) %112)
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %127 = load ptr, ptr %126, align 8, !tbaa !68
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i32
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %129 = load ptr, ptr %128, align 8, !tbaa !67
+  %130 = call noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(24) %117)
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %132 = load ptr, ptr %131, align 8, !tbaa !68
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i32
 
-_ZNK4decl13get_family_idEv.exit.thread.i.i.i32:   ; preds = %122
-  %129 = load i32, ptr %127, align 8, !tbaa !73
-  %130 = icmp eq i32 %129, %125
-  br i1 %130, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
+_ZNK4decl13get_family_idEv.exit.thread.i.i.i32:   ; preds = %127
+  %134 = load i32, ptr %132, align 8, !tbaa !73
+  %135 = icmp eq i32 %134, %130
+  br i1 %135, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
 
 _ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33: ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i32
-  %131 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  %132 = load i32, ptr %131, align 4, !tbaa !87
-  %133 = icmp eq i32 %132, 3
-  br i1 %133, label %144, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  %137 = load i32, ptr %136, align 4, !tbaa !87
+  %138 = icmp eq i32 %137, 3
+  br i1 %138, label %149, label %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
 
-_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread: ; preds = %122, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i32, %116, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33
-  %134 = load ptr, ptr %113, align 8, !tbaa !121
+_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread: ; preds = %127, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i32, %121, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33
+  %139 = load ptr, ptr %118, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr %134, ptr %4, align 8, !tbaa !6
+  store ptr %139, ptr %4, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
-  invoke void @_Z18for_each_expr_coreIN26collect_uninterp_consts_ns4procE8obj_markI4expr10bit_vector14default_t2uintIS3_EELb0ELb0EEvRT_RT0_PS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %117)
-          to label %135 unwind label %142
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
+  invoke void @_Z18for_each_expr_coreIN26collect_uninterp_consts_ns4procE8obj_markI4expr10bit_vector14default_t2uintIS3_EELb0ELb0EEvRT_RT0_PS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %122)
+          to label %140 unwind label %147
 
-135:                                              ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
-  %136 = load ptr, ptr %115, align 8, !tbaa !45
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit34, label %138
+140:                                              ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
+  %141 = load ptr, ptr %120, align 8, !tbaa !45
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit34, label %143
 
-138:                                              ; preds = %135
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %136)
-          to label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit34 unwind label %139
+143:                                              ; preds = %140
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %141)
+          to label %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit34 unwind label %144
 
-139:                                              ; preds = %138
-  %140 = landingpad { ptr, i32 }
+144:                                              ; preds = %143
+  %145 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #15
+  %146 = extractvalue { ptr, i32 } %145, 0
+  call void @__clang_call_terminate(ptr %146) #15
   unreachable
 
-142:                                              ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
-  %143 = landingpad { ptr, i32 }
+147:                                              ; preds = %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33.thread
+  %148 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
   br label %common.resume
 
-_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit34: ; preds = %135, %138
+_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit34: ; preds = %140, %143
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  br label %144
+  br label %149
 
-144:                                              ; preds = %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit34, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33
-  %145 = getelementptr inbounds nuw i8, ptr %.02442, i64 8
-  %.not = icmp eq ptr %145, %.ptr49
-  br i1 %.not, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %116
+149:                                              ; preds = %_Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit34, %_ZNK24collect_selstore_vars_ns4proc11is_accessorEP4expr.exit33
+  %150 = getelementptr inbounds nuw i8, ptr %.02442, i64 8
+  %.not = icmp eq ptr %150, %115
+  br i1 %.not, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %121
 
-_ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %144, %63, %15, %26, %108, %2, %_ZNK17array_recognizers8is_storeEP4expr.exit
+_ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %149, %65, %15, %26, %111, %2, %_ZNK17array_recognizers8is_storeEP4expr.exit
   ret void
 }
 

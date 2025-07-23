@@ -1821,25 +1821,25 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit147: ; preds = %459, %4
   %.sroa.0149.0235 = phi ptr [ %502, %_ZN4llvm15SmallVectorImplINS_18DbgValueHistoryMap5EntryEE5eraseEPKS2_.exit ], [ %491, %.lr.ph237.preheader ]
   %502 = getelementptr inbounds i8, ptr %.sroa.0149.0235, i64 -8
   %503 = load i64, ptr %502, align 8, !tbaa !61
-  %504 = load ptr, ptr %41, align 8, !tbaa !53
   %.idx175 = shl nuw nsw i64 %503, 4
-  %505 = getelementptr inbounds nuw i8, ptr %504, i64 %.idx175
-  %506 = getelementptr inbounds nuw i8, ptr %505, i64 16
-  %507 = zext i32 %501 to i64
-  %.idx = shl nuw nsw i64 %507, 4
-  %508 = getelementptr inbounds nuw i8, ptr %504, i64 %.idx
-  %.not.i.i.i.i.i.i = icmp eq ptr %508, %506
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplINS_18DbgValueHistoryMap5EntryEE5eraseEPKS2_.exit, label %509
+  %504 = zext i32 %501 to i64
+  %.idx = shl nuw nsw i64 %504, 4
+  %505 = add nuw nsw i64 %.idx175, 16
+  %.not.i.i.i.i.i.i = icmp samesign eq i64 %.idx, %505
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplINS_18DbgValueHistoryMap5EntryEE5eraseEPKS2_.exit, label %506
 
-509:                                              ; preds = %.lr.ph237
+506:                                              ; preds = %.lr.ph237
+  %507 = load ptr, ptr %41, align 8, !tbaa !53
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 %.idx175
+  %509 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %reass.sub = sub nsw i64 %.idx, %.idx175
   %gepdiff = add i64 %reass.sub, -16
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %505, ptr nonnull align 8 %506, i64 %gepdiff, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %508, ptr nonnull align 8 %509, i64 %gepdiff, i1 false)
   %.pre.i148 = load i32, ptr %42, align 8, !tbaa !51
   br label %_ZN4llvm15SmallVectorImplINS_18DbgValueHistoryMap5EntryEE5eraseEPKS2_.exit
 
-_ZN4llvm15SmallVectorImplINS_18DbgValueHistoryMap5EntryEE5eraseEPKS2_.exit: ; preds = %.lr.ph237, %509
-  %510 = phi i32 [ %501, %.lr.ph237 ], [ %.pre.i148, %509 ]
+_ZN4llvm15SmallVectorImplINS_18DbgValueHistoryMap5EntryEE5eraseEPKS2_.exit: ; preds = %.lr.ph237, %506
+  %510 = phi i32 [ %501, %.lr.ph237 ], [ %.pre.i148, %506 ]
   %511 = add i32 %510, -1
   store i32 %511, ptr %42, align 8, !tbaa !51
   %.not174 = icmp eq ptr %502, %443

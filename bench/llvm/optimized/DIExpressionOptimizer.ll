@@ -508,23 +508,23 @@ _ZL16isNeutralElementmm.exit.i:                   ; preds = %_ZN4llvm23SmallVect
   %227 = load ptr, ptr %20, align 8, !tbaa !10
   %.idx14.i = shl nuw nsw i64 %171, 3
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 %.idx14.i
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 24
-  %230 = load i32, ptr %49, align 8, !tbaa !13
-  %231 = zext i32 %230 to i64
-  %.idx.i = shl nuw nsw i64 %231, 3
-  %232 = getelementptr inbounds nuw i8, ptr %227, i64 %.idx.i
+  %229 = load i32, ptr %49, align 8, !tbaa !13
+  %230 = zext i32 %229 to i64
+  %.idx.i = shl nuw nsw i64 %230, 3
   %reass.sub.i = sub nsw i64 %.idx.i, %.idx14.i
   %gepdiff.i34 = add nsw i64 %reass.sub.i, -24
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %232, %229
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZL15tryFoldNoOpMathmN4llvm8ArrayRefINS_12DIExpression11ExprOperandEEERmRNS_18DIExpressionCursorERNS_15SmallVectorImplImEE.exit, label %233
+  %231 = add nuw nsw i64 %.idx14.i, 24
+  %.not.i.i.i.i.i.i.i = icmp samesign eq i64 %.idx.i, %231
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZL15tryFoldNoOpMathmN4llvm8ArrayRefINS_12DIExpression11ExprOperandEEERmRNS_18DIExpressionCursorERNS_15SmallVectorImplImEE.exit, label %232
 
-233:                                              ; preds = %226
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %228, ptr nonnull align 8 %229, i64 %gepdiff.i34, i1 false)
+232:                                              ; preds = %226
+  %233 = getelementptr inbounds nuw i8, ptr %228, i64 24
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %228, ptr nonnull align 8 %233, i64 %gepdiff.i34, i1 false)
   %.pre.i.i35 = load ptr, ptr %20, align 8, !tbaa !10
   br label %_ZL15tryFoldNoOpMathmN4llvm8ArrayRefINS_12DIExpression11ExprOperandEEERmRNS_18DIExpressionCursorERNS_15SmallVectorImplImEE.exit
 
-_ZL15tryFoldNoOpMathmN4llvm8ArrayRefINS_12DIExpression11ExprOperandEEERmRNS_18DIExpressionCursorERNS_15SmallVectorImplImEE.exit: ; preds = %226, %233
-  %234 = phi ptr [ %227, %226 ], [ %.pre.i.i35, %233 ]
+_ZL15tryFoldNoOpMathmN4llvm8ArrayRefINS_12DIExpression11ExprOperandEEERmRNS_18DIExpressionCursorERNS_15SmallVectorImplImEE.exit: ; preds = %226, %232
+  %234 = phi ptr [ %227, %226 ], [ %.pre.i.i35, %232 ]
   %235 = getelementptr inbounds i8, ptr %228, i64 %gepdiff.i34
   %236 = ptrtoint ptr %235 to i64
   %237 = ptrtoint ptr %234 to i64
@@ -653,23 +653,23 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_back
   %.idx28.i = shl nuw nsw i64 %171, 3
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 %.idx28.i
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
-  %304 = getelementptr inbounds nuw i8, ptr %302, i64 40
-  %305 = load i32, ptr %49, align 8, !tbaa !13
-  %306 = zext i32 %305 to i64
-  %.idx.i46 = shl nuw nsw i64 %306, 3
-  %307 = getelementptr inbounds nuw i8, ptr %301, i64 %.idx.i46
+  %304 = load i32, ptr %49, align 8, !tbaa !13
+  %305 = zext i32 %304 to i64
+  %.idx.i46 = shl nuw nsw i64 %305, 3
   %reass.sub.i47 = sub nsw i64 %.idx.i46, %.idx28.i
   %gepdiff.i48 = add i64 %reass.sub.i47, -40
-  %.not.i.i.i.i.i.i.i49 = icmp eq ptr %307, %304
-  br i1 %.not.i.i.i.i.i.i.i49, label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i52, label %308
+  %306 = add nuw nsw i64 %.idx28.i, 40
+  %.not.i.i.i.i.i.i.i49 = icmp samesign eq i64 %.idx.i46, %306
+  br i1 %.not.i.i.i.i.i.i.i49, label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i52, label %307
 
-308:                                              ; preds = %300
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %303, ptr nonnull align 8 %304, i64 %gepdiff.i48, i1 false)
+307:                                              ; preds = %300
+  %308 = getelementptr inbounds nuw i8, ptr %302, i64 40
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %303, ptr nonnull align 8 %308, i64 %gepdiff.i48, i1 false)
   %.pre.i.i50 = load ptr, ptr %20, align 8, !tbaa !10
   br label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i52
 
-_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i52: ; preds = %308, %300
-  %309 = phi ptr [ %301, %300 ], [ %.pre.i.i50, %308 ]
+_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i52: ; preds = %307, %300
+  %309 = phi ptr [ %301, %300 ], [ %.pre.i.i50, %307 ]
   %310 = getelementptr inbounds i8, ptr %303, i64 %gepdiff.i48
   %311 = ptrtoint ptr %310 to i64
   %312 = ptrtoint ptr %309 to i64
@@ -820,23 +820,23 @@ _ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.i: ;
   %.idx31.i = shl nuw nsw i64 %171, 3
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 %.idx31.i
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 24
-  %386 = getelementptr inbounds nuw i8, ptr %384, i64 48
-  %387 = load i32, ptr %49, align 8, !tbaa !13
-  %388 = zext i32 %387 to i64
-  %.idx.i71 = shl nuw nsw i64 %388, 3
-  %389 = getelementptr inbounds nuw i8, ptr %383, i64 %.idx.i71
+  %386 = load i32, ptr %49, align 8, !tbaa !13
+  %387 = zext i32 %386 to i64
+  %.idx.i71 = shl nuw nsw i64 %387, 3
   %reass.sub.i72 = sub nsw i64 %.idx.i71, %.idx31.i
   %gepdiff.i73 = add i64 %reass.sub.i72, -48
-  %.not.i.i.i.i.i.i.i74 = icmp eq ptr %389, %386
-  br i1 %.not.i.i.i.i.i.i.i74, label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i77, label %390
+  %388 = add nuw nsw i64 %.idx31.i, 48
+  %.not.i.i.i.i.i.i.i74 = icmp samesign eq i64 %.idx.i71, %388
+  br i1 %.not.i.i.i.i.i.i.i74, label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i77, label %389
 
-390:                                              ; preds = %382
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %385, ptr nonnull align 8 %386, i64 %gepdiff.i73, i1 false)
+389:                                              ; preds = %382
+  %390 = getelementptr inbounds nuw i8, ptr %384, i64 48
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %385, ptr nonnull align 8 %390, i64 %gepdiff.i73, i1 false)
   %.pre.i.i75 = load ptr, ptr %20, align 8, !tbaa !10
   br label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i77
 
-_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i77: ; preds = %390, %382
-  %391 = phi ptr [ %383, %382 ], [ %.pre.i.i75, %390 ]
+_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit.i77: ; preds = %389, %382
+  %391 = phi ptr [ %383, %382 ], [ %.pre.i.i75, %389 ]
   %392 = getelementptr inbounds i8, ptr %385, i64 %gepdiff.i73
   %393 = ptrtoint ptr %392 to i64
   %394 = ptrtoint ptr %391 to i64
@@ -1585,33 +1585,33 @@ _ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit20: ;
   %.idx31 = shl nuw nsw i64 %46, 3
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx31
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 72
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !13
-  %52 = zext i32 %51 to i64
-  %.idx = shl nuw nsw i64 %52, 3
-  %53 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %50 = load i32, ptr %49, align 8, !tbaa !13
+  %51 = zext i32 %50 to i64
+  %.idx = shl nuw nsw i64 %51, 3
   %reass.sub = sub nsw i64 %.idx, %.idx31
   %gepdiff = add i64 %reass.sub, -72
-  %.not.i.i.i.i.i.i = icmp eq ptr %53, %49
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit, label %54
+  %52 = add nuw nsw i64 %.idx31, 72
+  %.not.i.i.i.i.i.i = icmp samesign eq i64 %.idx, %52
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit, label %53
 
-54:                                               ; preds = %44
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %49, i64 %gepdiff, i1 false)
+53:                                               ; preds = %44
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 72
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %54, i64 %gepdiff, i1 false)
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !10
   %.pre = load i64, ptr %2, align 8, !tbaa !8
   br label %_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit
 
-_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit:   ; preds = %44, %54
-  %55 = phi i64 [ %46, %44 ], [ %.pre, %54 ]
-  %56 = phi ptr [ %45, %44 ], [ %.pre.i, %54 ]
+_ZN4llvm15SmallVectorImplImE5eraseEPKmS3_.exit:   ; preds = %44, %53
+  %55 = phi i64 [ %46, %44 ], [ %.pre, %53 ]
+  %56 = phi ptr [ %45, %44 ], [ %.pre.i, %53 ]
   %57 = getelementptr inbounds i8, ptr %48, i64 %gepdiff
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %56 to i64
   %60 = sub i64 %58, %59
   %61 = lshr exact i64 %60, 3
   %62 = trunc i64 %61 to i32
-  store i32 %62, ptr %50, align 8, !tbaa !13
+  store i32 %62, ptr %49, align 8, !tbaa !13
   %63 = getelementptr inbounds nuw i64, ptr %56, i64 %55
   store i64 16, ptr %63, align 8, !tbaa !8
   %64 = load i64, ptr %2, align 8, !tbaa !8

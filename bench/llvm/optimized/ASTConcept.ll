@@ -498,68 +498,64 @@ define dso_local void @_ZNK5clang16ConceptReference5printERN4llvm11raw_ostreamER
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
   %21 = load ptr, ptr %8, align 8, !tbaa !67
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !76
-  %24 = zext i32 %23 to i64
-  %.idx = shl nuw nsw i64 %24, 5
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
-  %.ptr47 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.not44 = icmp eq i32 %23, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %.ptr = getelementptr inbounds nuw i8, ptr %21, i64 16
-  br label %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %24 = load i32, ptr %23, align 8, !tbaa !76
+  %25 = zext i32 %24 to i64
+  %.idx = shl nuw nsw i64 %25, 5
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
+  %.not44 = icmp eq i32 %24, 0
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %26 = load ptr, ptr %11, align 8, !tbaa !71
-  %27 = load ptr, ptr %13, align 8, !tbaa !75
-  %28 = icmp eq ptr %26, %27
-  br i1 %28, label %29, label %31
+  %27 = load ptr, ptr %11, align 8, !tbaa !71
+  %28 = load ptr, ptr %13, align 8, !tbaa !75
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %._crit_edge
-  %30 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.2, i64 noundef 1) #5
+30:                                               ; preds = %._crit_edge
+  %31 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.2, i64 noundef 1) #5
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit21
 
-31:                                               ; preds = %._crit_edge
-  store i8 62, ptr %27, align 1
-  %32 = load ptr, ptr %13, align 8, !tbaa !75
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store ptr %33, ptr %13, align 8, !tbaa !75
+32:                                               ; preds = %._crit_edge
+  store i8 62, ptr %28, align 1
+  %33 = load ptr, ptr %13, align 8, !tbaa !75
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store ptr %34, ptr %13, align 8, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit21
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
-  %.046 = phi ptr [ %45, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %.ptr, %.lr.ph.preheader ]
-  %.sroa.026.045 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ true, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
+  %.046 = phi ptr [ %46, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %22, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.sroa.026.045 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   br i1 %.sroa.026.045, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit
 
 _ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit:   ; preds = %.lr.ph
-  %34 = load ptr, ptr %11, align 8, !tbaa !71
-  %35 = load ptr, ptr %13, align 8, !tbaa !75
-  %36 = ptrtoint ptr %34 to i64
+  %35 = load ptr, ptr %11, align 8, !tbaa !71
+  %36 = load ptr, ptr %13, align 8, !tbaa !75
   %37 = ptrtoint ptr %35 to i64
-  %38 = sub i64 %36, %37
-  %39 = icmp ult i64 %38, 2
-  br i1 %39, label %40, label %42
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp ult i64 %39, 2
+  br i1 %40, label %41, label %43
 
-40:                                               ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit
-  %41 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1, i64 noundef 2) #5
+41:                                               ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit
+  %42 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1, i64 noundef 2) #5
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
-42:                                               ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit
-  store i16 8236, ptr %35, align 1
-  %43 = load ptr, ptr %13, align 8, !tbaa !75
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store ptr %44, ptr %13, align 8, !tbaa !75
+43:                                               ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit
+  store i16 8236, ptr %36, align 1
+  %44 = load ptr, ptr %13, align 8, !tbaa !75
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 2
+  store ptr %45, ptr %13, align 8, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %.lr.ph, %40, %42
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %.lr.ph, %41, %43
   tail call void @_ZNK5clang16TemplateArgument5printERKNS_14PrintingPolicyERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %.046, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext false) #5
-  %45 = getelementptr inbounds nuw i8, ptr %.046, i64 32
-  %.not = icmp eq ptr %45, %.ptr47
+  %46 = getelementptr inbounds nuw i8, ptr %.046, i64 32
+  %.not = icmp eq ptr %46, %26
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %31, %29, %6
+_ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %32, %30, %6
   ret void
 }
 

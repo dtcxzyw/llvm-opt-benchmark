@@ -9064,7 +9064,7 @@ define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI25addImplicitStructorParam
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 680
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(195) %0, i64 %.0.copyload.i.i.i.i, i32 %.sroa.2.0.copyload) #22
-  br i1 %9, label %10, label %57
+  br i1 %9, label %10, label %59
 
 10:                                               ; preds = %4
   %11 = and i64 %.0.copyload.i.i.i.i, -8
@@ -9136,36 +9136,35 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGet
   %47 = phi ptr [ %26, %42 ], [ %.pre.i.i, %43 ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.idx.i.i = shl nuw nsw i64 %.pre-phi16.i.i, 3
-  %.ptr = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i
-  %.add = add nsw i64 %.idx.i.i, -8
-  %.ptr21 = getelementptr inbounds i8, ptr %47, i64 %.add
-  %49 = load ptr, ptr %.ptr21, align 8, !tbaa !1477
-  store ptr %49, ptr %.ptr, align 8, !tbaa !1477
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.add, 8
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit.i.i, label %50
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i
+  %50 = getelementptr inbounds i8, ptr %49, i64 -8
+  %51 = load ptr, ptr %50, align 8, !tbaa !1477
+  store ptr %51, ptr %49, align 8, !tbaa !1477
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %.pre-phi16.i.i, 2
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit.i.i, label %52
 
-50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGetAddressERS4_m.exit.i.i
+52:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGetAddressERS4_m.exit.i.i
   %gepdiff.i.i = add nsw i64 %.idx.i.i, -16
-  %51 = ashr exact i64 %gepdiff.i.i, 3
-  %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds ptr, ptr %.ptr, i64 %52
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %48, i64 %gepdiff.i.i, i1 false)
+  %53 = ashr exact i64 %gepdiff.i.i, 3
+  %54 = sub nsw i64 0, %53
+  %55 = getelementptr inbounds ptr, ptr %49, i64 %54
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %48, i64 %gepdiff.i.i, i1 false)
   %.pre12.i.i = load i32, ptr %27, align 8, !tbaa !349
   br label %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit.i.i
 
-_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit.i.i: ; preds = %50, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGetAddressERS4_m.exit.i.i
-  %54 = phi i32 [ %46, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGetAddressERS4_m.exit.i.i ], [ %.pre12.i.i, %50 ]
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %27, align 8, !tbaa !349
+_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit.i.i: ; preds = %52, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGetAddressERS4_m.exit.i.i
+  %56 = phi i32 [ %46, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGetAddressERS4_m.exit.i.i ], [ %.pre12.i.i, %52 ]
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %27, align 8, !tbaa !349
   store ptr %25, ptr %48, align 8, !tbaa !1477
   br label %_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE6insertEPS4_OS4_.exit
 
 _ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE6insertEPS4_OS4_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE9push_backES4_.exit.i.i, %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 6128
-  store ptr %25, ptr %56, align 8, !tbaa !1478
-  br label %57
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 6128
+  store ptr %25, ptr %58, align 8, !tbaa !1478
+  br label %59
 
-57:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE6insertEPS4_OS4_.exit, %4
+59:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE6insertEPS4_OS4_.exit, %4
   ret void
 }
 

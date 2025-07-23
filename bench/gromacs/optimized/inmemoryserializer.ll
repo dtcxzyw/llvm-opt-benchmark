@@ -1228,20 +1228,19 @@ define void @_ZN3gmx20InMemoryDeserializer8doOpaqueEPcm(ptr noundef nonnull read
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !45
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx20InMemoryDeserializer4Impl8doOpaqueEPcm.exit, label %8
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx20InMemoryDeserializer4Impl8doOpaqueEPcm.exit, label %7
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
+  %8 = load i64, ptr %6, align 8, !tbaa !45
   %9 = load i64, ptr %5, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr i8, ptr %10, i64 %7
+  %11 = getelementptr inbounds i8, ptr %10, i64 %8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %11, i64 %2, i1 false)
-  %.pre.i = load i64, ptr %6, align 8, !tbaa !45
   br label %_ZN3gmx20InMemoryDeserializer4Impl8doOpaqueEPcm.exit
 
-_ZN3gmx20InMemoryDeserializer4Impl8doOpaqueEPcm.exit: ; preds = %3, %8
-  %12 = phi i64 [ %7, %3 ], [ %.pre.i, %8 ]
+_ZN3gmx20InMemoryDeserializer4Impl8doOpaqueEPcm.exit: ; preds = %3, %7
+  %12 = load i64, ptr %6, align 8, !tbaa !45
   %13 = add i64 %12, %2
   store i64 %13, ptr %6, align 8, !tbaa !45
   ret void

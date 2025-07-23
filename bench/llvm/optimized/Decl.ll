@@ -840,18 +840,16 @@ declare i8 @_ZN5clang15LinkageComputer27getTypeLinkageAndVisibilityEPKNS_4TypeE(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i8 @_ZN5clang15LinkageComputer29getLVForTemplateParameterListEPKNS_21TemplateParameterListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readonly captures(address) %1, i32 %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %5 = load i32, ptr %4, align 4
-  %6 = and i32 %5, 536870911
-  %7 = shl i32 %5, 3
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %6 = load i32, ptr %5, align 4
+  %7 = shl i32 %6, 3
   %.idx = zext i32 %7 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr108 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.not103 = icmp eq i32 %6, 0
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %.not103 = icmp eq i32 %7, 0
   br i1 %.not103, label %._crit_edge, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %3
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = and i32 %2, 4
   %.not.i = icmp eq i32 %9, 0
   br label %10
@@ -861,7 +859,7 @@ define dso_local i8 @_ZN5clang15LinkageComputer29getLVForTemplateParameterListEP
   ret i8 %.sroa.084.0.lcssa
 
 10:                                               ; preds = %.lr.ph106, %.loopexit
-  %.0105 = phi ptr [ %.ptr, %.lr.ph106 ], [ %154, %.loopexit ]
+  %.0105 = phi ptr [ %4, %.lr.ph106 ], [ %154, %.loopexit ]
   %.sroa.084.0104 = phi i8 [ 22, %.lr.ph106 ], [ %.sroa.084.1, %.loopexit ]
   %11 = load ptr, ptr %.0105, align 8, !tbaa !420
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
@@ -1087,9 +1085,9 @@ _ZN5clang11LinkageInfo5mergeES0_.exit68:          ; preds = %.thread.i.i.i.i65, 
   br label %128
 
 128:                                              ; preds = %.lr.ph101, %_ZN5clang11LinkageInfo5mergeES0_.exit78
-  %indvars.iv110 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next111, %_ZN5clang11LinkageInfo5mergeES0_.exit78 ]
+  %indvars.iv109 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next110, %_ZN5clang11LinkageInfo5mergeES0_.exit78 ]
   %.sroa.084.699 = phi i8 [ %.sroa.084.0104, %.lr.ph101 ], [ %storemerge.i74, %_ZN5clang11LinkageInfo5mergeES0_.exit78 ]
-  %129 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv110
+  %129 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv109
   %130 = load ptr, ptr %129, align 8, !tbaa !458
   %131 = tail call i8 @_ZN5clang15LinkageComputer29getLVForTemplateParameterListEPKNS_21TemplateParameterListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %130, i32 %2)
   %132 = and i8 %131, 7
@@ -1132,14 +1130,14 @@ _ZN5clang11LinkageInfo5mergeES0_.exit78:          ; preds = %.thread.i.i.i.i75, 
   %152 = or disjoint i8 %151, %150
   %153 = or disjoint i8 %152, %144
   %storemerge.i74 = select i1 %or.cond9.i.i.i73, i8 %153, i8 %141
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %.not44 = icmp eq i64 %indvars.iv.next111, %127
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %.not44 = icmp eq i64 %indvars.iv.next110, %127
   br i1 %.not44, label %.loopexit, label %128, !llvm.loop !459
 
 .loopexit:                                        ; preds = %93, %_ZN5clang11LinkageInfo5mergeES0_.exit78, %10, %56, %123, %_ZN5clang11LinkageInfo5mergeES0_.exit, %19, %_ZN5clang11LinkageInfo5mergeES0_.exit68
   %.sroa.084.1 = phi i8 [ %.sroa.084.0104, %10 ], [ %storemerge.i64, %_ZN5clang11LinkageInfo5mergeES0_.exit68 ], [ %.sroa.084.0104, %19 ], [ %storemerge.i, %_ZN5clang11LinkageInfo5mergeES0_.exit ], [ %.sroa.084.0104, %123 ], [ %.sroa.084.0104, %56 ], [ %storemerge.i74, %_ZN5clang11LinkageInfo5mergeES0_.exit78 ], [ %.sroa.084.4, %93 ]
   %154 = getelementptr inbounds nuw i8, ptr %.0105, i64 8
-  %.not = icmp eq ptr %154, %.ptr108
+  %.not = icmp eq ptr %154, %8
   br i1 %.not, label %._crit_edge, label %10
 }
 

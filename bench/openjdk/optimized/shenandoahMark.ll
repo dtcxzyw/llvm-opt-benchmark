@@ -9866,31 +9866,33 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 
 14:                                               ; preds = %3
   %15 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
-  %16 = sext i32 %15 to i64
-  %17 = add nsw i64 %16, %8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %20 = sext i32 %19 to i64
-  %21 = add nsw i64 %20, %8
-  %22 = inttoptr i64 %21 to ptr
-  %23 = load volatile i32, ptr %22, align 4
+  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %17 = sext i32 %16 to i64
+  %18 = add nsw i64 %17, %8
+  %19 = inttoptr i64 %18 to ptr
+  %20 = load volatile i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  %.idx9 = shl nsw i64 %21, 3
+  %22 = add nsw i64 %.idx9, -16
+  %23 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %18, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 -16
-  %27 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
+  %25 = add nsw i64 %24, %8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
-  %29 = add nsw i64 %28, %8
-  %30 = inttoptr i64 %29 to ptr
-  %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i64, ptr %18, i64 %32
+  %.idx = shl nsw i64 %28, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2) #10
-  %34 = icmp ugt ptr %33, %26
-  br i1 %34, label %35, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlS9_.exit
+  %29 = icmp sgt i64 %.idx, %22
+  br i1 %29, label %30, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
-35:                                               ; preds = %14
+30:                                               ; preds = %14
+  %31 = sext i32 %15 to i64
+  %32 = add nsw i64 %31, %8
+  %33 = inttoptr i64 %32 to ptr
+  %34 = getelementptr inbounds i8, ptr %33, i64 %22
+  %35 = getelementptr inbounds i8, ptr %33, i64 %.idx
   store ptr %1, ptr %5, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %36, align 8
@@ -9915,10 +9917,10 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   store ptr %47, ptr %6, align 8, !alias.scope !60
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %53, ptr %54, align 8, !alias.scope !60
-  %55 = ptrtoint ptr %26 to i64
+  %55 = ptrtoint ptr %34 to i64
   %56 = sub i64 %55, %44
   %57 = ashr exact i64 %56, 2
-  %58 = ptrtoint ptr %33 to i64
+  %58 = ptrtoint ptr %35 to i64
   %59 = sub i64 %58, %44
   %60 = ashr exact i64 %59, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -9927,7 +9929,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
-_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlS9_.exit: ; preds = %14, %35
+_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlS9_.exit: ; preds = %14, %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %118
@@ -10279,31 +10281,33 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 
 14:                                               ; preds = %3
   %15 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
-  %16 = sext i32 %15 to i64
-  %17 = add nsw i64 %16, %8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %20 = sext i32 %19 to i64
-  %21 = add nsw i64 %20, %8
-  %22 = inttoptr i64 %21 to ptr
-  %23 = load volatile i32, ptr %22, align 4
+  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %17 = sext i32 %16 to i64
+  %18 = add nsw i64 %17, %8
+  %19 = inttoptr i64 %18 to ptr
+  %20 = load volatile i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  %.idx9 = shl nsw i64 %21, 3
+  %22 = add nsw i64 %.idx9, -16
+  %23 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %18, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 -16
-  %27 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
+  %25 = add nsw i64 %24, %8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
-  %29 = add nsw i64 %28, %8
-  %30 = inttoptr i64 %29 to ptr
-  %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i64, ptr %18, i64 %32
+  %.idx = shl nsw i64 %28, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2) #10
-  %34 = icmp ugt ptr %33, %26
-  br i1 %34, label %35, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlSA_.exit
+  %29 = icmp sgt i64 %.idx, %22
+  br i1 %29, label %30, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlSA_.exit
 
-35:                                               ; preds = %14
+30:                                               ; preds = %14
+  %31 = sext i32 %15 to i64
+  %32 = add nsw i64 %31, %8
+  %33 = inttoptr i64 %32 to ptr
+  %34 = getelementptr inbounds i8, ptr %33, i64 %22
+  %35 = getelementptr inbounds i8, ptr %33, i64 %.idx
   store ptr %1, ptr %5, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %36, align 8
@@ -10328,10 +10332,10 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   store ptr %47, ptr %6, align 8, !alias.scope !65
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %53, ptr %54, align 8, !alias.scope !65
-  %55 = ptrtoint ptr %26 to i64
+  %55 = ptrtoint ptr %34 to i64
   %56 = sub i64 %55, %44
   %57 = ashr exact i64 %56, 3
-  %58 = ptrtoint ptr %33 to i64
+  %58 = ptrtoint ptr %35 to i64
   %59 = sub i64 %58, %44
   %60 = ashr exact i64 %59, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -10340,7 +10344,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlSA_.exit
 
-_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlSA_.exit: ; preds = %14, %35
+_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEEEvP17stackChunkOopDescPT0_PlSA_.exit: ; preds = %14, %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %118

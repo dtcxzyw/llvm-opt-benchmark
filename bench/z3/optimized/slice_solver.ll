@@ -7984,41 +7984,37 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %11
   br i1 %21, label %22, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread
 
 22:                                               ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !102
-  %25 = zext i32 %24 to i64
-  %.idx = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr28 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %.not26 = icmp eq i32 %24, 0
-  br i1 %.not26, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread, label %.lr.ph.preheader
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %25 = load i32, ptr %24, align 8, !tbaa !102
+  %26 = zext i32 %25 to i64
+  %.idx = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
+  %.not26 = icmp eq i32 %25, 0
+  br i1 %.not26, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %22
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %.01727 = phi ptr [ %37, %.critedge ], [ %.ptr, %.lr.ph.preheader ]
-  %27 = load ptr, ptr %.01727, align 8, !tbaa !101
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %29 = load i32, ptr %28, align 4
-  %30 = and i32 %29, 65535
-  %31 = icmp eq i32 %30, 2
-  br i1 %31, label %_Z9is_forallPK3ast.exit, label %.critedge
+.lr.ph:                                           ; preds = %22, %.critedge
+  %.01727 = phi ptr [ %38, %.critedge ], [ %23, %22 ]
+  %28 = load ptr, ptr %.01727, align 8, !tbaa !101
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 65535
+  %32 = icmp eq i32 %31, 2
+  br i1 %32, label %_Z9is_forallPK3ast.exit, label %.critedge
 
 _Z9is_forallPK3ast.exit:                          ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !210
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %.critedge
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %34 = load i32, ptr %33, align 8, !tbaa !210
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %.critedge
 
-35:                                               ; preds = %_Z9is_forallPK3ast.exit
-  %36 = tail call noundef zeroext i1 @_ZN12slice_solver15should_activateEP4expr(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull %27)
-  br i1 %36, label %_Z9is_forallPK3ast.exit20.thread, label %.critedge
+36:                                               ; preds = %_Z9is_forallPK3ast.exit
+  %37 = tail call noundef zeroext i1 @_ZN12slice_solver15should_activateEP4expr(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull %28)
+  br i1 %37, label %_Z9is_forallPK3ast.exit20.thread, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %35, %_Z9is_forallPK3ast.exit
-  %37 = getelementptr inbounds nuw i8, ptr %.01727, i64 8
-  %.not = icmp eq ptr %37, %.ptr28
+.critedge:                                        ; preds = %.lr.ph, %36, %_Z9is_forallPK3ast.exit
+  %38 = getelementptr inbounds nuw i8, ptr %.01727, i64 8
+  %.not = icmp eq ptr %38, %27
   br i1 %.not, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread.loopexit, label %.lr.ph
 
 _ZNK11ast_manager6is_andEPK4expr.exit.thread.loopexit: ; preds = %.critedge
@@ -8026,61 +8022,61 @@ _ZNK11ast_manager6is_andEPK4expr.exit.thread.loopexit: ; preds = %.critedge
   br label %_ZNK11ast_manager6is_andEPK4expr.exit.thread
 
 _ZNK11ast_manager6is_andEPK4expr.exit.thread:     ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit.thread.loopexit, %22, %2, %11, %_ZNK11ast_manager6is_andEPK4expr.exit
-  %38 = phi i32 [ %.pre, %_ZNK11ast_manager6is_andEPK4expr.exit.thread.loopexit ], [ %5, %22 ], [ %5, %2 ], [ %5, %11 ], [ %5, %_ZNK11ast_manager6is_andEPK4expr.exit ]
-  %39 = and i32 %38, 65535
-  %40 = icmp eq i32 %39, 2
-  br i1 %40, label %_Z9is_forallPK3ast.exit20, label %_Z9is_forallPK3ast.exit20.thread
+  %39 = phi i32 [ %.pre, %_ZNK11ast_manager6is_andEPK4expr.exit.thread.loopexit ], [ %5, %22 ], [ %5, %2 ], [ %5, %11 ], [ %5, %_ZNK11ast_manager6is_andEPK4expr.exit ]
+  %40 = and i32 %39, 65535
+  %41 = icmp eq i32 %40, 2
+  br i1 %41, label %_Z9is_forallPK3ast.exit20, label %_Z9is_forallPK3ast.exit20.thread
 
 _Z9is_forallPK3ast.exit20:                        ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit.thread
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load i32, ptr %41, align 8, !tbaa !210
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %_Z9is_forallPK3ast.exit20.thread
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load i32, ptr %42, align 8, !tbaa !210
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %_Z9is_forallPK3ast.exit20.thread
 
-44:                                               ; preds = %_Z9is_forallPK3ast.exit20
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  tail call void @_ZN8ast_mark5resetEv(ptr noundef nonnull align 8 dereferenceable(56) %45)
+45:                                               ; preds = %_Z9is_forallPK3ast.exit20
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  tail call void @_ZN8ast_mark5resetEv(ptr noundef nonnull align 8 dereferenceable(56) %46)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
   store ptr %0, ptr %3, align 8, !tbaa !152
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 1, ptr %46, align 8, !tbaa !211
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %48 = load i32, ptr %47, align 8, !tbaa !166
-  %.not.i = icmp eq i32 %48, 0
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 1, ptr %47, align 8, !tbaa !211
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %49 = load i32, ptr %48, align 8, !tbaa !166
+  %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %_ZN12slice_solver27should_activiate_quantifierEP10quantifier.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  br label %52
+.lr.ph.i:                                         ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  br label %53
 
-._crit_edge.loopexit.i:                           ; preds = %52
-  %.pre.i = load i8, ptr %46, align 8, !tbaa !211, !range !125
-  %51 = trunc nuw i8 %.pre.i to i1
+._crit_edge.loopexit.i:                           ; preds = %53
+  %.pre.i = load i8, ptr %47, align 8, !tbaa !211, !range !125
+  %52 = trunc nuw i8 %.pre.i to i1
   br label %_ZN12slice_solver27should_activiate_quantifierEP10quantifier.exit
 
-52:                                               ; preds = %52, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
-  %53 = load i32, ptr %50, align 4, !tbaa !162
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %54
-  %56 = getelementptr inbounds nuw %class.symbol, ptr %55, i64 %54
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
-  %58 = load ptr, ptr %57, align 8, !tbaa !101
-  call void @_Z12for_each_astIZN12slice_solver27should_activiate_quantifierEP10quantifierE5visitEvRT_R8ast_markP3astb(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef %58, i1 noundef zeroext false)
+53:                                               ; preds = %53, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
+  %54 = load i32, ptr %51, align 4, !tbaa !162
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %55
+  %57 = getelementptr inbounds nuw %class.symbol, ptr %56, i64 %55
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i
+  %59 = load ptr, ptr %58, align 8, !tbaa !101
+  call void @_Z12for_each_astIZN12slice_solver27should_activiate_quantifierEP10quantifierE5visitEvRT_R8ast_markP3astb(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef %59, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %59 = load i32, ptr %47, align 8, !tbaa !166
-  %60 = zext i32 %59 to i64
-  %61 = icmp samesign ult i64 %indvars.iv.next.i, %60
-  br i1 %61, label %52, label %._crit_edge.loopexit.i, !llvm.loop !213
+  %60 = load i32, ptr %48, align 8, !tbaa !166
+  %61 = zext i32 %60 to i64
+  %62 = icmp samesign ult i64 %indvars.iv.next.i, %61
+  br i1 %62, label %53, label %._crit_edge.loopexit.i, !llvm.loop !213
 
-_ZN12slice_solver27should_activiate_quantifierEP10quantifier.exit: ; preds = %44, %._crit_edge.loopexit.i
-  %62 = phi i1 [ %51, %._crit_edge.loopexit.i ], [ true, %44 ]
+_ZN12slice_solver27should_activiate_quantifierEP10quantifier.exit: ; preds = %45, %._crit_edge.loopexit.i
+  %63 = phi i1 [ %52, %._crit_edge.loopexit.i ], [ true, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
   br label %_Z9is_forallPK3ast.exit20.thread
 
-_Z9is_forallPK3ast.exit20.thread:                 ; preds = %35, %_ZNK11ast_manager6is_andEPK4expr.exit.thread, %_Z9is_forallPK3ast.exit20, %_Z9is_groundPK4expr.exit, %_ZN12slice_solver27should_activiate_quantifierEP10quantifier.exit
-  %.0 = phi i1 [ %62, %_ZN12slice_solver27should_activiate_quantifierEP10quantifier.exit ], [ true, %_Z9is_groundPK4expr.exit ], [ true, %_Z9is_forallPK3ast.exit20 ], [ true, %_ZNK11ast_manager6is_andEPK4expr.exit.thread ], [ true, %35 ]
+_Z9is_forallPK3ast.exit20.thread:                 ; preds = %36, %_ZNK11ast_manager6is_andEPK4expr.exit.thread, %_Z9is_forallPK3ast.exit20, %_Z9is_groundPK4expr.exit, %_ZN12slice_solver27should_activiate_quantifierEP10quantifier.exit
+  %.0 = phi i1 [ %63, %_ZN12slice_solver27should_activiate_quantifierEP10quantifier.exit ], [ true, %_Z9is_groundPK4expr.exit ], [ true, %_Z9is_forallPK3ast.exit20 ], [ true, %_ZNK11ast_manager6is_andEPK4expr.exit.thread ], [ true, %36 ]
   ret i1 %.0
 }
 

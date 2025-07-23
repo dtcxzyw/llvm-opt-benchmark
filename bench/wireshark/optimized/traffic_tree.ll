@@ -13991,9 +13991,9 @@ _ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i:   ; preds = %_ZNK17QArrayDataPoi
   %95 = getelementptr i8, ptr %94, i64 %84
   %96 = icmp ne ptr %.sroa.038.0.lcssa, %81
   %97 = load i64, ptr %5, align 8
-  %.idx3.i.i = shl i64 %97, 2
-  %98 = getelementptr i8, ptr %93, i64 %.idx3.i.i
-  %.not.i.i.i = icmp eq ptr %95, %98
+  %.idx4.i.i = shl i64 %97, 2
+  %98 = sub i64 %82, %86
+  %.not.i.i.i = icmp eq i64 %98, %.idx4.i.i
   %or.cond.i.i.i34 = select i1 %96, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i34, label %._crit_edge.i.i.i35, label %99
 
@@ -14005,8 +14005,7 @@ _ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i:   ; preds = %_ZNK17QArrayDataPoi
   br i1 %.not.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIiE5eraseEPix.exit.i.i, label %100
 
 100:                                              ; preds = %._crit_edge.i.i.i35
-  %.neg.i = sub i64 %86, %82
-  %gepdiff.i.i = add i64 %.neg.i, %.idx3.i.i
+  %gepdiff.i.i = sub i64 %.idx4.i.i, %98
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %94, ptr noundef align 1 %95, i64 noundef %gepdiff.i.i, i1 noundef false) #29
   %.pre12.i.i.i = load i64, ptr %5, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIiE5eraseEPix.exit.i.i

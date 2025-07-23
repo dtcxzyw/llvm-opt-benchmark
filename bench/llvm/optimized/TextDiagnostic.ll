@@ -6012,8 +6012,8 @@ _ZN4llvm11SmallVectorIcLj16EED2Ev.exit:           ; preds = %_ZSt9make_pairIRN4l
   %64 = tail call noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %63) #17
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 %65
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %.not = icmp ugt ptr %66, %67
+  %67 = add nuw nsw i64 %12, %65
+  %.not = icmp samesign ugt i64 %67, %2
   br i1 %.not, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i65, label %68
 
 68:                                               ; preds = %62

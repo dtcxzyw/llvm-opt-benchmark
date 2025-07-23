@@ -46542,7 +46542,8 @@ if.then.i.i22:                                    ; preds = %if.then14
 if.then.i.i.i:                                    ; preds = %if.then.i.i22
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 256
   call void @_ZSt16__insertion_sortIPN8facebook5velox10StringViewEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr.i.i.i)
-  %cmp.not3.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %add.ptr16
+  %34 = add nsw i64 %add.ptr.idx, 256
+  %cmp.not3.i.i.i.i = icmp eq i64 %34, %add.ptr16.idx
   br i1 %cmp.not3.i.i.i.i, label %if.end21, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for.body.i.i.i.i
@@ -46562,8 +46563,8 @@ if.else:                                          ; preds = %for.end
 if.then.i.i24:                                    ; preds = %if.else
   %gepdiff = sub nsw i64 %add.ptr16.idx, %add.ptr.idx
   %sub.ptr.div.i.i28 = ashr exact i64 %gepdiff, 4
-  %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i28, i1 true)
-  %sub.i.i.i29 = shl nuw nsw i64 %34, 1
+  %35 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i28, i1 true)
+  %sub.i.i.i29 = shl nuw nsw i64 %35, 1
   %mul.i.i30 = xor i64 %sub.i.i.i29, 126
   call void @_ZSt16__introsort_loopIPN8facebook5velox10StringViewElN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_T1_(ptr noundef %add.ptr, ptr noundef %add.ptr16, i64 noundef %mul.i.i30)
   %cmp.i.i.i31 = icmp sgt i64 %gepdiff, 256
@@ -46572,7 +46573,8 @@ if.then.i.i24:                                    ; preds = %if.else
 if.then.i.i.i33:                                  ; preds = %if.then.i.i24
   %add.ptr.i.i.i34 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 256
   call void @_ZSt16__insertion_sortIPN8facebook5velox10StringViewEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr.i.i.i34)
-  %cmp.not3.i.i.i.i35 = icmp eq ptr %add.ptr.i.i.i34, %add.ptr16
+  %36 = add nsw i64 %add.ptr.idx, 256
+  %cmp.not3.i.i.i.i35 = icmp eq i64 %36, %add.ptr16.idx
   br i1 %cmp.not3.i.i.i.i35, label %if.end21, label %for.body.i.i.i.i36
 
 for.body.i.i.i.i36:                               ; preds = %if.then.i.i.i33, %for.body.i.i.i.i36
@@ -50695,7 +50697,8 @@ if.then.i.i22:                                    ; preds = %if.then14
 if.then.i.i.i:                                    ; preds = %if.then.i.i22
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 256
   call void @_ZSt16__insertion_sortIPN8facebook5velox10StringViewEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr.i.i.i)
-  %cmp.not3.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %add.ptr16
+  %34 = add nsw i64 %add.ptr.idx, 256
+  %cmp.not3.i.i.i.i = icmp eq i64 %34, %add.ptr16.idx
   br i1 %cmp.not3.i.i.i.i, label %if.end21, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for.body.i.i.i.i
@@ -50715,8 +50718,8 @@ if.else:                                          ; preds = %for.end
 if.then.i.i24:                                    ; preds = %if.else
   %gepdiff = sub nsw i64 %add.ptr16.idx, %add.ptr.idx
   %sub.ptr.div.i.i28 = ashr exact i64 %gepdiff, 4
-  %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i28, i1 true)
-  %sub.i.i.i29 = shl nuw nsw i64 %34, 1
+  %35 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i28, i1 true)
+  %sub.i.i.i29 = shl nuw nsw i64 %35, 1
   %mul.i.i30 = xor i64 %sub.i.i.i29, 126
   call void @_ZSt16__introsort_loopIPN8facebook5velox10StringViewElN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_T1_(ptr noundef %add.ptr, ptr noundef %add.ptr16, i64 noundef %mul.i.i30)
   %cmp.i.i.i31 = icmp sgt i64 %gepdiff, 256
@@ -50725,7 +50728,8 @@ if.then.i.i24:                                    ; preds = %if.else
 if.then.i.i.i33:                                  ; preds = %if.then.i.i24
   %add.ptr.i.i.i34 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 256
   call void @_ZSt16__insertion_sortIPN8facebook5velox10StringViewEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr.i.i.i34)
-  %cmp.not3.i.i.i.i35 = icmp eq ptr %add.ptr.i.i.i34, %add.ptr16
+  %36 = add nsw i64 %add.ptr.idx, 256
+  %cmp.not3.i.i.i.i35 = icmp eq i64 %36, %add.ptr16.idx
   br i1 %cmp.not3.i.i.i.i35, label %if.end21, label %for.body.i.i.i.i36
 
 for.body.i.i.i.i36:                               ; preds = %if.then.i.i.i33, %for.body.i.i.i.i36

@@ -3991,59 +3991,66 @@ _ZN5QListIP7QActionE6detachEv.exit:               ; preds = %26, %_ZN5QListIP7QA
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %49, i64 %52
+  %.idx = shl nsw i64 %52, 3
   %sext = shl i64 %23, 29
-  %54 = ashr i64 %sext, 32
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %53 = ashr exact i64 %sext, 29
+  %.idx27 = and i64 %53, -8
+  %54 = add nsw i64 %.idx, %.idx27
+  %55 = getelementptr inbounds i8, ptr %49, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %49, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.not25 = icmp eq ptr %60, %59
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.idx28 = shl nsw i64 %58, 3
+  %59 = getelementptr inbounds i8, ptr %49, i64 %.idx28
+  %60 = add nsw i64 %54, 8
+  %.not25 = icmp eq i64 %60, %.idx28
+  br i1 %.not25, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZN5QListIP7QActionE6detachEv.exit, %67
-  %61 = phi ptr [ %68, %67 ], [ %60, %_ZN5QListIP7QActionE6detachEv.exit ]
-  %.01826 = phi ptr [ %.1, %67 ], [ %55, %_ZN5QListIP7QActionE6detachEv.exit ]
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, %15
-  br i1 %63, label %67, label %64
+.lr.ph.preheader:                                 ; preds = %_ZN5QListIP7QActionE6detachEv.exit
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  br label %.lr.ph
 
-64:                                               ; preds = %.lr.ph
-  %65 = ptrtoint ptr %62 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %.01826, i64 8
-  store i64 %65, ptr %.01826, align 8
-  br label %67
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
+  %62 = phi ptr [ %69, %68 ], [ %61, %.lr.ph.preheader ]
+  %.01826 = phi ptr [ %.1, %68 ], [ %55, %.lr.ph.preheader ]
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, %15
+  br i1 %64, label %68, label %65
 
-67:                                               ; preds = %.lr.ph, %64
-  %.1 = phi ptr [ %66, %64 ], [ %.01826, %.lr.ph ]
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %.not = icmp eq ptr %68, %59
+65:                                               ; preds = %.lr.ph
+  %66 = ptrtoint ptr %63 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %.01826, i64 8
+  store i64 %66, ptr %.01826, align 8
+  br label %68
+
+68:                                               ; preds = %.lr.ph, %65
+  %.1 = phi ptr [ %67, %65 ], [ %.01826, %.lr.ph ]
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %.not = icmp eq ptr %69, %59
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !63
 
-._crit_edge.loopexit:                             ; preds = %67
+._crit_edge.loopexit:                             ; preds = %68
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 12
-  %.pre28 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre30 = load i32, ptr %.phi.trans.insert, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN5QListIP7QActionE6detachEv.exit
-  %69 = phi i32 [ %57, %_ZN5QListIP7QActionE6detachEv.exit ], [ %.pre28, %._crit_edge.loopexit ]
-  %70 = phi ptr [ %48, %_ZN5QListIP7QActionE6detachEv.exit ], [ %.pre, %._crit_edge.loopexit ]
+  %70 = phi i32 [ %57, %_ZN5QListIP7QActionE6detachEv.exit ], [ %.pre30, %._crit_edge.loopexit ]
+  %71 = phi ptr [ %48, %_ZN5QListIP7QActionE6detachEv.exit ], [ %.pre, %._crit_edge.loopexit ]
   %.018.lcssa = phi ptr [ %55, %_ZN5QListIP7QActionE6detachEv.exit ], [ %.1, %._crit_edge.loopexit ]
-  %71 = ptrtoint ptr %59 to i64
-  %72 = ptrtoint ptr %.018.lcssa to i64
-  %73 = sub i64 %71, %72
-  %74 = lshr exact i64 %73, 3
-  %75 = trunc i64 %74 to i32
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  %77 = sub nsw i32 %69, %75
-  store i32 %77, ptr %76, align 4
+  %72 = ptrtoint ptr %59 to i64
+  %73 = ptrtoint ptr %.018.lcssa to i64
+  %74 = sub i64 %72, %73
+  %75 = lshr exact i64 %74, 3
+  %76 = trunc i64 %75 to i32
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 12
+  %78 = sub nsw i32 %70, %76
+  store i32 %78, ptr %77, align 4
   br label %_ZNK5QListIP7QActionE7indexOfERKS1_i.exit.thread
 
 _ZNK5QListIP7QActionE7indexOfERKS1_i.exit.thread: ; preds = %16, %2, %_ZNK5QListIP7QActionE7indexOfERKS1_i.exit, %._crit_edge
-  %.0 = phi i32 [ %75, %._crit_edge ], [ 0, %_ZNK5QListIP7QActionE7indexOfERKS1_i.exit ], [ 0, %2 ], [ 0, %16 ]
+  %.0 = phi i32 [ %76, %._crit_edge ], [ 0, %_ZNK5QListIP7QActionE7indexOfERKS1_i.exit ], [ 0, %2 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -38783,35 +38790,37 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %24, %.lr.ph.i
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit: ; preds = %_ZN7QStringC2ERKS_.exit.i
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre17 = load i32, ptr %.phi.trans.insert, align 8
-  %.pre18 = load i32, ptr %4, align 4
-  %.pre19 = sext i32 %.pre17 to i64
-  %28 = sext i32 %.pre18 to i64
+  %.pre22 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre23 = load i32, ptr %4, align 4
+  %.pre24 = sext i32 %.pre22 to i64
+  %28 = sext i32 %.pre23 to i64
   br label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, %3
-  %.pre-phi = phi i64 [ %.pre19, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %16, %3 ]
+  %.pre-phi = phi i64 [ %.pre24, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %16, %3 ]
   %29 = phi i64 [ %28, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ 0, %3 ]
   %30 = phi ptr [ %.pre, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %12, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %.pre-phi
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %29
-  %34 = sext i32 %2 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %31, i64 %38
-  %.not8.i6 = icmp eq ptr %35, %39
+  %32 = sext i32 %2 to i64
+  %.idx1721 = add nsw i64 %.pre-phi, %32
+  %33 = add nsw i64 %.idx1721, %29
+  %34 = shl nsw i64 %33, 3
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 12
+  %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
+  %.idx20 = shl nsw i64 %37, 3
+  %38 = getelementptr inbounds i8, ptr %31, i64 %.idx20
+  %.not8.i6 = icmp eq i64 %34, %.idx20
   br i1 %.not8.i6, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7.preheader
 
 .lr.ph.i7.preheader:                              ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
-  %40 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %10, i64 %29
+  %39 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %10, i64 %29
+  %40 = getelementptr inbounds i8, ptr %31, i64 %34
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %_ZN7QStringC2ERKS_.exit.i11
-  %.010.i8 = phi ptr [ %46, %_ZN7QStringC2ERKS_.exit.i11 ], [ %35, %.lr.ph.i7.preheader ]
-  %.079.i9 = phi ptr [ %47, %_ZN7QStringC2ERKS_.exit.i11 ], [ %40, %.lr.ph.i7.preheader ]
+  %.010.i8 = phi ptr [ %46, %_ZN7QStringC2ERKS_.exit.i11 ], [ %40, %.lr.ph.i7.preheader ]
+  %.079.i9 = phi ptr [ %47, %_ZN7QStringC2ERKS_.exit.i11 ], [ %39, %.lr.ph.i7.preheader ]
   %41 = load ptr, ptr %.079.i9, align 8
   store ptr %41, ptr %.010.i8, align 8
   %42 = load atomic i32, ptr %41 monotonic, align 4
@@ -38826,7 +38835,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStr
 _ZN7QStringC2ERKS_.exit.i11:                      ; preds = %44, %.lr.ph.i7
   %46 = getelementptr inbounds nuw i8, ptr %.010.i8, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.079.i9, i64 8
-  %.not.i12 = icmp eq ptr %46, %39
+  %.not.i12 = icmp eq ptr %46, %38
   br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !13
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13: ; preds = %_ZN7QStringC2ERKS_.exit.i11, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit

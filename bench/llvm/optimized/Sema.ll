@@ -28199,58 +28199,53 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9ValueDeclEEEDaPT0_.exit: ;
   %86 = icmp ne i8 %85, 26
   %.not3561 = icmp eq ptr %83, null
   %.not35 = or i1 %.not3561, %86
-  br i1 %.not35, label %93, label %87
+  br i1 %.not35, label %94, label %87
 
 87:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9ValueDeclEEEDaPT0_.exit
-  %88 = load i64, ptr %84, align 16
-  %89 = lshr i64 %88, 38
-  %.idx.i = and i64 %89, 65535
-  %.idx = shl nuw nsw i64 %.idx.i, 3
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx
-  %.ptr65 = getelementptr inbounds nuw i8, ptr %90, i64 48
-  %.not3663 = icmp eq i64 %.idx.i, 0
-  br i1 %.not3663, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %87
-  %.ptr = getelementptr inbounds nuw i8, ptr %83, i64 48
-  br label %.lr.ph
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %89 = load i64, ptr %84, align 16
+  %90 = lshr i64 %89, 35
+  %.idx = and i64 %90, 524280
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx
+  %.not3663 = icmp samesign eq i64 %.idx, 0
+  br i1 %.not3663, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %87
-  %91 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %.sroa.0.0.copyload.i = load i64, ptr %91, align 8, !tbaa !937
+  %92 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %.sroa.0.0.copyload.i = load i64, ptr %92, align 8, !tbaa !937
   call fastcc void @"_ZZN5clang4Sema16checkTypeSupportENS_8QualTypeENS_14SourceLocationEPNS_9ValueDeclEENK3$_1clES1_b"(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext true)
   %.pre = load ptr, ptr %82, align 16, !tbaa !1614
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre66 = load i8, ptr %.phi.trans.insert, align 16
-  br label %93
+  %.pre65 = load i8, ptr %.phi.trans.insert, align 16
+  br label %94
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02764 = phi ptr [ %92, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %87, %.lr.ph
+  %.02764 = phi ptr [ %93, %.lr.ph ], [ %88, %87 ]
   %.sroa.04.0.copyload = load i64, ptr %.02764, align 8, !tbaa !937
   call fastcc void @"_ZZN5clang4Sema16checkTypeSupportENS_8QualTypeENS_14SourceLocationEPNS_9ValueDeclEENK3$_1clES1_b"(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 %.sroa.04.0.copyload, i1 noundef zeroext false)
-  %92 = getelementptr inbounds nuw i8, ptr %.02764, i64 8
-  %.not36 = icmp eq ptr %92, %.ptr65
+  %93 = getelementptr inbounds nuw i8, ptr %.02764, i64 8
+  %.not36 = icmp eq ptr %93, %91
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
-93:                                               ; preds = %._crit_edge, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9ValueDeclEEEDaPT0_.exit
-  %94 = phi i8 [ %.pre66, %._crit_edge ], [ %85, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9ValueDeclEEEDaPT0_.exit ]
-  %95 = phi ptr [ %.pre, %._crit_edge ], [ %83, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9ValueDeclEEEDaPT0_.exit ]
-  %.not67 = icmp eq i8 %94, 25
-  br i1 %.not67, label %96, label %98
+94:                                               ; preds = %._crit_edge, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9ValueDeclEEEDaPT0_.exit
+  %95 = phi i8 [ %.pre65, %._crit_edge ], [ %85, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9ValueDeclEEEDaPT0_.exit ]
+  %96 = phi ptr [ %.pre, %._crit_edge ], [ %83, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9ValueDeclEEEDaPT0_.exit ]
+  %.not66 = icmp eq i8 %95, 25
+  br i1 %.not66, label %97, label %99
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %.sroa.0.0.copyload.i45 = load i64, ptr %97, align 8, !tbaa !937
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %.sroa.0.0.copyload.i45 = load i64, ptr %98, align 8, !tbaa !937
   call fastcc void @"_ZZN5clang4Sema16checkTypeSupportENS_8QualTypeENS_14SourceLocationEPNS_9ValueDeclEENK3$_1clES1_b"(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 %.sroa.0.0.copyload.i45, i1 noundef zeroext true)
-  br label %98
+  br label %99
 
-98:                                               ; preds = %96, %93
+99:                                               ; preds = %97, %94
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
   br label %.critedge39
 
-.critedge39:                                      ; preds = %4, %4, %4, %98, %59, %50, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit
+.critedge39:                                      ; preds = %4, %4, %4, %99, %59, %50, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit
   ret void
 }
 
@@ -45438,35 +45433,31 @@ _ZN12_GLOBAL__N_126DeferredDiagnosticsEmitter13visitUsedDeclEN5clang14SourceLoca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i16, ptr %3, align 4
-  %5 = zext i16 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not10 = icmp eq i16 %4, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i16, ptr %4, align 4
+  %6 = zext i16 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %.not10 = icmp eq i16 %5, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %9, %2
+._crit_edge:                                      ; preds = %10, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %.011 = phi ptr [ %10, %9 ], [ %.ptr, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.011, align 8, !tbaa !2794
-  %.not9 = icmp eq ptr %7, null
-  br i1 %.not9, label %9, label %8
+.lr.ph:                                           ; preds = %2, %10
+  %.011 = phi ptr [ %11, %10 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.011, align 8, !tbaa !2794
+  %.not9 = icmp eq ptr %8, null
+  br i1 %.not9, label %10, label %9
 
-8:                                                ; preds = %.lr.ph
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7)
-  br label %9
+9:                                                ; preds = %.lr.ph
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %8)
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %8
-  %10 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %.not = icmp eq ptr %10, %.ptr12
+10:                                               ; preds = %.lr.ph, %9
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %.not = icmp eq ptr %11, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2795
 }
 

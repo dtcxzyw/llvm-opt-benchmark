@@ -5861,7 +5861,7 @@ if.then67:                                        ; preds = %_ZNK4absl7debian211
 
 if.end.i114:                                      ; preds = %if.then67
   %24 = getelementptr i8, ptr %14, i64 %13
-  %add.ptr9.ptr.i = getelementptr i8, ptr %24, i64 -2
+  %add.ptr9.i = getelementptr i8, ptr %24, i64 -2
   %cmp10.not35.i = icmp samesign ult i64 %13, 4
   br i1 %cmp10.not35.i, label %if.end73, label %land.rhs.preheader.i
 
@@ -5883,7 +5883,7 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
 
 for.inc.i:                                        ; preds = %lor.rhs.i, %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %q.036.i, i64 1
-  %cmp10.not.i = icmp ugt ptr %incdec.ptr.i, %add.ptr9.ptr.i
+  %cmp10.not.i = icmp ugt ptr %incdec.ptr.i, %add.ptr9.i
   br i1 %cmp10.not.i, label %if.end73, label %land.rhs.i, !llvm.loop !54
 
 if.end19.i:                                       ; preds = %lor.rhs.i

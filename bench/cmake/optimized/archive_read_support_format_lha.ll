@@ -139,8 +139,8 @@ define internal range(i32 -1, 31) i32 @archive_read_format_lha_bid(ptr noundef %
   %25 = getelementptr inbounds i8, ptr %19, i64 %.022.ph47
   %26 = load i64, ptr %3, align 8, !tbaa !9
   %27 = getelementptr inbounds i8, ptr %19, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 22
-  %29 = icmp ult ptr %28, %27
+  %28 = add nsw i64 %.022.ph47, 22
+  %29 = icmp slt i64 %28, %26
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24, %32

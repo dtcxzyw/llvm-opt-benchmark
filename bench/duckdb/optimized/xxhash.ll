@@ -523,95 +523,94 @@ _ZN11duckdb_zstdL19XXH32_update_endianEPNS_13XXH32_state_sEPKvmNS_13XXH_endianes
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN11duckdb_zstd12XXH32_digestEPKNS_13XXH32_state_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 4, !tbaa !17
-  %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
-  %.ptr11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !16
-  %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %24, label %8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = load i32, ptr %3, align 4, !tbaa !17
+  %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !16
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %25, label %9
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !18
-  %11 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 1)
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !19
-  %14 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 7)
-  %15 = add i32 %14, %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 4, !tbaa !20
-  %18 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 12)
-  %19 = add i32 %15, %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %21 = load i32, ptr %20, align 4, !tbaa !21
-  %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 18)
-  %23 = add i32 %19, %22
-  br label %28
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i32, ptr %10, align 4, !tbaa !18
+  %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 1)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %14 = load i32, ptr %13, align 4, !tbaa !19
+  %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 7)
+  %16 = add i32 %15, %12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i32, ptr %17, align 4, !tbaa !20
+  %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 12)
+  %20 = add i32 %16, %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %22 = load i32, ptr %21, align 4, !tbaa !21
+  %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 18)
+  %24 = add i32 %20, %23
+  br label %29
 
-24:                                               ; preds = %1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i32, ptr %25, align 4, !tbaa !20
-  %27 = add i32 %26, 374761393
-  br label %28
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load i32, ptr %26, align 4, !tbaa !20
+  %28 = add i32 %27, 374761393
+  br label %29
 
-28:                                               ; preds = %24, %8
-  %.0.i = phi i32 [ %23, %8 ], [ %27, %24 ]
-  %29 = load i32, ptr %0, align 4, !tbaa !13
-  %30 = add i32 %29, %.0.i
-  %.not41.i3 = icmp ult i32 %3, 4
+29:                                               ; preds = %25, %9
+  %.0.i = phi i32 [ %24, %9 ], [ %28, %25 ]
+  %30 = load i32, ptr %0, align 4, !tbaa !13
+  %31 = add i32 %30, %.0.i
+  %.not41.i3 = icmp ult i32 %4, 4
   br i1 %.not41.i3, label %.preheader, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
+.lr.ph.preheader:                                 ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %28
-  %.038.i.lcssa = phi ptr [ %.ptr, %28 ], [ %33, %.lr.ph ]
-  %.1.i.lcssa = phi i32 [ %30, %28 ], [ %37, %.lr.ph ]
-  %32 = icmp ult ptr %.038.i.lcssa, %.ptr11
-  br i1 %32, label %.lr.ph9, label %_ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.exit
+.preheader:                                       ; preds = %.lr.ph, %29
+  %.038.i.lcssa = phi ptr [ %2, %29 ], [ %34, %.lr.ph ]
+  %.1.i.lcssa = phi i32 [ %31, %29 ], [ %38, %.lr.ph ]
+  %33 = icmp ult ptr %.038.i.lcssa, %6
+  br i1 %33, label %.lr.ph9, label %_ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %33 = phi ptr [ %38, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.1.i5 = phi i32 [ %37, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.038.i4 = phi ptr [ %33, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  %34 = phi ptr [ %39, %.lr.ph ], [ %32, %.lr.ph.preheader ]
+  %.1.i5 = phi i32 [ %38, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %.038.i4 = phi ptr [ %34, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.038.i.val = load i32, ptr %.038.i4, align 1
-  %34 = mul i32 %.038.i.val, -1028477379
-  %35 = add i32 %34, %.1.i5
-  %36 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 17)
-  %37 = mul i32 %36, 668265263
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %.not41.i = icmp ugt ptr %38, %.ptr11
+  %35 = mul i32 %.038.i.val, -1028477379
+  %36 = add i32 %35, %.1.i5
+  %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 17)
+  %38 = mul i32 %37, 668265263
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %.not41.i = icmp ugt ptr %39, %6
   br i1 %.not41.i, label %.preheader, label %.lr.ph, !llvm.loop !23
 
 .lr.ph9:                                          ; preds = %.preheader, %.lr.ph9
-  %.2.i8 = phi i32 [ %44, %.lr.ph9 ], [ %.1.i.lcssa, %.preheader ]
-  %.139.i7 = phi ptr [ %45, %.lr.ph9 ], [ %.038.i.lcssa, %.preheader ]
-  %39 = load i8, ptr %.139.i7, align 1, !tbaa !6
-  %40 = zext i8 %39 to i32
-  %41 = mul i32 %40, 374761393
-  %42 = add i32 %41, %.2.i8
-  %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 11)
-  %44 = mul i32 %43, -1640531535
-  %45 = getelementptr inbounds nuw i8, ptr %.139.i7, i64 1
-  %46 = icmp ult ptr %45, %.ptr11
-  br i1 %46, label %.lr.ph9, label %_ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.exit, !llvm.loop !24
+  %.2.i8 = phi i32 [ %45, %.lr.ph9 ], [ %.1.i.lcssa, %.preheader ]
+  %.139.i7 = phi ptr [ %46, %.lr.ph9 ], [ %.038.i.lcssa, %.preheader ]
+  %40 = load i8, ptr %.139.i7, align 1, !tbaa !6
+  %41 = zext i8 %40 to i32
+  %42 = mul i32 %41, 374761393
+  %43 = add i32 %42, %.2.i8
+  %44 = tail call i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 11)
+  %45 = mul i32 %44, -1640531535
+  %46 = getelementptr inbounds nuw i8, ptr %.139.i7, i64 1
+  %47 = icmp ult ptr %46, %6
+  br i1 %47, label %.lr.ph9, label %_ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.exit, !llvm.loop !24
 
 _ZN11duckdb_zstdL19XXH32_digest_endianEPKNS_13XXH32_state_sENS_13XXH_endianessE.exit: ; preds = %.lr.ph9, %.preheader
-  %.2.i.lcssa = phi i32 [ %.1.i.lcssa, %.preheader ], [ %44, %.lr.ph9 ]
-  %47 = lshr i32 %.2.i.lcssa, 15
-  %48 = xor i32 %47, %.2.i.lcssa
-  %49 = mul i32 %48, -2048144777
-  %50 = lshr i32 %49, 13
-  %51 = xor i32 %50, %49
-  %52 = mul i32 %51, -1028477379
-  %53 = lshr i32 %52, 16
-  %54 = xor i32 %53, %52
-  ret i32 %54
+  %.2.i.lcssa = phi i32 [ %.1.i.lcssa, %.preheader ], [ %45, %.lr.ph9 ]
+  %48 = lshr i32 %.2.i.lcssa, 15
+  %49 = xor i32 %48, %.2.i.lcssa
+  %50 = mul i32 %49, -2048144777
+  %51 = lshr i32 %50, 13
+  %52 = xor i32 %51, %50
+  %53 = mul i32 %52, -1028477379
+  %54 = lshr i32 %53, 16
+  %55 = xor i32 %54, %53
+  ret i32 %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -779,137 +778,136 @@ _ZN11duckdb_zstdL19XXH64_update_endianEPNS_13XXH64_state_sEPKvmNS_13XXH_endianes
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load i32, ptr %2, align 8, !tbaa !28
-  %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
-  %.ptr13 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %6 = load i64, ptr %0, align 8, !tbaa !25
-  %7 = icmp ugt i64 %6, 31
-  br i1 %7, label %8, label %48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = load i32, ptr %3, align 8, !tbaa !28
+  %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
+  %7 = load i64, ptr %0, align 8, !tbaa !25
+  %8 = icmp ugt i64 %7, 31
+  br i1 %8, label %9, label %49
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !29
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !31
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !32
-  %17 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 1)
-  %18 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 7)
-  %19 = add i64 %18, %17
-  %20 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 12)
-  %21 = add i64 %19, %20
-  %22 = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 18)
-  %23 = add i64 %21, %22
-  %24 = mul i64 %10, -4417276706812531889
-  %25 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 31)
-  %26 = mul i64 %25, -7046029288634856825
-  %27 = xor i64 %23, %26
-  %28 = mul i64 %27, -7046029288634856825
-  %29 = add i64 %28, -8796714831421723037
-  %30 = mul i64 %12, -4417276706812531889
-  %31 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 31)
-  %32 = mul i64 %31, -7046029288634856825
-  %33 = xor i64 %29, %32
-  %34 = mul i64 %33, -7046029288634856825
-  %35 = add i64 %34, -8796714831421723037
-  %36 = mul i64 %14, -4417276706812531889
-  %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 31)
-  %38 = mul i64 %37, -7046029288634856825
-  %39 = xor i64 %35, %38
-  %40 = mul i64 %39, -7046029288634856825
-  %41 = add i64 %40, -8796714831421723037
-  %42 = mul i64 %16, -4417276706812531889
-  %43 = tail call i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 31)
-  %44 = mul i64 %43, -7046029288634856825
-  %45 = xor i64 %41, %44
-  %46 = mul i64 %45, -7046029288634856825
-  %47 = add i64 %46, -8796714831421723037
-  br label %52
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !29
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !tbaa !30
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load i64, ptr %14, align 8, !tbaa !31
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = load i64, ptr %16, align 8, !tbaa !32
+  %18 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 1)
+  %19 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 7)
+  %20 = add i64 %19, %18
+  %21 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 12)
+  %22 = add i64 %20, %21
+  %23 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 18)
+  %24 = add i64 %22, %23
+  %25 = mul i64 %11, -4417276706812531889
+  %26 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 31)
+  %27 = mul i64 %26, -7046029288634856825
+  %28 = xor i64 %24, %27
+  %29 = mul i64 %28, -7046029288634856825
+  %30 = add i64 %29, -8796714831421723037
+  %31 = mul i64 %13, -4417276706812531889
+  %32 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 31)
+  %33 = mul i64 %32, -7046029288634856825
+  %34 = xor i64 %30, %33
+  %35 = mul i64 %34, -7046029288634856825
+  %36 = add i64 %35, -8796714831421723037
+  %37 = mul i64 %15, -4417276706812531889
+  %38 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 31)
+  %39 = mul i64 %38, -7046029288634856825
+  %40 = xor i64 %36, %39
+  %41 = mul i64 %40, -7046029288634856825
+  %42 = add i64 %41, -8796714831421723037
+  %43 = mul i64 %17, -4417276706812531889
+  %44 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 31)
+  %45 = mul i64 %44, -7046029288634856825
+  %46 = xor i64 %42, %45
+  %47 = mul i64 %46, -7046029288634856825
+  %48 = add i64 %47, -8796714831421723037
+  br label %53
 
-48:                                               ; preds = %1
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !31
-  %51 = add i64 %50, 2870177450012600261
-  br label %52
+49:                                               ; preds = %1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load i64, ptr %50, align 8, !tbaa !31
+  %52 = add i64 %51, 2870177450012600261
+  br label %53
 
-52:                                               ; preds = %48, %8
-  %.059.i = phi i64 [ %47, %8 ], [ %51, %48 ]
-  %53 = add i64 %.059.i, %6
-  %.not.i4 = icmp ult i32 %3, 8
+53:                                               ; preds = %49, %9
+  %.059.i = phi i64 [ %48, %9 ], [ %52, %49 ]
+  %54 = add i64 %.059.i, %7
+  %.not.i4 = icmp ult i32 %4, 8
   br i1 %.not.i4, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
+.lr.ph.preheader:                                 ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %55 = phi ptr [ %63, %.lr.ph ], [ %54, %.lr.ph.preheader ]
-  %.0.i6 = phi ptr [ %55, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %.160.i5 = phi i64 [ %62, %.lr.ph ], [ %53, %.lr.ph.preheader ]
+  %56 = phi ptr [ %64, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %.0.i6 = phi ptr [ %56, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.160.i5 = phi i64 [ %63, %.lr.ph ], [ %54, %.lr.ph.preheader ]
   %.0.i.val3 = load i64, ptr %.0.i6, align 1
-  %56 = mul i64 %.0.i.val3, -4417276706812531889
-  %57 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 31)
-  %58 = mul i64 %57, -7046029288634856825
-  %59 = xor i64 %58, %.160.i5
-  %60 = tail call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 27)
-  %61 = mul i64 %60, -7046029288634856825
-  %62 = add i64 %61, -8796714831421723037
-  %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.not.i = icmp ugt ptr %63, %.ptr13
+  %57 = mul i64 %.0.i.val3, -4417276706812531889
+  %58 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 31)
+  %59 = mul i64 %58, -7046029288634856825
+  %60 = xor i64 %59, %.160.i5
+  %61 = tail call i64 @llvm.fshl.i64(i64 %60, i64 %60, i64 27)
+  %62 = mul i64 %61, -7046029288634856825
+  %63 = add i64 %62, -8796714831421723037
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %.not.i = icmp ugt ptr %64, %6
   br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.lr.ph, %52
-  %.160.i.lcssa = phi i64 [ %53, %52 ], [ %62, %.lr.ph ]
-  %.0.i.lcssa = phi ptr [ %.ptr, %52 ], [ %55, %.lr.ph ]
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i.lcssa, i64 4
-  %.not65.i = icmp ugt ptr %64, %.ptr13
-  br i1 %.not65.i, label %72, label %65
+._crit_edge:                                      ; preds = %.lr.ph, %53
+  %.160.i.lcssa = phi i64 [ %54, %53 ], [ %63, %.lr.ph ]
+  %.0.i.lcssa = phi ptr [ %2, %53 ], [ %56, %.lr.ph ]
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.lcssa, i64 4
+  %.not65.i = icmp ugt ptr %65, %6
+  br i1 %.not65.i, label %73, label %66
 
-65:                                               ; preds = %._crit_edge
+66:                                               ; preds = %._crit_edge
   %.0.i.val = load i32, ptr %.0.i.lcssa, align 1
-  %66 = zext i32 %.0.i.val to i64
-  %67 = mul i64 %66, -7046029288634856825
-  %68 = xor i64 %67, %.160.i.lcssa
-  %69 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 23)
-  %70 = mul i64 %69, -4417276706812531889
-  %71 = add i64 %70, 1609587929392839161
-  br label %72
+  %67 = zext i32 %.0.i.val to i64
+  %68 = mul i64 %67, -7046029288634856825
+  %69 = xor i64 %68, %.160.i.lcssa
+  %70 = tail call i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 23)
+  %71 = mul i64 %70, -4417276706812531889
+  %72 = add i64 %71, 1609587929392839161
+  br label %73
 
-72:                                               ; preds = %65, %._crit_edge
-  %.261.i = phi i64 [ %71, %65 ], [ %.160.i.lcssa, %._crit_edge ]
-  %.1.i = phi ptr [ %64, %65 ], [ %.0.i.lcssa, %._crit_edge ]
-  %73 = icmp ult ptr %.1.i, %.ptr13
-  br i1 %73, label %.lr.ph11, label %_ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit
+73:                                               ; preds = %66, %._crit_edge
+  %.261.i = phi i64 [ %72, %66 ], [ %.160.i.lcssa, %._crit_edge ]
+  %.1.i = phi ptr [ %65, %66 ], [ %.0.i.lcssa, %._crit_edge ]
+  %74 = icmp ult ptr %.1.i, %6
+  br i1 %74, label %.lr.ph11, label %_ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit
 
-.lr.ph11:                                         ; preds = %72, %.lr.ph11
-  %.2.i9 = phi ptr [ %80, %.lr.ph11 ], [ %.1.i, %72 ]
-  %.3.i8 = phi i64 [ %79, %.lr.ph11 ], [ %.261.i, %72 ]
-  %74 = load i8, ptr %.2.i9, align 1, !tbaa !6
-  %75 = zext i8 %74 to i64
-  %76 = mul i64 %75, 2870177450012600261
-  %77 = xor i64 %76, %.3.i8
-  %78 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %77, i64 11)
-  %79 = mul i64 %78, -7046029288634856825
-  %80 = getelementptr inbounds nuw i8, ptr %.2.i9, i64 1
-  %81 = icmp ult ptr %80, %.ptr13
-  br i1 %81, label %.lr.ph11, label %_ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit, !llvm.loop !35
+.lr.ph11:                                         ; preds = %73, %.lr.ph11
+  %.2.i9 = phi ptr [ %81, %.lr.ph11 ], [ %.1.i, %73 ]
+  %.3.i8 = phi i64 [ %80, %.lr.ph11 ], [ %.261.i, %73 ]
+  %75 = load i8, ptr %.2.i9, align 1, !tbaa !6
+  %76 = zext i8 %75 to i64
+  %77 = mul i64 %76, 2870177450012600261
+  %78 = xor i64 %77, %.3.i8
+  %79 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 11)
+  %80 = mul i64 %79, -7046029288634856825
+  %81 = getelementptr inbounds nuw i8, ptr %.2.i9, i64 1
+  %82 = icmp ult ptr %81, %6
+  br i1 %82, label %.lr.ph11, label %_ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit, !llvm.loop !35
 
-_ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit: ; preds = %.lr.ph11, %72
-  %.3.i.lcssa = phi i64 [ %.261.i, %72 ], [ %79, %.lr.ph11 ]
-  %82 = lshr i64 %.3.i.lcssa, 33
-  %83 = xor i64 %82, %.3.i.lcssa
-  %84 = mul i64 %83, -4417276706812531889
-  %85 = lshr i64 %84, 29
-  %86 = xor i64 %85, %84
-  %87 = mul i64 %86, 1609587929392839161
-  %88 = lshr i64 %87, 32
-  %89 = xor i64 %88, %87
-  ret i64 %89
+_ZN11duckdb_zstdL19XXH64_digest_endianEPKNS_13XXH64_state_sENS_13XXH_endianessE.exit: ; preds = %.lr.ph11, %73
+  %.3.i.lcssa = phi i64 [ %.261.i, %73 ], [ %80, %.lr.ph11 ]
+  %83 = lshr i64 %.3.i.lcssa, 33
+  %84 = xor i64 %83, %.3.i.lcssa
+  %85 = mul i64 %84, -4417276706812531889
+  %86 = lshr i64 %85, 29
+  %87 = xor i64 %86, %85
+  %88 = mul i64 %87, 1609587929392839161
+  %89 = lshr i64 %88, 32
+  %90 = xor i64 %89, %88
+  ret i64 %90
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

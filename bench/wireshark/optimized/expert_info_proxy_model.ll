@@ -2951,14 +2951,14 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
   br label %_ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i
 
 _ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i
-  %.idx3.i.i.i.pre-phi = phi i64 [ %.pre24, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i ], [ %.idx11, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i ]
+  %.idx4.i.i.i.pre-phi = phi i64 [ %.pre24, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i ], [ %.idx11, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i ]
   %61 = phi i64 [ %.pre, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i ], [ %6, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i ]
   %62 = phi ptr [ %.pre.i.i, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i ], [ %4, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i ]
   %63 = getelementptr i8, ptr %62, i64 %56
   %64 = getelementptr i8, ptr %63, i64 4
   %65 = icmp ne ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %4
-  %66 = getelementptr i8, ptr %62, i64 %.idx3.i.i.i.pre-phi
-  %.not.i.i.i.i = icmp eq ptr %64, %66
+  %66 = sub i64 %57, %8
+  %.not.i.i.i.i = icmp eq i64 %66, %.idx4.i.i.i.pre-phi
   %or.cond.i.i.i.i = select i1 %65, i1 true, i1 %.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %._crit_edge.i.i.i.i, label %67
 
@@ -2970,8 +2970,7 @@ _ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPoi
   br i1 %.not.i.i.i.i, label %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit, label %68
 
 68:                                               ; preds = %._crit_edge.i.i.i.i
-  %.neg.i.i = sub i64 %8, %57
-  %gepdiff.i.i.i = add i64 %.neg.i.i, %.idx3.i.i.i.pre-phi
+  %gepdiff.i.i.i = sub i64 %.idx4.i.i.i.pre-phi, %66
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %64, i64 noundef %gepdiff.i.i.i, i1 noundef false) #17
   %.pre12.i.i.i.i = load i64, ptr %5, align 8
   br label %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit

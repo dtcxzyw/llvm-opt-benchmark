@@ -369,17 +369,12 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr noundef 
   %5 = load ptr, ptr %0, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !7
-  %.ptr = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
-  %.ptr36 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %9 = icmp eq i64 %7, 0
-  br i1 %9, label %130, label %.preheader
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %7
+  %10 = icmp eq i64 %7, 0
+  br i1 %10, label %130, label %.lr.ph
 
-.preheader:                                       ; preds = %2
-  %10 = icmp sgt i64 %7, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 31
   %13 = ptrtoint ptr %12 to i64
@@ -387,7 +382,7 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %.lr.ph, %73
   %15 = phi ptr [ null, %.lr.ph ], [ %74, %73 ]
-  %.035 = phi ptr [ %.ptr, %.lr.ph ], [ %76, %73 ]
+  %.035 = phi ptr [ %8, %.lr.ph ], [ %76, %73 ]
   %16 = load i8, ptr %.035, align 1, !tbaa !4
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
@@ -412,11 +407,11 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr noundef 
   call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0.i) #9
   %.pre = load ptr, ptr %4, align 8, !tbaa !21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre37 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !7
+  %.pre36 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !7
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %21, %26
-  %27 = phi i64 [ %.pre37, %26 ], [ %23, %21 ]
+  %27 = phi i64 [ %.pre36, %26 ], [ %23, %21 ]
   %28 = phi ptr [ %.pre, %26 ], [ %15, %21 ]
   %.1.i = phi i64 [ %.0.i, %26 ], [ %24, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -454,14 +449,14 @@ smart_str_alloc.exit:                             ; preds = %21, %26
 
 47:                                               ; preds = %41
   call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %45) #9
-  %.pre38 = load ptr, ptr %4, align 8, !tbaa !21
-  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %.pre38, i64 16
-  %.pre40 = load i64, ptr %.phi.trans.insert39, align 8, !tbaa !7
+  %.pre37 = load ptr, ptr %4, align 8, !tbaa !21
+  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.pre37, i64 16
+  %.pre39 = load i64, ptr %.phi.trans.insert38, align 8, !tbaa !7
   br label %48
 
 48:                                               ; preds = %47, %41
-  %49 = phi i64 [ %.pre40, %47 ], [ %44, %41 ]
-  %50 = phi ptr [ %.pre38, %47 ], [ %31, %41 ]
+  %49 = phi i64 [ %.pre39, %47 ], [ %44, %41 ]
+  %50 = phi ptr [ %.pre37, %47 ], [ %31, %41 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 1 dereferenceable(1) %39, i64 %43, i1 false)
@@ -477,11 +472,11 @@ smart_str_alloc.exit:                             ; preds = %21, %26
 
 58:                                               ; preds = %48
   call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %56) #9
-  %.pre41 = load ptr, ptr %4, align 8, !tbaa !21
+  %.pre40 = load ptr, ptr %4, align 8, !tbaa !21
   br label %smart_str_appendc_ex.exit28
 
 smart_str_appendc_ex.exit28:                      ; preds = %48, %58
-  %59 = phi ptr [ %53, %48 ], [ %.pre41, %58 ]
+  %59 = phi ptr [ %53, %48 ], [ %.pre40, %58 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = getelementptr inbounds nuw [1 x i8], ptr %60, i64 0, i64 %55
   store i8 59, ptr %61, align 1, !tbaa !4
@@ -501,11 +496,11 @@ smart_str_appendc_ex.exit28:                      ; preds = %48, %58
 68:                                               ; preds = %63, %62
   %.0.i.i22 = phi i64 [ 1, %62 ], [ %66, %63 ]
   call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0.i.i22) #9
-  %.pre42 = load ptr, ptr %4, align 8, !tbaa !21
+  %.pre41 = load ptr, ptr %4, align 8, !tbaa !21
   br label %smart_str_appendc_ex.exit
 
 smart_str_appendc_ex.exit:                        ; preds = %63, %68
-  %69 = phi ptr [ %.pre42, %68 ], [ %15, %63 ]
+  %69 = phi ptr [ %.pre41, %68 ], [ %15, %63 ]
   %.1.i.i23 = phi i64 [ %.0.i.i22, %68 ], [ %66, %63 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = add i64 %.1.i.i23, -1
@@ -519,10 +514,10 @@ smart_str_appendc_ex.exit:                        ; preds = %63, %68
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i64 %.1.i.i23.sink, ptr %75, align 8, !tbaa !7
   %76 = getelementptr inbounds nuw i8, ptr %.035, i64 1
-  %77 = icmp ult ptr %76, %.ptr36
+  %77 = icmp ult ptr %76, %9
   br i1 %77, label %14, label %._crit_edge
 
-._crit_edge:                                      ; preds = %73, %.preheader
+._crit_edge:                                      ; preds = %73
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #9
   %78 = load ptr, ptr %4, align 8, !tbaa !21
   %.not.i29 = icmp eq ptr %78, null
@@ -668,20 +663,16 @@ define hidden void @php_filter_encoded(ptr noundef %0, i64 noundef %1, ptr nound
   store i64 0, ptr %16, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load ptr, ptr %0, align 8, !tbaa !4
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !7
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
-  %.ptr4.i = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %22 = icmp sgt i64 %20, 0
-  br i1 %22, label %.lr.ph.preheader.i, label %php_filter_encode_url.exit
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %21 = load i64, ptr %20, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
+  %.not4.i = icmp eq i64 %21, 0
+  br i1 %.not4.i, label %php_filter_encode_url.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %10
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %18, i64 24
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.preheader.i
-  %.03.i = phi ptr [ %.1.i, %42 ], [ %17, %.lr.ph.preheader.i ]
-  %.1322.i = phi ptr [ %43, %42 ], [ %.ptr.i, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %10, %42
+  %.03.i = phi ptr [ %.1.i, %42 ], [ %17, %10 ]
+  %.1322.i = phi ptr [ %43, %42 ], [ %19, %10 ]
   %23 = load i8, ptr %.1322.i, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %24
@@ -715,7 +706,7 @@ define hidden void @php_filter_encoded(ptr noundef %0, i64 noundef %1, ptr nound
 42:                                               ; preds = %41, %28
   %.1.i = phi ptr [ %40, %28 ], [ %27, %41 ]
   %43 = getelementptr inbounds nuw i8, ptr %.1322.i, i64 1
-  %44 = icmp ult ptr %43, %.ptr4.i
+  %44 = icmp ult ptr %43, %22
   br i1 %44, label %.lr.ph.i, label %php_filter_encode_url.exit
 
 php_filter_encode_url.exit:                       ; preds = %42, %10

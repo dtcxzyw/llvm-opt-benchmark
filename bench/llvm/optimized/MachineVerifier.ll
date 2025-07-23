@@ -30900,7 +30900,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %_ZSt8distanc
   %gepdiff = sub nsw i64 %.idx, %8
   %57 = ashr exact i64 %gepdiff, 2
   %.not = icmp ult i64 %57, %.0.lcssa.i.i
-  br i1 %.not, label %90, label %58
+  br i1 %.not, label %91, label %58
 
 58:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
   %.neg = mul i64 %.0.lcssa.i.i, -4
@@ -30948,19 +30948,20 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_
   %73 = trunc i64 %.0.lcssa.i.i to i32
   %74 = add i32 %72, %73
   store i32 %74, ptr %9, align 8, !tbaa !84
-  %.not.i.i.i.i.i36 = icmp eq ptr %59, %55
-  br i1 %.not.i.i.i.i.i36, label %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit, label %75
+  %75 = add nsw i64 %.idx, %.neg
+  %.not.i.i.i.i.i36 = icmp eq i64 %75, %8
+  br i1 %.not.i.i.i.i.i36, label %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit, label %76
 
-75:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_.exit
-  %76 = sub i64 %.neg, %8
-  %gepdiff109 = add i64 %76, %.idx
-  %77 = ashr exact i64 %gepdiff109, 2
-  %78 = sub nsw i64 0, %77
-  %79 = getelementptr inbounds %"class.llvm::Register", ptr %56, i64 %78
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %79, ptr align 4 %55, i64 %gepdiff109, i1 false)
+76:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_.exit
+  %77 = sub i64 %.neg, %8
+  %gepdiff109 = add i64 %77, %.idx
+  %78 = ashr exact i64 %gepdiff109, 2
+  %79 = sub nsw i64 0, %78
+  %80 = getelementptr inbounds %"class.llvm::Register", ptr %56, i64 %79
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %80, ptr align 4 %55, i64 %gepdiff109, i1 false)
   br label %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_.exit, %75
+_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE6appendISt13move_iteratorIPS1_EvEEvT_S7_.exit, %76
   br i1 %.not4.i.i, label %_ZSt4copyIN4llvm16MCSubRegIteratorEPNS0_8RegisterEET0_T_S5_S4_.exit, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader
 
 _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader: ; preds = %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit
@@ -30969,49 +30970,49 @@ _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader: ; preds = %_ZSt13move
   br label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38
 
 _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38:  ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38
-  %80 = phi i16 [ %89, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38 ], [ %.sroa.482.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader ]
-  %.06.i.i.i.i.i = phi ptr [ %84, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38 ], [ %55, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader ]
-  %81 = phi ptr [ %spec.select.i.i.i.i.i40, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38 ], [ %.sroa.266.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader ]
-  %82 = phi i32 [ %88, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38 ], [ %.sroa.079.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader ]
-  %83 = zext i16 %80 to i32
-  store i32 %83, ptr %.06.i.i.i.i.i, align 4, !tbaa !348
-  %84 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 4
-  %85 = getelementptr inbounds nuw i8, ptr %81, i64 2
-  %86 = load i16, ptr %81, align 2, !tbaa !552
-  %87 = zext i16 %86 to i32
-  %88 = add i32 %82, %87
-  %.not.i.i.i.i.i.i.i39 = icmp eq i16 %86, 0
-  %spec.select.i.i.i.i.i40 = select i1 %.not.i.i.i.i.i.i.i39, ptr null, ptr %85
-  %89 = trunc i32 %88 to i16
+  %81 = phi i16 [ %90, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38 ], [ %.sroa.482.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader ]
+  %.06.i.i.i.i.i = phi ptr [ %85, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38 ], [ %55, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader ]
+  %82 = phi ptr [ %spec.select.i.i.i.i.i40, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38 ], [ %.sroa.266.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader ]
+  %83 = phi i32 [ %89, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38 ], [ %.sroa.079.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38.preheader ]
+  %84 = zext i16 %81 to i32
+  store i32 %84, ptr %.06.i.i.i.i.i, align 4, !tbaa !348
+  %85 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 2
+  %87 = load i16, ptr %82, align 2, !tbaa !552
+  %88 = zext i16 %87 to i32
+  %89 = add i32 %83, %88
+  %.not.i.i.i.i.i.i.i39 = icmp eq i16 %87, 0
+  %spec.select.i.i.i.i.i40 = select i1 %.not.i.i.i.i.i.i.i39, ptr null, ptr %86
+  %90 = trunc i32 %89 to i16
   %.not.i.i.i.i.i41 = icmp eq ptr %spec.select.i.i.i.i.i40, %.sroa.272.0.copyload
   br i1 %.not.i.i.i.i.i41, label %_ZSt4copyIN4llvm16MCSubRegIteratorEPNS0_8RegisterEET0_T_S5_S4_.exit, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38, !llvm.loop !1046
 
-90:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
-  %91 = trunc i64 %.0.lcssa.i.i to i32
-  %92 = add i32 %53, %91
-  store i32 %92, ptr %9, align 8, !tbaa !84
+91:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
+  %92 = trunc i64 %.0.lcssa.i.i to i32
+  %93 = add i32 %53, %92
+  store i32 %93, ptr %9, align 8, !tbaa !84
   %.not.i.i42 = icmp eq i64 %8, %.idx
   br i1 %.not.i.i42, label %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread, label %.lr.ph.preheader
 
-_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread: ; preds = %90
+_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread: ; preds = %91
   %.sroa.367.0..sroa_idx.promoted129 = load i16, ptr %.sroa.367.0..sroa_idx, align 8
   %.promoted130 = load i32, ptr %2, align 8
   br label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %90
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %"class.llvm::Register", ptr %54, i64 %93
-  %95 = sub nsw i64 0, %57
-  %96 = getelementptr inbounds %"class.llvm::Register", ptr %94, i64 %95
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr align 4 %55, i64 %gepdiff, i1 false)
+.lr.ph.preheader:                                 ; preds = %91
+  %94 = zext i32 %93 to i64
+  %95 = getelementptr inbounds nuw %"class.llvm::Register", ptr %54, i64 %94
+  %96 = sub nsw i64 0, %57
+  %97 = getelementptr inbounds %"class.llvm::Register", ptr %95, i64 %96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr align 4 %55, i64 %gepdiff, i1 false)
   %.sroa.367.0..sroa_idx.promoted = load i16, ptr %.sroa.367.0..sroa_idx, align 8
   %.promoted = load i32, ptr %2, align 8
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread
-  %.lcssa115 = phi i32 [ %.promoted130, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %115, %.lr.ph ]
+  %.lcssa115 = phi i32 [ %.promoted130, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %116, %.lr.ph ]
   %.lcssa114 = phi ptr [ %.sroa.266.0.copyload, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %spec.select, %.lr.ph ]
-  %.lcssa113 = phi i16 [ %.sroa.367.0..sroa_idx.promoted129, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %116, %.lr.ph ]
+  %.lcssa113 = phi i16 [ %.sroa.367.0..sroa_idx.promoted129, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %117, %.lr.ph ]
   store i16 %.lcssa113, ptr %.sroa.367.0..sroa_idx, align 8
   store ptr %.lcssa114, ptr %.sroa.266.0..sroa_idx, align 8
   store i32 %.lcssa115, ptr %2, align 8
@@ -31019,41 +31020,41 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_
   br i1 %.not6.i.i.i.i, label %_ZSt4copyIN4llvm16MCSubRegIteratorEPNS0_8RegisterEET0_T_S5_S4_.exit, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i
 
 _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i:      ; preds = %._crit_edge, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i
-  %97 = phi i16 [ %105, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa113, %._crit_edge ]
-  %.07.i.i.i.i = phi ptr [ %106, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %56, %._crit_edge ]
-  %98 = phi ptr [ %spec.select.i.i.i.i, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa114, %._crit_edge ]
-  %99 = phi i32 [ %104, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa115, %._crit_edge ]
-  %100 = zext i16 %97 to i32
-  store i32 %100, ptr %.07.i.i.i.i, align 4, !tbaa !549
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 2
-  %102 = load i16, ptr %98, align 2, !tbaa !552
-  %103 = zext i16 %102 to i32
-  %104 = add i32 %99, %103
-  %.not.i.i.i.i.i.i = icmp eq i16 %102, 0
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i.i.i, ptr null, ptr %101
-  %105 = trunc i32 %104 to i16
-  %106 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 4
+  %98 = phi i16 [ %106, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa113, %._crit_edge ]
+  %.07.i.i.i.i = phi ptr [ %107, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %56, %._crit_edge ]
+  %99 = phi ptr [ %spec.select.i.i.i.i, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa114, %._crit_edge ]
+  %100 = phi i32 [ %105, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa115, %._crit_edge ]
+  %101 = zext i16 %98 to i32
+  store i32 %101, ptr %.07.i.i.i.i, align 4, !tbaa !549
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 2
+  %103 = load i16, ptr %99, align 2, !tbaa !552
+  %104 = zext i16 %103 to i32
+  %105 = add i32 %100, %104
+  %.not.i.i.i.i.i.i = icmp eq i16 %103, 0
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i.i.i, ptr null, ptr %102
+  %106 = trunc i32 %105 to i16
+  %107 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 4
   %.not.i.i.i.i47 = icmp eq ptr %spec.select.i.i.i.i, %.sroa.272.0.copyload
   br i1 %.not.i.i.i.i47, label %_ZSt4copyIN4llvm16MCSubRegIteratorEPNS0_8RegisterEET0_T_S5_S4_.exit, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i, !llvm.loop !1044
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0118 = phi ptr [ %111, %.lr.ph ], [ %55, %.lr.ph.preheader ]
-  %.028117 = phi i64 [ %117, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %107 = phi i16 [ %116, %.lr.ph ], [ %.sroa.367.0..sroa_idx.promoted, %.lr.ph.preheader ]
-  %108 = phi ptr [ %spec.select, %.lr.ph ], [ %.sroa.266.0.copyload, %.lr.ph.preheader ]
-  %109 = phi i32 [ %115, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
-  %110 = zext i16 %107 to i32
-  store i32 %110, ptr %.0118, align 4, !tbaa !348
-  %111 = getelementptr inbounds nuw i8, ptr %.0118, i64 4
-  %112 = getelementptr inbounds nuw i8, ptr %108, i64 2
-  %113 = load i16, ptr %108, align 2, !tbaa !552
-  %114 = sext i16 %113 to i32
-  %115 = add i32 %109, %114
-  %.not.i.i48 = icmp eq i16 %113, 0
-  %spec.select = select i1 %.not.i.i48, ptr null, ptr %112
-  %116 = trunc i32 %115 to i16
-  %117 = add i64 %.028117, -1
-  %.not31 = icmp eq i64 %117, 0
+  %.0118 = phi ptr [ %112, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %.028117 = phi i64 [ %118, %.lr.ph ], [ %57, %.lr.ph.preheader ]
+  %108 = phi i16 [ %117, %.lr.ph ], [ %.sroa.367.0..sroa_idx.promoted, %.lr.ph.preheader ]
+  %109 = phi ptr [ %spec.select, %.lr.ph ], [ %.sroa.266.0.copyload, %.lr.ph.preheader ]
+  %110 = phi i32 [ %116, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
+  %111 = zext i16 %108 to i32
+  store i32 %111, ptr %.0118, align 4, !tbaa !348
+  %112 = getelementptr inbounds nuw i8, ptr %.0118, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 2
+  %114 = load i16, ptr %109, align 2, !tbaa !552
+  %115 = sext i16 %114 to i32
+  %116 = add i32 %110, %115
+  %.not.i.i48 = icmp eq i16 %114, 0
+  %spec.select = select i1 %.not.i.i48, ptr null, ptr %113
+  %117 = trunc i32 %116 to i16
+  %118 = add i64 %.028117, -1
+  %.not31 = icmp eq i64 %118, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !1047
 
 _ZSt4copyIN4llvm16MCSubRegIteratorEPNS0_8RegisterEET0_T_S5_S4_.exit: ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i38, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6appendINS_16MCSubRegIteratorEvEEvT_S5_.exit

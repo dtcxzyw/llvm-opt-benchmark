@@ -1680,75 +1680,74 @@ _ZN4heapIN2lp8lpvar_ltEEC2EiRKS1_.exit:           ; preds = %35, %41, %.lr.ph.pr
   %84 = and i64 %83, 137438953440
   %85 = or disjoint i64 %84, 8
   %86 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %85)
-          to label %.noexc unwind label %101
+          to label %.noexc unwind label %102
 
 .noexc:                                           ; preds = %.lr.ph.preheader.i.i
   store i32 %81, ptr %86, align 4, !tbaa !50
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i32 %81, ptr %87, align 4, !tbaa !50
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store ptr %.ptr.i.i, ptr %74, align 8, !tbaa !72
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %84
-  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store ptr %88, ptr %74, align 8, !tbaa !72
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %84
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.noexc
-  %.015.i.i = phi ptr [ %91, %.lr.ph.i.i ], [ %.ptr.i.i, %.noexc ]
-  %89 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
+  %.015.i.i = phi ptr [ %92, %.lr.ph.i.i ], [ %88, %.noexc ]
+  %90 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.015.i.i, i8 0, i64 24, i1 false)
-  store i32 1, ptr %89, align 8, !tbaa !76
-  %90 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
-  store ptr null, ptr %90, align 8, !tbaa !89
-  %91 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 32
-  %.not.i.i = icmp eq ptr %91, %.ptr16.i.i
+  store i32 1, ptr %90, align 8, !tbaa !76
+  %91 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
+  store ptr null, ptr %91, align 8, !tbaa !89
+  %92 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 32
+  %.not.i.i = icmp eq ptr %92, %89
   br i1 %.not.i.i, label %_ZN6vectorI8rationalLb1EjEC2Ej.exit, label %.lr.ph.i.i, !llvm.loop !121
 
 _ZN6vectorI8rationalLb1EjEC2Ej.exit:              ; preds = %.lr.ph.i.i, %65
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %9, ptr %92, align 8, !tbaa !122
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %10, ptr %93, align 8, !tbaa !117
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %11, ptr %94, align 8, !tbaa !117
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 0, ptr %95, align 8, !tbaa !123
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr null, ptr %96, align 8, !tbaa !45
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 0, ptr %97, align 8, !tbaa !124
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr null, ptr %98, align 8, !tbaa !125
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i8 0, ptr %99, align 8, !tbaa !126
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %9, ptr %93, align 8, !tbaa !122
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr %10, ptr %94, align 8, !tbaa !117
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %11, ptr %95, align 8, !tbaa !117
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i32 0, ptr %96, align 8, !tbaa !123
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store ptr null, ptr %97, align 8, !tbaa !45
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 0, ptr %98, align 8, !tbaa !124
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr null, ptr %99, align 8, !tbaa !125
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i8 0, ptr %100, align 8, !tbaa !126
   invoke void @_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE47init_basis_heading_and_non_basic_columns_vectorEv(ptr noundef nonnull align 8 dereferenceable(217) %0)
-          to label %_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE4initEv.exit unwind label %103
+          to label %_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE4initEv.exit unwind label %104
 
 _ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE4initEv.exit: ; preds = %_ZN6vectorI8rationalLb1EjEC2Ej.exit
   invoke void @_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE47init_basis_heading_and_non_basic_columns_vectorEv(ptr noundef nonnull align 8 dereferenceable(217) %0)
-          to label %100 unwind label %103
+          to label %101 unwind label %104
 
-100:                                              ; preds = %_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE4initEv.exit
+101:                                              ; preds = %_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE4initEv.exit
   ret void
 
-101:                                              ; preds = %.lr.ph.preheader.i.i
-  %102 = landingpad { ptr, i32 }
+102:                                              ; preds = %.lr.ph.preheader.i.i
+  %103 = landingpad { ptr, i32 }
           cleanup
-  br label %105
+  br label %106
 
-103:                                              ; preds = %_ZN6vectorI8rationalLb1EjEC2Ej.exit, %_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE4initEv.exit
-  %104 = landingpad { ptr, i32 }
+104:                                              ; preds = %_ZN6vectorI8rationalLb1EjEC2Ej.exit, %_ZN2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE4initEv.exit
+  %105 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #22
+  tail call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #22
   tail call void @_ZN6vectorI8rationalLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #22
-  br label %105
+  br label %106
 
-105:                                              ; preds = %103, %101
-  %.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
+106:                                              ; preds = %104, %102
+  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
   tail call void @_ZN2lp14indexed_vectorI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %53) #22
   br label %.body
 
-.body:                                            ; preds = %62, %105
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %105 ], [ %63, %62 ]
+.body:                                            ; preds = %62, %106
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %106 ], [ %63, %62 ]
   tail call void @_ZN4heapIN2lp8lpvar_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
   br label %common.resume
 }
@@ -2404,75 +2403,74 @@ _ZN2lp14indexed_vectorI8rationalEC2Ej.exit:       ; preds = %61, %_ZN4heapIN2lp8
   %83 = and i64 %82, 137438953440
   %84 = or disjoint i64 %83, 8
   %85 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %84)
-          to label %.noexc unwind label %100
+          to label %.noexc unwind label %101
 
 .noexc:                                           ; preds = %.lr.ph.preheader.i.i
   store i32 %80, ptr %85, align 4, !tbaa !50
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %80, ptr %86, align 4, !tbaa !50
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %.ptr.i.i, ptr %73, align 8, !tbaa !72
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %83
-  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  store ptr %87, ptr %73, align 8, !tbaa !72
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %83
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.noexc
-  %.015.i.i = phi ptr [ %90, %.lr.ph.i.i ], [ %.ptr.i.i, %.noexc ]
-  %88 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
+  %.015.i.i = phi ptr [ %91, %.lr.ph.i.i ], [ %87, %.noexc ]
+  %89 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.015.i.i, i8 0, i64 24, i1 false)
-  store i32 1, ptr %88, align 8, !tbaa !76
-  %89 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
-  store ptr null, ptr %89, align 8, !tbaa !89
-  %90 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 32
-  %.not.i.i = icmp eq ptr %90, %.ptr16.i.i
+  store i32 1, ptr %89, align 8, !tbaa !76
+  %90 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
+  store ptr null, ptr %90, align 8, !tbaa !89
+  %91 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 32
+  %.not.i.i = icmp eq ptr %91, %88
   br i1 %.not.i.i, label %_ZN6vectorI8rationalLb1EjEC2Ej.exit, label %.lr.ph.i.i, !llvm.loop !121
 
 _ZN6vectorI8rationalLb1EjEC2Ej.exit:              ; preds = %.lr.ph.i.i, %_ZN2lp14indexed_vectorI8rationalEC2Ej.exit
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %9, ptr %91, align 8, !tbaa !122
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %10, ptr %92, align 8, !tbaa !118
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %11, ptr %93, align 8, !tbaa !118
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 0, ptr %94, align 8, !tbaa !140
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr null, ptr %95, align 8, !tbaa !45
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 0, ptr %96, align 8, !tbaa !141
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr null, ptr %97, align 8, !tbaa !142
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i8 0, ptr %98, align 8, !tbaa !143
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %9, ptr %92, align 8, !tbaa !122
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr %10, ptr %93, align 8, !tbaa !118
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %11, ptr %94, align 8, !tbaa !118
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i32 0, ptr %95, align 8, !tbaa !140
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store ptr null, ptr %96, align 8, !tbaa !45
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 0, ptr %97, align 8, !tbaa !141
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr null, ptr %98, align 8, !tbaa !142
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i8 0, ptr %99, align 8, !tbaa !143
   invoke void @_ZN2lp19lp_core_solver_baseI8rationalS1_E47init_basis_heading_and_non_basic_columns_vectorEv(ptr noundef nonnull align 8 dereferenceable(217) %0)
-          to label %_ZN2lp19lp_core_solver_baseI8rationalS1_E4initEv.exit unwind label %102
+          to label %_ZN2lp19lp_core_solver_baseI8rationalS1_E4initEv.exit unwind label %103
 
 _ZN2lp19lp_core_solver_baseI8rationalS1_E4initEv.exit: ; preds = %_ZN6vectorI8rationalLb1EjEC2Ej.exit
   invoke void @_ZN2lp19lp_core_solver_baseI8rationalS1_E47init_basis_heading_and_non_basic_columns_vectorEv(ptr noundef nonnull align 8 dereferenceable(217) %0)
-          to label %99 unwind label %102
+          to label %100 unwind label %103
 
-99:                                               ; preds = %_ZN2lp19lp_core_solver_baseI8rationalS1_E4initEv.exit
+100:                                              ; preds = %_ZN2lp19lp_core_solver_baseI8rationalS1_E4initEv.exit
   ret void
 
-100:                                              ; preds = %.lr.ph.preheader.i.i
-  %101 = landingpad { ptr, i32 }
+101:                                              ; preds = %.lr.ph.preheader.i.i
+  %102 = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %105
 
-102:                                              ; preds = %_ZN6vectorI8rationalLb1EjEC2Ej.exit, %_ZN2lp19lp_core_solver_baseI8rationalS1_E4initEv.exit
-  %103 = landingpad { ptr, i32 }
+103:                                              ; preds = %_ZN6vectorI8rationalLb1EjEC2Ej.exit, %_ZN2lp19lp_core_solver_baseI8rationalS1_E4initEv.exit
+  %104 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %95) #22
+  tail call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #22
   tail call void @_ZN6vectorI8rationalLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %73) #22
-  br label %104
+  br label %105
 
-104:                                              ; preds = %102, %100
-  %.pn = phi { ptr, i32 } [ %103, %102 ], [ %101, %100 ]
+105:                                              ; preds = %103, %101
+  %.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
   tail call void @_ZN2lp14indexed_vectorI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %53) #22
   br label %.body
 
-.body:                                            ; preds = %62, %104
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %104 ], [ %63, %62 ]
+.body:                                            ; preds = %62, %105
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %105 ], [ %63, %62 ]
   tail call void @_ZN4heapIN2lp8lpvar_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
   br label %common.resume
 }

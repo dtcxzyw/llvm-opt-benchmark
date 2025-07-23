@@ -18851,19 +18851,22 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit144: ; preds = %305, %3
 .loopexit:                                        ; preds = %_ZNK4llvm5APInt12getBoolValueEv.exit, %_ZNK4llvm5APInt12getBoolValueEv.exit138, %271
   %319 = phi i32 [ %269, %271 ], [ %269, %_ZNK4llvm5APInt12getBoolValueEv.exit138 ], [ %20, %_ZNK4llvm5APInt12getBoolValueEv.exit ]
   %320 = phi i64 [ %268, %271 ], [ %268, %_ZNK4llvm5APInt12getBoolValueEv.exit138 ], [ %.pre198, %_ZNK4llvm5APInt12getBoolValueEv.exit ]
-  %321 = load ptr, ptr %1, align 8, !tbaa !382
-  %322 = and i64 %199, 4294967295
-  %323 = getelementptr inbounds nuw i8, ptr %321, i64 %322
-  %324 = getelementptr inbounds nuw i8, ptr %321, i64 %320
-  %325 = icmp samesign ne i64 %322, %320
-  %.012.i.i = getelementptr inbounds i8, ptr %324, i64 -1
-  %326 = icmp ult ptr %323, %.012.i.i
-  %or.cond.i.i145 = select i1 %325, i1 %326, i1 false
-  br i1 %or.cond.i.i145, label %.lr.ph.i.i146, label %_ZSt7reverseIPcEvT_S1_.exit
+  %321 = and i64 %199, 4294967295
+  %322 = icmp samesign ne i64 %321, %320
+  %323 = add nsw i64 %320, -1
+  %324 = icmp slt i64 %321, %323
+  %or.cond.i.i145 = select i1 %322, i1 %324, i1 false
+  br i1 %or.cond.i.i145, label %.lr.ph.i.i146.preheader, label %_ZSt7reverseIPcEvT_S1_.exit
 
-.lr.ph.i.i146:                                    ; preds = %.loopexit, %.lr.ph.i.i146
-  %.014.i.i = phi ptr [ %.0.i.i147, %.lr.ph.i.i146 ], [ %.012.i.i, %.loopexit ]
-  %.0913.i.i = phi ptr [ %329, %.lr.ph.i.i146 ], [ %323, %.loopexit ]
+.lr.ph.i.i146.preheader:                          ; preds = %.loopexit
+  %325 = load ptr, ptr %1, align 8, !tbaa !382
+  %.012.i.i = getelementptr inbounds i8, ptr %325, i64 %323
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 %321
+  br label %.lr.ph.i.i146
+
+.lr.ph.i.i146:                                    ; preds = %.lr.ph.i.i146.preheader, %.lr.ph.i.i146
+  %.014.i.i = phi ptr [ %.0.i.i147, %.lr.ph.i.i146 ], [ %.012.i.i, %.lr.ph.i.i146.preheader ]
+  %.0913.i.i = phi ptr [ %329, %.lr.ph.i.i146 ], [ %326, %.lr.ph.i.i146.preheader ]
   %327 = load i8, ptr %.0913.i.i, align 1, !tbaa !8
   %328 = load i8, ptr %.014.i.i, align 1, !tbaa !8
   store i8 %328, ptr %.0913.i.i, align 1, !tbaa !8

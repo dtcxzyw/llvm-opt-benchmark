@@ -848,32 +848,28 @@ define dso_local void @_ZNK5clang7CodeGen14DefaultABIInfo11computeInfoERNS0_14CG
   br label %13
 
 13:                                               ; preds = %10, %2
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !405
-  %16 = zext i32 %15 to i64
-  %.idx = mul nuw nsw i64 %16, 40
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %.not18 = icmp eq i32 %15, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %13
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 80
-  br label %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %16 = load i32, ptr %15, align 4, !tbaa !405
+  %17 = zext i32 %16 to i64
+  %.idx = mul nuw nsw i64 %17, 40
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
+  %.not18 = icmp eq i32 %16, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.019 = phi ptr [ %19, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %13, %.lr.ph
+  %.019 = phi ptr [ %20, %.lr.ph ], [ %14, %13 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
   %.sroa.0.0.copyload.i15 = load i64, ptr %.019, align 8, !tbaa !20
   call void @_ZNK5clang7CodeGen14DefaultABIInfo20classifyArgumentTypeENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 %4, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 %.sroa.0.0.copyload.i15)
-  %18 = getelementptr inbounds nuw i8, ptr %.019, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %18, ptr noundef nonnull align 8 dereferenceable(27) %4, i64 27, i1 false), !tbaa.struct !402
+  %19 = getelementptr inbounds nuw i8, ptr %.019, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %19, ptr noundef nonnull align 8 dereferenceable(27) %4, i64 27, i1 false), !tbaa.struct !402
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
-  %19 = getelementptr inbounds nuw i8, ptr %.019, i64 40
-  %.not = icmp eq ptr %19, %.ptr20
+  %20 = getelementptr inbounds nuw i8, ptr %.019, i64 40
+  %.not = icmp eq ptr %20, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

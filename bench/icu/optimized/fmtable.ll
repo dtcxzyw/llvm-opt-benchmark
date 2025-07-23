@@ -923,55 +923,51 @@ _ZN6icu_7711Formattable4initEv.exit:              ; preds = %3
   store i64 %9, ptr %15, align 8
   %.ptr21.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = icmp eq i32 %2, 0
-  br i1 %18, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %19
+  br i1 %18, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.preheader
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %9
-  br label %21
-
-21:                                               ; preds = %22, %19
-  %.idx.i = phi i64 [ 8, %19 ], [ %.add.i, %22 ]
+.preheader:                                       ; preds = %17, %19
+  %.idx.i = phi i64 [ %.add.i, %19 ], [ 8, %17 ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   invoke void @_ZN6icu_7711FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr.ptr.i)
-          to label %22 unwind label %25
+          to label %19 unwind label %23
 
-22:                                               ; preds = %21
+19:                                               ; preds = %.preheader
   %.add.i = add nuw nsw i64 %.idx.i, 112
-  %.ptr20.i = getelementptr inbounds nuw i8, ptr %15, i64 %.add.i
-  %23 = icmp eq ptr %.ptr20.i, %20
-  br i1 %23, label %.loopexit27.i, label %21
+  %20 = add nuw nsw i64 %.idx.i, 104
+  %21 = icmp eq i64 %20, %12
+  br i1 %21, label %.loopexit28.i, label %.preheader
 
-.loopexit27.i:                                    ; preds = %22
-  %24 = icmp sgt i32 %2, 0
-  br i1 %24, label %.lr.ph.preheader.i, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit
+.loopexit28.i:                                    ; preds = %19
+  %22 = icmp sgt i32 %2, 0
+  br i1 %22, label %.lr.ph.preheader.i, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit
 
-.lr.ph.preheader.i:                               ; preds = %.loopexit27.i
+.lr.ph.preheader.i:                               ; preds = %.loopexit28.i
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
-25:                                               ; preds = %21
-  %26 = landingpad { ptr, i32 }
+23:                                               ; preds = %.preheader
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %27 = icmp eq i64 %.idx.i, 8
-  br i1 %27, label %.loopexit.i, label %.preheader.i
+  %25 = icmp eq i64 %.idx.i, 8
+  br i1 %25, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %25, %.preheader.i
-  %.idx22.i = phi i64 [ %.add23.i, %.preheader.i ], [ %.idx.i, %25 ]
+.preheader.i:                                     ; preds = %23, %.preheader.i
+  %.idx22.i = phi i64 [ %.add23.i, %.preheader.i ], [ %.idx.i, %23 ]
   %.add23.i = add nsw i64 %.idx22.i, -112
   %.ptr25.i = getelementptr inbounds i8, ptr %15, i64 %.add23.i
   tail call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr25.i) #20
-  %28 = icmp eq i64 %.add23.i, 8
-  br i1 %28, label %.loopexit.i, label %.preheader.i
+  %26 = icmp eq i64 %.add23.i, 8
+  br i1 %26, label %.loopexit.i, label %.preheader.i
 
-.loopexit.i:                                      ; preds = %.preheader.i, %25
+.loopexit.i:                                      ; preds = %.preheader.i, %23
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %15) #20
   br label %.body
 
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.noexc ]
-  %29 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %1, i64 %indvars.iv.i
-  %30 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv.i
-  %31 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %30, ptr noundef nonnull readonly align 8 dereferenceable(112) %29)
+  %27 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %1, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv.i
+  %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull readonly align 8 dereferenceable(112) %27)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
@@ -979,11 +975,11 @@ _ZN6icu_7711Formattable4initEv.exit:              ; preds = %3
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.lr.ph.i, !llvm.loop !27
 
-_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %.noexc, %.loopexit27.i, %17, %_ZN6icu_7711Formattable4initEv.exit
-  %32 = phi ptr [ null, %_ZN6icu_7711Formattable4initEv.exit ], [ %.ptr21.i, %.loopexit27.i ], [ %.ptr21.i, %17 ], [ %.ptr21.i, %.noexc ]
-  store ptr %32, ptr %7, align 8, !tbaa !15
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %33, align 8, !tbaa !15
+_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %.noexc, %.loopexit28.i, %17, %_ZN6icu_7711Formattable4initEv.exit
+  %30 = phi ptr [ null, %_ZN6icu_7711Formattable4initEv.exit ], [ %.ptr21.i, %.loopexit28.i ], [ %.ptr21.i, %17 ], [ %.ptr21.i, %.noexc ]
+  store ptr %30, ptr %7, align 8, !tbaa !15
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %31, align 8, !tbaa !15
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i
@@ -997,7 +993,7 @@ _ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %.noexc, %.loo
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit.i
-  %eh.lpad-body = phi { ptr, i32 } [ %26, %.loopexit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %.loopexit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #20
   tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   resume { ptr, i32 } %eh.lpad-body
@@ -1041,7 +1037,7 @@ _ZN6icu_7711Formattable4initEv.exit:              ; preds = %2
 define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, %1
-  br i1 %.not, label %105, label %4
+  br i1 %.not, label %103, label %4
 
 4:                                                ; preds = %2
   tail call void @_ZN6icu_7711Formattable7disposeEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
@@ -1049,14 +1045,14 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711Formattable
   %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %6, ptr %7, align 8, !tbaa !16
-  switch i32 %6, label %69 [
+  switch i32 %6, label %67 [
     i32 4, label %8
-    i32 3, label %39
-    i32 1, label %49
-    i32 2, label %53
-    i32 5, label %53
-    i32 0, label %57
-    i32 6, label %61
+    i32 3, label %37
+    i32 1, label %47
+    i32 2, label %51
+    i32 5, label %51
+    i32 0, label %55
+    i32 6, label %59
   ]
 
 8:                                                ; preds = %4
@@ -1081,222 +1077,218 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711Formattable
   store i64 %15, ptr %21, align 8
   %.ptr21.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = icmp eq i32 %11, 0
-  br i1 %24, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %25
+  br i1 %24, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.preheader44
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %15
-  br label %27
-
-27:                                               ; preds = %28, %25
-  %.idx.i = phi i64 [ 8, %25 ], [ %.add.i, %28 ]
+.preheader44:                                     ; preds = %23, %25
+  %.idx.i = phi i64 [ %.add.i, %25 ], [ 8, %23 ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   invoke void @_ZN6icu_7711FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr.ptr.i)
-          to label %28 unwind label %31
+          to label %25 unwind label %29
 
-28:                                               ; preds = %27
+25:                                               ; preds = %.preheader44
   %.add.i = add nuw nsw i64 %.idx.i, 112
-  %.ptr20.i = getelementptr inbounds nuw i8, ptr %21, i64 %.add.i
-  %29 = icmp eq ptr %.ptr20.i, %26
-  br i1 %29, label %.loopexit38, label %27
+  %26 = add nuw nsw i64 %.idx.i, 104
+  %27 = icmp eq i64 %26, %18
+  br i1 %27, label %.loopexit38, label %.preheader44
 
-.loopexit38:                                      ; preds = %28
-  %30 = icmp sgt i32 %11, 0
-  br i1 %30, label %.lr.ph.preheader, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit
+.loopexit38:                                      ; preds = %25
+  %28 = icmp sgt i32 %11, 0
+  br i1 %28, label %.lr.ph.preheader, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit
 
 .lr.ph.preheader:                                 ; preds = %.loopexit38
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
 
-31:                                               ; preds = %27
-  %32 = landingpad { ptr, i32 }
+29:                                               ; preds = %.preheader44
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %33 = icmp eq i64 %.idx.i, 8
-  br i1 %33, label %.loopexit, label %.preheader
+  %31 = icmp eq i64 %.idx.i, 8
+  br i1 %31, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %31, %.preheader
-  %.idx22.i = phi i64 [ %.add23.i, %.preheader ], [ %.idx.i, %31 ]
+.preheader:                                       ; preds = %29, %.preheader
+  %.idx22.i = phi i64 [ %.add23.i, %.preheader ], [ %.idx.i, %29 ]
   %.add23.i = add nsw i64 %.idx22.i, -112
   %.ptr25.i = getelementptr inbounds i8, ptr %21, i64 %.add23.i
   tail call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr25.i) #20
-  %34 = icmp eq i64 %.add23.i, 8
-  br i1 %34, label %.loopexit, label %.preheader
+  %32 = icmp eq i64 %.add23.i, 8
+  br i1 %32, label %.loopexit, label %.preheader
 
-common.resume:                                    ; preds = %104, %47, %.loopexit
-  %common.resume.op = phi { ptr, i32 } [ %32, %.loopexit ], [ %.pn, %104 ], [ %48, %47 ]
+common.resume:                                    ; preds = %102, %45, %.loopexit
+  %common.resume.op = phi { ptr, i32 } [ %30, %.loopexit ], [ %.pn, %102 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
-.loopexit:                                        ; preds = %.preheader, %31
+.loopexit:                                        ; preds = %.preheader, %29
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %21) #20
   br label %common.resume
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %35 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %14, i64 %indvars.iv
-  %36 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv
-  %37 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %35)
+  %33 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %14, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv
+  %35 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %33)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.lr.ph, !llvm.loop !27
 
 _ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %.lr.ph, %23, %.loopexit38, %8
-  %38 = phi ptr [ null, %8 ], [ %.ptr21.i, %.loopexit38 ], [ %.ptr21.i, %23 ], [ %.ptr21.i, %.lr.ph ]
-  store ptr %38, ptr %12, align 8, !tbaa !15
-  br label %69
+  %36 = phi ptr [ null, %8 ], [ %.ptr21.i, %.loopexit38 ], [ %.ptr21.i, %23 ], [ %.ptr21.i, %.lr.ph ]
+  store ptr %36, ptr %12, align 8, !tbaa !15
+  br label %67
 
-39:                                               ; preds = %4
-  %40 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #20
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %45, label %42
+37:                                               ; preds = %4
+  %38 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #20
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %43, label %40
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !15
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %44)
-          to label %45 unwind label %47
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !15
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %42)
+          to label %43 unwind label %45
 
-45:                                               ; preds = %42, %39
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %40, ptr %46, align 8, !tbaa !15
-  br label %69
+43:                                               ; preds = %40, %37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %38, ptr %44, align 8, !tbaa !15
+  br label %67
 
-47:                                               ; preds = %42
-  %48 = landingpad { ptr, i32 }
+45:                                               ; preds = %40
+  %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %40) #20
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %38) #20
   br label %common.resume
 
-49:                                               ; preds = %4
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %51 = load double, ptr %50, align 8, !tbaa !15
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %51, ptr %52, align 8, !tbaa !15
-  br label %69
+47:                                               ; preds = %4
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %49 = load double, ptr %48, align 8, !tbaa !15
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %49, ptr %50, align 8, !tbaa !15
+  br label %67
 
-53:                                               ; preds = %4, %4
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i64, ptr %54, align 8, !tbaa !15
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %55, ptr %56, align 8, !tbaa !15
-  br label %69
+51:                                               ; preds = %4, %4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %53, ptr %54, align 8, !tbaa !15
+  br label %67
 
-57:                                               ; preds = %4
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %59 = load double, ptr %58, align 8, !tbaa !15
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %59, ptr %60, align 8, !tbaa !15
-  br label %69
+55:                                               ; preds = %4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %57 = load double, ptr %56, align 8, !tbaa !15
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %57, ptr %58, align 8, !tbaa !15
+  br label %67
 
-61:                                               ; preds = %4
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !15
-  %64 = load ptr, ptr %63, align 8, !tbaa !24
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(128) %63)
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %68, align 8, !tbaa !15
-  br label %69
+59:                                               ; preds = %4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !15
+  %62 = load ptr, ptr %61, align 8, !tbaa !24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(128) %61)
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %65, ptr %66, align 8, !tbaa !15
+  br label %67
 
-69:                                               ; preds = %61, %57, %53, %49, %45, %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, %4
+67:                                               ; preds = %59, %55, %51, %47, %43, %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
   store i32 0, ptr %3, align 4, !tbaa !13
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !26
-  %.not30 = icmp eq ptr %71, null
-  br i1 %.not30, label %81, label %72
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %69 = load ptr, ptr %68, align 8, !tbaa !26
+  %.not30 = icmp eq ptr %69, null
+  br i1 %.not30, label %79, label %70
 
-72:                                               ; preds = %69
-  %73 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 72) #20
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %77, label %75
+70:                                               ; preds = %67
+  %71 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 72) #20
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %75, label %73
 
-75:                                               ; preds = %72
-  %76 = load ptr, ptr %70, align 8, !tbaa !26
-  invoke void @_ZN6icu_776number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %73, ptr noundef nonnull align 8 dereferenceable(66) %76)
-          to label %77 unwind label %79
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %68, align 8, !tbaa !26
+  invoke void @_ZN6icu_776number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %71, ptr noundef nonnull align 8 dereferenceable(66) %74)
+          to label %75 unwind label %77
 
-77:                                               ; preds = %75, %72
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %73, ptr %78, align 8, !tbaa !26
-  br label %81
+75:                                               ; preds = %73, %70
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %71, ptr %76, align 8, !tbaa !26
+  br label %79
 
-79:                                               ; preds = %75
-  %80 = landingpad { ptr, i32 }
+77:                                               ; preds = %73
+  %78 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %73) #20
-  br label %104
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %71) #20
+  br label %102
 
-81:                                               ; preds = %77, %69
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !29
-  %.not31 = icmp eq ptr %83, null
-  br i1 %.not31, label %103, label %84
+79:                                               ; preds = %75, %67
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %81 = load ptr, ptr %80, align 8, !tbaa !29
+  %.not31 = icmp eq ptr %81, null
+  br i1 %.not31, label %101, label %82
 
-84:                                               ; preds = %81
-  %85 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #20
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit.thread, label %87
+82:                                               ; preds = %79
+  %83 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #20
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit.thread, label %85
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %82, align 8, !tbaa !29
-  invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %85)
-          to label %.noexc unwind label %101
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %80, align 8, !tbaa !29
+  invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %83)
+          to label %.noexc unwind label %99
 
-.noexc:                                           ; preds = %87
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  store i32 0, ptr %89, align 8, !tbaa !30
-  %90 = load ptr, ptr %85, align 8, !tbaa !3
-  store i8 0, ptr %90, align 1, !tbaa !15
-  %91 = load ptr, ptr %88, align 8, !tbaa !3
-  %92 = getelementptr inbounds nuw i8, ptr %88, i64 56
-  %93 = load i32, ptr %92, align 8, !tbaa !30
-  %94 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %85, ptr noundef %91, i32 noundef %93, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit unwind label %95
+.noexc:                                           ; preds = %85
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 56
+  store i32 0, ptr %87, align 8, !tbaa !30
+  %88 = load ptr, ptr %83, align 8, !tbaa !3
+  store i8 0, ptr %88, align 1, !tbaa !15
+  %89 = load ptr, ptr %86, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 56
+  %91 = load i32, ptr %90, align 8, !tbaa !30
+  %92 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %83, ptr noundef %89, i32 noundef %91, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit unwind label %93
 
-95:                                               ; preds = %.noexc
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %.noexc
+  %94 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %85) #20
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %83) #20
   br label %.body
 
 _ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit: ; preds = %.noexc
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %85, ptr %97, align 8, !tbaa !29
-  %98 = load i32, ptr %3, align 4, !tbaa !13
-  %99 = icmp slt i32 %98, 1
-  br i1 %99, label %103, label %.thread37
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %83, ptr %95, align 8, !tbaa !29
+  %96 = load i32, ptr %3, align 4, !tbaa !13
+  %97 = icmp slt i32 %96, 1
+  br i1 %97, label %101, label %.thread37
 
-_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit.thread: ; preds = %84
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %100, align 8, !tbaa !29
-  br label %103
+_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit.thread: ; preds = %82
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %98, align 8, !tbaa !29
+  br label %101
 
 .thread37:                                        ; preds = %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit
-  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %85) #20
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %85) #20
-  store ptr null, ptr %97, align 8, !tbaa !29
-  br label %103
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %83) #20
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %83) #20
+  store ptr null, ptr %95, align 8, !tbaa !29
+  br label %101
 
-101:                                              ; preds = %87
-  %102 = landingpad { ptr, i32 }
+99:                                               ; preds = %85
+  %100 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %95, %101
-  %eh.lpad-body = phi { ptr, i32 } [ %102, %101 ], [ %96, %95 ]
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %85) #20
-  br label %104
+.body:                                            ; preds = %93, %99
+  %eh.lpad-body = phi { ptr, i32 } [ %100, %99 ], [ %94, %93 ]
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %83) #20
+  br label %102
 
-103:                                              ; preds = %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit.thread, %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit, %.thread37, %81
+101:                                              ; preds = %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit.thread, %_ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit, %.thread37, %79
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  br label %105
+  br label %103
 
-104:                                              ; preds = %.body, %79
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %80, %79 ]
+102:                                              ; preds = %.body, %77
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %78, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
   br label %common.resume
 
-105:                                              ; preds = %103, %2
+103:                                              ; preds = %101, %2
   ret ptr %0
 }
 
@@ -1954,65 +1946,61 @@ define void @_ZN6icu_7711Formattable8setArrayEPKS0_i(ptr noundef nonnull align 8
   store i64 %5, ptr %11, align 8
   %.ptr21.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = icmp eq i32 %2, 0
-  br i1 %14, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %15
+  br i1 %14, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.preheader
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %5
-  br label %17
-
-17:                                               ; preds = %18, %15
-  %.idx.i = phi i64 [ 8, %15 ], [ %.add.i, %18 ]
+.preheader:                                       ; preds = %13, %15
+  %.idx.i = phi i64 [ %.add.i, %15 ], [ 8, %13 ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   invoke void @_ZN6icu_7711FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr.ptr.i)
-          to label %18 unwind label %21
+          to label %15 unwind label %19
 
-18:                                               ; preds = %17
+15:                                               ; preds = %.preheader
   %.add.i = add nuw nsw i64 %.idx.i, 112
-  %.ptr20.i = getelementptr inbounds nuw i8, ptr %11, i64 %.add.i
-  %19 = icmp eq ptr %.ptr20.i, %16
-  br i1 %19, label %.loopexit27.i, label %17
+  %16 = add nuw nsw i64 %.idx.i, 104
+  %17 = icmp eq i64 %16, %8
+  br i1 %17, label %.loopexit28.i, label %.preheader
 
-.loopexit27.i:                                    ; preds = %18
-  %20 = icmp sgt i32 %2, 0
-  br i1 %20, label %.lr.ph.preheader.i, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit
+.loopexit28.i:                                    ; preds = %15
+  %18 = icmp sgt i32 %2, 0
+  br i1 %18, label %.lr.ph.preheader.i, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit
 
-.lr.ph.preheader.i:                               ; preds = %.loopexit27.i
+.lr.ph.preheader.i:                               ; preds = %.loopexit28.i
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+19:                                               ; preds = %.preheader
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %23 = icmp eq i64 %.idx.i, 8
-  br i1 %23, label %.loopexit.i, label %.preheader.i
+  %21 = icmp eq i64 %.idx.i, 8
+  br i1 %21, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %21, %.preheader.i
-  %.idx22.i = phi i64 [ %.add23.i, %.preheader.i ], [ %.idx.i, %21 ]
+.preheader.i:                                     ; preds = %19, %.preheader.i
+  %.idx22.i = phi i64 [ %.add23.i, %.preheader.i ], [ %.idx.i, %19 ]
   %.add23.i = add nsw i64 %.idx22.i, -112
   %.ptr25.i = getelementptr inbounds i8, ptr %11, i64 %.add23.i
   tail call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr25.i) #20
-  %24 = icmp eq i64 %.add23.i, 8
-  br i1 %24, label %.loopexit.i, label %.preheader.i
+  %22 = icmp eq i64 %.add23.i, 8
+  br i1 %22, label %.loopexit.i, label %.preheader.i
 
-.loopexit.i:                                      ; preds = %.preheader.i, %21
+.loopexit.i:                                      ; preds = %.preheader.i, %19
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %11) #20
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %20
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %25 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %1, i64 %indvars.iv.i
-  %26 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv.i
-  %27 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull readonly align 8 dereferenceable(112) %25)
+  %23 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %1, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv.i
+  %25 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %24, ptr noundef nonnull readonly align 8 dereferenceable(112) %23)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.lr.ph.i, !llvm.loop !27
 
-_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %.lr.ph.i, %3, %13, %.loopexit27.i
-  %28 = phi ptr [ null, %3 ], [ %.ptr21.i, %.loopexit27.i ], [ %.ptr21.i, %13 ], [ %.ptr21.i, %.lr.ph.i ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %28, ptr %29, align 8, !tbaa !15
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %30, align 8, !tbaa !15
+_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %.lr.ph.i, %3, %13, %.loopexit28.i
+  %26 = phi ptr [ null, %3 ], [ %.ptr21.i, %.loopexit28.i ], [ %.ptr21.i, %13 ], [ %.ptr21.i, %.lr.ph.i ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %26, ptr %27, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %28, align 8, !tbaa !15
   ret void
 }
 

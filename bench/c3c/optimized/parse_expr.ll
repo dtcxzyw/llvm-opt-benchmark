@@ -5616,8 +5616,8 @@ define internal ptr @parse_bytes_expr(ptr noundef %0, ptr readnone captures(none
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %parse_base64.exit
-  %.0.ph111 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %16, %parse_base64.exit ]
-  %.040.ph110 = phi ptr [ null, %.lr.ph.lr.ph ], [ %18, %parse_base64.exit ]
+  %.0.ph104 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %16, %parse_base64.exit ]
+  %.040.ph103 = phi ptr [ null, %.lr.ph.lr.ph ], [ %18, %parse_base64.exit ]
   br label %8
 
 8:                                                ; preds = %.lr.ph, %12
@@ -5634,15 +5634,15 @@ define internal ptr @parse_bytes_expr(ptr noundef %0, ptr readnone captures(none
   br i1 %14, label %8, label %.outer._crit_edge, !llvm.loop !21
 
 15:                                               ; preds = %8
-  %16 = add i32 %.0.ph111, %11
+  %16 = add i32 %.0.ph104, %11
   %17 = zext i32 %16 to i64
   %18 = tail call ptr @calloc_arena(i64 noundef %17) #8
-  %.not42 = icmp eq ptr %.040.ph110, null
+  %.not42 = icmp eq ptr %.040.ph103, null
   br i1 %.not42, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = zext i32 %.0.ph111 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr nonnull align 1 %.040.ph110, i64 %20, i1 false)
+  %20 = zext i32 %.0.ph104 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr nonnull align 1 %.040.ph103, i64 %20, i1 false)
   br label %21
 
 21:                                               ; preds = %19, %15
@@ -5650,325 +5650,327 @@ define internal ptr @parse_bytes_expr(ptr noundef %0, ptr readnone captures(none
   %23 = trunc i64 %22 to i1
   %24 = load ptr, ptr %0, align 8
   %25 = load i64, ptr %7, align 8
-  %26 = getelementptr i8, ptr %24, i64 %25
-  %.ptr53 = getelementptr i8, ptr %26, i64 -1
-  br i1 %23, label %27, label %112
+  br i1 %23, label %26, label %114
 
-27:                                               ; preds = %21
-  %28 = and i64 %10, 4294967295
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %28
-  %30 = icmp sgt i64 %25, 5
-  br i1 %30, label %.preheader48.i.preheader, label %parse_base64.exit
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %28 = getelementptr i8, ptr %27, i64 %25
+  %29 = getelementptr i8, ptr %28, i64 -5
+  %30 = and i64 %10, 4294967295
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 %30
+  %32 = icmp sgt i64 %25, 5
+  br i1 %32, label %.preheader48.i.preheader, label %parse_base64.exit
 
-.preheader48.i.preheader:                         ; preds = %27
-  %31 = zext i32 %.0.ph111 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %18, i64 %31
-  %.ptr51 = getelementptr inbounds nuw i8, ptr %24, i64 4
+.preheader48.i.preheader:                         ; preds = %26
+  %33 = zext i32 %.0.ph104 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 %33
   br label %.preheader48.i
 
-.preheader48.i:                                   ; preds = %.preheader48.i.preheader, %110
-  %.076.i = phi ptr [ %75, %110 ], [ %.ptr51, %.preheader48.i.preheader ]
-  %.02475.i = phi ptr [ %.327.i, %110 ], [ %32, %.preheader48.i.preheader ]
-  br label %33
+.preheader48.i:                                   ; preds = %.preheader48.i.preheader, %112
+  %.076.i = phi ptr [ %77, %112 ], [ %27, %.preheader48.i.preheader ]
+  %.02475.i = phi ptr [ %.327.i, %112 ], [ %34, %.preheader48.i.preheader ]
+  br label %35
 
-33:                                               ; preds = %46, %.preheader48.i
-  %.1.i = phi ptr [ %34, %46 ], [ %.076.i, %.preheader48.i ]
-  %34 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  %35 = load i8, ptr %.1.i, align 1
-  %36 = add i8 %35, -65
-  %or.cond.i.i = icmp ult i8 %36, 26
-  br i1 %or.cond.i.i, label %base64_to_sextet.exit.i, label %37
+35:                                               ; preds = %48, %.preheader48.i
+  %.1.i = phi ptr [ %36, %48 ], [ %.076.i, %.preheader48.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  %37 = load i8, ptr %.1.i, align 1
+  %38 = add i8 %37, -65
+  %or.cond.i.i = icmp ult i8 %38, 26
+  br i1 %or.cond.i.i, label %base64_to_sextet.exit.i, label %39
 
-37:                                               ; preds = %33
-  %38 = add i8 %35, -97
-  %or.cond5.i.i = icmp ult i8 %38, 26
-  br i1 %or.cond5.i.i, label %39, label %41
+39:                                               ; preds = %35
+  %40 = add i8 %37, -97
+  %or.cond5.i.i = icmp ult i8 %40, 26
+  br i1 %or.cond5.i.i, label %41, label %43
 
-39:                                               ; preds = %37
-  %40 = add nsw i8 %35, -71
+41:                                               ; preds = %39
+  %42 = add nsw i8 %37, -71
   br label %base64_to_sextet.exit.i
 
-41:                                               ; preds = %37
-  %42 = add i8 %35, -48
-  %or.cond8.i.i = icmp ult i8 %42, 10
-  br i1 %or.cond8.i.i, label %43, label %45
+43:                                               ; preds = %39
+  %44 = add i8 %37, -48
+  %or.cond8.i.i = icmp ult i8 %44, 10
+  br i1 %or.cond8.i.i, label %45, label %47
 
-43:                                               ; preds = %41
-  %44 = add nuw nsw i8 %35, 4
+45:                                               ; preds = %43
+  %46 = add nuw nsw i8 %37, 4
   br label %base64_to_sextet.exit.i
 
-45:                                               ; preds = %41
-  switch i8 %35, label %46 [
+47:                                               ; preds = %43
+  switch i8 %37, label %48 [
     i8 43, label %base64_to_sextet.exit.i.loopexit
-    i8 47, label %base64_to_sextet.exit.i.loopexit302
+    i8 47, label %base64_to_sextet.exit.i.loopexit295
     i8 61, label %base64_to_sextet.exit.i
   ]
 
-base64_to_sextet.exit.i.loopexit:                 ; preds = %45
+base64_to_sextet.exit.i.loopexit:                 ; preds = %47
   br label %base64_to_sextet.exit.i
 
-base64_to_sextet.exit.i.loopexit302:              ; preds = %45
+base64_to_sextet.exit.i.loopexit295:              ; preds = %47
   br label %base64_to_sextet.exit.i
 
-base64_to_sextet.exit.i:                          ; preds = %33, %45, %base64_to_sextet.exit.i.loopexit302, %base64_to_sextet.exit.i.loopexit, %43, %39
-  %.0.i.i = phi i8 [ %40, %39 ], [ %44, %43 ], [ 62, %base64_to_sextet.exit.i.loopexit ], [ 0, %45 ], [ %36, %33 ], [ 63, %base64_to_sextet.exit.i.loopexit302 ]
+base64_to_sextet.exit.i:                          ; preds = %35, %47, %base64_to_sextet.exit.i.loopexit295, %base64_to_sextet.exit.i.loopexit, %45, %41
+  %.0.i.i = phi i8 [ %42, %41 ], [ %46, %45 ], [ 62, %base64_to_sextet.exit.i.loopexit ], [ 0, %47 ], [ %38, %35 ], [ 63, %base64_to_sextet.exit.i.loopexit295 ]
   br label %base64_to_sextet.exit34.i
 
-46:                                               ; preds = %45
-  %47 = icmp eq ptr %34, %.ptr53
-  br i1 %47, label %parse_base64.exit, label %33, !llvm.loop !22
+48:                                               ; preds = %47
+  %49 = icmp eq ptr %36, %29
+  br i1 %49, label %parse_base64.exit, label %35, !llvm.loop !22
 
-base64_to_sextet.exit34.i:                        ; preds = %59, %base64_to_sextet.exit.i
-  %.2.i = phi ptr [ %34, %base64_to_sextet.exit.i ], [ %48, %59 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  %49 = load i8, ptr %.2.i, align 1
-  %50 = add i8 %49, -65
-  %or.cond.i30.i = icmp ult i8 %50, 26
-  br i1 %or.cond.i30.i, label %.preheader.i, label %51
+base64_to_sextet.exit34.i:                        ; preds = %61, %base64_to_sextet.exit.i
+  %.2.i = phi ptr [ %36, %base64_to_sextet.exit.i ], [ %50, %61 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
+  %51 = load i8, ptr %.2.i, align 1
+  %52 = add i8 %51, -65
+  %or.cond.i30.i = icmp ult i8 %52, 26
+  br i1 %or.cond.i30.i, label %.preheader.i, label %53
 
-51:                                               ; preds = %base64_to_sextet.exit34.i
-  %52 = add i8 %49, -97
-  %or.cond5.i31.i = icmp ult i8 %52, 26
-  br i1 %or.cond5.i31.i, label %53, label %55
+53:                                               ; preds = %base64_to_sextet.exit34.i
+  %54 = add i8 %51, -97
+  %or.cond5.i31.i = icmp ult i8 %54, 26
+  br i1 %or.cond5.i31.i, label %55, label %57
 
-53:                                               ; preds = %51
-  %54 = add nsw i8 %49, -71
+55:                                               ; preds = %53
+  %56 = add nsw i8 %51, -71
   br label %.preheader.i
 
-55:                                               ; preds = %51
-  %56 = add i8 %49, -48
-  %or.cond8.i32.i = icmp ult i8 %56, 10
-  br i1 %or.cond8.i32.i, label %57, label %59
+57:                                               ; preds = %53
+  %58 = add i8 %51, -48
+  %or.cond8.i32.i = icmp ult i8 %58, 10
+  br i1 %or.cond8.i32.i, label %59, label %61
 
-57:                                               ; preds = %55
-  %58 = add nuw nsw i8 %49, 4
+59:                                               ; preds = %57
+  %60 = add nuw nsw i8 %51, 4
   br label %.preheader.i
 
-59:                                               ; preds = %55
-  switch i8 %49, label %base64_to_sextet.exit34.i [
+61:                                               ; preds = %57
+  switch i8 %51, label %base64_to_sextet.exit34.i [
     i8 43, label %.preheader.i
     i8 47, label %.preheader.i.loopexit
-    i8 61, label %.preheader.i.loopexit301
+    i8 61, label %.preheader.i.loopexit294
   ], !llvm.loop !23
 
-.preheader.i.loopexit:                            ; preds = %59
+.preheader.i.loopexit:                            ; preds = %61
   br label %.preheader.i
 
-.preheader.i.loopexit301:                         ; preds = %59
+.preheader.i.loopexit294:                         ; preds = %61
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %base64_to_sextet.exit34.i, %59, %.preheader.i.loopexit301, %.preheader.i.loopexit, %57, %53
-  %.0.i33.ph.i = phi i8 [ %58, %57 ], [ %54, %53 ], [ 63, %.preheader.i.loopexit ], [ 62, %59 ], [ %50, %base64_to_sextet.exit34.i ], [ 0, %.preheader.i.loopexit301 ]
+.preheader.i:                                     ; preds = %base64_to_sextet.exit34.i, %61, %.preheader.i.loopexit294, %.preheader.i.loopexit, %59, %55
+  %.0.i33.ph.i = phi i8 [ %60, %59 ], [ %56, %55 ], [ 63, %.preheader.i.loopexit ], [ 62, %61 ], [ %52, %base64_to_sextet.exit34.i ], [ 0, %.preheader.i.loopexit294 ]
   br label %base64_to_sextet.exit39.i
 
-base64_to_sextet.exit39.i:                        ; preds = %71, %.preheader.i
-  %.3.i = phi ptr [ %48, %.preheader.i ], [ %60, %71 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
-  %61 = load i8, ptr %.3.i, align 1
-  %62 = add i8 %61, -65
-  %or.cond.i35.i = icmp ult i8 %62, 26
-  br i1 %or.cond.i35.i, label %base64_to_sextet.exit44.preheader.i, label %63
+base64_to_sextet.exit39.i:                        ; preds = %73, %.preheader.i
+  %.3.i = phi ptr [ %50, %.preheader.i ], [ %62, %73 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
+  %63 = load i8, ptr %.3.i, align 1
+  %64 = add i8 %63, -65
+  %or.cond.i35.i = icmp ult i8 %64, 26
+  br i1 %or.cond.i35.i, label %base64_to_sextet.exit44.preheader.i, label %65
 
-63:                                               ; preds = %base64_to_sextet.exit39.i
-  %64 = add i8 %61, -97
-  %or.cond5.i36.i = icmp ult i8 %64, 26
-  br i1 %or.cond5.i36.i, label %65, label %67
+65:                                               ; preds = %base64_to_sextet.exit39.i
+  %66 = add i8 %63, -97
+  %or.cond5.i36.i = icmp ult i8 %66, 26
+  br i1 %or.cond5.i36.i, label %67, label %69
 
-65:                                               ; preds = %63
-  %66 = add nsw i8 %61, -71
+67:                                               ; preds = %65
+  %68 = add nsw i8 %63, -71
   br label %base64_to_sextet.exit44.preheader.i
 
-67:                                               ; preds = %63
-  %68 = add i8 %61, -48
-  %or.cond8.i37.i = icmp ult i8 %68, 10
-  br i1 %or.cond8.i37.i, label %69, label %71
+69:                                               ; preds = %65
+  %70 = add i8 %63, -48
+  %or.cond8.i37.i = icmp ult i8 %70, 10
+  br i1 %or.cond8.i37.i, label %71, label %73
 
-69:                                               ; preds = %67
-  %70 = add nuw nsw i8 %61, 4
+71:                                               ; preds = %69
+  %72 = add nuw nsw i8 %63, 4
   br label %base64_to_sextet.exit44.preheader.i
 
-71:                                               ; preds = %67
-  switch i8 %61, label %base64_to_sextet.exit39.i [
+73:                                               ; preds = %69
+  switch i8 %63, label %base64_to_sextet.exit39.i [
     i8 43, label %base64_to_sextet.exit44.preheader.i
     i8 47, label %base64_to_sextet.exit44.preheader.i.loopexit
-    i8 61, label %base64_to_sextet.exit44.preheader.i.loopexit300
+    i8 61, label %base64_to_sextet.exit44.preheader.i.loopexit293
   ], !llvm.loop !24
 
-base64_to_sextet.exit44.preheader.i.loopexit:     ; preds = %71
+base64_to_sextet.exit44.preheader.i.loopexit:     ; preds = %73
   br label %base64_to_sextet.exit44.preheader.i
 
-base64_to_sextet.exit44.preheader.i.loopexit300:  ; preds = %71
+base64_to_sextet.exit44.preheader.i.loopexit293:  ; preds = %73
   br label %base64_to_sextet.exit44.preheader.i
 
-base64_to_sextet.exit44.preheader.i:              ; preds = %base64_to_sextet.exit39.i, %71, %base64_to_sextet.exit44.preheader.i.loopexit300, %base64_to_sextet.exit44.preheader.i.loopexit, %69, %65
-  %.0.i38.ph.i = phi i8 [ %70, %69 ], [ %66, %65 ], [ 63, %base64_to_sextet.exit44.preheader.i.loopexit ], [ 62, %71 ], [ %62, %base64_to_sextet.exit39.i ], [ 0, %base64_to_sextet.exit44.preheader.i.loopexit300 ]
-  %72 = zext nneg i8 %.0.i.i to i32
-  %73 = zext nneg i8 %.0.i33.ph.i to i32
-  %74 = zext nneg i8 %.0.i38.ph.i to i32
+base64_to_sextet.exit44.preheader.i:              ; preds = %base64_to_sextet.exit39.i, %73, %base64_to_sextet.exit44.preheader.i.loopexit293, %base64_to_sextet.exit44.preheader.i.loopexit, %71, %67
+  %.0.i38.ph.i = phi i8 [ %72, %71 ], [ %68, %67 ], [ 63, %base64_to_sextet.exit44.preheader.i.loopexit ], [ 62, %73 ], [ %64, %base64_to_sextet.exit39.i ], [ 0, %base64_to_sextet.exit44.preheader.i.loopexit293 ]
+  %74 = zext nneg i8 %.0.i.i to i32
+  %75 = zext nneg i8 %.0.i33.ph.i to i32
+  %76 = zext nneg i8 %.0.i38.ph.i to i32
   br label %base64_to_sextet.exit44.i
 
-base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sextet.exit44.preheader.i
-  %.4.i = phi ptr [ %75, %86 ], [ %60, %base64_to_sextet.exit44.preheader.i ]
-  %75 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
-  %76 = load i8, ptr %.4.i, align 1
-  %77 = add i8 %76, -65
-  %or.cond.i40.i = icmp ult i8 %77, 26
-  br i1 %or.cond.i40.i, label %.loopexit.i, label %78
+base64_to_sextet.exit44.i:                        ; preds = %88, %base64_to_sextet.exit44.preheader.i
+  %.4.i = phi ptr [ %77, %88 ], [ %62, %base64_to_sextet.exit44.preheader.i ]
+  %77 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
+  %78 = load i8, ptr %.4.i, align 1
+  %79 = add i8 %78, -65
+  %or.cond.i40.i = icmp ult i8 %79, 26
+  br i1 %or.cond.i40.i, label %.loopexit.i, label %80
 
-78:                                               ; preds = %base64_to_sextet.exit44.i
-  %79 = add i8 %76, -97
-  %or.cond5.i41.i = icmp ult i8 %79, 26
-  br i1 %or.cond5.i41.i, label %80, label %82
+80:                                               ; preds = %base64_to_sextet.exit44.i
+  %81 = add i8 %78, -97
+  %or.cond5.i41.i = icmp ult i8 %81, 26
+  br i1 %or.cond5.i41.i, label %82, label %84
 
-80:                                               ; preds = %78
-  %81 = add nsw i8 %76, -71
+82:                                               ; preds = %80
+  %83 = add nsw i8 %78, -71
   br label %.loopexit.i
 
-82:                                               ; preds = %78
-  %83 = add i8 %76, -48
-  %or.cond8.i42.i = icmp ult i8 %83, 10
-  br i1 %or.cond8.i42.i, label %84, label %86
+84:                                               ; preds = %80
+  %85 = add i8 %78, -48
+  %or.cond8.i42.i = icmp ult i8 %85, 10
+  br i1 %or.cond8.i42.i, label %86, label %88
 
-84:                                               ; preds = %82
-  %85 = add nuw nsw i8 %76, 4
+86:                                               ; preds = %84
+  %87 = add nuw nsw i8 %78, 4
   br label %.loopexit.i
 
-86:                                               ; preds = %82
-  switch i8 %76, label %base64_to_sextet.exit44.i [
+88:                                               ; preds = %84
+  switch i8 %78, label %base64_to_sextet.exit44.i [
     i8 43, label %.loopexit.i.loopexit
-    i8 47, label %.loopexit.i.loopexit299
+    i8 47, label %.loopexit.i.loopexit292
     i8 61, label %.loopexit.i
   ], !llvm.loop !25
 
-.loopexit.i.loopexit:                             ; preds = %86
+.loopexit.i.loopexit:                             ; preds = %88
   br label %.loopexit.i
 
-.loopexit.i.loopexit299:                          ; preds = %86
+.loopexit.i.loopexit292:                          ; preds = %88
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %base64_to_sextet.exit44.i, %86, %.loopexit.i.loopexit299, %.loopexit.i.loopexit, %84, %80
-  %.0.i43.ph.i = phi i8 [ %85, %84 ], [ %81, %80 ], [ 62, %.loopexit.i.loopexit ], [ 0, %86 ], [ %77, %base64_to_sextet.exit44.i ], [ 63, %.loopexit.i.loopexit299 ]
-  %87 = zext nneg i8 %.0.i43.ph.i to i32
-  %88 = shl nuw nsw i32 %72, 18
-  %89 = shl nuw nsw i32 %73, 12
-  %90 = add nuw nsw i32 %89, %88
-  %91 = shl nuw nsw i32 %74, 6
-  %92 = add nuw nsw i32 %90, %91
-  %93 = add nuw nsw i32 %92, %87
-  %94 = icmp ult ptr %.02475.i, %29
-  br i1 %94, label %95, label %99
+.loopexit.i:                                      ; preds = %base64_to_sextet.exit44.i, %88, %.loopexit.i.loopexit292, %.loopexit.i.loopexit, %86, %82
+  %.0.i43.ph.i = phi i8 [ %87, %86 ], [ %83, %82 ], [ 62, %.loopexit.i.loopexit ], [ 0, %88 ], [ %79, %base64_to_sextet.exit44.i ], [ 63, %.loopexit.i.loopexit292 ]
+  %89 = zext nneg i8 %.0.i43.ph.i to i32
+  %90 = shl nuw nsw i32 %74, 18
+  %91 = shl nuw nsw i32 %75, 12
+  %92 = add nuw nsw i32 %91, %90
+  %93 = shl nuw nsw i32 %76, 6
+  %94 = add nuw nsw i32 %92, %93
+  %95 = add nuw nsw i32 %94, %89
+  %96 = icmp ult ptr %.02475.i, %31
+  br i1 %96, label %97, label %101
 
-95:                                               ; preds = %.loopexit.i
-  %96 = lshr i32 %93, 16
-  %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %.02475.i, i64 1
-  store i8 %97, ptr %.02475.i, align 1
-  br label %99
+97:                                               ; preds = %.loopexit.i
+  %98 = lshr i32 %95, 16
+  %99 = trunc i32 %98 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %.02475.i, i64 1
+  store i8 %99, ptr %.02475.i, align 1
+  br label %101
 
-99:                                               ; preds = %95, %.loopexit.i
-  %.125.i = phi ptr [ %98, %95 ], [ %.02475.i, %.loopexit.i ]
-  %100 = icmp ult ptr %.125.i, %29
-  br i1 %100, label %101, label %105
+101:                                              ; preds = %97, %.loopexit.i
+  %.125.i = phi ptr [ %100, %97 ], [ %.02475.i, %.loopexit.i ]
+  %102 = icmp ult ptr %.125.i, %31
+  br i1 %102, label %103, label %107
 
-101:                                              ; preds = %99
-  %102 = lshr i32 %93, 8
-  %103 = trunc i32 %102 to i8
-  %104 = getelementptr inbounds nuw i8, ptr %.125.i, i64 1
-  store i8 %103, ptr %.125.i, align 1
-  br label %105
+103:                                              ; preds = %101
+  %104 = lshr i32 %95, 8
+  %105 = trunc i32 %104 to i8
+  %106 = getelementptr inbounds nuw i8, ptr %.125.i, i64 1
+  store i8 %105, ptr %.125.i, align 1
+  br label %107
 
-105:                                              ; preds = %101, %99
-  %.226.i = phi ptr [ %104, %101 ], [ %.125.i, %99 ]
-  %106 = icmp ult ptr %.226.i, %29
-  br i1 %106, label %107, label %110
+107:                                              ; preds = %103, %101
+  %.226.i = phi ptr [ %106, %103 ], [ %.125.i, %101 ]
+  %108 = icmp ult ptr %.226.i, %31
+  br i1 %108, label %109, label %112
 
-107:                                              ; preds = %105
-  %108 = trunc i32 %93 to i8
-  %109 = getelementptr inbounds nuw i8, ptr %.226.i, i64 1
-  store i8 %108, ptr %.226.i, align 1
-  br label %110
+109:                                              ; preds = %107
+  %110 = trunc i32 %95 to i8
+  %111 = getelementptr inbounds nuw i8, ptr %.226.i, i64 1
+  store i8 %110, ptr %.226.i, align 1
+  br label %112
 
-110:                                              ; preds = %107, %105
-  %.327.i = phi ptr [ %109, %107 ], [ %.226.i, %105 ]
-  %111 = icmp ult ptr %75, %.ptr53
-  br i1 %111, label %.preheader48.i, label %parse_base64.exit, !llvm.loop !26
+112:                                              ; preds = %109, %107
+  %.327.i = phi ptr [ %111, %109 ], [ %.226.i, %107 ]
+  %113 = icmp ult ptr %77, %29
+  br i1 %113, label %.preheader48.i, label %parse_base64.exit, !llvm.loop !26
 
-112:                                              ; preds = %21
-  %113 = icmp sgt i64 %25, 3
-  br i1 %113, label %.preheader12.i.preheader, label %parse_base64.exit
+114:                                              ; preds = %21
+  %115 = getelementptr inbounds nuw i8, ptr %24, i64 2
+  %116 = getelementptr i8, ptr %115, i64 %25
+  %117 = getelementptr i8, ptr %116, i64 -3
+  %118 = icmp sgt i64 %25, 3
+  br i1 %118, label %.preheader12.i.preheader, label %parse_base64.exit
 
-.preheader12.i.preheader:                         ; preds = %112
-  %114 = zext i32 %.0.ph111 to i64
-  %115 = getelementptr inbounds nuw i8, ptr %18, i64 %114
-  %.ptr = getelementptr inbounds nuw i8, ptr %24, i64 2
+.preheader12.i.preheader:                         ; preds = %114
+  %119 = zext i32 %.0.ph104 to i64
+  %120 = getelementptr inbounds nuw i8, ptr %18, i64 %119
   br label %.preheader12.i
 
-.preheader12.i:                                   ; preds = %.preheader12.i.preheader, %133
-  %.020.i = phi ptr [ %126, %133 ], [ %.ptr, %.preheader12.i.preheader ]
-  %.0919.i = phi ptr [ %138, %133 ], [ %115, %.preheader12.i.preheader ]
-  br label %116
+.preheader12.i:                                   ; preds = %.preheader12.i.preheader, %138
+  %.020.i = phi ptr [ %131, %138 ], [ %115, %.preheader12.i.preheader ]
+  %.0919.i = phi ptr [ %143, %138 ], [ %120, %.preheader12.i.preheader ]
+  br label %121
 
-116:                                              ; preds = %124, %.preheader12.i
-  %.1.i44 = phi ptr [ %117, %124 ], [ %.020.i, %.preheader12.i ]
-  %117 = getelementptr inbounds nuw i8, ptr %.1.i44, i64 1
-  %118 = load i8, ptr %.1.i44, align 1
-  %119 = sext i8 %118 to i64
-  %120 = and i64 %119, 4294967295
-  %121 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %120
-  %122 = load i8, ptr %121, align 1
-  %123 = icmp slt i8 %122, 1
-  br i1 %123, label %124, label %.preheader.i45
+121:                                              ; preds = %129, %.preheader12.i
+  %.1.i44 = phi ptr [ %122, %129 ], [ %.020.i, %.preheader12.i ]
+  %122 = getelementptr inbounds nuw i8, ptr %.1.i44, i64 1
+  %123 = load i8, ptr %.1.i44, align 1
+  %124 = sext i8 %123 to i64
+  %125 = and i64 %124, 4294967295
+  %126 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %125
+  %127 = load i8, ptr %126, align 1
+  %128 = icmp slt i8 %127, 1
+  br i1 %128, label %129, label %.preheader.i45
 
-124:                                              ; preds = %116
-  %125 = icmp eq ptr %117, %.ptr53
-  br i1 %125, label %parse_base64.exit, label %116, !llvm.loop !27
+129:                                              ; preds = %121
+  %130 = icmp eq ptr %122, %117
+  br i1 %130, label %parse_base64.exit, label %121, !llvm.loop !27
 
-.preheader.i45:                                   ; preds = %116, %.preheader.i45
-  %.2.i46 = phi ptr [ %126, %.preheader.i45 ], [ %117, %116 ]
-  %126 = getelementptr inbounds nuw i8, ptr %.2.i46, i64 1
-  %127 = load i8, ptr %.2.i46, align 1
-  %128 = sext i8 %127 to i64
-  %129 = and i64 %128, 4294967295
-  %130 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %129
-  %131 = load i8, ptr %130, align 1
-  %132 = icmp slt i8 %131, 1
-  br i1 %132, label %.preheader.i45, label %133, !llvm.loop !28
+.preheader.i45:                                   ; preds = %121, %.preheader.i45
+  %.2.i46 = phi ptr [ %131, %.preheader.i45 ], [ %122, %121 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.2.i46, i64 1
+  %132 = load i8, ptr %.2.i46, align 1
+  %133 = sext i8 %132 to i64
+  %134 = and i64 %133, 4294967295
+  %135 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %134
+  %136 = load i8, ptr %135, align 1
+  %137 = icmp slt i8 %136, 1
+  br i1 %137, label %.preheader.i45, label %138, !llvm.loop !28
 
-133:                                              ; preds = %.preheader.i45
-  %134 = add nsw i8 %131, -1
-  %135 = shl i8 %122, 4
-  %136 = add i8 %135, -16
-  %137 = or i8 %134, %136
-  %138 = getelementptr inbounds nuw i8, ptr %.0919.i, i64 1
-  store i8 %137, ptr %.0919.i, align 1
-  %139 = icmp ult ptr %126, %.ptr53
-  br i1 %139, label %.preheader12.i, label %parse_base64.exit, !llvm.loop !29
+138:                                              ; preds = %.preheader.i45
+  %139 = add nsw i8 %136, -1
+  %140 = shl i8 %127, 4
+  %141 = add i8 %140, -16
+  %142 = or i8 %139, %141
+  %143 = getelementptr inbounds nuw i8, ptr %.0919.i, i64 1
+  store i8 %142, ptr %.0919.i, align 1
+  %144 = icmp ult ptr %131, %117
+  br i1 %144, label %.preheader12.i, label %parse_base64.exit, !llvm.loop !29
 
-parse_base64.exit:                                ; preds = %133, %110, %124, %46, %112, %27
+parse_base64.exit:                                ; preds = %138, %112, %129, %48, %114, %26
   tail call void @advance(ptr noundef nonnull %0) #8
-  %140 = load i32, ptr %3, align 8
-  %141 = icmp eq i32 %140, 80
-  br i1 %141, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !21
+  %145 = load i32, ptr %3, align 8
+  %146 = icmp eq i32 %145, 80
+  br i1 %146, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !21
 
 .outer._crit_edge:                                ; preds = %parse_base64.exit, %12, %2
-  %.040.ph.lcssa = phi ptr [ null, %2 ], [ %.040.ph110, %12 ], [ %18, %parse_base64.exit ]
-  %.0.ph.lcssa = phi i32 [ 0, %2 ], [ %.0.ph111, %12 ], [ %16, %parse_base64.exit ]
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %143 = load i64, ptr %142, align 8
-  %144 = tail call ptr @expr_new(i32 noundef 14, i64 %143) #8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 32
-  store ptr %.040.ph.lcssa, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  store i32 %.0.ph.lcssa, ptr %147, align 8
-  %148 = load i16, ptr %145, align 8
-  %149 = and i16 %148, -256
-  %150 = or disjoint i16 %149, 5
-  store i16 %150, ptr %145, align 8
-  %151 = load ptr, ptr @type_char, align 8
-  %152 = tail call ptr @type_get_array(ptr noundef %151, i32 noundef %.0.ph.lcssa) #8
-  store ptr %152, ptr %144, align 8
-  ret ptr %144
+  %.040.ph.lcssa = phi ptr [ null, %2 ], [ %.040.ph103, %12 ], [ %18, %parse_base64.exit ]
+  %.0.ph.lcssa = phi i32 [ 0, %2 ], [ %.0.ph104, %12 ], [ %16, %parse_base64.exit ]
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %148 = load i64, ptr %147, align 8
+  %149 = tail call ptr @expr_new(i32 noundef 14, i64 %148) #8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  store ptr %.040.ph.lcssa, ptr %151, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 40
+  store i32 %.0.ph.lcssa, ptr %152, align 8
+  %153 = load i16, ptr %150, align 8
+  %154 = and i16 %153, -256
+  %155 = or disjoint i16 %154, 5
+  store i16 %155, ptr %150, align 8
+  %156 = load ptr, ptr @type_char, align 8
+  %157 = tail call ptr @type_get_array(ptr noundef %156, i32 noundef %.0.ph.lcssa) #8
+  store ptr %157, ptr %149, align 8
+  ret ptr %149
 }
 
 ; Function Attrs: nounwind uwtable

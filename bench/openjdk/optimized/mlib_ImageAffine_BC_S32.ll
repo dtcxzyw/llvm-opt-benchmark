@@ -63,8 +63,8 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
   br i1 %.not461, label %50, label %45
 
 45:                                               ; preds = %35
-  %.idx = shl nsw i64 %indvars.iv, 3
-  %46 = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.idx597 = shl nsw i64 %indvars.iv, 3
+  %46 = getelementptr inbounds i8, ptr %17, i64 %.idx597
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr i8, ptr %46, i64 4
   %49 = load i32, ptr %48, align 4
@@ -78,9 +78,11 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
 
 52:                                               ; preds = %50
   %53 = sext i32 %38 to i64
-  %54 = getelementptr inbounds i32, ptr %36, i64 %53
+  %.idx = shl nsw i64 %53, 2
+  %54 = getelementptr inbounds i8, ptr %36, i64 %.idx
   %55 = sext i32 %40 to i64
-  %56 = getelementptr inbounds i32, ptr %36, i64 %55
+  %.idx559 = shl nsw i64 %55, 2
+  %56 = getelementptr inbounds i8, ptr %36, i64 %.idx559
   %57 = and i32 %42, 65535
   %58 = uitofp nneg i32 %57 to double
   %59 = fmul double %58, 0x3EF0000000000000
@@ -177,14 +179,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
   %133 = load i32, ptr %132, align 4
   %134 = sitofp i32 %133 to double
   %135 = getelementptr inbounds i8, ptr %56, i64 -4
-  %.not463511 = icmp ugt ptr %54, %135
+  %.not463511.not = icmp slt i64 %.idx, %.idx559
   br i1 %31, label %.preheader, label %.preheader469
 
 .preheader469:                                    ; preds = %105
-  br i1 %.not463511, label %.loopexit, label %.lr.ph
+  br i1 %.not463511.not, label %.lr.ph, label %.loopexit
 
 .preheader:                                       ; preds = %105
-  br i1 %.not463511, label %.loopexit, label %.lr.ph532
+  br i1 %.not463511.not, label %.lr.ph532, label %.loopexit
 
 .lr.ph532:                                        ; preds = %.preheader, %.lr.ph532
   %.0531 = phi double [ %244, %.lr.ph532 ], [ %134, %.preheader ]
@@ -588,23 +590,23 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   br label %35
 
 35:                                               ; preds = %.lr.ph570, %.loopexit481
-  %indvars.iv615 = phi i64 [ %33, %.lr.ph570 ], [ %indvars.iv.next616, %.loopexit481 ]
+  %indvars.iv618 = phi i64 [ %33, %.lr.ph570 ], [ %indvars.iv.next619, %.loopexit481 ]
   %.0421569 = phi ptr [ %29, %.lr.ph570 ], [ %36, %.loopexit481 ]
   %.0457568 = phi i32 [ %25, %.lr.ph570 ], [ %.1458, %.loopexit481 ]
   %.0459567 = phi i32 [ %23, %.lr.ph570 ], [ %.1460, %.loopexit481 ]
   %36 = getelementptr inbounds i8, ptr %.0421569, i64 %30
-  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv615
+  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv618
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv615
+  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv618
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv615
+  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv618
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv615
+  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv618
   %44 = load i32, ptr %43, align 4
   br i1 %.not471, label %50, label %45
 
 45:                                               ; preds = %35
-  %.idx = shl nsw i64 %indvars.iv615, 3
+  %.idx = shl nsw i64 %indvars.iv618, 3
   %46 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr i8, ptr %46, i64 4
@@ -620,73 +622,75 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
 52:                                               ; preds = %50
   %53 = shl nsw i32 %38, 1
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %36, i64 %54
-  %56 = shl nsw i32 %40, 1
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %36, i64 %57
-  %59 = ashr i32 %44, 16
-  %60 = sext i32 %59 to i64
-  %gep564 = getelementptr ptr, ptr %invariant.gep563, i64 %60
-  %61 = ashr i32 %42, 15
-  %62 = and i32 %61, -2
-  %63 = sext i32 %62 to i64
-  %64 = and i32 %42, 65535
-  %65 = uitofp nneg i32 %64 to double
-  %66 = fmul double %65, 0x3EF0000000000000
-  %67 = and i32 %44, 65535
-  %68 = uitofp nneg i32 %67 to double
-  %69 = fmul double %68, 0x3EF0000000000000
-  %70 = fmul double %66, %66
-  %71 = fmul double %69, %69
-  %72 = fmul double %66, %70
-  %73 = fmul double %69, %71
+  %55 = shl nsw i32 %40, 1
+  %56 = sext i32 %55 to i64
+  %.idx579 = shl nsw i64 %56, 2
+  %57 = getelementptr inbounds i8, ptr %36, i64 %.idx579
+  %58 = ashr i32 %44, 16
+  %59 = sext i32 %58 to i64
+  %gep564 = getelementptr ptr, ptr %invariant.gep563, i64 %59
+  %60 = ashr i32 %42, 15
+  %61 = and i32 %60, -2
+  %62 = sext i32 %61 to i64
+  %63 = and i32 %42, 65535
+  %64 = uitofp nneg i32 %63 to double
+  %65 = fmul double %64, 0x3EF0000000000000
+  %66 = and i32 %44, 65535
+  %67 = uitofp nneg i32 %66 to double
+  %68 = fmul double %67, 0x3EF0000000000000
+  %69 = fmul double %65, %65
+  %70 = fmul double %68, %68
+  %71 = fmul double %65, %69
+  %72 = fmul double %68, %70
+  %73 = fmul double %69, 2.000000e+00
   %74 = fmul double %70, 2.000000e+00
-  %75 = fmul double %71, 2.000000e+00
-  %76 = fsub double %74, %72
-  %77 = fsub double %76, %66
-  %78 = fsub double %72, %74
-  %79 = fsub double %70, %72
-  %80 = fadd double %66, %79
-  %81 = fsub double %72, %70
-  %82 = fsub double %75, %73
-  %83 = fsub double %82, %69
-  %84 = fsub double %73, %75
-  %85 = fsub double %71, %73
-  %86 = fadd double %69, %85
-  %87 = fsub double %73, %71
-  %88 = fmul double %66, 5.000000e-01
-  %89 = fmul double %69, 5.000000e-01
+  %75 = fsub double %73, %71
+  %76 = fsub double %75, %65
+  %77 = fsub double %71, %73
+  %78 = fsub double %69, %71
+  %79 = fadd double %65, %78
+  %80 = fsub double %71, %69
+  %81 = fsub double %74, %72
+  %82 = fsub double %81, %68
+  %83 = fsub double %72, %74
+  %84 = fsub double %70, %72
+  %85 = fadd double %68, %84
+  %86 = fsub double %72, %70
+  %87 = fmul double %65, 5.000000e-01
+  %88 = fmul double %68, 5.000000e-01
+  %89 = fmul double %87, %69
   %90 = fmul double %88, %70
-  %91 = fmul double %89, %71
+  %91 = fmul double %89, 3.000000e+00
   %92 = fmul double %90, 3.000000e+00
-  %93 = fmul double %91, 3.000000e+00
-  %94 = fsub double %70, %90
-  %95 = fsub double %94, %88
-  %96 = tail call double @llvm.fmuladd.f64(double %70, double -2.500000e+00, double %92)
-  %97 = fneg double %92
-  %98 = tail call double @llvm.fmuladd.f64(double %70, double 2.000000e+00, double %97)
-  %99 = fadd double %88, %98
-  %100 = tail call double @llvm.fmuladd.f64(double %70, double -5.000000e-01, double %90)
-  %101 = fsub double %71, %91
-  %102 = fsub double %101, %89
-  %103 = tail call double @llvm.fmuladd.f64(double %71, double -2.500000e+00, double %93)
-  %104 = fneg double %93
-  %105 = tail call double @llvm.fmuladd.f64(double %71, double 2.000000e+00, double %104)
-  %106 = fadd double %89, %105
-  %107 = tail call double @llvm.fmuladd.f64(double %71, double -5.000000e-01, double %91)
-  %108 = getelementptr inbounds i8, ptr %58, i64 -4
-  %.571 = select i1 %31, double %96, double %78
-  %.575 = select i1 %31, double %103, double %84
+  %93 = fsub double %69, %89
+  %94 = fsub double %93, %87
+  %95 = tail call double @llvm.fmuladd.f64(double %69, double -2.500000e+00, double %91)
+  %96 = fneg double %91
+  %97 = tail call double @llvm.fmuladd.f64(double %69, double 2.000000e+00, double %96)
+  %98 = fadd double %87, %97
+  %99 = tail call double @llvm.fmuladd.f64(double %69, double -5.000000e-01, double %89)
+  %100 = fsub double %70, %90
+  %101 = fsub double %100, %88
+  %102 = tail call double @llvm.fmuladd.f64(double %70, double -2.500000e+00, double %92)
+  %103 = fneg double %92
+  %104 = tail call double @llvm.fmuladd.f64(double %70, double 2.000000e+00, double %103)
+  %105 = fadd double %88, %104
+  %106 = tail call double @llvm.fmuladd.f64(double %70, double -5.000000e-01, double %90)
+  %107 = getelementptr inbounds i8, ptr %57, i64 -4
+  %.571 = select i1 %31, double %95, double %77
+  %.575 = select i1 %31, double %102, double %83
   %.0433 = fadd double %.575, 1.000000e+00
   %.0449 = fadd double %.571, 1.000000e+00
-  br label %109
+  br label %108
 
-109:                                              ; preds = %52, %.loopexit
-  %110 = phi i1 [ true, %52 ], [ false, %.loopexit ]
+108:                                              ; preds = %52, %.loopexit
+  %109 = phi i1 [ true, %52 ], [ false, %.loopexit ]
   %indvars.iv = phi i64 [ 0, %52 ], [ 1, %.loopexit ]
-  %111 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %.idx580 = or disjoint i64 %indvars.iv, %54
+  %110 = shl nsw i64 %.idx580, 2
+  %111 = getelementptr inbounds i8, ptr %36, i64 %110
   %112 = load ptr, ptr %gep564, align 8
-  %113 = getelementptr i32, ptr %112, i64 %63
+  %113 = getelementptr i32, ptr %112, i64 %62
   %114 = getelementptr i8, ptr %113, i64 -8
   %115 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv
   %116 = load i32, ptr %115, align 4
@@ -712,14 +716,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %136 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %137 = load i32, ptr %136, align 4
   %138 = sitofp i32 %137 to double
-  %.not473522 = icmp ugt ptr %111, %108
+  %.not473522.not = icmp slt i64 %110, %.idx579
   br i1 %31, label %.preheader, label %.preheader479
 
-.preheader479:                                    ; preds = %109
-  br i1 %.not473522, label %.loopexit, label %.lr.ph
+.preheader479:                                    ; preds = %108
+  br i1 %.not473522.not, label %.lr.ph, label %.loopexit
 
-.preheader:                                       ; preds = %109
-  br i1 %.not473522, label %.loopexit, label %.lr.ph543
+.preheader:                                       ; preds = %108
+  br i1 %.not473522.not, label %.lr.ph543, label %.loopexit
 
 .lr.ph543:                                        ; preds = %.preheader, %.lr.ph543
   %.0542 = phi ptr [ %252, %.lr.ph543 ], [ %111, %.preheader ]
@@ -733,14 +737,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %.0412534 = phi double [ %236, %.lr.ph543 ], [ %123, %.preheader ]
   %.0415533 = phi double [ %233, %.lr.ph543 ], [ %120, %.preheader ]
   %.0418532 = phi double [ %230, %.lr.ph543 ], [ %117, %.preheader ]
-  %.1426531 = phi double [ %218, %.lr.ph543 ], [ %107, %.preheader ]
-  %.1430530 = phi double [ %217, %.lr.ph543 ], [ %106, %.preheader ]
+  %.1426531 = phi double [ %218, %.lr.ph543 ], [ %106, %.preheader ]
+  %.1430530 = phi double [ %217, %.lr.ph543 ], [ %105, %.preheader ]
   %.1434529 = phi double [ %214, %.lr.ph543 ], [ %.0433, %.preheader ]
-  %.1438528 = phi double [ %212, %.lr.ph543 ], [ %102, %.preheader ]
-  %.1442527 = phi double [ %206, %.lr.ph543 ], [ %100, %.preheader ]
-  %.1446526 = phi double [ %205, %.lr.ph543 ], [ %99, %.preheader ]
+  %.1438528 = phi double [ %212, %.lr.ph543 ], [ %101, %.preheader ]
+  %.1442527 = phi double [ %206, %.lr.ph543 ], [ %99, %.preheader ]
+  %.1446526 = phi double [ %205, %.lr.ph543 ], [ %98, %.preheader ]
   %.1450525 = phi double [ %202, %.lr.ph543 ], [ %.0449, %.preheader ]
-  %.1454524 = phi double [ %200, %.lr.ph543 ], [ %95, %.preheader ]
+  %.1454524 = phi double [ %200, %.lr.ph543 ], [ %94, %.preheader ]
   %139 = phi ptr [ %226, %.lr.ph543 ], [ %113, %.preheader ]
   %140 = getelementptr i8, ptr %139, i64 -8
   %141 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv
@@ -861,7 +865,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %250 = load i32, ptr %249, align 4
   %251 = sitofp i32 %250 to double
   %252 = getelementptr inbounds nuw i8, ptr %.0542, i64 8
-  %.not473 = icmp ugt ptr %252, %108
+  %.not473 = icmp ugt ptr %252, %107
   br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader479, %.lr.ph
@@ -876,14 +880,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %.2414494 = phi double [ %346, %.lr.ph ], [ %123, %.preheader479 ]
   %.2417493 = phi double [ %343, %.lr.ph ], [ %120, %.preheader479 ]
   %.2420492 = phi double [ %340, %.lr.ph ], [ %117, %.preheader479 ]
-  %.3428491 = phi double [ %328, %.lr.ph ], [ %87, %.preheader479 ]
-  %.3432490 = phi double [ %327, %.lr.ph ], [ %86, %.preheader479 ]
+  %.3428491 = phi double [ %328, %.lr.ph ], [ %86, %.preheader479 ]
+  %.3432490 = phi double [ %327, %.lr.ph ], [ %85, %.preheader479 ]
   %.3436489 = phi double [ %325, %.lr.ph ], [ %.0433, %.preheader479 ]
-  %.3440488 = phi double [ %323, %.lr.ph ], [ %83, %.preheader479 ]
-  %.3444487 = phi double [ %317, %.lr.ph ], [ %81, %.preheader479 ]
-  %.3448486 = phi double [ %316, %.lr.ph ], [ %80, %.preheader479 ]
+  %.3440488 = phi double [ %323, %.lr.ph ], [ %82, %.preheader479 ]
+  %.3444487 = phi double [ %317, %.lr.ph ], [ %80, %.preheader479 ]
+  %.3448486 = phi double [ %316, %.lr.ph ], [ %79, %.preheader479 ]
   %.3452485 = phi double [ %314, %.lr.ph ], [ %.0449, %.preheader479 ]
-  %.3456484 = phi double [ %312, %.lr.ph ], [ %77, %.preheader479 ]
+  %.3456484 = phi double [ %312, %.lr.ph ], [ %76, %.preheader479 ]
   %253 = phi ptr [ %336, %.lr.ph ], [ %113, %.preheader479 ]
   %254 = getelementptr i8, ptr %253, i64 -8
   %255 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv
@@ -1000,19 +1004,19 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %360 = load i32, ptr %359, align 4
   %361 = sitofp i32 %360 to double
   %362 = getelementptr inbounds nuw i8, ptr %.2502, i64 8
-  %.not472 = icmp ugt ptr %362, %108
+  %.not472 = icmp ugt ptr %362, %107
   br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph543, %.preheader479, %.preheader
   %.1463 = phi ptr [ %127, %.preheader ], [ %127, %.preheader479 ], [ %240, %.lr.ph543 ], [ %350, %.lr.ph ]
-  %.2455 = phi double [ %95, %.preheader ], [ %77, %.preheader479 ], [ %200, %.lr.ph543 ], [ %312, %.lr.ph ]
+  %.2455 = phi double [ %94, %.preheader ], [ %76, %.preheader479 ], [ %200, %.lr.ph543 ], [ %312, %.lr.ph ]
   %.2451 = phi double [ %.0449, %.preheader ], [ %.0449, %.preheader479 ], [ %202, %.lr.ph543 ], [ %314, %.lr.ph ]
-  %.2447 = phi double [ %99, %.preheader ], [ %80, %.preheader479 ], [ %205, %.lr.ph543 ], [ %316, %.lr.ph ]
-  %.2443 = phi double [ %100, %.preheader ], [ %81, %.preheader479 ], [ %206, %.lr.ph543 ], [ %317, %.lr.ph ]
-  %.2439 = phi double [ %102, %.preheader ], [ %83, %.preheader479 ], [ %212, %.lr.ph543 ], [ %323, %.lr.ph ]
+  %.2447 = phi double [ %98, %.preheader ], [ %79, %.preheader479 ], [ %205, %.lr.ph543 ], [ %316, %.lr.ph ]
+  %.2443 = phi double [ %99, %.preheader ], [ %80, %.preheader479 ], [ %206, %.lr.ph543 ], [ %317, %.lr.ph ]
+  %.2439 = phi double [ %101, %.preheader ], [ %82, %.preheader479 ], [ %212, %.lr.ph543 ], [ %323, %.lr.ph ]
   %.2435 = phi double [ %.0433, %.preheader ], [ %.0433, %.preheader479 ], [ %214, %.lr.ph543 ], [ %325, %.lr.ph ]
-  %.2431 = phi double [ %106, %.preheader ], [ %86, %.preheader479 ], [ %217, %.lr.ph543 ], [ %327, %.lr.ph ]
-  %.2427 = phi double [ %107, %.preheader ], [ %87, %.preheader479 ], [ %218, %.lr.ph543 ], [ %328, %.lr.ph ]
+  %.2431 = phi double [ %105, %.preheader ], [ %85, %.preheader479 ], [ %217, %.lr.ph543 ], [ %327, %.lr.ph ]
+  %.2427 = phi double [ %106, %.preheader ], [ %86, %.preheader479 ], [ %218, %.lr.ph543 ], [ %328, %.lr.ph ]
   %.1419 = phi double [ %117, %.preheader ], [ %117, %.preheader479 ], [ %230, %.lr.ph543 ], [ %340, %.lr.ph ]
   %.1416 = phi double [ %120, %.preheader ], [ %120, %.preheader479 ], [ %233, %.lr.ph543 ], [ %343, %.lr.ph ]
   %.1413 = phi double [ %123, %.preheader ], [ %123, %.preheader479 ], [ %236, %.lr.ph543 ], [ %346, %.lr.ph ]
@@ -1072,11 +1076,11 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %.5 = select i1 %.inv478, double 0xC1E0000000000000, double %.4
   %407 = fptosi double %.5 to i32
   store i32 %407, ptr %.1, align 4
-  br i1 %110, label %109, label %.loopexit481, !llvm.loop !12
+  br i1 %109, label %108, label %.loopexit481, !llvm.loop !12
 
 .loopexit481:                                     ; preds = %.loopexit, %50
-  %indvars.iv.next616 = add nsw i64 %indvars.iv615, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next616 to i32
+  %indvars.iv.next619 = add nsw i64 %indvars.iv618, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next619 to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !13
 
@@ -1128,23 +1132,23 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   br label %35
 
 35:                                               ; preds = %.lr.ph570, %.loopexit481
-  %indvars.iv615 = phi i64 [ %33, %.lr.ph570 ], [ %indvars.iv.next616, %.loopexit481 ]
+  %indvars.iv618 = phi i64 [ %33, %.lr.ph570 ], [ %indvars.iv.next619, %.loopexit481 ]
   %.0421569 = phi ptr [ %29, %.lr.ph570 ], [ %36, %.loopexit481 ]
   %.0457568 = phi i32 [ %25, %.lr.ph570 ], [ %.1458, %.loopexit481 ]
   %.0459567 = phi i32 [ %23, %.lr.ph570 ], [ %.1460, %.loopexit481 ]
   %36 = getelementptr inbounds i8, ptr %.0421569, i64 %30
-  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv615
+  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv618
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv615
+  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv618
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv615
+  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv618
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv615
+  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv618
   %44 = load i32, ptr %43, align 4
   br i1 %.not471, label %50, label %45
 
 45:                                               ; preds = %35
-  %.idx = shl nsw i64 %indvars.iv615, 3
+  %.idx = shl nsw i64 %indvars.iv618, 3
   %46 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr i8, ptr %46, i64 4
@@ -1160,72 +1164,74 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
 52:                                               ; preds = %50
   %53 = mul nsw i32 %38, 3
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %36, i64 %54
-  %56 = mul nsw i32 %40, 3
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %36, i64 %57
-  %59 = ashr i32 %42, 16
-  %60 = ashr i32 %44, 16
-  %61 = sext i32 %60 to i64
-  %gep564 = getelementptr ptr, ptr %invariant.gep563, i64 %61
-  %62 = mul nsw i32 %59, 3
-  %63 = sext i32 %62 to i64
-  %64 = and i32 %42, 65535
-  %65 = uitofp nneg i32 %64 to double
-  %66 = fmul double %65, 0x3EF0000000000000
-  %67 = and i32 %44, 65535
-  %68 = uitofp nneg i32 %67 to double
-  %69 = fmul double %68, 0x3EF0000000000000
-  %70 = fmul double %66, %66
-  %71 = fmul double %69, %69
-  %72 = fmul double %66, %70
-  %73 = fmul double %69, %71
+  %55 = mul nsw i32 %40, 3
+  %56 = sext i32 %55 to i64
+  %.idx579 = shl nsw i64 %56, 2
+  %57 = getelementptr inbounds i8, ptr %36, i64 %.idx579
+  %58 = ashr i32 %42, 16
+  %59 = ashr i32 %44, 16
+  %60 = sext i32 %59 to i64
+  %gep564 = getelementptr ptr, ptr %invariant.gep563, i64 %60
+  %61 = mul nsw i32 %58, 3
+  %62 = sext i32 %61 to i64
+  %63 = and i32 %42, 65535
+  %64 = uitofp nneg i32 %63 to double
+  %65 = fmul double %64, 0x3EF0000000000000
+  %66 = and i32 %44, 65535
+  %67 = uitofp nneg i32 %66 to double
+  %68 = fmul double %67, 0x3EF0000000000000
+  %69 = fmul double %65, %65
+  %70 = fmul double %68, %68
+  %71 = fmul double %65, %69
+  %72 = fmul double %68, %70
+  %73 = fmul double %69, 2.000000e+00
   %74 = fmul double %70, 2.000000e+00
-  %75 = fmul double %71, 2.000000e+00
-  %76 = fsub double %74, %72
-  %77 = fsub double %76, %66
-  %78 = fsub double %72, %74
-  %79 = fsub double %70, %72
-  %80 = fadd double %66, %79
-  %81 = fsub double %72, %70
-  %82 = fsub double %75, %73
-  %83 = fsub double %82, %69
-  %84 = fsub double %73, %75
-  %85 = fsub double %71, %73
-  %86 = fadd double %69, %85
-  %87 = fsub double %73, %71
-  %88 = fmul double %66, 5.000000e-01
-  %89 = fmul double %69, 5.000000e-01
+  %75 = fsub double %73, %71
+  %76 = fsub double %75, %65
+  %77 = fsub double %71, %73
+  %78 = fsub double %69, %71
+  %79 = fadd double %65, %78
+  %80 = fsub double %71, %69
+  %81 = fsub double %74, %72
+  %82 = fsub double %81, %68
+  %83 = fsub double %72, %74
+  %84 = fsub double %70, %72
+  %85 = fadd double %68, %84
+  %86 = fsub double %72, %70
+  %87 = fmul double %65, 5.000000e-01
+  %88 = fmul double %68, 5.000000e-01
+  %89 = fmul double %87, %69
   %90 = fmul double %88, %70
-  %91 = fmul double %89, %71
+  %91 = fmul double %89, 3.000000e+00
   %92 = fmul double %90, 3.000000e+00
-  %93 = fmul double %91, 3.000000e+00
-  %94 = fsub double %70, %90
-  %95 = fsub double %94, %88
-  %96 = tail call double @llvm.fmuladd.f64(double %70, double -2.500000e+00, double %92)
-  %97 = fneg double %92
-  %98 = tail call double @llvm.fmuladd.f64(double %70, double 2.000000e+00, double %97)
-  %99 = fadd double %88, %98
-  %100 = tail call double @llvm.fmuladd.f64(double %70, double -5.000000e-01, double %90)
-  %101 = fsub double %71, %91
-  %102 = fsub double %101, %89
-  %103 = tail call double @llvm.fmuladd.f64(double %71, double -2.500000e+00, double %93)
-  %104 = fneg double %93
-  %105 = tail call double @llvm.fmuladd.f64(double %71, double 2.000000e+00, double %104)
-  %106 = fadd double %89, %105
-  %107 = tail call double @llvm.fmuladd.f64(double %71, double -5.000000e-01, double %91)
-  %108 = getelementptr inbounds i8, ptr %58, i64 -4
-  %.571 = select i1 %31, double %96, double %78
-  %.575 = select i1 %31, double %103, double %84
+  %93 = fsub double %69, %89
+  %94 = fsub double %93, %87
+  %95 = tail call double @llvm.fmuladd.f64(double %69, double -2.500000e+00, double %91)
+  %96 = fneg double %91
+  %97 = tail call double @llvm.fmuladd.f64(double %69, double 2.000000e+00, double %96)
+  %98 = fadd double %87, %97
+  %99 = tail call double @llvm.fmuladd.f64(double %69, double -5.000000e-01, double %89)
+  %100 = fsub double %70, %90
+  %101 = fsub double %100, %88
+  %102 = tail call double @llvm.fmuladd.f64(double %70, double -2.500000e+00, double %92)
+  %103 = fneg double %92
+  %104 = tail call double @llvm.fmuladd.f64(double %70, double 2.000000e+00, double %103)
+  %105 = fadd double %88, %104
+  %106 = tail call double @llvm.fmuladd.f64(double %70, double -5.000000e-01, double %90)
+  %107 = getelementptr inbounds i8, ptr %57, i64 -4
+  %.571 = select i1 %31, double %95, double %77
+  %.575 = select i1 %31, double %102, double %83
   %.0433 = fadd double %.575, 1.000000e+00
   %.0449 = fadd double %.571, 1.000000e+00
-  br label %109
+  br label %108
 
-109:                                              ; preds = %52, %.loopexit
+108:                                              ; preds = %52, %.loopexit
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %.loopexit ]
-  %110 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %.idx580 = add nsw i64 %indvars.iv, %54
+  %109 = shl nsw i64 %.idx580, 2
+  %110 = getelementptr inbounds i8, ptr %36, i64 %109
   %111 = load ptr, ptr %gep564, align 8
-  %112 = getelementptr i32, ptr %111, i64 %63
+  %112 = getelementptr i32, ptr %111, i64 %62
   %113 = getelementptr i8, ptr %112, i64 -12
   %114 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv
   %115 = load i32, ptr %114, align 4
@@ -1251,14 +1257,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 36
   %136 = load i32, ptr %135, align 4
   %137 = sitofp i32 %136 to double
-  %.not473522 = icmp ugt ptr %110, %108
+  %.not473522.not = icmp slt i64 %109, %.idx579
   br i1 %31, label %.preheader, label %.preheader479
 
-.preheader479:                                    ; preds = %109
-  br i1 %.not473522, label %.loopexit, label %.lr.ph
+.preheader479:                                    ; preds = %108
+  br i1 %.not473522.not, label %.lr.ph, label %.loopexit
 
-.preheader:                                       ; preds = %109
-  br i1 %.not473522, label %.loopexit, label %.lr.ph543
+.preheader:                                       ; preds = %108
+  br i1 %.not473522.not, label %.lr.ph543, label %.loopexit
 
 .lr.ph543:                                        ; preds = %.preheader, %.lr.ph543
   %.0542 = phi ptr [ %251, %.lr.ph543 ], [ %110, %.preheader ]
@@ -1272,14 +1278,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %.0412534 = phi double [ %235, %.lr.ph543 ], [ %122, %.preheader ]
   %.0415533 = phi double [ %232, %.lr.ph543 ], [ %119, %.preheader ]
   %.0418532 = phi double [ %229, %.lr.ph543 ], [ %116, %.preheader ]
-  %.1426531 = phi double [ %217, %.lr.ph543 ], [ %107, %.preheader ]
-  %.1430530 = phi double [ %216, %.lr.ph543 ], [ %106, %.preheader ]
+  %.1426531 = phi double [ %217, %.lr.ph543 ], [ %106, %.preheader ]
+  %.1430530 = phi double [ %216, %.lr.ph543 ], [ %105, %.preheader ]
   %.1434529 = phi double [ %213, %.lr.ph543 ], [ %.0433, %.preheader ]
-  %.1438528 = phi double [ %211, %.lr.ph543 ], [ %102, %.preheader ]
-  %.1442527 = phi double [ %205, %.lr.ph543 ], [ %100, %.preheader ]
-  %.1446526 = phi double [ %204, %.lr.ph543 ], [ %99, %.preheader ]
+  %.1438528 = phi double [ %211, %.lr.ph543 ], [ %101, %.preheader ]
+  %.1442527 = phi double [ %205, %.lr.ph543 ], [ %99, %.preheader ]
+  %.1446526 = phi double [ %204, %.lr.ph543 ], [ %98, %.preheader ]
   %.1450525 = phi double [ %201, %.lr.ph543 ], [ %.0449, %.preheader ]
-  %.1454524 = phi double [ %199, %.lr.ph543 ], [ %95, %.preheader ]
+  %.1454524 = phi double [ %199, %.lr.ph543 ], [ %94, %.preheader ]
   %138 = phi ptr [ %225, %.lr.ph543 ], [ %112, %.preheader ]
   %139 = getelementptr i8, ptr %138, i64 -12
   %140 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv
@@ -1400,7 +1406,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %249 = load i32, ptr %248, align 4
   %250 = sitofp i32 %249 to double
   %251 = getelementptr inbounds nuw i8, ptr %.0542, i64 12
-  %.not473 = icmp ugt ptr %251, %108
+  %.not473 = icmp ugt ptr %251, %107
   br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader479, %.lr.ph
@@ -1415,14 +1421,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %.2414494 = phi double [ %345, %.lr.ph ], [ %122, %.preheader479 ]
   %.2417493 = phi double [ %342, %.lr.ph ], [ %119, %.preheader479 ]
   %.2420492 = phi double [ %339, %.lr.ph ], [ %116, %.preheader479 ]
-  %.3428491 = phi double [ %327, %.lr.ph ], [ %87, %.preheader479 ]
-  %.3432490 = phi double [ %326, %.lr.ph ], [ %86, %.preheader479 ]
+  %.3428491 = phi double [ %327, %.lr.ph ], [ %86, %.preheader479 ]
+  %.3432490 = phi double [ %326, %.lr.ph ], [ %85, %.preheader479 ]
   %.3436489 = phi double [ %324, %.lr.ph ], [ %.0433, %.preheader479 ]
-  %.3440488 = phi double [ %322, %.lr.ph ], [ %83, %.preheader479 ]
-  %.3444487 = phi double [ %316, %.lr.ph ], [ %81, %.preheader479 ]
-  %.3448486 = phi double [ %315, %.lr.ph ], [ %80, %.preheader479 ]
+  %.3440488 = phi double [ %322, %.lr.ph ], [ %82, %.preheader479 ]
+  %.3444487 = phi double [ %316, %.lr.ph ], [ %80, %.preheader479 ]
+  %.3448486 = phi double [ %315, %.lr.ph ], [ %79, %.preheader479 ]
   %.3452485 = phi double [ %313, %.lr.ph ], [ %.0449, %.preheader479 ]
-  %.3456484 = phi double [ %311, %.lr.ph ], [ %77, %.preheader479 ]
+  %.3456484 = phi double [ %311, %.lr.ph ], [ %76, %.preheader479 ]
   %252 = phi ptr [ %335, %.lr.ph ], [ %112, %.preheader479 ]
   %253 = getelementptr i8, ptr %252, i64 -12
   %254 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv
@@ -1539,19 +1545,19 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %359 = load i32, ptr %358, align 4
   %360 = sitofp i32 %359 to double
   %361 = getelementptr inbounds nuw i8, ptr %.2502, i64 12
-  %.not472 = icmp ugt ptr %361, %108
+  %.not472 = icmp ugt ptr %361, %107
   br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph543, %.preheader479, %.preheader
   %.1463 = phi ptr [ %126, %.preheader ], [ %126, %.preheader479 ], [ %239, %.lr.ph543 ], [ %349, %.lr.ph ]
-  %.2455 = phi double [ %95, %.preheader ], [ %77, %.preheader479 ], [ %199, %.lr.ph543 ], [ %311, %.lr.ph ]
+  %.2455 = phi double [ %94, %.preheader ], [ %76, %.preheader479 ], [ %199, %.lr.ph543 ], [ %311, %.lr.ph ]
   %.2451 = phi double [ %.0449, %.preheader ], [ %.0449, %.preheader479 ], [ %201, %.lr.ph543 ], [ %313, %.lr.ph ]
-  %.2447 = phi double [ %99, %.preheader ], [ %80, %.preheader479 ], [ %204, %.lr.ph543 ], [ %315, %.lr.ph ]
-  %.2443 = phi double [ %100, %.preheader ], [ %81, %.preheader479 ], [ %205, %.lr.ph543 ], [ %316, %.lr.ph ]
-  %.2439 = phi double [ %102, %.preheader ], [ %83, %.preheader479 ], [ %211, %.lr.ph543 ], [ %322, %.lr.ph ]
+  %.2447 = phi double [ %98, %.preheader ], [ %79, %.preheader479 ], [ %204, %.lr.ph543 ], [ %315, %.lr.ph ]
+  %.2443 = phi double [ %99, %.preheader ], [ %80, %.preheader479 ], [ %205, %.lr.ph543 ], [ %316, %.lr.ph ]
+  %.2439 = phi double [ %101, %.preheader ], [ %82, %.preheader479 ], [ %211, %.lr.ph543 ], [ %322, %.lr.ph ]
   %.2435 = phi double [ %.0433, %.preheader ], [ %.0433, %.preheader479 ], [ %213, %.lr.ph543 ], [ %324, %.lr.ph ]
-  %.2431 = phi double [ %106, %.preheader ], [ %86, %.preheader479 ], [ %216, %.lr.ph543 ], [ %326, %.lr.ph ]
-  %.2427 = phi double [ %107, %.preheader ], [ %87, %.preheader479 ], [ %217, %.lr.ph543 ], [ %327, %.lr.ph ]
+  %.2431 = phi double [ %105, %.preheader ], [ %85, %.preheader479 ], [ %216, %.lr.ph543 ], [ %326, %.lr.ph ]
+  %.2427 = phi double [ %106, %.preheader ], [ %86, %.preheader479 ], [ %217, %.lr.ph543 ], [ %327, %.lr.ph ]
   %.1419 = phi double [ %116, %.preheader ], [ %116, %.preheader479 ], [ %229, %.lr.ph543 ], [ %339, %.lr.ph ]
   %.1416 = phi double [ %119, %.preheader ], [ %119, %.preheader479 ], [ %232, %.lr.ph543 ], [ %342, %.lr.ph ]
   %.1413 = phi double [ %122, %.preheader ], [ %122, %.preheader479 ], [ %235, %.lr.ph543 ], [ %345, %.lr.ph ]
@@ -1613,13 +1619,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   store i32 %406, ptr %.1, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit481, label %109, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit481, label %108, !llvm.loop !16
 
 .loopexit481:                                     ; preds = %.loopexit, %50
-  %indvars.iv.next616 = add nsw i64 %indvars.iv615, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next616 to i32
-  %exitcond618.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond618.not, label %._crit_edge, label %35, !llvm.loop !17
+  %indvars.iv.next619 = add nsw i64 %indvars.iv618, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next619 to i32
+  %exitcond621.not = icmp eq i32 %34, %lftr.wideiv
+  br i1 %exitcond621.not, label %._crit_edge, label %35, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit481, %1
   ret i32 0
@@ -1669,23 +1675,23 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   br label %35
 
 35:                                               ; preds = %.lr.ph570, %.loopexit481
-  %indvars.iv615 = phi i64 [ %33, %.lr.ph570 ], [ %indvars.iv.next616, %.loopexit481 ]
+  %indvars.iv618 = phi i64 [ %33, %.lr.ph570 ], [ %indvars.iv.next619, %.loopexit481 ]
   %.0421569 = phi ptr [ %29, %.lr.ph570 ], [ %36, %.loopexit481 ]
   %.0457568 = phi i32 [ %25, %.lr.ph570 ], [ %.1458, %.loopexit481 ]
   %.0459567 = phi i32 [ %23, %.lr.ph570 ], [ %.1460, %.loopexit481 ]
   %36 = getelementptr inbounds i8, ptr %.0421569, i64 %30
-  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv615
+  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv618
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv615
+  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv618
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv615
+  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv618
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv615
+  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv618
   %44 = load i32, ptr %43, align 4
   br i1 %.not471, label %50, label %45
 
 45:                                               ; preds = %35
-  %.idx = shl nsw i64 %indvars.iv615, 3
+  %.idx = shl nsw i64 %indvars.iv618, 3
   %46 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr i8, ptr %46, i64 4
@@ -1701,72 +1707,74 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
 52:                                               ; preds = %50
   %53 = shl nsw i32 %38, 2
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %36, i64 %54
-  %56 = shl nsw i32 %40, 2
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %36, i64 %57
-  %59 = ashr i32 %44, 16
-  %60 = sext i32 %59 to i64
-  %gep564 = getelementptr ptr, ptr %invariant.gep563, i64 %60
-  %61 = ashr i32 %42, 14
-  %62 = and i32 %61, -4
-  %63 = sext i32 %62 to i64
-  %64 = and i32 %42, 65535
-  %65 = uitofp nneg i32 %64 to double
-  %66 = fmul double %65, 0x3EF0000000000000
-  %67 = and i32 %44, 65535
-  %68 = uitofp nneg i32 %67 to double
-  %69 = fmul double %68, 0x3EF0000000000000
-  %70 = fmul double %66, %66
-  %71 = fmul double %69, %69
-  %72 = fmul double %66, %70
-  %73 = fmul double %69, %71
+  %55 = shl nsw i32 %40, 2
+  %56 = sext i32 %55 to i64
+  %.idx579 = shl nsw i64 %56, 2
+  %57 = getelementptr inbounds i8, ptr %36, i64 %.idx579
+  %58 = ashr i32 %44, 16
+  %59 = sext i32 %58 to i64
+  %gep564 = getelementptr ptr, ptr %invariant.gep563, i64 %59
+  %60 = ashr i32 %42, 14
+  %61 = and i32 %60, -4
+  %62 = sext i32 %61 to i64
+  %63 = and i32 %42, 65535
+  %64 = uitofp nneg i32 %63 to double
+  %65 = fmul double %64, 0x3EF0000000000000
+  %66 = and i32 %44, 65535
+  %67 = uitofp nneg i32 %66 to double
+  %68 = fmul double %67, 0x3EF0000000000000
+  %69 = fmul double %65, %65
+  %70 = fmul double %68, %68
+  %71 = fmul double %65, %69
+  %72 = fmul double %68, %70
+  %73 = fmul double %69, 2.000000e+00
   %74 = fmul double %70, 2.000000e+00
-  %75 = fmul double %71, 2.000000e+00
-  %76 = fsub double %74, %72
-  %77 = fsub double %76, %66
-  %78 = fsub double %72, %74
-  %79 = fsub double %70, %72
-  %80 = fadd double %66, %79
-  %81 = fsub double %72, %70
-  %82 = fsub double %75, %73
-  %83 = fsub double %82, %69
-  %84 = fsub double %73, %75
-  %85 = fsub double %71, %73
-  %86 = fadd double %69, %85
-  %87 = fsub double %73, %71
-  %88 = fmul double %66, 5.000000e-01
-  %89 = fmul double %69, 5.000000e-01
+  %75 = fsub double %73, %71
+  %76 = fsub double %75, %65
+  %77 = fsub double %71, %73
+  %78 = fsub double %69, %71
+  %79 = fadd double %65, %78
+  %80 = fsub double %71, %69
+  %81 = fsub double %74, %72
+  %82 = fsub double %81, %68
+  %83 = fsub double %72, %74
+  %84 = fsub double %70, %72
+  %85 = fadd double %68, %84
+  %86 = fsub double %72, %70
+  %87 = fmul double %65, 5.000000e-01
+  %88 = fmul double %68, 5.000000e-01
+  %89 = fmul double %87, %69
   %90 = fmul double %88, %70
-  %91 = fmul double %89, %71
+  %91 = fmul double %89, 3.000000e+00
   %92 = fmul double %90, 3.000000e+00
-  %93 = fmul double %91, 3.000000e+00
-  %94 = fsub double %70, %90
-  %95 = fsub double %94, %88
-  %96 = tail call double @llvm.fmuladd.f64(double %70, double -2.500000e+00, double %92)
-  %97 = fneg double %92
-  %98 = tail call double @llvm.fmuladd.f64(double %70, double 2.000000e+00, double %97)
-  %99 = fadd double %88, %98
-  %100 = tail call double @llvm.fmuladd.f64(double %70, double -5.000000e-01, double %90)
-  %101 = fsub double %71, %91
-  %102 = fsub double %101, %89
-  %103 = tail call double @llvm.fmuladd.f64(double %71, double -2.500000e+00, double %93)
-  %104 = fneg double %93
-  %105 = tail call double @llvm.fmuladd.f64(double %71, double 2.000000e+00, double %104)
-  %106 = fadd double %89, %105
-  %107 = tail call double @llvm.fmuladd.f64(double %71, double -5.000000e-01, double %91)
-  %108 = getelementptr inbounds i8, ptr %58, i64 -4
-  %.571 = select i1 %31, double %96, double %78
-  %.575 = select i1 %31, double %103, double %84
+  %93 = fsub double %69, %89
+  %94 = fsub double %93, %87
+  %95 = tail call double @llvm.fmuladd.f64(double %69, double -2.500000e+00, double %91)
+  %96 = fneg double %91
+  %97 = tail call double @llvm.fmuladd.f64(double %69, double 2.000000e+00, double %96)
+  %98 = fadd double %87, %97
+  %99 = tail call double @llvm.fmuladd.f64(double %69, double -5.000000e-01, double %89)
+  %100 = fsub double %70, %90
+  %101 = fsub double %100, %88
+  %102 = tail call double @llvm.fmuladd.f64(double %70, double -2.500000e+00, double %92)
+  %103 = fneg double %92
+  %104 = tail call double @llvm.fmuladd.f64(double %70, double 2.000000e+00, double %103)
+  %105 = fadd double %88, %104
+  %106 = tail call double @llvm.fmuladd.f64(double %70, double -5.000000e-01, double %90)
+  %107 = getelementptr inbounds i8, ptr %57, i64 -4
+  %.571 = select i1 %31, double %95, double %77
+  %.575 = select i1 %31, double %102, double %83
   %.0433 = fadd double %.575, 1.000000e+00
   %.0449 = fadd double %.571, 1.000000e+00
-  br label %109
+  br label %108
 
-109:                                              ; preds = %52, %.loopexit
+108:                                              ; preds = %52, %.loopexit
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %.loopexit ]
-  %110 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %.idx580 = add nuw nsw i64 %indvars.iv, %54
+  %109 = shl nsw i64 %.idx580, 2
+  %110 = getelementptr inbounds i8, ptr %36, i64 %109
   %111 = load ptr, ptr %gep564, align 8
-  %112 = getelementptr i32, ptr %111, i64 %63
+  %112 = getelementptr i32, ptr %111, i64 %62
   %113 = getelementptr i8, ptr %112, i64 -16
   %114 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv
   %115 = load i32, ptr %114, align 4
@@ -1792,14 +1800,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 48
   %136 = load i32, ptr %135, align 4
   %137 = sitofp i32 %136 to double
-  %.not473522 = icmp ugt ptr %110, %108
+  %.not473522.not = icmp slt i64 %109, %.idx579
   br i1 %31, label %.preheader, label %.preheader479
 
-.preheader479:                                    ; preds = %109
-  br i1 %.not473522, label %.loopexit, label %.lr.ph
+.preheader479:                                    ; preds = %108
+  br i1 %.not473522.not, label %.lr.ph, label %.loopexit
 
-.preheader:                                       ; preds = %109
-  br i1 %.not473522, label %.loopexit, label %.lr.ph543
+.preheader:                                       ; preds = %108
+  br i1 %.not473522.not, label %.lr.ph543, label %.loopexit
 
 .lr.ph543:                                        ; preds = %.preheader, %.lr.ph543
   %.0542 = phi ptr [ %251, %.lr.ph543 ], [ %110, %.preheader ]
@@ -1813,14 +1821,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %.0412534 = phi double [ %235, %.lr.ph543 ], [ %122, %.preheader ]
   %.0415533 = phi double [ %232, %.lr.ph543 ], [ %119, %.preheader ]
   %.0418532 = phi double [ %229, %.lr.ph543 ], [ %116, %.preheader ]
-  %.1426531 = phi double [ %217, %.lr.ph543 ], [ %107, %.preheader ]
-  %.1430530 = phi double [ %216, %.lr.ph543 ], [ %106, %.preheader ]
+  %.1426531 = phi double [ %217, %.lr.ph543 ], [ %106, %.preheader ]
+  %.1430530 = phi double [ %216, %.lr.ph543 ], [ %105, %.preheader ]
   %.1434529 = phi double [ %213, %.lr.ph543 ], [ %.0433, %.preheader ]
-  %.1438528 = phi double [ %211, %.lr.ph543 ], [ %102, %.preheader ]
-  %.1442527 = phi double [ %205, %.lr.ph543 ], [ %100, %.preheader ]
-  %.1446526 = phi double [ %204, %.lr.ph543 ], [ %99, %.preheader ]
+  %.1438528 = phi double [ %211, %.lr.ph543 ], [ %101, %.preheader ]
+  %.1442527 = phi double [ %205, %.lr.ph543 ], [ %99, %.preheader ]
+  %.1446526 = phi double [ %204, %.lr.ph543 ], [ %98, %.preheader ]
   %.1450525 = phi double [ %201, %.lr.ph543 ], [ %.0449, %.preheader ]
-  %.1454524 = phi double [ %199, %.lr.ph543 ], [ %95, %.preheader ]
+  %.1454524 = phi double [ %199, %.lr.ph543 ], [ %94, %.preheader ]
   %138 = phi ptr [ %225, %.lr.ph543 ], [ %112, %.preheader ]
   %139 = getelementptr i8, ptr %138, i64 -16
   %140 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv
@@ -1941,7 +1949,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %249 = load i32, ptr %248, align 4
   %250 = sitofp i32 %249 to double
   %251 = getelementptr inbounds nuw i8, ptr %.0542, i64 16
-  %.not473 = icmp ugt ptr %251, %108
+  %.not473 = icmp ugt ptr %251, %107
   br i1 %.not473, label %.loopexit, label %.lr.ph543, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.preheader479, %.lr.ph
@@ -1956,14 +1964,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %.2414494 = phi double [ %345, %.lr.ph ], [ %122, %.preheader479 ]
   %.2417493 = phi double [ %342, %.lr.ph ], [ %119, %.preheader479 ]
   %.2420492 = phi double [ %339, %.lr.ph ], [ %116, %.preheader479 ]
-  %.3428491 = phi double [ %327, %.lr.ph ], [ %87, %.preheader479 ]
-  %.3432490 = phi double [ %326, %.lr.ph ], [ %86, %.preheader479 ]
+  %.3428491 = phi double [ %327, %.lr.ph ], [ %86, %.preheader479 ]
+  %.3432490 = phi double [ %326, %.lr.ph ], [ %85, %.preheader479 ]
   %.3436489 = phi double [ %324, %.lr.ph ], [ %.0433, %.preheader479 ]
-  %.3440488 = phi double [ %322, %.lr.ph ], [ %83, %.preheader479 ]
-  %.3444487 = phi double [ %316, %.lr.ph ], [ %81, %.preheader479 ]
-  %.3448486 = phi double [ %315, %.lr.ph ], [ %80, %.preheader479 ]
+  %.3440488 = phi double [ %322, %.lr.ph ], [ %82, %.preheader479 ]
+  %.3444487 = phi double [ %316, %.lr.ph ], [ %80, %.preheader479 ]
+  %.3448486 = phi double [ %315, %.lr.ph ], [ %79, %.preheader479 ]
   %.3452485 = phi double [ %313, %.lr.ph ], [ %.0449, %.preheader479 ]
-  %.3456484 = phi double [ %311, %.lr.ph ], [ %77, %.preheader479 ]
+  %.3456484 = phi double [ %311, %.lr.ph ], [ %76, %.preheader479 ]
   %252 = phi ptr [ %335, %.lr.ph ], [ %112, %.preheader479 ]
   %253 = getelementptr i8, ptr %252, i64 -16
   %254 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv
@@ -2080,19 +2088,19 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %359 = load i32, ptr %358, align 4
   %360 = sitofp i32 %359 to double
   %361 = getelementptr inbounds nuw i8, ptr %.2502, i64 16
-  %.not472 = icmp ugt ptr %361, %108
+  %.not472 = icmp ugt ptr %361, %107
   br i1 %.not472, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph543, %.preheader479, %.preheader
   %.1463 = phi ptr [ %126, %.preheader ], [ %126, %.preheader479 ], [ %239, %.lr.ph543 ], [ %349, %.lr.ph ]
-  %.2455 = phi double [ %95, %.preheader ], [ %77, %.preheader479 ], [ %199, %.lr.ph543 ], [ %311, %.lr.ph ]
+  %.2455 = phi double [ %94, %.preheader ], [ %76, %.preheader479 ], [ %199, %.lr.ph543 ], [ %311, %.lr.ph ]
   %.2451 = phi double [ %.0449, %.preheader ], [ %.0449, %.preheader479 ], [ %201, %.lr.ph543 ], [ %313, %.lr.ph ]
-  %.2447 = phi double [ %99, %.preheader ], [ %80, %.preheader479 ], [ %204, %.lr.ph543 ], [ %315, %.lr.ph ]
-  %.2443 = phi double [ %100, %.preheader ], [ %81, %.preheader479 ], [ %205, %.lr.ph543 ], [ %316, %.lr.ph ]
-  %.2439 = phi double [ %102, %.preheader ], [ %83, %.preheader479 ], [ %211, %.lr.ph543 ], [ %322, %.lr.ph ]
+  %.2447 = phi double [ %98, %.preheader ], [ %79, %.preheader479 ], [ %204, %.lr.ph543 ], [ %315, %.lr.ph ]
+  %.2443 = phi double [ %99, %.preheader ], [ %80, %.preheader479 ], [ %205, %.lr.ph543 ], [ %316, %.lr.ph ]
+  %.2439 = phi double [ %101, %.preheader ], [ %82, %.preheader479 ], [ %211, %.lr.ph543 ], [ %322, %.lr.ph ]
   %.2435 = phi double [ %.0433, %.preheader ], [ %.0433, %.preheader479 ], [ %213, %.lr.ph543 ], [ %324, %.lr.ph ]
-  %.2431 = phi double [ %106, %.preheader ], [ %86, %.preheader479 ], [ %216, %.lr.ph543 ], [ %326, %.lr.ph ]
-  %.2427 = phi double [ %107, %.preheader ], [ %87, %.preheader479 ], [ %217, %.lr.ph543 ], [ %327, %.lr.ph ]
+  %.2431 = phi double [ %105, %.preheader ], [ %85, %.preheader479 ], [ %216, %.lr.ph543 ], [ %326, %.lr.ph ]
+  %.2427 = phi double [ %106, %.preheader ], [ %86, %.preheader479 ], [ %217, %.lr.ph543 ], [ %327, %.lr.ph ]
   %.1419 = phi double [ %116, %.preheader ], [ %116, %.preheader479 ], [ %229, %.lr.ph543 ], [ %339, %.lr.ph ]
   %.1416 = phi double [ %119, %.preheader ], [ %119, %.preheader479 ], [ %232, %.lr.ph543 ], [ %342, %.lr.ph ]
   %.1413 = phi double [ %122, %.preheader ], [ %122, %.preheader479 ], [ %235, %.lr.ph543 ], [ %345, %.lr.ph ]
@@ -2154,13 +2162,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   store i32 %406, ptr %.1, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit481, label %109, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit481, label %108, !llvm.loop !20
 
 .loopexit481:                                     ; preds = %.loopexit, %50
-  %indvars.iv.next616 = add nsw i64 %indvars.iv615, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next616 to i32
-  %exitcond618.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond618.not, label %._crit_edge, label %35, !llvm.loop !21
+  %indvars.iv.next619 = add nsw i64 %indvars.iv618, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next619 to i32
+  %exitcond621.not = icmp eq i32 %34, %lftr.wideiv
+  br i1 %exitcond621.not, label %._crit_edge, label %35, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit481, %1
   ret i32 0

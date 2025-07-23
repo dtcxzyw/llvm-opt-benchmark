@@ -60,20 +60,19 @@ define void @_ZN7rocksdb13BlobFileCacheC2EPNS_5CacheEPKNS_16ImmutableOptionsEPKN
   %9 = tail call noalias noundef nonnull align 64 dereferenceable(8256) ptr @_ZnamSt11align_val_t(i64 noundef 8256, i64 noundef 64) #11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 128, ptr %10, align 8
-  %.ptr7.i = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1, !tbaa !21, !range !23, !noundef !24
   %12 = trunc nuw i8 %11 to i1
   br label %13
 
 13:                                               ; preds = %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i, %7
-  %.idx.i = phi i64 [ 64, %7 ], [ %.add.i, %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i ]
+  %.idx.i = phi i64 [ %.add.i, %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i ], [ 64, %7 ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 64 dereferenceable(40) %.ptr.ptr.i, i1 noundef zeroext %12)
           to label %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i unwind label %15
 
 _ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i: ; preds = %13
   %.add.i = add nuw nsw i64 %.idx.i, 64
-  %14 = icmp samesign eq i64 %.add.i, 8256
+  %14 = icmp eq i64 %.idx.i, 8192
   br i1 %14, label %_ZN7rocksdb7StripedINS_19CacheAlignedWrapperINS_4port5MutexEEENS_5SliceENS_15SliceNPHasher64EEC2Em.exit, label %13
 
 15:                                               ; preds = %13
@@ -95,6 +94,7 @@ _ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i: ; preds = %13
   resume { ptr, i32 } %16
 
 _ZN7rocksdb7StripedINS_19CacheAlignedWrapperINS_4port5MutexEEENS_5SliceENS_15SliceNPHasher64EEC2Em.exit: ; preds = %_ZN7rocksdb19CacheAlignedWrapperINS_4port5MutexEEC2Ev.exit.i
+  %.ptr7.i = getelementptr inbounds nuw i8, ptr %9, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.ptr7.i, ptr %19, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32

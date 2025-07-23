@@ -7060,36 +7060,36 @@ define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals21Visit
   %3 = load i64, ptr %1, align 8
   %4 = lshr i64 %3, 29
   %.idx = and i64 %4, 524280
-  %.add = add nuw nsw i64 %.idx, 16
-  %.ptr18 = getelementptr inbounds nuw i8, ptr %1, i64 %.add
-  %.not16 = icmp eq i64 %.add, 24
+  %5 = add nuw nsw i64 %.idx, 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
+  %.not16 = icmp samesign eq i64 %5, 24
   br i1 %.not16, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %12, %2
+._crit_edge:                                      ; preds = %14, %2
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %.017 = phi ptr [ %13, %12 ], [ %5, %.lr.ph.preheader ]
-  %6 = load ptr, ptr %.017, align 8, !tbaa !732
-  %7 = load i16, ptr %6, align 8
-  %8 = and i16 %7, 511
-  %.not15 = icmp eq i16 %8, 28
-  br i1 %.not15, label %9, label %12
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
+  %.017 = phi ptr [ %15, %14 ], [ %7, %.lr.ph.preheader ]
+  %8 = load ptr, ptr %.017, align 8, !tbaa !732
+  %9 = load i16, ptr %8, align 8
+  %10 = and i16 %9, 511
+  %.not15 = icmp eq i16 %10, 28
+  br i1 %.not15, label %11, label %14
 
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !734
-  br label %12
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !734
+  br label %14
 
-12:                                               ; preds = %9, %.lr.ph
-  %.011 = phi ptr [ %11, %9 ], [ %6, %.lr.ph ]
+14:                                               ; preds = %11, %.lr.ph
+  %.011 = phi ptr [ %13, %11 ], [ %8, %.lr.ph ]
   tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_125FindBlockDeclRefExprsValsEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.011)
-  %13 = getelementptr inbounds nuw i8, ptr %.017, i64 8
-  %.not = icmp eq ptr %13, %.ptr18
+  %15 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %.not = icmp eq ptr %15, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !736
 }
 

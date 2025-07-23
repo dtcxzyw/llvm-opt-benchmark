@@ -447,22 +447,22 @@ define void @Amap_LibWriteGate(ptr noundef captures(none) %0, ptr noundef readon
   br label %25
 
 25:                                               ; preds = %20, %21, %3
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %27 = load i32, ptr %26, align 8
-  %.not21 = icmp ult i32 %27, 16777216
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %28 = load i32, ptr %27, align 8
+  %.not20 = icmp ult i32 %28, 16777216
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
-  %.019 = phi ptr [ %28, %.lr.ph ], [ %.ptr, %25 ]
+  %.019 = phi ptr [ %29, %.lr.ph ], [ %26, %25 ]
   tail call void @Amap_LibWritePin(ptr noundef %0, ptr noundef nonnull %.019)
-  %28 = getelementptr inbounds nuw i8, ptr %.019, i64 72
-  %29 = load i32, ptr %26, align 8
-  %30 = lshr i32 %29, 24
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.Amap_Pin_t_, ptr %.ptr, i64 %31
-  %33 = icmp ult ptr %28, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+  %29 = getelementptr inbounds nuw i8, ptr %.019, i64 72
+  %30 = load i32, ptr %27, align 8
+  %31 = lshr i32 %30, 24
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw %struct.Amap_Pin_t_, ptr %26, i64 %32
+  %34 = icmp ult ptr %29, %33
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   ret void

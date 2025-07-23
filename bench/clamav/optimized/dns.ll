@@ -34,7 +34,7 @@ define noalias noundef ptr @dnsquery(ptr noundef %0, i32 noundef %1, ptr noundef
 
 10:                                               ; preds = %7
   %11 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str) #7
-  br label %123
+  br label %124
 
 12:                                               ; preds = %7
   %13 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %0) #7
@@ -47,7 +47,7 @@ define noalias noundef ptr @dnsquery(ptr noundef %0, i32 noundef %1, ptr noundef
   %16 = icmp eq i32 %1, 16
   %17 = select i1 %16, i32 4, i32 2
   %18 = call i32 (i32, ptr, ...) @logg(i32 noundef %17, ptr noundef nonnull @.str.2, ptr noundef %0) #7
-  br label %123
+  br label %124
 
 19:                                               ; preds = %12
   switch i32 %1, label %20 [
@@ -56,11 +56,11 @@ define noalias noundef ptr @dnsquery(ptr noundef %0, i32 noundef %1, ptr noundef
   ]
 
 20:                                               ; preds = %19
-  br i1 %.not, label %123, label %21
+  br i1 %.not, label %124, label %21
 
 21:                                               ; preds = %20
   store i32 2, ptr %2, align 4, !tbaa !3
-  br label %123
+  br label %124
 
 22:                                               ; preds = %19, %19
   %23 = zext nneg i32 %14 to i64
@@ -72,156 +72,157 @@ define noalias noundef ptr @dnsquery(ptr noundef %0, i32 noundef %1, ptr noundef
 
 28:                                               ; preds = %22
   %29 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.3) #7
-  br label %123
+  br label %124
 
 30:                                               ; preds = %22
   %31 = zext nneg i32 %26 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %31
-  %33 = getelementptr inbounds i8, ptr %24, i64 -4
-  %34 = icmp ugt ptr %32, %33
+  %32 = add nuw nsw i64 %31, 12
+  %33 = add nsw i64 %23, -4
+  %34 = icmp sgt i64 %32, %33
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %30
   %36 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.4) #7
-  br label %123
+  br label %124
 
 37:                                               ; preds = %30
-  %38 = load i8, ptr %32, align 1, !tbaa !7
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 8
-  %41 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %42 = load i8, ptr %41, align 1, !tbaa !7
-  %43 = zext i8 %42 to i32
-  %44 = or disjoint i32 %40, %43
-  %.not91 = icmp eq i32 %44, %1
-  br i1 %.not91, label %47, label %45
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 %31
+  %39 = load i8, ptr %38, align 1, !tbaa !7
+  %40 = zext i8 %39 to i32
+  %41 = shl nuw nsw i32 %40, 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  %43 = load i8, ptr %42, align 1, !tbaa !7
+  %44 = zext i8 %43 to i32
+  %45 = or disjoint i32 %41, %44
+  %.not91 = icmp eq i32 %45, %1
+  br i1 %.not91, label %48, label %46
 
-45:                                               ; preds = %37
-  %46 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.5) #7
-  br label %123
+46:                                               ; preds = %37
+  %47 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.5) #7
+  br label %124
 
-47:                                               ; preds = %37
-  %48 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %49 = getelementptr inbounds i8, ptr %24, i64 -10
-  br label %50
+48:                                               ; preds = %37
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %50 = getelementptr inbounds i8, ptr %24, i64 -10
+  br label %51
 
-50:                                               ; preds = %79, %47
-  %.079 = phi i32 [ 0, %47 ], [ %71, %79 ]
-  %.077 = phi ptr [ %48, %47 ], [ %72, %79 ]
-  %51 = zext nneg i32 %.079 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %.077, i64 %51
-  %53 = call i32 @dn_expand(ptr noundef nonnull %4, ptr noundef nonnull %24, ptr noundef nonnull %52, ptr noundef nonnull %5, i32 noundef 128) #7
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %55, label %57
+51:                                               ; preds = %80, %48
+  %.079 = phi i32 [ 0, %48 ], [ %72, %80 ]
+  %.077 = phi ptr [ %49, %48 ], [ %73, %80 ]
+  %52 = zext nneg i32 %.079 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %.077, i64 %52
+  %54 = call i32 @dn_expand(ptr noundef nonnull %4, ptr noundef nonnull %24, ptr noundef nonnull %53, ptr noundef nonnull %5, i32 noundef 128) #7
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %56, label %58
 
-55:                                               ; preds = %50
-  %56 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.6) #7
-  br label %123
+56:                                               ; preds = %51
+  %57 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.6) #7
+  br label %124
 
-57:                                               ; preds = %50
-  %58 = zext nneg i32 %53 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 %58
-  %60 = icmp ugt ptr %59, %49
-  br i1 %60, label %61, label %63
+58:                                               ; preds = %51
+  %59 = zext nneg i32 %54 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 %59
+  %61 = icmp ugt ptr %60, %50
+  br i1 %61, label %62, label %64
 
-61:                                               ; preds = %57
-  %62 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.4) #7
-  br label %123
+62:                                               ; preds = %58
+  %63 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.4) #7
+  br label %124
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %65 = load i8, ptr %64, align 1, !tbaa !7
-  %66 = zext i8 %65 to i32
-  %67 = shl nuw nsw i32 %66, 8
-  %68 = getelementptr inbounds nuw i8, ptr %59, i64 9
-  %69 = load i8, ptr %68, align 1, !tbaa !7
-  %70 = zext i8 %69 to i32
-  %71 = or disjoint i32 %67, %70
-  %72 = getelementptr inbounds nuw i8, ptr %59, i64 10
-  %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 %73
-  %75 = icmp ult ptr %74, %4
-  %76 = icmp ugt ptr %74, %24
-  %or.cond95 = or i1 %75, %76
-  br i1 %or.cond95, label %77, label %79
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %66 = load i8, ptr %65, align 1, !tbaa !7
+  %67 = zext i8 %66 to i32
+  %68 = shl nuw nsw i32 %67, 8
+  %69 = getelementptr inbounds nuw i8, ptr %60, i64 9
+  %70 = load i8, ptr %69, align 1, !tbaa !7
+  %71 = zext i8 %70 to i32
+  %72 = or disjoint i32 %68, %71
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 10
+  %74 = zext nneg i32 %72 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
+  %76 = icmp ult ptr %75, %4
+  %77 = icmp ugt ptr %75, %24
+  %or.cond95 = or i1 %76, %77
+  br i1 %or.cond95, label %78, label %80
 
-77:                                               ; preds = %63
-  %78 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.7) #7
-  br label %123
+78:                                               ; preds = %64
+  %79 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.7) #7
+  br label %124
 
-79:                                               ; preds = %63
-  %80 = load i8, ptr %59, align 1, !tbaa !7
-  %81 = zext i8 %80 to i16
-  %82 = shl nuw i16 %81, 8
-  %83 = getelementptr inbounds nuw i8, ptr %59, i64 1
-  %84 = load i8, ptr %83, align 1, !tbaa !7
-  %85 = zext i8 %84 to i16
-  %trunc = or disjoint i16 %82, %85
-  switch i16 %trunc, label %86 [
-    i16 5, label %50
-    i16 16, label %88
+80:                                               ; preds = %64
+  %81 = load i8, ptr %60, align 1, !tbaa !7
+  %82 = zext i8 %81 to i16
+  %83 = shl nuw i16 %82, 8
+  %84 = getelementptr inbounds nuw i8, ptr %60, i64 1
+  %85 = load i8, ptr %84, align 1, !tbaa !7
+  %86 = zext i8 %85 to i16
+  %trunc = or disjoint i16 %83, %86
+  switch i16 %trunc, label %87 [
+    i16 5, label %51
+    i16 16, label %89
   ]
 
-86:                                               ; preds = %79
-  %87 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.8) #7
-  br label %123
+87:                                               ; preds = %80
+  %88 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.8) #7
+  br label %124
 
-88:                                               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %59, i64 7
-  %90 = load i8, ptr %89, align 1, !tbaa !7
-  %91 = getelementptr inbounds nuw i8, ptr %59, i64 6
-  %92 = load i8, ptr %91, align 1, !tbaa !7
-  %93 = getelementptr inbounds nuw i8, ptr %59, i64 5
-  %94 = load i8, ptr %93, align 1, !tbaa !7
-  %95 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %96 = load i8, ptr %95, align 1, !tbaa !7
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw i32 %97, 24
-  %99 = zext i8 %94 to i32
-  %100 = shl nuw nsw i32 %99, 16
-  %101 = or disjoint i32 %100, %98
-  %102 = zext i8 %92 to i32
-  %103 = shl nuw nsw i32 %102, 8
-  %104 = or disjoint i32 %101, %103
-  %105 = zext i8 %90 to i32
-  %106 = or disjoint i32 %104, %105
-  %.not93 = icmp eq i32 %71, 0
-  br i1 %.not93, label %112, label %107
+89:                                               ; preds = %80
+  %90 = getelementptr inbounds nuw i8, ptr %60, i64 7
+  %91 = load i8, ptr %90, align 1, !tbaa !7
+  %92 = getelementptr inbounds nuw i8, ptr %60, i64 6
+  %93 = load i8, ptr %92, align 1, !tbaa !7
+  %94 = getelementptr inbounds nuw i8, ptr %60, i64 5
+  %95 = load i8, ptr %94, align 1, !tbaa !7
+  %96 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %97 = load i8, ptr %96, align 1, !tbaa !7
+  %98 = zext i8 %97 to i32
+  %99 = shl nuw i32 %98, 24
+  %100 = zext i8 %95 to i32
+  %101 = shl nuw nsw i32 %100, 16
+  %102 = or disjoint i32 %101, %99
+  %103 = zext i8 %93 to i32
+  %104 = shl nuw nsw i32 %103, 8
+  %105 = or disjoint i32 %102, %104
+  %106 = zext i8 %91 to i32
+  %107 = or disjoint i32 %105, %106
+  %.not93 = icmp eq i32 %72, 0
+  br i1 %.not93, label %113, label %108
 
-107:                                              ; preds = %88
-  %108 = load i8, ptr %72, align 1, !tbaa !7
-  %109 = zext i8 %108 to i32
-  %110 = icmp samesign ugt i32 %71, %109
-  %111 = icmp ne i8 %108, 0
-  %or.cond5 = and i1 %111, %110
-  br i1 %or.cond5, label %114, label %112
+108:                                              ; preds = %89
+  %109 = load i8, ptr %73, align 1, !tbaa !7
+  %110 = zext i8 %109 to i32
+  %111 = icmp samesign ugt i32 %72, %110
+  %112 = icmp ne i8 %109, 0
+  %or.cond5 = and i1 %112, %111
+  br i1 %or.cond5, label %115, label %113
 
-112:                                              ; preds = %107, %88
-  %.078 = phi i32 [ %109, %107 ], [ 0, %88 ]
-  %113 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.9, i32 noundef %.078, i32 noundef %71) #7
-  br label %123
+113:                                              ; preds = %108, %89
+  %.078 = phi i32 [ %110, %108 ], [ 0, %89 ]
+  %114 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.9, i32 noundef %.078, i32 noundef %72) #7
+  br label %124
 
-114:                                              ; preds = %107
-  %115 = add nuw nsw i32 %109, 1
-  %116 = zext nneg i32 %115 to i64
-  %117 = call noalias ptr @malloc(i64 noundef %116) #8
-  %.not94 = icmp eq ptr %117, null
-  br i1 %.not94, label %123, label %118
+115:                                              ; preds = %108
+  %116 = add nuw nsw i32 %110, 1
+  %117 = zext nneg i32 %116 to i64
+  %118 = call noalias ptr @malloc(i64 noundef %117) #8
+  %.not94 = icmp eq ptr %118, null
+  br i1 %.not94, label %124, label %119
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds nuw i8, ptr %59, i64 11
-  %120 = zext i8 %108 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull align 1 %119, i64 %120, i1 false)
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 %120
-  store i8 0, ptr %121, align 1, !tbaa !7
-  br i1 %.not, label %123, label %122
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %60, i64 11
+  %121 = zext i8 %109 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %118, ptr nonnull align 1 %120, i64 %121, i1 false)
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 %121
+  store i8 0, ptr %122, align 1, !tbaa !7
+  br i1 %.not, label %124, label %123
 
-122:                                              ; preds = %118
-  store i32 %106, ptr %2, align 4, !tbaa !3
-  br label %123
+123:                                              ; preds = %119
+  store i32 %107, ptr %2, align 4, !tbaa !3
+  br label %124
 
-123:                                              ; preds = %118, %122, %114, %20, %21, %112, %86, %77, %61, %55, %45, %35, %28, %15, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %15 ], [ null, %28 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %61 ], [ null, %77 ], [ null, %86 ], [ null, %112 ], [ null, %21 ], [ null, %20 ], [ null, %114 ], [ %117, %122 ], [ %117, %118 ]
+124:                                              ; preds = %119, %123, %115, %20, %21, %113, %87, %78, %62, %56, %46, %35, %28, %15, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %15 ], [ null, %28 ], [ null, %35 ], [ null, %46 ], [ null, %56 ], [ null, %62 ], [ null, %78 ], [ null, %87 ], [ null, %113 ], [ null, %21 ], [ null, %20 ], [ null, %115 ], [ %118, %123 ], [ %118, %119 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #7
   ret ptr %.0
