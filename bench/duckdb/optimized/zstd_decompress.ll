@@ -2479,43 +2479,44 @@ define noundef i64 @_ZN11duckdb_zstd17ZSTD_loadDEntropyEPNS_21ZSTD_entropyDTable
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 10264
+  %18 = ptrtoint ptr %13 to i64
   %gepdiff = add i64 %2, -8
-  %18 = tail call noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr noundef nonnull %17, ptr noundef nonnull %16, i64 noundef %gepdiff, ptr noundef %0, i64 noundef 10264, i32 noundef 0)
-  %19 = icmp ult i64 %18, -119
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %18
-  br i1 %19, label %21, label %.loopexit
+  %19 = tail call noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr noundef nonnull %17, ptr noundef nonnull %16, i64 noundef %gepdiff, ptr noundef %0, i64 noundef 10264, i32 noundef 0)
+  %20 = icmp ult i64 %19, -119
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 %19
+  br i1 %20, label %22, label %.loopexit
 
-21:                                               ; preds = %15
+22:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   store i32 31, ptr %5, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  %gepdiff103 = sub i64 %gepdiff, %18
-  %22 = call noundef i64 @_ZN11duckdb_zstd14FSE_readNCountEPsPjS1_PKvm(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %20, i64 noundef %gepdiff103)
-  %23 = icmp ult i64 %22, -119
-  br i1 %23, label %24, label %.thread
+  %gepdiff103 = sub i64 %gepdiff, %19
+  %23 = call noundef i64 @_ZN11duckdb_zstd14FSE_readNCountEPsPjS1_PKvm(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %21, i64 noundef %gepdiff103)
+  %24 = icmp ult i64 %23, -119
+  br i1 %24, label %25, label %.thread
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr %5, align 4, !tbaa !55
-  %26 = icmp ugt i32 %25, 31
-  br i1 %26, label %.thread, label %27
+25:                                               ; preds = %22
+  %26 = load i32, ptr %5, align 4, !tbaa !55
+  %27 = icmp ugt i32 %26, 31
+  br i1 %27, label %.thread, label %28
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %6, align 4, !tbaa !55
-  %29 = icmp ugt i32 %28, 8
-  br i1 %29, label %.thread, label %30
+28:                                               ; preds = %25
+  %29 = load i32, ptr %6, align 4, !tbaa !55
+  %30 = icmp ugt i32 %29, 8
+  br i1 %30, label %.thread, label %31
 
-.thread:                                          ; preds = %21, %24, %27
+.thread:                                          ; preds = %22, %25, %28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
   br label %.loopexit
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4104
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 26664
-  call void @_ZN11duckdb_zstd18ZSTD_buildFSETableEPNS_14ZSTD_seqSymbolEPKsjPKjPKhjPvmi(ptr noundef nonnull %31, ptr noundef nonnull %4, i32 noundef %25, ptr noundef nonnull @_ZN11duckdb_zstdL7OF_baseE, ptr noundef nonnull @_ZN11duckdb_zstdL7OF_bitsE, i32 noundef %28, ptr noundef nonnull %32, i64 noundef 628, i32 noundef 0)
-  %33 = getelementptr inbounds nuw i8, ptr %20, i64 %22
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 26664
+  call void @_ZN11duckdb_zstd18ZSTD_buildFSETableEPNS_14ZSTD_seqSymbolEPKsjPKjPKhjPvmi(ptr noundef nonnull %32, ptr noundef nonnull %4, i32 noundef %26, ptr noundef nonnull @_ZN11duckdb_zstdL7OF_baseE, ptr noundef nonnull @_ZN11duckdb_zstdL7OF_bitsE, i32 noundef %29, ptr noundef nonnull %33, i64 noundef 628, i32 noundef 0)
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
@@ -2523,32 +2524,32 @@ define noundef i64 @_ZN11duckdb_zstd17ZSTD_loadDEntropyEPNS_21ZSTD_entropyDTable
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
   store i32 52, ptr %8, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
-  %34 = add i64 %18, %22
-  %gepdiff104 = sub i64 %gepdiff, %34
-  %35 = call noundef i64 @_ZN11duckdb_zstd14FSE_readNCountEPsPjS1_PKvm(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %33, i64 noundef %gepdiff104)
-  %36 = icmp ult i64 %35, -119
-  br i1 %36, label %37, label %.thread93
+  %35 = add i64 %19, %23
+  %gepdiff104 = sub i64 %gepdiff, %35
+  %36 = call noundef i64 @_ZN11duckdb_zstd14FSE_readNCountEPsPjS1_PKvm(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %34, i64 noundef %gepdiff104)
+  %37 = icmp ult i64 %36, -119
+  br i1 %37, label %38, label %.thread93
 
-37:                                               ; preds = %30
-  %38 = load i32, ptr %8, align 4, !tbaa !55
-  %39 = icmp ugt i32 %38, 52
-  br i1 %39, label %.thread93, label %40
+38:                                               ; preds = %31
+  %39 = load i32, ptr %8, align 4, !tbaa !55
+  %40 = icmp ugt i32 %39, 52
+  br i1 %40, label %.thread93, label %41
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr %9, align 4, !tbaa !55
-  %42 = icmp ugt i32 %41, 9
-  br i1 %42, label %.thread93, label %43
+41:                                               ; preds = %38
+  %42 = load i32, ptr %9, align 4, !tbaa !55
+  %43 = icmp ugt i32 %42, 9
+  br i1 %43, label %.thread93, label %44
 
-.thread93:                                        ; preds = %30, %37, %40
+.thread93:                                        ; preds = %31, %38, %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #17
   br label %.loopexit
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 6160
-  call void @_ZN11duckdb_zstd18ZSTD_buildFSETableEPNS_14ZSTD_seqSymbolEPKsjPKjPKhjPvmi(ptr noundef nonnull %44, ptr noundef nonnull %7, i32 noundef %38, ptr noundef nonnull @_ZN11duckdb_zstdL7ML_baseE, ptr noundef nonnull @_ZN11duckdb_zstdL7ML_bitsE, i32 noundef %41, ptr noundef nonnull %32, i64 noundef 628, i32 noundef 0)
-  %45 = getelementptr inbounds nuw i8, ptr %33, i64 %35
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 6160
+  call void @_ZN11duckdb_zstd18ZSTD_buildFSETableEPNS_14ZSTD_seqSymbolEPKsjPKjPKhjPvmi(ptr noundef nonnull %45, ptr noundef nonnull %7, i32 noundef %39, ptr noundef nonnull @_ZN11duckdb_zstdL7ML_baseE, ptr noundef nonnull @_ZN11duckdb_zstdL7ML_bitsE, i32 noundef %42, ptr noundef nonnull %33, i64 noundef 628, i32 noundef 0)
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #17
@@ -2556,71 +2557,70 @@ define noundef i64 @_ZN11duckdb_zstd17ZSTD_loadDEntropyEPNS_21ZSTD_entropyDTable
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
   store i32 35, ptr %11, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #17
-  %46 = add i64 %34, %35
-  %gepdiff105 = sub i64 %gepdiff, %46
-  %47 = call noundef i64 @_ZN11duckdb_zstd14FSE_readNCountEPsPjS1_PKvm(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %45, i64 noundef %gepdiff105)
-  %48 = icmp ult i64 %47, -119
-  br i1 %48, label %49, label %.thread97
+  %47 = ptrtoint ptr %46 to i64
+  %48 = sub i64 %18, %47
+  %49 = call noundef i64 @_ZN11duckdb_zstd14FSE_readNCountEPsPjS1_PKvm(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %46, i64 noundef %48)
+  %50 = icmp ult i64 %49, -119
+  br i1 %50, label %51, label %.thread97
 
-49:                                               ; preds = %43
-  %50 = load i32, ptr %11, align 4, !tbaa !55
-  %51 = icmp ugt i32 %50, 35
-  br i1 %51, label %.thread97, label %52
+51:                                               ; preds = %44
+  %52 = load i32, ptr %11, align 4, !tbaa !55
+  %53 = icmp ugt i32 %52, 35
+  br i1 %53, label %.thread97, label %54
 
-52:                                               ; preds = %49
-  %53 = load i32, ptr %12, align 4, !tbaa !55
-  %54 = icmp ugt i32 %53, 9
-  br i1 %54, label %.thread97, label %55
+54:                                               ; preds = %51
+  %55 = load i32, ptr %12, align 4, !tbaa !55
+  %56 = icmp ugt i32 %55, 9
+  br i1 %56, label %.thread97, label %57
 
-.thread97:                                        ; preds = %43, %49, %52
+.thread97:                                        ; preds = %44, %51, %54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #17
   br label %.loopexit
 
-55:                                               ; preds = %52
-  call void @_ZN11duckdb_zstd18ZSTD_buildFSETableEPNS_14ZSTD_seqSymbolEPKsjPKjPKhjPvmi(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %50, ptr noundef nonnull @_ZN11duckdb_zstdL7LL_baseE, ptr noundef nonnull @_ZN11duckdb_zstdL7LL_bitsE, i32 noundef %53, ptr noundef nonnull %32, i64 noundef 628, i32 noundef 0)
-  %56 = getelementptr inbounds nuw i8, ptr %45, i64 %47
+57:                                               ; preds = %54
+  call void @_ZN11duckdb_zstd18ZSTD_buildFSETableEPNS_14ZSTD_seqSymbolEPKsjPKjPKhjPvmi(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %52, ptr noundef nonnull @_ZN11duckdb_zstdL7LL_baseE, ptr noundef nonnull @_ZN11duckdb_zstdL7LL_bitsE, i32 noundef %55, ptr noundef nonnull %33, i64 noundef 628, i32 noundef 0)
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #17
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %58 = icmp ugt ptr %57, %13
-  br i1 %58, label %.loopexit, label %59
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = icmp ugt ptr %59, %13
+  br i1 %60, label %.loopexit, label %61
 
-59:                                               ; preds = %55
-  %.neg116 = add i64 %2, -20
-  %60 = add i64 %46, %47
-  %gepdiff106 = sub i64 %.neg116, %60
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 26652
-  br label %62
+61:                                               ; preds = %57
+  %62 = ptrtoint ptr %59 to i64
+  %63 = sub i64 %18, %62
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 26652
+  br label %65
 
-62:                                               ; preds = %59, %.critedge
-  %indvars.iv = phi i64 [ 0, %59 ], [ %indvars.iv.next, %.critedge ]
-  %.469123 = phi ptr [ %56, %59 ], [ %66, %.critedge ]
-  %.469.val = load i32, ptr %.469123, align 1, !tbaa !55
-  %63 = icmp eq i32 %.469.val, 0
-  %64 = zext i32 %.469.val to i64
-  %65 = icmp ult i64 %gepdiff106, %64
-  %or.cond = or i1 %63, %65
+65:                                               ; preds = %61, %.critedge
+  %indvars.iv = phi i64 [ 0, %61 ], [ %indvars.iv.next, %.critedge ]
+  %.469111 = phi ptr [ %58, %61 ], [ %69, %.critedge ]
+  %.469.val = load i32, ptr %.469111, align 1, !tbaa !55
+  %66 = icmp eq i32 %.469.val, 0
+  %67 = zext i32 %.469.val to i64
+  %68 = icmp ult i64 %63, %67
+  %or.cond = select i1 %66, i1 true, i1 %68
   br i1 %or.cond, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %.469123, i64 4
-  %67 = getelementptr inbounds nuw [3 x i32], ptr %61, i64 0, i64 %indvars.iv
-  store i32 %.469.val, ptr %67, align 4, !tbaa !55
+.critedge:                                        ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %.469111, i64 4
+  %70 = getelementptr inbounds nuw [3 x i32], ptr %64, i64 0, i64 %indvars.iv
+  store i32 %.469.val, ptr %70, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %68, label %62, !llvm.loop !126
+  br i1 %exitcond, label %71, label %65, !llvm.loop !126
 
-68:                                               ; preds = %.critedge
-  %69 = ptrtoint ptr %66 to i64
-  %70 = ptrtoint ptr %1 to i64
-  %71 = sub i64 %69, %70
+71:                                               ; preds = %.critedge
+  %72 = ptrtoint ptr %69 to i64
+  %73 = ptrtoint ptr %1 to i64
+  %74 = sub i64 %72, %73
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %.thread97, %.thread93, %.thread, %55, %3, %15, %68
-  %.0 = phi i64 [ %71, %68 ], [ -30, %15 ], [ -30, %3 ], [ -30, %55 ], [ -30, %.thread ], [ -30, %.thread93 ], [ -30, %.thread97 ], [ -30, %62 ]
+.loopexit:                                        ; preds = %65, %.thread97, %.thread93, %.thread, %57, %3, %15, %71
+  %.0 = phi i64 [ %74, %71 ], [ -30, %15 ], [ -30, %3 ], [ -30, %57 ], [ -30, %.thread ], [ -30, %.thread93 ], [ -30, %.thread97 ], [ -30, %65 ]
   ret i64 %.0
 }
 

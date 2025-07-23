@@ -2614,11 +2614,10 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   br i1 %.not76, label %83, label %90
 
 83:                                               ; preds = %._crit_edge
-  %reass.add = shl nuw nsw i64 %34, 1
-  %84 = or disjoint i64 %reass.add, 1
-  %85 = add nuw nsw i64 %84, %.062.lcssa
-  %.neg = xor i64 %85, -1
-  %86 = add i64 %16, %.neg
+  %84 = ptrtoint ptr %74 to i64
+  %85 = ptrtoint ptr %10 to i64
+  %.neg = sub i64 %85, %84
+  %86 = add i64 %.neg, %16
   %87 = icmp ugt i64 %86, %8
   br i1 %87, label %90, label %88
 
