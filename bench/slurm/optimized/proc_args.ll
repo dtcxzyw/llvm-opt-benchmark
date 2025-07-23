@@ -1662,124 +1662,124 @@ define dso_local noundef zeroext i1 @verify_socket_core_thread_count(ptr noundef
 
 10:                                               ; preds = %5
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.verify_socket_core_thread_count) #21
-  br label %56
+  br label %55
 
 12:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %9, i8 0, i64 144, i1 false)
   br label %.preheader
 
-.preheader:                                       ; preds = %12, %21
+.preheader:                                       ; preds = %12, %20
   %indvars.iv60 = phi i64 [ 0, %12 ], [ %indvars.iv.next61, %21 ]
-  %.055 = phi ptr [ %0, %12 ], [ %22, %21 ]
+  %.055 = phi ptr [ %0, %12 ], [ %21, %21 ]
   %13 = getelementptr inbounds nuw [3 x [48 x i8]], ptr %9, i64 0, i64 %indvars.iv60
   br label %14
 
-14:                                               ; preds = %.preheader, %16
+13:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %.153 = phi ptr [ %.055, %.preheader ], [ %17, %16 ]
-  %15 = load i8, ptr %.153, align 1
-  switch i8 %15, label %16 [
+  %.153 = phi ptr [ %.055, %.preheader ], [ %16, %16 ]
+  %14 = load i8, ptr %.153, align 1
+  switch i8 %14, label %16 [
     i8 0, label %.loopexit
     i8 58, label %.loopexit
   ]
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %.153, i64 1
-  %18 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 0, i64 %indvars.iv
-  store i8 %15, ptr %18, align 1
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %.153, i64 1
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 0, i64 %indvars.iv
+  store i8 %14, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 47
-  br i1 %exitcond.not, label %thread-pre-split, label %14, !llvm.loop !13
+  br i1 %exitcond.not, label %thread-pre-split, label %13, !llvm.loop !13
 
-thread-pre-split:                                 ; preds = %16
-  %.pr = load i8, ptr %17, align 1
+thread-pre-split:                                 ; preds = %15
+  %.pr = load i8, ptr %16, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %14, %14, %thread-pre-split
-  %.151 = phi ptr [ %17, %thread-pre-split ], [ %.153, %14 ], [ %.153, %14 ]
-  %19 = phi i8 [ %.pr, %thread-pre-split ], [ %15, %14 ], [ %15, %14 ]
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.split.loop.exit, label %21
+.loopexit:                                        ; preds = %13, %13, %thread-pre-split
+  %.151 = phi ptr [ %16, %thread-pre-split ], [ %.153, %14 ], [ %.153, %14 ]
+  %18 = phi i8 [ %.pr, %thread-pre-split ], [ %14, %14 ], [ %14, %14 ]
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %.split.loop.exit, label %20
 
-21:                                               ; preds = %.loopexit
-  %22 = getelementptr inbounds nuw i8, ptr %.151, i64 1
+20:                                               ; preds = %.loopexit
+  %21 = getelementptr inbounds nuw i8, ptr %.151, i64 1
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 3
   br i1 %exitcond63.not, label %.split.loop.exit67, label %.preheader, !llvm.loop !14
 
 .split.loop.exit:                                 ; preds = %.loopexit
-  %23 = trunc nuw nsw i64 %indvars.iv60 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv60 to i32
   br label %.split.loop.exit67
 
-.split.loop.exit67:                               ; preds = %21, %.split.loop.exit
-  %.042.lcssa = phi i32 [ %23, %.split.loop.exit ], [ 3, %21 ]
+.split.loop.exit67:                               ; preds = %20, %.split.loop.exit
+  %.042.lcssa = phi i32 [ %22, %.split.loop.exit ], [ 3, %21 ]
   %.not48 = icmp eq ptr %4, null
-  br i1 %.not48, label %30, label %24
+  br i1 %.not48, label %29, label %23
 
-24:                                               ; preds = %.split.loop.exit67
-  %25 = load i32, ptr %4, align 4
-  %26 = and i32 %25, 14
-  %.not49 = icmp eq i32 %26, 0
-  %27 = icmp ult i32 %.042.lcssa, 3
-  %or.cond74 = select i1 %.not49, i1 %27, i1 false
-  br i1 %or.cond74, label %switch.lookup, label %30
+23:                                               ; preds = %.split.loop.exit67
+  %24 = load i32, ptr %4, align 4
+  %25 = and i32 %24, 14
+  %.not49 = icmp eq i32 %25, 0
+  %26 = icmp ult i32 %.042.lcssa, 3
+  %or.cond74 = select i1 %.not49, i1 %26, i1 false
+  br i1 %or.cond74, label %switch.lookup, label %29
 
-switch.lookup:                                    ; preds = %24
-  %28 = zext nneg i32 %.042.lcssa to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.verify_socket_core_thread_count, i64 0, i64 %28
+switch.lookup:                                    ; preds = %23
+  %27 = zext nneg i32 %.042.lcssa to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.verify_socket_core_thread_count, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
-  %29 = or disjoint i32 %25, %switch.load
-  store i32 %29, ptr %4, align 4
-  br label %30
+  %28 = or disjoint i32 %24, %switch.load
+  store i32 %28, ptr %4, align 4
+  br label %29
 
-30:                                               ; preds = %switch.lookup, %24, %.split.loop.exit67
-  %31 = call zeroext i1 @get_resource_arg_range(ptr noundef nonnull %9, ptr noundef nonnull @.str.47, ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext true)
-  %32 = load i32, ptr %1, align 4
-  %33 = icmp eq i32 %32, 1
-  %34 = load i32, ptr %6, align 4
-  %35 = icmp eq i32 %34, 2147483647
-  %or.cond = select i1 %33, i1 %35, i1 false
-  br i1 %or.cond, label %36, label %37
+29:                                               ; preds = %switch.lookup, %23, %.split.loop.exit67
+  %30 = call zeroext i1 @get_resource_arg_range(ptr noundef nonnull %9, ptr noundef nonnull @.str.47, ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext true)
+  %31 = load i32, ptr %1, align 4
+  %32 = icmp eq i32 %31, 1
+  %33 = load i32, ptr %6, align 4
+  %34 = icmp eq i32 %33, 2147483647
+  %or.cond = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond, label %35, label %36
 
-36:                                               ; preds = %30
+35:                                               ; preds = %29
   store i32 -2, ptr %1, align 4
-  br label %37
+  br label %36
 
-37:                                               ; preds = %36, %30
-  %38 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %39 = call zeroext i1 @get_resource_arg_range(ptr noundef nonnull %38, ptr noundef nonnull @.str.48, ptr noundef %2, ptr noundef nonnull %7, i1 noundef zeroext true)
-  %40 = load i32, ptr %2, align 4
-  %41 = icmp eq i32 %40, 1
-  %42 = load i32, ptr %7, align 4
-  %43 = icmp eq i32 %42, 2147483647
-  %or.cond3 = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond3, label %44, label %45
+36:                                               ; preds = %35, %29
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %38 = call zeroext i1 @get_resource_arg_range(ptr noundef nonnull %37, ptr noundef nonnull @.str.48, ptr noundef %2, ptr noundef nonnull %7, i1 noundef zeroext true)
+  %39 = load i32, ptr %2, align 4
+  %40 = icmp eq i32 %39, 1
+  %41 = load i32, ptr %7, align 4
+  %42 = icmp eq i32 %41, 2147483647
+  %or.cond3 = select i1 %40, i1 %42, i1 false
+  br i1 %or.cond3, label %43, label %44
 
-44:                                               ; preds = %37
+43:                                               ; preds = %36
   store i32 -2, ptr %2, align 4
-  br label %45
+  br label %44
 
-45:                                               ; preds = %44, %37
-  %46 = and i1 %31, %39
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %48 = call zeroext i1 @get_resource_arg_range(ptr noundef nonnull %47, ptr noundef nonnull @.str.49, ptr noundef %3, ptr noundef nonnull %8, i1 noundef zeroext true)
-  %49 = load i32, ptr %3, align 4
-  %50 = icmp eq i32 %49, 1
-  %51 = load i32, ptr %8, align 4
-  %52 = icmp eq i32 %51, 2147483647
-  %or.cond5 = select i1 %50, i1 %52, i1 false
-  br i1 %or.cond5, label %53, label %54
+44:                                               ; preds = %43, %36
+  %45 = and i1 %30, %38
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %47 = call zeroext i1 @get_resource_arg_range(ptr noundef nonnull %46, ptr noundef nonnull @.str.49, ptr noundef %3, ptr noundef nonnull %8, i1 noundef zeroext true)
+  %48 = load i32, ptr %3, align 4
+  %49 = icmp eq i32 %48, 1
+  %50 = load i32, ptr %8, align 4
+  %51 = icmp eq i32 %50, 2147483647
+  %or.cond5 = select i1 %49, i1 %51, i1 false
+  br i1 %or.cond5, label %52, label %53
 
-53:                                               ; preds = %45
+52:                                               ; preds = %44
   store i32 -2, ptr %3, align 4
-  br label %54
+  br label %53
 
-54:                                               ; preds = %53, %45
-  %55 = and i1 %46, %48
-  br label %56
+53:                                               ; preds = %52, %44
+  %54 = and i1 %45, %47
+  br label %55
 
-56:                                               ; preds = %54, %10
-  %.044 = phi i1 [ %55, %54 ], [ false, %10 ]
+55:                                               ; preds = %53, %10
+  %.044 = phi i1 [ %54, %54 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21

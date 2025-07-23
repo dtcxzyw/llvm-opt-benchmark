@@ -18900,9 +18900,9 @@ define hidden void @"_ZN3vte15Parser$LT$_$GT$7advance17h0b335f80a3e540f3E.llvm.1
   %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3vte5table13STATE_CHANGES17hc24d991888848aafE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !noundef !4
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %26
+  br i1 %20, label %21, label %25
 
-"_ZN3vte15Parser$LT$_$GT$20perform_state_change17hbae91e61e0bc7f22E.exit": ; preds = %37, %30, %8
+"_ZN3vte15Parser$LT$_$GT$20perform_state_change17hbae91e61e0bc7f22E.exit": ; preds = %36, %29, %8
   ret void
 
 21:                                               ; preds = %16
@@ -18912,61 +18912,61 @@ define hidden void @"_ZN3vte15Parser$LT$_$GT$7advance17h0b335f80a3e540f3E.llvm.1
   %25 = load i8, ptr %24, align 1, !noundef !4
   br label %26
 
-26:                                               ; preds = %16, %21
+25:                                               ; preds = %16, %21
   %.sroa.01.0 = phi i8 [ %25, %21 ], [ %19, %16 ]
-  %27 = and i8 %.sroa.01.0, 15
-  %28 = lshr i8 %.sroa.01.0, 4
-  %29 = icmp eq i8 %27, 0
-  br i1 %29, label %30, label %31
+  %26 = and i8 %.sroa.01.0, 15
+  %27 = lshr i8 %.sroa.01.0, 4
+  %28 = icmp eq i8 %26, 0
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %26
-  tail call fastcc void @"_ZN3vte15Parser$LT$_$GT$14perform_action17h791f55af36fc1fb3E"(ptr noalias noundef nonnull align 8 dereferenceable(424) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef range(i8 0, 16) %28, i8 noundef %2)
+29:                                               ; preds = %25
+  tail call fastcc void @"_ZN3vte15Parser$LT$_$GT$14perform_action17h791f55af36fc1fb3E"(ptr noalias noundef nonnull align 8 dereferenceable(424) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef range(i8 0, 16) %27, i8 noundef %2)
   br label %"_ZN3vte15Parser$LT$_$GT$20perform_state_change17hbae91e61e0bc7f22E.exit"
 
-31:                                               ; preds = %26
+30:                                               ; preds = %25
   switch i8 %6, label %32 [
     i8 9, label %.sink.split.i
-    i8 13, label %34
+    i8 13, label %33
   ]
 
-.sink.split.i:                                    ; preds = %34, %31
+.sink.split.i:                                    ; preds = %33, %30
   %.sink.i = phi i8 [ 8, %34 ], [ 14, %31 ]
   tail call fastcc void @"_ZN3vte15Parser$LT$_$GT$14perform_action17h791f55af36fc1fb3E"(ptr noalias noundef nonnull align 8 dereferenceable(424) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef %.sink.i, i8 noundef %2)
-  br label %32
+  br label %31
 
-32:                                               ; preds = %.sink.split.i, %31
-  %33 = icmp ult i8 %.sroa.01.0, 16
-  br i1 %33, label %35, label %36
+31:                                               ; preds = %.sink.split.i, %30
+  %32 = icmp ult i8 %.sroa.01.0, 16
+  br i1 %32, label %34, label %35
 
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   br label %.sink.split.i
 
-35:                                               ; preds = %36, %32
-  switch i8 %27, label %37 [
+34:                                               ; preds = %35, %31
+  switch i8 %26, label %37 [
     i8 1, label %.sink.split6.i
     i8 5, label %.sink.split6.i
-    i8 9, label %38
+    i8 9, label %37
     i8 10, label %.sink.split6.i
-    i8 13, label %39
+    i8 13, label %38
   ]
 
-36:                                               ; preds = %32
-  tail call fastcc void @"_ZN3vte15Parser$LT$_$GT$14perform_action17h791f55af36fc1fb3E"(ptr noalias noundef nonnull align 8 dereferenceable(424) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef range(i8 0, 16) %28, i8 noundef %2)
-  br label %35
+35:                                               ; preds = %31
+  tail call fastcc void @"_ZN3vte15Parser$LT$_$GT$14perform_action17h791f55af36fc1fb3E"(ptr noalias noundef nonnull align 8 dereferenceable(424) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef range(i8 0, 16) %27, i8 noundef %2)
+  br label %34
 
-.sink.split6.i:                                   ; preds = %39, %38, %35, %35, %35
+.sink.split6.i:                                   ; preds = %38, %37, %34, %34, %34
   %.sink7.i = phi i8 [ 10, %39 ], [ 6, %38 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ]
   tail call fastcc void @"_ZN3vte15Parser$LT$_$GT$14perform_action17h791f55af36fc1fb3E"(ptr noalias noundef nonnull align 8 dereferenceable(424) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef %.sink7.i, i8 noundef %2)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.sink.split6.i, %35
-  store i8 %27, ptr %5, align 1, !alias.scope !2670, !noalias !2673
+36:                                               ; preds = %.sink.split6.i, %34
+  store i8 %26, ptr %5, align 1, !alias.scope !2670, !noalias !2673
   br label %"_ZN3vte15Parser$LT$_$GT$20perform_state_change17hbae91e61e0bc7f22E.exit"
 
-38:                                               ; preds = %35
+37:                                               ; preds = %34
   br label %.sink.split6.i
 
-39:                                               ; preds = %35
+38:                                               ; preds = %34
   br label %.sink.split6.i
 }
 

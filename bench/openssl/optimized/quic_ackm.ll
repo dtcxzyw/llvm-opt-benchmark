@@ -2444,41 +2444,41 @@ define ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) local_unname
   %14 = getelementptr inbounds [3 x [32 x %struct.ossl_quic_ack_range_st]], ptr %13, i64 0, i64 %4
   br label %15
 
-15:                                               ; preds = %15, %.lr.ph.i
+39:                                               ; preds = %39, %.lr.ph.i
   %.01922.i = phi ptr [ %.01920.i, %.lr.ph.i ], [ %.019.i, %15 ]
   %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !104
   %18 = getelementptr inbounds nuw [32 x %struct.ossl_quic_ack_range_st], ptr %14, i64 0, i64 %.021.i
   store i64 %17, ptr %18, align 8, !tbaa !63
-  %19 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !107
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !59
-  %22 = getelementptr i8, ptr %.01922.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 24
+  %46 = load i64, ptr %45, align 8, !tbaa !107
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 %46, ptr %47, align 8, !tbaa !59
+  %48 = getelementptr i8, ptr %.01922.i, i64 8
   %23 = add nuw nsw i64 %.021.i, 1
-  %.019.i = load ptr, ptr %22, align 8, !tbaa !110
-  %24 = icmp ne ptr %.019.i, null
+  %50 = load ptr, ptr %48, align 8, !tbaa !110
+  %24 = icmp ne ptr %50, null
   %25 = icmp samesign ult i64 %.021.i, 2
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %15, label %ackm_fill_rx_ack_ranges.exit, !llvm.loop !111
 
-ackm_fill_rx_ack_ranges.exit:                     ; preds = %15, %2
+ackm_fill_rx_ack_ranges.exit: ; preds = %15, %2
   %.0.lcssa.i = phi i64 [ 0, %2 ], [ %23, %15 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %28 = getelementptr inbounds [3 x [32 x %struct.ossl_quic_ack_range_st]], ptr %27, i64 0, i64 %4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %28 = getelementptr inbounds [3 x [32 x %struct.ossl_quic_ack_range_st]], ptr %56, i64 0, i64 %4
   store ptr %28, ptr %5, align 8, !tbaa !56
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.0.lcssa.i, ptr %29, align 8, !tbaa !62
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2216
-  %31 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %30, i64 0, i64 %4
-  %32 = load i64, ptr %31, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.0.lcssa.i, ptr %58, align 8, !tbaa !62
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2216
+  %60 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %59, i64 0, i64 %4
+  %32 = load i64, ptr %60, align 8
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %38, label %33
 
-33:                                               ; preds = %ackm_fill_rx_ack_ranges.exit
+33: ; preds = %ackm_fill_rx_ack_ranges.exit
   %34 = icmp ugt i64 %10, %32
-  %35 = icmp eq i32 %1, 2
+  %.not.i39 = icmp eq i32 %1, 2
   %or.cond = and i1 %35, %34
   br i1 %or.cond, label %36, label %38
 
@@ -2531,12 +2531,12 @@ ackm_fill_rx_ack_ranges.exit:                     ; preds = %15, %2
   br i1 %.not.i39, label %ackm_set_flush_deadline.exit, label %ossl_ackm_get_ack_deadline.exit.i
 
 ossl_ackm_get_ack_deadline.exit.i:                ; preds = %40
-  %66 = load i8, ptr %61, align 1, !tbaa !33
-  %.not.i.i = icmp eq i8 %66, 0
+  %65 = load i8, ptr %61, align 1, !tbaa !33
+  %.not.i.i = icmp eq i8 %65, 0
   %spec.select.i = sext i1 %.not.i.i to i64
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2392
-  %68 = load ptr, ptr %67, align 8, !tbaa !109
-  tail call void %65(i64 %spec.select.i, i32 noundef %1, ptr noundef %68) #12
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %67 = load ptr, ptr %66, align 8, !tbaa !109
+  tail call void %65(i64 %spec.select.i, i32 noundef %1, ptr noundef %67) #12
   br label %ackm_set_flush_deadline.exit
 
 ackm_set_flush_deadline.exit:                     ; preds = %40, %ossl_ackm_get_ack_deadline.exit.i

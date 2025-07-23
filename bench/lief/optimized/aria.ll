@@ -651,7 +651,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   %8 = zext i8 %6 to i64
   br label %.preheader40
 
-.preheader40:                                     ; preds = %.preheader40.lr.ph, %17
+.preheader40:                                     ; preds = %.preheader40.lr.ph, %15
   %indvars.iv49 = phi i64 [ %8, %.preheader40.lr.ph ], [ %indvars.iv.next50, %17 ]
   %indvars.iv47 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next48, %17 ]
   %9 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv47
@@ -663,13 +663,13 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %wide.trip.count = zext i8 %6 to i64
-  br label %19
+  br label %17
 
-12:                                               ; preds = %.preheader40, %12
+10:                                               ; preds = %.preheader40, %10
   %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !3
@@ -677,20 +677,20 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   store i32 %14, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %17, label %12, !llvm.loop !13
+  br i1 %exitcond.not, label %15, label %10, !llvm.loop !13
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  %18 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
-  br i1 %18, label %.preheader40, label %.preheader, !llvm.loop !14
+  %16 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
+  br i1 %16, label %.preheader40, label %.preheader, !llvm.loop !14
 
-19:                                               ; preds = %.lr.ph, %19
+17:                                               ; preds = %.lr.ph, %17
   %indvars.iv54 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next55, %19 ]
-  %20 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %11, i64 0, i64 %indvars.iv54
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %18 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %9, i64 0, i64 %indvars.iv54
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %24 = load i32, ptr %21, align 4, !tbaa !3
   %25 = load i32, ptr %20, align 4, !tbaa !3
   %26 = load i32, ptr %23, align 4, !tbaa !3
@@ -716,7 +716,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
   %46 = xor i32 %45, %24
   %47 = xor i32 %45, %24
-  %48 = tail call i32 @llvm.fshl.i32(i32 %46, i32 %47, i32 16)
+  %47 = tail call i32 @llvm.fshl.i32(i32 %46, i32 %47, i32 16)
   store i32 %48, ptr %20, align 4, !tbaa !3
   %49 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 16)
   %50 = tail call i32 @llvm.bswap.i32(i32 %36)
@@ -729,9 +729,9 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   store i32 %55, ptr %22, align 4, !tbaa !3
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond57.not, label %.loopexit, label %19, !llvm.loop !15
+  br i1 %exitcond57.not, label %.loopexit, label %17, !llvm.loop !15
 
-.loopexit:                                        ; preds = %19, %5, %.preheader, %3
+.loopexit:                                        ; preds = %17, %5, %.preheader, %3
   %.0 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ 0, %5 ], [ 0, %19 ]
   ret i32 %.0
 }

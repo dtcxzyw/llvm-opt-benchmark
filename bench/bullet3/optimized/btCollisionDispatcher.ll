@@ -85,7 +85,7 @@ define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %14 unwind label %28
+          to label %14 unwind label %26
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -94,7 +94,7 @@ define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %20 unwind label %28
+          to label %20 unwind label %26
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -103,62 +103,62 @@ define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   br label %.preheader
 
-.preheader:                                       ; preds = %20, %27
+.preheader:                                       ; preds = %20, %25
   %indvars.iv26 = phi i64 [ 0, %20 ], [ %indvars.iv.next27, %27 ]
   %24 = getelementptr inbounds nuw [36 x [36 x ptr]], ptr %22, i64 0, i64 %indvars.iv26
   %25 = getelementptr inbounds nuw [36 x [36 x ptr]], ptr %23, i64 0, i64 %indvars.iv26
   %26 = trunc nuw nsw i64 %indvars.iv26 to i32
   br label %30
 
-27:                                               ; preds = %44
+25:                                               ; preds = %42
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next27, 36
-  br i1 %exitcond29.not, label %48, label %.preheader, !llvm.loop !27
+  br i1 %exitcond29.not, label %46, label %.preheader, !llvm.loop !27
 
-28:                                               ; preds = %14, %2
-  %29 = landingpad { ptr, i32 }
+26:                                               ; preds = %14, %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %47
 
-30:                                               ; preds = %.preheader, %44
+28:                                               ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %44 ]
-  %31 = load ptr, ptr %8, align 8, !tbaa !23
-  %32 = load ptr, ptr %31, align 8, !tbaa !4
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load ptr, ptr %33, align 8
-  %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %36 = invoke noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %26, i32 noundef %35)
-          to label %37 unwind label %46
+  %29 = load ptr, ptr %8, align 8, !tbaa !23
+  %30 = load ptr, ptr %29, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = load ptr, ptr %31, align 8
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
+  %34 = invoke noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef %26, i32 noundef %33)
+          to label %37 unwind label %44
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw [36 x ptr], ptr %24, i64 0, i64 %indvars.iv
-  store ptr %36, ptr %38, align 8, !tbaa !29
-  %39 = load ptr, ptr %8, align 8, !tbaa !23
-  %40 = load ptr, ptr %39, align 8, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8
-  %43 = invoke noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %39, i32 noundef %26, i32 noundef %35)
-          to label %44 unwind label %46
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds nuw [36 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  store ptr %34, ptr %36, align 8, !tbaa !29
+  %37 = load ptr, ptr %8, align 8, !tbaa !23
+  %38 = load ptr, ptr %37, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %40 = load ptr, ptr %39, align 8
+  %41 = invoke noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef %26, i32 noundef %33)
+          to label %44 unwind label %44
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw [36 x ptr], ptr %25, i64 0, i64 %indvars.iv
-  store ptr %43, ptr %45, align 8, !tbaa !29
+42:                                               ; preds = %35
+  %43 = getelementptr inbounds nuw [36 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  store ptr %41, ptr %43, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond.not, label %27, label %30, !llvm.loop !31
+  br i1 %exitcond.not, label %25, label %28, !llvm.loop !31
 
-46:                                               ; preds = %37, %30
-  %47 = landingpad { ptr, i32 }
+44:                                               ; preds = %35, %28
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %47
 
-48:                                               ; preds = %27
+46:                                               ; preds = %25
   ret void
 
-49:                                               ; preds = %46, %28
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %29, %28 ]
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %50) #11
+47:                                               ; preds = %44, %26
+  %.pn = phi { ptr, i32 } [ %45, %46 ], [ %27, %28 ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %48) #11
   tail call void @_ZN12btDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   resume { ptr, i32 } %.pn
 }

@@ -2631,9 +2631,9 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %27, %tbm_advance_sc
 .thread81:                                        ; preds = %.loopexit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert92 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre93 = load i32, ptr %.phi.trans.insert92, align 8
-  %69 = icmp slt i32 %.pre, %.pre93
+  %.phi.trans.insert94 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.pre95 = load i32, ptr %.phi.trans.insert94, align 8
+  %69 = icmp slt i32 %.pre, %.pre95
   br i1 %69, label %.thread81.thread, label %101
 
 .thread81.thread:                                 ; preds = %56, %.thread81

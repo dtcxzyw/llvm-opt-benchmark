@@ -80,7 +80,7 @@ lv_matrix_is_identity_or_translation.exit:        ; preds = %24
   %36 = load float, ptr %35, align 4, !tbaa !3
   %37 = fadd float %2, %36
   store float %37, ptr %35, align 4, !tbaa !3
-  br label %66
+  br label %65
 
 lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %20, %24, %lv_matrix_is_identity_or_translation.exit
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #9
@@ -104,7 +104,7 @@ lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %2
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %53, %lv_matrix_is_identity_or_translation.exit.thread
+.preheader.i:                                     ; preds = %52, %lv_matrix_is_identity_or_translation.exit.thread
   %indvars.iv22.i = phi i64 [ 0, %lv_matrix_is_identity_or_translation.exit.thread ], [ %indvars.iv.next23.i, %53 ]
   %46 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv22.i
   %47 = load float, ptr %46, align 4, !tbaa !3
@@ -115,35 +115,35 @@ lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %2
   %52 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv22.i
   br label %54
 
-53:                                               ; preds = %54
+52:                                               ; preds = %53
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 3
   br i1 %exitcond25.not.i, label %lv_matrix_multiply.exit, label %.preheader.i, !llvm.loop !7
 
-54:                                               ; preds = %54, %.preheader.i
+53:                                               ; preds = %53, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %54 ]
-  %55 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
-  %56 = load float, ptr %55, align 4, !tbaa !3
-  %57 = getelementptr inbounds nuw [3 x float], ptr %40, i64 0, i64 %indvars.iv.i
-  %58 = load float, ptr %57, align 4, !tbaa !3
-  %59 = fmul float %49, %58
-  %60 = tail call float @llvm.fmuladd.f32(float %47, float %56, float %59)
-  %61 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv.i
-  %62 = load float, ptr %61, align 4, !tbaa !3
-  %63 = tail call float @llvm.fmuladd.f32(float %51, float %62, float %60)
-  %64 = getelementptr inbounds nuw [3 x float], ptr %52, i64 0, i64 %indvars.iv.i
-  store float %63, ptr %64, align 4, !tbaa !3
+  %54 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %55 = load float, ptr %54, align 4, !tbaa !3
+  %56 = getelementptr inbounds nuw [3 x float], ptr %40, i64 0, i64 %indvars.iv.i
+  %57 = load float, ptr %56, align 4, !tbaa !3
+  %58 = fmul float %49, %57
+  %59 = tail call float @llvm.fmuladd.f32(float %47, float %55, float %58)
+  %60 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv.i
+  %61 = load float, ptr %60, align 4, !tbaa !3
+  %62 = tail call float @llvm.fmuladd.f32(float %51, float %61, float %59)
+  %63 = getelementptr inbounds nuw [3 x float], ptr %52, i64 0, i64 %indvars.iv.i
+  store float %62, ptr %63, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %53, label %54, !llvm.loop !9
+  br i1 %exitcond.not.i, label %52, label %53, !llvm.loop !9
 
-lv_matrix_multiply.exit:                          ; preds = %53
-  %65 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
+lv_matrix_multiply.exit:                          ; preds = %52
+  %64 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #9
-  br label %66
+  br label %65
 
-66:                                               ; preds = %lv_matrix_multiply.exit, %31
+65:                                               ; preds = %lv_matrix_multiply.exit, %31
   ret void
 }
 
@@ -205,7 +205,7 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(no
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.preheader
 
-.preheader:                                       ; preds = %2, %15
+.preheader:                                       ; preds = %2, %14
   %indvars.iv22 = phi i64 [ 0, %2 ], [ %indvars.iv.next23, %15 ]
   %6 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv22
   %7 = load float, ptr %6, align 4, !tbaa !3
@@ -216,32 +216,32 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(no
   %12 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %indvars.iv22
   br label %16
 
-13:                                               ; preds = %15
-  %14 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
+12:                                               ; preds = %14
+  %13 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #9
   ret void
 
-15:                                               ; preds = %16
+14:                                               ; preds = %15
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 3
-  br i1 %exitcond25.not, label %13, label %.preheader, !llvm.loop !7
+  br i1 %exitcond25.not, label %12, label %.preheader, !llvm.loop !7
 
-16:                                               ; preds = %.preheader, %16
+15:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
-  %18 = load float, ptr %17, align 4, !tbaa !3
-  %19 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
-  %20 = load float, ptr %19, align 4, !tbaa !3
-  %21 = fmul float %9, %20
-  %22 = tail call float @llvm.fmuladd.f32(float %7, float %18, float %21)
-  %23 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
-  %24 = load float, ptr %23, align 4, !tbaa !3
-  %25 = tail call float @llvm.fmuladd.f32(float %11, float %24, float %22)
-  %26 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv
-  store float %25, ptr %26, align 4, !tbaa !3
+  %16 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
+  %17 = load float, ptr %16, align 4, !tbaa !3
+  %18 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %19 = load float, ptr %18, align 4, !tbaa !3
+  %20 = fmul float %9, %19
+  %21 = tail call float @llvm.fmuladd.f32(float %7, float %17, float %20)
+  %22 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
+  %23 = load float, ptr %22, align 4, !tbaa !3
+  %24 = tail call float @llvm.fmuladd.f32(float %11, float %23, float %21)
+  %25 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv
+  store float %24, ptr %25, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %15, label %16, !llvm.loop !9
+  br i1 %exitcond.not, label %14, label %15, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -272,8 +272,8 @@ define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %21, %3
-  %indvars.iv22.i = phi i64 [ 0, %3 ], [ %indvars.iv.next23.i, %21 ]
+.preheader.i:                                     ; preds = %20, %3
+  %indvars.iv22.i = phi i64 [ 0, %3 ], [ %indvars.iv.next23.i, %20 ]
   %14 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv22.i
   %15 = load float, ptr %14, align 4, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -283,30 +283,30 @@ define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2)
   %20 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv22.i
   br label %22
 
-21:                                               ; preds = %22
+20:                                               ; preds = %21
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 3
   br i1 %exitcond25.not.i, label %lv_matrix_multiply.exit, label %.preheader.i, !llvm.loop !7
 
-22:                                               ; preds = %22, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %22 ]
-  %23 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
-  %24 = load float, ptr %23, align 4, !tbaa !3
-  %25 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv.i
-  %26 = load float, ptr %25, align 4, !tbaa !3
-  %27 = fmul float %17, %26
-  %28 = tail call float @llvm.fmuladd.f32(float %15, float %24, float %27)
-  %29 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i
-  %30 = load float, ptr %29, align 4, !tbaa !3
-  %31 = tail call float @llvm.fmuladd.f32(float %19, float %30, float %28)
-  %32 = getelementptr inbounds nuw [3 x float], ptr %20, i64 0, i64 %indvars.iv.i
-  store float %31, ptr %32, align 4, !tbaa !3
+21:                                               ; preds = %21, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %21 ]
+  %22 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %23 = load float, ptr %22, align 4, !tbaa !3
+  %24 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %25 = load float, ptr %24, align 4, !tbaa !3
+  %26 = fmul float %17, %25
+  %27 = tail call float @llvm.fmuladd.f32(float %15, float %23, float %26)
+  %28 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i
+  %29 = load float, ptr %28, align 4, !tbaa !3
+  %30 = tail call float @llvm.fmuladd.f32(float %19, float %29, float %27)
+  %31 = getelementptr inbounds nuw [3 x float], ptr %20, i64 0, i64 %indvars.iv.i
+  store float %30, ptr %31, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %21, label %22, !llvm.loop !9
+  br i1 %exitcond.not.i, label %20, label %21, !llvm.loop !9
 
-lv_matrix_multiply.exit:                          ; preds = %21
-  %33 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
+lv_matrix_multiply.exit:                          ; preds = %20
+  %32 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #9
   ret void
@@ -342,8 +342,8 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #9
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %25, %2
-  %indvars.iv22.i = phi i64 [ 0, %2 ], [ %indvars.iv.next23.i, %25 ]
+.preheader.i:                                     ; preds = %24, %2
+  %indvars.iv22.i = phi i64 [ 0, %2 ], [ %indvars.iv.next23.i, %24 ]
   %18 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv22.i
   %19 = load float, ptr %18, align 4, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -353,30 +353,30 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   %24 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %indvars.iv22.i
   br label %26
 
-25:                                               ; preds = %26
+24:                                               ; preds = %25
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 3
   br i1 %exitcond25.not.i, label %lv_matrix_multiply.exit, label %.preheader.i, !llvm.loop !7
 
-26:                                               ; preds = %26, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  %28 = load float, ptr %27, align 4, !tbaa !3
-  %29 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv.i
-  %30 = load float, ptr %29, align 4, !tbaa !3
-  %31 = fmul float %21, %30
-  %32 = tail call float @llvm.fmuladd.f32(float %19, float %28, float %31)
-  %33 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i
-  %34 = load float, ptr %33, align 4, !tbaa !3
-  %35 = tail call float @llvm.fmuladd.f32(float %23, float %34, float %32)
-  %36 = getelementptr inbounds nuw [3 x float], ptr %24, i64 0, i64 %indvars.iv.i
-  store float %35, ptr %36, align 4, !tbaa !3
+25:                                               ; preds = %25, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %25 ]
+  %26 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %27 = load float, ptr %26, align 4, !tbaa !3
+  %28 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv.i
+  %29 = load float, ptr %28, align 4, !tbaa !3
+  %30 = fmul float %21, %29
+  %31 = tail call float @llvm.fmuladd.f32(float %19, float %27, float %30)
+  %32 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i
+  %33 = load float, ptr %32, align 4, !tbaa !3
+  %34 = tail call float @llvm.fmuladd.f32(float %23, float %33, float %31)
+  %35 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %indvars.iv.i
+  store float %34, ptr %35, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %25, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i, label %24, label %25, !llvm.loop !9
 
-lv_matrix_multiply.exit:                          ; preds = %25
-  %37 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
+lv_matrix_multiply.exit:                          ; preds = %24
+  %36 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   ret void
@@ -419,8 +419,8 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %27, %3
-  %indvars.iv22.i = phi i64 [ 0, %3 ], [ %indvars.iv.next23.i, %27 ]
+.preheader.i:                                     ; preds = %26, %3
+  %indvars.iv22.i = phi i64 [ 0, %3 ], [ %indvars.iv.next23.i, %26 ]
   %20 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv22.i
   %21 = load float, ptr %20, align 4, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -430,30 +430,30 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   %26 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv22.i
   br label %28
 
-27:                                               ; preds = %28
+26:                                               ; preds = %27
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 3
   br i1 %exitcond25.not.i, label %lv_matrix_multiply.exit, label %.preheader.i, !llvm.loop !7
 
-28:                                               ; preds = %28, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
-  %30 = load float, ptr %29, align 4, !tbaa !3
-  %31 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i
-  %32 = load float, ptr %31, align 4, !tbaa !3
-  %33 = fmul float %23, %32
-  %34 = tail call float @llvm.fmuladd.f32(float %21, float %30, float %33)
-  %35 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %indvars.iv.i
-  %36 = load float, ptr %35, align 4, !tbaa !3
-  %37 = tail call float @llvm.fmuladd.f32(float %25, float %36, float %34)
-  %38 = getelementptr inbounds nuw [3 x float], ptr %26, i64 0, i64 %indvars.iv.i
-  store float %37, ptr %38, align 4, !tbaa !3
+27:                                               ; preds = %27, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %27 ]
+  %28 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %29 = load float, ptr %28, align 4, !tbaa !3
+  %30 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i
+  %31 = load float, ptr %30, align 4, !tbaa !3
+  %32 = fmul float %23, %31
+  %33 = tail call float @llvm.fmuladd.f32(float %21, float %29, float %32)
+  %34 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %indvars.iv.i
+  %35 = load float, ptr %34, align 4, !tbaa !3
+  %36 = tail call float @llvm.fmuladd.f32(float %25, float %35, float %33)
+  %37 = getelementptr inbounds nuw [3 x float], ptr %26, i64 0, i64 %indvars.iv.i
+  store float %36, ptr %37, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %27, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i, label %26, label %27, !llvm.loop !9
 
-lv_matrix_multiply.exit:                          ; preds = %27
-  %39 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
+lv_matrix_multiply.exit:                          ; preds = %26
+  %38 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #9
   ret void

@@ -2274,8 +2274,8 @@ define internal void @rs2d(ptr noundef %0, ptr readnone captures(none) %1, ptr n
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next29, %27 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next29, %26 ]
   %indvars30 = trunc i64 %indvars.iv28 to i32
   %12 = or disjoint i32 %indvars30, 2
   %13 = getelementptr [2 x ptr], ptr @rs2d.tsel, i64 0, i64 %indvars.iv28
@@ -2287,29 +2287,29 @@ define internal void @rs2d(ptr noundef %0, ptr readnone captures(none) %1, ptr n
   %19 = or i32 %18, 2
   br label %20
 
-20:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %21 = getelementptr [8 x ptr], ptr %17, i64 0, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %26, label %23
+19:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  %20 = getelementptr [8 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %25, label %22
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %22, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %24, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef -2147483648)
-  br label %26
+22:                                               ; preds = %19
+  %23 = load i32, ptr %21, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %23, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef -2147483648)
+  br label %25
 
-26:                                               ; preds = %20, %23
+25:                                               ; preds = %19, %22
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not31 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not31, label %27, label %20, !llvm.loop !6
+  br i1 %.not31, label %26, label %19, !llvm.loop !6
 
-27:                                               ; preds = %26
+26:                                               ; preds = %25
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %27, %3
+._crit_edge:                                      ; preds = %26, %3
   ret void
 }
 
@@ -3582,9 +3582,9 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1,
   %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %29
+.lr.ph:                                           ; preds = %5, %28
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %29 ], [ 0, %5 ]
-  %.033 = phi i32 [ %30, %29 ], [ %1, %5 ]
+  %.033 = phi i32 [ %29, %29 ], [ %1, %5 ]
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.033)
   %9 = zext i8 %8 to i32
   %10 = getelementptr [4 x ptr], ptr @add_events.tsel, i64 0, i64 %indvars.iv35
@@ -3595,38 +3595,38 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1,
   %15 = getelementptr [4 x [8 x ptr]], ptr @add_events.bsel, i64 0, i64 %indvars.iv35
   br label %16
 
-16:                                               ; preds = %.lr.ph, %28
+15:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %17 = getelementptr [8 x ptr], ptr %15, i64 0, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %28, label %19
+  %16 = getelementptr [8 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %27, label %18
 
-19:                                               ; preds = %16
-  %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %21 = shl nuw i32 1, %20
-  %22 = load i32, ptr %18, align 4
-  %23 = and i32 %21, %9
-  %24 = zext nneg i32 %23 to i64
-  %25 = icmp ne i32 %23, 0
-  %26 = tail call ptr @tfs_get_string(i1 noundef zeroext %25, ptr noundef %3)
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %14, i32 noundef %22, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i64 noundef %24, ptr noundef nonnull @.str.1132, ptr noundef %26)
-  br label %28
+18:                                               ; preds = %15
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  %20 = shl nuw i32 1, %19
+  %21 = load i32, ptr %17, align 4
+  %22 = and i32 %20, %9
+  %23 = zext nneg i32 %22 to i64
+  %24 = icmp ne i32 %22, 0
+  %25 = tail call ptr @tfs_get_string(i1 noundef zeroext %24, ptr noundef %3)
+  %26 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i64 noundef %23, ptr noundef nonnull @.str.1132, ptr noundef %25)
+  br label %27
 
-28:                                               ; preds = %16, %19
+27:                                               ; preds = %15, %18
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not38 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not38, label %29, label %16, !llvm.loop !11
+  br i1 %.not38, label %28, label %15, !llvm.loop !11
 
-29:                                               ; preds = %28
+28:                                               ; preds = %27
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %30 = add nuw nsw i32 %.033, 1
-  %31 = icmp slt i32 %30, %6
-  %32 = icmp samesign ult i64 %indvars.iv35, 3
-  %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %29 = add nuw nsw i32 %.033, 1
+  %30 = icmp slt i32 %29, %6
+  %31 = icmp samesign ult i64 %indvars.iv35, 3
+  %32 = select i1 %30, i1 %31, i1 false
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %29, %5
+._crit_edge:                                      ; preds = %28, %5
   ret void
 }
 

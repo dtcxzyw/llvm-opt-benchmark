@@ -30172,17 +30172,17 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   %22 = icmp eq i32 %21, 6
   %23 = add i32 %4, -1
   %or.cond = icmp ult i32 %23, 2
-  %or.cond111 = select i1 %22, i1 %or.cond, i1 false
+  %or.cond110 = select i1 %22, i1 %or.cond, i1 false
   %24 = add i32 %6, -1
   %or.cond3 = icmp ult i32 %24, 2
-  %or.cond112 = select i1 %or.cond111, i1 %or.cond3, i1 false
-  %spec.select = select i1 %or.cond112, i32 0, i32 %4
-  %spec.select115 = select i1 %or.cond112, i32 0, i32 %6
+  %or.cond111 = select i1 %or.cond110, i1 %or.cond3, i1 false
+  %spec.select = select i1 %or.cond111, i32 0, i32 %4
+  %spec.select114 = select i1 %or.cond111, i32 0, i32 %6
   br label %25
 
 25:                                               ; preds = %19, %2
   %.097 = phi i32 [ %4, %2 ], [ %spec.select, %19 ]
-  %.096 = phi i32 [ %6, %2 ], [ %spec.select115, %19 ]
+  %.096 = phi i32 [ %6, %2 ], [ %spec.select114, %19 ]
   %26 = icmp eq i32 %11, 0
   br i1 %26, label %27, label %38
 
@@ -30207,7 +30207,7 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   br i1 %39, label %42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38
-  %.pre118 = zext i32 %.096 to i64
+  %.pre117 = zext i32 %.096 to i64
   br label %51
 
 42:                                               ; preds = %38
@@ -30223,7 +30223,7 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   br label %51
 
 51:                                               ; preds = %._crit_edge, %42
-  %.pre-phi = phi i64 [ %.pre118, %._crit_edge ], [ %46, %42 ]
+  %.pre-phi = phi i64 [ %.pre117, %._crit_edge ], [ %46, %42 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !984
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -30278,12 +30278,12 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   %or.cond7 = select i1 %78, i1 %87, i1 false
   %88 = icmp eq i32 %.096, 3
   %or.cond9 = select i1 %79, i1 %88, i1 false
-  %or.cond113 = select i1 %or.cond7, i1 true, i1 %or.cond9
-  %spec.select116 = zext i1 %or.cond113 to i64
+  %or.cond112 = select i1 %or.cond7, i1 true, i1 %or.cond9
+  %spec.select115 = zext i1 %or.cond112 to i64
   br label %89
 
 89:                                               ; preds = %86, %83, %80
-  %.095 = phi i64 [ 0, %80 ], [ 0, %83 ], [ %spec.select116, %86 ]
+  %.095 = phi i64 [ 0, %80 ], [ 0, %83 ], [ %spec.select115, %86 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %91 = load i32, ptr %90, align 8, !tbaa !966
   %92 = icmp ult i32 %91, 5
@@ -30296,29 +30296,29 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   %97 = getelementptr inbounds nuw [6 x [2 x [2 x ptr]]], ptr @__const.stbir__update_info_from_resize.decode_alphas_scaled_or_not, i64 0, i64 %96
   br label %98
 
-98:                                               ; preds = %89, %93
+96:                                               ; preds = %89, %93
   %.sink = phi ptr [ %97, %93 ], [ @__const.stbir__update_info_from_resize.decode_simple_scaled_or_not, %89 ]
   %99 = zext i1 %79 to i64
   %100 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %.sink, i64 0, i64 %99
   %.099.in = getelementptr inbounds nuw [2 x ptr], ptr %100, i64 0, i64 %.095
   br label %117
 
-101:                                              ; preds = %51
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %103 = load i32, ptr %102, align 8, !tbaa !966
-  %104 = icmp ult i32 %103, 5
-  br i1 %104, label %105, label %109
+102:                                              ; preds = %51
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %104 = load i32, ptr %103, align 8, !tbaa !966
+  %105 = icmp ult i32 %104, 5
+  br i1 %105, label %106, label %110
 
-105:                                              ; preds = %101
-  %106 = add i32 %.097, -1
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw [5 x ptr], ptr @__const.stbir__update_info_from_resize.decode_simple, i64 0, i64 %107
+106:                                              ; preds = %102
+  %107 = add i32 %.097, -1
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw [5 x ptr], ptr @__const.stbir__update_info_from_resize.decode_simple, i64 0, i64 %108
   br label %117
 
-109:                                              ; preds = %101
-  %110 = add i32 %103, -5
-  %111 = urem i32 %110, 6
-  %112 = zext nneg i32 %111 to i64
+110:                                              ; preds = %102
+  %111 = add i32 %104, -5
+  %112 = urem i32 %111, 6
+  %113 = zext nneg i32 %112 to i64
   %113 = getelementptr inbounds nuw [6 x [5 x ptr]], ptr @__const.stbir__update_info_from_resize.decode_alphas, i64 0, i64 %112
   %114 = add i32 %.097, -1
   %115 = zext i32 %114 to i64
@@ -30326,7 +30326,7 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   br label %117
 
 117:                                              ; preds = %105, %109, %98
-  %.1100.in = phi ptr [ %.099.in, %98 ], [ %108, %105 ], [ %116, %109 ]
+  %.1100.in = phi ptr [ %.099.in, %98 ], [ %109, %105 ], [ %116, %109 ]
   %.1100 = load ptr, ptr %.1100.in, align 8, !tbaa !42
   %118 = icmp eq i32 %.096, 3
   switch i32 %.096, label %139 [
@@ -30350,12 +30350,12 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   %126 = or i32 %.096, %.097
   %or.cond13 = icmp eq i32 %126, 0
   %or.cond15 = and i1 %79, %118
-  %or.cond114 = or i1 %or.cond13, %or.cond15
-  %spec.select117 = zext i1 %or.cond114 to i64
+  %or.cond113 = or i1 %or.cond13, %or.cond15
+  %spec.select116 = zext i1 %or.cond113 to i64
   br label %127
 
 127:                                              ; preds = %125, %122, %119
-  %.0 = phi i64 [ 0, %119 ], [ 0, %122 ], [ %spec.select117, %125 ]
+  %.0 = phi i64 [ 0, %119 ], [ 0, %122 ], [ %spec.select116, %125 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %129 = load i32, ptr %128, align 4, !tbaa !967
   %130 = icmp ult i32 %129, 5
@@ -30368,29 +30368,29 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   %135 = getelementptr inbounds nuw [6 x [2 x [2 x ptr]]], ptr @__const.stbir__update_info_from_resize.encode_alphas_scaled_or_not, i64 0, i64 %134
   br label %136
 
-136:                                              ; preds = %127, %131
+134:                                              ; preds = %127, %131
   %.sink120 = phi ptr [ %135, %131 ], [ @__const.stbir__update_info_from_resize.encode_simple_scaled_or_not, %127 ]
   %137 = zext i1 %118 to i64
   %138 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %.sink120, i64 0, i64 %137
   %.098.in = getelementptr inbounds nuw [2 x ptr], ptr %138, i64 0, i64 %.0
   br label %155
 
-139:                                              ; preds = %117
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 476
-  %141 = load i32, ptr %140, align 4, !tbaa !967
-  %142 = icmp ult i32 %141, 5
-  br i1 %142, label %143, label %147
+140:                                              ; preds = %117
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  %142 = load i32, ptr %141, align 4, !tbaa !967
+  %143 = icmp ult i32 %142, 5
+  br i1 %143, label %144, label %148
 
-143:                                              ; preds = %139
-  %144 = add i32 %.096, -1
-  %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw [5 x ptr], ptr @__const.stbir__update_info_from_resize.encode_simple, i64 0, i64 %145
+144:                                              ; preds = %140
+  %145 = add i32 %.096, -1
+  %146 = zext i32 %145 to i64
+  %147 = getelementptr inbounds nuw [5 x ptr], ptr @__const.stbir__update_info_from_resize.encode_simple, i64 0, i64 %146
   br label %155
 
-147:                                              ; preds = %139
-  %148 = add i32 %141, -5
-  %149 = urem i32 %148, 6
-  %150 = zext nneg i32 %149 to i64
+148:                                              ; preds = %140
+  %149 = add i32 %142, -5
+  %150 = urem i32 %149, 6
+  %151 = zext nneg i32 %150 to i64
   %151 = getelementptr inbounds nuw [6 x [5 x ptr]], ptr @__const.stbir__update_info_from_resize.encode_alphas, i64 0, i64 %150
   %152 = add i32 %.096, -1
   %153 = zext i32 %152 to i64
@@ -30398,7 +30398,7 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   br label %155
 
 155:                                              ; preds = %143, %147, %136
-  %.1.in = phi ptr [ %.098.in, %136 ], [ %146, %143 ], [ %154, %147 ]
+  %.1.in = phi ptr [ %.098.in, %136 ], [ %147, %143 ], [ %154, %147 ]
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !42
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 %.097, ptr %156, align 8, !tbaa !449

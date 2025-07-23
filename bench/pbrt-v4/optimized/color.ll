@@ -236,7 +236,7 @@ define dso_local { <2 x float>, float } @_ZNK4pbrt18RGBToSpectrumTableclENS_3RGB
   %10 = fmul float %.sroa.072.0.vec.extract, %9
   %11 = tail call noundef float @sqrtf(float noundef %10) #30, !tbaa !21
   %12 = fdiv float %8, %11
-  br label %125
+  br label %110
 
 13:                                               ; preds = %3
   %14 = fcmp ogt float %.sroa.072.0.vec.extract, %.sroa.072.4.vec.extract
@@ -325,7 +325,7 @@ _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds [64 x [64 x [3 x float]]], ptr %56, i64 0, i64 %66
   %68 = getelementptr inbounds [64 x [3 x float]], ptr %67, i64 0, i64 %59
-  %69 = getelementptr inbounds [64 x [3 x float]], ptr %67, i64 0, i64 %62
+  %67 = getelementptr inbounds [64 x [3 x float]], ptr %67, i64 0, i64 %62
   %70 = fsub float 1.000000e+00, %43
   %71 = add nuw nsw i64 %.0.i.i, 1
   %72 = getelementptr inbounds nuw [64 x [64 x [64 x [3 x float]]]], ptr %55, i64 0, i64 %71
@@ -347,13 +347,13 @@ _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
   %.sroa.0121.0.vec.insert124 = insertelement <2 x float> poison, float %81, i64 0
   %.sroa.0121.4.vec.insert126 = insertelement <2 x float> %.sroa.0121.0.vec.insert124, float %83, i64 1
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #30
-  br label %125
+  br label %110
 
-86:                                               ; preds = %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", %86
+71:                                               ; preds = %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", %71
   %indvars.iv = phi i64 [ 0, %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit" ], [ %indvars.iv.next, %86 ]
-  %87 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv
-  %88 = load float, ptr %87, align 4, !tbaa !26
-  %89 = getelementptr inbounds nuw [3 x float], ptr %63, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv
+  %73 = load float, ptr %72, align 4, !tbaa !26
+  %74 = getelementptr inbounds nuw [3 x float], ptr %63, i64 0, i64 %indvars.iv
   %90 = load float, ptr %89, align 4, !tbaa !26
   %91 = fmul float %64, %88
   %92 = fmul float %41, %90
@@ -392,9 +392,9 @@ _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
   store float %123, ptr %124, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %80, label %86, !llvm.loop !31
+  br i1 %exitcond.not, label %80, label %71, !llvm.loop !31
 
-125:                                              ; preds = %80, %7
+110:                                              ; preds = %80, %7
   %.sroa.0121.0 = phi <2 x float> [ zeroinitializer, %7 ], [ %.sroa.0121.4.vec.insert126, %80 ]
   %.sroa.5.0 = phi float [ %12, %7 ], [ %85, %80 ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0121.0, 0

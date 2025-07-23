@@ -2383,49 +2383,49 @@ define internal fastcc i32 @transtime(i32 noundef %0, ptr noundef nonnull readon
   %62 = add i32 %61, -7
   br label %65
 
-63:                                               ; preds = %65
+63:; preds = %65
   %64 = add nuw nsw i32 %.04358, 1
   %exitcond.not = icmp eq i32 %64, %52
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !36
 
-65:                                               ; preds = %.lr.ph, %63
-  %.04358 = phi i32 [ 1, %.lr.ph ], [ %64, %63 ]
+65: ; preds = %.lr.ph, %63
+  %.14657 = phi i32 [ 1, %.lr.ph ], [ %64, %63 ]
   %.14657 = phi i32 [ %.045, %.lr.ph ], [ %66, %63 ]
   %66 = add i32 %.14657, 7
   %.not53 = icmp slt i32 %66, %59
   br i1 %.not53, label %63, label %._crit_edge
 
-._crit_edge:                                      ; preds = %63, %65, %.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %56, %65 ], [ %56, %63 ]
+._crit_edge:; preds = %63, %65, %.._crit_edge_crit_edge
+  %.146.lcssa = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %56, %65 ], [ %56, %63 ]
   %.146.lcssa = phi i32 [ %.045, %.._crit_edge_crit_edge ], [ %62, %63 ], [ %.14657, %65 ]
   %67 = mul i32 %.146.lcssa, 86400
   %68 = icmp sgt i32 %.pre-phi, 0
   br i1 %68, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %._crit_edge
-  %69 = zext i1 %12 to i64
+  %68 = zext i1 %12 to i64
   %70 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @mon_lengths, i64 0, i64 %69
   %wide.trip.count = zext nneg i32 %.pre-phi to i64
-  br label %71
+  br label %69
 
-71:                                               ; preds = %.lr.ph64, %71
+69:                                               ; preds = %.lr.ph64, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %71 ]
-  %.162 = phi i32 [ %67, %.lr.ph64 ], [ %75, %71 ]
-  %72 = getelementptr inbounds nuw [12 x i32], ptr %70, i64 0, i64 %indvars.iv
-  %73 = load i32, ptr %72, align 4
-  %74 = mul i32 %73, 86400
-  %75 = add i32 %74, %.162
+  %.162 = phi i32 [ %67, %.lr.ph64 ], [ %73, %71 ]
+  %70 = getelementptr inbounds nuw [12 x i32], ptr %70, i64 0, i64 %indvars.iv
+  %71 = load i32, ptr %70, align 4
+  %72 = mul i32 %71, 86400
+  %73 = add i32 %72, %.162
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond67.not, label %.loopexit, label %71, !llvm.loop !37
+  br i1 %exitcond67.not, label %.loopexit, label %69, !llvm.loop !37
 
-.loopexit:                                        ; preds = %71, %._crit_edge, %14, %20, %11
-  %.042 = phi i32 [ 0, %11 ], [ %23, %20 ], [ %spec.select54, %14 ], [ %67, %._crit_edge ], [ %75, %71 ]
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %77 = load i32, ptr %76, align 4
-  %78 = add i32 %.042, %2
-  %79 = add i32 %78, %77
-  ret i32 %79
+.loopexit:                                        ; preds = %69, %._crit_edge, %14, %20, %11
+  %.042 = phi i32 [ 0, %11 ], [ %23, %20 ], [ %spec.select54, %14 ], [ %67, %._crit_edge ], [ %73, %71 ]
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %75 = load i32, ptr %74, align 4
+  %76 = add i32 %.042, %2
+  %77 = add i32 %76, %75
+  ret i32 %77
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -966,7 +966,7 @@ define ptr @stbds_hmget_key_ts(ptr noundef readonly captures(address_is_null, re
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %11, i8 0, i64 %1, i1 false)
   store i64 -1, ptr %4, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %1
-  br label %33
+  br label %32
 
 15:                                               ; preds = %6
   %16 = sub i64 0, %1
@@ -974,12 +974,12 @@ define ptr @stbds_hmget_key_ts(ptr noundef readonly captures(address_is_null, re
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %32, label %21
+  br i1 %20, label %31, label %21
 
 21:                                               ; preds = %15
   %22 = tail call i64 @stbds_hm_find_slot(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %5)
   %23 = icmp slt i64 %22, 0
-  br i1 %23, label %32, label %24
+  br i1 %23, label %31, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -991,13 +991,13 @@ define ptr @stbds_hmget_key_ts(ptr noundef readonly captures(address_is_null, re
   %31 = load i64, ptr %30, align 8, !tbaa !10
   br label %32
 
-32:                                               ; preds = %24, %21, %15
-  %storemerge30 = phi i64 [ -1, %15 ], [ %31, %24 ], [ -1, %21 ]
+31:                                               ; preds = %24, %21, %15
+  %storemerge30 = phi i64 [ -1, %15 ], [ %30, %24 ], [ -1, %21 ]
   store i64 %storemerge30, ptr %4, align 8, !tbaa !10
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %8
-  %.0 = phi ptr [ %14, %8 ], [ %0, %32 ]
+32:                                               ; preds = %31, %8
+  %.0 = phi ptr [ %14, %8 ], [ %0, %31 ]
   ret ptr %.0
 }
 
@@ -1048,9 +1048,9 @@ stbds_hmget_key_ts.exit:                          ; preds = %14, %20, %23, %7
   %.pre-phi = phi i64 [ %15, %14 ], [ %15, %20 ], [ %15, %23 ], [ %.pre, %7 ]
   %.0 = phi i64 [ -1, %14 ], [ -1, %20 ], [ %30, %23 ], [ -1, %7 ]
   %.0.i = phi ptr [ %0, %14 ], [ %0, %20 ], [ %0, %23 ], [ %13, %7 ]
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 %.pre-phi
-  %32 = getelementptr inbounds i8, ptr %31, i64 -8
-  store i64 %.0, ptr %32, align 8, !tbaa !46
+  %30 = getelementptr inbounds i8, ptr %.0.i, i64 %.pre-phi
+  %31 = getelementptr inbounds i8, ptr %30, i64 -8
+  store i64 %.0, ptr %31, align 8, !tbaa !46
   ret ptr %.0.i
 }
 
@@ -1872,7 +1872,7 @@ stbds_log2.exit.i:
 ; Function Attrs: nounwind uwtable
 define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #13 {
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %89, label %8
+  br i1 %7, label %88, label %8
 
 8:                                                ; preds = %6
   %9 = sub i64 0, %1
@@ -1883,12 +1883,12 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %14 = getelementptr inbounds i8, ptr %10, i64 -8
   store i64 0, ptr %14, align 8, !tbaa !46
   %15 = icmp eq ptr %13, null
-  br i1 %15, label %89, label %16
+  br i1 %15, label %88, label %16
 
 16:                                               ; preds = %8
   %17 = tail call i64 @stbds_hm_find_slot(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5)
   %18 = icmp slt i64 %17, 0
-  br i1 %18, label %89, label %19
+  br i1 %18, label %88, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -1968,7 +1968,7 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   store i64 %27, ptr %66, align 8, !tbaa !10
   br label %67
 
-67:                                               ; preds = %.thread, %61, %46
+67:; preds = %.thread, %61, %46
   %68 = load i64, ptr %11, align 8, !tbaa !3
   %69 = add i64 %68, -1
   store i64 %69, ptr %11, align 8, !tbaa !3
@@ -1978,36 +1978,36 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %73 = icmp ult i64 %70, %72
   br i1 %73, label %74, label %80
 
-74:                                               ; preds = %67
+74: ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !18
   %77 = icmp ugt i64 %76, 8
   br i1 %77, label %78, label %80
 
-78:                                               ; preds = %74
+78:; preds = %74
   %79 = lshr i64 %76, 1
   br label %.sink.split
 
-80:                                               ; preds = %74, %67
-  %81 = load i64, ptr %33, align 8, !tbaa !20
-  %82 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %83 = load i64, ptr %82, align 8, !tbaa !23
-  %84 = icmp ugt i64 %81, %83
-  br i1 %84, label %85, label %89
+79:                                               ; preds = %74, %67
+  %80 = load i64, ptr %33, align 8, !tbaa !20
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %82 = load i64, ptr %81, align 8, !tbaa !23
+  %83 = icmp ugt i64 %80, %82
+  br i1 %83, label %84, label %88
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %87 = load i64, ptr %86, align 8, !tbaa !18
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %86 = load i64, ptr %85, align 8, !tbaa !18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %85, %78
-  %.sink93 = phi i64 [ %79, %78 ], [ %87, %85 ]
-  %88 = tail call ptr @stbds_make_hash_index(i64 noundef %.sink93, ptr noundef nonnull %13)
-  store ptr %88, ptr %12, align 8, !tbaa !37
+.sink.split:                                      ; preds = %84, %78
+  %.sink93 = phi i64 [ %79, %78 ], [ %86, %85 ]
+  %87 = tail call ptr @stbds_make_hash_index(i64 noundef %.sink93, ptr noundef nonnull %13)
+  store ptr %87, ptr %12, align 8, !tbaa !37
   tail call void @free(ptr noundef nonnull %13) #21
-  br label %89
+  br label %88
 
-89:                                               ; preds = %.sink.split, %8, %80, %16, %6
+88:                                               ; preds = %.sink.split, %8, %79, %16, %6
   ret ptr %0
 }
 

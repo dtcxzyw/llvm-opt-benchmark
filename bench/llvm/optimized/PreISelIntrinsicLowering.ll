@@ -1855,8 +1855,8 @@ _ZL17lowerLoadRelativeRN4llvm8FunctionE.exit:     ; preds = %518, %427, %431
   br i1 %645, label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_2EbRNS2_8FunctionET_.exit", label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %642, %.thread.i60
-  %646 = phi ptr [ %697, %.thread.i60 ], [ %644, %642 ]
-  %.029.i = phi ptr [ %696, %.thread.i60 ], [ null, %642 ]
+  %646 = phi ptr [ %696, %.thread.i60 ], [ %644, %642 ]
+  %.029.i = phi ptr [ %695, %.thread.i60 ], [ null, %642 ]
   %.01528.i = phi i1 [ %.11623.i, %.thread.i60 ], [ false, %642 ]
   %.not.i57 = icmp eq ptr %.029.i, null
   br i1 %.not.i57, label %.critedge2.i59, label %647
@@ -1929,7 +1929,7 @@ _ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i: ; preds = %
   %692 = icmp eq i8 %691, 2
   br i1 %692, label %693, label %.thread.i60
 
-693:                                              ; preds = %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i.i, %668
+693:; preds = %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i.i, %668
   %694 = call noundef zeroext i1 @_ZN4llvm31lowerUnaryVectorIntrinsicAsLoopERNS_6ModuleEPNS_8CallInstE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull %652) #17
   %695 = or i1 %.01528.i, %694
   %spec.select.i63 = select i1 %694, ptr %.029.i, ptr %650
@@ -1937,20 +1937,20 @@ _ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i: ; preds = %
 
 .thread.i60:                                      ; preds = %693, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i, %686, %654, %.critedge2.i59
   %.11623.i = phi i1 [ %.01528.i, %.critedge2.i59 ], [ %.01528.i, %654 ], [ %.01528.i, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i ], [ %.01528.i, %686 ], [ %695, %693 ]
-  %696 = phi ptr [ %650, %.critedge2.i59 ], [ %650, %654 ], [ %650, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i ], [ %650, %686 ], [ %spec.select.i63, %693 ]
-  %697 = load ptr, ptr %643, align 8, !tbaa !102
-  %698 = icmp eq ptr %697, null
-  br i1 %698, label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_2EbRNS2_8FunctionET_.exit", label %.lr.ph.i56, !llvm.loop !214
+  %695 = phi ptr [ %650, %.critedge2.i59 ], [ %650, %654 ], [ %650, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i ], [ %650, %686 ], [ %spec.select.i63, %693 ]
+  %696 = load ptr, ptr %643, align 8, !tbaa !102
+  %697 = icmp eq ptr %696, null
+  br i1 %697, label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_2EbRNS2_8FunctionET_.exit", label %.lr.ph.i56, !llvm.loop !214
 
 "_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_2EbRNS2_8FunctionET_.exit": ; preds = %647, %.thread.i60, %642
   %.015.lcssa.i61 = phi i1 [ false, %642 ], [ %.01528.i, %647 ], [ %.11623.i, %.thread.i60 ]
-  %699 = or i1 %.0109, %.015.lcssa.i61
+  %698 = or i1 %.0109, %.015.lcssa.i61
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
 "_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit": ; preds = %.thread.i49, %547, %542, %71, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_2EbRNS2_8FunctionET_.exit", %639, %636, %633, %630, %627, %624, %621, %618, %615, %612, %609, %606, %603, %600, %597, %594, %591, %588, %585, %582, %579, %576, %573, %570, %567, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit", %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit
-  %.1 = phi i1 [ %.0109, %71 ], [ %426, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit ], [ %519, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit ], [ %541, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit" ], [ %569, %567 ], [ %572, %570 ], [ %575, %573 ], [ %578, %576 ], [ %581, %579 ], [ %584, %582 ], [ %587, %585 ], [ %590, %588 ], [ %593, %591 ], [ %596, %594 ], [ %599, %597 ], [ %602, %600 ], [ %605, %603 ], [ %608, %606 ], [ %611, %609 ], [ %614, %612 ], [ %617, %615 ], [ %620, %618 ], [ %623, %621 ], [ %626, %624 ], [ %629, %627 ], [ %632, %630 ], [ %635, %633 ], [ %638, %636 ], [ %641, %639 ], [ %699, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_2EbRNS2_8FunctionET_.exit" ], [ %.0109, %542 ], [ %.2, %547 ], [ %.3, %.thread.i49 ]
-  %700 = getelementptr inbounds nuw i8, ptr %.sroa.067.0110, i64 8
-  %.sroa.067.0 = load ptr, ptr %700, align 8, !tbaa !91
+  %.1 = phi i1 [ %.0109, %71 ], [ %426, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit ], [ %519, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit ], [ %541, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit" ], [ %569, %567 ], [ %572, %570 ], [ %575, %573 ], [ %578, %576 ], [ %581, %579 ], [ %584, %582 ], [ %587, %585 ], [ %590, %588 ], [ %593, %591 ], [ %596, %594 ], [ %599, %597 ], [ %602, %600 ], [ %605, %603 ], [ %608, %606 ], [ %611, %609 ], [ %614, %612 ], [ %617, %615 ], [ %620, %618 ], [ %623, %621 ], [ %626, %624 ], [ %629, %627 ], [ %632, %630 ], [ %635, %633 ], [ %638, %636 ], [ %641, %639 ], [ %698, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_2EbRNS2_8FunctionET_.exit" ], [ %.0109, %542 ], [ %.2, %547 ], [ %.3, %.thread.i49 ]
+  %699 = getelementptr inbounds nuw i8, ptr %.sroa.067.0110, i64 8
+  %.sroa.067.0 = load ptr, ptr %699, align 8, !tbaa !91
   %.not = icmp eq ptr %.sroa.067.0, %29
   br i1 %.not, label %._crit_edge, label %71
 }

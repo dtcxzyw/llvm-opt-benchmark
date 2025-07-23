@@ -1587,22 +1587,22 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_(ptr
 
 _ZN7nanogui6MatrixIfLm3EEC2Ef.exit:               ; preds = %7
   store i8 0, ptr %6, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i8 0, ptr %11, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i8 0, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
-  br label %12
+  br label %11
 
-12:                                               ; preds = %12, %_ZN7nanogui6MatrixIfLm3EEC2Ef.exit
+11:                                               ; preds = %11, %_ZN7nanogui6MatrixIfLm3EEC2Ef.exit
   %.05.i.i = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm3EEC2Ef.exit ], [ %15, %12 ]
-  %13 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %.05.i.i
-  %14 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %.05.i.i
+  %12 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %.05.i.i
+  %14 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %.05.i.i
   store float 0.000000e+00, ptr %14, align 4
   %15 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %15, 3
   br i1 %exitcond.not.i.i, label %_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1_7TextureERKNS1_6MatrixIfLm3EEEfffbNS_8ETonemapERKNSt3__18optionalINS_3BoxIiLj2EEEEE.exit, label %12, !llvm.loop !27
 
-_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1_7TextureERKNS1_6MatrixIfLm3EEEfffbNS_8ETonemapERKNSt3__18optionalINS_3BoxIiLj2EEEEE.exit: ; preds = %12
+_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1_7TextureERKNS1_6MatrixIfLm3EEEfffbNS_8ETonemapERKNSt3__18optionalINS_3BoxIiLj2EEEEE.exit: ; preds = %11
   call void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1_7TextureERKNS1_6MatrixIfLm3EEES7_SB_fffbNS_8ETonemapENS_7EMetricERKNSt3__18optionalINS_3BoxIiLj2EEEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef null, ptr noundef nonnull readonly align 4 dereferenceable(36) %5, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(36) %4, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, ptr noundef nonnull readonly align 4 dereferenceable(17) %6)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
   ret void

@@ -1507,7 +1507,7 @@ generate_window_func.exit:                        ; preds = %600, %580, %578, %5
   %618 = getelementptr inbounds nuw [256 x [256 x float]], ptr %615, i64 0, i64 %indvars.iv263
   br label %619
 
-619:                                              ; preds = %.preheader.us, %619
+619: ; preds = %.preheader.us, %619
   %indvars.iv260 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next261, %619 ]
   %620 = getelementptr inbounds nuw [257 x float], ptr %2, i64 0, i64 %indvars.iv260
   %621 = load float, ptr %620, align 4, !tbaa !68

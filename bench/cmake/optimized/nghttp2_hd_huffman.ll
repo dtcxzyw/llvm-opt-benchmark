@@ -219,7 +219,7 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
   %.not25 = icmp sgt i16 %20, -1
   br i1 %.not25, label %26, label %21
 
-21:                                               ; preds = %9
+21: ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %23 = load i8, ptr %22, align 2, !tbaa !31
   %24 = load ptr, ptr %8, align 8, !tbaa !32
@@ -228,7 +228,7 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
   store i8 %23, ptr %24, align 1, !tbaa !4
   br label %26
 
-26:                                               ; preds = %21, %9
+26:; preds = %21, %9
   %27 = and i16 %20, 511
   %28 = zext nneg i16 %27 to i64
   %29 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %28
@@ -239,7 +239,7 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
   %.not26 = icmp sgt i16 %33, -1
   br i1 %.not26, label %39, label %34
 
-34:                                               ; preds = %26
+34:; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !31
   %37 = load ptr, ptr %8, align 8, !tbaa !32
@@ -253,11 +253,11 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %39, %5
-  %40 = phi i16 [ %7, %5 ], [ %33, %39 ]
-  store i16 %40, ptr %0, align 2, !tbaa !26
+  %38 = phi i16 [ %7, %5 ], [ %33, %39 ]
+  store i16 %38, ptr %0, align 2, !tbaa !26
   %.not23 = icmp ne i32 %4, 0
-  %41 = and i16 %40, 16384
-  %.not24 = icmp eq i16 %41, 0
+  %39 = and i16 %38, 16384
+  %.not24 = icmp eq i16 %39, 0
   %or.cond = select i1 %.not23, i1 %.not24, i1 false
   %.0 = select i1 %or.cond, i64 -523, i64 %3
   ret i64 %.0

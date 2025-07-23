@@ -14169,15 +14169,15 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc28.i
   %39 = getelementptr inbounds [3 x [3 x float]], ptr %38, i64 0, i64 %27
   %40 = getelementptr inbounds [3 x float], ptr %39, i64 0, i64 %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %41 = load float, ptr %40, align 4
-  %42 = fpext float %41 to double
-  store double %42, ptr %4, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %43, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %40 = load float, ptr %40, align 4
+  %41 = fpext float %40 to double
+  store double %41, ptr %4, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %42, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  ret ptr %44
+  ret ptr %43
 }
 
 ; Function Attrs: mustprogress uwtable

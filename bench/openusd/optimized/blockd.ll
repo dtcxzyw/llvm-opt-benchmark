@@ -169,7 +169,7 @@ define hidden void @av1_reset_entropy_context(ptr noundef readonly captures(none
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %14
 
-14:                                               ; preds = %.lr.ph, %14
+14: ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw [3 x %struct.macroblockd_plane], ptr %10, i64 0, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4

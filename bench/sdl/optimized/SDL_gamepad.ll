@@ -677,19 +677,19 @@ define hidden void @SDL_GamepadSensorWatcher(i64 noundef %0, i32 noundef %1, i64
   %.not27 = icmp eq ptr %.026, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %51
+.lr.ph:                                           ; preds = %5, %49
   %.028 = phi ptr [ %.0, %51 ], [ %.026, %5 ]
   %8 = load ptr, ptr %.028, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %10 = load ptr, ptr %9, align 8
   %.not17 = icmp eq ptr %10, null
-  br i1 %.not17, label %29, label %11
+  br i1 %.not17, label %28, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 244
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
-  br i1 %14, label %15, label %29
+  br i1 %14, label %15, label %28
 
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #10
@@ -697,95 +697,95 @@ define hidden void @SDL_GamepadSensorWatcher(i64 noundef %0, i32 noundef %1, i64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 272
   br label %17
 
-17:                                               ; preds = %27, %15
+17:                                               ; preds = %26, %15
   %indvars.iv16.i = phi i64 [ 0, %15 ], [ %indvars.iv.next17.i, %27 ]
   %18 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv16.i
   store float 0.000000e+00, ptr %18, align 4
   %19 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv16.i
   br label %20
 
-20:                                               ; preds = %20, %17
+19:                                               ; preds = %19, %17
   %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %20 ]
-  %21 = phi float [ 0.000000e+00, %17 ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i
-  %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
-  %25 = load float, ptr %24, align 4
-  %26 = call float @llvm.fmuladd.f32(float %23, float %25, float %21)
-  store float %26, ptr %18, align 4
+  %20 = phi float [ 0.000000e+00, %17 ], [ %25, %20 ]
+  %21 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i
+  %22 = load float, ptr %21, align 4
+  %23 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
+  %24 = load float, ptr %23, align 4
+  %25 = call float @llvm.fmuladd.f32(float %22, float %24, float %20)
+  store float %25, ptr %18, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %27, label %20, !llvm.loop !7
+  br i1 %exitcond.not.i, label %26, label %19, !llvm.loop !7
 
-27:                                               ; preds = %20
+26:                                               ; preds = %19
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 3
   br i1 %exitcond19.not.i, label %AdjustSensorOrientation.exit, label %17, !llvm.loop !8
 
-AdjustSensorOrientation.exit:                     ; preds = %27
-  %28 = load ptr, ptr %.028, align 8
-  call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %28, i32 noundef 1, i64 noundef %2, ptr noundef nonnull %6, i32 noundef 3) #10
+AdjustSensorOrientation.exit:                     ; preds = %26
+  %27 = load ptr, ptr %.028, align 8
+  call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %27, i32 noundef 1, i64 noundef %2, ptr noundef nonnull %6, i32 noundef 3) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #10
   %.pre = load ptr, ptr %.028, align 8
-  br label %29
+  br label %28
 
-29:                                               ; preds = %AdjustSensorOrientation.exit, %11, %.lr.ph
-  %30 = phi ptr [ %.pre, %AdjustSensorOrientation.exit ], [ %8, %11 ], [ %8, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 264
-  %32 = load ptr, ptr %31, align 8
-  %.not18 = icmp eq ptr %32, null
-  br i1 %.not18, label %51, label %33
+28:                                               ; preds = %AdjustSensorOrientation.exit, %11, %.lr.ph
+  %29 = phi ptr [ %.pre, %AdjustSensorOrientation.exit ], [ %8, %11 ], [ %8, %.lr.ph ]
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 264
+  %31 = load ptr, ptr %30, align 8
+  %.not18 = icmp eq ptr %31, null
+  br i1 %.not18, label %49, label %32
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 256
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, %1
-  br i1 %36, label %37, label %51
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 256
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, %1
+  br i1 %35, label %36, label %49
 
-37:                                               ; preds = %33
+36:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #10
   call void @SDL_AssertJoysticksLocked() #10
-  %38 = getelementptr inbounds nuw i8, ptr %30, i64 272
-  br label %39
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 272
+  br label %38
 
-39:                                               ; preds = %49, %37
+38:                                               ; preds = %47, %36
   %indvars.iv16.i19 = phi i64 [ 0, %37 ], [ %indvars.iv.next17.i23, %49 ]
-  %40 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv16.i19
-  store float 0.000000e+00, ptr %40, align 4
+  %39 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv16.i19
+  store float 0.000000e+00, ptr %39, align 4
   %41 = getelementptr inbounds nuw [3 x [3 x float]], ptr %38, i64 0, i64 %indvars.iv16.i19
   br label %42
 
-42:                                               ; preds = %42, %39
+40:                                               ; preds = %40, %38
   %indvars.iv.i20 = phi i64 [ 0, %39 ], [ %indvars.iv.next.i21, %42 ]
-  %43 = phi float [ 0.000000e+00, %39 ], [ %48, %42 ]
-  %44 = getelementptr inbounds nuw [3 x float], ptr %41, i64 0, i64 %indvars.iv.i20
+  %41 = phi float [ 0.000000e+00, %39 ], [ %48, %42 ]
+  %42 = getelementptr inbounds nuw [3 x float], ptr %41, i64 0, i64 %indvars.iv.i20
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i20
+  %46 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i19
   %47 = load float, ptr %46, align 4
   %48 = call float @llvm.fmuladd.f32(float %45, float %47, float %43)
   store float %48, ptr %40, align 4
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 3
-  br i1 %exitcond.not.i22, label %49, label %42, !llvm.loop !7
+  br i1 %exitcond.not.i22, label %47, label %40, !llvm.loop !7
 
-49:                                               ; preds = %42
+47:                                               ; preds = %40
   %indvars.iv.next17.i23 = add nuw nsw i64 %indvars.iv16.i19, 1
   %exitcond19.not.i24 = icmp eq i64 %indvars.iv.next17.i23, 3
-  br i1 %exitcond19.not.i24, label %AdjustSensorOrientation.exit25, label %39, !llvm.loop !8
+  br i1 %exitcond19.not.i24, label %AdjustSensorOrientation.exit25, label %38, !llvm.loop !8
 
-AdjustSensorOrientation.exit25:                   ; preds = %49
-  %50 = load ptr, ptr %.028, align 8
-  call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %50, i32 noundef 2, i64 noundef %2, ptr noundef nonnull %7, i32 noundef 3) #10
+AdjustSensorOrientation.exit25:                   ; preds = %47
+  %48 = load ptr, ptr %.028, align 8
+  call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %48, i32 noundef 2, i64 noundef %2, ptr noundef nonnull %7, i32 noundef 3) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #10
-  br label %51
+  br label %49
 
-51:                                               ; preds = %29, %33, %AdjustSensorOrientation.exit25
-  %52 = getelementptr inbounds nuw i8, ptr %.028, i64 80
-  %.0 = load ptr, ptr %52, align 8
+49:                                               ; preds = %28, %32, %AdjustSensorOrientation.exit25
+  %50 = getelementptr inbounds nuw i8, ptr %.028, i64 80
+  %.0 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %51, %5
+._crit_edge:                                      ; preds = %49, %5
   call void @SDL_UnlockJoysticks_REAL() #10
   ret void
 }

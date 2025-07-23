@@ -414,7 +414,7 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
   switch i32 %12, label %113 [
     i32 0, label %13
     i32 1, label %20
-    i32 2, label %75
+    i32 2, label %73
   ]
 
 13:                                               ; preds = %2
@@ -469,7 +469,7 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
   br label %40
 
 40:                                               ; preds = %make_odither_array.exit.i, %.lr.ph26.i
-  %41 = phi i32 [ %34, %.lr.ph26.i ], [ %71, %make_odither_array.exit.i ]
+  %41 = phi i32 [ %34, %.lr.ph26.i ], [ %69, %make_odither_array.exit.i ]
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph26.i ], [ %indvars.iv.next30.i, %make_odither_array.exit.i ]
   %42 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv29.i
   %43 = load i32, ptr %42, align 4, !tbaa !54
@@ -503,123 +503,123 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
   %57 = shl nsw i64 %56, 9
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %70, %.thread.i
+.preheader.i.i:                                   ; preds = %68, %.thread.i
   %indvars.iv22.i.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next23.i.i, %70 ]
   %58 = getelementptr inbounds nuw [16 x [16 x i8]], ptr @base_dither_matrix, i64 0, i64 %indvars.iv22.i.i
   %59 = getelementptr inbounds nuw [16 x i32], ptr %54, i64 %indvars.iv22.i.i
   br label %60
 
-60:                                               ; preds = %60, %.preheader.i.i
+58:                                               ; preds = %58, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %60 ]
-  %61 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 0, i64 %indvars.iv.i.i
-  %62 = load i8, ptr %61, align 1, !tbaa !34
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 1
-  %65 = sub nsw i32 255, %64
-  %narrow.i.i = mul nsw i32 %65, 255
-  %66 = sext i32 %narrow.i.i to i64
-  %67 = sdiv i64 %66, %57
-  %68 = trunc nsw i64 %67 to i32
-  %69 = getelementptr inbounds nuw [16 x i32], ptr %59, i64 0, i64 %indvars.iv.i.i
-  store i32 %68, ptr %69, align 4, !tbaa !54
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 0, i64 %indvars.iv.i.i
+  %60 = load i8, ptr %59, align 1, !tbaa !34
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 1
+  %63 = sub nsw i32 255, %62
+  %narrow.i.i = mul nsw i32 %63, 255
+  %64 = sext i32 %narrow.i.i to i64
+  %65 = sdiv i64 %64, %57
+  %66 = trunc nsw i64 %65 to i32
+  %67 = getelementptr inbounds nuw [16 x i32], ptr %59, i64 0, i64 %indvars.iv.i.i
+  store i32 %66, ptr %67, align 4, !tbaa !54
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %70, label %60, !llvm.loop !79
+  br i1 %exitcond.not.i.i, label %68, label %58, !llvm.loop !79
 
-70:                                               ; preds = %60
+68:                                               ; preds = %58
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next23.i.i, 16
   br i1 %exitcond25.not.i.i, label %make_odither_array.exit.loopexit.i, label %.preheader.i.i, !llvm.loop !80
 
-make_odither_array.exit.loopexit.i:               ; preds = %70
+make_odither_array.exit.loopexit.i:               ; preds = %68
   %.pre.i = load i32, ptr %21, align 8, !tbaa !51
   br label %make_odither_array.exit.i
 
 make_odither_array.exit.i:                        ; preds = %make_odither_array.exit.loopexit.i, %48
-  %71 = phi i32 [ %41, %48 ], [ %.pre.i, %make_odither_array.exit.loopexit.i ]
+  %69 = phi i32 [ %41, %48 ], [ %.pre.i, %make_odither_array.exit.loopexit.i ]
   %.1.i = phi ptr [ %50, %48 ], [ %54, %make_odither_array.exit.loopexit.i ]
-  %72 = getelementptr inbounds nuw [4 x ptr], ptr %38, i64 0, i64 %indvars.iv29.i
-  store ptr %.1.i, ptr %72, align 8, !tbaa !50
+  %70 = getelementptr inbounds nuw [4 x ptr], ptr %38, i64 0, i64 %indvars.iv29.i
+  store ptr %.1.i, ptr %70, align 8, !tbaa !50
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
-  %73 = sext i32 %71 to i64
-  %74 = icmp slt i64 %indvars.iv.next30.i, %73
-  br i1 %74, label %40, label %create_odither_tables.exit, !llvm.loop !81
+  %71 = sext i32 %69 to i64
+  %72 = icmp slt i64 %indvars.iv.next30.i, %71
+  br i1 %72, label %40, label %create_odither_tables.exit, !llvm.loop !81
 
-75:                                               ; preds = %2
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @quantize_fs_dither, ptr %76, align 8, !tbaa !75
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  store i32 0, ptr %77, align 8, !tbaa !82
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %79 = load ptr, ptr %78, align 8, !tbaa !48
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %.alloc_fs_workspace.exit_crit_edge
+73:                                               ; preds = %2
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @quantize_fs_dither, ptr %74, align 8, !tbaa !75
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  store i32 0, ptr %75, align 8, !tbaa !82
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %77 = load ptr, ptr %76, align 8, !tbaa !48
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %.alloc_fs_workspace.exit_crit_edge
 
-.alloc_fs_workspace.exit_crit_edge:               ; preds = %75
+.alloc_fs_workspace.exit_crit_edge:               ; preds = %73
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !51
   br label %alloc_fs_workspace.exit
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %83 = load i32, ptr %82, align 8, !tbaa !70
-  %84 = add i32 %83, 2
-  %85 = zext i32 %84 to i64
-  %86 = shl nuw nsw i64 %85, 1
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %88 = load i32, ptr %87, align 8, !tbaa !51
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %.lr.ph.i30, label %create_odither_tables.exit
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %81 = load i32, ptr %80, align 8, !tbaa !70
+  %82 = add i32 %81, 2
+  %83 = zext i32 %82 to i64
+  %84 = shl nuw nsw i64 %83, 1
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %86 = load i32, ptr %85, align 8, !tbaa !51
+  %87 = icmp sgt i32 %86, 0
+  br i1 %87, label %.lr.ph.i30, label %create_odither_tables.exit
 
-.lr.ph.i30:                                       ; preds = %81
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %91
+.lr.ph.i30:                                       ; preds = %79
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %89
 
-91:                                               ; preds = %91, %.lr.ph.i30
+89:                                               ; preds = %89, %.lr.ph.i30
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i32, %91 ]
-  %92 = load ptr, ptr %90, align 8, !tbaa !39
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %95 = tail call ptr %94(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %86) #7
-  %96 = getelementptr inbounds nuw [4 x ptr], ptr %78, i64 0, i64 %indvars.iv.i31
-  store ptr %95, ptr %96, align 8, !tbaa !48
+  %90 = load ptr, ptr %88, align 8, !tbaa !39
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !71
+  %93 = tail call ptr %94(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %84) #7
+  %94 = getelementptr inbounds nuw [4 x ptr], ptr %76, i64 0, i64 %indvars.iv.i31
+  store ptr %93, ptr %94, align 8, !tbaa !48
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
-  %97 = load i32, ptr %87, align 8, !tbaa !51
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next.i32, %98
-  br i1 %99, label %91, label %alloc_fs_workspace.exit, !llvm.loop !72
+  %95 = load i32, ptr %85, align 8, !tbaa !51
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %indvars.iv.next.i32, %96
+  br i1 %97, label %89, label %alloc_fs_workspace.exit, !llvm.loop !72
 
-alloc_fs_workspace.exit:                          ; preds = %91, %.alloc_fs_workspace.exit_crit_edge
-  %100 = phi i32 [ %.pre, %.alloc_fs_workspace.exit_crit_edge ], [ %97, %91 ]
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %102 = load i32, ptr %101, align 8, !tbaa !70
-  %103 = add i32 %102, 2
-  %104 = zext i32 %103 to i64
-  %105 = shl nuw nsw i64 %104, 1
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %107 = icmp sgt i32 %100, 0
-  br i1 %107, label %.lr.ph, label %create_odither_tables.exit
+alloc_fs_workspace.exit:                          ; preds = %89, %.alloc_fs_workspace.exit_crit_edge
+  %98 = phi i32 [ %.pre, %.alloc_fs_workspace.exit_crit_edge ], [ %95, %91 ]
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %100 = load i32, ptr %99, align 8, !tbaa !70
+  %101 = add i32 %100, 2
+  %102 = zext i32 %101 to i64
+  %103 = shl nuw nsw i64 %102, 1
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %105 = icmp sgt i32 %98, 0
+  br i1 %105, label %.lr.ph, label %create_odither_tables.exit
 
 .lr.ph:                                           ; preds = %alloc_fs_workspace.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %alloc_fs_workspace.exit ]
-  %108 = getelementptr inbounds nuw [4 x ptr], ptr %78, i64 0, i64 %indvars.iv
-  %109 = load ptr, ptr %108, align 8, !tbaa !48
-  tail call void @jzero_far(ptr noundef %109, i64 noundef %105) #7
+  %106 = getelementptr inbounds nuw [4 x ptr], ptr %76, i64 0, i64 %indvars.iv
+  %107 = load ptr, ptr %106, align 8, !tbaa !48
+  tail call void @jzero_far(ptr noundef %107, i64 noundef %103) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %110 = load i32, ptr %106, align 8, !tbaa !51
-  %111 = sext i32 %110 to i64
-  %112 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %112, label %.lr.ph, label %create_odither_tables.exit, !llvm.loop !83
+  %108 = load i32, ptr %104, align 8, !tbaa !51
+  %109 = sext i32 %108 to i64
+  %110 = icmp slt i64 %indvars.iv.next, %109
+  br i1 %110, label %.lr.ph, label %create_odither_tables.exit, !llvm.loop !83
 
-113:                                              ; preds = %2
-  %114 = load ptr, ptr %0, align 8, !tbaa !30
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  store i32 48, ptr %115, align 8, !tbaa !31
-  %116 = load ptr, ptr %114, align 8, !tbaa !35
+111:                                              ; preds = %2
+  %112 = load ptr, ptr %0, align 8, !tbaa !30
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  store i32 48, ptr %113, align 8, !tbaa !31
+  %114 = load ptr, ptr %112, align 8, !tbaa !35
   tail call void %116(ptr noundef nonnull %0) #7
   br label %create_odither_tables.exit
 
-create_odither_tables.exit:                       ; preds = %.lr.ph, %make_odither_array.exit.i, %81, %alloc_fs_workspace.exit, %33, %29, %18, %19, %113
+create_odither_tables.exit:                       ; preds = %.lr.ph, %make_odither_array.exit.i, %79, %alloc_fs_workspace.exit, %33, %29, %18, %19, %111
   ret void
 }
 

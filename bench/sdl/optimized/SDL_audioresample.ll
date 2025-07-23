@@ -16,7 +16,7 @@ define hidden void @SDL_SetupAudioResampler() local_unnamed_addr #0 {
   %1 = alloca [24 x float], align 16
   %2 = alloca [121 x float], align 16
   %3 = tail call zeroext i1 @SDL_ShouldInit_REAL(ptr noundef nonnull @SDL_SetupAudioResampler.init) #8
-  br i1 %3, label %.preheader, label %103
+  br i1 %3, label %.preheader, label %101
 
 .preheader:                                       ; preds = %0, %.preheader
   %.016.i.i.i = phi float [ %7, %.preheader ], [ 1.000000e+00, %0 ]
@@ -102,14 +102,14 @@ BesselI0.exit32.i.i:                              ; preds = %28
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 121
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %18, !llvm.loop !6
 
-.preheader.i.i:                                   ; preds = %BesselI0.exit32.i.i, %100
+.preheader.i.i:                                   ; preds = %BesselI0.exit32.i.i, %98
   %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %100 ], [ 0, %BesselI0.exit32.i.i ]
   %51 = getelementptr inbounds nuw [8 x [10 x %union.Cubic]], ptr @ResamplerFilter, i64 0, i64 %indvars.iv46.i.i
   %52 = sub nuw nsw i64 7, %indvars.iv46.i.i
   %53 = getelementptr inbounds nuw [8 x [10 x %union.Cubic]], ptr @ResamplerFilter, i64 0, i64 %52
   br label %54
 
-54:                                               ; preds = %54, %.preheader.i.i
+54:; preds = %54, %.preheader.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next43.i.i, %54 ]
   %55 = shl nuw nsw i64 %indvars.iv42.i.i, 3
   %56 = add nuw nsw i64 %55, %indvars.iv46.i.i
@@ -166,33 +166,33 @@ BesselI0.exit32.i.i:                              ; preds = %28
   store float %98, ptr %99, align 4
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 5
-  br i1 %exitcond45.not.i.i, label %100, label %54, !llvm.loop !7
+  br i1 %exitcond45.not.i.i, label %98, label %54, !llvm.loop !7
 
-100:                                              ; preds = %54
+98:                                               ; preds = %54
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, 8
   br i1 %exitcond49.not.i.i, label %GenerateResamplerFilter.exit.i, label %.preheader.i.i, !llvm.loop !8
 
-GenerateResamplerFilter.exit.i:                   ; preds = %100
+GenerateResamplerFilter.exit.i:                   ; preds = %98
   call void @llvm.lifetime.end.p0(i64 484, ptr nonnull %2) #8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #8
-  br label %101
+  br label %99
 
-101:                                              ; preds = %101, %GenerateResamplerFilter.exit.i
+99:                                               ; preds = %99, %GenerateResamplerFilter.exit.i
   %indvars.iv.i = phi i64 [ 0, %GenerateResamplerFilter.exit.i ], [ %indvars.iv.next.i, %101 ]
-  %102 = getelementptr inbounds nuw [8 x ptr], ptr @ResampleFrame, i64 0, i64 %indvars.iv.i
-  store ptr @ResampleFrame_Generic, ptr %102, align 8
+  %100 = getelementptr inbounds nuw [8 x ptr], ptr @ResampleFrame, i64 0, i64 %indvars.iv.i
+  store ptr @ResampleFrame_Generic, ptr %100, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %SetupAudioResampler.exit, label %101, !llvm.loop !9
+  br i1 %exitcond.not.i, label %SetupAudioResampler.exit, label %99, !llvm.loop !9
 
-SetupAudioResampler.exit:                         ; preds = %101
+SetupAudioResampler.exit:                         ; preds = %99
   store ptr @ResampleFrame_Mono, ptr @ResampleFrame, align 16
   store ptr @ResampleFrame_Stereo, ptr getelementptr inbounds nuw (i8, ptr @ResampleFrame, i64 8), align 8
   tail call void @SDL_SetInitialized_REAL(ptr noundef nonnull @SDL_SetupAudioResampler.init, i1 noundef zeroext true) #8
-  br label %103
+  br label %101
 
-103:                                              ; preds = %SetupAudioResampler.exit, %0
+101:                                              ; preds = %SetupAudioResampler.exit, %0
   ret void
 }
 

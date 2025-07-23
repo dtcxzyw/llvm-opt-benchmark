@@ -599,78 +599,78 @@ define void @Map_MappingSetupTruthTables(ptr noundef captures(none) %0) local_un
 define void @Map_MappingSetupTruthTablesLarge(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   br label %.preheader33
 
-.preheader33:                                     ; preds = %1, %3
+.preheader33:                                     ; preds = %1, %4
   %indvars.iv41 = phi i64 [ 0, %1 ], [ %indvars.iv.next42, %3 ]
   %invariant.gep = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %indvars.iv41
   br label %2
 
 2:                                                ; preds = %.preheader33, %2
   %indvars.iv = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next, %2 ]
-  %gep = getelementptr inbounds nuw [32 x i32], ptr %invariant.gep, i64 %indvars.iv
-  store i32 0, ptr %gep, align 4, !tbaa !39
+  %3 = getelementptr inbounds nuw [32 x i32], ptr %invariant.gep, i64 %indvars.iv
+  store i32 0, ptr %3, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %3, label %2, !llvm.loop !54
+  br i1 %exitcond.not, label %4, label %2, !llvm.loop !54
 
-3:                                                ; preds = %2
+4:                                                ; preds = %2
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 32
   br i1 %exitcond44.not, label %.preheader31, label %.preheader33, !llvm.loop !55
 
-.preheader31:                                     ; preds = %3, %17
+.preheader31:                                     ; preds = %4, %18
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %17 ], [ 0, %3 ]
-  %4 = trunc nuw nsw i64 %indvars.iv49 to i32
-  %5 = shl nuw i32 1, %4
-  br label %6
+  %5 = trunc nuw nsw i64 %indvars.iv49 to i32
+  %6 = shl nuw i32 1, %5
+  br label %7
 
-6:                                                ; preds = %.preheader31, %16
+7:                                                ; preds = %.preheader31, %17
   %indvars.iv45 = phi i64 [ 0, %.preheader31 ], [ %indvars.iv.next46, %16 ]
-  %7 = trunc nuw nsw i64 %indvars.iv45 to i32
-  %8 = shl nuw nsw i32 1, %7
-  %9 = and i32 %8, %4
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %16, label %10
+  %8 = trunc nuw nsw i64 %indvars.iv45 to i32
+  %9 = shl nuw nsw i32 1, %8
+  %10 = and i32 %9, %5
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %17, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv45
-  %12 = load i32, ptr %11, align 4, !tbaa !39
-  %13 = or i32 %12, %5
-  store i32 %13, ptr %11, align 4, !tbaa !39
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 640
-  %15 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %indvars.iv49
-  store i32 -1, ptr %15, align 4, !tbaa !39
-  br label %16
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv45
+  %13 = load i32, ptr %12, align 4, !tbaa !39
+  %14 = or i32 %13, %6
+  store i32 %14, ptr %12, align 4, !tbaa !39
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 640
+  %16 = getelementptr inbounds nuw [32 x i32], ptr %15, i64 0, i64 %indvars.iv49
+  store i32 -1, ptr %16, align 4, !tbaa !39
+  br label %17
 
-16:                                               ; preds = %6, %10
+17:                                               ; preds = %7, %11
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 5
-  br i1 %exitcond48.not, label %17, label %6, !llvm.loop !56
+  br i1 %exitcond48.not, label %18, label %7, !llvm.loop !56
 
-17:                                               ; preds = %16
+18:                                               ; preds = %17
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 32
   br i1 %exitcond52.not, label %.preheader, label %.preheader31, !llvm.loop !57
 
-.preheader:                                       ; preds = %17, %22
+.preheader:                                       ; preds = %18, %23
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %22 ], [ 0, %17 ]
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.preheader, %18
+19:                                               ; preds = %.preheader, %19
   %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %18 ]
-  %19 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv53
-  %20 = load i32, ptr %19, align 4, !tbaa !39
-  %21 = getelementptr inbounds nuw [32 x i32], ptr %19, i64 0, i64 %indvars.iv57
-  store i32 %20, ptr %21, align 4, !tbaa !39
+  %20 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv53
+  %21 = load i32, ptr %20, align 4, !tbaa !39
+  %22 = getelementptr inbounds nuw [32 x i32], ptr %19, i64 0, i64 %indvars.iv57
+  store i32 %21, ptr %22, align 4, !tbaa !39
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 5
-  br i1 %exitcond56.not, label %22, label %18, !llvm.loop !58
+  br i1 %exitcond56.not, label %23, label %19, !llvm.loop !58
 
-22:                                               ; preds = %18
+23:                                               ; preds = %19
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 32
-  br i1 %exitcond60.not, label %23, label %.preheader, !llvm.loop !59
+  br i1 %exitcond60.not, label %24, label %.preheader, !llvm.loop !59
 
-23:                                               ; preds = %22
+24:                                               ; preds = %23
   ret void
 }
 

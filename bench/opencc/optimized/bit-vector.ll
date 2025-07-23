@@ -357,7 +357,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef 
   %141 = add i64 %140, %129
   br label %142
 
-142:                                              ; preds = %107, %10
+142:; preds = %107, %10
   %.065 = phi i64 [ %11, %10 ], [ %141, %107 ]
   ret i64 %.065
 }
@@ -546,7 +546,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %128 = add i64 %127, %116
   br label %129
 
-129:                                              ; preds = %95, %10
+129:; preds = %95, %10
   %.062 = phi i64 [ %11, %10 ], [ %128, %95 ]
   ret i64 %.062
 }

@@ -818,26 +818,26 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %invariant.gep = getelementptr inbounds nuw [4 x float], ptr %55, i64 0, i64 %indvars.iv158
   br label %364
 
-364:                                              ; preds = %.preheader129, %371
+363:                                              ; preds = %.preheader129, %371
   %indvars.iv = phi i64 [ 0, %.preheader129 ], [ %indvars.iv.next, %371 ]
   %.059139 = phi float [ 0.000000e+00, %.preheader129 ], [ %372, %371 ]
   %.1138 = phi ptr [ %.061141, %.preheader129 ], [ %370, %371 ]
-  %365 = call i64 @strtol(ptr noundef nonnull captures(none) %.1138, ptr noundef null, i32 noundef 10) #10
-  %366 = trunc i64 %365 to i32
-  %367 = sitofp i32 %366 to float
-  %368 = getelementptr inbounds nuw [4 x float], ptr %363, i64 0, i64 %indvars.iv
-  store float %367, ptr %368, align 4, !tbaa !111
-  %gep = getelementptr inbounds nuw [3 x [4 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv
-  %369 = load float, ptr %gep, align 4, !tbaa !111
+  %364 = call i64 @strtol(ptr noundef nonnull captures(none) %.1138, ptr noundef null, i32 noundef 10) #10
+  %365 = trunc i64 %364 to i32
+  %366 = sitofp i32 %365 to float
+  %367 = getelementptr inbounds nuw [4 x float], ptr %363, i64 0, i64 %indvars.iv
+  store float %366, ptr %367, align 4, !tbaa !111
+  %368 = getelementptr inbounds nuw [3 x [4 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %369 = load float, ptr %368, align 4, !tbaa !111
   %370 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.19, ptr noundef nonnull %9) #10
   %.not98 = icmp eq ptr %370, null
   br i1 %.not98, label %.sink.split, label %371
 
-371:                                              ; preds = %364
+371:                                              ; preds = %363
   %372 = fadd reassoc nsz arcp contract afn float %369, %.059139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %373, label %364, !llvm.loop !113
+  br i1 %exitcond.not, label %373, label %363, !llvm.loop !113
 
 373:                                              ; preds = %371
   %374 = fpext reassoc nsz arcp contract afn float %372 to double
@@ -863,7 +863,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 3
   br i1 %exitcond161.not, label %.sink.split, label %.preheader129, !llvm.loop !115
 
-.sink.split:                                      ; preds = %.loopexit, %364, %356
+.sink.split:                                      ; preds = %.loopexit, %363, %356
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   br label %380
 

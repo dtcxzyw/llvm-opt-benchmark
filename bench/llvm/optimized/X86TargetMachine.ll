@@ -6462,8 +6462,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   br label %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE18isIndexedLoadLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit
 
 _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE18isIndexedLoadLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit: ; preds = %3, %10
-  %21 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
-  ret i1 %21
+  %20 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6490,8 +6490,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   br label %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE19isIndexedStoreLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit
 
 _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE19isIndexedStoreLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit: ; preds = %3, %10
-  %19 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
-  ret i1 %19
+  %18 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

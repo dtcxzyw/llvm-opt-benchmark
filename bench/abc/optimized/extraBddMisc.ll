@@ -3714,21 +3714,21 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !63
   tail call void @Cudd_Ref(ptr noundef %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %5
+  br label %.lr.ph.preheader
 
-5:                                                ; preds = %0, %._crit_edge
+.lr.ph.preheader:                                 ; preds = %0, %._crit_edge
   %indvars.iv47 = phi i64 [ 0, %0 ], [ %indvars.iv.next48, %._crit_edge ]
-  %6 = phi ptr [ @__const.Extra_GraphExperiment.Edges, %0 ], [ %17, %._crit_edge ]
+  %.03643 = phi ptr [ @__const.Extra_GraphExperiment.Edges, %0 ], [ %17, %._crit_edge ]
   %.03643 = phi ptr [ %3, %0 ], [ %16, %._crit_edge ]
   %7 = load ptr, ptr %4, align 8, !tbaa !34
   tail call void @Cudd_Ref(ptr noundef %7) #19
-  %8 = load i32, ptr %6, align 4, !tbaa !31
+  %7 = load i32, ptr %6, align 4, !tbaa !31
   %.not3940 = icmp eq i32 %8, 0
   br i1 %.not3940, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
-  %9 = phi i32 [ %15, %.lr.ph ], [ %8, %5 ]
+.lr.ph: ; preds = %.lr.ph.preheader, %.lr.ph
+  %8 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
+  %.03542 = phi i32 [ %1.lr.ph.preheader, %.lr.ph ], [ %8, %5 ]
   %.03542 = phi ptr [ %13, %.lr.ph ], [ %7, %5 ]
   %10 = load ptr, ptr %4, align 8, !tbaa !34
   %11 = load ptr, ptr %2, align 8, !tbaa !63
@@ -3739,9 +3739,9 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %.03542) #19
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %12) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv.next
-  %15 = load i32, ptr %14, align 4, !tbaa !31
-  %.not39 = icmp eq i32 %15, 0
+  %13 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv.next
+  %14 = load i32, ptr %13, align 4, !tbaa !31
+  %.not39 = icmp eq i32 %14, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3753,10 +3753,10 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %17 = getelementptr inbounds nuw [5 x [5 x i32]], ptr @__const.Extra_GraphExperiment.Edges, i64 0, i64 %indvars.iv.next48
   %exitcond = icmp eq i64 %indvars.iv.next48, 4
-  br i1 %exitcond, label %18, label %5, !llvm.loop !83
+  br i1 %exitcond, label %16, label %.lr.ph.preheader, !llvm.loop !83
 
-18:                                               ; preds = %._crit_edge
-  %19 = tail call i32 @Cudd_zddPrintMinterm(ptr noundef nonnull %1, ptr noundef %16) #19
+16:                                               ; preds = %._crit_edge
+  %17 = tail call i32 @Cudd_zddPrintMinterm(ptr noundef nonnull %1, ptr noundef %16) #19
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %16) #19
   tail call void @Cudd_Quit(ptr noundef nonnull %1) #19
   ret void

@@ -31,7 +31,7 @@ define dso_local void @meshopt_spatialSortRemap(ptr noundef captures(none) %0, p
   %11 = shl nuw i64 %2, 2
   %12 = select i1 %10, i64 -1, i64 %11
   %13 = invoke noundef ptr %9(i64 noundef %12)
-          to label %14 unwind label %178
+          to label %14 unwind label %179
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 192
@@ -239,15 +239,15 @@ define dso_local void @meshopt_spatialSortRemap(ptr noundef captures(none) %0, p
 _ZN7meshoptL16computeHistogramERA1024_A3_jPKjm.exit: ; preds = %.preheader.i
   %135 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %136 = invoke noundef ptr %135(i64 noundef %12)
-          to label %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44 unwind label %180
+          to label %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44 unwind label %181
 
 _ZN17meshopt_Allocator8allocateIjEEPT_m.exit44:   ; preds = %_ZN7meshoptL16computeHistogramERA1024_A3_jPKjm.exit
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %136, ptr %137, align 8, !tbaa !4
-  br i1 %.not.i, label %._crit_edge68, label %.lr.ph
+  br i1 %.not.i, label %._crit_edge65, label %.lr.ph
 
 .lr.ph.i46:                                       ; preds = %.lr.ph, %.lr.ph.i46
-  %.013.i = phi i64 [ %149, %.lr.ph.i46 ], [ 0, %.lr.ph ]
+  %.013.i = phi i64 [ %150, %.lr.ph.i46 ], [ 0, %.lr.ph ]
   %138 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.i
   %139 = load i32, ptr %138, align 4, !tbaa !16
   %140 = zext i32 %139 to i64
@@ -255,15 +255,15 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit44:   ; preds = %_ZN7meshoptL16compu
   %142 = load i32, ptr %141, align 4, !tbaa !16
   %143 = and i32 %142, 1023
   %144 = zext nneg i32 %143 to i64
-  %gep.i = getelementptr inbounds nuw [1024 x [3 x i32]], ptr %8, i64 0, i64 %144
-  %145 = load i32, ptr %gep.i, align 4, !tbaa !16
-  %146 = add i32 %145, 1
-  store i32 %146, ptr %gep.i, align 4, !tbaa !16
-  %147 = zext i32 %145 to i64
-  %148 = getelementptr inbounds nuw i32, ptr %136, i64 %147
-  store i32 %139, ptr %148, align 4, !tbaa !16
-  %149 = add nuw i64 %.013.i, 1
-  %exitcond.not.i47 = icmp eq i64 %149, %2
+  %145 = getelementptr inbounds nuw [1024 x [3 x i32]], ptr %8, i64 0, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !16
+  %147 = add i32 %146, 1
+  store i32 %147, ptr %145, align 4, !tbaa !16
+  %148 = zext i32 %146 to i64
+  %149 = getelementptr inbounds nuw i32, ptr %136, i64 %148
+  store i32 %139, ptr %149, align 4, !tbaa !16
+  %150 = add nuw i64 %.013.i, 1
+  %exitcond.not.i47 = icmp eq i64 %150, %2
   br i1 %exitcond.not.i47, label %.lr.ph.i50, label %.lr.ph.i46, !llvm.loop !21
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i46
@@ -280,18 +280,18 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit44:   ; preds = %_ZN7meshoptL16compu
   %156 = lshr i32 %155, 10
   %157 = and i32 %156, 1023
   %158 = zext nneg i32 %157 to i64
-  %gep.i52 = getelementptr inbounds nuw [1024 x [3 x i32]], ptr %invariant.gep.i, i64 0, i64 %158
-  %159 = load i32, ptr %gep.i52, align 4, !tbaa !16
-  %160 = add i32 %159, 1
-  store i32 %160, ptr %gep.i52, align 4, !tbaa !16
-  %161 = zext i32 %159 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %0, i64 %161
-  store i32 %152, ptr %162, align 4, !tbaa !16
-  %163 = add nuw i64 %.013.i51, 1
-  %exitcond.not.i53 = icmp eq i64 %163, %2
-  br i1 %exitcond.not.i53, label %.lr.ph.i57, label %150, !llvm.loop !21
+  %159 = getelementptr inbounds nuw [1024 x [3 x i32]], ptr %invariant.gep.i, i64 0, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !16
+  %161 = add i32 %160, 1
+  store i32 %161, ptr %159, align 4, !tbaa !16
+  %162 = zext i32 %160 to i64
+  %163 = getelementptr inbounds nuw i32, ptr %0, i64 %162
+  store i32 %152, ptr %163, align 4, !tbaa !16
+  %164 = add nuw i64 %.013.i51, 1
+  %exitcond.not.i52 = icmp eq i64 %164, %2
+  br i1 %exitcond.not.i52, label %.lr.ph.i56, label %150, !llvm.loop !21
 
-.lr.ph.i57:                                       ; preds = %150
+.lr.ph.i56:                                       ; preds = %150
   %invariant.gep.i58 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %164
 
@@ -305,79 +305,79 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit44:   ; preds = %_ZN7meshoptL16compu
   %170 = lshr i32 %169, 20
   %171 = and i32 %170, 1023
   %172 = zext nneg i32 %171 to i64
-  %gep.i60 = getelementptr inbounds nuw [1024 x [3 x i32]], ptr %invariant.gep.i58, i64 0, i64 %172
-  %173 = load i32, ptr %gep.i60, align 4, !tbaa !16
-  %174 = add i32 %173, 1
-  store i32 %174, ptr %gep.i60, align 4, !tbaa !16
-  %175 = zext i32 %173 to i64
-  %176 = getelementptr inbounds nuw i32, ptr %136, i64 %175
-  store i32 %166, ptr %176, align 4, !tbaa !16
-  %177 = add nuw i64 %.013.i59, 1
-  %exitcond.not.i61 = icmp eq i64 %177, %2
-  br i1 %exitcond.not.i61, label %.lr.ph67, label %164, !llvm.loop !21
+  %173 = getelementptr inbounds nuw [1024 x [3 x i32]], ptr %invariant.gep.i58, i64 0, i64 %172
+  %174 = load i32, ptr %173, align 4, !tbaa !16
+  %175 = add i32 %174, 1
+  store i32 %175, ptr %173, align 4, !tbaa !16
+  %176 = zext i32 %174 to i64
+  %177 = getelementptr inbounds nuw i32, ptr %136, i64 %176
+  store i32 %166, ptr %177, align 4, !tbaa !16
+  %178 = add nuw i64 %.013.i59, 1
+  %exitcond.not.i58 = icmp eq i64 %178, %2
+  br i1 %exitcond.not.i58, label %.lr.ph64, label %164, !llvm.loop !21
 
-178:                                              ; preds = %4
-  %179 = landingpad { ptr, i32 }
+179:                                              ; preds = %4
+  %180 = landingpad { ptr, i32 }
           cleanup
-  br label %200
+  br label %201
 
-180:                                              ; preds = %_ZN7meshoptL16computeHistogramERA1024_A3_jPKjm.exit
-  %181 = landingpad { ptr, i32 }
+181:                                              ; preds = %_ZN7meshoptL16computeHistogramERA1024_A3_jPKjm.exit
+  %182 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 12288, ptr nonnull %8) #10
-  br label %200
+  br label %201
 
 .lr.ph:                                           ; preds = %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44, %.lr.ph
-  %.03465 = phi i64 [ %184, %.lr.ph ], [ 0, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44 ]
-  %182 = trunc i64 %.03465 to i32
-  %183 = getelementptr inbounds nuw i32, ptr %0, i64 %.03465
-  store i32 %182, ptr %183, align 4, !tbaa !16
-  %184 = add nuw i64 %.03465, 1
-  %exitcond.not = icmp eq i64 %184, %2
+  %.03462 = phi i64 [ %185, %.lr.ph ], [ 0, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44 ]
+  %183 = trunc i64 %.03462 to i32
+  %184 = getelementptr inbounds nuw i32, ptr %0, i64 %.03462
+  store i32 %183, ptr %184, align 4, !tbaa !16
+  %185 = add nuw i64 %.03462, 1
+  %exitcond.not = icmp eq i64 %185, %2
   br i1 %exitcond.not, label %.lr.ph.i46, label %.lr.ph, !llvm.loop !22
 
-._crit_edge68:                                    ; preds = %.lr.ph67, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44
+._crit_edge65:                                    ; preds = %.lr.ph64, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44
   call void @llvm.lifetime.end.p0(i64 12288, ptr nonnull %8) #10
-  br label %185
+  br label %186
 
-185:                                              ; preds = %186, %._crit_edge68
-  %.0.i = phi i64 [ 2, %._crit_edge68 ], [ %188, %186 ]
-  %.not.i64 = icmp eq i64 %.0.i, 0
-  br i1 %.not.i64, label %_ZN17meshopt_AllocatorD2Ev.exit, label %186
+186:                                              ; preds = %187, %._crit_edge65
+  %.0.i = phi i64 [ 2, %._crit_edge68 ], [ %189, %186 ]
+  %.not.i61 = icmp eq i64 %.0.i, 0
+  br i1 %.not.i61, label %_ZN17meshopt_AllocatorD2Ev.exit, label %187
 
-186:                                              ; preds = %185
-  %187 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %188 = add i64 %.0.i, -1
-  %189 = getelementptr inbounds nuw [24 x ptr], ptr %7, i64 0, i64 %188
-  %190 = load ptr, ptr %189, align 8, !tbaa !4
-  invoke void %187(ptr noundef %190)
-          to label %185 unwind label %191, !llvm.loop !23
+187:                                              ; preds = %186
+  %188 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
+  %189 = add i64 %.0.i, -1
+  %190 = getelementptr inbounds nuw [24 x ptr], ptr %7, i64 0, i64 %189
+  %191 = load ptr, ptr %190, align 8, !tbaa !4
+  invoke void %187(ptr noundef %191)
+          to label %185 unwind label %192, !llvm.loop !23
 
-191:                                              ; preds = %186
-  %192 = landingpad { ptr, i32 }
+192:                                              ; preds = %187
+  %193 = landingpad { ptr, i32 }
           catch ptr null
-  %193 = extractvalue { ptr, i32 } %192, 0
-  tail call void @__clang_call_terminate(ptr %193) #11
+  %194 = extractvalue { ptr, i32 } %193, 0
+  tail call void @__clang_call_terminate(ptr %194) #11
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %185
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %186
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #10
   ret void
 
-.lr.ph67:                                         ; preds = %164, %.lr.ph67
-  %.066 = phi i64 [ %199, %.lr.ph67 ], [ 0, %164 ]
-  %194 = trunc i64 %.066 to i32
-  %195 = getelementptr inbounds nuw i32, ptr %136, i64 %.066
-  %196 = load i32, ptr %195, align 4, !tbaa !16
-  %197 = zext i32 %196 to i64
-  %198 = getelementptr inbounds nuw i32, ptr %0, i64 %197
-  store i32 %194, ptr %198, align 4, !tbaa !16
-  %199 = add nuw i64 %.066, 1
-  %exitcond70.not = icmp eq i64 %199, %2
-  br i1 %exitcond70.not, label %._crit_edge68, label %.lr.ph67, !llvm.loop !24
+.lr.ph64:                                         ; preds = %164, %.lr.ph64
+  %.063 = phi i64 [ %200, %.lr.ph67 ], [ 0, %164 ]
+  %195 = trunc i64 %.063 to i32
+  %196 = getelementptr inbounds nuw i32, ptr %136, i64 %.063
+  %197 = load i32, ptr %196, align 4, !tbaa !16
+  %198 = zext i32 %197 to i64
+  %199 = getelementptr inbounds nuw i32, ptr %0, i64 %198
+  store i32 %195, ptr %199, align 4, !tbaa !16
+  %200 = add nuw i64 %.063, 1
+  %exitcond67.not = icmp eq i64 %200, %2
+  br i1 %exitcond67.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !24
 
-200:                                              ; preds = %180, %178
-  %.pn = phi { ptr, i32 } [ %181, %180 ], [ %179, %178 ]
+201:                                              ; preds = %181, %179
+  %.pn = phi { ptr, i32 } [ %182, %180 ], [ %180, %178 ]
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #10
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #10
   resume { ptr, i32 } %.pn

@@ -677,14 +677,14 @@ define hidden i32 @_glfwPollJoystickLinux(ptr noundef %0, i32 noundef %1) local_
 ._crit_edge:                                      ; preds = %handleAbsEvent.exit, %2
   %16 = load i32, ptr %4, align 4, !tbaa !93
   %17 = icmp eq i32 %16, 19
-  br i1 %17, label %18, label %89
+  br i1 %17, label %18, label %88
 
 18:                                               ; preds = %._crit_edge
   tail call void @_glfwInputJoystick(ptr noundef nonnull %0, i32 noundef 262146) #13
   %19 = load i32, ptr %5, align 8, !tbaa !94
   %20 = tail call i32 @close(i32 noundef %19) #13
   tail call void @_glfwFreeJoystick(ptr noundef nonnull %0) #13
-  br label %89
+  br label %88
 
 21:                                               ; preds = %.lr.ph, %handleAbsEvent.exit
   %22 = load i16, ptr %9, align 8, !tbaa !107
@@ -739,7 +739,7 @@ define hidden i32 @_glfwPollJoystickLinux(ptr noundef %0, i32 noundef %1) local_
   %43 = load i32, ptr %42, align 4, !tbaa !93
   %44 = and i32 %39, 65528
   %or.cond.i = icmp eq i32 %44, 16
-  br i1 %or.cond.i, label %45, label %70
+  br i1 %or.cond.i, label %45, label %69
 
 45:                                               ; preds = %37
   %46 = add nsw i32 %39, -16
@@ -774,7 +774,7 @@ define hidden i32 @_glfwPollJoystickLinux(ptr noundef %0, i32 noundef %1) local_
   %62 = load i32, ptr %50, align 4, !tbaa !93
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds [3 x [3 x i8]], ptr @handleAbsEvent.stateMap, i64 0, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !93
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds [3 x i8], ptr %64, i64 0, i64 %67
@@ -782,45 +782,45 @@ define hidden i32 @_glfwPollJoystickLinux(ptr noundef %0, i32 noundef %1) local_
   tail call void @_glfwInputJoystickHat(ptr noundef nonnull %0, i32 noundef %43, i8 noundef signext %69) #13
   br label %handleAbsEvent.exit
 
-70:                                               ; preds = %37
-  %71 = getelementptr inbounds nuw [64 x %struct.input_absinfo], ptr %13, i64 0, i64 %41
-  %72 = sitofp i32 %40 to float
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = load i32, ptr %73, align 4, !tbaa !113
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !115
-  %.not.i8 = icmp eq i32 %74, %76
-  br i1 %.not.i8, label %85, label %77
+69:                                               ; preds = %37
+  %70 = getelementptr inbounds nuw [64 x %struct.input_absinfo], ptr %13, i64 0, i64 %41
+  %71 = sitofp i32 %40 to float
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %73 = load i32, ptr %72, align 4, !tbaa !113
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !115
+  %.not.i8 = icmp eq i32 %73, %75
+  br i1 %.not.i8, label %84, label %76
 
-77:                                               ; preds = %70
-  %78 = sub nsw i32 %74, %76
-  %79 = sitofp i32 %76 to float
-  %80 = fsub float %72, %79
-  %81 = sitofp i32 %78 to float
-  %82 = fdiv float %80, %81
-  %83 = fmul float %82, 2.000000e+00
-  %84 = fadd float %83, -1.000000e+00
-  br label %85
+76:                                               ; preds = %69
+  %77 = sub nsw i32 %73, %75
+  %78 = sitofp i32 %75 to float
+  %79 = fsub float %71, %78
+  %80 = sitofp i32 %77 to float
+  %81 = fdiv float %79, %80
+  %82 = fmul float %81, 2.000000e+00
+  %83 = fadd float %82, -1.000000e+00
+  br label %84
 
-85:                                               ; preds = %77, %70
-  %.0.i = phi float [ %84, %77 ], [ %72, %70 ]
+84:                                               ; preds = %76, %69
+  %.0.i = phi float [ %83, %77 ], [ %71, %70 ]
   tail call void @_glfwInputJoystickAxis(ptr noundef nonnull %0, i32 noundef %43, float noundef %.0.i) #13
   br label %handleAbsEvent.exit
 
-handleAbsEvent.exit:                              ; preds = %85, %61, %.thread, %29, %28, %27
+handleAbsEvent.exit:                              ; preds = %84, %61, %.thread, %29, %28, %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   store i32 0, ptr %4, align 4, !tbaa !93
-  %86 = load i32, ptr %5, align 8, !tbaa !94
-  %87 = call i64 @read(i32 noundef %86, ptr noundef nonnull %3, i64 noundef 24) #13
-  %88 = icmp slt i64 %87, 0
-  br i1 %88, label %._crit_edge, label %21
+  %85 = load i32, ptr %5, align 8, !tbaa !94
+  %86 = call i64 @read(i32 noundef %85, ptr noundef nonnull %3, i64 noundef 24) #13
+  %87 = icmp slt i64 %86, 0
+  br i1 %87, label %._crit_edge, label %21
 
-89:                                               ; preds = %18, %._crit_edge
+88:                                               ; preds = %18, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !98
-  ret i32 %91
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %90 = load i32, ptr %89, align 4, !tbaa !98
+  ret i32 %90
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -857,7 +857,7 @@ define internal fastcc void @pollAbsState(ptr noundef %0) unnamed_addr #0 {
   %19 = load i32, ptr %8, align 4, !tbaa !93
   %20 = and i64 %indvars.iv, 56
   %or.cond.i = icmp eq i64 %20, 16
-  br i1 %or.cond.i, label %21, label %45
+  br i1 %or.cond.i, label %21, label %44
 
 21:                                               ; preds = %17
   %22 = add nuw i64 %indvars.iv, 4294967280
@@ -899,31 +899,31 @@ define internal fastcc void @pollAbsState(ptr noundef %0) unnamed_addr #0 {
   tail call void @_glfwInputJoystickHat(ptr noundef nonnull %0, i32 noundef %19, i8 noundef signext %44) #13
   br label %handleAbsEvent.exit
 
-45:                                               ; preds = %17
-  %46 = sitofp i32 %18 to float
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %48 = load i32, ptr %47, align 4, !tbaa !113
-  %49 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !115
-  %.not.i = icmp eq i32 %48, %50
-  br i1 %.not.i, label %59, label %51
+44:                                               ; preds = %17
+  %45 = sitofp i32 %18 to float
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %47 = load i32, ptr %46, align 4, !tbaa !113
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !115
+  %.not.i = icmp eq i32 %47, %49
+  br i1 %.not.i, label %58, label %50
 
-51:                                               ; preds = %45
-  %52 = sub nsw i32 %48, %50
-  %53 = sitofp i32 %50 to float
-  %54 = fsub float %46, %53
-  %55 = sitofp i32 %52 to float
-  %56 = fdiv float %54, %55
-  %57 = fmul float %56, 2.000000e+00
-  %58 = fadd float %57, -1.000000e+00
-  br label %59
+50:                                               ; preds = %44
+  %51 = sub nsw i32 %47, %49
+  %52 = sitofp i32 %49 to float
+  %53 = fsub float %45, %52
+  %54 = sitofp i32 %51 to float
+  %55 = fdiv float %53, %54
+  %56 = fmul float %55, 2.000000e+00
+  %57 = fadd float %56, -1.000000e+00
+  br label %58
 
-59:                                               ; preds = %51, %45
-  %.0.i = phi float [ %58, %51 ], [ %46, %45 ]
+58:                                               ; preds = %50, %44
+  %.0.i = phi float [ %57, %51 ], [ %45, %45 ]
   tail call void @_glfwInputJoystickAxis(ptr noundef nonnull %0, i32 noundef %19, float noundef %.0.i) #13
   br label %handleAbsEvent.exit
 
-handleAbsEvent.exit:                              ; preds = %59, %36, %11, %7
+handleAbsEvent.exit:                              ; preds = %58, %36, %11, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %6, label %7
