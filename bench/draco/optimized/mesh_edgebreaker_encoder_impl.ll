@@ -5367,21 +5367,21 @@ define linkonce_odr void @_ZN5draco31MeshEdgebreakerTraversalEncoder5StartEv(ptr
   %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #22
   store i64 %6, ptr %9, align 16
   %.ptr9 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br label %10
+  br label %11
 
-10:                                               ; preds = %11, %5
+11:                                               ; preds = %12, %5
   %.idx = phi i64 [ 8, %5 ], [ %.add, %11 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   invoke void @_ZN5draco14RAnsBitEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr.ptr)
           to label %11 unwind label %28
 
-11:                                               ; preds = %10
+12:                                               ; preds = %11
   %.add = add nuw nsw i64 %.idx, 56
   %12 = add nuw nsw i64 %.idx, 48
   %13 = icmp eq i64 %12, %7
-  br i1 %13, label %14, label %10
+  br i1 %13, label %14, label %11
 
-14:                                               ; preds = %11
+14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load ptr, ptr %15, align 8, !tbaa !285
   store ptr %.ptr9, ptr %15, align 8, !tbaa !285
@@ -5416,11 +5416,11 @@ _ZNSt10unique_ptrIA_N5draco14RAnsBitEncoderESt14default_deleteIS2_EED2Ev.exit: ;
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph, label %.loopexit
 
-28:                                               ; preds = %10
+28:                                               ; preds = %11
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = icmp eq i64 %.idx, 8
-  br i1 %30, label %.loopexit16, label %.preheader
+  br i1 %30, label %.loopexit15, label %.preheader
 
 .preheader:                                       ; preds = %28, %.preheader
   %.idx10 = phi i64 [ %.add11, %.preheader ], [ %.idx, %28 ]
@@ -5428,9 +5428,9 @@ _ZNSt10unique_ptrIA_N5draco14RAnsBitEncoderESt14default_deleteIS2_EED2Ev.exit: ;
   %.ptr13 = getelementptr inbounds i8, ptr %9, i64 %.add11
   tail call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr13) #20
   %31 = icmp eq i64 %.add11, 8
-  br i1 %31, label %.loopexit16, label %.preheader
+  br i1 %31, label %.loopexit15, label %.preheader
 
-.loopexit16:                                      ; preds = %.preheader, %28
+.loopexit15:                                      ; preds = %.preheader, %28
   tail call void @_ZdaPvm(ptr noundef nonnull %9, i64 noundef %8) #21
   resume { ptr, i32 } %29
 

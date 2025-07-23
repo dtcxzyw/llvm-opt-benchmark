@@ -322,22 +322,22 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZS
 15:                                               ; preds = %7
   %16 = shl nuw i64 1, %9
   store i64 %16, ptr %14, align 16
-  br label %17
+  br label %18
 
-17:                                               ; preds = %15, %17
+18:                                               ; preds = %15, %18
   %.idx = phi i64 [ 8, %15 ], [ %.add, %17 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   store ptr null, ptr %.ptr.ptr, align 8, !tbaa !28
-  %18 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  store i64 -1, ptr %18, align 8, !tbaa !32
-  %19 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 16
-  store ptr %.ptr.ptr, ptr %19, align 8, !tbaa !36
+  %19 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
+  store i64 -1, ptr %19, align 8, !tbaa !32
+  %20 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 16
+  store ptr %.ptr.ptr, ptr %20, align 8, !tbaa !36
   %.add = add nuw nsw i64 %.idx, 64
   %20 = add nuw nsw i64 %.idx, 56
   %21 = icmp eq i64 %20, %11
-  br i1 %21, label %22, label %17
+  br i1 %21, label %22, label %18
 
-22:                                               ; preds = %17
+22:                                               ; preds = %18
   %.ptr7 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %23 = load ptr, ptr %0, align 8, !tbaa !24
   store ptr %.ptr7, ptr %0, align 8, !tbaa !24

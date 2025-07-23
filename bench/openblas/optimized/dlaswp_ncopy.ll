@@ -15,22 +15,22 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %13 = lshr i64 %0, 1
   %.not = icmp eq i64 %0, 1
   %.pre = load i32, ptr %9, align 4, !tbaa !3
-  %.pre345 = sub nsw i64 %2, %8
-  %.pre347 = ashr i64 %.pre345, 1
+  %.pre343 = sub nsw i64 %2, %8
+  %.pre345 = ashr i64 %.pre343, 1
   br i1 %.not, label %..thread_crit_edge, label %.preheader310
 
 ..thread_crit_edge:                               ; preds = %11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.pre343 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !3
-  %.pre344 = sext i32 %.pre to i64
+  %.pre341 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !3
+  %.pre342 = sext i32 %.pre to i64
   br label %.thread
 
 .preheader310:                                    ; preds = %11
   %14 = sext i32 %.pre to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !3
-  %17 = icmp sgt i64 %.pre347, 0
-  %18 = and i64 %.pre345, 1
+  %17 = icmp sgt i64 %.pre345, 0
+  %18 = and i64 %.pre343, 1
   %.not298 = icmp eq i64 %18, 0
   %.idx = shl nsw i64 %4, 4
   br i1 %17, label %.preheader308.us, label %.preheader310.split
@@ -48,7 +48,7 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 24:                                               ; preds = %.preheader308.us, %70
   %.3284.us = phi ptr [ %71, %70 ], [ %.1282.us, %.preheader308.us ]
-  %.0279.us = phi i64 [ %76, %70 ], [ %.pre347, %.preheader308.us ]
+  %.0279.us = phi i64 [ %76, %70 ], [ %.pre345, %.preheader308.us ]
   %.pn297.us = phi ptr [ %.0276.us, %70 ], [ %9, %.preheader308.us ]
   %.1273.us = phi ptr [ %74, %70 ], [ %20, %.preheader308.us ]
   %.1271.us = phi ptr [ %75, %70 ], [ %21, %.preheader308.us ]
@@ -223,30 +223,30 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %.preheader310.split.split
 
 .preheader310.split.split.us.preheader:           ; preds = %.preheader310.split
-  %96 = shl i64 %13, 4
-  %97 = mul i64 %4, %96
-  %98 = getelementptr i8, ptr %3, i64 %97
-  %scevgep = getelementptr i8, ptr %98, i64 -8
+  %94 = shl i64 %13, 4
+  %95 = mul i64 %4, %94
+  %96 = getelementptr i8, ptr %3, i64 %95
+  %scevgep = getelementptr i8, ptr %96, i64 -8
   br label %.split.us
 
 .preheader310.split.split:                        ; preds = %.preheader310.split.split.preheader, %111
   %.1286 = phi ptr [ %113, %111 ], [ %12, %.preheader310.split.split.preheader ]
   %.1282 = phi ptr [ %112, %111 ], [ %6, %.preheader310.split.split.preheader ]
   %.0278 = phi i64 [ %114, %111 ], [ %13, %.preheader310.split.split.preheader ]
-  %99 = getelementptr inbounds i8, ptr %.1286, i64 %94
-  %100 = getelementptr inbounds double, ptr %99, i64 %4
+  %97 = getelementptr inbounds i8, ptr %.1286, i64 %94
+  %98 = getelementptr inbounds double, ptr %97, i64 %4
   %101 = load double, ptr %99, align 8, !tbaa !7
-  %102 = load double, ptr %100, align 8, !tbaa !7
+  %102 = load double, ptr %98, align 8, !tbaa !7
   br i1 %95, label %103, label %105
 
-103:                                              ; preds = %.preheader310.split.split
+103:; preds = %.preheader310.split.split
   store double %101, ptr %.1282, align 8, !tbaa !7
-  %104 = getelementptr inbounds nuw i8, ptr %.1282, i64 8
-  store double %102, ptr %104, align 8, !tbaa !7
+  %105 = getelementptr inbounds nuw i8, ptr %.1282, i64 8
+  store double %102, ptr %105, align 8, !tbaa !7
   br label %111
 
-105:                                              ; preds = %.preheader310.split.split
-  %106 = getelementptr inbounds i8, ptr %.1286, i64 %.idx329
+106:                                              ; preds = %.preheader310.split.split
+  %107 = getelementptr inbounds i8, ptr %.1286, i64 %.idx329
   %107 = getelementptr inbounds double, ptr %106, i64 %4
   %108 = load double, ptr %107, align 8, !tbaa !7
   %109 = load double, ptr %106, align 8, !tbaa !7
@@ -257,7 +257,7 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   store double %102, ptr %107, align 8, !tbaa !7
   br label %111
 
-111:                                              ; preds = %105, %103
+111:                                              ; preds = %106, %103
   %112 = getelementptr inbounds nuw i8, ptr %.1282, i64 16
   %113 = getelementptr inbounds i8, ptr %.1286, i64 %.idx
   %114 = add nsw i64 %.0278, -1
@@ -272,19 +272,19 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br i1 %.not299, label %165, label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %.split.us
-  %.pre-phi = phi i64 [ %.pre344, %..thread_crit_edge ], [ %14, %.split.us ]
-  %117 = phi i32 [ %.pre343, %..thread_crit_edge ], [ %16, %.split.us ]
+  %.pre-phi = phi i64 [ %.pre342, %..thread_crit_edge ], [ %14, %.split.us ]
+  %117 = phi i32 [ %.pre341, %..thread_crit_edge ], [ %16, %.split.us ]
   %.0281307 = phi ptr [ %6, %..thread_crit_edge ], [ %.us-phi, %.split.us ]
   %.0285306 = phi ptr [ %12, %..thread_crit_edge ], [ %.us-phi319, %.split.us ]
   %118 = getelementptr inbounds double, ptr %.0285306, i64 %8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = getelementptr inbounds double, ptr %.0285306, i64 %.pre-phi
-  %121 = icmp sgt i64 %.pre347, 0
+  %121 = icmp sgt i64 %.pre345, 0
   br i1 %121, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.thread, %153
   %.6 = phi ptr [ %154, %153 ], [ %.0281307, %.thread ]
-  %.1280 = phi i64 [ %157, %153 ], [ %.pre347, %.thread ]
+  %.1280 = phi i64 [ %157, %153 ], [ %.pre345, %.thread ]
   %.pn301 = phi ptr [ %.1277, %153 ], [ %9, %.thread ]
   %.3275 = phi ptr [ %156, %153 ], [ %119, %.thread ]
   %.3 = phi ptr [ %155, %153 ], [ %120, %.thread ]
@@ -378,7 +378,7 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.5 = phi ptr [ %.0281307, %.thread ], [ %154, %153 ]
   %.2274 = phi ptr [ %119, %.thread ], [ %156, %153 ]
   %.2 = phi ptr [ %120, %.thread ], [ %155, %153 ]
-  %159 = and i64 %.pre345, 1
+  %159 = and i64 %.pre343, 1
   %.not302 = icmp eq i64 %159, 0
   br i1 %.not302, label %165, label %160
 

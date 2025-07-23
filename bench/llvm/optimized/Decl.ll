@@ -1085,9 +1085,9 @@ _ZN5clang11LinkageInfo5mergeES0_.exit68:          ; preds = %.thread.i.i.i.i65, 
   br label %128
 
 128:                                              ; preds = %.lr.ph101, %_ZN5clang11LinkageInfo5mergeES0_.exit78
-  %indvars.iv109 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next110, %_ZN5clang11LinkageInfo5mergeES0_.exit78 ]
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next111, %_ZN5clang11LinkageInfo5mergeES0_.exit78 ]
   %.sroa.084.699 = phi i8 [ %.sroa.084.0104, %.lr.ph101 ], [ %storemerge.i74, %_ZN5clang11LinkageInfo5mergeES0_.exit78 ]
-  %129 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv109
+  %129 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv110
   %130 = load ptr, ptr %129, align 8, !tbaa !458
   %131 = tail call i8 @_ZN5clang15LinkageComputer29getLVForTemplateParameterListEPKNS_21TemplateParameterListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %130, i32 %2)
   %132 = and i8 %131, 7
@@ -1130,8 +1130,8 @@ _ZN5clang11LinkageInfo5mergeES0_.exit78:          ; preds = %.thread.i.i.i.i75, 
   %152 = or disjoint i8 %151, %150
   %153 = or disjoint i8 %152, %144
   %storemerge.i74 = select i1 %or.cond9.i.i.i73, i8 %153, i8 %141
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %.not44 = icmp eq i64 %indvars.iv.next110, %127
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %.not44 = icmp eq i64 %indvars.iv.next111, %127
   br i1 %.not44, label %.loopexit, label %128, !llvm.loop !459
 
 .loopexit:                                        ; preds = %93, %_ZN5clang11LinkageInfo5mergeES0_.exit78, %10, %56, %123, %_ZN5clang11LinkageInfo5mergeES0_.exit, %19, %_ZN5clang11LinkageInfo5mergeES0_.exit68

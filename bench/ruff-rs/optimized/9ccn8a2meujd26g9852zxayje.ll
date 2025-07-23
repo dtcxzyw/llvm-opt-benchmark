@@ -642,7 +642,7 @@ define internal fastcc noundef zeroext i1 @_ZN18ruff_python_trivia14comment_rang
   %8 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not.i = icmp ugt i64 %7, %8
-  br i1 %.not.i, label %101, label %9
+  br i1 %.not.i, label %98, label %9
 
 9:                                                ; preds = %4
   %10 = icmp eq i64 %7, 0
@@ -658,13 +658,13 @@ define internal fastcc noundef zeroext i1 @_ZN18ruff_python_trivia14comment_rang
 
 14:                                               ; preds = %11
   %15 = icmp eq i64 %7, %3
-  br i1 %15, label %12, label %101
+  br i1 %15, label %12, label %98
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %18 = load i8, ptr %17, align 1, !alias.scope !47, !noundef !3
   %19 = icmp sgt i8 %18, -65
-  br i1 %19, label %12, label %101
+  br i1 %19, label %12, label %98
 
 20:                                               ; preds = %12
   %.not6.i = icmp ult i64 %8, %3
@@ -672,13 +672,13 @@ define internal fastcc noundef zeroext i1 @_ZN18ruff_python_trivia14comment_rang
 
 21:                                               ; preds = %20
   %22 = icmp eq i64 %8, %3
-  br i1 %22, label %.loopexit.i.i.i.thread, label %101
+  br i1 %22, label %.loopexit.i.i.i.thread, label %98
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 %8
   %25 = load i8, ptr %24, align 1, !alias.scope !47, !noundef !3
   %26 = icmp sgt i8 %25, -65
-  br i1 %26, label %.loopexit.i.i.i.thread, label %101
+  br i1 %26, label %.loopexit.i.i.i.thread, label %98
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.preheader, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i"
   %27 = phi ptr [ %64, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i" ], [ %.ph, %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.preheader ]
@@ -770,7 +770,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.pre
   br i1 %76, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i9.i", label %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.preheader
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i9.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i7.i"
-  %77 = load i8, ptr %69, align 1, !noalias !60, !noundef !3
+  %76 = load i8, ptr %69, align 1, !noalias !60, !noundef !3
   %78 = add nuw nsw i64 %7, 2
   %79 = icmp samesign ne i64 %78, %8
   call void @llvm.assume(i1 %79)
@@ -779,11 +779,11 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.pre
   br i1 %81, label %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i, label %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.preheader
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i9.i"
-  %82 = and i8 %77, 63
-  %83 = zext nneg i8 %82 to i32
-  %84 = load i8, ptr %75, align 1, !noalias !60, !noundef !3
-  %85 = and i8 %84, 63
-  %86 = zext nneg i8 %85 to i32
+  %80 = and i8 %76, 63
+  %81 = zext nneg i8 %80 to i32
+  %82 = load i8, ptr %75, align 1, !noalias !60, !noundef !3
+  %83 = and i8 %82, 63
+  %84 = zext nneg i8 %83 to i32
   %87 = add nuw nsw i64 %7, 3
   %88 = icmp samesign ne i64 %87, %8
   call void @llvm.assume(i1 %88)
@@ -791,21 +791,21 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i: ; preds =
   %90 = load i8, ptr %80, align 1, !noalias !60, !noundef !3
   %91 = shl nuw nsw i32 %72, 18
   %92 = and i32 %91, 1835008
-  %93 = shl nuw nsw i32 %83, 12
+  %91 = shl nuw nsw i32 %83, 12
   %94 = shl nuw nsw i32 %86, 6
   %95 = or disjoint i32 %94, %93
   %96 = and i8 %90, 63
   %97 = zext nneg i8 %96 to i32
-  %98 = or disjoint i32 %95, %97
-  %99 = or disjoint i32 %98, %92
+  %96 = or disjoint i32 %95, %97
+  %99 = or disjoint i32 %96, %92
   %.not5.i4 = icmp eq i32 %99, 1114112
   br i1 %.not5.i4, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h06eed86deddc6ff7E.exit", label %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.preheader
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h06eed86deddc6ff7E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %.loopexit.i.i.i.thread, %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i
-  %100 = phi i1 [ true, %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i ], [ true, %.loopexit.i.i.i.thread ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i" ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i" ], [ true, %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i ]
-  ret i1 %100
+  %97 = phi i1 [ true, %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i ], [ true, %.loopexit.i.i.i.thread ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i" ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i" ], [ true, %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i ]
+  ret i1 %97
 
-101:                                              ; preds = %23, %16, %4, %14, %21
+98:                                               ; preds = %23, %16, %4, %14, %21
   call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %7, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.93335a6b989a7586c20d5234425d9b57.46) #12
   unreachable
 }

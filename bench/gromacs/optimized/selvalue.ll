@@ -87,7 +87,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !4
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %55, label %6
+  br i1 %5, label %57, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -95,7 +95,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   %.not = icmp eq ptr %8, null
   %9 = icmp slt i32 %4, %1
   %or.cond = or i1 %9, %.not
-  br i1 %or.cond, label %10, label %55
+  br i1 %or.cond, label %10, label %57
 
 10:                                               ; preds = %6
   %11 = load i32, ptr %0, align 8, !tbaa !10
@@ -104,7 +104,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
     i32 2, label %15
     i32 3, label %18
     i32 4, label %26
-    i32 5, label %47
+    i32 5, label %49
   ]
 
 12:                                               ; preds = %10
@@ -123,20 +123,20 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   store ptr %20, ptr %7, align 8, !tbaa !12
   %21 = load i32, ptr %3, align 8, !tbaa !4
   %22 = icmp slt i32 %21, %1
-  br i1 %22, label %.lr.ph48.preheader, label %.loopexit
+  br i1 %22, label %.lr.ph47.preheader, label %.loopexit
 
-.lr.ph48.preheader:                               ; preds = %18
+.lr.ph47.preheader:                               ; preds = %18
   %23 = sext i32 %21 to i64
-  br label %.lr.ph48
+  br label %.lr.ph47
 
-.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
-  %indvars.iv52 = phi i64 [ %23, %.lr.ph48.preheader ], [ %indvars.iv.next53, %.lr.ph48 ]
+.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
+  %indvars.iv51 = phi i64 [ %23, %.lr.ph48.preheader ], [ %indvars.iv.next52, %.lr.ph48 ]
   %24 = load ptr, ptr %7, align 8, !tbaa !11
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv52
+  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv51
   store ptr null, ptr %25, align 8, !tbaa !16
-  %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next53, %19
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph48, !llvm.loop !18
+  %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next52, %19
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph47, !llvm.loop !18
 
 26:                                               ; preds = %10
   br i1 %.not, label %28, label %27
@@ -159,70 +159,70 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   store i64 %29, ptr %38, align 16
   %.ptr36 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %39 = icmp eq i32 %1, 0
-  br i1 %39, label %.loopexit.sink.split, label %.preheader58
+  br i1 %39, label %.loopexit.sink.split, label %40
 
-.preheader58:                                     ; preds = %28, %40
+40:                                               ; preds = %28, %40
   %.idx = phi i64 [ %.add, %40 ], [ 8, %28 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr.ptr)
-          to label %40 unwind label %43
+          to label %40 unwind label %45
 
-40:                                               ; preds = %.preheader58
+43:                                               ; preds = %40
   %.add = add nuw nsw i64 %.idx, 152
   %41 = add nuw nsw i64 %.idx, 144
-  %42 = icmp eq i64 %41, %32
-  br i1 %42, label %.loopexit.sink.split, label %.preheader58
+  %44 = icmp eq i64 %41, %32
+  br i1 %44, label %.loopexit.sink.split, label %40
 
-43:                                               ; preds = %.preheader58
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %40
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %45 = icmp eq i64 %.idx, 8
-  br i1 %45, label %.loopexit42, label %.preheader
+  %47 = icmp eq i64 %.idx, 8
+  br i1 %47, label %.loopexit41, label %.preheader
 
-.preheader:                                       ; preds = %43, %.preheader
+.preheader:                                       ; preds = %45, %.preheader
   %.idx37 = phi i64 [ %.add38, %.preheader ], [ %.idx, %43 ]
   %.add38 = add nsw i64 %.idx37, -152
   %.ptr40 = getelementptr inbounds i8, ptr %38, i64 %.add38
   tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr40) #10
-  %46 = icmp eq i64 %.add38, 8
-  br i1 %46, label %.loopexit42, label %.preheader
+  %48 = icmp eq i64 %.add38, 8
+  br i1 %48, label %.loopexit41, label %.preheader
 
-.loopexit42:                                      ; preds = %.preheader, %43
+.loopexit41:                                      ; preds = %.preheader, %45
   tail call void @_ZdaPvm(ptr noundef nonnull %38, i64 noundef %37) #11
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %46
 
-47:                                               ; preds = %10
-  %48 = sext i32 %1 to i64
-  %49 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %48, i64 noundef 24)
-  store ptr %49, ptr %7, align 8, !tbaa !20
-  %50 = load i32, ptr %3, align 8, !tbaa !4
-  %51 = icmp slt i32 %50, %1
-  br i1 %51, label %.lr.ph.preheader, label %.loopexit
+49:                                               ; preds = %10
+  %50 = sext i32 %1 to i64
+  %51 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %50, i64 noundef 24)
+  store ptr %51, ptr %7, align 8, !tbaa !20
+  %52 = load i32, ptr %3, align 8, !tbaa !4
+  %53 = icmp slt i32 %52, %1
+  br i1 %53, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %47
-  %52 = sext i32 %50 to i64
+.lr.ph.preheader:                                 ; preds = %49
+  %54 = sext i32 %52 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %52, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %53 = load ptr, ptr %7, align 8, !tbaa !11
-  %54 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %53, i64 %indvars.iv
-  tail call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %54)
+  %indvars.iv = phi i64 [ %54, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %55 = load ptr, ptr %7, align 8, !tbaa !11
+  %56 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %55, i64 %indvars.iv
+  tail call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %56)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
-.loopexit.sink.split:                             ; preds = %40, %28, %12, %15
+.loopexit.sink.split:                             ; preds = %43, %28, %12, %15
   %.ptr36.sink = phi ptr [ %17, %15 ], [ %14, %12 ], [ %.ptr36, %28 ], [ %.ptr36, %40 ]
   store ptr %.ptr36.sink, ptr %7, align 8, !tbaa !11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph48, %.loopexit.sink.split, %47, %18, %10
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph47, %.loopexit.sink.split, %49, %18, %10
   store i32 %1, ptr %3, align 8, !tbaa !4
-  br label %55
+  br label %57
 
-55:                                               ; preds = %.loopexit, %6, %2
+57:                                               ; preds = %.loopexit, %6, %2
   ret void
 }
 

@@ -377,9 +377,9 @@ _ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit.lr.ph:   ; preds = %_ZNSt10lock_guardIS
   %8 = getelementptr inbounds i8, ptr %6, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !28
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.critedge, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader22
+  br i1 %.not, label %.critedge, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader20
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader22: ; preds = %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit.lr.ph
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader20: ; preds = %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit.lr.ph
   %wide.trip.count = zext i32 %9 to i64
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
 
@@ -392,7 +392,7 @@ _ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit:         ; preds = %_ZNSt10lock_guardIS
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader22, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader20, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader22 ], [ %indvars.iv.next, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit ]
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
@@ -427,12 +427,12 @@ _ZN6vectorIP8reslimitLb0EjE3endEv.exit.i:         ; preds = %_ZNSt10lock_guardIS
   br label %_ZN6vectorIP8reslimitLb0EjE5eraseEPS1_.exit
 
 _ZN6vectorIP8reslimitLb0EjE5eraseEPS1_.exit:      ; preds = %_ZN6vectorIP8reslimitLb0EjE3endEv.exit.i, %.lr.ph.preheader.i
-  %28 = add i32 %9, -1
-  store i32 %28, ptr %8, align 4, !tbaa !28
+  %29 = add i32 %9, -1
+  store i32 %29, ptr %8, align 4, !tbaa !28
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit.lr.ph, %_ZN6vectorIP8reslimitLb0EjE5eraseEPS1_.exit
-  %29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
+  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
   ret void
 }
 

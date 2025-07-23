@@ -2374,9 +2374,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58: ; preds = %_ZN4cvc58internal6t
   %210 = getelementptr inbounds nuw i8, ptr %.pre91, i64 24
   %211 = load i64, ptr %201, align 8
   %212 = lshr i64 %211, 29
-  %.idx = and i64 %212, 536870904
-  %213 = getelementptr inbounds nuw i8, ptr %210, i64 %.idx
-  %214 = add nuw nsw i64 %.idx, 24
+  %213 = and i64 %212, 536870904
+  %214 = getelementptr inbounds nuw i8, ptr %210, i64 %213
+  %214 = add nuw nsw i64 %213, 24
   %.not86 = icmp samesign eq i64 %spec.select.v.i.i, %214
   br i1 %.not86, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2386,7 +2386,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58: ; preds = %_ZN4cvc58internal6t
 
 215:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69
   %216 = getelementptr inbounds nuw i8, ptr %.sroa.080.087, i64 8
-  %.not = icmp eq ptr %216, %213
+  %.not = icmp eq ptr %216, %214
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 217:                                              ; preds = %200

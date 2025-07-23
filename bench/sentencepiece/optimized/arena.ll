@@ -913,7 +913,7 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
 
 22:                                               ; preds = %.thread
   %23 = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %16)
-  %.pre18 = load ptr, ptr %4, align 8, !tbaa !53
+  %.pre19 = load ptr, ptr %4, align 8, !tbaa !53
   br label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 24:                                               ; preds = %.thread
@@ -922,21 +922,21 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %22, %24
-  %26 = phi ptr [ %.pre18, %22 ], [ %9, %24 ]
+  %26 = phi ptr [ %.pre19, %22 ], [ %9, %24 ]
   %.0.i = phi ptr [ %23, %22 ], [ %18, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %26, ptr %27, align 8, !tbaa !55
   store i64 %13, ptr %.0.i, align 8, !tbaa !62
   store ptr %.0.i, ptr %4, align 8, !tbaa !53
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  store ptr %28, ptr %7, align 8, !tbaa !54
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %14
+  %.ptr = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  store ptr %.ptr, ptr %7, align 8, !tbaa !54
+  %28 = getelementptr inbounds nuw i8, ptr %.ptr, i64 %14
   store ptr %29, ptr %8, align 8, !tbaa !69
   %30 = icmp eq i64 %13, 0
   br i1 %30, label %tailrecurse, label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit, !prof !39
 
 _ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit: ; preds = %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
-  store ptr %1, ptr %28, align 8, !tbaa !59
+  store ptr %1, ptr %.ptr, align 8, !tbaa !59
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %2, ptr %31, align 8, !tbaa !57
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32

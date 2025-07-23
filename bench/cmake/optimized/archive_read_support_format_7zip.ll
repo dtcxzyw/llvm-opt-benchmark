@@ -132,17 +132,17 @@ declare i32 @__archive_read_register_format(ptr noundef, ptr noundef, ptr nounde
 define internal range(i32 -1, 49) i32 @archive_read_format_7zip_bid(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = icmp sgt i32 %1, 32
-  br i1 %4, label %58, label %5
+  br i1 %4, label %59, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 6, ptr noundef null) #17
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %58, label %8
+  br i1 %7, label %59, label %8
 
 8:                                                ; preds = %5
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.3, i64 6)
   %9 = icmp eq i32 %bcmp, 0
-  br i1 %9, label %58, label %10
+  br i1 %9, label %59, label %10
 
 10:                                               ; preds = %8
   %11 = load i8, ptr %6, align 1, !tbaa !37
@@ -158,14 +158,14 @@ define internal range(i32 -1, 49) i32 @archive_read_format_7zip_bid(ptr noundef 
 17:                                               ; preds = %13, %10
   %bcmp43 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %18 = icmp eq i32 %bcmp43, 0
-  br i1 %18, label %19, label %58
+  br i1 %18, label %19, label %59
 
 19:                                               ; preds = %17, %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   br label %20
 
-20:                                               ; preds = %19, %55
-  %21 = phi i64 [ 163840, %19 ], [ %56, %55 ]
+20:                                               ; preds = %19, %56
+  %21 = phi i64 [ 163840, %19 ], [ %57, %55 ]
   %.03061 = phi i64 [ 4096, %19 ], [ %.131, %55 ]
   %.03260 = phi i64 [ 159744, %19 ], [ %.133, %55 ]
   %22 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %21, ptr noundef nonnull %3) #17
@@ -175,7 +175,7 @@ define internal range(i32 -1, 49) i32 @archive_read_format_7zip_bid(ptr noundef 
 24:                                               ; preds = %20
   %25 = lshr i64 %.03061, 1
   %26 = icmp samesign ult i64 %.03061, 128
-  br i1 %26, label %.sink.split, label %55
+  br i1 %26, label %.sink.split, label %56
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %22, i64 %.03260
@@ -185,12 +185,12 @@ define internal range(i32 -1, 49) i32 @archive_read_format_7zip_bid(ptr noundef 
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27, %check_7zip_header_in_sfx.exit
-  %32 = phi i64 [ %47, %check_7zip_header_in_sfx.exit ], [ %29, %27 ]
+  %33 = phi i64 [ %47, %check_7zip_header_in_sfx.exit ], [ %29, %27 ]
   %.02859 = phi ptr [ %48, %check_7zip_header_in_sfx.exit ], [ %28, %27 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.02859, i64 5
-  %34 = load i8, ptr %33, align 1, !tbaa !37
-  switch i8 %34, label %46 [
-    i8 28, label %35
+  %34 = getelementptr inbounds nuw i8, ptr %.02859, i64 5
+  %35 = load i8, ptr %34, align 1, !tbaa !37
+  switch i8 %35, label %46 [
+    i8 28, label %36
     i8 55, label %check_7zip_header_in_sfx.exit
     i8 122, label %42
     i8 -68, label %43
@@ -198,21 +198,21 @@ define internal range(i32 -1, 49) i32 @archive_read_format_7zip_bid(ptr noundef 
     i8 39, label %45
   ]
 
-35:                                               ; preds = %.lr.ph
+36:                                               ; preds = %.lr.ph
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.02859, ptr noundef nonnull dereferenceable(6) @.str.3, i64 6)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i, label %36, label %check_7zip_header_in_sfx.exit
+  br i1 %.not.i, label %37, label %check_7zip_header_in_sfx.exit
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %.02859, i64 12
-  %38 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %37, i32 noundef 20) #17
-  %39 = getelementptr inbounds nuw i8, ptr %.02859, i64 8
-  %40 = load i32, ptr %39, align 1
-  %41 = zext i32 %40 to i64
-  %.not4.i = icmp eq i64 %38, %41
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %.02859, i64 12
+  %39 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %38, i32 noundef 20) #17
+  %40 = getelementptr inbounds nuw i8, ptr %.02859, i64 8
+  %41 = load i32, ptr %40, align 1
+  %42 = zext i32 %41 to i64
+  %.not4.i = icmp eq i64 %39, %42
   br i1 %.not4.i, label %.sink.split, label %.check_7zip_header_in_sfx.exit_crit_edge
 
-.check_7zip_header_in_sfx.exit_crit_edge:         ; preds = %36
+.check_7zip_header_in_sfx.exit_crit_edge:         ; preds = %37
   %.pre = load i64, ptr %3, align 8, !tbaa !38
   br label %check_7zip_header_in_sfx.exit
 
@@ -231,7 +231,7 @@ define internal range(i32 -1, 49) i32 @archive_read_format_7zip_bid(ptr noundef 
 46:                                               ; preds = %.lr.ph
   br label %check_7zip_header_in_sfx.exit
 
-check_7zip_header_in_sfx.exit:                    ; preds = %.check_7zip_header_in_sfx.exit_crit_edge, %.lr.ph, %35, %42, %43, %44, %45, %46
+47:                                               ; preds = %.check_7zip_header_in_sfx.exit_crit_edge, %.lr.ph, %35, %42, %43, %44, %45, %46
   %47 = phi i64 [ %32, %46 ], [ %32, %42 ], [ %32, %43 ], [ %32, %44 ], [ %32, %45 ], [ %32, %35 ], [ %.pre, %.check_7zip_header_in_sfx.exit_crit_edge ], [ %32, %.lr.ph ]
   %.0.i = phi i64 [ 6, %46 ], [ 4, %42 ], [ 3, %43 ], [ 2, %44 ], [ 1, %45 ], [ 6, %35 ], [ 6, %.check_7zip_header_in_sfx.exit_crit_edge ], [ 5, %.lr.ph ]
   %48 = getelementptr inbounds nuw i8, ptr %.02859, i64 %.0.i
@@ -242,24 +242,24 @@ check_7zip_header_in_sfx.exit:                    ; preds = %.check_7zip_header_
 
 ._crit_edge:                                      ; preds = %check_7zip_header_in_sfx.exit, %27
   %.028.lcssa = phi ptr [ %28, %27 ], [ %48, %check_7zip_header_in_sfx.exit ]
-  %52 = ptrtoint ptr %.028.lcssa to i64
-  %53 = ptrtoint ptr %22 to i64
-  %54 = sub i64 %52, %53
-  br label %55
+  %53 = ptrtoint ptr %.028.lcssa to i64
+  %54 = ptrtoint ptr %22 to i64
+  %55 = sub i64 %53, %54
+  br label %56
 
-55:                                               ; preds = %24, %._crit_edge
-  %.133 = phi i64 [ %54, %._crit_edge ], [ %.03260, %24 ]
+56:                                               ; preds = %24, %._crit_edge
+  %.133 = phi i64 [ %55, %._crit_edge ], [ %.03260, %24 ]
   %.131 = phi i64 [ %.03061, %._crit_edge ], [ %25, %24 ]
-  %56 = add nsw i64 %.131, %.133
-  %57 = icmp slt i64 %56, 393217
-  br i1 %57, label %20, label %.sink.split
+  %57 = add nsw i64 %.131, %.133
+  %58 = icmp slt i64 %57, 393217
+  br i1 %58, label %20, label %.sink.split
 
-.sink.split:                                      ; preds = %24, %55, %36
+.sink.split:                                      ; preds = %24, %56, %37
   %.0.ph = phi i32 [ 48, %36 ], [ 0, %55 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  br label %58
+  br label %59
 
-58:                                               ; preds = %.sink.split, %17, %8, %5, %2
+59:                                               ; preds = %.sink.split, %17, %8, %5, %2
   %.0 = phi i32 [ -1, %2 ], [ 0, %5 ], [ 48, %8 ], [ 0, %17 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

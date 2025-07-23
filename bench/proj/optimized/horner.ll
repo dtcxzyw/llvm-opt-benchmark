@@ -534,8 +534,8 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %20 = shl i32 %19, 1
   %21 = add i32 %20, 2
   %22 = zext i32 %21 to i64
-  %.idx.i.i = shl nuw nsw i64 %22, 3
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %.idx.i = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load double, ptr %24, align 8, !tbaa !62
   %26 = getelementptr inbounds i8, ptr %23, i64 -16
@@ -613,8 +613,8 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %20 = shl i32 %19, 1
   %21 = add i32 %20, 2
   %22 = zext i32 %21 to i64
-  %.idx.i.i = shl nuw nsw i64 %22, 3
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %.idx.i = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load double, ptr %24, align 8, !tbaa !62
   %26 = getelementptr inbounds i8, ptr %23, i64 -16
@@ -683,28 +683,28 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
 
 22:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
   %23 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %53, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
-  %.sroa.7.049.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %45, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
-  %.sroa.038.048.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %44, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
+  %.sroa.7.048.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %48, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
+  %.sroa.038.047.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %47, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
   %24 = load ptr, ptr %14, align 8, !tbaa !46
   %25 = load i32, ptr %21, align 8, !tbaa !43
   %26 = shl i32 %25, 1
   %27 = add i32 %26, 2
   %28 = zext i32 %27 to i64
-  %.idx.i.i = shl nuw nsw i64 %28, 3
+  %.idx.i = shl nuw nsw i64 %28, 3
   %.ptr45.i = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
-  %29 = getelementptr inbounds i8, ptr %.ptr45.i, i64 -8
-  %30 = load double, ptr %29, align 8, !tbaa !62
-  %.add.i = add nsw i64 %.idx.i.i, -16
-  %.ptr46.i = getelementptr inbounds i8, ptr %24, i64 %.add.i
-  %31 = load double, ptr %.ptr46.i, align 8, !tbaa !62
-  %32 = icmp ugt i32 %27, 4
-  br i1 %32, label %.lr.ph.i.preheader.i, label %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
+  %.ptr.i = getelementptr inbounds i8, ptr %.ptr45.i, i64 -8
+  %30 = load double, ptr %.ptr.i, align 8, !tbaa !62
+  %.add.i = add nsw i64 %.idx.i, -16
+  %.ptr45.i = getelementptr inbounds i8, ptr %24, i64 %.add.i
+  %32 = load double, ptr %.ptr45.i, align 8, !tbaa !62
+  %33 = icmp ugt i32 %27, 4
+  br i1 %33, label %.lr.ph.i.i, label %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
 
-.lr.ph.i.preheader.i:                             ; preds = %22
+.lr.ph.i.i:                                       ; preds = %22
   %invariant.gep.i = getelementptr i8, ptr %24, i64 -8
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
+.lr.ph.i.i:; preds = %.lr.ph.i.i, %.lr.ph.i.i
   %.027.i.idx.i = phi i64 [ %.027.i.add.i, %.lr.ph.i.i ], [ %.add.i, %.lr.ph.i.preheader.i ]
   %.02326.i.i = phi double [ %41, %.lr.ph.i.i ], [ %31, %.lr.ph.i.preheader.i ]
   %.02425.i.i = phi double [ %36, %.lr.ph.i.i ], [ %30, %.lr.ph.i.preheader.i ]
@@ -725,11 +725,11 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
 
 _ZL19complex_horner_evaljPKd5PJ_UVj.exit.i:       ; preds = %.lr.ph.i.i, %22
   %.024.lcssa.i.i = phi double [ %30, %22 ], [ %36, %.lr.ph.i.i ]
-  %.023.lcssa.i.i = phi double [ %31, %22 ], [ %41, %.lr.ph.i.i ]
-  %43 = tail call noundef { double, double } @__divdc3(double noundef %17, double noundef %20, double noundef %.023.lcssa.i.i, double noundef %.024.lcssa.i.i) #10
-  %44 = extractvalue { double, double } %43, 0
-  %45 = extractvalue { double, double } %43, 1
-  %46 = fsub double %44, %.sroa.038.048.i
+  %.023.lcssa.i.i = phi double [ %32, %22 ], [ %41, %.lr.ph.i.i ]
+  %46 = tail call noundef { double, double } @__divdc3(double noundef %17, double noundef %20, double noundef %.023.lcssa.i.i, double noundef %.024.lcssa.i.i) #10
+  %47 = extractvalue { double, double } %46, 0
+  %48 = extractvalue { double, double } %46, 1
+  %49 = fsub double %47, %.sroa.038.047.i
   %47 = tail call double @llvm.fabs.f64(double %46)
   %48 = fcmp olt double %47, %13
   %49 = fsub double %45, %.sroa.7.049.i
@@ -741,35 +741,35 @@ _ZL19complex_horner_evaljPKd5PJ_UVj.exit.i:       ; preds = %.lr.ph.i.i, %22
   %.not35.i = select i1 %54, i1 true, i1 %52
   br i1 %.not35.i, label %55, label %22, !llvm.loop !70
 
-55:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
+55:; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
   br i1 %52, label %58, label %56
 
-56:                                               ; preds = %55
+58:                                               ; preds = %55
   %57 = tail call i32 @proj_errno_set(ptr noundef %1, i32 noundef 2048)
   br label %_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-58:                                               ; preds = %55
-  %59 = load i32, ptr %4, align 8, !tbaa !58
-  %.not.i = icmp eq i32 %59, 0
-  %60 = fneg double %45
-  %.031.i = select i1 %.not.i, double %45, double %60
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %62 = load i32, ptr %61, align 4, !tbaa !59
-  %.not36.i = icmp eq i32 %62, 0
-  %63 = fneg double %44
-  %.0.i = select i1 %.not36.i, double %44, double %63
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %65 = load ptr, ptr %64, align 8, !tbaa !52
-  %66 = load double, ptr %65, align 8, !tbaa !66
-  %67 = fadd double %.031.i, %66
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %69 = load double, ptr %68, align 8, !tbaa !64
-  %70 = fadd double %.0.i, %69
+61:                                               ; preds = %55
+  %62 = load i32, ptr %4, align 8, !tbaa !58
+  %.not.i = icmp eq i32 %62, 0
+  %63 = fneg double %48
+  %.031.i = select i1 %.not.i, double %48, double %63
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !59
+  %.not36.i = icmp eq i32 %65, 0
+  %66 = fneg double %47
+  %.0.i = select i1 %.not36.i, double %47, double %66
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %68 = load ptr, ptr %67, align 8, !tbaa !52
+  %69 = load double, ptr %68, align 8, !tbaa !66
+  %70 = fadd double %.031.i, %69
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %72 = load double, ptr %71, align 8, !tbaa !64
+  %73 = fadd double %.0.i, %72
   br label %_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: ; preds = %10, %56, %58
-  %.sroa.030.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %67, %58 ], [ 0x7FF0000000000000, %56 ]
-  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %70, %58 ], [ 0x7FF0000000000000, %56 ]
+_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: ; preds = %10, %56, %61
+  %.sroa.030.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %70, %58 ], [ 0x7FF0000000000000, %56 ]
+  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %73, %58 ], [ 0x7FF0000000000000, %56 ]
   store double %.sroa.030.0.i, ptr %0, align 8, !tbaa !62
   store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !62
   ret void

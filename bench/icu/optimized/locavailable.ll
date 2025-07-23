@@ -79,31 +79,31 @@ uloc_countAvailable_77.exit:                      ; preds = %0
   %14 = select i1 %11, i64 -1, i64 %13
   %15 = call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %14) #14
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit22, label %17
+  br i1 %16, label %.loopexit21, label %17
 
 17:                                               ; preds = %8
   store i64 %9, ptr %15, align 8
   %.ptr15 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %19, %17
+19:                                               ; preds = %20, %17
   %.idx = phi i64 [ 8, %17 ], [ %.add, %19 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   invoke void @_ZN6icu_776LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %.ptr.ptr)
           to label %19 unwind label %23
 
-19:                                               ; preds = %18
+20:                                               ; preds = %19
   %.add = add nuw nsw i64 %.idx, 224
   %20 = add nuw nsw i64 %.idx, 216
   %21 = icmp eq i64 %20, %12
-  br i1 %21, label %.loopexit22, label %18
+  br i1 %21, label %.loopexit21, label %19
 
-.loopexit22:                                      ; preds = %19, %8
+.loopexit21:                                      ; preds = %20, %8
   %22 = phi ptr [ null, %8 ], [ %.ptr15, %19 ]
   store ptr %22, ptr @_ZN6icu_77L19availableLocaleListE, align 8, !tbaa !12
   br label %27
 
-23:                                               ; preds = %18
+23:                                               ; preds = %19
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = icmp eq i64 %.idx, 8
@@ -125,7 +125,7 @@ thread-pre-split:                                 ; preds = %uloc_countAvailable
   %.pr = load ptr, ptr @_ZN6icu_77L19availableLocaleListE, align 8, !tbaa !12
   br label %27
 
-27:                                               ; preds = %thread-pre-split, %.loopexit22
+27:                                               ; preds = %thread-pre-split, %.loopexit21
   %28 = phi ptr [ %.pr, %thread-pre-split ], [ %22, %.loopexit22 ]
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %30
@@ -182,10 +182,10 @@ thread-pre-split:                                 ; preds = %uloc_countAvailable
   br label %uloc_getAvailable_77.exit
 
 uloc_getAvailable_77.exit:                        ; preds = %37, %45
-  %.0.i21 = phi ptr [ %48, %45 ], [ null, %37 ]
+  %.0.i20 = phi ptr [ %48, %45 ], [ null, %37 ]
   call void @_ZN6icu_779ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #14
-  call void @_ZN6icu_776Locale14setFromPOSIXIDEPKc(ptr noundef nonnull align 8 dereferenceable(217) %36, ptr noundef %.0.i21)
+  call void @_ZN6icu_776Locale14setFromPOSIXIDEPKc(ptr noundef nonnull align 8 dereferenceable(217) %36, ptr noundef %.0.i20)
   %49 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %49, label %34, label %._crit_edge, !llvm.loop !20
 }

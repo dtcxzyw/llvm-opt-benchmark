@@ -465,13 +465,13 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit2
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit29: ; preds = %.critedge, %37
   %.0.i.i28 = phi i64 [ %40, %37 ], [ 0, %.critedge ]
   %.idx45 = shl nuw nsw i64 %.0.i.i28, 3
-  %41 = icmp samesign ne i64 %.0.i.i, %.0.i.i28
+  %42 = icmp samesign ne i64 %.0.i.i, %.0.i.i28
   %42 = add nsw i64 %.idx45, -8
   %43 = icmp slt i64 %.idx, %42
-  %or.cond.i.i = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPP4exprEvT_S3_.exit
+  %or.cond.i.i = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPP4exprEvT_S3_.exit
 
-.lr.ph.i.i.preheader:                             ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit29
+.lr.ph.i.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit29
   %.012.i.i = getelementptr inbounds i8, ptr %34, i64 %42
   br label %.lr.ph.i.i
 
@@ -503,13 +503,13 @@ _ZSt7reverseIPP4exprEvT_S3_.exit:                 ; preds = %.lr.ph.i.i, %_ZNK15
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit32: ; preds = %_ZSt7reverseIPP4exprEvT_S3_.exit, %51
   %.0.i.i31 = phi i64 [ %54, %51 ], [ 0, %_ZSt7reverseIPP4exprEvT_S3_.exit ]
   %.idx47 = shl nuw nsw i64 %.0.i.i31, 3
-  %55 = icmp samesign ne i64 %.0.i.i25, %.0.i.i31
+  %56 = icmp samesign ne i64 %.0.i.i25, %.0.i.i31
   %56 = add nsw i64 %.idx47, -8
   %57 = icmp slt i64 %.idx46, %56
-  %or.cond.i.i34 = select i1 %55, i1 %57, i1 false
-  br i1 %or.cond.i.i34, label %.lr.ph.i.i35.preheader, label %_ZSt7reverseIPP3appEvT_S3_.exit
+  %or.cond.i.i34 = select i1 %56, i1 %57, i1 false
+  br i1 %or.cond.i.i34, label %.lr.ph.i.i35, label %_ZSt7reverseIPP3appEvT_S3_.exit
 
-.lr.ph.i.i35.preheader:                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit32
+.lr.ph.i.i35:                                     ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit32
   %.012.i.i33 = getelementptr inbounds i8, ptr %48, i64 %56
   br label %.lr.ph.i.i35
 

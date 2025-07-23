@@ -7139,7 +7139,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nano
   store ptr null, ptr %7, align 8, !tbaa !44
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %15 = invoke ptr @PyList_New(i64 noundef 0) #28
-          to label %.noexc unwind label %30
+          to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %13
   %16 = inttoptr i64 %14 to ptr
@@ -7152,55 +7152,55 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nano
   %.not4.i = icmp eq i64 %19, 0
   br i1 %.not4.i, label %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.noexc, %22
+.lr.ph.i:; preds = %.noexc, %22
   %.sroa.01.05.i = phi ptr [ %23, %22 ], [ %17, %.noexc ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27, !noalias !249
-  %21 = load ptr, ptr %.sroa.01.05.i, align 8, !tbaa !158
-  store ptr %21, ptr %6, align 8, !noalias !249
+  %20 = load ptr, ptr %.sroa.01.05.i, align 8, !tbaa !158
+  store ptr %20, ptr %6, align 8, !noalias !249
   invoke void @_ZN8nanobind4list6appendIRNS_6handleEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %6) #28
-          to label %22 unwind label %24
+          to label %22 unwind label %23
 
-22:                                               ; preds = %.lr.ph.i
+21:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27, !noalias !249
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 8
-  %.not.i = icmp eq ptr %23, %20
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 8
+  %.not.i = icmp eq ptr %22, %20
   br i1 %.not.i, label %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit.loopexit", label %.lr.ph.i
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %.lr.ph.i
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27, !noalias !249
-  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
   br label %.body
 
-"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit.loopexit": ; preds = %22
+"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit.loopexit": ; preds = %21
   %.pre = load ptr, ptr %8, align 8, !tbaa !44
   br label %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit"
 
 "_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit": ; preds = %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit.loopexit", %.noexc
-  %27 = phi ptr [ %.pre, %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit.loopexit" ], [ %15, %.noexc ]
+  %26 = phi ptr [ %.pre, %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit.loopexit" ], [ %15, %.noexc ]
   store ptr null, ptr %8, align 8, !tbaa !44
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #31
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
+  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #27
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_28NS_4listEJNS_5tupleEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSA_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESO_SP_SQ_SR_ST_.exit"
 
-30:                                               ; preds = %13
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %13
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %24, %30
-  %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %25, %24 ]
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #31
+.body:                                            ; preds = %23, %29
+  %eh.lpad-body = phi { ptr, i32 } [ %30, %30 ], [ %24, %24 ]
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #27
-  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #31
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_28NS_4listEJNS_5tupleEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSA_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESO_SP_SQ_SR_ST_.exit": ; preds = %5, %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit"
-  %.0.i = phi ptr [ %27, %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit" ], [ inttoptr (i64 1 to ptr), %5 ]
-  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #31
+  %.0.i = phi ptr [ %26, %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_28clENS_5tupleE.exit" ], [ inttoptr (i64 1 to ptr), %5 ]
+  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret ptr %.0.i

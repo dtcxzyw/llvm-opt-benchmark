@@ -1566,47 +1566,47 @@ define void @_ZN6LibRaw17convertFloatToIntEfff(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 2) i32 @_ZN6LibRaw17is_floating_pointEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(767680) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 433336
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 381536
-  %4 = load i32, ptr %3, align 8, !tbaa !159
-  %5 = zext i32 %4 to i64
-  %.idx = mul nuw nsw i64 %5, 33408
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 433336
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 381536
+  %3 = load i32, ptr %2, align 8, !tbaa !159
+  %4 = zext i32 %3 to i64
+  %.idx = mul nuw nsw i64 %4, 33408
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 381584
-  %8 = load i64, ptr %7, align 8, !tbaa !62
-  br label %9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 381584
+  %7 = load i64, ptr %6, align 8, !tbaa !62
+  br label %8
 
-9:                                                ; preds = %.lr.ph, %13
-  %.07 = phi ptr [ %2, %.lr.ph ], [ %14, %13 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.07, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !56
-  %12 = sext i32 %11 to i64
-  %.not = icmp eq i64 %8, %12
-  br i1 %.not, label %.critedge, label %13
+8:                                                ; preds = %.lr.ph, %12
+  %.07 = phi ptr [ %.ptr, %.lr.ph ], [ %13, %13 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.07, i64 20
+  %10 = load i32, ptr %9, align 4, !tbaa !56
+  %11 = sext i32 %10 to i64
+  %.not = icmp eq i64 %7, %11
+  br i1 %.not, label %.critedge, label %12
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %.07, i64 33408
-  %15 = icmp ult ptr %14, %6
-  br i1 %15, label %9, label %.critedge, !llvm.loop !160
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %.07, i64 33408
+  %14 = icmp ult ptr %13, %6
+  br i1 %14, label %8, label %.critedge, !llvm.loop !160
 
-.critedge:                                        ; preds = %9, %13, %1
-  %.0.lcssa = phi ptr [ %2, %1 ], [ %14, %13 ], [ %.07, %9 ]
-  %16 = icmp eq ptr %.0.lcssa, %6
-  br i1 %16, label %22, label %17
+.critedge:                                        ; preds = %8, %12, %1
+  %.0.lcssa = phi ptr [ %.ptr, %1 ], [ %13, %13 ], [ %.07, %9 ]
+  %15 = icmp eq ptr %.0.lcssa, %6
+  br i1 %15, label %21, label %16
 
-17:                                               ; preds = %.critedge
-  %18 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 48
-  %19 = load i32, ptr %18, align 8, !tbaa !117
-  %20 = icmp eq i32 %19, 3
-  %21 = zext i1 %20 to i32
-  br label %22
+16:                                               ; preds = %.critedge
+  %17 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 48
+  %18 = load i32, ptr %17, align 8, !tbaa !117
+  %19 = icmp eq i32 %18, 3
+  %20 = zext i1 %19 to i32
+  br label %21
 
-22:                                               ; preds = %.critedge, %17
-  %.06 = phi i32 [ %21, %17 ], [ 0, %.critedge ]
+21:                                               ; preds = %.critedge, %16
+  %.06 = phi i32 [ %20, %17 ], [ 0, %.critedge ]
   ret i32 %.06
 }
 

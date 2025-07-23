@@ -34,8 +34,8 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
   %30 = and i32 %6, 2
   %.0156 = sub nsw i32 1, %30
   %.1158 = select i1 %.not, i32 %.0157, i32 %.0156
-  %.not182 = icmp eq i32 %27, 0
-  br i1 %.not182, label %._crit_edge181, label %.lr.ph180
+  %.not183 = icmp eq i32 %27, 0
+  br i1 %.not183, label %._crit_edge181, label %.lr.ph180
 
 .lr.ph180:                                        ; preds = %9
   %factor.op.mul177 = shl i32 %1, 2
@@ -61,48 +61,48 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
   %46 = mul nsw i32 %.0153, %1
   %47 = add nsw i32 %46, %.0150
   %factor.op.mul.reass = mul i32 %factor.op.mul177, %2
-  %.not183 = icmp eq i32 %23, 0
+  %.not184 = icmp eq i32 %23, 0
   %48 = shl i32 %.1, 2
   %49 = sext i32 %42 to i64
   %invariant.op = sub nsw i64 0, %49
   %50 = sext i32 %38 to i64
   %51 = sext i32 %factor.op.mul.reass to i64
   %invariant.op176 = sub nsw i64 %51, %50
-  br i1 %.not183, label %._crit_edge181, label %.lr.ph.us.preheader
+  br i1 %.not184, label %._crit_edge181, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph180
-  %52 = mul nsw i32 %33, %.1
-  %53 = mul nsw i32 %33, %34
-  %54 = mul nsw i32 %33, %.1158
-  %55 = sext i32 %54 to i64
-  %56 = sext i32 %53 to i64
-  %57 = sext i32 %52 to i64
+  %53 = mul nsw i32 %33, %.1
+  %54 = mul nsw i32 %33, %34
+  %55 = mul nsw i32 %33, %.1158
+  %56 = sext i32 %55 to i64
+  %57 = sext i32 %54 to i64
+  %58 = sext i32 %53 to i64
   %wide.trip.count = zext i32 %27 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv187 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next188, %._crit_edge.us ]
-  %58 = trunc nuw i64 %indvars.iv187 to i32
-  %59 = mul i32 %45, %58
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %60
-  %62 = uitofp i32 %58 to float
-  %63 = fmul reassoc nsz arcp contract afn float %20, %62
-  %64 = fptosi float %63 to i32
-  %65 = mul nsw i32 %.1158, %64
-  %66 = add nsw i32 %47, %65
-  %67 = shl nsw i32 %66, 2
-  %68 = sext i32 %67 to i64
+  %indvars.iv188 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next189, %._crit_edge.us ]
+  %59 = trunc nuw i64 %indvars.iv188 to i32
+  %60 = mul i32 %45, %59
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %61
+  %63 = uitofp i32 %59 to float
+  %64 = fmul reassoc nsz arcp contract afn float %20, %63
+  %65 = fptosi float %64 to i32
+  %66 = mul nsw i32 %.1158, %65
+  %67 = add nsw i32 %47, %66
+  %68 = shl nsw i32 %67, 2
+  %69 = sext i32 %68 to i64
   br label %69
 
-69:                                               ; preds = %.lr.ph.us, %.loopexit.us
+69:; preds = %.lr.ph.us, %.loopexit.us
   %.0151175.us = phi i32 [ 0, %.lr.ph.us ], [ %93, %.loopexit.us ]
   %.0152174.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %92, %.loopexit.us ]
-  %.0154173.us = phi ptr [ %61, %.lr.ph.us ], [ %91, %.loopexit.us ]
-  %70 = fptosi float %.0152174.us to i32
-  %71 = mul i32 %48, %70
-  %72 = sext i32 %71 to i64
-  %73 = add nsw i64 %72, %68
+  %.0154173.us = phi ptr [ %62, %.lr.ph.us ], [ %91, %.loopexit.us ]
+  %71 = fptosi float %.0152174.us to i32
+  %72 = mul i32 %48, %71
+  %73 = sext i32 %72 to i64
+  %73 = add nsw i64 %73, %68
   %74 = getelementptr inbounds i8, ptr %0, i64 %73
   %.not171.us = icmp sge i64 %73, %invariant.op
   %75 = icmp slt i64 %73, %invariant.op176
@@ -110,9 +110,9 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
   br i1 %or.cond, label %.preheader.us.preheader, label %.loopexit.us
 
 .preheader.us.preheader:                          ; preds = %69
-  %invariant.gep = getelementptr i8, ptr %74, i64 %55
-  %invariant.gep191 = getelementptr i8, ptr %74, i64 %56
-  %invariant.gep193 = getelementptr i8, ptr %74, i64 %57
+  %invariant.gep = getelementptr i8, ptr %74, i64 %56
+  %invariant.gep192 = getelementptr i8, ptr %74, i64 %57
+  %invariant.gep194 = getelementptr i8, ptr %74, i64 %58
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
@@ -120,12 +120,12 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %76 = load i8, ptr %gep, align 1, !tbaa !10
   %77 = zext i8 %76 to i16
-  %gep192 = getelementptr i8, ptr %invariant.gep191, i64 %indvars.iv
-  %78 = load i8, ptr %gep192, align 1, !tbaa !10
+  %gep193 = getelementptr i8, ptr %invariant.gep192, i64 %indvars.iv
+  %78 = load i8, ptr %gep193, align 1, !tbaa !10
   %79 = zext i8 %78 to i16
   %80 = add nuw nsw i16 %79, %77
-  %gep194 = getelementptr i8, ptr %invariant.gep193, i64 %indvars.iv
-  %81 = load i8, ptr %gep194, align 1, !tbaa !10
+  %gep195 = getelementptr i8, ptr %invariant.gep194, i64 %indvars.iv
+  %81 = load i8, ptr %gep195, align 1, !tbaa !10
   %82 = zext i8 %81 to i16
   %83 = add nuw nsw i16 %80, %82
   %84 = getelementptr inbounds nuw i8, ptr %74, i64 %indvars.iv
@@ -144,13 +144,13 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
   %91 = getelementptr inbounds nuw i8, ptr %.0154173.us, i64 4
   %92 = fadd reassoc nsz arcp contract afn float %.0152174.us, %20
   %93 = add nuw i32 %.0151175.us, 1
-  %exitcond186.not = icmp eq i32 %93, %23
-  br i1 %exitcond186.not, label %._crit_edge.us, label %69
+  %exitcond187.not = icmp eq i32 %93, %23
+  br i1 %exitcond187.not, label %._crit_edge.us, label %69
 
 ._crit_edge.us:                                   ; preds = %.loopexit.us
-  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
-  %exitcond190.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
-  br i1 %exitcond190.not, label %._crit_edge181, label %.lr.ph.us
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %exitcond191.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count
+  br i1 %exitcond191.not, label %._crit_edge181, label %.lr.ph.us
 
 ._crit_edge181:                                   ; preds = %._crit_edge.us, %.lr.ph180, %9
   ret void

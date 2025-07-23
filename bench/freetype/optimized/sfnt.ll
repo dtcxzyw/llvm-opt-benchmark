@@ -609,7 +609,7 @@ define internal noundef i32 @tt_cmap2_validate(ptr noundef readonly captures(add
 
 52:                                               ; preds = %50, %.loopexit
   %.1105 = phi ptr [ %scevgep, %50 ], [ %.2, %.loopexit ]
-  %.178104 = phi i32 [ 0, %50 ], [ %121, %.loopexit ]
+  %.178104 = phi i32 [ 0, %50 ], [ %120, %.loopexit ]
   %53 = load i8, ptr %.1105, align 1, !tbaa !15
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 8
@@ -633,97 +633,97 @@ define internal noundef i32 @tt_cmap2_validate(ptr noundef readonly captures(add
   %73 = load i8, ptr %72, align 1, !tbaa !15
   %74 = zext i8 %73 to i32
   %75 = or disjoint i32 %71, %74
-  %76 = getelementptr inbounds nuw i8, ptr %.1105, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %.1105, i64 6
-  %78 = load i8, ptr %77, align 1, !tbaa !15
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw nsw i32 %79, 8
-  %81 = getelementptr inbounds nuw i8, ptr %.1105, i64 7
-  %82 = load i8, ptr %81, align 1, !tbaa !15
-  %83 = zext i8 %82 to i32
-  %84 = or disjoint i32 %80, %83
-  %85 = icmp eq i32 %67, 0
-  br i1 %85, label %.loopexit, label %86
+  %.ptr = getelementptr inbounds nuw i8, ptr %.1105, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.1105, i64 6
+  %77 = load i8, ptr %76, align 1, !tbaa !15
+  %78 = zext i8 %77 to i32
+  %79 = shl nuw nsw i32 %78, 8
+  %80 = getelementptr inbounds nuw i8, ptr %.1105, i64 7
+  %81 = load i8, ptr %80, align 1, !tbaa !15
+  %82 = zext i8 %81 to i32
+  %83 = or disjoint i32 %79, %82
+  %84 = icmp eq i32 %67, 0
+  br i1 %84, label %.loopexit, label %85
 
-86:                                               ; preds = %52
-  %87 = load volatile i32, ptr %25, align 8, !tbaa !21
-  %88 = icmp ugt i32 %87, 1
-  br i1 %88, label %89, label %93
+85:                                               ; preds = %52
+  %86 = load volatile i32, ptr %25, align 8, !tbaa !21
+  %87 = icmp ugt i32 %86, 1
+  br i1 %87, label %88, label %92
 
-89:                                               ; preds = %86
+88:                                               ; preds = %85
   %.not87 = icmp ne i8 %53, 0
-  %90 = sub nuw nsw i32 256, %59
-  %91 = icmp samesign ugt i32 %67, %90
-  %or.cond95 = select i1 %.not87, i1 true, i1 %91
-  br i1 %or.cond95, label %92, label %93
+  %89 = sub nuw nsw i32 256, %59
+  %90 = icmp samesign ugt i32 %67, %89
+  %or.cond95 = select i1 %.not87, i1 true, i1 %90
+  br i1 %or.cond95, label %91, label %92
 
-92:                                               ; preds = %89
+91:                                               ; preds = %88
   tail call void @ft_validator_error(ptr noundef nonnull %1, i32 noundef 8) #27
-  br label %93
+  br label %92
 
-93:                                               ; preds = %89, %92, %86
-  %.not88 = icmp eq i32 %84, 0
-  br i1 %.not88, label %.loopexit, label %94
+92:                                               ; preds = %88, %91, %85
+  %.not88 = icmp eq i32 %83, 0
+  br i1 %.not88, label %.loopexit, label %93
 
-94:                                               ; preds = %93
-  %95 = zext nneg i32 %84 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %77, i64 %95
-  %97 = icmp ult ptr %96, %46
-  %98 = shl nuw nsw i32 %67, 1
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 %99
-  %101 = icmp ugt ptr %100, %18
-  %or.cond99 = select i1 %97, i1 true, i1 %101
-  br i1 %or.cond99, label %102, label %103
+93:                                               ; preds = %92
+  %94 = zext nneg i32 %83 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %76, i64 %94
+  %96 = icmp ult ptr %95, %46
+  %97 = shl nuw nsw i32 %67, 1
+  %98 = zext nneg i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
+  %100 = icmp ugt ptr %99, %18
+  %or.cond99 = select i1 %96, i1 true, i1 %100
+  br i1 %or.cond99, label %101, label %102
 
-102:                                              ; preds = %94
+101:                                              ; preds = %93
   tail call void @ft_validator_error(ptr noundef nonnull %1, i32 noundef 9) #27
-  br label %103
+  br label %102
 
-103:                                              ; preds = %94, %102
-  %104 = load volatile i32, ptr %25, align 8, !tbaa !21
-  %.not89 = icmp eq i32 %104, 0
+102:                                              ; preds = %93, %101
+  %103 = load volatile i32, ptr %25, align 8, !tbaa !21
+  %.not89 = icmp eq i32 %103, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %103
-  %105 = getelementptr inbounds nuw i8, ptr %76, i64 %99
+.lr.ph.preheader:                                 ; preds = %102
+  %104 = getelementptr inbounds nuw i8, ptr %.ptr, i64 %98
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %119
-  %.5103 = phi ptr [ %106, %119 ], [ %76, %.lr.ph.preheader ]
-  %106 = getelementptr inbounds nuw i8, ptr %.5103, i64 2
-  %107 = load i8, ptr %.5103, align 1, !tbaa !15
-  %108 = zext i8 %107 to i32
-  %109 = shl nuw nsw i32 %108, 8
-  %110 = getelementptr inbounds nuw i8, ptr %.5103, i64 1
-  %111 = load i8, ptr %110, align 1, !tbaa !15
-  %112 = zext i8 %111 to i32
-  %113 = or disjoint i32 %109, %112
-  %.not90 = icmp eq i32 %113, 0
-  br i1 %.not90, label %119, label %114
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %118
+  %.5103 = phi ptr [ %105, %119 ], [ %.ptr, %.lr.ph.preheader ]
+  %105 = getelementptr inbounds nuw i8, ptr %.5103, i64 2
+  %106 = load i8, ptr %.5103, align 1, !tbaa !15
+  %107 = zext i8 %106 to i32
+  %108 = shl nuw nsw i32 %107, 8
+  %109 = getelementptr inbounds nuw i8, ptr %.5103, i64 1
+  %110 = load i8, ptr %109, align 1, !tbaa !15
+  %111 = zext i8 %110 to i32
+  %112 = or disjoint i32 %108, %111
+  %.not90 = icmp eq i32 %112, 0
+  br i1 %.not90, label %118, label %113
 
-114:                                              ; preds = %.lr.ph
-  %115 = add nuw nsw i32 %113, %75
-  %116 = and i32 %115, 65535
-  %117 = load i32, ptr %51, align 8, !tbaa !22
-  %.not91 = icmp ult i32 %116, %117
-  br i1 %.not91, label %119, label %118
+113:                                              ; preds = %.lr.ph
+  %114 = add nuw nsw i32 %112, %75
+  %115 = and i32 %114, 65535
+  %116 = load i32, ptr %51, align 8, !tbaa !22
+  %.not91 = icmp ult i32 %115, %116
+  br i1 %.not91, label %118, label %117
 
-118:                                              ; preds = %114
+117:                                              ; preds = %113
   tail call void @ft_validator_error(ptr noundef nonnull %1, i32 noundef 16) #27
-  br label %119
+  br label %118
 
-119:                                              ; preds = %114, %118, %.lr.ph
-  %120 = icmp ult ptr %106, %105
-  br i1 %120, label %.lr.ph, label %.loopexit, !llvm.loop !32
+118:                                              ; preds = %113, %117, %.lr.ph
+  %119 = icmp ult ptr %105, %105
+  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
-.loopexit:                                        ; preds = %119, %93, %103, %52
-  %.2 = phi ptr [ %76, %52 ], [ %76, %93 ], [ %76, %103 ], [ %106, %119 ]
-  %121 = add nuw i32 %.178104, 1
-  %exitcond107.not = icmp eq i32 %.178104, %spec.select
-  br i1 %exitcond107.not, label %122, label %52, !llvm.loop !33
+.loopexit:                                        ; preds = %118, %92, %102, %52
+  %.2 = phi ptr [ %.ptr, %52 ], [ %.ptr, %93 ], [ %.ptr, %103 ], [ %105, %119 ]
+  %120 = add nuw i32 %.178104, 1
+  %exitcond108.not = icmp eq i32 %.178104, %spec.select
+  br i1 %exitcond108.not, label %121, label %52, !llvm.loop !33
 
-122:                                              ; preds = %.loopexit
+121:                                              ; preds = %.loopexit
   ret i32 0
 }
 
