@@ -8470,8 +8470,8 @@ define hidden void @_ZN6Assimp15BlenderImporter12ResolveImageEP10aiMaterialPKNS_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %9, i8 0, i64 1028, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 1336
   %13 = load ptr, ptr %12, align 8
-  %.not72 = icmp eq ptr %13, null
-  br i1 %.not72, label %156, label %14
+  %.not73 = icmp eq ptr %13, null
+  br i1 %.not73, label %156, label %14
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -8608,74 +8608,79 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit: ; preds = %48, %_ZNSt6vect
   %.ptr58 = getelementptr inbounds nuw i8, ptr %4, i64 1064
   %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ptr58) #31
   %.add = add i64 %73, 1064
-  %.ptr59 = getelementptr inbounds i8, ptr %4, i64 %.add
-  %.not74 = icmp slt i64 %73, 0
-  br i1 %.not74, label %.critedge, label %.lr.ph.preheader
+  %.0.ptr74 = getelementptr inbounds i8, ptr %4, i64 %.add
+  %.not75 = icmp slt i64 %73, 0
+  br i1 %.not75, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit
   %smin = tail call i64 @llvm.smin.i64(i64 %.add, i64 1064)
-  %74 = getelementptr i8, ptr %4, i64 %smin
-  %scevgep = getelementptr i8, ptr %74, i64 -1
+  %74 = add i64 %smin, -1
+  %scevgep = getelementptr i8, ptr %4, i64 %74
   br label %.lr.ph
 
-75:                                               ; preds = %.lr.ph
-  %.0.add = add nsw i64 %.0.idx75, -1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %76
+  %.0.ptr77 = phi ptr [ %.0.ptr, %76 ], [ %.0.ptr74, %.lr.ph.preheader ]
+  %.0.idx76 = phi i64 [ %.0.add, %76 ], [ %.add, %.lr.ph.preheader ]
+  %75 = load i8, ptr %.0.ptr77, align 1
+  %.not60 = icmp eq i8 %75, 46
+  br i1 %.not60, label %.critedge, label %76
+
+76:                                               ; preds = %.lr.ph
+  %.0.add = add nsw i64 %.0.idx76, -1
   %.0.ptr = getelementptr inbounds i8, ptr %4, i64 %.0.add
-  %.not = icmp slt i64 %.0.idx75, 1065
+  %.not = icmp slt i64 %.0.idx76, 1065
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !68
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %75
-  %.0.ptr76 = phi ptr [ %.0.ptr, %75 ], [ %.ptr59, %.lr.ph.preheader ]
-  %.0.idx75 = phi i64 [ %.0.add, %75 ], [ %.add, %.lr.ph.preheader ]
-  %76 = load i8, ptr %.0.ptr76, align 1
-  %.not60 = icmp eq i8 %76, 46
-  br i1 %.not60, label %.critedge, label %75
+.critedge:                                        ; preds = %.lr.ph, %76
+  %.0.idx.lcssa = phi i64 [ %.0.idx76, %.lr.ph ], [ %74, %76 ]
+  %.0.ptr.lcssa = phi ptr [ %.0.ptr77, %.lr.ph ], [ %scevgep, %76 ]
+  %.not61 = icmp slt i64 %.0.idx.lcssa, %.add
+  br i1 %.not61, label %77, label %.critedge.thread
 
-.critedge:                                        ; preds = %.lr.ph, %75, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit
-  %.0.ptr.lcssa = phi ptr [ %.ptr59, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ], [ %scevgep, %75 ], [ %.0.ptr76, %.lr.ph ]
-  %77 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa, i64 1
-  %78 = icmp ugt ptr %77, %.ptr59
-  br i1 %78, label %84, label %79
+77:                                               ; preds = %.critedge
+  %78 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = tail call i32 @tolower(i32 noundef %80) #31
+  %82 = trunc i32 %81 to i8
+  br label %.critedge.thread
 
-79:                                               ; preds = %.critedge
-  %80 = load i8, ptr %77, align 1
-  %81 = zext i8 %80 to i32
-  %82 = tail call i32 @tolower(i32 noundef %81) #31
-  %83 = trunc i32 %82 to i8
-  br label %84
+.critedge.thread:                                 ; preds = %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit, %.critedge, %77
+  %.0.ptr.lcssa86 = phi ptr [ %.0.ptr.lcssa, %77 ], [ %.0.ptr.lcssa, %.critedge ], [ %.0.ptr74, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ]
+  %.0.idx.lcssa85 = phi i64 [ %.0.idx.lcssa, %77 ], [ %.0.idx.lcssa, %.critedge ], [ %.add, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ]
+  %83 = phi i8 [ %82, %77 ], [ 0, %.critedge ], [ 0, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ]
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store i8 %83, ptr %84, align 8
+  %85 = add nsw i64 %73, 1062
+  %86 = icmp sgt i64 %.0.idx.lcssa85, %85
+  br i1 %86, label %93, label %87
 
-84:                                               ; preds = %.critedge, %79
-  %85 = phi i8 [ %83, %79 ], [ 0, %.critedge ]
-  %86 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i8 %85, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa, i64 2
-  %88 = icmp ugt ptr %87, %.ptr59
-  br i1 %88, label %94, label %89
+87:                                               ; preds = %.critedge.thread
+  %88 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa86, i64 2
+  %89 = load i8, ptr %88, align 1
+  %90 = zext i8 %89 to i32
+  %91 = tail call i32 @tolower(i32 noundef %90) #31
+  %92 = trunc i32 %91 to i8
+  br label %93
 
-89:                                               ; preds = %84
-  %90 = load i8, ptr %87, align 1
-  %91 = zext i8 %90 to i32
-  %92 = tail call i32 @tolower(i32 noundef %91) #31
-  %93 = trunc i32 %92 to i8
-  br label %94
+93:                                               ; preds = %.critedge.thread, %87
+  %94 = phi i8 [ %92, %87 ], [ 0, %.critedge.thread ]
+  %95 = getelementptr inbounds nuw i8, ptr %72, i64 9
+  store i8 %94, ptr %95, align 1
+  %96 = add nsw i64 %73, 1061
+  %97 = icmp sgt i64 %.0.idx.lcssa85, %96
+  br i1 %97, label %104, label %98
 
-94:                                               ; preds = %84, %89
-  %95 = phi i8 [ %93, %89 ], [ 0, %84 ]
-  %96 = getelementptr inbounds nuw i8, ptr %72, i64 9
-  store i8 %95, ptr %96, align 1
-  %97 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa, i64 3
-  %98 = icmp ugt ptr %97, %.ptr59
-  br i1 %98, label %104, label %99
-
-99:                                               ; preds = %94
-  %100 = load i8, ptr %97, align 1
+98:                                               ; preds = %93
+  %99 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa86, i64 3
+  %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = tail call i32 @tolower(i32 noundef %101) #31
   %103 = trunc i32 %102 to i8
   br label %104
 
-104:                                              ; preds = %94, %99
-  %105 = phi i8 [ %103, %99 ], [ 0, %94 ]
+104:                                              ; preds = %93, %98
+  %105 = phi i8 [ %103, %98 ], [ 0, %93 ]
   %106 = getelementptr inbounds nuw i8, ptr %72, i64 10
   store i8 %105, ptr %106, align 2
   %107 = getelementptr inbounds nuw i8, ptr %72, i64 11
@@ -8827,10 +8832,10 @@ _ZN6Assimp12StreamReaderILb1ELb1EE14CopyAndAdvanceEPvm.exit: ; preds = %_ZN6Assi
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %174, ptr align 1 %176, i64 %177, i1 false)
   %178 = getelementptr inbounds nuw [1024 x i8], ptr %174, i64 0, i64 %177
   store i8 0, ptr %178, align 1
-  %spec.select.i70 = call i32 @llvm.umin.i32(i32 %spec.select.i, i32 1023)
-  store i32 %spec.select.i70, ptr %9, align 4
+  %spec.select.i71 = call i32 @llvm.umin.i32(i32 %spec.select.i, i32 1023)
+  store i32 %spec.select.i71, ptr %9, align 4
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %180 = zext nneg i32 %spec.select.i70 to i64
+  %180 = zext nneg i32 %spec.select.i71 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %179, ptr nonnull align 4 %174, i64 %180, i1 false)
   %181 = getelementptr inbounds nuw [1024 x i8], ptr %179, i64 0, i64 %180
   store i8 0, ptr %181, align 1
@@ -8857,13 +8862,13 @@ _ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogInfoIJRA45_KcRA240_S4_EEEvDpO
   %186 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %187 = load i32, ptr %186, align 8
   %188 = and i32 %187, 1
-  %.not61 = icmp eq i32 %188, 0
-  br i1 %.not61, label %189, label %211
+  %.not62 = icmp eq i32 %188, 0
+  br i1 %.not62, label %189, label %211
 
 189:                                              ; preds = %_ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogInfoIJRA45_KcRA240_S4_EEEvDpOT_.exit
   %190 = and i32 %187, 2
-  %.not62 = icmp eq i32 %190, 0
-  br i1 %.not62, label %199, label %191
+  %.not63 = icmp eq i32 %190, 0
+  br i1 %.not63, label %199, label %191
 
 191:                                              ; preds = %189
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -8871,41 +8876,41 @@ _ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogInfoIJRA45_KcRA240_S4_EEEvDpO
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 1064
   %195 = load i32, ptr %194, align 8
   %196 = and i32 %195, 2048
-  %.not69 = icmp eq i32 %196, 0
-  %. = select i1 %.not69, i32 5, i32 6
+  %.not70 = icmp eq i32 %196, 0
+  %. = select i1 %.not70, i32 5, i32 6
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %198 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %197, i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   br label %211
 
 199:                                              ; preds = %189
   %200 = and i32 %187, 4
-  %.not63 = icmp eq i32 %200, 0
-  br i1 %.not63, label %201, label %211
+  %.not64 = icmp eq i32 %200, 0
+  br i1 %.not64, label %201, label %211
 
 201:                                              ; preds = %199
   %202 = and i32 %187, 8
-  %.not64 = icmp eq i32 %202, 0
-  br i1 %.not64, label %203, label %211
+  %.not65 = icmp eq i32 %202, 0
+  br i1 %.not65, label %203, label %211
 
 203:                                              ; preds = %201
   %204 = and i32 %187, 32
-  %.not65 = icmp eq i32 %204, 0
-  br i1 %.not65, label %205, label %211
+  %.not66 = icmp eq i32 %204, 0
+  br i1 %.not66, label %205, label %211
 
 205:                                              ; preds = %203
   %206 = and i32 %187, 64
-  %.not66 = icmp eq i32 %206, 0
-  br i1 %.not66, label %207, label %211
+  %.not67 = icmp eq i32 %206, 0
+  br i1 %.not67, label %207, label %211
 
 207:                                              ; preds = %205
   %208 = and i32 %187, 2048
-  %.not67 = icmp eq i32 %208, 0
-  br i1 %.not67, label %209, label %211
+  %.not68 = icmp eq i32 %208, 0
+  br i1 %.not68, label %209, label %211
 
 209:                                              ; preds = %207
   %210 = and i32 %187, 4096
-  %.not68 = icmp eq i32 %210, 0
-  %spec.select = select i1 %.not68, i32 18, i32 9
+  %.not69 = icmp eq i32 %210, 0
+  %spec.select = select i1 %.not69, i32 18, i32 9
   br label %211
 
 211:                                              ; preds = %209, %207, %205, %203, %201, %199, %_ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogInfoIJRA45_KcRA240_S4_EEEvDpOT_.exit, %191

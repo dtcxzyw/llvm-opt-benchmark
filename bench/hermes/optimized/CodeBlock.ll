@@ -507,35 +507,31 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm9CodeBlock23markCachedHiddenClassesERNS0_7RuntimeERNS0_16WeakRootAcceptorE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
 entry:
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %propertyCacheSize_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %propertyCacheSize_, align 4
   %conv = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv, 3
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %add.ptr.i.idx
   %cmp.not6 = icmp eq i32 %0, 0
-  br i1 %cmp.not6, label %for.end, label %for.body.preheader
+  br i1 %cmp.not6, label %for.end, label %for.body
 
-for.body.preheader:                               ; preds = %entry
-  %add.ptr.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %__begin2.07 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr.i.i.i.ptr, %for.body.preheader ]
-  %2 = load i32, ptr %__begin2.07, align 4
-  %cmp.i.i.not = icmp eq i32 %2, 0
+for.body:                                         ; preds = %entry, %for.inc
+  %__begin2.07 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr.i.i.i, %entry ]
+  %1 = load i32, ptr %__begin2.07, align 4
+  %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %acceptor, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 4 dereferenceable(4) %__begin2.07) #7
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 4 dereferenceable(4) %__begin2.07) #7
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.07, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %entry

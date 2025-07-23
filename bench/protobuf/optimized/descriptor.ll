@@ -61049,15 +61049,13 @@ _ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclIPSt17basic_string_viewIcSt11char_tra
   br i1 %cmp1.not.i.i.i.i, label %invoke.cont32.i, label %while.body.i.i.i.i, !llvm.loop !884
 
 _ZSt15__adjacent_findIPSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S8_S8_T0_.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i
-  %cmp.i.i.i = icmp eq i64 %__next.011.i.i.i.idx.i, 64
-  br i1 %cmp.i.i.i, label %invoke.cont32.i, label %if.end.i.i.i
+  switch i64 %__next.011.i.i.i.idx.i, label %while.body.preheader.i.i.i [
+    i64 64, label %invoke.cont32.i
+    i64 32, label %while.end.i.i.i
+  ]
 
-if.end.i.i.i:                                     ; preds = %_ZSt15__adjacent_findIPSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S8_S8_T0_.exit.i.i.i
+while.body.preheader.i.i.i:                       ; preds = %_ZSt15__adjacent_findIPSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S8_S8_T0_.exit.i.i.i
   %__next.011.i.i.i.ptr.add.i = add nuw nsw i64 %__next.011.i.i.i.idx.i, 32
-  %cmp2.not17.i.i.i = icmp eq i64 %__next.011.i.i.i.ptr.add.i, 64
-  br i1 %cmp2.not17.i.i.i, label %while.end.i.i.i, label %while.body.preheader.i.i.i
-
-while.body.preheader.i.i.i:                       ; preds = %if.end.i.i.i
   %incdec.ptr.i.i18.i = getelementptr inbounds nuw i8, ptr %__next.011.i.i.i.ptr.ptr.i, i64 16
   br label %while.body.i.i.i
 
@@ -61095,8 +61093,8 @@ if.end6.i.i.i:                                    ; preds = %if.then4.i.i.i, %_Z
   %cmp2.not.i.i.i = icmp eq i64 %incdec.ptr120.i.i.add.i, 64
   br i1 %cmp2.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !885
 
-while.end.i.i.i:                                  ; preds = %if.end6.i.i.i, %if.end.i.i.i
-  %__dest.0.lcssa.i.i.i = phi ptr [ %__next.011.i.i.i.ptr.ptr.i, %if.end.i.i.i ], [ %__dest.1.i.i.i, %if.end6.i.i.i ]
+while.end.i.i.i:                                  ; preds = %if.end6.i.i.i, %_ZSt15__adjacent_findIPSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S8_S8_T0_.exit.i.i.i
+  %__dest.0.lcssa.i.i.i = phi ptr [ %__next.011.i.i.i.ptr.ptr.i, %_ZSt15__adjacent_findIPSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S8_S8_T0_.exit.i.i.i ], [ %__dest.1.i.i.i, %if.end6.i.i.i ]
   %incdec.ptr7.i.i.i = getelementptr inbounds nuw i8, ptr %__dest.0.lcssa.i.i.i, i64 16
   br label %invoke.cont32.i
 

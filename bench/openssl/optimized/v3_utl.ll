@@ -2810,8 +2810,8 @@ equal_nocase.exit76.i:                            ; preds = %128, %equal_nocase.
 
 143:                                              ; preds = %140, %138, %.thread.i
   %.not5483.i = phi i1 [ %.not52.i, %.thread.i ], [ false, %140 ], [ false, %138 ]
-  %144 = getelementptr inbounds nuw i8, ptr %116, i64 1
-  %145 = icmp eq ptr %118, %144
+  %144 = add nuw nsw i64 %95, 1
+  %145 = icmp samesign eq i64 %117, %144
   br i1 %145, label %146, label %149
 
 146:                                              ; preds = %143

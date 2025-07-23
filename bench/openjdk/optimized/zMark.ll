@@ -9387,15 +9387,17 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %19 = inttoptr i64 %18 to ptr
   %20 = load volatile i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 -16
+  %.idx9 = shl nsw i64 %21, 3
+  %22 = add nsw i64 %.idx9, -16
+  %23 = getelementptr inbounds i8, ptr %15, i64 %22
   %24 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %25 = sext i32 %24 to i64
   %26 = add nsw i64 %25, %5
   %27 = inttoptr i64 %26 to ptr
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i64, ptr %15, i64 %29
+  %.idx = shl nsw i64 %29, 3
+  %30 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %31 = getelementptr i8, ptr %2, i64 16
   %.val.i.i = load i8, ptr %31, align 8
   %32 = trunc i8 %.val.i.i to i1
@@ -9406,7 +9408,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %34
 
 34:                                               ; preds = %33, %11
-  %35 = icmp ugt ptr %30, %23
+  %35 = icmp sgt i64 %.idx, %22
   br i1 %35, label %36, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 36:                                               ; preds = %34
@@ -11121,15 +11123,17 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %19 = inttoptr i64 %18 to ptr
   %20 = load volatile i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 -16
+  %.idx9 = shl nsw i64 %21, 3
+  %22 = add nsw i64 %.idx9, -16
+  %23 = getelementptr inbounds i8, ptr %15, i64 %22
   %24 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %25 = sext i32 %24 to i64
   %26 = add nsw i64 %25, %5
   %27 = inttoptr i64 %26 to ptr
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i64, ptr %15, i64 %29
+  %.idx = shl nsw i64 %29, 3
+  %30 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %31 = getelementptr i8, ptr %2, i64 16
   %.val.i.i = load i8, ptr %31, align 8
   %32 = trunc i8 %.val.i.i to i1
@@ -11140,7 +11144,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %34
 
 34:                                               ; preds = %33, %11
-  %35 = icmp ugt ptr %30, %23
+  %35 = icmp sgt i64 %.idx, %22
   br i1 %35, label %36, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 36:                                               ; preds = %34
@@ -13340,15 +13344,17 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %19 = inttoptr i64 %18 to ptr
   %20 = load volatile i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 -16
+  %.idx9 = shl nsw i64 %21, 3
+  %22 = add nsw i64 %.idx9, -16
+  %23 = getelementptr inbounds i8, ptr %15, i64 %22
   %24 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %25 = sext i32 %24 to i64
   %26 = add nsw i64 %25, %5
   %27 = inttoptr i64 %26 to ptr
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i64, ptr %15, i64 %29
+  %.idx = shl nsw i64 %29, 3
+  %30 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %31 = getelementptr i8, ptr %2, i64 16
   %.val.i.i = load i8, ptr %31, align 8
   %32 = trunc i8 %.val.i.i to i1
@@ -13359,7 +13365,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %34
 
 34:                                               ; preds = %33, %11
-  %35 = icmp ugt ptr %30, %23
+  %35 = icmp sgt i64 %.idx, %22
   br i1 %35, label %36, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 36:                                               ; preds = %34
@@ -13543,15 +13549,17 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %19 = inttoptr i64 %18 to ptr
   %20 = load volatile i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 -16
+  %.idx9 = shl nsw i64 %21, 3
+  %22 = add nsw i64 %.idx9, -16
+  %23 = getelementptr inbounds i8, ptr %15, i64 %22
   %24 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %25 = sext i32 %24 to i64
   %26 = add nsw i64 %25, %5
   %27 = inttoptr i64 %26 to ptr
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i64, ptr %15, i64 %29
+  %.idx = shl nsw i64 %29, 3
+  %30 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %31 = getelementptr i8, ptr %2, i64 16
   %.val.i.i = load i8, ptr %31, align 8
   %32 = trunc i8 %.val.i.i to i1
@@ -13562,7 +13570,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %34
 
 34:                                               ; preds = %33, %11
-  %35 = icmp ugt ptr %30, %23
+  %35 = icmp sgt i64 %.idx, %22
   br i1 %35, label %36, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EEEEvP17stackChunkOopDescPT0_PlSA_.exit
 
 36:                                               ; preds = %34

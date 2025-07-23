@@ -68,6 +68,7 @@ define internal range(i32 0, 53) i32 @mpegps_probe(ptr noundef readonly captures
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %invariant.op = add nsw i64 %7, -3
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.thread
@@ -129,7 +130,7 @@ define internal range(i32 0, 53) i32 @mpegps_probe(ptr noundef readonly captures
 
 40:                                               ; preds = %.fold.split.i, %34, %30, %26
   %41 = phi i1 [ false, %30 ], [ false, %26 ], [ %39, %34 ], [ true, %.fold.split.i ]
-  %42 = icmp ult ptr %27, %8
+  %42 = icmp sgt i64 %invariant.op, %11
   br i1 %42, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %40, %45

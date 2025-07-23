@@ -496,7 +496,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMVertEm(i64 noundef %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN6Assimp7Blender11createMVertEm(i64 noundef %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %0, i64 56)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
@@ -507,32 +507,28 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMVertEm(i64 noundef
   %9 = select i1 %7, i64 -1, i64 %8
   %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #25
   store i64 %0, ptr %10, align 16
-  %.ptr5 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = icmp eq i64 %0, 0
-  br i1 %11, label %.loopexit, label %12
+  br i1 %11, label %.loopexit, label %.preheader
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %.ptr5, i64 %0
-  br label %14
-
-14:                                               ; preds = %12, %14
-  %.idx = phi i64 [ 8, %12 ], [ %.add, %14 ]
+.preheader:                                       ; preds = %1, %.preheader
+  %.idx = phi i64 [ %.add, %.preheader ], [ 8, %1 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %15 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  store ptr null, ptr %15, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
+  store ptr null, ptr %12, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %.ptr.ptr, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 40
-  store i8 0, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 44
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 48
-  store i32 0, ptr %18, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 40
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 44
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 48
+  store i32 0, ptr %15, align 8
   %.add = add nuw nsw i64 %.idx, 56
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %10, i64 %.add
-  %19 = icmp eq ptr %.ptr4, %13
-  br i1 %19, label %.loopexit, label %14
+  %16 = add nuw nsw i64 %.idx, 48
+  %17 = icmp eq i64 %16, %4
+  br i1 %17, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %14, %1
+.loopexit:                                        ; preds = %.preheader, %1
+  %.ptr5 = getelementptr inbounds nuw i8, ptr %10, i64 8
   ret ptr %.ptr5
 }
 

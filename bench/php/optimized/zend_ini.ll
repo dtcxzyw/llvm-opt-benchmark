@@ -1456,22 +1456,21 @@ define internal fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32
   %8 = alloca %struct.smart_str, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   store ptr null, ptr %5, align 8, !tbaa !92
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !64
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
-  %.ptr217 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !64
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %12 = icmp sgt i64 %10, 0
-  br i1 %12, label %.lr.ph, label %.critedge
+  %.not217 = icmp eq i64 %11, 0
+  br i1 %.not217, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %14
-  %.0109202 = phi ptr [ %15, %14 ], [ %.ptr, %3 ]
+  %.0109202 = phi ptr [ %15, %14 ], [ %9, %3 ]
   %13 = load i8, ptr %.0109202, align 1, !tbaa !43
   switch i8 %13, label %.critedge [
     i8 32, label %14
@@ -1484,12 +1483,12 @@ define internal fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32
 
 14:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.0109202, i64 1
-  %16 = icmp ult ptr %15, %.ptr217
+  %16 = icmp ult ptr %15, %12
   br i1 %16, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %14, %.lr.ph, %3
-  %.0109.lcssa = phi ptr [ %.ptr, %3 ], [ %.0109202, %.lr.ph ], [ %15, %14 ]
-  %17 = icmp ult ptr %.0109.lcssa, %.ptr217
+  %.0109.lcssa = phi ptr [ %9, %3 ], [ %.0109202, %.lr.ph ], [ %15, %14 ]
+  %17 = icmp ult ptr %.0109.lcssa, %12
   br i1 %17, label %.lr.ph206.preheader, label %.critedge2
 
 .lr.ph206.preheader:                              ; preds = %.critedge
@@ -1499,7 +1498,7 @@ define internal fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32
   br label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %zend_is_whitespace.exit193
-  %.0112205 = phi ptr [ %19, %zend_is_whitespace.exit193 ], [ %.ptr217, %.lr.ph206.preheader ]
+  %.0112205 = phi ptr [ %19, %zend_is_whitespace.exit193 ], [ %12, %.lr.ph206.preheader ]
   %19 = getelementptr inbounds i8, ptr %.0112205, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !43
   switch i8 %20, label %.critedge2 [
@@ -1516,7 +1515,7 @@ zend_is_whitespace.exit193:                       ; preds = %.lr.ph206, %.lr.ph2
   br i1 %21, label %.lr.ph206, label %.critedge2
 
 .critedge2:                                       ; preds = %zend_is_whitespace.exit193, %.lr.ph206, %.critedge
-  %.0112.lcssa = phi ptr [ %.ptr217, %.critedge ], [ %.0112205, %.lr.ph206 ], [ %scevgep, %zend_is_whitespace.exit193 ]
+  %.0112.lcssa = phi ptr [ %12, %.critedge ], [ %.0112205, %.lr.ph206 ], [ %scevgep, %zend_is_whitespace.exit193 ]
   %.0112.lcssa221 = ptrtoint ptr %.0112.lcssa to i64
   %22 = icmp eq ptr %.0109.lcssa, %.0112.lcssa
   br i1 %22, label %23, label %24
@@ -1555,7 +1554,7 @@ thread-pre-split:                                 ; preds = %24, %26
   br i1 %.not, label %smart_str_0.exit, label %53
 
 smart_str_0.exit:                                 ; preds = %27
-  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %10) #18
+  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %11) #18
   %35 = load ptr, ptr %6, align 8, !tbaa !96, !nonnull !88, !noundef !88
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -1734,7 +1733,7 @@ zend_ini_consume_quantity_prefix.exit:            ; preds = %84, %87, %95, %96, 
   br i1 %.not196, label %117, label %.critedge125, !prof !98
 
 .critedge125:                                     ; preds = %71, %zend_ini_consume_quantity_prefix.exit
-  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %10) #18
+  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %11) #18
   %99 = load ptr, ptr %6, align 8, !tbaa !96, !nonnull !88, !noundef !88
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -1827,8 +1826,8 @@ zend_ini_consume_quantity_prefix.exit:            ; preds = %84, %87, %95, %96, 
   br label %.lr.ph211
 
 smart_str_0.exit133:                              ; preds = %134
-  %139 = load i64, ptr %9, align 8, !tbaa !64
-  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %139) #18
+  %139 = load i64, ptr %10, align 8, !tbaa !64
+  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %139) #18
   %140 = load ptr, ptr %6, align 8, !tbaa !96, !nonnull !88, !noundef !88
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 16
@@ -1905,8 +1904,8 @@ smart_str_0.exit133:                              ; preds = %134
   br label %231
 
 168:                                              ; preds = %163
-  %169 = load i64, ptr %9, align 8, !tbaa !64
-  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %169) #18
+  %169 = load i64, ptr %10, align 8, !tbaa !64
+  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %169) #18
   %170 = load ptr, ptr %6, align 8, !tbaa !96
   %.not.i134 = icmp eq ptr %170, null
   br i1 %.not.i134, label %smart_str_0.exit135, label %171
@@ -1921,9 +1920,9 @@ smart_str_0.exit133:                              ; preds = %134
 
 smart_str_0.exit135:                              ; preds = %168, %171
   %176 = ptrtoint ptr %.lcssa210 to i64
-  %177 = ptrtoint ptr %.ptr to i64
+  %177 = ptrtoint ptr %9 to i64
   %178 = sub i64 %176, %177
-  call void @smart_str_append_escaped(ptr noundef nonnull %7, ptr noundef nonnull %.ptr, i64 noundef %178) #18
+  call void @smart_str_append_escaped(ptr noundef nonnull %7, ptr noundef nonnull %9, i64 noundef %178) #18
   %179 = load ptr, ptr %7, align 8, !tbaa !96
   %.not.i136 = icmp eq ptr %179, null
   br i1 %.not.i136, label %smart_str_0.exit137, label %180
@@ -2077,8 +2076,8 @@ smart_str_free_ex.exit176:                        ; preds = %smart_str_free_ex.e
   br i1 %.not123, label %313, label %250, !prof !98
 
 250:                                              ; preds = %248
-  %251 = load i64, ptr %9, align 8, !tbaa !64
-  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %251) #18
+  %251 = load i64, ptr %10, align 8, !tbaa !64
+  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %251) #18
   %252 = load ptr, ptr %6, align 8, !tbaa !96
   %.not.i140 = icmp eq ptr %252, null
   br i1 %.not.i140, label %smart_str_0.exit141, label %253
@@ -2093,9 +2092,9 @@ smart_str_free_ex.exit176:                        ; preds = %smart_str_free_ex.e
 
 smart_str_0.exit141:                              ; preds = %250, %253
   %258 = ptrtoint ptr %.lcssa210 to i64
-  %259 = ptrtoint ptr %.ptr to i64
+  %259 = ptrtoint ptr %9 to i64
   %260 = sub i64 %258, %259
-  call void @smart_str_append_escaped(ptr noundef nonnull %7, ptr noundef nonnull %.ptr, i64 noundef %260) #18
+  call void @smart_str_append_escaped(ptr noundef nonnull %7, ptr noundef nonnull %9, i64 noundef %260) #18
   %261 = load ptr, ptr %7, align 8, !tbaa !96
   %.not.i142 = icmp eq ptr %261, null
   br i1 %.not.i142, label %smart_str_0.exit143, label %262
@@ -2217,8 +2216,8 @@ smart_str_free_ex.exit164:                        ; preds = %smart_str_free_ex.e
   br i1 %314, label %smart_str_0.exit147, label %358, !prof !52
 
 smart_str_0.exit147:                              ; preds = %313
-  %315 = load i64, ptr %9, align 8, !tbaa !64
-  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %.ptr, i64 noundef %315) #18
+  %315 = load i64, ptr %10, align 8, !tbaa !64
+  call void @smart_str_append_escaped(ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %315) #18
   %316 = load ptr, ptr %6, align 8, !tbaa !96, !nonnull !88, !noundef !88
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 24
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 16

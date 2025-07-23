@@ -377,9 +377,9 @@ _ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit.lr.ph:   ; preds = %_ZNSt10lock_guardIS
   %8 = getelementptr inbounds i8, ptr %6, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !28
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.critedge, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader20
+  br i1 %.not, label %.critedge, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader22
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader20: ; preds = %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit.lr.ph
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader22: ; preds = %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit.lr.ph
   %wide.trip.count = zext i32 %9 to i64
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
 
@@ -392,46 +392,47 @@ _ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit:         ; preds = %_ZNSt10lock_guardIS
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader20, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit
-  %indvars.iv = phi i64 [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader20 ], [ %indvars.iv.next, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader22, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit
+  %indvars.iv = phi i64 [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader22 ], [ %indvars.iv.next, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit ]
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %_ZN6vectorIP8reslimitLb0EjE3endEv.exit.i, label %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit
 
 _ZN6vectorIP8reslimitLb0EjE3endEv.exit.i:         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !23
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !23
-  %19 = add i64 %18, %16
-  store i64 %19, ptr %17, align 8, !tbaa !23
-  store i64 0, ptr %15, align 8, !tbaa !23
-  %20 = getelementptr inbounds nuw ptr, ptr %6, i64 %wide.trip.count
-  %.010.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.not11.i = icmp eq ptr %.010.i, %20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load i64, ptr %14, align 8, !tbaa !23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i64, ptr %16, align 8, !tbaa !23
+  %18 = add i64 %17, %15
+  store i64 %18, ptr %16, align 8, !tbaa !23
+  store i64 0, ptr %14, align 8, !tbaa !23
+  %.idx13 = shl nuw nsw i64 %wide.trip.count, 3
+  %19 = add nuw nsw i64 %.idx, 8
+  %.not11.i = icmp samesign eq i64 %19, %.idx13
   br i1 %.not11.i, label %_ZN6vectorIP8reslimitLb0EjE5eraseEPS1_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN6vectorIP8reslimitLb0EjE3endEv.exit.i
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %.010.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = ptrtoint ptr %6 to i64
-  %22 = ptrtoint ptr %14 to i64
-  %23 = shl nuw nsw i64 %wide.trip.count, 3
-  %24 = add i64 %21, -16
-  %25 = sub i64 %24, %22
-  %26 = add i64 %25, %23
-  %27 = and i64 %26, -8
-  %28 = add i64 %27, 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %.010.i, i64 %28, i1 false), !tbaa !31
+  %22 = ptrtoint ptr %20 to i64
+  %23 = add i64 %21, -16
+  %24 = sub i64 %23, %22
+  %25 = add i64 %24, %.idx13
+  %26 = and i64 %25, -8
+  %27 = add i64 %26, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %.010.i, i64 %27, i1 false), !tbaa !31
   br label %_ZN6vectorIP8reslimitLb0EjE5eraseEPS1_.exit
 
 _ZN6vectorIP8reslimitLb0EjE5eraseEPS1_.exit:      ; preds = %_ZN6vectorIP8reslimitLb0EjE3endEv.exit.i, %.lr.ph.preheader.i
-  %29 = add i32 %9, -1
-  store i32 %29, ptr %8, align 4, !tbaa !28
+  %28 = add i32 %9, -1
+  store i32 %28, ptr %8, align 4, !tbaa !28
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader, %_ZNK6vectorIP8reslimitLb0EjE4sizeEv.exit.lr.ph, %_ZN6vectorIP8reslimitLb0EjE5eraseEPS1_.exit
-  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
+  %29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
   ret void
 }
 

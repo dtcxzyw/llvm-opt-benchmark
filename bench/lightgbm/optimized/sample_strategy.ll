@@ -1758,8 +1758,8 @@ define internal void @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE3RunILb1EEEiiR
   %24 = call i32 @llvm.smin.i32(i32 %23, i32 %19)
   store i32 %24, ptr %15, align 4, !tbaa !145
   %25 = load i32, ptr %14, align 4, !tbaa !145
-  %.not52 = icmp sgt i32 %25, %24
-  br i1 %.not52, label %._crit_edge53, label %.preheader.lr.ph
+  %.not53 = icmp sgt i32 %25, %24
+  br i1 %.not53, label %._crit_edge54, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -1773,8 +1773,8 @@ define internal void @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE3RunILb1EEEiiR
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %32 = phi i32 [ %24, %.preheader.lr.ph ], [ %90, %._crit_edge ]
   %33 = phi i32 [ %25, %.preheader.lr.ph ], [ %88, %._crit_edge ]
-  %.not4550 = icmp sgt i32 %33, %32
-  br i1 %.not4550, label %._crit_edge, label %.lr.ph.preheader
+  %.not4551 = icmp sgt i32 %33, %32
+  br i1 %.not4551, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %34 = sext i32 %33 to i64
@@ -1837,18 +1837,23 @@ define internal void @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE3RunILb1EEEiiR
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds i32, ptr %49, i64 %56
-  %58 = zext nneg i32 %.sroa.speculated to i64
-  %59 = getelementptr inbounds nuw i32, ptr %49, i64 %58
-  %60 = icmp ne i32 %54, %.sroa.speculated
-  %.012.i.i = getelementptr inbounds i8, ptr %59, i64 -4
-  %61 = icmp ult ptr %57, %.012.i.i
-  %or.cond.i.i = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPiEvT_S1_.exit
+  %.idx = shl nsw i64 %56, 2
+  %57 = zext nneg i32 %.sroa.speculated to i64
+  %.idx48 = shl nuw nsw i64 %57, 2
+  %58 = icmp ne i32 %54, %.sroa.speculated
+  %59 = add nsw i64 %.idx48, -4
+  %60 = icmp slt i64 %.idx, %59
+  %or.cond.i.i = select i1 %58, i1 %60, i1 false
+  br i1 %or.cond.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPiEvT_S1_.exit
 
-.lr.ph.i.i:                                       ; preds = %55, %.lr.ph.i.i
-  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %55 ]
-  %.0913.i.i = phi ptr [ %64, %.lr.ph.i.i ], [ %57, %55 ]
+.lr.ph.i.i.preheader:                             ; preds = %55
+  %.012.i.i = getelementptr inbounds i8, ptr %49, i64 %59
+  %61 = getelementptr inbounds i8, ptr %49, i64 %.idx
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %.lr.ph.i.i.preheader ]
+  %.0913.i.i = phi ptr [ %64, %.lr.ph.i.i ], [ %61, %.lr.ph.i.i.preheader ]
   %62 = load i32, ptr %.0913.i.i, align 4, !tbaa !145
   %63 = load i32, ptr %.014.i.i, align 4, !tbaa !145
   store i32 %63, ptr %.0913.i.i, align 4, !tbaa !145
@@ -1874,7 +1879,7 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
   %73 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %74 = icmp eq i32 %72, %73
   %75 = call ptr @__cxa_begin_catch(ptr %71) #17
-  br i1 %74, label %76, label %.invoke59
+  br i1 %74, label %76, label %.invoke60
 
 76:                                               ; preds = %69
   %77 = load ptr, ptr %75, align 8, !tbaa !15
@@ -1882,7 +1887,7 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(8) %75) #17
   invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %80)
-          to label %.invoke59 unwind label %92
+          to label %.invoke60 unwind label %92
 
 .sink.split:                                      ; preds = %_ZSt7reverseIPiEvT_S1_.exit, %43
   %.sink = phi i32 [ 0, %43 ], [ %68, %_ZSt7reverseIPiEvT_S1_.exit ]
@@ -1898,11 +1903,11 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
   %.not45.not = icmp slt i64 %indvars.iv, %85
   br i1 %.not45.not, label %.lr.ph, label %._crit_edge.loopexit
 
-.invoke59:                                        ; preds = %69, %76
+.invoke60:                                        ; preds = %69, %76
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.invoke unwind label %92
 
-.invoke:                                          ; preds = %.invoke59
+.invoke:                                          ; preds = %.invoke60
   invoke void @__cxa_end_catch()
           to label %83 unwind label %92
 
@@ -1920,9 +1925,9 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
   %90 = call i32 @llvm.smin.i32(i32 %89, i32 %19)
   store i32 %90, ptr %15, align 4, !tbaa !145
   %.not = icmp sgt i32 %88, %90
-  br i1 %.not, label %._crit_edge53, label %.preheader
+  br i1 %.not, label %._crit_edge54, label %.preheader
 
-._crit_edge53:                                    ; preds = %._crit_edge, %21
+._crit_edge54:                                    ; preds = %._crit_edge, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
@@ -1930,10 +1935,10 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
   br label %91
 
-91:                                               ; preds = %._crit_edge53, %8
+91:                                               ; preds = %._crit_edge54, %8
   ret void
 
-92:                                               ; preds = %.invoke59, %.invoke, %76
+92:                                               ; preds = %.invoke60, %.invoke, %76
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0

@@ -2066,31 +2066,33 @@ _ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgr
   br i1 %11, label %12, label %8
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %14 = getelementptr inbounds i8, ptr %4, i64 -4
-  %15 = load i32, ptr %14, align 4, !tbaa !57
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %16
-  %.010.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.not11.i.i = icmp eq ptr %.010.i.i, %17
+  %.idx.i = shl nuw nsw i64 %indvars.iv, 3
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  %15 = getelementptr inbounds i8, ptr %4, i64 -4
+  %16 = load i32, ptr %15, align 4, !tbaa !57
+  %17 = zext i32 %16 to i64
+  %.idx3.i = shl nuw nsw i64 %17, 3
+  %18 = add nuw nsw i64 %.idx.i, 8
+  %.not11.i.i = icmp samesign eq i64 %18, %.idx3.i
   br i1 %.not11.i.i, label %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE5eraseEPS2_.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %12
-  %18 = ptrtoint ptr %4 to i64
-  %19 = ptrtoint ptr %13 to i64
-  %20 = shl nuw nsw i64 %16, 3
-  %21 = add i64 %18, -16
-  %22 = sub i64 %21, %19
-  %23 = add i64 %22, %20
+  %.010.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %19 = ptrtoint ptr %4 to i64
+  %20 = ptrtoint ptr %13 to i64
+  %21 = add i64 %19, -16
+  %22 = sub i64 %21, %20
+  %23 = add i64 %22, %.idx3.i
   %24 = and i64 %23, -8
   %25 = add i64 %24, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %.010.i.i, i64 %25, i1 false), !tbaa !58
   br label %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE5eraseEPS2_.exit.i
 
 _ZN6vectorIPN7datalog9ddnf_nodeELb0EjE5eraseEPS2_.exit.i: ; preds = %.lr.ph.preheader.i.i, %12
-  %26 = add i32 %15, -1
-  store i32 %26, ptr %14, align 4, !tbaa !57
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %26 = add i32 %16, -1
+  store i32 %26, ptr %15, align 4, !tbaa !57
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !53
   %29 = add i32 %28, -1
   store i32 %29, ptr %27, align 8, !tbaa !53
@@ -2098,7 +2100,7 @@ _ZN6vectorIPN7datalog9ddnf_nodeELb0EjE5eraseEPS2_.exit.i: ; preds = %.lr.ph.preh
   br i1 %30, label %31, label %_ZN15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE5eraseEj.exit
 
 31:                                               ; preds = %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE5eraseEPS2_.exit.i
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %33 = load ptr, ptr %32, align 8, !tbaa !47
   %34 = icmp eq ptr %33, null
   br i1 %34, label %_Z7deallocIN7datalog9ddnf_nodeEEvPT_.exit.i.i.i, label %35
@@ -2116,9 +2118,9 @@ _ZN6vectorIPN7datalog9ddnf_nodeELb0EjE5eraseEPS2_.exit.i: ; preds = %.lr.ph.preh
 
 _Z7deallocIN7datalog9ddnf_nodeEEvPT_.exit.i.i.i:  ; preds = %35, %31
   store ptr null, ptr %32, align 8, !tbaa !47
-  %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @_ZN15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #26
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %10)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %14)
   br label %_ZN15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE5eraseEj.exit
 
 _ZN15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE5eraseEj.exit: ; preds = %8, %2, %_ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE4sizeEv.exit, %_Z7deallocIN7datalog9ddnf_nodeEEvPT_.exit.i.i.i, %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE5eraseEPS2_.exit.i
