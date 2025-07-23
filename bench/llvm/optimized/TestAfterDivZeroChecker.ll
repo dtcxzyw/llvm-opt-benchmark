@@ -2297,7 +2297,7 @@ define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfo
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !tbaa !198
-  br label %58
+  br label %55
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2326,71 +2326,66 @@ _ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNo
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !170
   %21 = ptrtoint ptr %20 to i64
-  %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %22, ptr %23, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i64 %21, ptr %22, align 4
   %.pre = load ptr, ptr %11, align 8, !tbaa !171
-  %24 = lshr i64 %21, 32
-  %25 = trunc nuw i64 %24 to i32
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %25, ptr %26, align 8
-  %27 = ptrtoint ptr %.pre to i64
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i64 %27, ptr %28, align 4
+  %23 = ptrtoint ptr %.pre to i64
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i64 %23, ptr %24, align 4
   store i32 5, ptr %15, align 8, !tbaa !159
   %.0.copyload.i.i31.i = load i64, ptr %14, align 8
-  %29 = mul i64 %.0.copyload.i.i31.i, -5435081209227447693
+  %25 = mul i64 %.0.copyload.i.i31.i, -5435081209227447693
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.0.copyload.i15.i.i = load i64, ptr %26, align 8
-  %30 = mul i64 %27, -7286425919675154353
-  %.0.copyload.i17.i.i = load i64, ptr %23, align 4
-  %31 = mul i64 %.0.copyload.i17.i.i, -4348849565147123417
-  %32 = sub i64 %29, %.0.copyload.i15.i.i
-  %.0.i.i.i = call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 21)
-  %33 = xor i64 %30, -49064778989728563
-  %.0.i18.i.i = call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 34)
-  %34 = add i64 %31, %.0.i.i.i
-  %35 = add i64 %34, %.0.i18.i.i
-  %36 = xor i64 %.0.copyload.i15.i.i, -3942382747735136937
-  %.0.i19.i.i = call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 44)
-  %37 = add i64 %29, -49064778989728543
-  %38 = add i64 %37, %.0.i19.i.i
-  %39 = sub i64 %38, %30
-  %40 = xor i64 %35, %39
-  %41 = mul i64 %40, -7070675565921424023
-  %42 = lshr i64 %41, 47
-  %43 = xor i64 %39, %42
-  %44 = xor i64 %43, %41
-  %45 = mul i64 %44, -7070675565921424023
-  %46 = lshr i64 %45, 47
-  %47 = xor i64 %46, %45
-  %48 = trunc i64 %47 to i32
-  %49 = mul i32 %48, -348639895
-  %50 = add i32 %49, %.0.i
+  %27 = mul i64 %23, -7286425919675154353
+  %28 = mul i64 %21, -4348849565147123417
+  %29 = sub i64 %25, %.0.copyload.i15.i.i
+  %.0.i.i.i = call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 21)
+  %30 = xor i64 %27, -49064778989728563
+  %.0.i18.i.i = call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 34)
+  %31 = add i64 %28, %.0.i.i.i
+  %32 = add i64 %31, %.0.i18.i.i
+  %33 = xor i64 %.0.copyload.i15.i.i, -3942382747735136937
+  %.0.i19.i.i = call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 44)
+  %34 = add i64 %25, -49064778989728543
+  %35 = add i64 %34, %.0.i19.i.i
+  %36 = sub i64 %35, %27
+  %37 = xor i64 %32, %36
+  %38 = mul i64 %37, -7070675565921424023
+  %39 = lshr i64 %38, 47
+  %40 = xor i64 %36, %39
+  %41 = xor i64 %40, %38
+  %42 = mul i64 %41, -7070675565921424023
+  %43 = lshr i64 %42, 47
+  %44 = xor i64 %43, %42
+  %45 = trunc i64 %44 to i32
+  %46 = mul i32 %45, -348639895
+  %47 = add i32 %46, %.0.i
   %.not10.i = icmp eq ptr %.val3, null
   br i1 %.not10.i, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit
 
 _ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit: ; preds = %_ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_.exit
-  %51 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
-  %52 = add i32 %51, %50
+  %48 = call fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEv(ptr noundef nonnull align 8 dereferenceable(80) %.val3)
+  %49 = add i32 %48, %47
   %.pre8 = load ptr, ptr %2, align 8, !tbaa !153
-  %53 = icmp eq ptr %.pre8, %14
-  br i1 %53, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %54
+  %50 = icmp eq ptr %.pre8, %14
+  br i1 %50, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %51
 
-54:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit
+51:                                               ; preds = %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit
   call void @free(ptr noundef %.pre8) #21
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_.exit, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit, %54
-  %.1.i10 = phi i32 [ %52, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit ], [ %52, %54 ], [ %50, %_ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_.exit ]
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_.exit, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit, %51
+  %.1.i10 = phi i32 [ %49, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit ], [ %49, %51 ], [ %47, %_ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_.exit ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #21
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %.1.i10, ptr %55, align 8, !tbaa !198
-  %56 = load i32, ptr %3, align 8
-  %57 = or i32 %56, 536870912
-  store i32 %57, ptr %3, align 8
-  br label %58
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %.1.i10, ptr %52, align 8, !tbaa !198
+  %53 = load i32, ptr %3, align 8
+  %54 = or i32 %53, 536870912
+  store i32 %54, ptr %3, align 8
+  br label %55
 
-58:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
+55:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
   %.0 = phi i32 [ %7, %5 ], [ %.1.i10, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }
