@@ -166,11 +166,11 @@ sw.bb9:                                           ; preds = %entry
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load i64, ptr %size_.i, align 8
   %add.ptr.i.idx = shl nsw i64 %7, 3
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %add.ptr.i.idx
+  %8 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %add.ptr.i.idx
   %cmp.not28 = icmp eq i64 %7, 0
-  br i1 %cmp.not28, label %for.end19, label %for.body17
+  br i1 %cmp.not28, label %for.end19, label %for.body17.preheader
 
-for.body17:                                       ; preds = %sw.bb9, %for.body17
+for.body17.preheader:                             ; preds = %sw.bb9, %for.body17
   %__begin312.029 = phi ptr [ %incdec.ptr, %for.body17 ], [ %add.ptr.i.i.i, %sw.bb9 ]
   %8 = load ptr, ptr %__begin312.029, align 8
   tail call void @_ZNK6hermes6parser9JSONValue8emitIntoERNS_11JSONEmitterE(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(72) %emitter)
@@ -184,23 +184,23 @@ for.end19:                                        ; preds = %for.body17, %sw.bb9
 
 sw.bb20:                                          ; preds = %entry
   %value_.i22 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %9 = load ptr, ptr %value_.i22, align 8
-  %agg.tmp21.sroa.0.0.copyload = load ptr, ptr %9, align 8
-  %agg.tmp21.sroa.2.0.call23.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %10 = load ptr, ptr %value_.i22, align 8
+  %agg.tmp21.sroa.0.0.copyload = load ptr, ptr %10, align 8
+  %agg.tmp21.sroa.2.0.call23.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %agg.tmp21.sroa.2.0.copyload = load i64, ptr %agg.tmp21.sroa.2.0.call23.sroa_idx, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %emitter, ptr %agg.tmp21.sroa.0.0.copyload, i64 %agg.tmp21.sroa.2.0.copyload) #18
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %entry
   %value_.i23 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load double, ptr %value_.i23, align 8
-  tail call void @_ZN6hermes11JSONEmitter9emitValueEd(ptr noundef nonnull align 8 dereferenceable(72) %emitter, double noundef %10) #18
+  %11 = load double, ptr %value_.i23, align 8
+  tail call void @_ZN6hermes11JSONEmitter9emitValueEd(ptr noundef nonnull align 8 dereferenceable(72) %emitter, double noundef %11) #18
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %entry
   %value_.i24 = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %11 = load i8, ptr %value_.i24, align 4
-  %tobool.i = trunc i8 %11 to i1
+  %12 = load i8, ptr %value_.i24, align 4
+  %tobool.i = trunc i8 %12 to i1
   tail call void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 dereferenceable(72) %emitter, i1 noundef zeroext %tobool.i) #18
   br label %sw.epilog
 

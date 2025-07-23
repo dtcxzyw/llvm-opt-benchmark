@@ -5269,7 +5269,7 @@ check_pack_index_ptr.exit:                        ; preds = %st_mult.exit32
   %88 = or disjoint i64 %87, %85
   br label %89
 
-89:                                               ; preds = %36, %check_pack_index_ptr.exit, %st_mult.exit
+89:; preds = %36, %check_pack_index_ptr.exit, %st_mult.exit
   %.0 = phi i64 [ %22, %st_mult.exit ], [ %88, %check_pack_index_ptr.exit ], [ %37, %36 ]
   ret i64 %.0
 }

@@ -103,7 +103,7 @@ define dso_local range(i32 -1, 1) i32 @color_parse_mem(ptr noundef %0, i32 nound
 
 .critedge.thread:                                 ; preds = %11, %.critedge
   store i8 0, ptr %2, align 1, !tbaa !4
-  br label %244
+  br label %243
 
 .preheader:                                       ; preds = %.lr.ph, %165
   %.193274 = phi ptr [ %.294.lcssa, %165 ], [ %.092246, %.lr.ph ]
@@ -673,9 +673,9 @@ color_output.exit130:                             ; preds = %230, %226, %221, %2
   unreachable
 
 236:                                              ; preds = %color_output.exit130
-  %.6.ptr = getelementptr inbounds i8, ptr %2, i64 %.6.idx
-  %237 = getelementptr inbounds nuw i8, ptr %.6.ptr, i64 1
-  store i8 109, ptr %.6.ptr, align 1, !tbaa !4
+  %.6.ptr.ptr = getelementptr inbounds i8, ptr %2, i64 %.6.idx
+  %237 = getelementptr inbounds nuw i8, ptr %.6.ptr.ptr, i64 1
+  store i8 109, ptr %.6.ptr.ptr, align 1, !tbaa !4
   %238 = icmp eq i64 %.6.idx, 74
   br i1 %238, label %239, label %.thread194
 
@@ -686,23 +686,23 @@ color_output.exit130:                             ; preds = %230, %226, %221, %2
 .thread194:                                       ; preds = %._crit_edge, %236
   %.7196 = phi ptr [ %237, %236 ], [ %2, %._crit_edge ]
   store i8 0, ptr %.7196, align 1, !tbaa !4
-  br label %244
+  br label %243
 
 parse_attr.exit.thread:                           ; preds = %141, %parse_attr.exit, %159
-  %240 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !22
-  %.not.i131 = icmp eq i32 %240, 0
-  br i1 %.not.i131, label %_.exit, label %241
+  %239 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !22
+  %.not.i131 = icmp eq i32 %239, 0
+  br i1 %.not.i131, label %_.exit, label %240
 
-241:                                              ; preds = %parse_attr.exit.thread
-  %242 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #15
+240:                                              ; preds = %parse_attr.exit.thread
+  %241 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #15
   br label %_.exit
 
-_.exit:                                           ; preds = %parse_attr.exit.thread, %241
-  %.0.i132 = phi ptr [ %242, %241 ], [ @.str.17, %parse_attr.exit.thread ]
-  %243 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i132, i32 noundef %1, ptr noundef %0) #15
-  br label %244
+_.exit:                                           ; preds = %parse_attr.exit.thread, %240
+  %.0.i132 = phi ptr [ %241, %241 ], [ @.str.17, %parse_attr.exit.thread ]
+  %242 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i132, i32 noundef %1, ptr noundef %0) #15
+  br label %243
 
-244:                                              ; preds = %_.exit, %.thread194, %.critedge.thread
+243:                                              ; preds = %_.exit, %.thread194, %.critedge.thread
   %.0 = phi i32 [ -1, %_.exit ], [ 0, %.thread194 ], [ 0, %.critedge.thread ]
   ret i32 %.0
 }

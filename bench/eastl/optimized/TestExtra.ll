@@ -6320,11 +6320,11 @@ if.then.i:                                        ; preds = %entry
   %8 = load i32, ptr %add.ptr2, align 8
   store i32 %8, ptr %add.ptr1, align 8
   %mMagicValue.i8 = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 16
-  %9 = load i32, ptr %mMagicValue.i8, align 8
-  store i32 %9, ptr %mMagicValue4.i, align 8
+  %8 = load i32, ptr %mMagicValue.i8, align 8
+  store i32 %8, ptr %mMagicValue4.i, align 8
   %mbThrowOnCopy.i9 = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 4
-  %10 = load i8, ptr %mbThrowOnCopy.i9, align 4
-  %frombool.i10 = and i8 %10, 1
+  %9 = load i8, ptr %mbThrowOnCopy.i9, align 4
+  %frombool.i10 = and i8 %9, 1
   store i8 %frombool.i10, ptr %mbThrowOnCopy3.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
@@ -6334,46 +6334,46 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %entry, %if.then.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN10TestObjectaSERKS_.exit
-  %11 = load i32, ptr %mMagicValue.i, align 8
-  %cmp.not.i12 = icmp eq i32 %11, 32623592
+  %10 = load i32, ptr %mMagicValue.i, align 8
+  %cmp.not.i12 = icmp eq i32 %10, 32623592
   br i1 %cmp.not.i12, label %_ZN10TestObjectD2Ev.exit, label %if.then.i13
 
 if.then.i13:                                      ; preds = %invoke.cont
-  %12 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %inc.i14 = add nsw i32 %12, 1
+  %11 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  %inc.i14 = add nsw i32 %11, 1
   store i32 %inc.i14, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %_ZN10TestObjectD2Ev.exit
 
 _ZN10TestObjectD2Ev.exit:                         ; preds = %invoke.cont, %if.then.i13
-  %13 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i = add nsw i64 %13, -1
+  %12 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i = add nsw i64 %12, -1
   store i64 %dec.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %14 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i = add nsw i64 %14, 1
+  %13 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i = add nsw i64 %13, 1
   store i64 %inc3.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN10TestObjectaSERKS_.exit
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %16 = load i32, ptr %mMagicValue.i, align 8
-  %cmp.not.i16 = icmp eq i32 %16, 32623592
+  %15 = load i32, ptr %mMagicValue.i, align 8
+  %cmp.not.i16 = icmp eq i32 %15, 32623592
   br i1 %cmp.not.i16, label %_ZN10TestObjectD2Ev.exit21, label %if.then.i17
 
 if.then.i17:                                      ; preds = %lpad
-  %17 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %inc.i18 = add nsw i32 %17, 1
+  %16 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  %inc.i18 = add nsw i32 %16, 1
   store i32 %inc.i18, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %_ZN10TestObjectD2Ev.exit21
 
 _ZN10TestObjectD2Ev.exit21:                       ; preds = %lpad, %if.then.i17
-  %18 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i19 = add nsw i64 %18, -1
+  %17 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i19 = add nsw i64 %17, -1
   store i64 %dec.i19, ptr @_ZN10TestObject8sTOCountE, align 8
-  %19 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i20 = add nsw i64 %19, 1
+  %18 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i20 = add nsw i64 %18, 1
   store i64 %inc3.i20, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

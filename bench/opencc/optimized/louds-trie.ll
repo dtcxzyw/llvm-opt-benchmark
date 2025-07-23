@@ -2560,7 +2560,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit: ; preds = %86, %8
   %or.cond.i.i = select i1 %89, i1 %91, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPcEvT_S1_.exit
 
-.lr.ph.i.i.preheader:                             ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit
+.lr.ph.i.i.preheader:; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit
   %92 = load ptr, ptr %42, align 8, !tbaa !133
   %.012.i.i = getelementptr inbounds i8, ptr %92, i64 %90
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %58

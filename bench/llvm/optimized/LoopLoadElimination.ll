@@ -2878,15 +2878,15 @@ _ZN12_GLOBAL__N_122LoadEliminationForLoop13getInstrIndexEPN4llvm11InstructionE.e
   %1145 = zext i32 %1144 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %1145, 3
   %1146 = add nuw nsw i64 %.idx.i.i.i.i, 8
-  %1147 = getelementptr inbounds nuw i8, ptr %1117, i64 56
-  %1148 = load i32, ptr %1147, align 8, !tbaa !26
-  %1149 = zext i32 %1148 to i64
-  %.idx4.i.i.i.i = shl nuw nsw i64 %1149, 3
+  %1148 = getelementptr inbounds nuw i8, ptr %1117, i64 56
+  %1149 = load i32, ptr %1148, align 8, !tbaa !26
+  %1150 = zext i32 %1149 to i64
+  %.idx4.i.i.i.i = shl nuw nsw i64 %1150, 3
   %1150 = getelementptr inbounds nuw i8, ptr %1119, i64 %.idx4.i.i.i.i
   %.not4.i.i.i.i.i = icmp samesign eq i64 %1146, %.idx4.i.i.i.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8for_eachIPKPN4llvm11InstructionEZN12_GLOBAL__N_122LoadEliminationForLoop35findPointersWrittenOnForwardingPathERKNS0_15SmallVectorImplINS5_30StoreToLoadForwardingCandidateEEEEUlS2_E_ET0_T_SE_SD_.exit.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
-.lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZN12_GLOBAL__N_122LoadEliminationForLoop13getInstrIndexEPN4llvm11InstructionE.exit.i.i.i.i
+.lr.ph.i.preheader.i.i.i.i:; preds = %_ZN12_GLOBAL__N_122LoadEliminationForLoop13getInstrIndexEPN4llvm11InstructionE.exit.i.i.i.i
   %1151 = getelementptr inbounds nuw i8, ptr %1119, i64 %1146
   br label %.lr.ph.i.i.i57.i.i
 
@@ -2998,8 +2998,8 @@ _ZN12_GLOBAL__N_122LoadEliminationForLoop13getInstrIndexEPN4llvm11InstructionE.e
   %1196 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i57.i.i.i.i, i64 8
   %1197 = load i32, ptr %1196, align 8, !tbaa !246
   %1198 = zext i32 %1197 to i64
-  %.idx5.i.i.i.i = shl nuw nsw i64 %1198, 3
-  %1199 = getelementptr inbounds nuw i8, ptr %1172, i64 %.idx5.i.i.i.i
+  %.idx.i.i.i.i = shl nuw nsw i64 %1198, 3
+  %1199 = getelementptr inbounds nuw i8, ptr %1172, i64 %.idx.i.i.i.i
   %.not4.i60.i.i.i.i = icmp eq i32 %1197, 0
   br i1 %.not4.i60.i.i.i.i, label %_ZN12_GLOBAL__N_122LoadEliminationForLoop35findPointersWrittenOnForwardingPathERKN4llvm15SmallVectorImplINS_30StoreToLoadForwardingCandidateEEE.exit.i.i.i, label %.lr.ph.i61.i.i.i.i
 

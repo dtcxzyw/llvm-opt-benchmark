@@ -1490,7 +1490,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %19
 
 33:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   invoke void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20241223L14normalize_axisEiiE15__cv_check__243) #24
-          to label %.noexc unwind label %51
+          to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %33
   unreachable
@@ -1525,41 +1525,41 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i
 
 _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i.i, %44
-  %48 = getelementptr inbounds i8, ptr %24, i64 -4
-  store ptr %48, ptr %25, align 8, !tbaa !74
+  %47 = getelementptr inbounds i8, ptr %24, i64 -4
+  store ptr %47, ptr %25, align 8, !tbaa !74
   br label %_ZNK2cv3dnn12ArgLayerImpl14handleKeepDimsERSt6vectorIiSaIiEEi.exit
 
 _ZNK2cv3dnn12ArgLayerImpl14handleKeepDimsERSt6vectorIiSaIiEEi.exit: ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i, %42
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_assignEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit unwind label %51
+          to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit unwind label %50
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit: ; preds = %_ZNK2cv3dnn12ArgLayerImpl14handleKeepDimsERSt6vectorIiSaIiEEi.exit
-  %49 = load ptr, ptr %6, align 8, !tbaa !72
-  %.not.i.i.i7 = icmp eq ptr %49, null
-  br i1 %.not.i.i.i7, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %50
+  %48 = load ptr, ptr %6, align 8, !tbaa !72
+  %.not.i.i.i7 = icmp eq ptr %48, null
+  br i1 %.not.i.i.i7, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %49
 
-50:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit
-  call void @_ZdlPv(ptr noundef nonnull %49) #23
+49:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit
+  call void @_ZdlPv(ptr noundef nonnull %48) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit, %50
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22
   ret i1 false
 
-51:                                               ; preds = %_ZNK2cv3dnn12ArgLayerImpl14handleKeepDimsERSt6vectorIiSaIiEEi.exit, %33
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZNK2cv3dnn12ArgLayerImpl14handleKeepDimsERSt6vectorIiSaIiEEi.exit, %33
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %53 = load ptr, ptr %6, align 8, !tbaa !72
-  %.not.i.i.i8 = icmp eq ptr %53, null
-  br i1 %.not.i.i.i8, label %_ZNSt6vectorIiSaIiEED2Ev.exit9, label %54
+  %52 = load ptr, ptr %6, align 8, !tbaa !72
+  %.not.i.i.i8 = icmp eq ptr %52, null
+  br i1 %.not.i.i.i8, label %_ZNSt6vectorIiSaIiEED2Ev.exit9, label %53
 
-54:                                               ; preds = %51
-  call void @_ZdlPv(ptr noundef nonnull %53) #23
+53:                                               ; preds = %50
+  call void @_ZdlPv(ptr noundef nonnull %52) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit9
 
-_ZNSt6vectorIiSaIiEED2Ev.exit9:                   ; preds = %51, %54
+_ZNSt6vectorIiSaIiEED2Ev.exit9:                   ; preds = %50, %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

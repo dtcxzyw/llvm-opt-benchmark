@@ -75,16 +75,16 @@ define void @ff_rtp_send_h261(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %39
 
-36:                                               ; preds = %.lr.ph.i
+36:; preds = %.lr.ph.i
   %37 = load i8, ptr %.pn12.i, align 1, !tbaa !30, !alias.scope !32, !noalias !35
   %38 = icmp eq i8 %37, 1
   br i1 %38, label %find_resync_marker_reverse.exit, label %39
 
-39:                                               ; preds = %36, %.lr.ph.i
+39:; preds = %36, %.lr.ph.i
   %40 = icmp sgt i64 %.013.i.idx.in, 3
   br i1 %40, label %.lr.ph.i, label %find_resync_marker_reverse.exit, !llvm.loop !37
 
-find_resync_marker_reverse.exit:                  ; preds = %36, %39, %31
+find_resync_marker_reverse.exit:; preds = %36, %39, %31
   %.010.i = phi ptr [ %.ptr, %31 ], [ %.013.i.ptr, %36 ], [ %.ptr, %39 ]
   %41 = ptrtoint ptr %.010.i to i64
   %42 = ptrtoint ptr %.041 to i64
@@ -92,7 +92,7 @@ find_resync_marker_reverse.exit:                  ; preds = %36, %39, %31
   %44 = trunc i64 %43 to i32
   br label %45
 
-45:                                               ; preds = %find_resync_marker_reverse.exit, %27
+45:; preds = %find_resync_marker_reverse.exit, %27
   %.036 = phi i32 [ %44, %find_resync_marker_reverse.exit ], [ %.035., %27 ]
   %46 = icmp eq i32 %.036, %.03540
   %47 = zext i1 %46 to i32
@@ -100,15 +100,15 @@ find_resync_marker_reverse.exit:                  ; preds = %36, %39, %31
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = sext i32 %.036 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %.041, i64 %50, i1 false)
-  %51 = load ptr, ptr %10, align 8, !tbaa !29
+  %49 = load ptr, ptr %10, align 8, !tbaa !29
   %52 = add nsw i32 %.036, 4
-  tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %51, i32 noundef %52, i32 noundef %47) #4
+  tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %49, i32 noundef %52, i32 noundef %47) #4
   %53 = getelementptr inbounds i8, ptr %.041, i64 %50
   %54 = sub nsw i32 %.03540, %.036
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %12, label %._crit_edge, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %45, %3
+._crit_edge:; preds = %45, %3
   ret void
 }
 

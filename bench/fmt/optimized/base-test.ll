@@ -138015,7 +138015,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v1110vformat_toIRSt20back_insert_iterato
 12:                                               ; preds = %5
   %13 = load i64, ptr %8, align 8, !tbaa !7
   store i64 0, ptr %8, align 8, !tbaa !7
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
   %.not5.i.i.i = icmp samesign eq i64 %13, 0
   br i1 %.not5.i.i.i, label %.thread, label %.lr.ph.i.i.i
 
@@ -138070,7 +138070,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %.pr = load i64, ptr %8, align 8, !tbaa !7
   %.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
   store i64 0, ptr %8, align 8, !tbaa !7
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.pr
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %.pr
   %.not5.i.i = icmp samesign eq i64 %.pr, 0
   br i1 %.not5.i.i, label %_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEED2Ev.exit, label %.lr.ph.i.i
 
@@ -138133,9 +138133,9 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   unreachable
 
 _ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEED2Ev.exit: ; preds = %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i.i, %.thread, %33, %53
-  %.sroa.0.0.copyload.i.i16 = phi ptr [ %.sroa.0.0.copyload.i.i14, %.thread ], [ %.sroa.0.0.copyload.i.i, %33 ], [ %.sroa.0.0.copyload.i.i, %53 ], [ %.sroa.0.0.copyload.i.i, %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i.i ]
+  %.sroa.0.0.copyload.i.i17 = phi ptr [ %.sroa.0.0.copyload.i.i14, %.thread ], [ %.sroa.0.0.copyload.i.i, %33 ], [ %.sroa.0.0.copyload.i.i, %53 ], [ %.sroa.0.0.copyload.i.i, %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %6) #30
-  ret ptr %.sroa.0.0.copyload.i.i16
+  ret ptr %.sroa.0.0.copyload.i.i17
 
 .loopexit:                                        ; preds = %28
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -138162,73 +138162,73 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail15iterator_bufferISt20back_in
   %3 = load i64, ptr %2, align 8, !tbaa !7
   store i64 0, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %3
+  %.ptr7.i = getelementptr inbounds nuw i8, ptr %4, i64 %3
   %.not5.i = icmp samesign eq i64 %3, 0
   br i1 %.not5.i, label %_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEE5flushEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %7
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %6
 
-7:                                                ; preds = %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i, %.lr.ph.i
-  %.06.i = phi ptr [ %4, %.lr.ph.i ], [ %8, %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i ]
-  %8 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
+6:                                                ; preds = %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i, %.lr.ph.i
+  %.06.i = phi ptr [ %4, %.lr.ph.i ], [ %7, %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i ]
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
   %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8
-  %9 = load i8, ptr %.06.i, align 1, !tbaa !4
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !45
-  %12 = add i64 %11, 1
-  %13 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
-  %15 = icmp eq ptr %13, %14
-  br i1 %15, label %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
+  %8 = load i8, ptr %.06.i, align 1, !tbaa !4
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
+  %10 = load i64, ptr %9, align 8, !tbaa !45
+  %11 = add i64 %10, 1
+  %12 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
+  %14 = icmp eq ptr %12, %13
+  br i1 %14, label %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
 
-16:                                               ; preds = %7
-  %17 = icmp ult i64 %11, 16
-  tail call void @llvm.assume(i1 %17)
+15:                                               ; preds = %6
+  %16 = icmp ult i64 %10, 16
+  tail call void @llvm.assume(i1 %16)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; preds = %16, %7
-  %18 = load i64, ptr %14, align 8
-  %19 = select i1 %15, i64 15, i64 %18
-  %20 = icmp ugt i64 %12, %19
-  br i1 %20, label %21, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; preds = %15, %6
+  %17 = load i64, ptr %13, align 8
+  %18 = select i1 %14, i64 15, i64 %17
+  %19 = icmp ugt i64 %11, %18
+  br i1 %19, label %20, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i
 
-21:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i.i, i64 noundef %11, i64 noundef 0, ptr noundef null, i64 noundef 1)
-          to label %.noexc unwind label %26
+20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i.i, i64 noundef %10, i64 noundef 0, ptr noundef null, i64 noundef 1)
+          to label %.noexc unwind label %25
 
-.noexc:                                           ; preds = %21
+.noexc:                                           ; preds = %20
   %.pre.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
   br label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i
 
 _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i: ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
-  %22 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %11
-  store i8 %9, ptr %23, align 1, !tbaa !4
-  store i64 %12, ptr %10, align 8, !tbaa !45
-  %24 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %12
-  store i8 0, ptr %25, align 1, !tbaa !4
-  %.not.i = icmp eq ptr %8, %5
-  br i1 %.not.i, label %_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEE5flushEv.exit, label %7, !llvm.loop !3298
+  %21 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %10
+  store i8 %8, ptr %22, align 1, !tbaa !4
+  store i64 %11, ptr %9, align 8, !tbaa !45
+  %23 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %11
+  store i8 0, ptr %24, align 1, !tbaa !4
+  %.not.i = icmp eq ptr %7, %.ptr7.i
+  br i1 %.not.i, label %_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEE5flushEv.exit, label %6, !llvm.loop !3298
 
-26:                                               ; preds = %21
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %20
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  %29 = tail call ptr @__cxa_begin_catch(ptr %28) #30
+  %27 = extractvalue { ptr, i32 } %26, 0
+  %28 = tail call ptr @__cxa_begin_catch(ptr %27) #30
   invoke void @__cxa_end_catch()
-          to label %_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEE5flushEv.exit unwind label %30
+          to label %_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEE5flushEv.exit unwind label %29
 
-_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEE5flushEv.exit: ; preds = %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i, %1, %26
+_ZN3fmt3v116detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEE5flushEv.exit: ; preds = %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKc.exit.i, %1, %25
   ret void
 
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %25
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #33
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #33
   unreachable
 }
 

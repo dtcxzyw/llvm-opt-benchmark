@@ -3144,7 +3144,7 @@ _ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
 
 32:                                               ; preds = %.lr.ph.i
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i, 3
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !95
   %.idx3.i.i = shl nuw nsw i64 %wide.trip.count.i, 3
   %35 = add nuw nsw i64 %.idx.i.i, 8
@@ -3152,7 +3152,7 @@ _ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
   br i1 %.not11.i.i.i, label %_ZN6vectorIP3varLb0EjE5eraseEPS1_.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %32
-  %.010.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.010.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = ptrtoint ptr %24 to i64
   %37 = ptrtoint ptr %33 to i64
   %38 = add i64 %36, -16
@@ -3161,12 +3161,12 @@ _ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
   %41 = and i64 %40, -8
   %42 = add i64 %41, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 8 %.010.i.i.i, i64 %42, i1 false), !tbaa !95
-  br label %_ZN6vectorIP3varLb0EjE5eraseEPS1_.exit.i.i
+  br label %43
 
-_ZN6vectorIP3varLb0EjE5eraseEPS1_.exit.i.i:       ; preds = %.lr.ph.preheader.i.i.i, %32
-  %43 = add i32 %27, -1
-  store i32 %43, ptr %26, align 4, !tbaa !33
-  %44 = load ptr, ptr %20, align 8, !tbaa !109
+43:                                               ; preds = %.lr.ph.preheader.i.i.i, %32
+  %44 = add i32 %27, -1
+  store i32 %44, ptr %26, align 4, !tbaa !33
+  %45 = load ptr, ptr %20, align 8, !tbaa !109
   %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %_ZN15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE5eraseEPS0_.exit, label %45
 
@@ -3179,10 +3179,10 @@ _ZN6vectorIP3varLb0EjE5eraseEPS1_.exit.i.i:       ; preds = %.lr.ph.preheader.i.
   br i1 %49, label %50, label %_ZN15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE5eraseEPS0_.exit
 
 50:                                               ; preds = %45
-  tail call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %44, ptr noundef nonnull %34)
+  tail call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %45, ptr noundef nonnull %34)
   br label %_ZN15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE5eraseEPS0_.exit
 
-_ZN15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE5eraseEPS0_.exit: ; preds = %28, %8, %50, %45, %_ZN6vectorIP3varLb0EjE5eraseEPS1_.exit.i.i, %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, %22, %17, %_ZNK6vectorIP10ref_vectorI3var11ast_managerELb0EjE4sizeEv.exit, %7
+_ZN15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE5eraseEPS0_.exit: ; preds = %28, %8, %50, %45, %43, %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, %22, %17, %_ZNK6vectorIP10ref_vectorI3var11ast_managerELb0EjE4sizeEv.exit, %7
   ret void
 }
 

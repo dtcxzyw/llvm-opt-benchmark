@@ -512,11 +512,11 @@ entry:
   %0 = load i32, ptr %propertyCacheSize_, align 4
   %conv = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv, 3
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %add.ptr.i.idx
+  %1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %add.ptr.i.idx
   %cmp.not6 = icmp eq i32 %0, 0
-  br i1 %cmp.not6, label %for.end, label %for.body
+  br i1 %cmp.not6, label %for.end, label %for.body.preheader
 
-for.body:                                         ; preds = %entry, %for.inc
+for.body.preheader:                               ; preds = %entry, %for.inc
   %__begin2.07 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr.i.i.i, %entry ]
   %1 = load i32, ptr %__begin2.07, align 4
   %cmp.i.i.not = icmp eq i32 %1, 0
@@ -525,7 +525,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %acceptor, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %2 = load ptr, ptr %vfn, align 8
+  %3 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 4 dereferenceable(4) %__begin2.07) #7
   br label %for.inc
 
