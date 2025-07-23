@@ -2553,19 +2553,22 @@ _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit: ; preds = %72, %74
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit: ; preds = %86, %87
-  %88 = load ptr, ptr %42, align 8, !tbaa !133
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %58
-  %90 = load i64, ptr %17, align 8, !tbaa !131
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %90
-  %92 = icmp samesign ne i64 %58, %90
-  %.012.i.i = getelementptr inbounds i8, ptr %91, i64 -1
-  %93 = icmp ult ptr %89, %.012.i.i
-  %or.cond.i.i = select i1 %92, i1 %93, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
+  %88 = load i64, ptr %17, align 8, !tbaa !131
+  %89 = icmp samesign ne i64 %58, %88
+  %90 = add nsw i64 %88, -1
+  %91 = icmp slt i64 %58, %90
+  %or.cond.i.i = select i1 %89, i1 %91, i1 false
+  br i1 %or.cond.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPcEvT_S1_.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit, %.lr.ph.i.i
-  %.014.i.i = phi ptr [ %.0.i.i32, %.lr.ph.i.i ], [ %.012.i.i, %_ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit ]
-  %.0913.i.i = phi ptr [ %96, %.lr.ph.i.i ], [ %89, %_ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit ]
+.lr.ph.i.i.preheader:                             ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit
+  %92 = load ptr, ptr %42, align 8, !tbaa !133
+  %.012.i.i = getelementptr inbounds i8, ptr %92, i64 %90
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %58
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.014.i.i = phi ptr [ %.0.i.i32, %.lr.ph.i.i ], [ %.012.i.i, %.lr.ph.i.i.preheader ]
+  %.0913.i.i = phi ptr [ %96, %.lr.ph.i.i ], [ %93, %.lr.ph.i.i.preheader ]
   %94 = load i8, ptr %.0913.i.i, align 1, !tbaa !58
   %95 = load i8, ptr %.014.i.i, align 1, !tbaa !58
   store i8 %95, ptr %.0913.i.i, align 1, !tbaa !58

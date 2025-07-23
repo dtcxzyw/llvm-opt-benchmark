@@ -40176,10 +40176,10 @@ invoke.cont:                                      ; preds = %entry, %for.body.pr
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEES2_EC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(424) %x) unnamed_addr #0 comdat($_ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEES2_EC5ERKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mBuffer.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %mBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %mBuffer.i.ptr, ptr %mpEnd.i, align 8
-  store ptr %mBuffer.i.ptr, ptr %this, align 8
+  store ptr %mBuffer.i, ptr %mpEnd.i, align 8
+  store ptr %mBuffer.i, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   %mCapacityAllocator.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i, ptr %mCapacityAllocator.i.i, align 8
@@ -40207,17 +40207,16 @@ if.else.i.i.i:                                    ; preds = %entry
   br i1 %cmp23.not.i.i.not.i, label %for.body.preheader.i16.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.else.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %mBuffer.i.ptr, ptr align 4 %0, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  %mBuffer.i.add = add nuw nsw i64 %sub.ptr.sub.i.i.i.i.i, 24
-  %add.ptr.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 %mBuffer.i.add
-  store ptr %add.ptr.i.i.i.i.i.i.ptr, ptr %mpEnd.i, align 8
-  %2 = icmp eq i64 %mBuffer.i.add, 424
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %mBuffer.i, ptr align 4 %0, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %mBuffer.i, i64 %sub.ptr.sub.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i, ptr %mpEnd.i, align 8
+  %2 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 400
   br label %_ZN5eastl12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEC2ERKS2_.exit
 
 _ZN5eastl12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEC2ERKS2_.exit: ; preds = %_ZN5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb0ENS_15dummy_allocatorEEEE9DoReallocIPKiEEPimT_S9_NS4_23should_move_or_copy_tagILb0EEE.exit.i.i.i, %if.end.i.i.i.i.i.i
   %cmp.i.i = phi i1 [ true, %_ZN5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb0ENS_15dummy_allocatorEEEE9DoReallocIPKiEEPimT_S9_NS4_23should_move_or_copy_tagILb0EEE.exit.i.i.i ], [ %2, %if.end.i.i.i.i.i.i ]
-  %.pre.i.i = phi ptr [ %add.ptr.i.i.i, %_ZN5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb0ENS_15dummy_allocatorEEEE9DoReallocIPKiEEPimT_S9_NS4_23should_move_or_copy_tagILb0EEE.exit.i.i.i ], [ %add.ptr.i.i.i.i.i.i.ptr, %if.end.i.i.i.i.i.i ]
-  %3 = phi ptr [ null, %_ZN5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb0ENS_15dummy_allocatorEEEE9DoReallocIPKiEEPimT_S9_NS4_23should_move_or_copy_tagILb0EEE.exit.i.i.i ], [ %mBuffer.i.ptr, %if.end.i.i.i.i.i.i ]
+  %.pre.i.i = phi ptr [ %add.ptr.i.i.i, %_ZN5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb0ENS_15dummy_allocatorEEEE9DoReallocIPKiEEPimT_S9_NS4_23should_move_or_copy_tagILb0EEE.exit.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %3 = phi ptr [ null, %_ZN5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb0ENS_15dummy_allocatorEEEE9DoReallocIPKiEEPimT_S9_NS4_23should_move_or_copy_tagILb0EEE.exit.i.i.i ], [ %mBuffer.i, %if.end.i.i.i.i.i.i ]
   %cmp.i = icmp eq ptr %3, %.pre.i.i
   br i1 %cmp.i, label %if.then.i, label %if.end
 
@@ -40229,8 +40228,8 @@ if.then.i.i:                                      ; preds = %if.then.i
   unreachable
 
 for.body.preheader.i16.i.i:                       ; preds = %if.else.i.i.i, %if.then.i
-  %.pre.i.i811 = phi ptr [ %.pre.i.i, %if.then.i ], [ %mBuffer.i.ptr, %if.else.i.i.i ]
-  %4 = phi ptr [ %3, %if.then.i ], [ %mBuffer.i.ptr, %if.else.i.i.i ]
+  %.pre.i.i811 = phi ptr [ %.pre.i.i, %if.then.i ], [ %mBuffer.i, %if.else.i.i.i ]
+  %4 = phi ptr [ %3, %if.then.i ], [ %mBuffer.i, %if.else.i.i.i ]
   store i32 0, ptr %.pre.i.i811, align 4
   %add.ptr30.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i811, i64 4
   store ptr %add.ptr30.i.i, ptr %mpEnd.i, align 8

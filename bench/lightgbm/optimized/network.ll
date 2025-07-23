@@ -5573,8 +5573,8 @@ define void @_ZN8LightGBM7Network14AllgatherBruckEPcPKiS3_S1_i(ptr noundef reado
 
 ._crit_edge73:                                    ; preds = %._crit_edge, %5
   %23 = sext i32 %4 to i64
-  %24 = getelementptr inbounds i8, ptr %3, i64 %23
-  %.012.i.i = getelementptr inbounds i8, ptr %24, i64 -1
+  %24 = add nsw i64 %23, -1
+  %.012.i.i = getelementptr inbounds i8, ptr %3, i64 %24
   %25 = icmp sgt i32 %4, 1
   br i1 %25, label %.lr.ph.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
 
@@ -5627,15 +5627,18 @@ _ZSt7reverseIPcEvT_S1_.exit53.loopexit:           ; preds = %.lr.ph.i.i49
 _ZSt7reverseIPcEvT_S1_.exit53:                    ; preds = %_ZSt7reverseIPcEvT_S1_.exit53.loopexit, %_ZSt7reverseIPcEvT_S1_.exit
   %.pre-phi79 = phi i64 [ %.pre78, %_ZSt7reverseIPcEvT_S1_.exit53.loopexit ], [ %34, %_ZSt7reverseIPcEvT_S1_.exit ]
   %41 = phi i32 [ %.pre77, %_ZSt7reverseIPcEvT_S1_.exit53.loopexit ], [ %33, %_ZSt7reverseIPcEvT_S1_.exit ]
-  %42 = getelementptr inbounds i8, ptr %3, i64 %.pre-phi79
-  %43 = icmp ne i32 %41, %4
-  %44 = icmp ult ptr %42, %.012.i.i
-  %or.cond.i.i55 = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond.i.i55, label %.lr.ph.i.i56, label %_ZSt7reverseIPcEvT_S1_.exit60
+  %42 = icmp ne i32 %41, %4
+  %43 = icmp sgt i64 %24, %.pre-phi79
+  %or.cond.i.i55 = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond.i.i55, label %.lr.ph.i.i56.preheader, label %_ZSt7reverseIPcEvT_S1_.exit60
 
-.lr.ph.i.i56:                                     ; preds = %_ZSt7reverseIPcEvT_S1_.exit53, %.lr.ph.i.i56
-  %.014.i.i57 = phi ptr [ %.0.i.i59, %.lr.ph.i.i56 ], [ %.012.i.i, %_ZSt7reverseIPcEvT_S1_.exit53 ]
-  %.0913.i.i58 = phi ptr [ %47, %.lr.ph.i.i56 ], [ %42, %_ZSt7reverseIPcEvT_S1_.exit53 ]
+.lr.ph.i.i56.preheader:                           ; preds = %_ZSt7reverseIPcEvT_S1_.exit53
+  %44 = getelementptr inbounds i8, ptr %3, i64 %.pre-phi79
+  br label %.lr.ph.i.i56
+
+.lr.ph.i.i56:                                     ; preds = %.lr.ph.i.i56.preheader, %.lr.ph.i.i56
+  %.014.i.i57 = phi ptr [ %.0.i.i59, %.lr.ph.i.i56 ], [ %.012.i.i, %.lr.ph.i.i56.preheader ]
+  %.0913.i.i58 = phi ptr [ %47, %.lr.ph.i.i56 ], [ %44, %.lr.ph.i.i56.preheader ]
   %45 = load i8, ptr %.0913.i.i58, align 1, !tbaa !78
   %46 = load i8, ptr %.014.i.i57, align 1, !tbaa !78
   store i8 %46, ptr %.0913.i.i58, align 1, !tbaa !78

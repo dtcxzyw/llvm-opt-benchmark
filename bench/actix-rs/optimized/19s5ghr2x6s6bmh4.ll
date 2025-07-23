@@ -1422,16 +1422,15 @@ define hidden void @"_ZN68_$LT$sha1..Sha1Core$u20$as$u20$digest..core_api..Fixed
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %18, i64 20, i1 false)
   %19 = tail call i64 @llvm.bswap.i64(i64 %17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %12
+  %20 = getelementptr [0 x i8], ptr %1, i64 0, i64 %12
   store i8 -128, ptr %20, align 1, !alias.scope !191, !noalias !194
   %21 = icmp eq i8 %11, 63
   br i1 %21, label %._crit_edge.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
-  %22 = getelementptr i8, ptr %1, i64 %12
-  %scevgep = getelementptr i8, ptr %22, i64 1
+  %22 = getelementptr i8, ptr %20, i64 1
   %23 = xor i64 %12, 63
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %23, i1 false), !noalias !197
+  tail call void @llvm.memset.p0.i64(ptr align 1 %22, i8 0, i64 %23, i1 false), !noalias !197
   %24 = xor i64 %12, 56
   %25 = icmp samesign ult i64 %24, 8
   br i1 %25, label %._crit_edge.thread, label %34

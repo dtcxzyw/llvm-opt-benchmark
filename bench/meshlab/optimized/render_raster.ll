@@ -238,8 +238,9 @@ define void @_ZN19MeshLabRenderRasterC2ERKS_(ptr noundef nonnull align 8 derefer
 
 .lr.ph:                                           ; preds = %2
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %11
+  %.idx = shl nsw i64 %11, 3
+  %12 = getelementptr i8, ptr %6, i64 %.idx
+  %13 = getelementptr i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %16

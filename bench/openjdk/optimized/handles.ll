@@ -554,7 +554,7 @@ define hidden void @_ZN10HandleArea7oops_doEP10OopClosure(ptr noundef nonnull re
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %._crit_edge, %2
-  %.tr = phi ptr [ %0, %2 ], [ %26, %._crit_edge ]
+  %.tr = phi ptr [ %0, %2 ], [ %27, %._crit_edge ]
   %3 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
@@ -579,50 +579,46 @@ _ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit.loopexit: ; preds = %.lr.ph.i
 _ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit:    ; preds = %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit.loopexit, %tailrecurse
   %13 = phi ptr [ %.pre, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit.loopexit ], [ %4, %tailrecurse ]
   %14 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.017 = load ptr, ptr %14, align 8
-  %.not18 = icmp eq ptr %.017, %13
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.016 = load ptr, ptr %14, align 8
+  %.not17 = icmp eq ptr %.016, %13
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14
-  %15 = phi ptr [ %24, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14 ], [ %13, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit ]
-  %.019 = phi ptr [ %.0, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14 ], [ %.017, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr i8, ptr %.019, i64 %17
-  %.ptr15 = getelementptr i8, ptr %18, i64 16
-  %19 = icmp sgt i64 %17, 0
-  br i1 %19, label %.lr.ph.i12.preheader, label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14
+  %15 = phi ptr [ %25, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14 ], [ %13, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit ]
+  %.018 = phi ptr [ %.0, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14 ], [ %.016, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit ]
+  %16 = getelementptr inbounds nuw i8, ptr %.018, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 %18
+  %20 = icmp sgt i64 %18, 0
+  br i1 %20, label %.lr.ph.i12, label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14
 
-.lr.ph.i12.preheader:                             ; preds = %.lr.ph
-  %.ptr = getelementptr inbounds nuw i8, ptr %.019, i64 16
-  br label %.lr.ph.i12
-
-.lr.ph.i12:                                       ; preds = %.lr.ph.i12.preheader, %.lr.ph.i12
-  %.08.i13 = phi ptr [ %20, %.lr.ph.i12 ], [ %.ptr, %.lr.ph.i12.preheader ]
-  %20 = getelementptr inbounds nuw i8, ptr %.08.i13, i64 8
-  %21 = load ptr, ptr %1, align 8
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.08.i13) #7
-  %23 = icmp ult ptr %20, %.ptr15
-  br i1 %23, label %.lr.ph.i12, label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit, !llvm.loop !9
+.lr.ph.i12:                                       ; preds = %.lr.ph, %.lr.ph.i12
+  %.08.i13 = phi ptr [ %21, %.lr.ph.i12 ], [ %16, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i8, ptr %.08.i13, i64 8
+  %22 = load ptr, ptr %1, align 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.08.i13) #7
+  %24 = icmp ult ptr %21, %19
+  br i1 %24, label %.lr.ph.i12, label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit, !llvm.loop !9
 
 _ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit: ; preds = %.lr.ph.i12
-  %.pre20 = load ptr, ptr %3, align 8
+  %.pre19 = load ptr, ptr %3, align 8
   br label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14
 
 _ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14:  ; preds = %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit, %.lr.ph
-  %24 = phi ptr [ %.pre20, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit ], [ %15, %.lr.ph ]
-  %.0 = load ptr, ptr %.019, align 8
-  %.not = icmp eq ptr %.0, %24
+  %25 = phi ptr [ %.pre19, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit ], [ %15, %.lr.ph ]
+  %.0 = load ptr, ptr %.018, align 8
+  %.not = icmp eq ptr %.0, %25
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit
-  %25 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %26 = load ptr, ptr %25, align 8
-  %.not11 = icmp eq ptr %26, null
-  br i1 %.not11, label %27, label %tailrecurse
+  %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
+  %27 = load ptr, ptr %26, align 8
+  %.not11 = icmp eq ptr %27, null
+  br i1 %.not11, label %28, label %tailrecurse
 
-27:                                               ; preds = %._crit_edge
+28:                                               ; preds = %._crit_edge
   ret void
 }
 

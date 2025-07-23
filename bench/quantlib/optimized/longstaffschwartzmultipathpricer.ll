@@ -426,16 +426,16 @@ invoke.cont:                                      ; preds = %_ZN5boost10shared_p
   store i64 %sub, ptr %call2, align 16
   %.ptr = getelementptr i8, ptr %call2, i64 8
   %isempty = icmp eq i64 %sub, 0
-  br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
+  br i1 %isempty, label %arrayctor.cont, label %invoke.cont4.preheader
 
-new.ctorloop:                                     ; preds = %invoke.cont
+invoke.cont4.preheader:                           ; preds = %invoke.cont
   %9 = shl i64 %sub.ptr.sub.i, 1
   %10 = and i64 %9, -16
   %11 = add i64 %10, -16
   tail call void @llvm.memset.p0.i64(ptr align 8 %.ptr, i8 0, i64 %11, i1 false)
   br label %arrayctor.cont
 
-arrayctor.cont:                                   ; preds = %new.ctorloop, %invoke.cont
+arrayctor.cont:                                   ; preds = %invoke.cont4.preheader, %invoke.cont
   store ptr %.ptr, ptr %coeff_, align 8, !tbaa !18
   %lowerBounds_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %12 = load ptr, ptr %_M_finish.i, align 8, !tbaa !61

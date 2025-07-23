@@ -3632,7 +3632,8 @@ tcg_temp_alloc.exit:                              ; preds = %switch.lookup
   %switch.masked = trunc i6 %switch.downshift to i1
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 672
   %44 = sext i32 %39 to i64
-  %45 = getelementptr inbounds [512 x %struct.TCGTemp], ptr %43, i64 0, i64 %44
+  %.idx61 = mul nsw i64 %44, 56
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %45, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
   %46 = zext nneg i32 %0 to i64
   %47 = shl nuw nsw i64 %46, 16
@@ -3664,10 +3665,11 @@ tcg_temp_alloc.exit:                              ; preds = %switch.lookup
 
 tcg_temp_alloc.exit50:                            ; preds = %.critedge
   %61 = sext i32 %57 to i64
-  %62 = getelementptr inbounds [512 x %struct.TCGTemp], ptr %43, i64 0, i64 %61
+  %.idx = mul nsw i64 %61, 56
+  %62 = getelementptr inbounds i8, ptr %43, i64 %.idx
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %62, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
-  %63 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %64 = icmp eq ptr %62, %63
+  %63 = add nsw i64 %.idx61, 56
+  %64 = icmp eq i64 %.idx, %63
   tail call void @llvm.assume(i1 %64)
   %65 = or disjoint i64 %47, %50
   %66 = or disjoint i64 %65, 1649284218880
@@ -4006,7 +4008,8 @@ define dso_local ptr @tcg_temp_new_i128() local_unnamed_addr #0 {
 tcg_temp_alloc.exit.i:                            ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %9 = sext i32 %4 to i64
-  %10 = getelementptr inbounds [512 x %struct.TCGTemp], ptr %8, i64 0, i64 %9
+  %.idx1 = mul nsw i64 %9, 56
+  %10 = getelementptr inbounds i8, ptr %8, i64 %.idx1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
   store i64 554067689472, ptr %10, align 8
   %11 = load i32, ptr %3, align 8
@@ -4021,10 +4024,11 @@ tcg_temp_alloc.exit.i:                            ; preds = %0
 
 tcg_temp_new_internal.exit:                       ; preds = %tcg_temp_alloc.exit.i
   %15 = sext i32 %11 to i64
-  %16 = getelementptr inbounds [512 x %struct.TCGTemp], ptr %8, i64 0, i64 %15
+  %.idx = mul nsw i64 %15, 56
+  %16 = getelementptr inbounds i8, ptr %8, i64 %.idx
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %16, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %18 = icmp eq ptr %16, %17
+  %17 = add nsw i64 %.idx1, 56
+  %18 = icmp eq i64 %.idx, %17
   tail call void @llvm.assume(i1 %18)
   store i64 1653579317248, ptr %16, align 8
   %19 = load ptr, ptr %1, align 8

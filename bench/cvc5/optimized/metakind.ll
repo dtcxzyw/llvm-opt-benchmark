@@ -644,28 +644,26 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %139
   br i1 %.not135, label %152, label %.loopexit
 
 152:                                              ; preds = %150
-  %153 = lshr i64 %5, 32
-  %154 = and i64 %153, 67108863
-  %.idx = shl nuw nsw i64 %154, 3
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr143 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  %.not136138 = icmp eq i64 %154, 0
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %154 = lshr i64 %5, 29
+  %.idx = and i64 %154, 536870904
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 %.idx
+  %.not136138 = icmp samesign eq i64 %.idx, 0
   br i1 %.not136138, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %.0133140 = phi ptr [ %156, %.lr.ph.preheader ], [ %160, %.lr.ph ]
-  %.0134139 = phi ptr [ %.ptr, %.lr.ph.preheader ], [ %159, %.lr.ph ]
+  %.0134139 = phi ptr [ %153, %.lr.ph.preheader ], [ %159, %.lr.ph ]
   %157 = load ptr, ptr %.0134139, align 8, !tbaa !7
   %158 = load ptr, ptr %.0133140, align 8, !tbaa !7
   %.not137 = icmp eq ptr %157, %158
   %159 = getelementptr inbounds nuw i8, ptr %.0134139, i64 8
   %160 = getelementptr inbounds nuw i8, ptr %.0133140, i64 8
-  %.not136 = icmp ne ptr %159, %.ptr143
+  %.not136 = icmp ne ptr %159, %155
   %or.cond.not = select i1 %.not137, i1 %.not136, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
@@ -5142,28 +5140,26 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %391
   br i1 %.not135, label %404, label %.loopexit
 
 404:                                              ; preds = %402
-  %405 = lshr i64 %5, 32
-  %406 = and i64 %405, 67108863
-  %.idx = shl nuw nsw i64 %406, 3
-  %407 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.ptr143 = getelementptr inbounds nuw i8, ptr %407, i64 24
-  %.not136138 = icmp eq i64 %406, 0
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %406 = lshr i64 %5, 29
+  %.idx = and i64 %406, 536870904
+  %407 = getelementptr inbounds nuw i8, ptr %405, i64 %.idx
+  %.not136138 = icmp samesign eq i64 %.idx, 0
   br i1 %.not136138, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %404
   %408 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %.0133140 = phi ptr [ %408, %.lr.ph.preheader ], [ %412, %.lr.ph ]
-  %.0134139 = phi ptr [ %.ptr, %.lr.ph.preheader ], [ %411, %.lr.ph ]
+  %.0134139 = phi ptr [ %405, %.lr.ph.preheader ], [ %411, %.lr.ph ]
   %409 = load ptr, ptr %.0134139, align 8, !tbaa !7
   %410 = load ptr, ptr %.0133140, align 8, !tbaa !7
   %.not137 = icmp eq ptr %409, %410
   %411 = getelementptr inbounds nuw i8, ptr %.0134139, i64 8
   %412 = getelementptr inbounds nuw i8, ptr %.0133140, i64 8
-  %.not136 = icmp ne ptr %411, %.ptr143
+  %.not136 = icmp ne ptr %411, %407
   %or.cond.not = select i1 %.not137, i1 %.not136, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !48
 

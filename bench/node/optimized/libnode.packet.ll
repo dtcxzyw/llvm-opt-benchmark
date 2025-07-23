@@ -2314,33 +2314,32 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %path_descriptor, i64 32
   %generateReservedVersion.val.val9 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ver.i)
-  %address_.i.ptr.i = getelementptr inbounds nuw i8, ptr %generateReservedVersion.val.val9, i64 8
-  %1 = load i16, ptr %address_.i.ptr.i, align 2
+  %address_.i.i = getelementptr inbounds nuw i8, ptr %generateReservedVersion.val.val9, i64 8
+  %1 = load i16, ptr %address_.i.i, align 2
   %cmp.i.i.i.i = icmp eq i16 %1, 2
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 28
   %call2.i = tail call i32 @htonl(i32 noundef %generateReservedVersion.val.val) #27
   store i32 %call2.i, ptr %ver.i, align 4
-  %2 = getelementptr inbounds nuw i8, ptr %generateReservedVersion.val.val9, i64 %cond.i.i.i.i
-  %add.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %address_.i.i, i64 %cond.i.i.i.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
-  %p.03.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %address_.i.ptr.i, %entry ]
+  %p.03.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %address_.i.i, %entry ]
   %h.02.i = phi i32 [ %mul.i, %for.body.i ], [ -2128831035, %entry ]
-  %3 = load i8, ptr %p.03.i, align 1
-  %conv5.i = zext i8 %3 to i32
+  %2 = load i8, ptr %p.03.i, align 1
+  %conv5.i = zext i8 %2 to i32
   %xor.i = xor i32 %h.02.i, %conv5.i
   %mul.i = mul i32 %xor.i, 16777619
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.03.i, i64 1
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %for.body9.i, label %for.body.i, !llvm.loop !41
 
 for.body9.i:                                      ; preds = %for.body.i, %for.body9.i
   %p.1.idx5.i = phi i64 [ %p.1.add.i, %for.body9.i ], [ 0, %for.body.i ]
   %h.14.i = phi i32 [ %mul12.i, %for.body9.i ], [ %mul.i, %for.body.i ]
   %p.1.ptr.i = getelementptr inbounds nuw i8, ptr %ver.i, i64 %p.1.idx5.i
-  %4 = load i8, ptr %p.1.ptr.i, align 1
-  %conv10.i = zext i8 %4 to i32
+  %3 = load i8, ptr %p.1.ptr.i, align 1
+  %conv10.i = zext i8 %3 to i32
   %xor11.i = xor i32 %h.14.i, %conv10.i
   %mul12.i = mul i32 %xor11.i, 16777619
   %p.1.add.i = add nuw nsw i64 %p.1.idx5.i, 1
@@ -2357,46 +2356,46 @@ for.body9.i:                                      ; preds = %for.body.i, %for.bo
   %arrayinit.element1 = getelementptr inbounds nuw i8, ptr %sv, i64 8
   store i32 1, ptr %arrayinit.element1, align 4
   %dcid = getelementptr inbounds nuw i8, ptr %path_descriptor, i64 8
-  %5 = load ptr, ptr %dcid, align 8
-  %call2 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #23
+  %4 = load ptr, ptr %dcid, align 8
+  %call2 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #23
   %scid = getelementptr inbounds nuw i8, ptr %path_descriptor, i64 16
-  %6 = load ptr, ptr %scid, align 8
-  %call3 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #23
+  %5 = load ptr, ptr %scid, align 8
+  %call3 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #23
   %add = add i64 %call2, 19
   %add5 = add i64 %add, %call3
-  %7 = load ptr, ptr %0, align 8
-  call void @_ZN4node4quic6Packet6CreateEPNS_11EnvironmentEPNS1_8ListenerERKNS_13SocketAddressEmPKc(ptr nonnull sret(%"class.node::BaseObjectPtrImpl.290") align 8 %packet, ptr noundef %env, ptr noundef %listener, ptr noundef nonnull align 8 dereferenceable(136) %7, i64 noundef 1200, ptr noundef nonnull @.str.13)
-  %8 = load ptr, ptr %packet, align 8
-  %data_.i = getelementptr inbounds nuw i8, ptr %8, i64 552
-  %9 = load ptr, ptr %data_.i, align 8
-  %cmp.i.not.i = icmp eq ptr %9, null
-  %10 = ptrtoint ptr %8 to i64
+  %6 = load ptr, ptr %0, align 8
+  call void @_ZN4node4quic6Packet6CreateEPNS_11EnvironmentEPNS1_8ListenerERKNS_13SocketAddressEmPKc(ptr nonnull sret(%"class.node::BaseObjectPtrImpl.290") align 8 %packet, ptr noundef %env, ptr noundef %listener, ptr noundef nonnull align 8 dereferenceable(136) %6, i64 noundef 1200, ptr noundef nonnull @.str.13)
+  %7 = load ptr, ptr %packet, align 8
+  %data_.i = getelementptr inbounds nuw i8, ptr %7, i64 552
+  %8 = load ptr, ptr %data_.i, align 8
+  %cmp.i.not.i = icmp eq ptr %8, null
+  %9 = ptrtoint ptr %7 to i64
   br i1 %cmp.i.not.i, label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit"
-  %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load ptr, ptr %buf_.i.i.i, align 8
+  %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %10 = load ptr, ptr %buf_.i.i.i, align 8
   br label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
 
 _ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit", %cond.false.i
-  %retval.sroa.0.0.i = phi ptr [ %11, %cond.false.i ], [ null, %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit" ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %cond.false.i ], [ null, %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit" ]
+  %11 = load ptr, ptr %dcid, align 8
+  %call9 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #23
   %12 = load ptr, ptr %dcid, align 8
-  %call9 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #23
-  %13 = load ptr, ptr %dcid, align 8
-  %call11 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #23
+  %call11 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #23
+  %13 = load ptr, ptr %scid, align 8
+  %call13 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #23
   %14 = load ptr, ptr %scid, align 8
-  %call13 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #23
-  %15 = load ptr, ptr %scid, align 8
-  %call15 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #23
+  %call15 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #23
   %call17 = call i64 @ngtcp2_pkt_write_version_negotiation(ptr noundef %retval.sroa.0.0.i, i64 noundef %add5, i8 noundef zeroext 0, ptr noundef %call9, i64 noundef %call11, ptr noundef %call13, i64 noundef %call15, ptr noundef nonnull %sv, i64 noundef 3) #23
   %cmp = icmp slt i64 %call17, 1
   br i1 %cmp, label %if.then.i, label %if.end
 
 if.end:                                           ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  %16 = load ptr, ptr %data_.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %17 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.not.i.i = icmp ugt i64 %call17, %17
+  %15 = load ptr, ptr %data_.i, align 8
+  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %16 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.not.i.i = icmp ugt i64 %call17, %16
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %cleanup.thread
 
 do.body4.i.i:                                     ; preds = %if.end
@@ -2405,15 +2404,15 @@ do.body4.i.i:                                     ; preds = %if.end
   unreachable
 
 cleanup.thread:                                   ; preds = %if.end
-  %data_2.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %data_2.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %call17, ptr %data_2.i, align 8
-  store i64 %10, ptr %agg.result, align 8
+  store i64 %9, ptr %agg.result, align 8
   br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit
 
 if.then.i:                                        ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  call void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %8, i32 noundef -125)
+  call void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %7, i32 noundef -125)
   store ptr null, ptr %agg.result, align 8
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit
 
 _ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit: ; preds = %cleanup.thread, %if.then.i

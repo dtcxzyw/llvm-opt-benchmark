@@ -723,33 +723,35 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   %18 = or disjoint i64 %17, 8
   %19 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %18) #16
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit35, label %21
+  br i1 %20, label %.loopexit36, label %21
 
 21:                                               ; preds = %15
   store i64 %16, ptr %19, align 8
-  %.ptr30 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr30, i64 %16
-  br label %23
+  br label %22
 
-23:                                               ; preds = %21, %23
-  %.idx = phi i64 [ 8, %21 ], [ %.add, %23 ]
+22:                                               ; preds = %21, %22
+  %.idx = phi i64 [ 8, %21 ], [ %.add, %22 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr.ptr, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  store i16 2, ptr %24, align 8, !tbaa !6
+  %23 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
+  store i16 2, ptr %23, align 8, !tbaa !6
   %.add = add nuw nsw i64 %.idx, 64
-  %.ptr29 = getelementptr inbounds nuw i8, ptr %19, i64 %.add
-  %25 = icmp eq ptr %.ptr29, %22
-  br i1 %25, label %.loopexit35, label %23
+  %24 = add nuw nsw i64 %.idx, 56
+  %25 = icmp eq i64 %24, %17
+  br i1 %25, label %.loopexit36.loopexit, label %22
 
-.loopexit35:                                      ; preds = %23, %15
-  %26 = phi ptr [ null, %15 ], [ %.ptr30, %23 ]
+.loopexit36.loopexit:                             ; preds = %22
+  %.ptr30 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  br label %.loopexit36
+
+.loopexit36:                                      ; preds = %.loopexit36.loopexit, %15
+  %26 = phi ptr [ null, %15 ], [ %.ptr30, %.loopexit36.loopexit ]
   %27 = load i32, ptr %1, align 4, !tbaa !25
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.loopexit35, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit35 ]
+.lr.ph:                                           ; preds = %.loopexit36, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit36 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZNK6icu_7714ResourceBundle11getStringExEiR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %29, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -763,8 +765,8 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   %34 = icmp slt i64 %indvars.iv.next, %33
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit35, %4, %12
-  %.1 = phi ptr [ null, %12 ], [ null, %4 ], [ %26, %.loopexit35 ], [ %26, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit36, %4, %12
+  %.1 = phi ptr [ null, %12 ], [ null, %4 ], [ %26, %.loopexit36 ], [ %26, %.lr.ph ]
   ret ptr %.1
 }
 

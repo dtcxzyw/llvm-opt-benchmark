@@ -1314,68 +1314,70 @@ define internal noundef i32 @_ZL9str_splitP9lua_State(ptr noundef %0) #0 {
   %8 = load i64, ptr %3, align 8, !tbaa !4
   %9 = icmp eq i64 %8, 0
   %spec.select.idx = zext i1 %9 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.idx
-  %10 = sub i64 0, %8
-  %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  %.not37 = icmp ugt ptr %spec.select, %11
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %10 = sub i64 %6, %8
+  %.not37 = icmp slt i64 %10, %spec.select.idx
+  br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
 
-._crit_edge.loopexit:                             ; preds = %22
-  %12 = add nsw i32 %.129, 1
+.lr.ph.preheader:                                 ; preds = %1
+  %spec.select = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.idx
+  br label %.lr.ph
+
+._crit_edge.loopexit:                             ; preds = %21
+  %11 = add nsw i32 %.129, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.lcssa = phi i64 [ %8, %1 ], [ %.pr, %._crit_edge.loopexit ]
   %.030.lcssa = phi ptr [ %4, %1 ], [ %.131, %._crit_edge.loopexit ]
-  %.028.lcssa = phi i32 [ 1, %1 ], [ %12, %._crit_edge.loopexit ]
+  %.028.lcssa = phi i32 [ 1, %1 ], [ %11, %._crit_edge.loopexit ]
   %.not34 = icmp eq i64 %.lcssa, 0
-  br i1 %.not34, label %30, label %26
+  br i1 %.not34, label %29, label %25
 
-.lr.ph:                                           ; preds = %1, %22
-  %.pr43 = phi i64 [ %.pr, %22 ], [ %8, %1 ]
-  %.040 = phi ptr [ %23, %22 ], [ %spec.select, %1 ]
-  %.02839 = phi i32 [ %.129, %22 ], [ 0, %1 ]
-  %.03038 = phi ptr [ %.131, %22 ], [ %4, %1 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %.pr43 = phi i64 [ %.pr, %21 ], [ %8, %.lr.ph.preheader ]
+  %.040 = phi ptr [ %22, %21 ], [ %spec.select, %.lr.ph.preheader ]
+  %.02839 = phi i32 [ %.129, %21 ], [ 0, %.lr.ph.preheader ]
+  %.03038 = phi ptr [ %.131, %21 ], [ %4, %.lr.ph.preheader ]
   %bcmp = call i32 @bcmp(ptr %.040, ptr %5, i64 %.pr43)
-  %13 = icmp eq i32 %bcmp, 0
-  br i1 %13, label %14, label %22
+  %12 = icmp eq i32 %bcmp, 0
+  br i1 %12, label %13, label %21
 
-14:                                               ; preds = %.lr.ph
-  %15 = add nsw i32 %.02839, 1
-  call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %15)
-  %16 = ptrtoint ptr %.040 to i64
-  %17 = ptrtoint ptr %.03038 to i64
-  %18 = sub i64 %16, %17
-  call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef %.03038, i64 noundef %18)
+13:                                               ; preds = %.lr.ph
+  %14 = add nsw i32 %.02839, 1
+  call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %14)
+  %15 = ptrtoint ptr %.040 to i64
+  %16 = ptrtoint ptr %.03038 to i64
+  %17 = sub i64 %15, %16
+  call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef %.03038, i64 noundef %17)
   call void @_Z12lua_settableP9lua_Statei(ptr noundef %0, i32 noundef -3)
-  %19 = load i64, ptr %3, align 8, !tbaa !4
-  %20 = getelementptr i8, ptr %.040, i64 %19
-  %.not35 = icmp eq i64 %19, 0
-  %21 = getelementptr i8, ptr %20, i64 -1
-  %spec.select36 = select i1 %.not35, ptr %.040, ptr %21
-  br label %22
+  %18 = load i64, ptr %3, align 8, !tbaa !4
+  %19 = getelementptr i8, ptr %.040, i64 %18
+  %.not35 = icmp eq i64 %18, 0
+  %20 = getelementptr i8, ptr %19, i64 -1
+  %spec.select36 = select i1 %.not35, ptr %.040, ptr %20
+  br label %21
 
-22:                                               ; preds = %14, %.lr.ph
-  %.pr = phi i64 [ %.pr43, %.lr.ph ], [ %19, %14 ]
-  %.131 = phi ptr [ %.03038, %.lr.ph ], [ %20, %14 ]
-  %.129 = phi i32 [ %.02839, %.lr.ph ], [ %15, %14 ]
-  %.1 = phi ptr [ %.040, %.lr.ph ], [ %spec.select36, %14 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %24 = sub i64 0, %.pr
-  %25 = getelementptr inbounds i8, ptr %7, i64 %24
-  %.not = icmp ugt ptr %23, %25
+21:                                               ; preds = %13, %.lr.ph
+  %.pr = phi i64 [ %.pr43, %.lr.ph ], [ %18, %13 ]
+  %.131 = phi ptr [ %.03038, %.lr.ph ], [ %19, %13 ]
+  %.129 = phi i32 [ %.02839, %.lr.ph ], [ %14, %13 ]
+  %.1 = phi ptr [ %.040, %.lr.ph ], [ %spec.select36, %13 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %23 = sub i64 0, %.pr
+  %24 = getelementptr inbounds i8, ptr %7, i64 %23
+  %.not = icmp ugt ptr %22, %24
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !48
 
-26:                                               ; preds = %._crit_edge
+25:                                               ; preds = %._crit_edge
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.028.lcssa)
-  %27 = ptrtoint ptr %7 to i64
-  %28 = ptrtoint ptr %.030.lcssa to i64
-  %29 = sub i64 %27, %28
-  call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef %.030.lcssa, i64 noundef %29)
+  %26 = ptrtoint ptr %7 to i64
+  %27 = ptrtoint ptr %.030.lcssa to i64
+  %28 = sub i64 %26, %27
+  call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef %.030.lcssa, i64 noundef %28)
   call void @_Z12lua_settableP9lua_Statei(ptr noundef %0, i32 noundef -3)
-  br label %30
+  br label %29
 
-30:                                               ; preds = %26, %._crit_edge
+29:                                               ; preds = %25, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   ret i32 1
