@@ -1504,20 +1504,21 @@ generate_window_func.exit:                        ; preds = %600, %580, %578, %5
   %indvars.iv263 = phi i64 [ %indvars.iv.next264, %._crit_edge224.us ], [ 0, %.preheader.lr.ph ]
   %616 = getelementptr inbounds nuw [257 x float], ptr %2, i64 0, i64 %indvars.iv263
   %617 = load float, ptr %616, align 4, !tbaa !68
-  br label %618
+  %618 = getelementptr inbounds nuw [256 x [256 x float]], ptr %615, i64 0, i64 %indvars.iv263
+  br label %619
 
-618:                                              ; preds = %.preheader.us, %618
-  %indvars.iv260 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next261, %618 ]
-  %619 = getelementptr inbounds nuw [257 x float], ptr %2, i64 0, i64 %indvars.iv260
-  %620 = load float, ptr %619, align 4, !tbaa !68
-  %621 = fmul nsz float %617, %620
-  %622 = getelementptr inbounds nuw [256 x [256 x float]], ptr %615, i64 0, i64 %indvars.iv263, i64 %indvars.iv260
-  store float %621, ptr %622, align 4, !tbaa !68
+619:                                              ; preds = %.preheader.us, %619
+  %indvars.iv260 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next261, %619 ]
+  %620 = getelementptr inbounds nuw [257 x float], ptr %2, i64 0, i64 %indvars.iv260
+  %621 = load float, ptr %620, align 4, !tbaa !68
+  %622 = fmul nsz float %617, %621
+  %623 = getelementptr inbounds nuw [256 x float], ptr %618, i64 0, i64 %indvars.iv260
+  store float %622, ptr %623, align 4, !tbaa !68
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count266
-  br i1 %exitcond.not, label %._crit_edge224.us, label %618, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge224.us, label %619, !llvm.loop !106
 
-._crit_edge224.us:                                ; preds = %618
+._crit_edge224.us:                                ; preds = %619
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %exitcond267.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count266
   br i1 %exitcond267.not, label %.thread184, label %.preheader.us, !llvm.loop !107

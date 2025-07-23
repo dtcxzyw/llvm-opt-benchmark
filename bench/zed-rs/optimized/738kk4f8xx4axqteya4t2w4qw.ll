@@ -114303,8 +114303,8 @@ define { float, float } @_ZN4gpui5scene20TransformationMatrix5apply17hbe9a2a3129
   store i64 %8, ptr %4, align 8
   br label %.split
 
-.loopexit:                                        ; preds = %17
-  store float %24, ptr %.sroa.0.0.ptr34, align 4
+.loopexit:                                        ; preds = %18
+  store float %25, ptr %.sroa.0.0.ptr34, align 4
   %9 = icmp eq i64 %.sroa.0.0.add, 8
   br i1 %9, label %10, label %.split
 
@@ -114324,23 +114324,24 @@ define { float, float } @_ZN4gpui5scene20TransformationMatrix5apply17hbe9a2a3129
   %.sroa.0.0.ptr34 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.idx33
   %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx33, 4
   %16 = add nuw nsw i64 %.sroa.7.032, 1
+  %17 = getelementptr inbounds nuw [2 x [2 x float]], ptr %0, i64 0, i64 %.sroa.7.032
   %.sroa.0.0.ptr.promoted = load float, ptr %.sroa.0.0.ptr34, align 4
-  br label %17
+  br label %18
 
-17:                                               ; preds = %17, %.split
-  %18 = phi float [ %.sroa.0.0.ptr.promoted, %.split ], [ %24, %17 ]
-  %.sroa.715.029 = phi i64 [ 0, %.split ], [ %19, %17 ]
-  %.sroa.013.0.idx28 = phi i64 [ 0, %.split ], [ %.sroa.013.0.add, %17 ]
-  %19 = add nuw nsw i64 %.sroa.715.029, 1
+18:                                               ; preds = %18, %.split
+  %19 = phi float [ %.sroa.0.0.ptr.promoted, %.split ], [ %25, %18 ]
+  %.sroa.715.029 = phi i64 [ 0, %.split ], [ %20, %18 ]
+  %.sroa.013.0.idx28 = phi i64 [ 0, %.split ], [ %.sroa.013.0.add, %18 ]
+  %20 = add nuw nsw i64 %.sroa.715.029, 1
   %.sroa.013.0.add = add nuw nsw i64 %.sroa.013.0.idx28, 4
   %.sroa.013.0.ptr30 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.013.0.idx28
-  %20 = getelementptr inbounds nuw [2 x [2 x float]], ptr %0, i64 0, i64 %.sroa.7.032, i64 %.sroa.715.029
-  %21 = load float, ptr %20, align 4, !noundef !9
-  %22 = load float, ptr %.sroa.013.0.ptr30, align 4, !noundef !9
-  %23 = fmul float %21, %22
-  %24 = fadd float %18, %23
-  %25 = icmp eq i64 %.sroa.013.0.add, 8
-  br i1 %25, label %.loopexit, label %17
+  %21 = getelementptr inbounds nuw [2 x float], ptr %17, i64 0, i64 %.sroa.715.029
+  %22 = load float, ptr %21, align 4, !noundef !9
+  %23 = load float, ptr %.sroa.013.0.ptr30, align 4, !noundef !9
+  %24 = fmul float %22, %23
+  %25 = fadd float %19, %24
+  %26 = icmp eq i64 %.sroa.013.0.add, 8
+  br i1 %26, label %.loopexit, label %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

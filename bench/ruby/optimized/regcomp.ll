@@ -11110,7 +11110,7 @@ define internal fastcc range(i32 -6, 2) i32 @set_bm_skip(ptr noundef %0, ptr nou
   br label %21
 
 21:                                               ; preds = %.lr.ph14, %._crit_edge11
-  %.113 = phi i64 [ 0, %.lr.ph14 ], [ %78, %._crit_edge11 ]
+  %.113 = phi i64 [ 0, %.lr.ph14 ], [ %77, %._crit_edge11 ]
   %.06912 = phi i32 [ 0, %.lr.ph14 ], [ %.170, %._crit_edge11 ]
   %22 = getelementptr i8, ptr %0, i64 %.113
   br i1 %.not, label %27, label %23
@@ -11153,7 +11153,7 @@ define internal fastcc range(i32 -6, 2) i32 @set_bm_skip(ptr noundef %0, ptr nou
   %wide.trip.count = zext nneg i32 %.170 to i64
   br label %.lr.ph
 
-44:                                               ; preds = %64
+44:                                               ; preds = %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !288
@@ -11185,15 +11185,16 @@ define internal fastcc range(i32 -6, 2) i32 @set_bm_skip(ptr noundef %0, ptr nou
   %52 = zext i8 %51 to i64
   %53 = getelementptr i8, ptr %3, i64 %52
   store i8 %49, ptr %53, align 1, !tbaa !34
+  %invariant.gep.us = getelementptr [18 x i8], ptr %6, i64 0, i64 %indvars.iv29
   br label %54
 
 54:                                               ; preds = %.lr.ph8.us, %54
   %indvars.iv24 = phi i64 [ 0, %.lr.ph8.us ], [ %indvars.iv.next25, %54 ]
-  %55 = getelementptr [13 x [18 x i8]], ptr %6, i64 0, i64 %indvars.iv24, i64 %indvars.iv29
-  %56 = load i8, ptr %55, align 1, !tbaa !34
-  %57 = zext i8 %56 to i64
-  %58 = getelementptr i8, ptr %3, i64 %57
-  store i8 %49, ptr %58, align 1, !tbaa !34
+  %gep.us = getelementptr [13 x [18 x i8]], ptr %invariant.gep.us, i64 0, i64 %indvars.iv24
+  %55 = load i8, ptr %gep.us, align 1, !tbaa !34
+  %56 = zext i8 %55 to i64
+  %57 = getelementptr i8, ptr %3, i64 %56
+  store i8 %49, ptr %57, align 1, !tbaa !34
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
   br i1 %exitcond28.not, label %._crit_edge.us, label %54, !llvm.loop !289
@@ -11205,48 +11206,48 @@ define internal fastcc range(i32 -6, 2) i32 @set_bm_skip(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
-  %59 = getelementptr [13 x %struct.OnigCaseFoldCodeItem], ptr %7, i64 0, i64 %indvars.iv
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !164
-  %.not74 = icmp eq i32 %61, 1
-  br i1 %.not74, label %62, label %.loopexit
+  %58 = getelementptr [13 x %struct.OnigCaseFoldCodeItem], ptr %7, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %60 = load i32, ptr %59, align 4, !tbaa !164
+  %.not74 = icmp eq i32 %60, 1
+  br i1 %.not74, label %61, label %.loopexit
 
-62:                                               ; preds = %.lr.ph
-  %63 = load i32, ptr %59, align 4, !tbaa !162
-  %.not75 = icmp eq i32 %63, %.071
-  br i1 %.not75, label %64, label %.loopexit
+61:                                               ; preds = %.lr.ph
+  %62 = load i32, ptr %58, align 4, !tbaa !162
+  %.not75 = icmp eq i32 %62, %.071
+  br i1 %.not75, label %63, label %.loopexit
 
-64:                                               ; preds = %62
-  %65 = load ptr, ptr %20, align 8, !tbaa !167
-  %66 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %67 = load i32, ptr %66, align 4, !tbaa !7
-  %68 = getelementptr [13 x [18 x i8]], ptr %6, i64 0, i64 %indvars.iv
-  %69 = call i32 %65(i32 noundef %67, ptr noundef %68, ptr noundef nonnull %9) #20
-  %.not76 = icmp eq i32 %69, %.071
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %20, align 8, !tbaa !167
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %66 = load i32, ptr %65, align 4, !tbaa !7
+  %67 = getelementptr [13 x [18 x i8]], ptr %6, i64 0, i64 %indvars.iv
+  %68 = call i32 %64(i32 noundef %66, ptr noundef %67, ptr noundef nonnull %9) #20
+  %.not76 = icmp eq i32 %68, %.071
   br i1 %.not76, label %44, label %.loopexit
 
 .lr.ph10.split:                                   ; preds = %.lr.ph10.split.preheader, %.lr.ph10.split
   %indvars.iv19 = phi i64 [ 0, %.lr.ph10.split.preheader ], [ %indvars.iv.next20, %.lr.ph10.split ]
-  %70 = add i64 %.113, %indvars.iv19
-  %71 = sub i64 %12, %70
-  %72 = trunc i64 %71 to i8
-  %73 = getelementptr i8, ptr %22, i64 %indvars.iv19
-  %74 = load i8, ptr %73, align 1, !tbaa !34
-  %75 = zext i8 %74 to i64
-  %76 = getelementptr i8, ptr %3, i64 %75
-  store i8 %72, ptr %76, align 1, !tbaa !34
+  %69 = add i64 %.113, %indvars.iv19
+  %70 = sub i64 %12, %69
+  %71 = trunc i64 %70 to i8
+  %72 = getelementptr i8, ptr %22, i64 %indvars.iv19
+  %73 = load i8, ptr %72, align 1, !tbaa !34
+  %74 = zext i8 %73 to i64
+  %75 = getelementptr i8, ptr %3, i64 %74
+  store i8 %71, ptr %75, align 1, !tbaa !34
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %._crit_edge11, label %.lr.ph10.split, !llvm.loop !290
 
 ._crit_edge11:                                    ; preds = %.lr.ph10.split, %._crit_edge.us, %.preheader.thread, %.preheader
-  %77 = sext i32 %.071 to i64
-  %78 = add nsw i64 %.113, %77
-  %79 = icmp ult i64 %78, %12
-  br i1 %79, label %21, label %.loopexit, !llvm.loop !291
+  %76 = sext i32 %.071 to i64
+  %77 = add nsw i64 %.113, %76
+  %78 = icmp ult i64 %77, %12
+  br i1 %78, label %21, label %.loopexit, !llvm.loop !291
 
-.loopexit:                                        ; preds = %._crit_edge11, %64, %.lr.ph, %62, %.preheader4, %5
-  %.0 = phi i32 [ -6, %5 ], [ 0, %.preheader4 ], [ 1, %62 ], [ 1, %.lr.ph ], [ 1, %64 ], [ 0, %._crit_edge11 ]
+.loopexit:                                        ; preds = %._crit_edge11, %63, %.lr.ph, %61, %.preheader4, %5
+  %.0 = phi i32 [ -6, %5 ], [ 0, %.preheader4 ], [ 1, %61 ], [ 1, %.lr.ph ], [ 1, %63 ], [ 0, %._crit_edge11 ]
   call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 234, ptr nonnull %6) #20
   ret i32 %.0

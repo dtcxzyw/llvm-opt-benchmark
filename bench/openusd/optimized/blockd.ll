@@ -164,39 +164,41 @@ define hidden void @av1_reset_entropy_context(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = zext i8 %1 to i64
-  %12 = add nuw nsw i32 %9, 1
-  %wide.trip.count = zext nneg i32 %12 to i64
-  br label %13
+  %12 = getelementptr inbounds nuw [22 x [2 x [2 x i8]]], ptr @ss_size_lookup, i64 0, i64 %11
+  %13 = add nuw nsw i32 %9, 1
+  %wide.trip.count = zext nneg i32 %13 to i64
+  br label %14
 
-13:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [3 x %struct.macroblockd_plane], ptr %10, i64 0, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = sext i32 %16 to i64
-  %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds [22 x [2 x [2 x i8]]], ptr @ss_size_lookup, i64 0, i64 %11, i64 %19, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_high, i64 0, i64 %23
+14:                                               ; preds = %.lr.ph, %14
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
+  %15 = getelementptr inbounds nuw [3 x %struct.macroblockd_plane], ptr %10, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = sext i32 %17 to i64
+  %21 = getelementptr inbounds [2 x [2 x i8]], ptr %12, i64 0, i64 %20
+  %22 = sext i32 %19 to i64
+  %23 = getelementptr inbounds [2 x i8], ptr %21, i64 0, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  %29 = load ptr, ptr %28, align 8
-  %30 = zext i8 %25 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %29, i8 0, i64 %30, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %14, i64 120
-  %32 = load ptr, ptr %31, align 8
-  %33 = zext i8 %27 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %33, i1 false)
+  %28 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_high, i64 0, i64 %25
+  %29 = load i8, ptr %28, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %31 = load ptr, ptr %30, align 8
+  %32 = zext i8 %27 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  %34 = load ptr, ptr %33, align 8
+  %35 = zext i8 %29 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %35, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %13, %3
+._crit_edge:                                      ; preds = %14, %3
   ret void
 }
 

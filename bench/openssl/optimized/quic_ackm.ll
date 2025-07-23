@@ -2441,104 +2441,105 @@ define ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) local_unname
 
 .lr.ph.i:                                         ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  br label %14
+  %14 = getelementptr inbounds [3 x [32 x %struct.ossl_quic_ack_range_st]], ptr %13, i64 0, i64 %4
+  br label %15
 
-14:                                               ; preds = %14, %.lr.ph.i
-  %.01922.i = phi ptr [ %.01920.i, %.lr.ph.i ], [ %.019.i, %14 ]
-  %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %14 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !104
-  %17 = getelementptr inbounds [3 x [32 x %struct.ossl_quic_ack_range_st]], ptr %13, i64 0, i64 %4, i64 %.021.i
-  store i64 %16, ptr %17, align 8, !tbaa !63
-  %18 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !107
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !59
-  %21 = getelementptr i8, ptr %.01922.i, i64 8
-  %22 = add nuw nsw i64 %.021.i, 1
-  %.019.i = load ptr, ptr %21, align 8, !tbaa !110
-  %23 = icmp ne ptr %.019.i, null
-  %24 = icmp samesign ult i64 %.021.i, 2
-  %25 = select i1 %23, i1 %24, i1 false
-  br i1 %25, label %14, label %ackm_fill_rx_ack_ranges.exit, !llvm.loop !111
+15:                                               ; preds = %15, %.lr.ph.i
+  %.01922.i = phi ptr [ %.01920.i, %.lr.ph.i ], [ %.019.i, %15 ]
+  %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %15 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 16
+  %17 = load i64, ptr %16, align 8, !tbaa !104
+  %18 = getelementptr inbounds nuw [32 x %struct.ossl_quic_ack_range_st], ptr %14, i64 0, i64 %.021.i
+  store i64 %17, ptr %18, align 8, !tbaa !63
+  %19 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 24
+  %20 = load i64, ptr %19, align 8, !tbaa !107
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 %20, ptr %21, align 8, !tbaa !59
+  %22 = getelementptr i8, ptr %.01922.i, i64 8
+  %23 = add nuw nsw i64 %.021.i, 1
+  %.019.i = load ptr, ptr %22, align 8, !tbaa !110
+  %24 = icmp ne ptr %.019.i, null
+  %25 = icmp samesign ult i64 %.021.i, 2
+  %26 = select i1 %24, i1 %25, i1 false
+  br i1 %26, label %15, label %ackm_fill_rx_ack_ranges.exit, !llvm.loop !111
 
-ackm_fill_rx_ack_ranges.exit:                     ; preds = %14, %2
-  %.0.lcssa.i = phi i64 [ 0, %2 ], [ %22, %14 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %27 = getelementptr inbounds [3 x [32 x %struct.ossl_quic_ack_range_st]], ptr %26, i64 0, i64 %4
-  store ptr %27, ptr %5, align 8, !tbaa !56
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.0.lcssa.i, ptr %28, align 8, !tbaa !62
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2216
-  %30 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %29, i64 0, i64 %4
-  %31 = load i64, ptr %30, align 8
-  %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %37, label %32
+ackm_fill_rx_ack_ranges.exit:                     ; preds = %15, %2
+  %.0.lcssa.i = phi i64 [ 0, %2 ], [ %23, %15 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %28 = getelementptr inbounds [3 x [32 x %struct.ossl_quic_ack_range_st]], ptr %27, i64 0, i64 %4
+  store ptr %28, ptr %5, align 8, !tbaa !56
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.0.lcssa.i, ptr %29, align 8, !tbaa !62
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2216
+  %31 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %30, i64 0, i64 %4
+  %32 = load i64, ptr %31, align 8
+  %.not = icmp eq i64 %32, 0
+  br i1 %.not, label %38, label %33
 
-32:                                               ; preds = %ackm_fill_rx_ack_ranges.exit
-  %33 = icmp ugt i64 %10, %31
-  %34 = icmp eq i32 %1, 2
-  %or.cond = and i1 %34, %33
-  br i1 %or.cond, label %35, label %37
+33:                                               ; preds = %ackm_fill_rx_ack_ranges.exit
+  %34 = icmp ugt i64 %10, %32
+  %35 = icmp eq i32 %1, 2
+  %or.cond = and i1 %35, %34
+  br i1 %or.cond, label %36, label %38
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %..i = sub nuw i64 %10, %31
-  store i64 %..i, ptr %36, align 8, !tbaa !3
-  br label %39
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %..i = sub nuw i64 %10, %32
+  store i64 %..i, ptr %37, align 8, !tbaa !3
+  br label %40
 
-37:                                               ; preds = %32, %ackm_fill_rx_ack_ranges.exit
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %38, align 8, !tbaa !3
-  br label %39
+38:                                               ; preds = %33, %ackm_fill_rx_ack_ranges.exit
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %39, align 8, !tbaa !3
+  br label %40
 
-39:                                               ; preds = %37, %35
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2240
-  %41 = getelementptr inbounds [3 x i64], ptr %40, i64 0, i64 %4
-  %42 = load i64, ptr %41, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %42, ptr %43, align 8, !tbaa !112
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  %45 = getelementptr inbounds [3 x i64], ptr %44, i64 0, i64 %4
-  %46 = load i64, ptr %45, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %46, ptr %47, align 8, !tbaa !113
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2288
-  %49 = getelementptr inbounds [3 x i64], ptr %48, i64 0, i64 %4
-  %50 = load i64, ptr %49, align 8, !tbaa !3
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %50, ptr %51, align 8, !tbaa !68
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %53 = load i8, ptr %52, align 8
-  %54 = or i8 %53, 1
-  store i8 %54, ptr %52, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %56 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %4
-  store i32 0, ptr %56, align 4, !tbaa !92
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %58 = getelementptr inbounds [3 x i8], ptr %57, i64 0, i64 %4
-  store i8 1, ptr %58, align 1, !tbaa !33
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 461
-  %60 = getelementptr inbounds [3 x i8], ptr %59, i64 0, i64 %4
-  store i8 0, ptr %60, align 1, !tbaa !33
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %62 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %61, i64 0, i64 %4
-  store i64 -1, ptr %62, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2384
-  %64 = load ptr, ptr %63, align 8, !tbaa !108
-  %.not.i39 = icmp eq ptr %64, null
+40:                                               ; preds = %38, %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2240
+  %42 = getelementptr inbounds [3 x i64], ptr %41, i64 0, i64 %4
+  %43 = load i64, ptr %42, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %43, ptr %44, align 8, !tbaa !112
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2264
+  %46 = getelementptr inbounds [3 x i64], ptr %45, i64 0, i64 %4
+  %47 = load i64, ptr %46, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %47, ptr %48, align 8, !tbaa !113
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2288
+  %50 = getelementptr inbounds [3 x i64], ptr %49, i64 0, i64 %4
+  %51 = load i64, ptr %50, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %51, ptr %52, align 8, !tbaa !68
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %54 = load i8, ptr %53, align 8
+  %55 = or i8 %54, 1
+  store i8 %55, ptr %53, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 2312
+  %57 = getelementptr inbounds [3 x i32], ptr %56, i64 0, i64 %4
+  store i32 0, ptr %57, align 4, !tbaa !92
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %59 = getelementptr inbounds [3 x i8], ptr %58, i64 0, i64 %4
+  store i8 1, ptr %59, align 1, !tbaa !33
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 461
+  %61 = getelementptr inbounds [3 x i8], ptr %60, i64 0, i64 %4
+  store i8 0, ptr %61, align 1, !tbaa !33
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %63 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %62, i64 0, i64 %4
+  store i64 -1, ptr %63, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2384
+  %65 = load ptr, ptr %64, align 8, !tbaa !108
+  %.not.i39 = icmp eq ptr %65, null
   br i1 %.not.i39, label %ackm_set_flush_deadline.exit, label %ossl_ackm_get_ack_deadline.exit.i
 
-ossl_ackm_get_ack_deadline.exit.i:                ; preds = %39
-  %65 = load i8, ptr %60, align 1, !tbaa !33
-  %.not.i.i = icmp eq i8 %65, 0
+ossl_ackm_get_ack_deadline.exit.i:                ; preds = %40
+  %66 = load i8, ptr %61, align 1, !tbaa !33
+  %.not.i.i = icmp eq i8 %66, 0
   %spec.select.i = sext i1 %.not.i.i to i64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2392
-  %67 = load ptr, ptr %66, align 8, !tbaa !109
-  tail call void %64(i64 %spec.select.i, i32 noundef %1, ptr noundef %67) #12
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %68 = load ptr, ptr %67, align 8, !tbaa !109
+  tail call void %65(i64 %spec.select.i, i32 noundef %1, ptr noundef %68) #12
   br label %ackm_set_flush_deadline.exit
 
-ackm_set_flush_deadline.exit:                     ; preds = %39, %ossl_ackm_get_ack_deadline.exit.i
+ackm_set_flush_deadline.exit:                     ; preds = %40, %ossl_ackm_get_ack_deadline.exit.i
   ret ptr %5
 }
 

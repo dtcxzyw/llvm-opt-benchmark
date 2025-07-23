@@ -2065,143 +2065,146 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
   %.sroa.9.0.extract.trunc = trunc i64 %.sroa.9.0.extract.shift to i8
   %.sroa.12.0.extract.shift = lshr i64 %1, 32
   %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
-  switch i8 %.sroa.0.0.extract.trunc, label %61 [
+  switch i8 %.sroa.0.0.extract.trunc, label %64 [
     i8 0, label %3
-    i8 1, label %9
-    i8 2, label %58
+    i8 1, label %10
+    i8 2, label %61
   ]
 
 3:                                                ; preds = %2
   %4 = and i64 %.sroa.4.0.extract.shift, 7
-  %5 = lshr i64 %1, 19
-  %6 = and i64 %5, 31
-  %7 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %4, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !64
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.93, ptr noundef %8)
-  br label %61
+  %5 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %4
+  %6 = lshr i64 %1, 19
+  %7 = and i64 %6, 31
+  %8 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.93, ptr noundef %9)
+  br label %64
 
-9:                                                ; preds = %2
-  %10 = icmp eq i8 %.sroa.4.0.extract.trunc, 0
-  %11 = and i8 %.sroa.9.0.extract.trunc, 15
-  %.not18 = icmp eq i8 %11, 0
-  br i1 %10, label %12, label %18
+10:                                               ; preds = %2
+  %11 = icmp eq i8 %.sroa.4.0.extract.trunc, 0
+  %12 = and i8 %.sroa.9.0.extract.trunc, 15
+  %.not18 = icmp eq i8 %12, 0
+  br i1 %11, label %13, label %19
 
-12:                                               ; preds = %9
-  br i1 %.not18, label %17, label %13
+13:                                               ; preds = %10
+  br i1 %.not18, label %18, label %14
 
-13:                                               ; preds = %12
-  %14 = and i64 %.sroa.9.0.extract.shift, 15
-  %15 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 0, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.94, ptr noundef %16)
-  br label %17
+14:                                               ; preds = %13
+  %15 = and i64 %.sroa.9.0.extract.shift, 15
+  %16 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 0, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !64
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.94, ptr noundef %17)
+  br label %18
 
-17:                                               ; preds = %13, %12
+18:                                               ; preds = %14, %13
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.95, i32 noundef %.sroa.12.0.extract.trunc)
-  br label %61
+  br label %64
 
-18:                                               ; preds = %9
-  br i1 %.not18, label %23, label %19
+19:                                               ; preds = %10
+  br i1 %.not18, label %24, label %20
 
-19:                                               ; preds = %18
-  %20 = and i64 %.sroa.9.0.extract.shift, 15
-  %21 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !64
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.94, ptr noundef %22)
-  br label %23
+20:                                               ; preds = %19
+  %21 = and i64 %.sroa.9.0.extract.shift, 15
+  %22 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 0, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !64
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.94, ptr noundef %23)
+  br label %24
 
-23:                                               ; preds = %19, %18
+24:                                               ; preds = %20, %19
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.96)
   %.not25 = icmp eq i8 %.sroa.4.0.extract.trunc, -128
-  br i1 %.not25, label %30, label %24
+  br i1 %.not25, label %32, label %25
 
-24:                                               ; preds = %23
-  %25 = and i64 %.sroa.4.0.extract.shift, 7
-  %26 = lshr i64 %1, 19
-  %27 = and i64 %26, 31
-  %28 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %25, i64 %27
-  %29 = load ptr, ptr %28, align 8, !tbaa !64
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.93, ptr noundef %29)
-  br label %30
+25:                                               ; preds = %24
+  %26 = and i64 %.sroa.4.0.extract.shift, 7
+  %27 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %26
+  %28 = lshr i64 %1, 19
+  %29 = and i64 %28, 31
+  %30 = getelementptr inbounds nuw [16 x ptr], ptr %27, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !64
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.93, ptr noundef %31)
+  br label %32
 
-30:                                               ; preds = %24, %23
-  %31 = and i64 %1, 65280
-  %.not26 = icmp eq i64 %31, 32768
-  br i1 %.not26, label %39, label %32
+32:                                               ; preds = %25, %24
+  %33 = and i64 %1, 65280
+  %.not26 = icmp eq i64 %33, 32768
+  br i1 %.not26, label %42, label %34
 
-32:                                               ; preds = %30
-  %33 = select i1 %.not25, ptr @.str.99, ptr @.str.98
-  %34 = and i64 %.sroa.2.0.extract.shift, 7
-  %35 = lshr i64 %1, 11
-  %36 = and i64 %35, 31
-  %37 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %34, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !64
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.97, ptr noundef nonnull %33, ptr noundef %38)
-  br label %39
+34:                                               ; preds = %32
+  %35 = select i1 %.not25, ptr @.str.99, ptr @.str.98
+  %36 = and i64 %.sroa.2.0.extract.shift, 7
+  %37 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %36
+  %38 = lshr i64 %1, 11
+  %39 = and i64 %38, 31
+  %40 = getelementptr inbounds nuw [16 x ptr], ptr %37, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !64
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.97, ptr noundef nonnull %35, ptr noundef %41)
+  br label %42
 
-39:                                               ; preds = %32, %30
-  %40 = lshr i8 %.sroa.9.0.extract.trunc, 4
-  %.not16 = icmp eq i8 %40, 1
-  br i1 %.not16, label %43, label %41
+42:                                               ; preds = %34, %32
+  %43 = lshr i8 %.sroa.9.0.extract.trunc, 4
+  %.not16 = icmp eq i8 %43, 1
+  br i1 %.not16, label %46, label %44
 
-41:                                               ; preds = %39
-  %42 = zext nneg i8 %40 to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.100, i32 noundef %42)
-  br label %43
+44:                                               ; preds = %42
+  %45 = zext nneg i8 %43 to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.100, i32 noundef %45)
+  br label %46
 
-43:                                               ; preds = %41, %39
+46:                                               ; preds = %44, %42
   %.not17 = icmp ult i64 %1, 4294967296
-  br i1 %.not17, label %51, label %44
+  br i1 %.not17, label %54, label %47
 
-44:                                               ; preds = %43
+47:                                               ; preds = %46
   %or.cond = icmp ult i64 %1, 42949672960
-  br i1 %or.cond, label %45, label %46
+  br i1 %or.cond, label %48, label %49
 
-45:                                               ; preds = %44
+48:                                               ; preds = %47
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.101, i32 noundef %.sroa.12.0.extract.trunc)
-  br label %51
+  br label %54
 
-46:                                               ; preds = %44
-  %47 = icmp sgt i32 %.sroa.12.0.extract.trunc, 0
-  br i1 %47, label %48, label %49
+49:                                               ; preds = %47
+  %50 = icmp sgt i32 %.sroa.12.0.extract.trunc, 0
+  br i1 %50, label %51, label %52
 
-48:                                               ; preds = %46
+51:                                               ; preds = %49
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.102, i32 noundef %.sroa.12.0.extract.trunc)
-  br label %51
+  br label %54
 
-49:                                               ; preds = %46
-  %50 = sub nsw i32 0, %.sroa.12.0.extract.trunc
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.103, i32 noundef %50)
-  br label %51
+52:                                               ; preds = %49
+  %53 = sub nsw i32 0, %.sroa.12.0.extract.trunc
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.103, i32 noundef %53)
+  br label %54
 
-51:                                               ; preds = %45, %49, %48, %43
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %53 = load i64, ptr %52, align 8, !tbaa !10
-  %54 = icmp eq i64 %53, 4611686018427387903
-  br i1 %54, label %55, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
+54:                                               ; preds = %48, %52, %51, %46
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %56 = load i64, ptr %55, align 8, !tbaa !10
+  %57 = icmp eq i64 %56, 4611686018427387903
+  br i1 %57, label %58, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
-55:                                               ; preds = %51
+58:                                               ; preds = %54
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.290) #21
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %57 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.104, i64 noundef 1)
-  br label %61
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.104, i64 noundef 1)
+  br label %64
 
-58:                                               ; preds = %2
+61:                                               ; preds = %2
   %or.cond5 = icmp ult i64 %1, 42949672960
-  br i1 %or.cond5, label %59, label %60
+  br i1 %or.cond5, label %62, label %63
 
-59:                                               ; preds = %58
+62:                                               ; preds = %61
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.105, i32 noundef %.sroa.12.0.extract.trunc)
-  br label %61
+  br label %64
 
-60:                                               ; preds = %58
+63:                                               ; preds = %61
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.106, i32 noundef %.sroa.12.0.extract.trunc)
-  br label %61
+  br label %64
 
-61:                                               ; preds = %2, %59, %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit, %17, %3
+64:                                               ; preds = %2, %62, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit, %18, %3
   ret void
 }
 
@@ -7119,11 +7122,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local noundef ptr @_ZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(252) %0, i8 %1) local_unnamed_addr #10 align 2 {
   %3 = and i8 %1, 7
   %4 = zext nneg i8 %3 to i64
-  %5 = lshr i8 %1, 3
-  %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %4, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !64
-  ret ptr %8
+  %5 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %4
+  %6 = lshr i8 %1, 3
+  %7 = zext nneg i8 %6 to i64
+  %8 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

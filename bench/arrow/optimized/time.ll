@@ -13,10 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { i32, i64 } @_ZN5arrow4util22GetTimestampConversionENS_8TimeUnit4typeES2_(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
-  %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [4 x [4 x %"struct.std::pair"]], ptr @_ZN5arrow4utilL25kTimestampConversionTableE, i64 0, i64 %3, i64 %4
-  %.sroa.0.0.copyload = load i32, ptr %5, align 16
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %4 = getelementptr inbounds [4 x [4 x %"struct.std::pair"]], ptr @_ZN5arrow4utilL25kTimestampConversionTableE, i64 0, i64 %3
+  %5 = sext i32 %1 to i64
+  %6 = getelementptr inbounds [4 x %"struct.std::pair"], ptr %4, i64 0, i64 %5
+  %.sroa.0.0.copyload = load i32, ptr %6, align 16
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.22.0.copyload, 1
@@ -32,35 +33,36 @@ define void @_ZN5arrow4util21ConvertTimestampValueERKSt10shared_ptrINS_8DataType
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !11
   %11 = sext i32 %7 to i64
-  %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds [4 x [4 x %"struct.std::pair"]], ptr @_ZN5arrow4utilL25kTimestampConversionTableE, i64 0, i64 %11, i64 %12
-  %.sroa.0.0.copyload.i = load i32, ptr %13, align 16
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %12 = getelementptr inbounds [4 x [4 x %"struct.std::pair"]], ptr @_ZN5arrow4utilL25kTimestampConversionTableE, i64 0, i64 %11
+  %13 = sext i32 %10 to i64
+  %14 = getelementptr inbounds [4 x %"struct.std::pair"], ptr %12, i64 0, i64 %13
+  %.sroa.0.0.copyload.i = load i32, ptr %14, align 16
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
-  switch i32 %.sroa.0.0.copyload.i, label %20 [
-    i32 0, label %14
-    i32 1, label %17
+  switch i32 %.sroa.0.0.copyload.i, label %21 [
+    i32 0, label %15
+    i32 1, label %18
   ]
 
-14:                                               ; preds = %4
-  %15 = mul nsw i64 %.sroa.22.0.copyload.i, %3
+15:                                               ; preds = %4
+  %16 = mul nsw i64 %.sroa.22.0.copyload.i, %3
   store ptr null, ptr %0, align 8, !tbaa !35
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !38
-  br label %21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %16, ptr %17, align 8, !tbaa !38
+  br label %22
 
-17:                                               ; preds = %4
-  %18 = sdiv i64 %3, %.sroa.22.0.copyload.i
+18:                                               ; preds = %4
+  %19 = sdiv i64 %3, %.sroa.22.0.copyload.i
   store ptr null, ptr %0, align 8, !tbaa !35
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %18, ptr %19, align 8, !tbaa !38
-  br label %21
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %19, ptr %20, align 8, !tbaa !38
+  br label %22
 
-20:                                               ; preds = %4
+21:                                               ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %17, %14
+22:                                               ; preds = %21, %18, %15
   ret void
 }
 

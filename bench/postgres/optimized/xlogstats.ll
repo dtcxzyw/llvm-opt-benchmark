@@ -145,19 +145,20 @@ XLogRecGetLen.exit:                               ; preds = %XLogRecGetLen.exit.
   %50 = and i8 %48, 7
   %spec.select = select i1 %49, i8 %50, i8 %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 6168
-  %52 = zext nneg i8 %spec.select to i64
-  %53 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %51, i64 0, i64 %34, i64 %52
-  %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %53, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load i64, ptr %56, align 8
-  %58 = add i64 %57, %38
-  store i64 %58, ptr %56, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, %.2
-  store i64 %61, ptr %59, align 8
+  %52 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %51, i64 0, i64 %34
+  %53 = zext nneg i8 %spec.select to i64
+  %54 = getelementptr inbounds nuw [16 x %struct.XLogRecStats], ptr %52, i64 0, i64 %53
+  %55 = load i64, ptr %54, align 8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %54, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = add i64 %58, %38
+  store i64 %59, ptr %57, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = add i64 %61, %.2
+  store i64 %62, ptr %60, align 8
   ret void
 }
 

@@ -31,14 +31,20 @@ define internal void @msmp4_vc1_vlcs_init() #0 {
   %0 = alloca %struct.VLCInitState, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) @__const.msmp4_vc1_vlcs_init.state, i64 16, i1 false)
-  %1 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 4), i32 noundef 8, i32 noundef 4, ptr noundef nonnull @ff_msmp4_dc_tables, i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
-  store ptr %1, ptr @ff_msmp4_dc_vlc, align 16, !tbaa !4
-  %2 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 964), i32 noundef 8, i32 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 960), i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_vlc, i64 8), align 8, !tbaa !4
-  %3 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 1924), i32 noundef 8, i32 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 1920), i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
-  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_vlc, i64 16), align 16, !tbaa !4
-  %4 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 2884), i32 noundef 8, i32 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 2880), i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
-  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_vlc, i64 24), align 8, !tbaa !4
+  %1 = getelementptr inbounds nuw [2 x [2 x [120 x [2 x i32]]]], ptr @ff_msmp4_dc_tables, i64 0, i64 0
+  %2 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr @ff_msmp4_dc_vlc, i64 0, i64 0
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %4 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull %3, i32 noundef 8, i32 noundef 4, ptr noundef nonnull %1, i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
+  store ptr %4, ptr %2, align 16, !tbaa !4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 960
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 964
+  %7 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull %6, i32 noundef 8, i32 noundef 4, ptr noundef nonnull %5, i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %7, ptr %8, align 8, !tbaa !4
+  %9 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 1924), i32 noundef 8, i32 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 1920), i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_vlc, i64 16), align 16, !tbaa !4
+  %10 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 2884), i32 noundef 8, i32 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 2880), i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_vlc, i64 24), align 8, !tbaa !4
   call void @ff_vlc_init_table_sparse(ptr noundef nonnull @ff_msmp4_mb_i_vlc, i32 noundef 536, i32 noundef 9, i32 noundef 64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_mb_i_table, i64 2), i32 noundef 4, i32 noundef 2, ptr noundef nonnull @ff_msmp4_mb_i_table, i32 noundef 4, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %0) #4
   ret void

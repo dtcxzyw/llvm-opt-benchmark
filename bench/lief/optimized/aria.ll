@@ -651,86 +651,88 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   %8 = zext i8 %6 to i64
   br label %.preheader40
 
-.preheader40:                                     ; preds = %.preheader40.lr.ph, %15
-  %indvars.iv49 = phi i64 [ %8, %.preheader40.lr.ph ], [ %indvars.iv.next50, %15 ]
-  %indvars.iv47 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next48, %15 ]
-  br label %10
+.preheader40:                                     ; preds = %.preheader40.lr.ph, %17
+  %indvars.iv49 = phi i64 [ %8, %.preheader40.lr.ph ], [ %indvars.iv.next50, %17 ]
+  %indvars.iv47 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next48, %17 ]
+  %9 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv47
+  %10 = getelementptr inbounds [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv49
+  br label %12
 
-.preheader:                                       ; preds = %15
+.preheader:                                       ; preds = %17
   %.not58 = icmp eq i8 %6, 1
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %wide.trip.count = zext i8 %6 to i64
-  br label %17
+  br label %19
 
-10:                                               ; preds = %.preheader40, %10
-  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv47, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4, !tbaa !3
-  %13 = getelementptr inbounds [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv49, i64 %indvars.iv
+12:                                               ; preds = %.preheader40, %12
+  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !3
-  store i32 %14, ptr %11, align 4, !tbaa !3
-  store i32 %12, ptr %13, align 4, !tbaa !3
+  %15 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4, !tbaa !3
+  store i32 %16, ptr %13, align 4, !tbaa !3
+  store i32 %14, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %15, label %10, !llvm.loop !13
+  br i1 %exitcond.not, label %17, label %12, !llvm.loop !13
 
-15:                                               ; preds = %10
+17:                                               ; preds = %12
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  %16 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
-  br i1 %16, label %.preheader40, label %.preheader, !llvm.loop !14
+  %18 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
+  br i1 %18, label %.preheader40, label %.preheader, !llvm.loop !14
 
-17:                                               ; preds = %.lr.ph, %17
-  %indvars.iv54 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next55, %17 ]
-  %18 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %9, i64 0, i64 %indvars.iv54
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %22 = load i32, ptr %19, align 4, !tbaa !3
-  %23 = load i32, ptr %18, align 4, !tbaa !3
+19:                                               ; preds = %.lr.ph, %19
+  %indvars.iv54 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next55, %19 ]
+  %20 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %11, i64 0, i64 %indvars.iv54
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %24 = load i32, ptr %21, align 4, !tbaa !3
   %25 = load i32, ptr %20, align 4, !tbaa !3
-  %26 = tail call i32 @llvm.bswap.i32(i32 %25)
-  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 16)
-  %28 = tail call i32 @llvm.bswap.i32(i32 %24)
-  %29 = xor i32 %27, %22
-  %30 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 16)
-  %31 = tail call i32 @llvm.bswap.i32(i32 %29)
-  %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 16)
-  %33 = xor i32 %30, %32
-  %34 = xor i32 %33, %28
-  %35 = xor i32 %27, %24
-  %36 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 16)
-  %37 = tail call i32 @llvm.bswap.i32(i32 %22)
-  %38 = xor i32 %30, %37
-  %39 = xor i32 %36, %23
-  %40 = xor i32 %39, %34
-  store i32 %40, ptr %19, align 4, !tbaa !3
-  %41 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 16)
-  %42 = xor i32 %34, %41
-  %43 = tail call i32 @llvm.bswap.i32(i32 %42)
-  %44 = xor i32 %43, %22
-  %45 = xor i32 %43, %22
-  %46 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %45, i32 16)
-  store i32 %46, ptr %18, align 4, !tbaa !3
-  %47 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 16)
-  %48 = tail call i32 @llvm.bswap.i32(i32 %34)
-  %49 = xor i32 %38, %48
-  %50 = xor i32 %49, %27
-  store i32 %50, ptr %21, align 4, !tbaa !3
-  %51 = tail call i32 @llvm.bswap.i32(i32 %38)
-  %52 = xor i32 %51, %47
-  %53 = xor i32 %52, %28
-  store i32 %53, ptr %20, align 4, !tbaa !3
+  %26 = load i32, ptr %23, align 4, !tbaa !3
+  %27 = load i32, ptr %22, align 4, !tbaa !3
+  %28 = tail call i32 @llvm.bswap.i32(i32 %27)
+  %29 = tail call i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 16)
+  %30 = tail call i32 @llvm.bswap.i32(i32 %26)
+  %31 = xor i32 %29, %24
+  %32 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 16)
+  %33 = tail call i32 @llvm.bswap.i32(i32 %31)
+  %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 16)
+  %35 = xor i32 %32, %34
+  %36 = xor i32 %35, %30
+  %37 = xor i32 %29, %26
+  %38 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 16)
+  %39 = tail call i32 @llvm.bswap.i32(i32 %24)
+  %40 = xor i32 %32, %39
+  %41 = xor i32 %38, %25
+  %42 = xor i32 %41, %36
+  store i32 %42, ptr %21, align 4, !tbaa !3
+  %43 = tail call i32 @llvm.fshl.i32(i32 %38, i32 %38, i32 16)
+  %44 = xor i32 %36, %43
+  %45 = tail call i32 @llvm.bswap.i32(i32 %44)
+  %46 = xor i32 %45, %24
+  %47 = xor i32 %45, %24
+  %48 = tail call i32 @llvm.fshl.i32(i32 %46, i32 %47, i32 16)
+  store i32 %48, ptr %20, align 4, !tbaa !3
+  %49 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 16)
+  %50 = tail call i32 @llvm.bswap.i32(i32 %36)
+  %51 = xor i32 %40, %50
+  %52 = xor i32 %51, %29
+  store i32 %52, ptr %23, align 4, !tbaa !3
+  %53 = tail call i32 @llvm.bswap.i32(i32 %40)
+  %54 = xor i32 %53, %49
+  %55 = xor i32 %54, %30
+  store i32 %55, ptr %22, align 4, !tbaa !3
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond57.not, label %.loopexit, label %17, !llvm.loop !15
+  br i1 %exitcond57.not, label %.loopexit, label %19, !llvm.loop !15
 
-.loopexit:                                        ; preds = %17, %5, %.preheader, %3
-  %.0 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ 0, %5 ], [ 0, %17 ]
+.loopexit:                                        ; preds = %19, %5, %.preheader, %3
+  %.0 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ 0, %5 ], [ 0, %19 ]
   ret i32 %.0
 }
 

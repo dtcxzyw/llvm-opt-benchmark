@@ -1558,7 +1558,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %gep473 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %158
   %159 = zext nneg i32 %156 to i64
   %160 = shl nuw nsw i64 %159, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep706, ptr nonnull align 4 %gep473, i64 %160, i1 false), !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep706, ptr nonnull align 4 %gep473, i64 %160, i1 false), !tbaa !17
   br label %._crit_edge477
 
 ._crit_edge477:                                   ; preds = %.lr.ph476, %152
@@ -1723,7 +1723,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %gep446 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %221
   %222 = zext nneg i32 %219 to i64
   %223 = shl nuw nsw i64 %222, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep704, ptr nonnull align 4 %gep446, i64 %223, i1 false), !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep704, ptr nonnull align 4 %gep446, i64 %223, i1 false), !tbaa !17
   br label %._crit_edge450
 
 ._crit_edge450:                                   ; preds = %.lr.ph449, %215
@@ -1941,7 +1941,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %gep414 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %315
   %316 = zext nneg i32 %313 to i64
   %317 = shl nuw nsw i64 %316, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep702, ptr nonnull align 4 %gep414, i64 %317, i1 false), !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep702, ptr nonnull align 4 %gep414, i64 %317, i1 false), !tbaa !17
   br label %._crit_edge418
 
 ._crit_edge418:                                   ; preds = %.lr.ph417, %309
@@ -2094,7 +2094,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   %gep = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %379
   %380 = zext nneg i32 %377 to i64
   %381 = shl nuw nsw i64 %380, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep700, ptr nonnull align 4 %gep, i64 %381, i1 false), !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep700, ptr nonnull align 4 %gep, i64 %381, i1 false), !tbaa !17
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph390, %373

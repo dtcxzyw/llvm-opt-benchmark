@@ -7754,20 +7754,20 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %10
 ._crit_edge26:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %24
   ret void
 
-._crit_edge.loopexit:                             ; preds = %73
+._crit_edge.loopexit:                             ; preds = %74
   %.pre = load i32, ptr %25, align 8, !tbaa !123
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %38 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %35, %.preheader ]
-  %39 = phi i32 [ %74, %._crit_edge.loopexit ], [ %36, %.preheader ]
+  %39 = phi i32 [ %75, %._crit_edge.loopexit ], [ %36, %.preheader ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %40 = sext i32 %38 to i64
   %41 = icmp slt i64 %indvars.iv.next33, %40
   br i1 %41, label %.preheader, label %._crit_edge26, !llvm.loop !186
 
-.lr.ph:                                           ; preds = %.preheader, %73
-  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %73 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %74
+  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %74 ], [ 0, %.preheader ]
   %42 = load ptr, ptr %5, align 8, !tbaa !130
   %43 = load ptr, ptr %7, align 8, !tbaa !131
   %44 = load i64, ptr %43, align 8, !tbaa !83
@@ -7794,30 +7794,31 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %10
   %64 = call double @llvm.fmuladd.f64(double %63, double 1.024000e+03, double %58)
   %65 = fptoui double %64 to i32
   %66 = zext i32 %65 to i64
-  %67 = load ptr, ptr %31, align 8, !tbaa !130
-  %68 = load ptr, ptr %32, align 8, !tbaa !131
-  %69 = load i64, ptr %68, align 8, !tbaa !83
-  %70 = mul i64 %69, %indvars.iv32
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
-  %72 = getelementptr inbounds nuw %"class.cv::Vec.24", ptr %71, i64 %indvars.iv29
-  br label %77
+  %67 = getelementptr inbounds nuw [0 x [10 x float]], ptr @_ZN2cv6detail8tracking10ColorNamesE, i64 0, i64 %66
+  %68 = load ptr, ptr %31, align 8, !tbaa !130
+  %69 = load ptr, ptr %32, align 8, !tbaa !131
+  %70 = load i64, ptr %69, align 8, !tbaa !83
+  %71 = mul i64 %70, %indvars.iv32
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %71
+  %73 = getelementptr inbounds nuw %"class.cv::Vec.24", ptr %72, i64 %indvars.iv29
+  br label %78
 
-73:                                               ; preds = %77
+74:                                               ; preds = %78
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %74 = load i32, ptr %28, align 4, !tbaa !124
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next30, %75
-  br i1 %76, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !188
+  %75 = load i32, ptr %28, align 4, !tbaa !124
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next30, %76
+  br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !188
 
-77:                                               ; preds = %.lr.ph, %77
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw [0 x [10 x float]], ptr @_ZN2cv6detail8tracking10ColorNamesE, i64 0, i64 %66, i64 %indvars.iv
-  %79 = load float, ptr %78, align 4, !tbaa !7
-  %80 = getelementptr inbounds nuw [10 x float], ptr %72, i64 0, i64 %indvars.iv
-  store float %79, ptr %80, align 4, !tbaa !7
+78:                                               ; preds = %.lr.ph, %78
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+  %79 = getelementptr inbounds nuw [10 x float], ptr %67, i64 0, i64 %indvars.iv
+  %80 = load float, ptr %79, align 4, !tbaa !7
+  %81 = getelementptr inbounds nuw [10 x float], ptr %73, i64 0, i64 %indvars.iv
+  store float %80, ptr %81, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %73, label %77, !llvm.loop !189
+  br i1 %exitcond.not, label %74, label %78, !llvm.loop !189
 }
 
 declare void @_ZNK2cv3Mat3mulERKNS_11_InputArrayEd(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), double noundef) local_unnamed_addr #0

@@ -37,7 +37,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
 11:                                               ; preds = %3
   %12 = icmp eq i8 %8, -1
   %13 = select i1 %12, i32 1, i32 -1
-  br label %53
+  br label %56
 
 14:                                               ; preds = %3
   %15 = icmp eq ptr %4, %1
@@ -47,57 +47,60 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
   %17 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %6
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = sub nsw i32 0, %18
-  br label %53
+  br label %56
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %22 = load i8, ptr %4, align 1, !tbaa !6
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !6
-  %26 = sext i8 %25 to i64
-  %27 = icmp slt i8 %25, 0
-  br i1 %27, label %28, label %31
+  %21 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %9
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %23 = load i8, ptr %4, align 1, !tbaa !6
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 0, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !6
+  %27 = sext i8 %26 to i64
+  %28 = icmp slt i8 %26, 0
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %20
-  %29 = icmp eq i8 %25, -1
-  %30 = select i1 %29, i32 2, i32 -1
-  br label %53
+29:                                               ; preds = %20
+  %30 = icmp eq i8 %26, -1
+  %31 = select i1 %30, i32 2, i32 -1
+  br label %56
 
-31:                                               ; preds = %20
-  %32 = icmp eq ptr %21, %1
-  br i1 %32, label %53, label %33
+32:                                               ; preds = %20
+  %33 = icmp eq ptr %22, %1
+  br i1 %33, label %56, label %34
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %35 = load i8, ptr %21, align 1, !tbaa !6
-  %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %26, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !6
-  %39 = sext i8 %38 to i64
-  %40 = icmp slt i8 %38, 0
-  br i1 %40, label %41, label %44
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %27
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %37 = load i8, ptr %22, align 1, !tbaa !6
+  %38 = zext i8 %37 to i64
+  %39 = getelementptr inbounds nuw [256 x i8], ptr %35, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !6
+  %41 = sext i8 %40 to i64
+  %42 = icmp slt i8 %40, 0
+  br i1 %42, label %43, label %46
 
-41:                                               ; preds = %33
-  %42 = icmp eq i8 %38, -1
-  %43 = select i1 %42, i32 3, i32 -1
-  br label %53
+43:                                               ; preds = %34
+  %44 = icmp eq i8 %40, -1
+  %45 = select i1 %44, i32 3, i32 -1
+  br label %56
 
-44:                                               ; preds = %33
-  %45 = icmp eq ptr %34, %1
-  br i1 %45, label %53, label %46
+46:                                               ; preds = %34
+  %47 = icmp eq ptr %36, %1
+  br i1 %47, label %56, label %48
 
-46:                                               ; preds = %44
-  %47 = load i8, ptr %34, align 1, !tbaa !6
-  %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %39, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !6
-  %51 = icmp eq i8 %50, -1
-  %52 = select i1 %51, i32 4, i32 -1
-  br label %53
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %41
+  %50 = load i8, ptr %36, align 1, !tbaa !6
+  %51 = zext i8 %50 to i64
+  %52 = getelementptr inbounds nuw [256 x i8], ptr %49, i64 0, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !6
+  %54 = icmp eq i8 %53, -1
+  %55 = select i1 %54, i32 4, i32 -1
+  br label %56
 
-53:                                               ; preds = %44, %31, %46, %41, %28, %16, %11
-  %.0 = phi i32 [ %13, %11 ], [ %19, %16 ], [ %30, %28 ], [ %43, %41 ], [ %52, %46 ], [ -3, %31 ], [ -2, %44 ]
+56:                                               ; preds = %46, %32, %48, %43, %29, %16, %11
+  %.0 = phi i32 [ %13, %11 ], [ %19, %16 ], [ %31, %29 ], [ %45, %43 ], [ %55, %48 ], [ -3, %32 ], [ -2, %46 ]
   ret i32 %.0
 }
 

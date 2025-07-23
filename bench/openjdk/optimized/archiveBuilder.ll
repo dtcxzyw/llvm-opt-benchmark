@@ -3281,16 +3281,18 @@ _ZN27ResizeableResourceHashtableIPhS0_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13E
   %115 = and i8 %113, 1
   %116 = xor i8 %115, 1
   %117 = zext nneg i8 %116 to i64
-  %118 = zext i32 %107 to i64
-  %119 = getelementptr inbounds nuw [2 x [23 x i32]], ptr %114, i64 0, i64 %117, i64 %118
-  %120 = load i32, ptr %119, align 4
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %119, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 836
-  %123 = getelementptr inbounds nuw [2 x [23 x i32]], ptr %122, i64 0, i64 %117, i64 %118
-  %124 = load i32, ptr %123, align 4
-  %125 = add nsw i32 %124, %111
-  store i32 %125, ptr %123, align 4
+  %118 = getelementptr inbounds nuw [2 x [23 x i32]], ptr %114, i64 0, i64 %117
+  %119 = zext i32 %107 to i64
+  %120 = getelementptr inbounds nuw [23 x i32], ptr %118, i64 0, i64 %119
+  %121 = load i32, ptr %120, align 4
+  %122 = add nsw i32 %121, 1
+  store i32 %122, ptr %120, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 836
+  %124 = getelementptr inbounds nuw [2 x [23 x i32]], ptr %123, i64 0, i64 %117
+  %125 = getelementptr inbounds nuw [23 x i32], ptr %124, i64 0, i64 %119
+  %126 = load i32, ptr %125, align 4
+  %127 = add nsw i32 %126, %111
+  store i32 %127, ptr %125, align 4
   ret void
 }
 

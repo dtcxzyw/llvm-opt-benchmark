@@ -1802,28 +1802,29 @@ define hidden noundef ptr @_ZNK15CheckCastPPNode5ValueEP8PhaseGVN(ptr noundef no
   %81 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %.pre38, i64 40
-  %85 = load i32, ptr %84, align 8
-  %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %86
-  %88 = load i32, ptr %87, align 4
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %83, i64 %89
-  %91 = load i32, ptr %90, align 4
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %92
-  %94 = load i32, ptr %93, align 4
-  %95 = load ptr, ptr %.pre38, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 176
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(44) %.pre38, i32 noundef %94) #6
+  %84 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %.pre38, i64 40
+  %86 = load i32, ptr %85, align 8
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %87
+  %89 = load i32, ptr %88, align 4
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw [6 x i32], ptr %84, i64 0, i64 %90
+  %92 = load i32, ptr %91, align 4
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %93
+  %95 = load i32, ptr %94, align 4
+  %96 = load ptr, ptr %.pre38, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 176
+  %98 = load ptr, ptr %97, align 8
+  %99 = tail call noundef ptr %98(ptr noundef nonnull align 8 dereferenceable(44) %.pre38, i32 noundef %95) #6
   br label %_ZNK18ConstraintCastNode5ValueEP8PhaseGVN.exit
 
 .fold.split:                                      ; preds = %76
   br label %_ZNK18ConstraintCastNode5ValueEP8PhaseGVN.exit
 
 _ZNK18ConstraintCastNode5ValueEP8PhaseGVN.exit:   ; preds = %65, %60, %54, %._crit_edge.i, %34, %._crit_edge36, %79, %.fold.split, %76, %16, %6
-  %.0 = phi ptr [ %14, %6 ], [ %17, %16 ], [ %98, %79 ], [ %.pre38, %._crit_edge36 ], [ %25, %76 ], [ %.pre38, %.fold.split ], [ %17, %34 ], [ %73, %65 ], [ %48, %60 ], [ %48, %54 ], [ %48, %._crit_edge.i ]
+  %.0 = phi ptr [ %14, %6 ], [ %17, %16 ], [ %99, %79 ], [ %.pre38, %._crit_edge36 ], [ %25, %76 ], [ %.pre38, %.fold.split ], [ %17, %34 ], [ %73, %65 ], [ %48, %60 ], [ %48, %54 ], [ %48, %._crit_edge.i ]
   ret ptr %.0
 }
 

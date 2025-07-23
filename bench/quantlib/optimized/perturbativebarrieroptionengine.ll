@@ -7151,18 +7151,20 @@ if.then8:                                         ; preds = %if.then6
   %1 = tail call double @llvm.fmuladd.f64(double %a, double %a, double %mul10)
   %neg = fmul double %1, -5.000000e-01
   %idxprom15 = zext nneg i32 %.sink172 to i64
+  %invariant.gep188 = getelementptr inbounds [4 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 0, i64 %idxprom15
   %idxprom23 = zext nneg i32 %.sink172 to i64
+  %invariant.gep190 = getelementptr inbounds [4 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 0, i64 %idxprom23
   br label %for.cond12.preheader
 
 for.cond12.preheader:                             ; preds = %if.then8, %for.inc31
   %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 = phi i32 [ 1, %if.then8 ], [ %inc, %for.inc31 ]
   %.lcssa157159 = phi double [ 0.000000e+00, %if.then8 ], [ %8, %for.inc31 ]
   %idxprom = zext nneg i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 to i64
-  %arrayidx16 = getelementptr inbounds nuw [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 0, i64 %idxprom, i64 %idxprom15
-  %2 = load double, ptr %arrayidx16, align 8, !tbaa !107
+  %gep189 = getelementptr inbounds [11 x [4 x double]], ptr %invariant.gep188, i64 0, i64 %idxprom
+  %2 = load double, ptr %gep189, align 8, !tbaa !107
   %idxprom21 = zext nneg i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 to i64
-  %arrayidx24 = getelementptr inbounds nuw [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 0, i64 %idxprom21, i64 %idxprom23
-  %3 = load double, ptr %arrayidx24, align 8, !tbaa !107
+  %gep191 = getelementptr inbounds [11 x [4 x double]], ptr %invariant.gep190, i64 0, i64 %idxprom21
+  %3 = load double, ptr %gep191, align 8, !tbaa !107
   br label %for.body14
 
 for.body14:                                       ; preds = %for.cond12.preheader, %for.body14
@@ -7419,15 +7421,17 @@ if.end104:                                        ; preds = %_ZN8QuantLib12_GLOB
   %div105 = fmul double %call51, 5.000000e-01
   %fneg135 = fneg double %39
   %idxprom115 = zext nneg i32 %.sink172 to i64
+  %invariant.gep = getelementptr inbounds [4 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 0, i64 %idxprom115
+  %invariant.gep186 = getelementptr inbounds [4 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 0, i64 %idxprom115
   br label %for.cond109.preheader
 
 for.cond109.preheader:                            ; preds = %if.end104, %for.inc152
   %.pre163 = phi i32 [ 1, %if.end104 ], [ %inc153, %for.inc152 ]
   %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted = phi double [ %57, %if.end104 ], [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted160, %for.inc152 ]
   %idxprom113 = zext nneg i32 %.pre163 to i64
-  %arrayidx116 = getelementptr inbounds nuw [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 0, i64 %idxprom113, i64 %idxprom115
-  %58 = load double, ptr %arrayidx116, align 8, !tbaa !107
-  %arrayidx131 = getelementptr inbounds nuw [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 0, i64 %idxprom113, i64 %idxprom115
+  %gep = getelementptr inbounds [11 x [4 x double]], ptr %invariant.gep, i64 0, i64 %idxprom113
+  %58 = load double, ptr %gep, align 8, !tbaa !107
+  %gep187 = getelementptr inbounds [11 x [4 x double]], ptr %invariant.gep186, i64 0, i64 %idxprom113
   br label %for.body111
 
 for.body111:                                      ; preds = %for.cond109.preheader, %for.inc149
@@ -7447,7 +7451,7 @@ for.body111:                                      ; preds = %for.cond109.prehead
 if.then127:                                       ; preds = %for.body111
   %sub120 = fsub double 1.000000e+00, %square147
   %square148 = fmul double %sub120, %sub120
-  %61 = load double, ptr %arrayidx131, align 8, !tbaa !107
+  %61 = load double, ptr %gep187, align 8, !tbaa !107
   %mul132 = fmul double %div105, %61
   %call133 = tail call double @exp(double noundef %div125) #31, !tbaa !108
   %mul134 = fmul double %mul132, %call133
