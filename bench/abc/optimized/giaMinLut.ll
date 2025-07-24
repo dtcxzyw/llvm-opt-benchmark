@@ -2421,65 +2421,65 @@ define i32 @Gia_ManSimEvalMaxValue(ptr noundef readonly captures(none) %0, i32 n
   br label %._crit_edge33
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %12 = ashr i32 %4, 6
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr i8, ptr %0, i64 8
-  %.val.us = load ptr, ptr %14, align 8, !tbaa !59
-  %invariant.gep.us = getelementptr i64, ptr %.val.us, i64 %13
-  %15 = sext i32 %1 to i64
-  %16 = zext nneg i32 %3 to i64
-  %wide.trip.count40 = zext nneg i32 %2 to i64
+  %11 = ashr i32 %4, 6
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr i8, ptr %0, i64 8
+  %.val.us = load ptr, ptr %13, align 8, !tbaa !59
+  %invariant.gep.us = getelementptr i64, ptr %.val.us, i64 %12
+  %14 = sext i32 %1 to i64
+  %15 = zext nneg i32 %3 to i64
+  %wide.trip.count41 = zext nneg i32 %2 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.02131.us = phi i32 [ %spec.select27.us, %._crit_edge.us ], [ -1, %.preheader.lr.ph.split.us ]
   %.02330.us = phi i32 [ %spec.select.us, %._crit_edge.us ], [ -1, %.preheader.lr.ph.split.us ]
-  %17 = mul nuw nsw i64 %indvars.iv37, %16
-  br label %18
+  %16 = mul nuw nsw i64 %indvars.iv38, %15
+  br label %17
 
-18:                                               ; preds = %.preheader.us, %18
+17:                                               ; preds = %.preheader.us, %17
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %18 ]
   %.01929.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %18 ]
-  %19 = add nuw nsw i64 %indvars.iv, %17
-  %20 = mul nsw i64 %19, %15
-  %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %20
-  %21 = load i64, ptr %gep.us, align 8, !tbaa !64
-  %22 = and i64 %21, %10
-  %.not26.us = icmp eq i64 %22, 0
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %24 = shl nuw i32 1, %23
-  %25 = select i1 %.not26.us, i32 0, i32 %24
-  %.1.us = or i32 %25, %.01929.us
+  %18 = add nuw nsw i64 %indvars.iv, %16
+  %19 = mul nsw i64 %18, %14
+  %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %19
+  %20 = load i64, ptr %gep.us, align 8, !tbaa !64
+  %21 = and i64 %20, %10
+  %.not26.us = icmp eq i64 %21, 0
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  %23 = shl nuw i32 1, %22
+  %24 = select i1 %.not26.us, i32 0, i32 %23
+  %.1.us = or i32 %24, %.01929.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !87
+  %exitcond37.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond37.not, label %._crit_edge.us, label %17, !llvm.loop !87
 
-._crit_edge.us:                                   ; preds = %18
+._crit_edge.us:                                   ; preds = %17
   %.not.us = icmp sgt i32 %.02330.us, %.1.us
   %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.02330.us, i32 %.1.us)
-  %26 = trunc nuw nsw i64 %indvars.iv37 to i32
-  %spec.select27.us = select i1 %.not.us, i32 %.02131.us, i32 %26
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !88
+  %25 = trunc nuw nsw i64 %indvars.iv38 to i32
+  %spec.select27.us = select i1 %.not.us, i32 %.02131.us, i32 %25
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
+  br i1 %exitcond42.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !88
 
-._crit_edge33:                                    ; preds = %._crit_edge.us, %.preheader.preheader, %5
-  %.021.lcssa = phi i32 [ -1, %5 ], [ %11, %.preheader.preheader ], [ %spec.select27.us, %._crit_edge.us ]
+.preheader:                                       ; preds = %._crit_edge.us, %.preheader.preheader, %5
+  %.032 = phi i32 [ -1, %5 ], [ %11, %.preheader.preheader ], [ %spec.select27.us, %._crit_edge.us ]
   ret i32 %.021.lcssa
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @Gia_ManSimEvalOne3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = getelementptr i8, ptr %2, i64 4
-  %.val27 = load i32, ptr %5, align 4, !tbaa !13
-  %6 = icmp sgt i32 %.val27, 0
+  %.val31 = load i32, ptr %5, align 4, !tbaa !13
+  %6 = icmp sgt i32 %.val31, 0
   br i1 %6, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr i8, ptr %1, i64 4
-  %.val29 = load i32, ptr %7, align 4, !tbaa !60
+  %10 = getelementptr i8, ptr %1, i64 4
+  %.val29 = load i32, ptr %10, align 4, !tbaa !60
   %8 = getelementptr i8, ptr %0, i64 72
   %.val31 = load ptr, ptr %8, align 8, !tbaa !50
   %9 = getelementptr i8, ptr %.val31, i64 4
@@ -2493,12 +2493,12 @@ define noundef i32 @Gia_ManSimEvalOne3(ptr noundef readonly captures(none) %0, p
   %15 = add nsw i32 %11, -1
   %16 = getelementptr i8, ptr %1, i64 8
   %17 = sext i32 %10 to i64
-  %18 = zext nneg i32 %3 to i64
+  %wide.trip.count41.i = zext nneg i32 %3 to i64
   %wide.trip.count40.i = zext nneg i32 %11 to i64
   %wide.trip.count44 = zext nneg i32 %.val27 to i64
   br i1 %13, label %.preheader.lr.ph.i.us, label %Gia_ManSimEvalMaxValue.exit
 
-.preheader.lr.ph.i.us:                            ; preds = %.lr.ph, %Gia_ManSimEvalMaxValue.exit.us
+.preheader.lr.ph.i.us:; preds = %.lr.ph, %Gia_ManSimEvalMaxValue.exit.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %Gia_ManSimEvalMaxValue.exit.us ], [ 0, %.lr.ph ]
   %.02333.us = phi i32 [ %.1.us, %Gia_ManSimEvalMaxValue.exit.us ], [ 0, %.lr.ph ]
   %.02432.us = phi i32 [ %.125.us, %Gia_ManSimEvalMaxValue.exit.us ], [ -1, %.lr.ph ]
@@ -2512,22 +2512,22 @@ define noundef i32 @Gia_ManSimEvalOne3(ptr noundef readonly captures(none) %0, p
 .preheader.lr.ph.split.us.i.us:                   ; preds = %.preheader.lr.ph.i.us
   %24 = lshr i64 %indvars.iv41, 6
   %25 = and i64 %24, 67108863
-  %.val.us.i.us = load ptr, ptr %16, align 8, !tbaa !59
+  %.val.us.i.us = load ptr, ptr %15, align 8, !tbaa !59
   %invariant.gep.us.i.us = getelementptr i64, ptr %.val.us.i.us, i64 %25
   br label %.preheader.us.i.us
 
 .preheader.us.i.us:                               ; preds = %._crit_edge.us.i.us, %.preheader.lr.ph.split.us.i.us
-  %indvars.iv37.i.us = phi i64 [ %indvars.iv.next38.i.us, %._crit_edge.us.i.us ], [ 0, %.preheader.lr.ph.split.us.i.us ]
+  %indvars.iv38.i.us = phi i64 [ %indvars.iv.next39.i.us, %._crit_edge.us.i.us ], [ 0, %.preheader.lr.ph.split.us.i.us ]
   %.02131.us.i.us = phi i32 [ %spec.select27.us.i.us, %._crit_edge.us.i.us ], [ -1, %.preheader.lr.ph.split.us.i.us ]
   %.02330.us.i.us = phi i32 [ %spec.select.us.i.us, %._crit_edge.us.i.us ], [ -1, %.preheader.lr.ph.split.us.i.us ]
-  %26 = mul nuw nsw i64 %indvars.iv37.i.us, %18
+  %26 = mul nuw nsw i64 %indvars.iv38.i.us, %17
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %27 ]
   %.01929.us.i.us = phi i32 [ 0, %.preheader.us.i.us ], [ %.1.us.i.us, %27 ]
   %28 = add nuw nsw i64 %indvars.iv.i.us, %26
-  %29 = mul nsw i64 %28, %17
+  %29 = mul nsw i64 %28, %16
   %gep.us.i.us = getelementptr i64, ptr %invariant.gep.us.i.us, i64 %29
   %30 = load i64, ptr %gep.us.i.us, align 8, !tbaa !64
   %31 = and i64 %30, %23
@@ -2537,17 +2537,17 @@ define noundef i32 @Gia_ManSimEvalOne3(ptr noundef readonly captures(none) %0, p
   %34 = select i1 %.not26.us.i.us, i32 0, i32 %33
   %.1.us.i.us = or i32 %34, %.01929.us.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %18
-  br i1 %exitcond.not.i.us, label %._crit_edge.us.i.us, label %27, !llvm.loop !87
+  %exitcond37.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %17
+  br i1 %exitcond37.not.i.us, label %._crit_edge.us.i.us, label %27, !llvm.loop !87
 
 ._crit_edge.us.i.us:                              ; preds = %27
   %.not.us.i.us = icmp sgt i32 %.02330.us.i.us, %.1.us.i.us
   %spec.select.us.i.us = tail call i32 @llvm.smax.i32(i32 %.02330.us.i.us, i32 %.1.us.i.us)
-  %35 = trunc nuw nsw i64 %indvars.iv37.i.us to i32
+  %35 = trunc nuw nsw i64 %indvars.iv38.i.us to i32
   %spec.select27.us.i.us = select i1 %.not.us.i.us, i32 %.02131.us.i.us, i32 %35
-  %indvars.iv.next38.i.us = add nuw nsw i64 %indvars.iv37.i.us, 1
-  %exitcond41.not.i.us = icmp eq i64 %indvars.iv.next38.i.us, %wide.trip.count40.i
-  br i1 %exitcond41.not.i.us, label %Gia_ManSimEvalMaxValue.exit.us, label %.preheader.us.i.us, !llvm.loop !88
+  %indvars.iv.next39.i.us = add nuw nsw i64 %indvars.iv38.i.us, 1
+  %exitcond42.not.i.us = icmp eq i64 %indvars.iv.next39.i.us, %wide.trip.count40.i
+  br i1 %exitcond42.not.i.us, label %Gia_ManSimEvalMaxValue.exit.us, label %.preheader.us.i.us, !llvm.loop !88
 
 Gia_ManSimEvalMaxValue.exit.us:                   ; preds = %._crit_edge.us.i.us, %.preheader.lr.ph.i.us
   %.021.lcssa.i.us = phi i32 [ %15, %.preheader.lr.ph.i.us ], [ %spec.select27.us.i.us, %._crit_edge.us.i.us ]
@@ -2557,23 +2557,23 @@ Gia_ManSimEvalMaxValue.exit.us:                   ; preds = %._crit_edge.us.i.us
   %.125.us = select i1 %38, i32 %21, i32 %.02432.us
   %39 = zext i1 %36 to i32
   %.1.us = add nuw nsw i32 %.02333.us, %39
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %.critedge, label %.preheader.lr.ph.i.us, !llvm.loop !89
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv41, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count44
+  br i1 %exitcond47.not, label %.critedge, label %.preheader.lr.ph.i.us, !llvm.loop !89
 
 Gia_ManSimEvalMaxValue.exit:                      ; preds = %.lr.ph, %Gia_ManSimEvalMaxValue.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ManSimEvalMaxValue.exit ], [ 0, %.lr.ph ]
-  %.02333 = phi i32 [ %.1, %Gia_ManSimEvalMaxValue.exit ], [ 0, %.lr.ph ]
-  %.02432 = phi i32 [ %.125, %Gia_ManSimEvalMaxValue.exit ], [ -1, %.lr.ph ]
+  %.02334 = phi i32 [ %.1, %Gia_ManSimEvalMaxValue.exit ], [ 0, %.lr.ph ]
+  %.02433 = phi i32 [ %.125, %Gia_ManSimEvalMaxValue.exit ], [ -1, %.lr.ph ]
   %40 = getelementptr inbounds nuw i32, ptr %.val28, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %42 = icmp eq i32 %41, -1
-  %43 = icmp eq i32 %.02432, -1
+  %43 = icmp eq i32 %.02433, -1
   %44 = select i1 %42, i1 %43, i1 false
   %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %.125 = select i1 %44, i32 %45, i32 %.02432
+  %.125 = select i1 %44, i32 %45, i32 %.02433
   %46 = zext i1 %42 to i32
-  %.1 = add nuw nsw i32 %.02333, %46
+  %.1 = add nuw nsw i32 %.02334, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count44
   br i1 %exitcond.not, label %.critedge, label %Gia_ManSimEvalMaxValue.exit, !llvm.loop !90

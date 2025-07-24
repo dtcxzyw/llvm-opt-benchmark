@@ -1410,7 +1410,7 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZL10getmaxlineP5
 .lr.ph24:                                         ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !90
-  %wide.trip.count32 = zext nneg i32 %12 to i64
+  %wide.trip.count34 = zext nneg i32 %12 to i64
   br label %26
 
 _Z12luaG_getlineP5Protoi.exit:                    ; preds = %.lr.ph.split, %_Z12luaG_getlineP5Protoi.exit
@@ -1435,15 +1435,15 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %.lr.ph.split, %_Z12
   ret i32 %.1.lcssa
 
 26:                                               ; preds = %.lr.ph24, %26
-  %indvars.iv29 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next30, %26 ]
+  %indvars.iv31 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next32, %26 ]
   %.123 = phi i32 [ %.0.lcssa, %.lr.ph24 ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv29
+  %27 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv31
   %28 = load ptr, ptr %27, align 8, !tbaa !91
   %29 = tail call fastcc noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %28)
   %30 = tail call i32 @llvm.smax.i32(i32 %.123, i32 %29)
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge, label %26, !llvm.loop !98
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
+  br i1 %exitcond35.not, label %._crit_edge, label %26, !llvm.loop !98
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -3940,7 +3940,7 @@ define void @_ZN7rocksdb6DBImpl34InstallSuperVersionAndScheduleWorkEPNS_16Column
   %32 = load i64, ptr %31, align 16, !tbaa !845
   br label %70
 
-._crit_edge:                                      ; preds = %80
+._crit_edge:                                      ; preds = %81
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %32, i64 72057594037927935)
   store i64 %.sroa.speculated, ptr %22, align 8, !tbaa !835
   br label %33
@@ -4013,13 +4013,13 @@ _ZN7rocksdb6DBImpl24EnqueuePendingCompactionEPNS_16ColumnFamilyDataE.exit: ; pre
   store atomic i64 %69, ptr %61 seq_cst, align 8
   ret void
 
-70:                                               ; preds = %.lr.ph, %80
+70:                                               ; preds = %.lr.ph, %81
   %.sroa.026.034 = phi ptr [ %.sroa.026.032, %.lr.ph ], [ %.sroa.026.0, %80 ]
-  %71 = phi i64 [ 72057594037927935, %.lr.ph ], [ %81, %80 ]
+  %71 = phi i64 [ 72057594037927935, %.lr.ph ], [ %82, %80 ]
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.026.034, i64 1331
   %73 = load i8, ptr %72, align 1, !tbaa !854, !range !41, !noundef !42
   %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %80, label %75
+  br i1 %74, label %81, label %75
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.026.034, i64 48
@@ -4028,10 +4028,10 @@ _ZN7rocksdb6DBImpl24EnqueuePendingCompactionEPNS_16ColumnFamilyDataE.exit: ; pre
   %79 = load i64, ptr %78, align 8, !tbaa !855
   %.sroa.speculated23 = tail call i64 @llvm.umin.i64(i64 %79, i64 %71)
   store i64 %.sroa.speculated23, ptr %21, align 32, !tbaa !834
-  br label %80
+  br label %81
 
-80:                                               ; preds = %75, %70
-  %81 = phi i64 [ %.sroa.speculated23, %75 ], [ %71, %70 ]
+81:                                               ; preds = %75, %70
+  %82 = phi i64 [ %.sroa.speculated23, %75 ], [ %71, %70 ]
   %.sroa.026.0.in = getelementptr inbounds nuw i8, ptr %.sroa.026.034, i64 2536
   %.sroa.026.0 = load ptr, ptr %.sroa.026.0.in, align 8, !tbaa !844
   %.not29 = icmp eq ptr %.sroa.026.0, %28
