@@ -3940,7 +3940,8 @@ define void @_ZN7rocksdb6DBImpl34InstallSuperVersionAndScheduleWorkEPNS_16Column
   %32 = load i64, ptr %31, align 16, !tbaa !845
   br label %70
 
-._crit_edge:                                      ; preds = %81
+._crit_edge:                                      ; preds = %80
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %32, i64 72057594037927935)
   store i64 %.sroa.speculated, ptr %22, align 8, !tbaa !835
   br label %33
 
@@ -4012,27 +4013,25 @@ _ZN7rocksdb6DBImpl24EnqueuePendingCompactionEPNS_16ColumnFamilyDataE.exit: ; pre
   store atomic i64 %69, ptr %61 seq_cst, align 8
   ret void
 
-70:                                               ; preds = %.lr.ph, %81
-  %.sroa.026.034 = phi ptr [ %.sroa.026.032, %.lr.ph ], [ %.sroa.026.0, %81 ]
-  %71 = phi i64 [ 72057594037927935, %.lr.ph ], [ %82, %81 ]
-  %72 = phi i64 [ 72057594037927935, %.lr.ph ], [ %.sroa.speculated, %81 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.026.034, i64 1331
-  %74 = load i8, ptr %73, align 1, !tbaa !854, !range !41, !noundef !42
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %81, label %76
+70:                                               ; preds = %.lr.ph, %80
+  %.sroa.026.034 = phi ptr [ %.sroa.026.032, %.lr.ph ], [ %.sroa.026.0, %80 ]
+  %71 = phi i64 [ 72057594037927935, %.lr.ph ], [ %81, %80 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.026.034, i64 1331
+  %73 = load i8, ptr %72, align 1, !tbaa !854, !range !41, !noundef !42
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %80, label %75
 
-76:                                               ; preds = %70
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.026.034, i64 48
-  %78 = load ptr, ptr %77, align 8, !tbaa !691
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 3944
-  %80 = load i64, ptr %79, align 8, !tbaa !855
-  %.sroa.speculated23 = tail call i64 @llvm.umin.i64(i64 %80, i64 %71)
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.026.034, i64 48
+  %77 = load ptr, ptr %76, align 8, !tbaa !691
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 3944
+  %79 = load i64, ptr %78, align 8, !tbaa !855
+  %.sroa.speculated23 = tail call i64 @llvm.umin.i64(i64 %79, i64 %71)
   store i64 %.sroa.speculated23, ptr %21, align 32, !tbaa !834
-  br label %81
+  br label %80
 
-81:                                               ; preds = %76, %70
-  %82 = phi i64 [ %.sroa.speculated23, %76 ], [ %71, %70 ]
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %32, i64 %72)
+80:                                               ; preds = %75, %70
+  %81 = phi i64 [ %.sroa.speculated23, %75 ], [ %71, %70 ]
   %.sroa.026.0.in = getelementptr inbounds nuw i8, ptr %.sroa.026.034, i64 2536
   %.sroa.026.0 = load ptr, ptr %.sroa.026.0.in, align 8, !tbaa !844
   %.not29 = icmp eq ptr %.sroa.026.0, %28
